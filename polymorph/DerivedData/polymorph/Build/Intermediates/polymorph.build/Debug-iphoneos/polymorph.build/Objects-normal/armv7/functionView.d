@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/functionView.m \
-  /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/functionView.h
+  /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/functionView.m \
+  /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/functionView.h

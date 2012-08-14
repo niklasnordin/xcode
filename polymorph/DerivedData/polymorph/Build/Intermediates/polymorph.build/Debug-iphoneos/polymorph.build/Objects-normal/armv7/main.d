@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/main.m \
-  /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphAppDelegate.h
+  /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/main.m \
+  /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/polymorphAppDelegate.h

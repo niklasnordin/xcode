@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/coefficientTableViewController.m \
-  /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/coefficientTableViewController.h
+  /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/coefficientTableViewController.m \
+  /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/coefficientTableViewController.h

@@ -144,15 +144,12 @@
                 [_pressureField setPlaceholder:@"not used"];
                 [_pressureField setEnabled:NO];
             }
-            
-
         }
         else
         {
             propertiesText = @"No properties available";
             [_viewButton setEnabled:NO];
         }
-        
     }
     else
     {
@@ -160,7 +157,6 @@
         [_pressureField setText:@""];
         [_pressureField setPlaceholder:@"not used"];
         [_pressureField setEnabled:NO];
-
     }
     
     [self.speciesButton setTitle:speciesText forState:UIControlStateNormal];
@@ -172,7 +168,7 @@
 
 - (void)viewDidLoad
 {
-    //NSLog(@"polymorph view did load");
+
     [super viewDidLoad];
     _temperatureMin.delegate = self;
     _temperatureMax.delegate = self;
@@ -220,8 +216,7 @@
     [self setSpeciesButton:nil];
     [self setViewButton:nil];
     [super viewDidUnload];
-    //NSLog(@"viewDidUnload");
-        
+            
     // Release any retained subviews of the main view.
 }
 

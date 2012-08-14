@@ -31,7 +31,7 @@
     [self setLinkTextField:nil];
     [self setStatusTextField:nil];
     [super viewDidUnload];
-    NSLog(@"unload loadDatabaseVC view");
+    
     // Release any retained subviews of the main view.
 }
 
@@ -64,10 +64,9 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    //NSLog(@"prepareForSegue");
+
     if ([segue.identifier isEqualToString:@"editDatabaseSegue"])
     {
-        //NSLog(@"Clicked databaseSegue");
         [segue.destinationViewController setDb:_db];
         [segue.destinationViewController setParent:_parent];
         [segue.destinationViewController setFunctionNames:_functionNames];

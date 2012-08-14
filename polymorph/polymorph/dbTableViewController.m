@@ -39,7 +39,6 @@
 
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter species name" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
     
-    //[alert addSubview:_nameTextField];
     alert.delegate = self;
     //[alert dismissWithClickedButtonIndex:1 animated:NO];
     [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
@@ -50,6 +49,7 @@
 {
     [super viewDidUnload];
     //_nameTextField = nil;
+    
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
