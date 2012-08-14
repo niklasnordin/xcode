@@ -1,0 +1,642 @@
+Tpolymorph
+v5
+r1
+cCheck dependencies
+cCpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/ResourceRules.plist DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/ResourceRules.plist
+cProcessInfoPlistFile /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/Info.plist polymorph/polymorph-Info.plist
+cProcessPCH /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch.pth polymorph/polymorph-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/polymorphAppDelegate.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphAppDelegate.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/function_0002.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/function_0002.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/main.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/main.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/polymorphViewController.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/function_0001.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/function_0001.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/functions.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/functions.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/diagramView.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/diagramView.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/diagramViewController.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/diagramViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/database.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/database.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_5.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_5.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_0.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_0.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_1.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_1.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/dbTableViewController.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/dbTableViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/propertyTableViewController.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/propertyTableViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/functionView.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/functionView.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/polymorph normal armv7
+cGenerateDSYMFile /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app.dSYM /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/polymorph
+cCopyStringsFile /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/en.lproj/InfoPlist.strings polymorph/en.lproj/InfoPlist.strings
+cCompileStoryboard /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/en.lproj/MainStoryboard.storyboard
+cCpResource polymorph/database.json DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/database.json
+cProcessProductPackaging "/Users/niklasnordin/Library/MobileDevice/Provisioning Profiles/8423A0F0-BC46-4411-BF8F-C01099379B38.mobileprovision" /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/embedded.mobileprovision
+cProcessProductPackaging "/Users/niklasnordin/Library/MobileDevice/Provisioning Profiles/8423A0F0-BC46-4411-BF8F-C01099379B38.mobileprovision" /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/embedded.mobileprovision
+cTouch /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app
+cProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/Entitlements.plist /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph.xcent
+cCodeSign /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk
+c000000005010481E0000000000000110
+t1343244318
+s272
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/Entitlements.plist
+c000000004F5DA47400000000000001A7
+t1331537012
+s423
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/ResourceRules.plist
+c000000004F5DA47400000000000001E5
+t1331537012
+s485
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004F5DA47600000000003AE430
+t1331537014
+s3859504
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004F5DA477000000000052C940
+t1331537015
+s5425472
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004F5DA4790000000000798EA0
+t1331537017
+s7966368
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch.pth
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/database.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/dbTableViewController.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/diagramView.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/diagramViewController.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/functionView.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/function_0001.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/function_0002.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/functions.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/main.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_0.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_1.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_5.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/polymorph.LinkFileList
+c00000000501F7AAD0000000000000A76
+t1344240301
+s2678
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/polymorphAppDelegate.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/polymorphViewController.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/propertyTableViewController.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph.xcent
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app.dSYM
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/Info.plist
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/PkgInfo
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/ResourceRules.plist
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/database.json
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/embedded.mobileprovision
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/en.lproj/InfoPlist.strings
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/en.lproj/MainStoryboard.storyboardc
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/polymorph
+t2
+s0
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/database.json
+c0000000050158E460000000000000A22
+t1343589958
+s2594
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/database.m
+c00000000501ABDC00000000000000530
+t1343929792
+s1328
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/dbTableViewController.m
+c00000000501A27E800000000000012B5
+t1343891432
+s4789
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/diagramView.m
+c00000000501F79DB000000000000250B
+t1344240091
+s9483
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/diagramViewController.m
+c00000000501B798000000000000007D5
+t1343977856
+s2005
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/en.lproj/InfoPlist.strings
+c000000005007BF85000000000000002D
+t1342685061
+s45
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/en.lproj/MainStoryboard.storyboard
+c00000000501BEECE0000000000007518
+t1344007886
+s29976
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/functionView.m
+c00000000501A328C000000000000021F
+t1343894156
+s543
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/function_0001.m
+c000000005014F03D000000000000022C
+t1343549501
+s556
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/function_0002.m
+c000000005014F03D0000000000000221
+t1343549501
+s545
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/functions.m
+c00000000501563170000000000000367
+t1343578903
+s871
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/main.m
+c000000005007BF850000000000000164
+t1342685061
+s356
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_0.m
+c0000000050155D8600000000000002AE
+t1343577478
+s686
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_1.m
+c00000000501562E800000000000002AE
+t1343578856
+s686
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_5.m
+c0000000050155D8A00000000000002A2
+t1343577482
+s674
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorph-Prefix.pch
+c000000005007BF850000000000000141
+t1342685061
+s321
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphAppDelegate.m
+c000000005007BF860000000000000813
+t1342685062
+s2067
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphViewController.m
+c00000000501E14170000000000002342
+t1344148503
+s9026
+
+N/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/propertyTableViewController.m
+c00000000501992200000000000000F17
+t1343853088
+s3863
+
+N/Users/niklasnordin/Library/MobileDevice/Provisioning Profiles/8423A0F0-BC46-4411-BF8F-C01099379B38.mobileprovision
+c000000004F352A880000000000001D61
+t1328884360
+s7521
+
+Npolymorph/polymorph-Info.plist
+c000000005007BF8500000000000004D1
+t1342685061
+s1233
+
+CBuild AST from /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/database.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/dbTableViewController.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/diagramView.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/diagramViewController.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/functionView.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/function_0001.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/function_0002.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/functions.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/main.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_0.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_1.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_5.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphAppDelegate.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphViewController.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/propertyTableViewController.m
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies5caae22cb2cfb541^821f1d2db2cfb541^---0#1#0#--18"Check dependencies36"479F4FA0-8658-4651-92D9-DF40D8EE0279-
+
+CCodeSign /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app
+s365933104.078549
+e365933104.676437
+r1
+xCodeSign
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection74"CodeSign DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app9c311430b2cfb541^992dad30b2cfb541^---0#0#0#-19%DVTDocumentLocation2@134"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/0000000000000000^981"CodeSign DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv CODESIGN_ALLOCATE /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/codesign --force --sign 423eff0960f0595b931717121a80cb03a5fbb3a7 --resource-rules=/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/ResourceRules.plist --entitlements /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph.xcent /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app36"C052290C-9885-4D72-A3AD-1797277F5808-
+
+CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/database.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/database.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s365933102.323517
+e365933102.367581
+r1
+xCompileC
+xDerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/database.o
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/database.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection80"Compile /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/database.m99f1522eb2cfb541^03245e2eb2cfb541^---0#0#0#-19%DVTDocumentLocation2@88"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/database.m0000000000000000^3790"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/database.o polymorph/database.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-generated-files.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-own-target-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-project-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources -F/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/database.d --serialize-diagnostics /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/database.dia -c /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/database.m -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/database.o36"566C5A89-1CCE-474A-B3E0-DD29DEEDC289-
+
+CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/dbTableViewController.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/dbTableViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s365933102.483443
+e365933102.777115
+r1
+xCompileC
+xDerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/dbTableViewController.o
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/dbTableViewController.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection93"Compile /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/dbTableViewController.mace07b2eb2cfb541^e5b6c92eb2cfb541^---0#0#0#-19%DVTDocumentLocation2@101"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/dbTableViewController.m0000000000000000^3868"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/dbTableViewController.o polymorph/dbTableViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-generated-files.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-own-target-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-project-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources -F/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/dbTableViewController.d --serialize-diagnostics /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/dbTableViewController.dia -c /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/dbTableViewController.m -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/dbTableViewController.o36"FC7649F6-A42C-416C-82BB-A25D28272F5E-
+
+CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/diagramView.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/diagramView.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s365933102.020096
+e365933102.322239
+r1
+xCompileC
+xDerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/diagramView.o
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/diagramView.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection83"Compile /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/diagramView.m2c4a052eb2cfb541^8c12542eb2cfb541^---0#0#0#-19%DVTDocumentLocation2@91"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/diagramView.m0000000000000000^3808"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/diagramView.o polymorph/diagramView.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-generated-files.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-own-target-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-project-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources -F/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/diagramView.d --serialize-diagnostics /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/diagramView.dia -c /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/diagramView.m -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/diagramView.o36"D88266FD-D3C5-4AED-A6AC-2B382DE0919B-
+
+CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/diagramViewController.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/diagramViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s365933102.277922
+e365933102.442377
+r1
+xCompileC
+xDerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/diagramViewController.o
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/diagramViewController.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection93"Compile /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/diagramViewController.m1745472eb2cfb541^a950712eb2cfb541^---0#0#0#-19%DVTDocumentLocation2@101"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/diagramViewController.m0000000000000000^3868"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/diagramViewController.o polymorph/diagramViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-generated-files.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-own-target-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-project-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources -F/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/diagramViewController.d --serialize-diagnostics /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/diagramViewController.dia -c /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/diagramViewController.m -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/diagramViewController.o36"19F976E6-D685-4DF9-9DE6-999571E36BB8-
+
+CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/functionView.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/functionView.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s365933102.717551
+e365933102.845289
+r1
+xCompileC
+xDerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/functionView.o
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/functionView.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection84"Compile /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/functionView.mb3cfb72eb2cfb541^3a76d82eb2cfb541^---0#0#0#-19%DVTDocumentLocation2@92"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/functionView.m0000000000000000^3814"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/functionView.o polymorph/functionView.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-generated-files.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-own-target-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-project-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources -F/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/functionView.d --serialize-diagnostics /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/functionView.dia -c /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/functionView.m -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/functionView.o36"0864B025-EB7E-4F57-A28F-931D6663A7AC-
+
+CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/function_0001.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/function_0001.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s365933101.906439
+e365933101.970725
+r1
+xCompileC
+xDerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/function_0001.o
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/function_0001.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection85"Compile /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/function_0001.mf52ce82db2cfb541^ec87f82db2cfb541^---0#0#0#-19%DVTDocumentLocation2@93"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/function_0001.m0000000000000000^3820"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/function_0001.o polymorph/function_0001.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-generated-files.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-own-target-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-project-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources -F/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/function_0001.d --serialize-diagnostics /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/function_0001.dia -c /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/function_0001.m -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/function_0001.o36"2DAE7C6A-0AC3-4A13-BD69-D5F8EBC0E49D-
+
+CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/function_0002.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/function_0002.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s365933101.731836
+e365933101.843937
+r1
+xCompileC
+xDerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/function_0002.o
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/function_0002.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection85"Compile /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/function_0002.mc077bb2db2cfb541^8c12d82db2cfb541^---0#0#0#-19%DVTDocumentLocation2@93"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/function_0002.m0000000000000000^3820"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/function_0002.o polymorph/function_0002.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-generated-files.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-own-target-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-project-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources -F/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/function_0002.d --serialize-diagnostics /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/function_0002.dia -c /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/function_0002.m -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/function_0002.o36"11E47AB4-763E-4B08-A99B-DB696ABAC725-
+
+CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/functions.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/functions.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s365933101.971983
+e365933102.015947
+r1
+xCompileC
+xDerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/functions.o
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/functions.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection81"Compile /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/functions.m39f2f82db2cfb541^431f042eb2cfb541^---0#0#0#-19%DVTDocumentLocation2@89"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/functions.m0000000000000000^3796"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/functions.o polymorph/functions.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-generated-files.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-own-target-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-project-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources -F/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/functions.d --serialize-diagnostics /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/functions.dia -c /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/functions.m -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/functions.o36"1BC0D49C-CAFD-4309-99BE-028409F08738-
+
+CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/main.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/main.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s365933101.847436
+e365933101.898097
+r1
+xCompileC
+xDerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/main.o
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/main.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection76"Compile /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/main.m2828dd2db2cfb541^931ae62db2cfb541^---0#0#0#-19%DVTDocumentLocation2@84"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/main.m0000000000000000^3766"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/main.o polymorph/main.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-generated-files.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-own-target-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-project-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources -F/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/main.d --serialize-diagnostics /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/main.dia -c /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/main.m -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/main.o36"190AEA58-4E09-48DE-960A-2AAC166AC851-
+
+CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_0.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_0.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s365933102.421195
+e365933102.482039
+r1
+xCompileC
+xDerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_0.o
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_0.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection79"Compile /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_0.m91f26b2eb2cfb541^b56e7b2eb2cfb541^---0#0#0#-19%DVTDocumentLocation2@87"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_0.m0000000000000000^3784"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_0.o polymorph/nsrds_0.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-generated-files.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-own-target-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-project-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources -F/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_0.d --serialize-diagnostics /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_0.dia -c /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_0.m -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_0.o36"5F11EAEC-725F-4A17-93C7-11303B418DA4-
+
+CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_1.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_1.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s365933102.443636
+e365933102.512701
+r1
+xCompileC
+xDerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_1.o
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_1.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection79"Compile /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_1.m03b4712eb2cfb541^cba2982eb2cfb541^---0#0#0#-19%DVTDocumentLocation2@87"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_1.m0000000000000000^3784"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_1.o polymorph/nsrds_1.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-generated-files.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-own-target-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-project-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources -F/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_1.d --serialize-diagnostics /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_1.dia -c /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_1.m -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_1.o36"6BE2701F-1E66-40ED-9672-54C72854A13C-
+
+CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_5.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_5.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s365933102.368761
+e365933102.419943
+r1
+xCompileC
+xDerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_5.o
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_5.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection79"Compile /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_5.m1f865e2eb2cfb541^0a826b2eb2cfb541^---0#0#0#-19%DVTDocumentLocation2@87"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_5.m0000000000000000^3784"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_5.o polymorph/nsrds_5.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-generated-files.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-own-target-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-project-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources -F/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_5.d --serialize-diagnostics /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_5.dia -c /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/nsrds_5.m -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/nsrds_5.o36"27CE3BDB-B700-4EBB-B19B-AEB68C73678E-
+
+CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/polymorphAppDelegate.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphAppDelegate.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s365933101.731443
+e365933101.905267
+r1
+xCompileC
+xDerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/polymorphAppDelegate.o
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphAppDelegate.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection92"Compile /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphAppDelegate.m3d63bb2db2cfb541^84f1e72db2cfb541^---0#0#0#-19%DVTDocumentLocation2@100"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphAppDelegate.m0000000000000000^3862"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/polymorphAppDelegate.o polymorph/polymorphAppDelegate.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-generated-files.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-own-target-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-project-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources -F/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/polymorphAppDelegate.d --serialize-diagnostics /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/polymorphAppDelegate.dia -c /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphAppDelegate.m -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/polymorphAppDelegate.o36"89751DB5-C139-4586-B95F-1191AACFC815-
+
+CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/polymorphViewController.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s365933101.899327
+e365933102.276520
+r1
+xCompileC
+xDerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/polymorphViewController.o
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphViewController.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphViewController.m:94:19: warning: unused variable 'json' [-Wunused-variable]
+o    NSDictionary *json = self.db.json;
+o                  ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection95"Compile /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphViewController.m3a59e62db2cfb541^73db462eb2cfb541^-227"/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphViewController.m:94:19: warning: unused variable 'json' [-Wunused-variable]    NSDictionary *json = self.db.json;                  ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@22"Unused variable 'json'-365933102#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@103"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphViewController.m0000000000000000^93#18#93#18#2931#0#19"Unused Entity Issue--0#0#0#-19%DVTDocumentLocation4@103"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphViewController.m0000000000000000^3880"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/polymorphViewController.o polymorph/polymorphViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-generated-files.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-own-target-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-project-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources -F/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/polymorphViewController.d --serialize-diagnostics /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/polymorphViewController.dia -c /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorphViewController.m -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/polymorphViewController.o36"A01EA145-A1F5-4988-9E7E-1FAD370203C1-
+
+CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/propertyTableViewController.o /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/propertyTableViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s365933102.532836
+e365933102.716369
+r1
+xCompileC
+xDerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/propertyTableViewController.o
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/propertyTableViewController.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection99"Compile /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/propertyTableViewController.ma6b5892eb2cfb541^541bbc2eb2cfb541^---0#0#0#-19%DVTDocumentLocation2@107"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/propertyTableViewController.m0000000000000000^3904"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/propertyTableViewController.o polymorph/propertyTableViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-generated-files.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-own-target-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-project-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources -F/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/propertyTableViewController.d --serialize-diagnostics /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/propertyTableViewController.dia -c /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/propertyTableViewController.m -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/propertyTableViewController.o36"1599B473-775D-4D7A-8B24-221F24C498FF-
+
+CCompileStoryboard /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/en.lproj/MainStoryboard.storyboard
+s365933103.282522
+e365933104.000348
+r1
+xCompileStoryboard
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/en.lproj/MainStoryboard.storyboard
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection62"CompileStoryboard polymorph/en.lproj/MainStoryboard.storyboard3065482fb2cfb541^33170030b2cfb541^---0#0#0#-19%DVTDocumentLocation2@112"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/en.lproj/MainStoryboard.storyboard0000000000000000^947"CompileStoryboard polymorph/en.lproj/MainStoryboard.storyboard    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 5.1    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/en.lproj/MainStoryboard.storyboardc /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/en.lproj/MainStoryboard.storyboard --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk36"3F80CFA5-649F-4BBC-B2A4-9301BEF50B72-
+
+CCopyStringsFile /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/en.lproj/InfoPlist.strings polymorph/en.lproj/InfoPlist.strings
+s365933103.281164
+e365933103.289649
+r1
+xCopyStringsFile
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/en.lproj/InfoPlist.strings
+xpolymorph/en.lproj/InfoPlist.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection41"Copy polymorph/en.lproj/InfoPlist.strings973a482fb2cfb541^e82d4a2fb2cfb541^---0#0#0#-19%DVTDocumentLocation2@104"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/en.lproj/InfoPlist.strings0000000000000000^650"CopyStringsFile DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/en.lproj/InfoPlist.strings polymorph/en.lproj/InfoPlist.strings    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/en.lproj -- polymorph/en.lproj/InfoPlist.strings36"C296C881-0187-4A08-AD97-17E28B01E85C-
+
+CCpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/ResourceRules.plist DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/ResourceRules.plist
+s365933101.118747
+e365933101.122979
+r1
+xCpResource
+x/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/ResourceRules.plist
+xDerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/ResourceRules.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection90"Copy DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/ResourceRules.plist01851e2db2cfb541^1991202db2cfb541^---0#0#0#-19%DVTDocumentLocation2@153"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/ResourceRules.plist000000000080d041^818"CpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/ResourceRules.plist DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/ResourceRules.plist    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/ResourceRules.plist /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app36"F6440F0C-C69A-4535-ACF8-ADDF7E980270-
+
+CCpResource polymorph/database.json DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/database.json
+s365933103.291097
+e365933103.294789
+r1
+xCpResource
+xpolymorph/database.json
+xDerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/database.json
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection84"Copy DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/database.json88a04a2fb2cfb541^fe804b2fb2cfb541^---0#0#0#-19%DVTDocumentLocation2@147"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/database.json000000000080d041^668"CpResource polymorph/database.json DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/database.json    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/database.json /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app36"0F4AF8B0-98C9-47C6-8739-F220DC18E4E3-
+
+CGenerateDSYMFile /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app.dSYM /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/polymorph
+s365933103.152916
+e365933103.272740
+r1
+xGenerateDSYMFile
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app.dSYM
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/polymorph
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection133"Generating /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app.dSYM643b272fb2cfb541^f2d2452fb2cfb541^---0#0#0#-19%DVTDocumentLocation2@138"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app.dSYM000000000080d041^765"GenerateDSYMFile DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app.dSYM DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/polymorph    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/polymorph -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app.dSYM36"12797687-7DD1-48DD-B4A2-CF7489559365-
+
+CLd /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/polymorph normal armv7
+s365933102.852071
+e365933103.145649
+r1
+xLd
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/polymorph
+xnormal
+xarmv7
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection132"Link /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/polymorph8a3bda2eb2cfb541^8f52252fb2cfb541^---0#0#0#--1273"Ld DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/polymorph normal armv7    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv IPHONEOS_DEPLOYMENT_TARGET 5.1    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch armv7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -L/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -F/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -filelist /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/Objects-normal/armv7/polymorph.LinkFileList -dead_strip -fobjc-arc -fobjc-link-runtime -miphoneos-version-min=5.1 -framework UIKit -framework Foundation -framework CoreGraphics -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/polymorph36"3413D093-FAA9-4472-AA98-C0C71AC0C459-
+
+CProcessInfoPlistFile /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/Info.plist polymorph/polymorph-Info.plist
+s365933101.119613
+e365933101.125652
+r1
+xProcessInfoPlistFile
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/Info.plist
+xpolymorph/polymorph-Info.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection38"Process polymorph/polymorph-Info.plist92b11e2db2cfb541^569e202db2cfb541^---0#0#0#-19%DVTDocumentLocation2@98"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorph-Info.plist0000000000000000^918"ProcessInfoPlistFile DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/Info.plist polymorph/polymorph-Info.plist    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility polymorph/polymorph-Info.plist -genpkginfo /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/PkgInfo -expandbuildsettings -format binary -platform iphoneos -resourcerulesfile /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/ResourceRules.plist -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/Info.plist36"BC2DCD2F-87B6-4E9B-A9D1-4A54C6D4EF59-
+
+CProcessPCH /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch.pth polymorph/polymorph-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s365933101.137174
+e365933101.724628
+r1
+xProcessPCH
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch.pth
+xpolymorph/polymorph-Prefix.pch
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection41"Precompile polymorph/polymorph-Prefix.pch0741232db2cfb541^e0a0b92db2cfb541^---0#0#0#-19%DVTDocumentLocation2@98"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorph-Prefix.pch0000000000000000^3670"ProcessPCH DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch.pth polymorph/polymorph-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-generated-files.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-own-target-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph-project-headers.hmap -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/DerivedSources -F/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos --serialize-diagnostics /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch.dia -c /Users/niklasnordin/Documents/dropbox.git/polymorph/polymorph/polymorph-Prefix.pch -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch.pth -MMD -MT dependencies -MF /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-fzlmofldfajicafgfdtndqxlmdgg/polymorph-Prefix.pch.d36"84311470-128F-4BF1-B067-4CD26558C5A6-
+
+CProcessPCH /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Index/PrecompiledHeaders/polymorph-Prefix-dywcmtnbyrqmwqdindbagzbacxib_ast/polymorph-Prefix.pch.pth polymorph/polymorph-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessProductPackaging "/Users/niklasnordin/Library/MobileDevice/Provisioning Profiles/8423A0F0-BC46-4411-BF8F-C01099379B38.mobileprovision" /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/embedded.mobileprovision
+s365933104.025132
+e365933104.028644
+r1
+xProcessProductPackaging
+x/Users/niklasnordin/Library/MobileDevice/Provisioning Profiles/8423A0F0-BC46-4411-BF8F-C01099379B38.mobileprovision
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/embedded.mobileprovision
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection232"ProcessProductPackaging "/Users/niklasnordin/Library/MobileDevice/Provisioning Profiles/8423A0F0-BC46-4411-BF8F-C01099379B38.mobileprovision" DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/embedded.mobileprovision9d840630b2cfb541^f6950730b2cfb541^---0#0#0#-19%DVTDocumentLocation2@158"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/embedded.mobileprovision0000000000000000^780"ProcessProductPackaging "/Users/niklasnordin/Library/MobileDevice/Provisioning Profiles/8423A0F0-BC46-4411-BF8F-C01099379B38.mobileprovision" DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/embedded.mobileprovision    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-productPackagingUtility "/Users/niklasnordin/Library/MobileDevice/Provisioning Profiles/8423A0F0-BC46-4411-BF8F-C01099379B38.mobileprovision" -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app/embedded.mobileprovision36"AB0B4906-04D2-454C-ABCC-0004654420B9-
+
+CProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/Entitlements.plist /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph.xcent
+s365933104.066359
+e365933104.070013
+r1
+xProcessProductPackaging
+x/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/Entitlements.plist
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph.xcent
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection249"ProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/Entitlements.plist DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph.xcent12121130b2cfb541^732d1230b2cfb541^---0#0#0#-19%DVTDocumentLocation2@172"file://localhost/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph.xcent000000000080d041^840"ProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/Entitlements.plist DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph.xcent    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-productPackagingUtility /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/Entitlements.plist -entitlements -format xml -o /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/polymorph.build/polymorph.xcent36"B81CD558-1059-4200-8080-DEEDEAFB2241-
+
+CTouch /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app
+s365933104.036846
+e365933104.057465
+r1
+xTouch
+x/Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection123"Touch /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.appf5800930b2cfb541^65c70e30b2cfb541^---0#0#0#--459"Touch DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app    cd /Users/niklasnordin/Documents/dropbox.git/polymorph    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/niklasnordin/Documents/dropbox.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/polymorph.app36"5054D1FB-3832-4A51-9160-D2569F8517E0-
+

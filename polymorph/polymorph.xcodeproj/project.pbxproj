@@ -1,0 +1,396 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		61247A4A15C593A9004DB05F /* nsrds_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 61247A4915C593A9004DB05F /* nsrds_0.m */; };
+		61247A4E15C5976C004DB05F /* nsrds_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 61247A4D15C5976C004DB05F /* nsrds_1.m */; };
+		61247A5115C845C9004DB05F /* dbTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61247A5015C845C8004DB05F /* dbTableViewController.m */; };
+		61247A5415C9B9DB004DB05F /* propertyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61247A5315C9B9DA004DB05F /* propertyTableViewController.m */; };
+		61247A5715CA6A0D004DB05F /* functionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61247A5615CA6A0D004DB05F /* functionView.m */; };
+		6164628B15B7F705006B703D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628A15B7F705006B703D /* UIKit.framework */; };
+		6164628D15B7F705006B703D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628C15B7F705006B703D /* Foundation.framework */; };
+		6164628F15B7F705006B703D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628E15B7F705006B703D /* CoreGraphics.framework */; };
+		6164629515B7F705006B703D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6164629315B7F705006B703D /* InfoPlist.strings */; };
+		6164629715B7F705006B703D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6164629615B7F705006B703D /* main.m */; };
+		6164629B15B7F706006B703D /* polymorphAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6164629A15B7F706006B703D /* polymorphAppDelegate.m */; };
+		6164629E15B7F706006B703D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6164629C15B7F706006B703D /* MainStoryboard.storyboard */; };
+		616462A115B7F706006B703D /* polymorphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616462A015B7F706006B703D /* polymorphViewController.m */; };
+		616462A915B7F827006B703D /* function_0001.m in Sources */ = {isa = PBXBuildFile; fileRef = 616462A815B7F827006B703D /* function_0001.m */; };
+		616462AD15B82757006B703D /* function_0002.m in Sources */ = {isa = PBXBuildFile; fileRef = 616462AC15B82757006B703D /* function_0002.m */; };
+		616462AF15B82A1F006B703D /* functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 616462AE15B82A1F006B703D /* functions.m */; };
+		616462B815BAD77D006B703D /* diagramView.m in Sources */ = {isa = PBXBuildFile; fileRef = 616462B715BAD77D006B703D /* diagramView.m */; };
+		616462BC15BFC896006B703D /* diagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616462BB15BFC896006B703D /* diagramViewController.m */; };
+		616622F415CFF296008FB530 /* loadDatabaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616622F315CFF295008FB530 /* loadDatabaseViewController.m */; };
+		61807D7815D42BF7008E012C /* setPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D7715D42BF7008E012C /* setPropertyViewController.m */; };
+		61807D8315D54D16008E012C /* coefficientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D8215D54D16008E012C /* coefficientTableViewController.m */; };
+		61A5CE8515C2D6DA00937EA8 /* database.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A5CE8415C2D6DA00937EA8 /* database.m */; };
+		61A5CE8815C2E2E400937EA8 /* database.json in Resources */ = {isa = PBXBuildFile; fileRef = 61A5CE8715C2E2E400937EA8 /* database.json */; };
+		61A5CE8C15C2F81E00937EA8 /* nsrds_5.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A5CE8B15C2F81E00937EA8 /* nsrds_5.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		61247A4815C593A9004DB05F /* nsrds_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nsrds_0.h; sourceTree = "<group>"; };
+		61247A4915C593A9004DB05F /* nsrds_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nsrds_0.m; sourceTree = "<group>"; };
+		61247A4C15C5976C004DB05F /* nsrds_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nsrds_1.h; sourceTree = "<group>"; };
+		61247A4D15C5976C004DB05F /* nsrds_1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nsrds_1.m; sourceTree = "<group>"; };
+		61247A4F15C845C8004DB05F /* dbTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dbTableViewController.h; sourceTree = "<group>"; };
+		61247A5015C845C8004DB05F /* dbTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dbTableViewController.m; sourceTree = "<group>"; };
+		61247A5215C9B9DA004DB05F /* propertyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = propertyTableViewController.h; sourceTree = "<group>"; };
+		61247A5315C9B9DA004DB05F /* propertyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = propertyTableViewController.m; sourceTree = "<group>"; };
+		61247A5515CA6A0C004DB05F /* functionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = functionView.h; sourceTree = "<group>"; };
+		61247A5615CA6A0D004DB05F /* functionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = functionView.m; sourceTree = "<group>"; };
+		6164628615B7F705006B703D /* polymorph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = polymorph.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6164628A15B7F705006B703D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6164628C15B7F705006B703D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6164628E15B7F705006B703D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6164629215B7F705006B703D /* polymorph-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "polymorph-Info.plist"; sourceTree = "<group>"; };
+		6164629415B7F705006B703D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6164629615B7F705006B703D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6164629815B7F705006B703D /* polymorph-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "polymorph-Prefix.pch"; sourceTree = "<group>"; };
+		6164629915B7F706006B703D /* polymorphAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = polymorphAppDelegate.h; sourceTree = "<group>"; };
+		6164629A15B7F706006B703D /* polymorphAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = polymorphAppDelegate.m; sourceTree = "<group>"; };
+		6164629D15B7F706006B703D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		6164629F15B7F706006B703D /* polymorphViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = polymorphViewController.h; sourceTree = "<group>"; };
+		616462A015B7F706006B703D /* polymorphViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = polymorphViewController.m; sourceTree = "<group>"; };
+		616462A715B7F827006B703D /* function_0001.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = function_0001.h; sourceTree = "<group>"; };
+		616462A815B7F827006B703D /* function_0001.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = function_0001.m; sourceTree = "<group>"; };
+		616462AA15B7F8B9006B703D /* functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = functions.h; sourceTree = "<group>"; };
+		616462AB15B82757006B703D /* function_0002.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = function_0002.h; sourceTree = "<group>"; };
+		616462AC15B82757006B703D /* function_0002.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = function_0002.m; sourceTree = "<group>"; };
+		616462AE15B82A1F006B703D /* functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = functions.m; sourceTree = "<group>"; };
+		616462B015B8378D006B703D /* functionValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = functionValue.h; sourceTree = "<group>"; };
+		616462B615BAD77D006B703D /* diagramView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = diagramView.h; sourceTree = "<group>"; };
+		616462B715BAD77D006B703D /* diagramView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = diagramView.m; sourceTree = "<group>"; };
+		616462BA15BFC896006B703D /* diagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = diagramViewController.h; sourceTree = "<group>"; };
+		616462BB15BFC896006B703D /* diagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = diagramViewController.m; sourceTree = "<group>"; };
+		616622F215CFF295008FB530 /* loadDatabaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loadDatabaseViewController.h; sourceTree = "<group>"; };
+		616622F315CFF295008FB530 /* loadDatabaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loadDatabaseViewController.m; sourceTree = "<group>"; };
+		61807D7615D42BF7008E012C /* setPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setPropertyViewController.h; sourceTree = "<group>"; };
+		61807D7715D42BF7008E012C /* setPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setPropertyViewController.m; sourceTree = "<group>"; };
+		61807D8115D54D16008E012C /* coefficientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coefficientTableViewController.h; sourceTree = "<group>"; };
+		61807D8215D54D16008E012C /* coefficientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = coefficientTableViewController.m; sourceTree = "<group>"; };
+		61A5CE8315C2D6DA00937EA8 /* database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = database.h; sourceTree = "<group>"; };
+		61A5CE8415C2D6DA00937EA8 /* database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = database.m; sourceTree = "<group>"; };
+		61A5CE8715C2E2E400937EA8 /* database.json */ = {isa = PBXFileReference; explicitFileType = text.json; fileEncoding = 4; path = database.json; sourceTree = "<group>"; };
+		61A5CE8A15C2F81E00937EA8 /* nsrds_5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nsrds_5.h; sourceTree = "<group>"; };
+		61A5CE8B15C2F81E00937EA8 /* nsrds_5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nsrds_5.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6164628315B7F705006B703D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6164628B15B7F705006B703D /* UIKit.framework in Frameworks */,
+				6164628D15B7F705006B703D /* Foundation.framework in Frameworks */,
+				6164628F15B7F705006B703D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6164627B15B7F705006B703D = {
+			isa = PBXGroup;
+			children = (
+				6164629015B7F705006B703D /* polymorph */,
+				6164628915B7F705006B703D /* Frameworks */,
+				6164628715B7F705006B703D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6164628715B7F705006B703D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6164628615B7F705006B703D /* polymorph.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6164628915B7F705006B703D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6164628A15B7F705006B703D /* UIKit.framework */,
+				6164628C15B7F705006B703D /* Foundation.framework */,
+				6164628E15B7F705006B703D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6164629015B7F705006B703D /* polymorph */ = {
+			isa = PBXGroup;
+			children = (
+				61A5CE8915C2E88A00937EA8 /* Documents */,
+				61A5CE8315C2D6DA00937EA8 /* database.h */,
+				61A5CE8415C2D6DA00937EA8 /* database.m */,
+				61247A4F15C845C8004DB05F /* dbTableViewController.h */,
+				61247A5015C845C8004DB05F /* dbTableViewController.m */,
+				61247A5215C9B9DA004DB05F /* propertyTableViewController.h */,
+				61247A5315C9B9DA004DB05F /* propertyTableViewController.m */,
+				61807D7615D42BF7008E012C /* setPropertyViewController.h */,
+				61807D7715D42BF7008E012C /* setPropertyViewController.m */,
+				61807D8115D54D16008E012C /* coefficientTableViewController.h */,
+				61807D8215D54D16008E012C /* coefficientTableViewController.m */,
+				616462B615BAD77D006B703D /* diagramView.h */,
+				616462B715BAD77D006B703D /* diagramView.m */,
+				616462BA15BFC896006B703D /* diagramViewController.h */,
+				616462BB15BFC896006B703D /* diagramViewController.m */,
+				6164629915B7F706006B703D /* polymorphAppDelegate.h */,
+				6164629A15B7F706006B703D /* polymorphAppDelegate.m */,
+				6164629C15B7F706006B703D /* MainStoryboard.storyboard */,
+				61247A5515CA6A0C004DB05F /* functionView.h */,
+				61247A5615CA6A0D004DB05F /* functionView.m */,
+				6164629F15B7F706006B703D /* polymorphViewController.h */,
+				616462A015B7F706006B703D /* polymorphViewController.m */,
+				616622F215CFF295008FB530 /* loadDatabaseViewController.h */,
+				616622F315CFF295008FB530 /* loadDatabaseViewController.m */,
+				6164629115B7F705006B703D /* Supporting Files */,
+				616462B915BFC702006B703D /* functions */,
+				616462B015B8378D006B703D /* functionValue.h */,
+			);
+			path = polymorph;
+			sourceTree = "<group>";
+		};
+		6164629115B7F705006B703D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6164629215B7F705006B703D /* polymorph-Info.plist */,
+				6164629315B7F705006B703D /* InfoPlist.strings */,
+				6164629615B7F705006B703D /* main.m */,
+				6164629815B7F705006B703D /* polymorph-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		616462B915BFC702006B703D /* functions */ = {
+			isa = PBXGroup;
+			children = (
+				616462AE15B82A1F006B703D /* functions.m */,
+				616462AA15B7F8B9006B703D /* functions.h */,
+				616462A715B7F827006B703D /* function_0001.h */,
+				616462A815B7F827006B703D /* function_0001.m */,
+				616462AB15B82757006B703D /* function_0002.h */,
+				616462AC15B82757006B703D /* function_0002.m */,
+				61247A4815C593A9004DB05F /* nsrds_0.h */,
+				61247A4915C593A9004DB05F /* nsrds_0.m */,
+				61247A4C15C5976C004DB05F /* nsrds_1.h */,
+				61247A4D15C5976C004DB05F /* nsrds_1.m */,
+				61A5CE8A15C2F81E00937EA8 /* nsrds_5.h */,
+				61A5CE8B15C2F81E00937EA8 /* nsrds_5.m */,
+			);
+			name = functions;
+			sourceTree = "<group>";
+		};
+		61A5CE8915C2E88A00937EA8 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				61A5CE8715C2E2E400937EA8 /* database.json */,
+			);
+			name = Documents;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6164628515B7F705006B703D /* polymorph */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 616462A415B7F706006B703D /* Build configuration list for PBXNativeTarget "polymorph" */;
+			buildPhases = (
+				6164628215B7F705006B703D /* Sources */,
+				6164628315B7F705006B703D /* Frameworks */,
+				6164628415B7F705006B703D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = polymorph;
+			productName = polymorph;
+			productReference = 6164628615B7F705006B703D /* polymorph.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6164627D15B7F705006B703D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = polymorph;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = nequam;
+			};
+			buildConfigurationList = 6164628015B7F705006B703D /* Build configuration list for PBXProject "polymorph" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6164627B15B7F705006B703D;
+			productRefGroup = 6164628715B7F705006B703D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6164628515B7F705006B703D /* polymorph */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6164628415B7F705006B703D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6164629515B7F705006B703D /* InfoPlist.strings in Resources */,
+				6164629E15B7F706006B703D /* MainStoryboard.storyboard in Resources */,
+				61A5CE8815C2E2E400937EA8 /* database.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6164628215B7F705006B703D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6164629715B7F705006B703D /* main.m in Sources */,
+				6164629B15B7F706006B703D /* polymorphAppDelegate.m in Sources */,
+				616462A115B7F706006B703D /* polymorphViewController.m in Sources */,
+				616462A915B7F827006B703D /* function_0001.m in Sources */,
+				616462AD15B82757006B703D /* function_0002.m in Sources */,
+				616462AF15B82A1F006B703D /* functions.m in Sources */,
+				616462B815BAD77D006B703D /* diagramView.m in Sources */,
+				616462BC15BFC896006B703D /* diagramViewController.m in Sources */,
+				61A5CE8515C2D6DA00937EA8 /* database.m in Sources */,
+				61A5CE8C15C2F81E00937EA8 /* nsrds_5.m in Sources */,
+				61247A4A15C593A9004DB05F /* nsrds_0.m in Sources */,
+				61247A4E15C5976C004DB05F /* nsrds_1.m in Sources */,
+				61247A5115C845C9004DB05F /* dbTableViewController.m in Sources */,
+				61247A5415C9B9DB004DB05F /* propertyTableViewController.m in Sources */,
+				61247A5715CA6A0D004DB05F /* functionView.m in Sources */,
+				616622F415CFF296008FB530 /* loadDatabaseViewController.m in Sources */,
+				61807D7815D42BF7008E012C /* setPropertyViewController.m in Sources */,
+				61807D8315D54D16008E012C /* coefficientTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6164629315B7F705006B703D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6164629415B7F705006B703D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6164629C15B7F706006B703D /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6164629D15B7F706006B703D /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		616462A215B7F706006B703D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		616462A315B7F706006B703D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		616462A515B7F706006B703D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "polymorph/polymorph-Prefix.pch";
+				INFOPLIST_FILE = "polymorph/polymorph-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		616462A615B7F706006B703D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "polymorph/polymorph-Prefix.pch";
+				INFOPLIST_FILE = "polymorph/polymorph-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6164628015B7F705006B703D /* Build configuration list for PBXProject "polymorph" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				616462A215B7F706006B703D /* Debug */,
+				616462A315B7F706006B703D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		616462A415B7F706006B703D /* Build configuration list for PBXNativeTarget "polymorph" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				616462A515B7F706006B703D /* Debug */,
+				616462A615B7F706006B703D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6164627D15B7F705006B703D /* Project object */;
+}
