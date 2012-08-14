@@ -164,7 +164,6 @@
 {
     if (buttonIndex == 1)
     {
-        //NSString *name = self.nameTextField.text;
         NSString *name = [[alertView textFieldAtIndex:0] text];
         
         // check if name already exist
