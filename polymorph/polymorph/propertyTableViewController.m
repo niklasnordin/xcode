@@ -41,20 +41,7 @@
                                                                                target:self
                                                                                action:@selector(addProperty)];
     self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:self.editButtonItem, addButton, nil ];
-    /*
-    _nameTextField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 52.0, 260.0, 25.0)];
-    //CGAffineTransform transform = CGAffineTransformMakeTranslation(0.0, 130.0);
-    //[alert setTransform:transform];
-    _nameTextField.placeholder = @"name";
-    
-    // set the prompt to the textfield
-    [_nameTextField becomeFirstResponder];
-    _nameTextField.backgroundColor = [UIColor whiteColor];
-    _nameTextField.borderStyle = UITextBorderStyleRoundedRect;
-    _nameTextField.returnKeyType = UIReturnKeyDone;
-    _nameTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    _nameTextField.delegate = self;
-     */
+
 }
 
 
