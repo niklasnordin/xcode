@@ -101,14 +101,12 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        NSLog(@"here i am: delete");
         NSString *specie = [[_db.json allKeys] objectAtIndex:indexPath.row];
         [_db.json removeObjectForKey:specie];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [_parent update];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        NSLog(@"here i am_insert");
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }

@@ -75,6 +75,72 @@
 }
 
 - (IBAction)mergeButton:(id)sender {
+    // load new database
+    NSString *link = _linkTextField.text;
+    database *tmpDB = [[database alloc] init];
+    [tmpDB readURL:link];
+    if ([tmpDB.species count])
+    {
+        NSString *field = [NSString stringWithFormat:@"Merging %d species",[tmpDB.species count]];
+        [self.statusTextField setText:field];
+        NSArray *speciesToAdd = tmpDB.species;
+        
+        for (int i=0; i<[speciesToAdd count]; i++)
+        {
+            
+            // check if species exist
+            bool speciesExist = NO;
+            NSString *speciesNameToAdd = [speciesToAdd objectAtIndex:i];
+            for (int j=0; j<[_db.species count]; j++)
+            {
+                NSString *name = [_db.species objectAtIndex:j];
+                if ([speciesNameToAdd isEqualToString:name])
+                {
+                    speciesExist = YES;
+                    // if it exists, check for every property and add them
+                    NSMutableDictionary *propertiesDictToAdd = [tmpDB.json objectForKey:name];
+                    NSArray *propertiesToAdd = [propertiesDictToAdd allKeys];
+                    NSMutableDictionary *propertiesDict = [_db.json objectForKey:name];
+                    NSArray *existingProperties = [propertiesDict allKeys];
+                    for (int ii=0; ii<[propertiesToAdd count]; ii++)
+                    {
+                        bool propertyExist = NO;
+                        NSString *propertyNameToAdd = [propertiesToAdd objectAtIndex:ii];
+                        for (int jj=0; jj<[existingProperties count]; jj++)
+                        {
+                            NSString *propertyName = [existingProperties objectAtIndex:jj];
+                            if ([propertyNameToAdd isEqualToString:propertyName])
+                            {
+                                propertyExist = YES;
+                                // if property exists, append _i++ to name and add it.
+                                int add = 2;
+                                NSString *newPropNameToAdd = [NSString stringWithFormat:@"%@_%d",propertyNameToAdd, add];
+                                [propertiesDict setObject:[propertiesDictToAdd objectForKey:propertyNameToAdd] forKey:newPropNameToAdd];
+                            }
+                        }
+                        if (!propertyExist)
+                        {
+                            [propertiesDict setObject:[propertiesDictToAdd objectForKey:propertyNameToAdd] forKey:propertyNameToAdd];
+                        }
+                    }
+                }
+            }
+            
+            // add species if it doesnt
+            if (!speciesExist)
+            {
+                [_db.json setObject:[tmpDB.json objectForKey:speciesNameToAdd] forKey:speciesNameToAdd];
+            }
+        }
+        
+ 
+    }
+    else
+    {
+        [self.statusTextField setText:@"Could not read database"];
+        
+    }
+    
 }
 
 - (IBAction)saveButton:(id)sender {
