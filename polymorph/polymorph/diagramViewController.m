@@ -21,14 +21,11 @@
          max:(double)xmax
     pressure:(double)p
 {
-    //NSLog(@"diagramViewController::setup");
-
     [self setFunction:f];
     _dict = dict;
     _xMin = xmin;
     _xMax = xmax;
     _pressure = p;
-    //[_dview setup];
 }
 
 -(void) setDview:(diagramView *)dview
