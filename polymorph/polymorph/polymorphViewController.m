@@ -92,7 +92,7 @@
     [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
     [self update];
 }
-
+/*
 -(database *)db
 {
     if (_db == nil)
@@ -101,7 +101,7 @@
     }
     return _db;
 }
-
+*/
 -(void) update
 {
     
@@ -177,7 +177,11 @@
     // load the database and initiate it
     _selector = [[functions alloc] init];
     _db = [[database alloc] init];
-    _db.json = [[NSMutableDictionary alloc] init];
+    //_db.json = [[NSMutableDictionary alloc] init];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSLog(@"defaults = %@",[defaults objectForKey:@"database"]);
+    _db.json = [defaults objectForKey:@"database"];
+    
 	// Do any additional setup after loading the view, typically from a nib.
     
     _functionNames = [[NSMutableArray alloc] init];

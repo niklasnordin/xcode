@@ -20,5 +20,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *statusTextField;
 
 - (IBAction)loadButton:(id)sender;
+- (IBAction)mergeButton:(id)sender;
+- (IBAction)saveButton:(id)sender;
+- (IBAction)exportButton:(id)sender;
+
 
 @end

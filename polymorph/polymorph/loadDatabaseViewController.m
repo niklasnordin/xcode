@@ -10,6 +10,7 @@
 
 @implementation loadDatabaseViewController
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -55,6 +56,17 @@
         [self.statusTextField setText:@"Could not read database"];
 
     }
+}
+
+- (IBAction)mergeButton:(id)sender {
+}
+
+- (IBAction)saveButton:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:_db.json forKey:@"database"];
+}
+
+- (IBAction)exportButton:(id)sender {
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField*) textField {
