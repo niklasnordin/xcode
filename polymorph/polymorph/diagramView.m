@@ -127,7 +127,6 @@ static NSUInteger nx = 640;//640;
         //[self setup];
         self.contentMode = UIViewContentModeRedraw;
         // Initialization code
-        //NSLog(@"In diagramView initWithFrame");
     }
     return self;
 }
