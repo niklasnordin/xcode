@@ -10,7 +10,7 @@
 #import "database.h"
 #import "polymorphViewController.h"
 
-@interface loadDatabaseViewController : UIViewController <UITextFieldDelegate>
+@interface loadDatabaseViewController : UIViewController <UITextFieldDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) database *db;
 @property (strong, nonatomic) polymorphViewController* parent;

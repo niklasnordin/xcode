@@ -178,8 +178,8 @@
     _selector = [[functions alloc] init];
     _db = [[database alloc] init];
     //_db.json = [[NSMutableDictionary alloc] init];
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSLog(@"defaults = %@",[defaults objectForKey:@"database"]);
     _db.json = [defaults objectForKey:@"database"];
     
 	// Do any additional setup after loading the view, typically from a nib.

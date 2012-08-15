@@ -8,6 +8,9 @@
 
 #import "loadDatabaseViewController.h"
 
+@interface loadDatabaseViewController ()
+@end
+
 @implementation loadDatabaseViewController
 
 
@@ -43,18 +46,31 @@
 
 - (IBAction)loadButton:(id)sender
 {
-    NSString *link = _linkTextField.text;
-    [_db readURL:link];
-    [_parent update];
-    if ([_db.species count])
+    NSArray *species = [_db.json allKeys];
+
+    if (![species count])
     {
-        NSString *field = [NSString stringWithFormat:@"Read %d species",[_db.species count]];
-        [self.statusTextField setText:field];
+        
+        NSString *link = _linkTextField.text;
+        [_db readURL:link];
+        [_parent update];
+        if ([_db.species count])
+        {
+            NSString *field = [NSString stringWithFormat:@"Read %d species",[_db.species count]];
+            [self.statusTextField setText:field];
+        }
+        else
+        {
+            [self.statusTextField setText:@"Could not read database"];
+            
+        }
     }
     else
     {
-        [self.statusTextField setText:@"Could not read database"];
-
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning!!! This will erase the old database." message:@"Load anyway" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Load", nil];
+    
+        alert.delegate = self;
+        [alert show];
     }
 }
 
@@ -84,4 +100,27 @@
         [segue.destinationViewController setFunctionNames:_functionNames];
     }
 }
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        
+        NSString *link = _linkTextField.text;
+        [_db readURL:link];
+        [_parent update];
+        if ([_db.species count])
+        {
+            NSString *field = [NSString stringWithFormat:@"Read %d species",[_db.species count]];
+            [self.statusTextField setText:field];
+        }
+        else
+        {
+            [self.statusTextField setText:@"Could not read database"];
+            
+        }
+    }
+}
+
 @end
