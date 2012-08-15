@@ -113,7 +113,24 @@
                             {
                                 propertyExist = YES;
                                 // if property exists, append _i++ to name and add it.
-                                int add = 2;
+                                int add = 1;
+                                bool nameIsValid = NO;
+                                while (!nameIsValid)
+                                {
+                                    add++;
+                                    NSString *newPropNameToAdd = [NSString stringWithFormat:@"%@_%d",propertyNameToAdd, add];
+                                    nameIsValid = YES;
+                                    for (int n=0; n<[existingProperties count]; n++)
+                                    {
+                                        NSString *pName = [existingProperties objectAtIndex:n];
+
+                                        if ([newPropNameToAdd isEqualToString:pName])
+                                        {
+                                            nameIsValid = NO;
+                                        }
+                                    }
+
+                                }
                                 NSString *newPropNameToAdd = [NSString stringWithFormat:@"%@_%d",propertyNameToAdd, add];
                                 [propertiesDict setObject:[propertiesDictToAdd objectForKey:propertyNameToAdd] forKey:newPropNameToAdd];
                             }
@@ -132,7 +149,7 @@
                 [_db.json setObject:[tmpDB.json objectForKey:speciesNameToAdd] forKey:speciesNameToAdd];
             }
         }
-        
+        [_parent update];
  
     }
     else
@@ -146,6 +163,7 @@
 - (IBAction)saveButton:(id)sender {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:_db.json forKey:@"database"];
+    [self.statusTextField setText:@"Database saved"];
 }
 
 - (IBAction)exportButton:(id)sender {
