@@ -175,7 +175,6 @@
     _pressureField.delegate = self;
     
     // load the database and initiate it
-
     _selector = [[functions alloc] init];
     _db = [[database alloc] init];
     _db.json = [[NSMutableDictionary alloc] init];
