@@ -30,7 +30,6 @@
 
 -(void) setDview:(diagramView *)dview
 {
-    //NSLog(@"setDview");
     _dview = dview;
     [_dview addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self.dview action:@selector(pan:)]];
     [_dview addGestureRecognizer:[[UIPinchGestureRecognizer alloc] initWithTarget:self.dview action:@selector(pinch:)]];
