@@ -16,4 +16,5 @@ profile
 .DS_Store
 *.o
 *.xcuserstate
+DerivedData/*
 
