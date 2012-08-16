@@ -92,22 +92,16 @@
     [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
     [self update];
 }
-/*
--(database *)db
-{
-    if (_db == nil)
-    {
-        _db = [[database alloc] init];
-    }
-    return _db;
-}
-*/
+
+
 -(void) update
 {
     
     NSArray *species = self.db.species;
     NSString *speciesText = @"";
     NSString *propertiesText = @"No database loaded";
+    NSString *unitText = @"";
+    
     [_pressureField setPlaceholder:@"pressure"];
 
     if ([species count])
@@ -127,9 +121,12 @@
                 _currentProperty = 0;
             }
             propertiesText = [properties objectAtIndex:self.currentProperty];
+            
             [_viewButton setEnabled:YES];
             
             NSDictionary *propertyDict = [propertiesDict objectForKey:propertiesText];
+            unitText = [propertyDict objectForKey:@"unit"];
+
             NSString *pds = [propertyDict objectForKey:@"pressureDependent"];
             bool pressureDependent = [pds isEqualToString:@"YES"] ? YES : NO;
 
@@ -160,7 +157,7 @@
     }
     
     [self.speciesButton setTitle:speciesText forState:UIControlStateNormal];
-    _propertyDisplay.text = propertiesText;
+    _propertyDisplay.text = [NSString stringWithFormat:@"%@ [%@]", propertiesText, unitText];
 
     [_picker reloadAllComponents];
 
