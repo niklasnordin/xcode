@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "database.h"
 #import "polymorphViewController.h"
+#import "RollerUIButton.h"
 
 @interface setPropertyViewController : UIViewController <UIPickerViewDelegate,
 UIPickerViewDataSource, UITextFieldDelegate>
@@ -20,7 +21,7 @@ UIPickerViewDataSource, UITextFieldDelegate>
 @property (nonatomic, strong) NSString *property;
 @property (strong, nonatomic) NSMutableArray *functionNames;
 
-@property (strong, nonatomic) IBOutlet UIButton *functionButton;
+@property (strong, nonatomic) IBOutlet RollerUIButton *functionButton;
 @property (strong, nonatomic) IBOutlet UITextField *minTemperatureField;
 @property (strong, nonatomic) IBOutlet UITextField *maxTemperatureField;
 @property (strong, nonatomic) IBOutlet UITextField *minPressureField;

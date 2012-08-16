@@ -28,6 +28,7 @@
 		616622F415CFF296008FB530 /* loadDatabaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616622F315CFF295008FB530 /* loadDatabaseViewController.m */; };
 		61807D7815D42BF7008E012C /* setPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D7715D42BF7008E012C /* setPropertyViewController.m */; };
 		61807D8315D54D16008E012C /* coefficientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D8215D54D16008E012C /* coefficientTableViewController.m */; };
+		618FFDA415DD705900008703 /* RollerUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FFDA315DD705900008703 /* RollerUIButton.m */; };
 		61A5CE8515C2D6DA00937EA8 /* database.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A5CE8415C2D6DA00937EA8 /* database.m */; };
 		61A5CE8815C2E2E400937EA8 /* database.json in Resources */ = {isa = PBXBuildFile; fileRef = 61A5CE8715C2E2E400937EA8 /* database.json */; };
 		61A5CE8C15C2F81E00937EA8 /* nsrds_5.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A5CE8B15C2F81E00937EA8 /* nsrds_5.m */; };
@@ -74,6 +75,8 @@
 		61807D7715D42BF7008E012C /* setPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setPropertyViewController.m; sourceTree = "<group>"; };
 		61807D8115D54D16008E012C /* coefficientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coefficientTableViewController.h; sourceTree = "<group>"; };
 		61807D8215D54D16008E012C /* coefficientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = coefficientTableViewController.m; sourceTree = "<group>"; };
+		618FFDA215DD705800008703 /* RollerUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RollerUIButton.h; sourceTree = "<group>"; };
+		618FFDA315DD705900008703 /* RollerUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RollerUIButton.m; sourceTree = "<group>"; };
 		61A5CE8315C2D6DA00937EA8 /* database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = database.h; sourceTree = "<group>"; };
 		61A5CE8415C2D6DA00937EA8 /* database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = database.m; sourceTree = "<group>"; };
 		61A5CE8715C2E2E400937EA8 /* database.json */ = {isa = PBXFileReference; explicitFileType = text.json; fileEncoding = 4; path = database.json; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				616462A015B7F706006B703D /* polymorphViewController.m */,
 				616622F215CFF295008FB530 /* loadDatabaseViewController.h */,
 				616622F315CFF295008FB530 /* loadDatabaseViewController.m */,
+				618FFDA215DD705800008703 /* RollerUIButton.h */,
+				618FFDA315DD705900008703 /* RollerUIButton.m */,
 				6164629115B7F705006B703D /* Supporting Files */,
 				616462B915BFC702006B703D /* functions */,
 				616462B015B8378D006B703D /* functionValue.h */,
@@ -277,6 +282,7 @@
 				616622F415CFF296008FB530 /* loadDatabaseViewController.m in Sources */,
 				61807D7815D42BF7008E012C /* setPropertyViewController.m in Sources */,
 				61807D8315D54D16008E012C /* coefficientTableViewController.m in Sources */,
+				618FFDA415DD705900008703 /* RollerUIButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
