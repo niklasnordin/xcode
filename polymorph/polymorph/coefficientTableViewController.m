@@ -57,6 +57,16 @@
     return 1;
 }
 
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row % 2)
+    {
+        UIColor *bgc = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
+        cell.backgroundColor = bgc;
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     int n = 0;

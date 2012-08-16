@@ -187,6 +187,10 @@
     [_functionNames addObject:[nsrds_0 name]];
     [_functionNames addObject:[nsrds_1 name]];
     [_functionNames addObject:[nsrds_5 name]];
+    
+    [_functionNames addObject:[janaf_cp name]];
+    [_functionNames addObject:[janaf_h name]];
+    [_functionNames addObject:[janaf_s name]];
 
     _currentRow = 0;
     _currentProperty = 0;

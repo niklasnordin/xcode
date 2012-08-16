@@ -12,6 +12,10 @@
 #import "nsrds_0.h"
 #import "nsrds_1.h"
 
+#import "janaf_cp.h"
+#import "janaf_h.h"
+#import "janaf_s.h"
+
 @interface functions : NSObject
 
 -(id) select:(NSString *) name;

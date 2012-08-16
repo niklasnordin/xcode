@@ -33,6 +33,9 @@
 		61A5CE8815C2E2E400937EA8 /* database.json in Resources */ = {isa = PBXBuildFile; fileRef = 61A5CE8715C2E2E400937EA8 /* database.json */; };
 		61A5CE8C15C2F81E00937EA8 /* nsrds_5.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A5CE8B15C2F81E00937EA8 /* nsrds_5.m */; };
 		61BA3AD215DD756700928715 /* ni-banding-free-gradient.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61BA3AD115DD756700928715 /* ni-banding-free-gradient.jpg */; };
+		61BA3AD615DD80BE00928715 /* janaf_cp.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA3AD515DD80BE00928715 /* janaf_cp.m */; };
+		61BA3AD915DD80E600928715 /* janaf_h.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA3AD815DD80E600928715 /* janaf_h.m */; };
+		61BA3ADC15DD80F600928715 /* janaf_s.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA3ADB15DD80F600928715 /* janaf_s.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +87,12 @@
 		61A5CE8A15C2F81E00937EA8 /* nsrds_5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nsrds_5.h; sourceTree = "<group>"; };
 		61A5CE8B15C2F81E00937EA8 /* nsrds_5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nsrds_5.m; sourceTree = "<group>"; };
 		61BA3AD115DD756700928715 /* ni-banding-free-gradient.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ni-banding-free-gradient.jpg"; sourceTree = "<group>"; };
+		61BA3AD415DD80BE00928715 /* janaf_cp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = janaf_cp.h; sourceTree = "<group>"; };
+		61BA3AD515DD80BE00928715 /* janaf_cp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = janaf_cp.m; sourceTree = "<group>"; };
+		61BA3AD715DD80E600928715 /* janaf_h.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = janaf_h.h; sourceTree = "<group>"; };
+		61BA3AD815DD80E600928715 /* janaf_h.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = janaf_h.m; sourceTree = "<group>"; };
+		61BA3ADA15DD80F600928715 /* janaf_s.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = janaf_s.h; sourceTree = "<group>"; };
+		61BA3ADB15DD80F600928715 /* janaf_s.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = janaf_s.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +198,12 @@
 				61247A4D15C5976C004DB05F /* nsrds_1.m */,
 				61A5CE8A15C2F81E00937EA8 /* nsrds_5.h */,
 				61A5CE8B15C2F81E00937EA8 /* nsrds_5.m */,
+				61BA3AD415DD80BE00928715 /* janaf_cp.h */,
+				61BA3AD515DD80BE00928715 /* janaf_cp.m */,
+				61BA3AD715DD80E600928715 /* janaf_h.h */,
+				61BA3AD815DD80E600928715 /* janaf_h.m */,
+				61BA3ADA15DD80F600928715 /* janaf_s.h */,
+				61BA3ADB15DD80F600928715 /* janaf_s.m */,
 			);
 			name = functions;
 			sourceTree = "<group>";
@@ -287,6 +302,9 @@
 				61807D7815D42BF7008E012C /* setPropertyViewController.m in Sources */,
 				61807D8315D54D16008E012C /* coefficientTableViewController.m in Sources */,
 				618FFDA415DD705900008703 /* RollerUIButton.m in Sources */,
+				61BA3AD615DD80BE00928715 /* janaf_cp.m in Sources */,
+				61BA3AD915DD80E600928715 /* janaf_h.m in Sources */,
+				61BA3ADC15DD80F600928715 /* janaf_s.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

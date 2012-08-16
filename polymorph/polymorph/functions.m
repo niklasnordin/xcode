@@ -34,6 +34,18 @@
     {
         f = [[nsrds_1 alloc] init];
     }
+    else if ([name isEqualToString:[janaf_cp name]])
+    {
+        f = [[janaf_cp alloc] init];
+    }
+    else if ([name isEqualToString:[janaf_h name]])
+    {
+        f = [[janaf_h alloc] init];
+    }
+    else if ([name isEqualToString:[janaf_s name]])
+    {
+        f = [[janaf_s alloc] init];
+    }
     else
     {
         NSLog(@"%@ is illegal function. Abort!",name);
