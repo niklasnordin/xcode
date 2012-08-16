@@ -37,7 +37,7 @@ UIPickerViewDataSource, UITextFieldDelegate>
 - (IBAction)maxPressureEnter:(UITextField *)sender;
 @property (strong, nonatomic) IBOutlet UIButton *clickedCoefficientsButton;
 - (IBAction)pressureDependencySwitch:(UISwitch *)sender;
-- (IBAction)unitEnter:(id)sender;
+- (IBAction)unitEnter:(UITextField *)sender;
 
 
 @end

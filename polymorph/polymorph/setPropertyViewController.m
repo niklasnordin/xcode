@@ -37,6 +37,7 @@
     self.maxTemperatureField.delegate = self;
     self.minPressureField.delegate = self;
     self.maxPressureField.delegate = self;
+    self.unitField.delegate = self;
     
     NSDictionary *speciesDict = [_db.json objectForKey:_specie];
     NSDictionary *propertyDict = [speciesDict objectForKey:_property];
@@ -310,6 +311,14 @@
     [_parent update];
 }
 
-- (IBAction)unitEnter:(id)sender {
+- (IBAction)unitEnter:(UITextField *)sender
+{
+    NSString *unit = sender.text;
+    NSMutableDictionary *speciesDict = [_db.json objectForKey:_specie];
+    NSMutableDictionary *propertyDict = [speciesDict objectForKey:_property];
+    
+    [propertyDict setValue:unit forKey:@"unit"];
+    [_parent update];
+
 }
 @end
