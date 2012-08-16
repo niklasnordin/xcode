@@ -39,5 +39,6 @@ UIPickerViewDataSource, UITextFieldDelegate>
 - (IBAction)pressureDependencySwitch:(UISwitch *)sender;
 - (IBAction)unitEnter:(UITextField *)sender;
 
+- (IBAction)clickedInfoButton:(id)sender;
 
 @end

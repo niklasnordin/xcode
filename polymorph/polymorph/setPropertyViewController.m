@@ -18,7 +18,6 @@
 @end
 
 @implementation setPropertyViewController
-@synthesize unitField = _unitField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -320,5 +319,11 @@
     [propertyDict setValue:unit forKey:@"unit"];
     [_parent update];
 
+}
+
+- (IBAction)clickedInfoButton:(id)sender
+{
+    NSLog(@"Clicked Info Button");
+    
 }
 @end
