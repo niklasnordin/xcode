@@ -39,7 +39,7 @@ static NSString *name = @"janaf_cp";
         a[i] = [[coeff objectAtIndex:i] doubleValue];
     }
     double y = 0.0;
-    double y1 = ((( a[3]*T + a[2])*T + a[1])*T + a[0] )*a[7];
+    double y1 = ((((a[4]*T + a[3])*T + a[2])*T + a[1])*T + a[0] )*a[7];
     if (y1) y = y1;
     return y;
 }
