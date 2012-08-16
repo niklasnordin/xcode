@@ -11,7 +11,7 @@
 #import "polymorphViewController.h"
 
 @interface setPropertyViewController : UIViewController <UIPickerViewDelegate,
-UIPickerViewDataSource, UITextFieldDelegate, UIActionSheetDelegate>
+UIPickerViewDataSource, UITextFieldDelegate>
 
 @property (strong, nonatomic) polymorphViewController* parent;
 

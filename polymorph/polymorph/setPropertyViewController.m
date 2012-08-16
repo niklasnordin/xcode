@@ -68,6 +68,7 @@
     self.picker.dataSource = self;
     self.picker.delegate = self;
     self.picker.showsSelectionIndicator = YES;
+
     int selectedFunction = 0;
     for (int i=0; i<[_functionNames count]; i++) {
         if ([[_functionNames objectAtIndex:i] isEqualToString:functionName]) {
@@ -75,6 +76,8 @@
         }
     }
     [self.picker selectRow:selectedFunction inComponent:0 animated:YES];
+    self.currentRow = selectedFunction;
+    
     NSString *pds = [propertyDict objectForKey:@"pressureDependent"];
     
     BOOL pressureDependent = [pds isEqualToString:@"YES"] ? YES : NO;
@@ -105,19 +108,37 @@
 
 - (IBAction)clickedFunctionButton:(id)sender {
     
-    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Properties" delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Properties"
+                                                   delegate:nil
+                                          cancelButtonTitle:nil
+                                     destructiveButtonTitle:nil
+                                          otherButtonTitles:nil];
     
     [self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
     [self.actionSheet setOpaque:YES];
     [self.actionSheet addSubview:self.picker];
     
-    UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:@[@"Close"]];
+    UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:@[@"Done"]];
     closeButton.momentary = YES;
     closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
     closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
     closeButton.tintColor = [UIColor blackColor];
     [closeButton addTarget:self action:@selector(dismissActionSheet:) forControlEvents:UIControlEventValueChanged];
+    
     [self.actionSheet addSubview:closeButton];
+    
+    UISegmentedControl *cancelButton = [[UISegmentedControl alloc] initWithItems:@[@"Cancel"]];
+    cancelButton.momentary = YES;
+    cancelButton.frame = CGRectMake(10, 7.0f, 50.0f, 30.0f);
+    cancelButton.segmentedControlStyle = UISegmentedControlStyleBar;
+    UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:0.0];
+    cancelButton.tintColor = darkRed;
+    
+    //[cancelButton addTarget:self action:@selector(cancelActionSheet:) forControlEvents:UIControlEventTouchCancel];
+    [cancelButton addTarget:self action:@selector(cancelActionSheet:) forControlEvents:UIControlEventValueChanged];
+
+    
+    [self.actionSheet addSubview:cancelButton];
     
     //[actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
     [self.actionSheet showInView:self.view];
@@ -163,11 +184,28 @@
     [pressureRange setValue:val forKey:@"max"];
 }
 
+- (void)cancelActionSheet:(id)sender
+{
+    [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    
+    NSDictionary *speciesDict = [_db.json objectForKey:_specie];
+    NSDictionary *propertyDict = [speciesDict objectForKey:_property];
+    NSString *functionName = [propertyDict objectForKey:@"function"];
+    
+    int selectedFunction = 0;
+    for (int i=0; i<[_functionNames count]; i++) {
+        if ([[_functionNames objectAtIndex:i] isEqualToString:functionName]) {
+            selectedFunction = i;
+        }
+    }
+    [self.picker selectRow:selectedFunction inComponent:0 animated:YES];
+}
 
 - (void)dismissActionSheet:(id)sender
 {
     
     [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    
     NSString *functionName = [_functionNames objectAtIndex:self.currentRow];
     [_functionButton setTitle:functionName forState:UIControlStateNormal];
     
