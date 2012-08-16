@@ -25,6 +25,7 @@ UIPickerViewDataSource, UITextFieldDelegate, UIActionSheetDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *maxTemperatureField;
 @property (strong, nonatomic) IBOutlet UITextField *minPressureField;
 @property (strong, nonatomic) IBOutlet UITextField *maxPressureField;
+@property (strong, nonatomic) IBOutlet UITextField *unitField;
 @property (strong, nonatomic) IBOutlet UISwitch *pressureSwitch;
 
 
@@ -35,6 +36,7 @@ UIPickerViewDataSource, UITextFieldDelegate, UIActionSheetDelegate>
 - (IBAction)maxPressureEnter:(UITextField *)sender;
 @property (strong, nonatomic) IBOutlet UIButton *clickedCoefficientsButton;
 - (IBAction)pressureDependencySwitch:(UISwitch *)sender;
+- (IBAction)unitEnter:(id)sender;
 
 
 @end

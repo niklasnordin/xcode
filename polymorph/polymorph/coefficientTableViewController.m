@@ -78,6 +78,7 @@
     
     cell.textLabel.text = name;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%g",[num doubleValue]];
+    if (indexPath.row == 1) [cell.detailTextLabel setBackgroundColor:[UIColor greenColor]];
     return cell;
 }
 

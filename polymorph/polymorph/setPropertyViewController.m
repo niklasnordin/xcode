@@ -18,6 +18,7 @@
 @end
 
 @implementation setPropertyViewController
+@synthesize unitField = _unitField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -59,13 +60,21 @@
     [self.minPressureField setText:[NSString stringWithFormat:@"%g",1.0e-6*[minPressure doubleValue]]];
     [self.maxPressureField setText:[NSString stringWithFormat:@"%g",maxPressureMpa]];
     
+    [_unitField setText:[propertyDict objectForKey:@"unit"]];
+    
     CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
     self.picker = [[UIPickerView alloc] initWithFrame:pickerFrame];
     self.picker.showsSelectionIndicator = YES;
     self.picker.dataSource = self;
     self.picker.delegate = self;
     self.picker.showsSelectionIndicator = YES;
-    
+    int selectedFunction = 0;
+    for (int i=0; i<[_functionNames count]; i++) {
+        if ([[_functionNames objectAtIndex:i] isEqualToString:functionName]) {
+            selectedFunction = i;
+        }
+    }
+    [self.picker selectRow:selectedFunction inComponent:0 animated:YES];
     NSString *pds = [propertyDict objectForKey:@"pressureDependent"];
     
     BOOL pressureDependent = [pds isEqualToString:@"YES"] ? YES : NO;
@@ -84,6 +93,7 @@
     
     [self setClickedCoefficientsButton:nil];
     [self setPressureSwitch:nil];
+    [self setUnitField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -207,7 +217,6 @@
     return 1;
 }
 
-
 // returns the # of rows in each component..
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
@@ -259,5 +268,8 @@
         [propertyDict setObject:@"NO" forKey:@"pressureDependent"];
     }
     [_parent update];
+}
+
+- (IBAction)unitEnter:(id)sender {
 }
 @end

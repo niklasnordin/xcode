@@ -105,7 +105,13 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        //NSString *specie = [[_db.json allKeys] objectAtIndex:indexPath.row];
+        NSMutableDictionary *propertiesDict = [_db.json objectForKey:_specie];
+        NSArray *propertyNames = [propertiesDict allKeys];
+        NSString *property = [propertyNames objectAtIndex:indexPath.row];
+        [propertiesDict removeObjectForKey:property];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [_parent update];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -166,7 +172,7 @@
             NSDictionary *defaultPropDict = [_db createEmptyPropertyDict];
             NSDictionary *propDict = @{ name : defaultPropDict };
             [specDict addEntriesFromDictionary:propDict];
-            //NSLog(@"%@",_db.json);
+            
             [self.tableView reloadData];
             [_parent update];
         }

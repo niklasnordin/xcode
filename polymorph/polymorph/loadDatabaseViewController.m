@@ -163,6 +163,7 @@
 - (IBAction)saveButton:(id)sender {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:_db.json forKey:@"database"];
+    [defaults synchronize];
     [self.statusTextField setText:@"Database saved"];
 }
 
