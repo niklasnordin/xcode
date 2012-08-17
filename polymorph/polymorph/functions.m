@@ -12,8 +12,20 @@
 
 -(id) select:(NSString *)name
 {
-
     id f;
+
+    Class functionClass = (NSClassFromString(name));
+    
+    if (functionClass != nil) {
+        f = [[functionClass alloc] init];
+    }
+    else
+    {
+        NSLog(@"%@ is an illegal function. Abort!",name);
+        abort();
+    }
+    
+    /*
     if ([name isEqualToString:[function_0001 name]])
     {
        f = [[function_0001 alloc] init];
@@ -51,7 +63,7 @@
         NSLog(@"%@ is illegal function. Abort!",name);
         abort();
     }
-        
+        */
     return f;
 }
 

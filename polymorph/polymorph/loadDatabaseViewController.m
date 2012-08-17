@@ -8,6 +8,7 @@
 
 #import "loadDatabaseViewController.h"
 
+
 @interface loadDatabaseViewController ()
 @end
 
@@ -155,7 +156,6 @@
     else
     {
         [self.statusTextField setText:@"Could not read database"];
-        
     }
     
 }
@@ -167,10 +167,13 @@
     [self.statusTextField setText:@"Database saved"];
 }
 
-- (IBAction)exportButton:(id)sender {
+- (IBAction)exportButton:(id)sender
+{
+    Class mailClass = (NSClassFromString(@"MFMailComposeViewController"));
 }
 
--(BOOL) textFieldShouldReturn:(UITextField*) textField {
+-(BOOL) textFieldShouldReturn:(UITextField*) textField
+{
     [textField resignFirstResponder];
     return YES;
 }
@@ -191,10 +194,10 @@
 {
     if (buttonIndex == 1)
     {
-        
         NSString *link = _linkTextField.text;
         [_db readURL:link];
         [_parent update];
+        
         if ([_db.species count])
         {
             NSString *field = [NSString stringWithFormat:@"Read %d species",[_db.species count]];
@@ -203,7 +206,6 @@
         else
         {
             [self.statusTextField setText:@"Could not read database"];
-            
         }
     }
 }

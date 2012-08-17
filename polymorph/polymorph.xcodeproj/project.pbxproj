@@ -36,6 +36,7 @@
 		61BA3AD615DD80BE00928715 /* janaf_cp.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA3AD515DD80BE00928715 /* janaf_cp.m */; };
 		61BA3AD915DD80E600928715 /* janaf_h.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA3AD815DD80E600928715 /* janaf_h.m */; };
 		61BA3ADC15DD80F600928715 /* janaf_s.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA3ADB15DD80F600928715 /* janaf_s.m */; };
+		61BA3ADE15DE95E200928715 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61BA3ADD15DE95E200928715 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		61BA3AD815DD80E600928715 /* janaf_h.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = janaf_h.m; sourceTree = "<group>"; };
 		61BA3ADA15DD80F600928715 /* janaf_s.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = janaf_s.h; sourceTree = "<group>"; };
 		61BA3ADB15DD80F600928715 /* janaf_s.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = janaf_s.m; sourceTree = "<group>"; };
+		61BA3ADD15DE95E200928715 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61BA3ADE15DE95E200928715 /* MessageUI.framework in Frameworks */,
 				6164628B15B7F705006B703D /* UIKit.framework in Frameworks */,
 				6164628D15B7F705006B703D /* Foundation.framework in Frameworks */,
 				6164628F15B7F705006B703D /* CoreGraphics.framework in Frameworks */,
@@ -112,6 +115,7 @@
 		6164627B15B7F705006B703D = {
 			isa = PBXGroup;
 			children = (
+				61BA3ADD15DE95E200928715 /* MessageUI.framework */,
 				6164629015B7F705006B703D /* polymorph */,
 				6164628915B7F705006B703D /* Frameworks */,
 				6164628715B7F705006B703D /* Products */,

@@ -7,10 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+//#import <MessageUI/MFMessageComposeViewController.h>
+#import <MessageUI/MFMailComposeViewController.h>
+
 #import "database.h"
 #import "polymorphViewController.h"
 
-@interface loadDatabaseViewController : UIViewController <UITextFieldDelegate, UIActionSheetDelegate>
+@interface loadDatabaseViewController : UIViewController
+<
+    UITextFieldDelegate,
+    UIActionSheetDelegate,
+    MFMailComposeViewControllerDelegate
+>
 
 @property (strong, nonatomic) database *db;
 @property (strong, nonatomic) polymorphViewController* parent;
