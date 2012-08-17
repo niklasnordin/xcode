@@ -170,6 +170,30 @@
 - (IBAction)exportButton:(id)sender
 {
     Class mailClass = (NSClassFromString(@"MFMailComposeViewController"));
+    if (mailClass != nil)
+    {
+        if ([mailClass canSendMail])
+        {
+            MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+            mailer.mailComposeDelegate = self;
+            NSString *msg = [NSString stringWithFormat:@"%@",_db.json];
+            [mailer setMessageBody:msg isHTML:NO];
+            [mailer setSubject:@"database.json"];
+            [self presentModalViewController:mailer animated:YES];
+        }
+        else
+        {
+            // error
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Can't send mail" message:@"device does not support email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
+    }
+    else
+    {
+        // error
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Can't send mail" message:@"device does not support email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField*) textField
@@ -208,6 +232,13 @@
             [self.statusTextField setText:@"Could not read database"];
         }
     }
+}
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller
+         didFinishWithResult:(MFMailComposeResult)result
+                       error:(NSError *)error
+{
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 @end
