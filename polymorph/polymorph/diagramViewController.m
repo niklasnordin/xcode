@@ -15,6 +15,10 @@
 
 @implementation diagramViewController
 
+- (IBAction)generateTable:(id)sender
+{
+}
+
 -(void)setup:(id <functionValue>)f
         dict:(NSDictionary *)dict
          min:(double)xmin

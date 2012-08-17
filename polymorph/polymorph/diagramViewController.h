@@ -19,6 +19,7 @@
 @property (nonatomic) double pressure;
 
 @property (strong, nonatomic) IBOutlet diagramView *dview;
+- (IBAction)generateTable:(id)sender;
 
 -(void) setup:(id <functionValue>)f
          dict:(NSDictionary *)dict
