@@ -178,7 +178,7 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     _db.json = [defaults objectForKey:@"database"];
-    
+    _link = [defaults objectForKey:@"link"];
 	// Do any additional setup after loading the view, typically from a nib.
     
     _functionNames = [[NSMutableArray alloc] init];
@@ -212,6 +212,10 @@
 
 - (void)viewDidUnload
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:_link forKey:@"link"];
+    [defaults synchronize];
+    
     [self setPicker:nil];
     [self setTemperatureMin:nil];
     [self setTemperatureMax:nil];
@@ -359,6 +363,7 @@
         [segue.destinationViewController setDb:_db];
         [segue.destinationViewController setParent:self];
         [segue.destinationViewController setFunctionNames:_functionNames];
+        [segue.destinationViewController setLink:_link];
     }
 }
 

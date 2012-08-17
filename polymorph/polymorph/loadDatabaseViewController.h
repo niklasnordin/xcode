@@ -24,7 +24,7 @@
 @property (strong, nonatomic) database *db;
 @property (strong, nonatomic) polymorphViewController* parent;
 @property (strong, nonatomic) NSMutableArray *functionNames;
-
+@property (strong, nonatomic) NSString *link;
 @property (strong, nonatomic) IBOutlet UITextField *linkTextField;
 @property (strong, nonatomic) IBOutlet UILabel *statusTextField;
 
@@ -32,6 +32,7 @@
 - (IBAction)mergeButton:(id)sender;
 - (IBAction)saveButton:(id)sender;
 - (IBAction)exportButton:(id)sender;
+- (IBAction)linkFieldEnter:(id)sender;
 
 
 @end

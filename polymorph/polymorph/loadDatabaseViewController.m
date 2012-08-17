@@ -28,6 +28,10 @@
 {
     [super viewDidLoad];
     _linkTextField.delegate = self;
+    if (_link != nil)
+    {
+        _linkTextField.text = _link;
+    }
 	// Do any additional setup after loading the view.
 }
 
@@ -163,8 +167,10 @@
 - (IBAction)saveButton:(id)sender {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:_db.json forKey:@"database"];
+    [defaults setObject:_linkTextField.text forKey:@"link"];
     [defaults synchronize];
     [self.statusTextField setText:@"Database saved"];
+    [_parent setLink:_linkTextField.text];
 }
 
 - (IBAction)exportButton:(id)sender
@@ -194,6 +200,12 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Can't send mail" message:@"device does not support email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
+}
+
+- (IBAction)linkFieldEnter:(id)sender
+{
+    _link = _linkTextField.text;
+    [_parent setLink:_link];
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField*) textField

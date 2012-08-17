@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *pressureField;
 @property (strong, nonatomic) id function;
 @property (strong, nonatomic) NSMutableArray *functionNames;
+@property (strong, nonatomic) NSString *link;
 
 @property (strong, nonatomic) database *db;
 @property (strong, nonatomic) IBOutlet UIButton *viewButton;
