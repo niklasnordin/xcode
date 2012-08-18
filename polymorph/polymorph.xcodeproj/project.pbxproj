@@ -41,6 +41,7 @@
 		61BA3AE215DFAB7500928715 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61BA3AE115DFAB7400928715 /* Icon@2x.png */; };
 		61BA3AE515DFACCD00928715 /* idealGasLaw.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA3AE415DFACCC00928715 /* idealGasLaw.m */; };
 		61BA3AE815DFC05E00928715 /* commentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA3AE715DFC05D00928715 /* commentVC.m */; };
+		61BA3AEB15DFCA2900928715 /* helpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA3AEA15DFCA2800928715 /* helpViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +106,8 @@
 		61BA3AE415DFACCC00928715 /* idealGasLaw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = idealGasLaw.m; sourceTree = "<group>"; };
 		61BA3AE615DFC05D00928715 /* commentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentVC.h; sourceTree = "<group>"; };
 		61BA3AE715DFC05D00928715 /* commentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commentVC.m; sourceTree = "<group>"; };
+		61BA3AE915DFCA2700928715 /* helpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpViewController.h; sourceTree = "<group>"; };
+		61BA3AEA15DFCA2800928715 /* helpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = helpViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +174,8 @@
 				6164629915B7F706006B703D /* polymorphAppDelegate.h */,
 				6164629A15B7F706006B703D /* polymorphAppDelegate.m */,
 				6164629C15B7F706006B703D /* MainStoryboard.storyboard */,
+				61BA3AE915DFCA2700928715 /* helpViewController.h */,
+				61BA3AEA15DFCA2800928715 /* helpViewController.m */,
 				61BA3AE615DFC05D00928715 /* commentVC.h */,
 				61BA3AE715DFC05D00928715 /* commentVC.m */,
 				61247A5515CA6A0C004DB05F /* functionView.h */,
@@ -329,6 +334,7 @@
 				61BA3ADC15DD80F600928715 /* janaf_s.m in Sources */,
 				61BA3AE515DFACCD00928715 /* idealGasLaw.m in Sources */,
 				61BA3AE815DFC05E00928715 /* commentVC.m in Sources */,
+				61BA3AEB15DFCA2900928715 /* helpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

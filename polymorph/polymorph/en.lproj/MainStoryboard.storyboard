@@ -320,7 +320,7 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="P65-YT-eoN">
-                                <rect key="frame" x="20" y="189" width="280" height="94"/>
+                                <rect key="frame" x="20" y="206" width="280" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <state key="normal" title="View">
@@ -414,7 +414,11 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="properties" id="Xxh-Xi-BQY">
-                        <barButtonItem key="rightBarButtonItem" title="Help" id="fNe-tb-qbr"/>
+                        <barButtonItem key="rightBarButtonItem" title="Help" id="fNe-tb-qbr">
+                            <connections>
+                                <segue destination="th9-uC-L0d" kind="push" identifier="helpSegue" id="5YK-ar-FBe"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="pressureField" destination="sDu-WC-BnO" id="8nk-YX-zdE"/>
@@ -427,6 +431,33 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1170" y="-2"/>
+        </scene>
+        <!--Help View Controller - Help-->
+        <scene sceneID="ojZ-1h-1Qv">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lVD-tR-BPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="th9-uC-L0d" customClass="helpViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hpU-QM-IVl">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="For suggestions or other ways of improvement please mail me at niklas.nordin@nequam.se" id="MIW-H5-mlQ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" staticText="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Help" id="6TI-Oa-jSF"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1170" y="607"/>
         </scene>
         <!--Load Database View Controller - Database-->
         <scene sceneID="bOh-tj-e3e">
@@ -687,6 +718,9 @@
         </class>
         <class className="functionView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/functionView.h"/>
+        </class>
+        <class className="helpViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/helpViewController.h"/>
         </class>
         <class className="loadDatabaseViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/loadDatabaseViewController.h"/>
