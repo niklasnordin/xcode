@@ -12,11 +12,13 @@
 #import "diagramView.h"
 
 @interface diagramViewController : UIViewController
+<UITextFieldDelegate, UIActionSheetDelegate>
 
 @property (strong,nonatomic) id <functionValue> function;
 @property (nonatomic) NSDictionary *dict;
 @property (nonatomic) double xMin, xMax;
 @property (nonatomic) double pressure;
+@property (strong, nonatomic) NSArray *coeffs;
 
 @property (strong, nonatomic) IBOutlet diagramView *dview;
 - (IBAction)generateTable:(id)sender;

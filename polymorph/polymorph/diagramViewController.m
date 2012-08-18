@@ -10,30 +10,46 @@
 #import "diagramView.h"
 
 @interface diagramViewController ()
-
 @end
 
 @implementation diagramViewController
 
 - (IBAction)generateTable:(id)sender
 {
+    // ask for number of points
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter number of points" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
+    
+    alert.delegate = self;
+    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    UITextField *tf = [alert textFieldAtIndex:0];
+    tf.delegate = self;
+    [tf setClearButtonMode:UITextFieldViewModeWhileEditing];
+    [tf setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
+    tf.text = @"10";
+    
+    [alert show];
+
 }
 
 -(void)setup:(id <functionValue>)f
         dict:(NSDictionary *)dict
-         min:(double)xmin
-         max:(double)xmax
+         min:(double)Tmin
+         max:(double)Tmax
     pressure:(double)p
 {
     [self setFunction:f];
     _dict = dict;
-    _xMin = xmin;
-    _xMax = xmax;
+    _xMin = Tmin;
+    _xMax = Tmax;
     _pressure = p;
 }
 
 -(void) setDview:(diagramView *)dview
 {
+    // this is used before viewDidLoad
+    //NSLog(@"setDview");
+    
     _dview = dview;
     [_dview addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self.dview action:@selector(pan:)]];
     [_dview addGestureRecognizer:[[UIPinchGestureRecognizer alloc] initWithTarget:self.dview action:@selector(pinch:)]];
@@ -50,12 +66,28 @@
 
 - (void)viewDidLoad
 {
+    //NSLog(@"view did load");
     [super viewDidLoad];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    int n = [_function nCoefficients];
+    NSArray *coeffDictArray = [self.dict objectForKey:@"coefficients"];
+    NSMutableArray *cs = [[NSMutableArray alloc] init];
+    
+    for (int i=0; i<n; i++)
+    {
+        NSDictionary *Adict = [coeffDictArray objectAtIndex:i];
+        NSString *name = [NSString stringWithFormat:@"A%d",i];
+        NSNumber *a = [Adict objectForKey:name];
+        [cs addObject:a];
+    }
+    
+    _coeffs = cs;
+
 }
 
 - (void)viewDidUnload
@@ -64,6 +96,26 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        //NSLog(@"Clicked OK");
+        
+        NSMutableString *output = [[NSMutableString alloc] init];
+        int nPoints = [[[alertView textFieldAtIndex:0] text] intValue];
+        for (int i=0; i<nPoints; i++) {
+            double x = _dview.xMin + (_dview.xMax -_dview.xMin)*i/(nPoints-1.0);
+            double y = [_function value:_coeffs T:x p:_pressure];
+            //NSLog(@"%g %g",x,y);
+            output = [NSMutableString stringWithFormat:@"%@%g %g\n", output, x,y];
+        }
+        NSLog(@"%@",output);
+
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
