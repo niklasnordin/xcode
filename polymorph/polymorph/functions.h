@@ -16,6 +16,8 @@
 #import "janaf_h.h"
 #import "janaf_s.h"
 
+#import "idealGasLaw.h"
+
 @interface functions : NSObject
 
 -(id) select:(NSString *) name;

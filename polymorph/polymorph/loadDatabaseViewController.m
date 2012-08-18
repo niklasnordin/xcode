@@ -185,7 +185,7 @@
             NSString *msg = [NSString stringWithFormat:@"%@",_db.json];
             NSData *att = [msg dataUsingEncoding:[NSString defaultCStringEncoding]];
             //[mailer setMessageBody:msg isHTML:NO];
-            [mailer setMessageBody:@"sent from propertyViewer" isHTML:NO];
+            [mailer setMessageBody:@"sent from propertyView" isHTML:NO];
             [mailer setSubject:@"database.json"];
             [mailer addAttachmentData:att mimeType:@"text/plain" fileName:@"database.json"];
             [self presentModalViewController:mailer animated:YES];

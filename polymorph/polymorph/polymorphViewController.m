@@ -178,6 +178,11 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     _db.json = [defaults objectForKey:@"database"];
+    if (!_db.json)
+    {
+        //NSLog(@"No database");
+        _db.json = [[NSMutableDictionary alloc] init];
+    }
     _link = [defaults objectForKey:@"link"];
 	// Do any additional setup after loading the view, typically from a nib.
     
@@ -191,6 +196,7 @@
     [_functionNames addObject:[janaf_cp name]];
     [_functionNames addObject:[janaf_h name]];
     [_functionNames addObject:[janaf_s name]];
+    [_functionNames addObject:[idealGasLaw name]];
 
     _currentRow = 0;
     _currentProperty = 0;

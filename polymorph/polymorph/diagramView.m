@@ -63,23 +63,23 @@ static NSUInteger nx = 640;//640;
     _yMin = 1.0e+15;
     _yMax = -1.0e+15;
     
+    double p = 1.0e+6*self.pressure;
+    
     for (int i=0; i<nx; i++) 
     {
         double xi = _xMin + i*(_xMax - _xMin)/(nx-1);
         //double yi = 2.0*xi -xi*xi;
         
-        double yi = [[self function] value:self.coeffs T:xi p:self.pressure];
+        double yi = [[self function] value:self.coeffs T:xi p:p];
         //NSLog(@"x = %f, yi = %f", xi,yi);
         if (yi < _yMin) _yMin = yi;
         if (yi > _yMax) _yMax = yi;
     }
 
     double diff = fabs(_yMax - _yMin);
-    //NSLog(@"diff = %f",diff);
 
     if (diff < 1.0e-15)
     {
-        //NSLog(@"Adjusting min/max");
         _yMin -= 1.0e+1;
         _yMax += 1.0+1;
     }   
@@ -260,7 +260,6 @@ static NSUInteger nx = 640;//640;
     CGContextBeginPath(context);
     
     // draw y-axis
-    //CGContextCo
     CGContextMoveToPoint(context, yAxisStart.x, yAxisStart.y);
     CGContextAddLineToPoint(context, yAxisEnd.x, yAxisEnd.y);
     
@@ -303,10 +302,10 @@ static NSUInteger nx = 640;//640;
     UIGraphicsPopContext();
     
     // set red text color if it is out of range
-    self.yMinLabel.text = [NSString stringWithFormat:@"%f", self.yMin];
-    self.yMaxLabel.text = [NSString stringWithFormat:@"%f", self.yMax];
+    self.yMinLabel.text = [NSString stringWithFormat:@"%g", self.yMin];
+    self.yMaxLabel.text = [NSString stringWithFormat:@"%g", self.yMax];
     
-    self.xMinLabel.text = [NSString stringWithFormat:@"%f", self.xMin];
+    self.xMinLabel.text = [NSString stringWithFormat:@"%g", self.xMin];
     if (_xMin < _lowerRange)
     {
         self.xMinLabel.textColor = [UIColor redColor];
@@ -316,7 +315,7 @@ static NSUInteger nx = 640;//640;
         self.xMinLabel.textColor = [UIColor whiteColor];
     }
     
-    self.xMaxLabel.text = [NSString stringWithFormat:@"%f", self.xMax];
+    self.xMaxLabel.text = [NSString stringWithFormat:@"%g", self.xMax];
     if (_xMax > _upperRange)
     {
         self.xMaxLabel.textColor = [UIColor redColor];
@@ -326,7 +325,7 @@ static NSUInteger nx = 640;//640;
         self.xMaxLabel.textColor = [UIColor whiteColor];
     }
     
-    self.yMidLabel.text = [NSString stringWithFormat:@"%f, %f", self.xMid,self.yMid];
+    self.yMidLabel.text = [NSString stringWithFormat:@"%g, %g", self.xMid,self.yMid];
     CGPoint pos = [diagramView mapPoint:self X:self.xMid Y:self.yMid];
 
     self.yMidLabel.center = pos;
@@ -337,25 +336,23 @@ static NSUInteger nx = 640;//640;
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    //NSLog(@"Entering drawRect");
     
     // Drawing code
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextBeginPath(context);
             
     NSArray *cf = self.coeffs;
-    //NSLog(@"coeffs = %@",cf);
+    double p = 1.0e+6*self.pressure;
     for (int i=0; i<nx-1; i++)
     {
         CGPoint p0, p1;
         
         double xi = _xMin + i*(_xMax - _xMin)/(nx-1);
-        double yi = [[self function] value:cf T:xi p:self.pressure];
-        //NSLog(@"(%f, %f)",xi,yi);
+        double yi = [[self function] value:cf T:xi p:p];
         p0 = [diagramView mapPoint:self X:xi Y:yi];
 
         double x1 = _xMin + (i+1)*(_xMax - _xMin)/(nx-1);
-        double y1 = [_function value:cf T:x1 p:self.pressure];
+        double y1 = [_function value:cf T:x1 p:p];
         
         p1 = [diagramView mapPoint:self X:x1 Y:y1];
 
@@ -363,16 +360,12 @@ static NSUInteger nx = 640;//640;
         CGContextAddLineToPoint(context, p1.x, p1.y);
     }
     _xMid = 0.5*(_xMin + _xMax);
-    _yMid = [[self function] value:self.coeffs T:_xMid p:self.pressure];
+    _yMid = [[self function] value:self.coeffs T:_xMid p:p];
     
     CGContextStrokePath(context);
     
-    //NSLog(@"drawRect::CGContextStrokePath");
-
     [self drawCoordinateSystem:context];
     
-    //NSLog(@"Exiting drawRect");
-
 }
 
 

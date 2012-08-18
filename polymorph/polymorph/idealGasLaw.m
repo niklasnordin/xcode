@@ -1,16 +1,16 @@
 //
-//  janaf_s.m
+//  idealGasLaw.m
 //  polymorph
 //
-//  Created by Niklas Nordin on 2012-08-16.
+//  Created by Niklas Nordin on 2012-08-18.
 //  Copyright (c) 2012 nequam. All rights reserved.
 //
 
-#import "janaf_s.h"
+#import "idealGasLaw.h"
 
-static NSString *name = @"janaf_s";
+static NSString *name = @"idealGasLaw";
 
-@implementation janaf_s
+@implementation idealGasLaw
 
 +(NSString *)name
 {
@@ -19,35 +19,28 @@ static NSString *name = @"janaf_s";
 
 -(NSString *) name
 {
-    return [janaf_s name];
+    return [idealGasLaw name];
 }
 
 -(double)value:(NSArray *)coeff T:(double)T p:(double)p
 {
     double a[self.nCoefficients];
     a[0] = 0.0;
-    a[1] = 0.0;
-    a[2] = 0.0;
-    a[3] = 0.0;
-    a[4] = 0.0;
-    a[5] = 0.0;
-    a[6] = 0.0;
-    a[7] = 0.0;
-
+    
     for(int i=0; i<self.nCoefficients; i++)
     {
         a[i] = [[coeff objectAtIndex:i] doubleValue];
     }
     double y = 0.0;
-    double y1 = ((((a[4]/4.0 + a[3]/3.0)*T + a[2]/2.0)*T + a[1])*T + a[0]*log(T) + a[6])*a[7];
-
+    double y1 = p/( a[0]*T );
+    
     if (y1) y = y1;
     return y;
 }
 
 -(int)nCoefficients
 {
-    return 8;
+    return 1;
 }
 
 @end
