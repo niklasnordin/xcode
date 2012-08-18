@@ -52,6 +52,7 @@
         NSDictionary *prd = [propDict objectForKey:@"pressureRange"];
         
         double pInput = [[sender text] doubleValue];
+        pInput *= 1.0e+6;
         double pMin = [[prd valueForKey:@"min"] doubleValue];
         double pMax = [[prd valueForKey:@"max"] doubleValue];
 
