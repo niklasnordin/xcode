@@ -142,7 +142,6 @@
             unitText = [propertyDict objectForKey:@"unit"];
 
             NSString *functionName = [propertyDict objectForKey:@"function"];
-
             Class functionClass = (NSClassFromString(functionName));
             
             id f;
