@@ -12,6 +12,7 @@
 
 -(double) value:(NSArray *)coeffs T:(double)T p:(double)p;
 -(int) nCoefficients;
+-(bool) pressureDependent;
 -(NSString *) name;
 
 @end

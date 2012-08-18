@@ -44,13 +44,16 @@
         double pMin = [[prd valueForKey:@"min"] doubleValue];
         double pMax = [[prd valueForKey:@"max"] doubleValue];
 
+        
         if (pInput <= pMin)
         {
-            [sender setText:[NSString stringWithFormat:@"%g", pMin]];
+            double pMinMpa = 1.0e-6*pMin;
+            [sender setText:[NSString stringWithFormat:@"%g", pMinMpa]];
         }
         if (pInput >= pMax)
         {
-            [sender setText:[NSString stringWithFormat:@"%g", pMax]];
+            double pMaxMPa = 1.0e-6*pMax;
+            [sender setText:[NSString stringWithFormat:@"%g", pMaxMPa]];
         }
     }
 }
@@ -127,9 +130,22 @@
             NSDictionary *propertyDict = [propertiesDict objectForKey:propertiesText];
             unitText = [propertyDict objectForKey:@"unit"];
 
-            NSString *pds = [propertyDict objectForKey:@"pressureDependent"];
-            bool pressureDependent = [pds isEqualToString:@"YES"] ? YES : NO;
+            NSString *functionName = [propertyDict objectForKey:@"function"];
 
+            Class functionClass = (NSClassFromString(functionName));
+            
+            id f;
+            if (functionClass != nil) {
+                f = [[functionClass alloc] init];
+            }
+            else
+            {
+                NSLog(@"%@ is an illegal function. Abort!",functionName);
+                abort();
+            }
+            
+            bool pressureDependent = [f pressureDependent];
+            
             if (pressureDependent)
             {
                 [_pressureField setEnabled:YES];

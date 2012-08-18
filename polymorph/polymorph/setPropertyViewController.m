@@ -78,14 +78,6 @@
     [self.picker selectRow:selectedFunction inComponent:0 animated:YES];
     self.currentRow = selectedFunction;
     
-    NSString *pds = [propertyDict objectForKey:@"pressureDependent"];
-    
-    BOOL pressureDependent = [pds isEqualToString:@"YES"] ? YES : NO;
-    
-    [_pressureSwitch setOn:pressureDependent];
-    
-   // [_clickedCoefficientsButton.window setBackgroundColor:[UIColor greenColor]];
-
 }
 
 - (void)viewDidUnload
@@ -97,7 +89,6 @@
     [self setMaxPressureField:nil];
     
     [self setClickedCoefficientsButton:nil];
-    [self setPressureSwitch:nil];
     [self setUnitField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -288,26 +279,6 @@
     [segue.destinationViewController setCoefficients:coeffs];
     [segue.destinationViewController setTitle:@"Coefficients"];
     
-}
-
-
-- (IBAction)pressureDependencySwitch:(UISwitch *)sender {
-    
-    //BOOL state = sender.on;
-    
-    NSMutableDictionary *speciesDict = [_db.json objectForKey:_specie];
-    NSMutableDictionary *propertyDict = [speciesDict objectForKey:_property];
-    if (sender.on)
-    {
-        //NSLog(@"Set to YES");
-        [propertyDict setObject:@"YES" forKey:@"pressureDependent"];
-    }
-    else
-    {
-        //NSLog(@"Set to NO");
-        [propertyDict setObject:@"NO" forKey:@"pressureDependent"];
-    }
-    [_parent update];
 }
 
 - (IBAction)unitEnter:(UITextField *)sender

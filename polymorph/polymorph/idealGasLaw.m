@@ -38,6 +38,11 @@ static NSString *name = @"idealGasLaw";
     return y;
 }
 
+-(bool)pressureDependent
+{
+    return YES;
+}
+
 -(int)nCoefficients
 {
     return 1;

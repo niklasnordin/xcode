@@ -34,6 +34,11 @@ static NSString *name = @"function_0001";
     return y;
 }
 
+-(bool)pressureDependent
+{
+    return NO;
+}
+
 -(int)nCoefficients
 {
     return 0;

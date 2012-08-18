@@ -64,8 +64,7 @@
         @"pressureRange" : mPressureRangeDict,
         @"coefficients" : coefficients,
         @"unit" : @"-",
-        @"comment" : @"",
-        @"pressureDependent" : @"NO"
+        @"comment" : @""
     };
     
     NSMutableDictionary *muteDict = [[NSMutableDictionary alloc] initWithDictionary:dict];

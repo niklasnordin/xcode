@@ -44,6 +44,11 @@ static NSString *name = @"janaf_cp";
     return y;
 }
 
+-(bool)pressureDependent
+{
+    return NO;
+}
+
 -(int)nCoefficients
 {
     return 8;

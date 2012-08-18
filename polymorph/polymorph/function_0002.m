@@ -36,6 +36,11 @@ static NSString *name = @"function_0002";
     return 2.0*T+3.1 + T*T;
 }
 
+-(bool)pressureDependent
+{
+    return NO;
+}
+
 -(int)nCoefficients
 {
     return 0;

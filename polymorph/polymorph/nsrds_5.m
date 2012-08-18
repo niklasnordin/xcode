@@ -40,6 +40,11 @@ static NSString *name = @"nsrds_5";
     return y;
 }
 
+-(bool)pressureDependent
+{
+    return NO;
+}
+
 -(int)nCoefficients
 {
     return 4;
