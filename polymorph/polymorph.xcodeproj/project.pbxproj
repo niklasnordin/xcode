@@ -37,6 +37,8 @@
 		61BA3AD915DD80E600928715 /* janaf_h.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA3AD815DD80E600928715 /* janaf_h.m */; };
 		61BA3ADC15DD80F600928715 /* janaf_s.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA3ADB15DD80F600928715 /* janaf_s.m */; };
 		61BA3ADE15DE95E200928715 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61BA3ADD15DE95E200928715 /* MessageUI.framework */; };
+		61BA3AE015DFAB6C00928715 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 61BA3ADF15DFAB6C00928715 /* Icon.png */; };
+		61BA3AE215DFAB7500928715 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61BA3AE115DFAB7400928715 /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +97,8 @@
 		61BA3ADA15DD80F600928715 /* janaf_s.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = janaf_s.h; sourceTree = "<group>"; };
 		61BA3ADB15DD80F600928715 /* janaf_s.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = janaf_s.m; sourceTree = "<group>"; };
 		61BA3ADD15DE95E200928715 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		61BA3ADF15DFAB6C00928715 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		61BA3AE115DFAB7400928715 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +119,8 @@
 		6164627B15B7F705006B703D = {
 			isa = PBXGroup;
 			children = (
-				61BA3ADD15DE95E200928715 /* MessageUI.framework */,
+				61BA3AE115DFAB7400928715 /* Icon@2x.png */,
+				61BA3ADF15DFAB6C00928715 /* Icon.png */,
 				6164629015B7F705006B703D /* polymorph */,
 				6164628915B7F705006B703D /* Frameworks */,
 				6164628715B7F705006B703D /* Products */,
@@ -133,6 +138,7 @@
 		6164628915B7F705006B703D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				61BA3ADD15DE95E200928715 /* MessageUI.framework */,
 				6164628A15B7F705006B703D /* UIKit.framework */,
 				6164628C15B7F705006B703D /* Foundation.framework */,
 				6164628E15B7F705006B703D /* CoreGraphics.framework */,
@@ -224,9 +230,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6164628515B7F705006B703D /* polymorph */ = {
+		6164628515B7F705006B703D /* propertyView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 616462A415B7F706006B703D /* Build configuration list for PBXNativeTarget "polymorph" */;
+			buildConfigurationList = 616462A415B7F706006B703D /* Build configuration list for PBXNativeTarget "propertyView" */;
 			buildPhases = (
 				6164628215B7F705006B703D /* Sources */,
 				6164628315B7F705006B703D /* Frameworks */,
@@ -236,7 +242,7 @@
 			);
 			dependencies = (
 			);
-			name = polymorph;
+			name = propertyView;
 			productName = polymorph;
 			productReference = 6164628615B7F705006B703D /* polymorph.app */;
 			productType = "com.apple.product-type.application";
@@ -263,7 +269,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6164628515B7F705006B703D /* polymorph */,
+				6164628515B7F705006B703D /* propertyView */,
 			);
 		};
 /* End PBXProject section */
@@ -277,6 +283,8 @@
 				6164629E15B7F706006B703D /* MainStoryboard.storyboard in Resources */,
 				61A5CE8815C2E2E400937EA8 /* database.json in Resources */,
 				61BA3AD215DD756700928715 /* ni-banding-free-gradient.jpg in Resources */,
+				61BA3AE015DFAB6C00928715 /* Icon.png in Resources */,
+				61BA3AE215DFAB7500928715 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,7 +421,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		616462A415B7F706006B703D /* Build configuration list for PBXNativeTarget "polymorph" */ = {
+		616462A415B7F706006B703D /* Build configuration list for PBXNativeTarget "propertyView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				616462A515B7F706006B703D /* Debug */,
