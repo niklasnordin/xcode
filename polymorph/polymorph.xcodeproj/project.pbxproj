@@ -55,7 +55,7 @@
 		61247A5315C9B9DA004DB05F /* propertyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = propertyTableViewController.m; sourceTree = "<group>"; };
 		61247A5515CA6A0C004DB05F /* functionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = functionView.h; sourceTree = "<group>"; };
 		61247A5615CA6A0D004DB05F /* functionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = functionView.m; sourceTree = "<group>"; };
-		6164628615B7F705006B703D /* polymorph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = polymorph.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6164628615B7F705006B703D /* propertyView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = propertyView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6164628A15B7F705006B703D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6164628C15B7F705006B703D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6164628E15B7F705006B703D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,7 +137,7 @@
 		6164628715B7F705006B703D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6164628615B7F705006B703D /* polymorph.app */,
+				6164628615B7F705006B703D /* propertyView.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -259,7 +259,7 @@
 			);
 			name = propertyView;
 			productName = polymorph;
-			productReference = 6164628615B7F705006B703D /* polymorph.app */;
+			productReference = 6164628615B7F705006B703D /* propertyView.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
