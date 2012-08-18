@@ -16,19 +16,38 @@
 
 - (IBAction)generateTable:(id)sender
 {
-    // ask for number of points
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter number of points" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
-    
-    alert.delegate = self;
-    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
-    UITextField *tf = [alert textFieldAtIndex:0];
-    tf.delegate = self;
-    [tf setClearButtonMode:UITextFieldViewModeWhileEditing];
-    [tf setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
-    tf.text = @"10";
-    
-    [alert show];
+    Class mailClass = (NSClassFromString(@"MFMailComposeViewController"));
+    if (mailClass != nil)
+    {
+        if ([mailClass canSendMail])
+        {
+            // ask for number of points
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter number of points" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
+            
+            alert.delegate = self;
+            [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+            UITextField *tf = [alert textFieldAtIndex:0];
+            tf.delegate = self;
+            [tf setClearButtonMode:UITextFieldViewModeWhileEditing];
+            [tf setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
+            tf.text = @"10";
+            
+            [alert show];
+
+        }
+        else
+        {
+            // error
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Can't send mail" message:@"device does not support email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
+    }
+    else
+    {
+        // error
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Can't send mail" message:@"device does not support email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
 
 }
 
@@ -113,9 +132,23 @@
             //NSLog(@"%g %g",x,y);
             output = [NSMutableString stringWithFormat:@"%@%g %g\n", output, x,y];
         }
-        NSLog(@"%@",output);
-
+        //NSLog(@"%@",output);
+        
+        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+        mailer.mailComposeDelegate = self;
+        NSString *msg = [NSString stringWithFormat:@"%@",output];
+        [mailer setMessageBody:msg isHTML:NO];
+        [mailer setSubject:@"table"];
+        //[mailer set]
+        [self presentModalViewController:mailer animated:YES];
     }
+}
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller
+         didFinishWithResult:(MFMailComposeResult)result
+                       error:(NSError *)error
+{
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -7,12 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
+
 #import "functions.h"
 #import "functionValue.h"
 #import "diagramView.h"
 
 @interface diagramViewController : UIViewController
-<UITextFieldDelegate, UIActionSheetDelegate>
+<
+    UITextFieldDelegate,
+    UIActionSheetDelegate,
+    MFMailComposeViewControllerDelegate
+>
 
 @property (strong,nonatomic) id <functionValue> function;
 @property (nonatomic) NSDictionary *dict;
