@@ -26,6 +26,8 @@
 @property (nonatomic) double xMin, xMax;
 @property (nonatomic) double pressure;
 @property (strong, nonatomic) NSArray *coeffs;
+@property (strong, nonatomic) NSString *specie;
+@property (strong, nonatomic) NSString *property;
 
 @property (strong, nonatomic) IBOutlet diagramView *dview;
 - (IBAction)generateTable:(id)sender;

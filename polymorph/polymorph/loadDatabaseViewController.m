@@ -183,8 +183,11 @@
             MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
             mailer.mailComposeDelegate = self;
             NSString *msg = [NSString stringWithFormat:@"%@",_db.json];
-            [mailer setMessageBody:msg isHTML:NO];
+            NSData *att = [msg dataUsingEncoding:[NSString defaultCStringEncoding]];
+            //[mailer setMessageBody:msg isHTML:NO];
+            [mailer setMessageBody:@"sent from propertyViewer" isHTML:NO];
             [mailer setSubject:@"database.json"];
+            [mailer addAttachmentData:att mimeType:@"text/plain" fileName:@"database.json"];
             [self presentModalViewController:mailer animated:YES];
         }
         else
@@ -251,6 +254,14 @@
                        error:(NSError *)error
 {
     [self dismissModalViewControllerAnimated:YES];
+    if (error)
+    {
+        [self.statusTextField setText:[error localizedDescription]];
+    }
+    else
+    {
+        [self.statusTextField setText:@"mail sent"];
+    }
 }
 
 @end

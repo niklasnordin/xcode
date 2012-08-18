@@ -129,17 +129,19 @@
         for (int i=0; i<nPoints; i++) {
             double x = _dview.xMin + (_dview.xMax -_dview.xMin)*i/(nPoints-1.0);
             double y = [_function value:_coeffs T:x p:_pressure];
-            //NSLog(@"%g %g",x,y);
             output = [NSMutableString stringWithFormat:@"%@%g %g\n", output, x,y];
         }
-        //NSLog(@"%@",output);
         
+        NSString *filename = [NSString stringWithFormat:@"%@-%@.dat",_specie,_property];
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         mailer.mailComposeDelegate = self;
-        NSString *msg = [NSString stringWithFormat:@"%@",output];
+        NSData *att = [output dataUsingEncoding:[NSString defaultCStringEncoding]];
+        //NSString *msg = [NSString stringWithFormat:@"%@",output];
+        NSString *msg = @"Sent from propertyViewer";
+        [mailer addAttachmentData:att mimeType:@"text/plain" fileName:filename];
         [mailer setMessageBody:msg isHTML:NO];
-        [mailer setSubject:@"table"];
-        //[mailer set]
+        [mailer setSubject:filename];
+        //[mailer setSi
         [self presentModalViewController:mailer animated:YES];
     }
 }

@@ -348,6 +348,9 @@
 
         _function = [_selector select:funcName];
     
+        [segue.destinationViewController setSpecie:selectedSpecie];
+        [segue.destinationViewController setProperty:selectedProperty];
+        
         [segue.destinationViewController setup:_function
                                           dict:propDict
                                            min:tMin
