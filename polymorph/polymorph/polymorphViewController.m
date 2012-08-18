@@ -33,10 +33,21 @@
     NSString *selectedProperty = [properties objectAtIndex:self.currentProperty];
     NSDictionary *propDict = [propertiesDict objectForKey:selectedProperty];
     
-    NSString *pds = [propDict objectForKey:@"pressureDependent"];
-    bool pressureDependent = [pds isEqualToString:@"YES"] ? YES : NO;
+    NSString *functionName = [propDict objectForKey:@"function"];
+    Class functionClass = (NSClassFromString(functionName));
     
-    if (pressureDependent)
+    id f;
+    if (functionClass != nil)
+    {
+        f = [[functionClass alloc] init];
+    }
+    else
+    {
+        NSLog(@"%@ is an illegal function. Abort!",functionName);
+        abort();
+    }
+        
+    if ([f pressureDependent])
     {
         NSDictionary *prd = [propDict objectForKey:@"pressureRange"];
         
@@ -143,10 +154,8 @@
                 NSLog(@"%@ is an illegal function. Abort!",functionName);
                 abort();
             }
-            
-            bool pressureDependent = [f pressureDependent];
-            
-            if (pressureDependent)
+                        
+            if ([f pressureDependent])
             {
                 [_pressureField setEnabled:YES];
                 [self checkPressureInput:_pressureField];
