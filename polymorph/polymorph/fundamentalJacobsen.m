@@ -67,7 +67,40 @@ static NSString *name = @"fundamentalJacobsen";
     _pc   = [[coeffs objectAtIndex:93] doubleValue];
     _rhoc = [[coeffs objectAtIndex:94] doubleValue];
     _mw   = [[coeffs objectAtIndex:95] doubleValue];
+    /*
+     $rho = rho($pressure, $temp);
+    $d = $rho/$rhoc;
+    $t = $Tc/$temp;
     
+    $cp = cp($d, $t)*1.0e-3/$Mw;
+     */
+    
+}
+
+-(double)daResdd:(double)d t:(double)t
+{
+    double sum = 0.0;
+    for (int i=0; i<23; i++)
+    {
+        double gamma = 1.0;
+        double nk = [[_nk objectAtIndex:i] doubleValue];
+        double ik = [[_ik objectAtIndex:i] doubleValue];
+        double jk = [[_jk objectAtIndex:i] doubleValue];
+        double lk = [[_lk objectAtIndex:i] doubleValue];
+        
+        if (abs(lk) < 1.0e-8)
+        {
+            gamma = 0.0;
+        }
+        
+        double a = nk*pow(t, jk)*exp(-gamma*pow(d, lk));
+        double da = -a*gamma*lk*pow(d, lk - 1.0);
+        double b = pow(d, ik);
+        double db = ik*pow(d, ik - 1.0);
+        sum += a*db + b*da;
+    }
+    
+    return sum;
 }
 
 @end
