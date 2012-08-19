@@ -58,7 +58,7 @@
     double zC = -(capA*capB - capB*capB - capB*capB*capB);
     
     //NSArray *rts = [Polynomial solveThirdOrder:zA coeffB:zB coeffC:zC];
-    /*
+    
     NSArray *rts = [[NSArray alloc] init];
     if ([rts count] == 1)
     {
@@ -84,9 +84,8 @@
         {
             returnValue = rho2;
         }
-        
     }
-    */
+    
         //double rho = self.pressure*W/Rgas/self.temperature/Z;
     
     return returnValue;
