@@ -30,6 +30,7 @@ static NSString *name = @"nsrds_1";
     a[2] = 0.0;
     a[3] = 0.0;
     a[4] = 0.0;
+    
     for(int i=0; i<self.nCoefficients; i++)
     {
         a[i] = [[coeff objectAtIndex:i] doubleValue];
