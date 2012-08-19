@@ -42,6 +42,7 @@
 		61BA3AE515DFACCD00928715 /* idealGasLaw.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA3AE415DFACCC00928715 /* idealGasLaw.m */; };
 		61BA3AE815DFC05E00928715 /* commentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA3AE715DFC05D00928715 /* commentVC.m */; };
 		61BA3AEB15DFCA2900928715 /* helpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA3AEA15DFCA2800928715 /* helpViewController.m */; };
+		61EB3D6215E0CD0B009826F2 /* pengRobinsonLow.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D6115E0CD0B009826F2 /* pengRobinsonLow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,8 @@
 		61EB3D5D15E0C112009826F2 /* Complex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Complex.m; sourceTree = "<group>"; };
 		61EB3D5E15E0C143009826F2 /* Polynomial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Polynomial.h; sourceTree = "<group>"; };
 		61EB3D5F15E0C143009826F2 /* Polynomial.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Polynomial.m; sourceTree = "<group>"; };
+		61EB3D6015E0CD0B009826F2 /* pengRobinsonLow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pengRobinsonLow.h; sourceTree = "<group>"; };
+		61EB3D6115E0CD0B009826F2 /* pengRobinsonLow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pengRobinsonLow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +235,8 @@
 				61BA3ADB15DD80F600928715 /* janaf_s.m */,
 				61BA3AE315DFACCC00928715 /* idealGasLaw.h */,
 				61BA3AE415DFACCC00928715 /* idealGasLaw.m */,
+				61EB3D6015E0CD0B009826F2 /* pengRobinsonLow.h */,
+				61EB3D6115E0CD0B009826F2 /* pengRobinsonLow.m */,
 			);
 			name = functions;
 			sourceTree = "<group>";
@@ -351,6 +356,7 @@
 				61BA3AE515DFACCD00928715 /* idealGasLaw.m in Sources */,
 				61BA3AE815DFC05E00928715 /* commentVC.m in Sources */,
 				61BA3AEB15DFCA2900928715 /* helpViewController.m in Sources */,
+				61EB3D6215E0CD0B009826F2 /* pengRobinsonLow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

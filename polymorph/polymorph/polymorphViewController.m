@@ -222,7 +222,8 @@
     [_functionNames addObject:[janaf_h name]];
     [_functionNames addObject:[janaf_s name]];
     [_functionNames addObject:[idealGasLaw name]];
-
+    [_functionNames addObject:[pengRobinsonLow name]];
+     
     _currentRow = 0;
     _currentProperty = 0;
     

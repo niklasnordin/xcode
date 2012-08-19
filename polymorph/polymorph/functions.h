@@ -17,6 +17,7 @@
 #import "janaf_s.h"
 
 #import "idealGasLaw.h"
+#import "pengRobinsonLow.h"
 
 @interface functions : NSObject
 

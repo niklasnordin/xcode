@@ -29,7 +29,7 @@
 }
 
 // y = x^3 + a*x^2 + b*x + c
-+ (NSMutableArray *)solveThirdOrder:(double)a coeffB:(double)b coeffC:(double)c
++ (NSArray *)solveThirdOrder:(double)a coeffB:(double)b coeffC:(double)c
 {
     NSMutableArray *sol = [[NSMutableArray alloc] init];
     
@@ -65,7 +65,7 @@
         //NSLog(@"x3 = %g i%g", x3.re, x3.im);
     }
     
-    return sol; 
+    return [[NSArray alloc] initWithArray:sol];
 }
 
 @end

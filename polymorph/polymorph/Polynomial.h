@@ -11,6 +11,6 @@
 @interface Polynomial : NSObject
 
 + (NSArray *)solveSecondOrder:(double)a coeffB:(double)b;
-+ (NSMutableArray *)solveThirdOrder:(double)ca coeffB:(double)cb coeffC:(double)cc;
++ (NSArray *)solveThirdOrder:(double)ca coeffB:(double)cb coeffC:(double)cc;
 
 @end
