@@ -9,7 +9,7 @@
 #import "diagramView.h"
 #import "functions.h"
 
-static NSUInteger nx = 640;//640;
+static NSUInteger nx = 320;//640;
 
 @implementation diagramView
 

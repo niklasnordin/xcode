@@ -78,56 +78,9 @@ static NSString *name = @"pengRobinsonHigh";
         double rho0 = p*W/Rgas/T/z0;
         double rho1 = p*W/Rgas/T/z1;
         double rho2 = p*W/Rgas/T/z2;
-        
-        BOOL allPositive = ((rho0 > 0) && (rho1 > 0) && (rho2 > 0)) ? YES : NO;
-        
-        if (allPositive)
-        {
-            returnValue = fmin(rho0, fmin(rho1, rho2));
-        }
-        else
-        {
-            if (rho0 > 0)
-            {
-                if (rho1 > 0)
-                {
-                    // rho2 must be < 0
-                    returnValue = fmax(rho0, rho1);
-                }
-                else
-                {
-                    // rho1 < 0
-                    if (rho2 > 0)
-                    {
-                        returnValue = fmax(rho0, rho2);
-                    }
-                    else
-                    {
-                        returnValue = rho0;
-                    }
-                }
-            }
-            else
-            {
-                // rho0 < 0, can disregard that one
-                if (rho1 > 0)
-                {
-                    if (rho2 > 0)
-                    {
-                        returnValue = fmax(rho1, rho2);
-                    }
-                    else
-                    {
-                        returnValue = rho1;
-                    }
-                }
-                else
-                {
-                    returnValue = rho2;
-                }
-            }
-        }
-        
+
+        returnValue = fmax(rho0, fmax(rho1, rho2));
+
     }
     
     return returnValue;
