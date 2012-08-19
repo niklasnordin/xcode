@@ -1,20 +1,21 @@
 //
-//  pengRobinsonLow.m
+//  pengRobinsonHigh.m
 //  polymorph
 //
 //  Created by Niklas Nordin on 2012-08-19.
 //  Copyright (c) 2012 nequam. All rights reserved.
 //
 
-#import "pengRobinsonLow.h"
+#import "pengRobinsonHigh.h"
 #import "Polynomial.h"
 #import "Complex.h"
 
 #define Rgas 8314.462175
 
-static NSString *name = @"pengRobinsonLow";
+static NSString *name = @"pengRobinsonHigh";
 
-@implementation pengRobinsonLow 
+@implementation pengRobinsonHigh
+
 
 +(NSString *)name
 {
@@ -23,14 +24,14 @@ static NSString *name = @"pengRobinsonLow";
 
 -(NSString *) name
 {
-    return [pengRobinsonLow name];
+    return [pengRobinsonHigh name];
 }
 
 -(double)value:(NSArray *)coeff T:(double)T p:(double)p
 {
     double returnValue = 0.0;
     double a[self.nCoefficients];
-
+    
     for(int i=0; i<self.nCoefficients; i++)
     {
         a[i] = [[coeff objectAtIndex:i] doubleValue];
@@ -40,7 +41,7 @@ static NSString *name = @"pengRobinsonLow";
     double Pc    = a[1];
     double omega = a[2];
     double W     = a[3];
-
+    
     double Tr = T/Tc;
     
     double aPR = 0.457236*Rgas*Rgas*Tc*Tc/Pc;
@@ -61,20 +62,19 @@ static NSString *name = @"pengRobinsonLow";
         Complex *rt0 = [rts objectAtIndex:0];
         double z = rt0.re;
         double rho = p*W/Rgas/T/z;
-
+        
         returnValue = rho;
-        //NSLog(@"T = %g, %g",T, rt0.re);
     }
     else
     {
         Complex *rt0 = [rts objectAtIndex:0];
         Complex *rt1 = [rts objectAtIndex:1];
         Complex *rt2 = [rts objectAtIndex:2];
-
+        
         double z0 = rt0.re;
         double z1 = rt1.re;
         double z2 = rt2.re;
-
+        
         double rho0 = p*W/Rgas/T/z0;
         double rho1 = p*W/Rgas/T/z1;
         double rho2 = p*W/Rgas/T/z2;
@@ -89,23 +89,23 @@ static NSString *name = @"pengRobinsonLow";
         {
             if (rho0 > 0)
             {
-                    if (rho1 > 0)
+                if (rho1 > 0)
+                {
+                    // rho2 must be < 0
+                    returnValue = fmax(rho0, rho1);
+                }
+                else
+                {
+                    // rho1 < 0
+                    if (rho2 > 0)
                     {
-                        // rho2 must be < 0
-                        returnValue = fmin(rho0, rho1);
+                        returnValue = fmax(rho0, rho2);
                     }
                     else
                     {
-                        // rho1 < 0
-                        if (rho2 > 0)
-                        {
-                            returnValue = fmin(rho0, rho2);
-                        }
-                        else
-                        {
-                            returnValue = rho0;
-                        }
+                        returnValue = rho0;
                     }
+                }
             }
             else
             {
@@ -114,7 +114,7 @@ static NSString *name = @"pengRobinsonLow";
                 {
                     if (rho2 > 0)
                     {
-                        returnValue = fmin(rho1, rho2);
+                        returnValue = fmax(rho1, rho2);
                     }
                     else
                     {
@@ -127,10 +127,9 @@ static NSString *name = @"pengRobinsonLow";
                 }
             }
         }
-        //NSLog(@"Trippel T = %g, %g",T, returnValue);
-
-    }
         
+    }
+    
     return returnValue;
 }
 

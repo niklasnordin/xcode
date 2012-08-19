@@ -52,15 +52,13 @@
     
     Complex *x1 = [Am3c add:ST];
     [sol addObject:x1];
-    //NSLog(@"x1 = %g i%g", x1.re, x1.im);
+
     if (D < 0)
     {
         Complex *x2 = [[Am3c add:[ST multiplyWithRe:-0.5]] add:[SmT multiply:tt]];
         Complex *x3 = [[Am3c add:[ST multiplyWithRe:-0.5]] subtract:[SmT multiply:tt]];
         [sol addObject:x2];
         [sol addObject:x3];
-        //NSLog(@"x2 = %g i%g", x2.re, x2.im);
-        //NSLog(@"x3 = %g i%g", x3.re, x3.im);
     }
     
     return sol;

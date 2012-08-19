@@ -1,5 +1,5 @@
 //
-//  pengRobinsonLow.h
+//  pengRobinsonHigh.h
 //  polymorph
 //
 //  Created by Niklas Nordin on 2012-08-19.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "functionValue.h"
 
-@interface pengRobinsonLow : NSObject <functionValue>
+@interface pengRobinsonHigh : NSObject <functionValue>
 
 +(NSString *)name;
 

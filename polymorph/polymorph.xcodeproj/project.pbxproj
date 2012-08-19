@@ -45,6 +45,7 @@
 		61EB3D6215E0CD0B009826F2 /* pengRobinsonLow.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D6115E0CD0B009826F2 /* pengRobinsonLow.m */; };
 		61EB3D6C15E0FAD3009826F2 /* Complex.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D6B15E0FAD3009826F2 /* Complex.m */; };
 		61EB3D6F15E0FB4C009826F2 /* Polynomial.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D6E15E0FB4C009826F2 /* Polynomial.m */; };
+		61EB3D7215E1064D009826F2 /* pengRobinsonHigh.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D7115E1064D009826F2 /* pengRobinsonHigh.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,8 @@
 		61EB3D6B15E0FAD3009826F2 /* Complex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Complex.m; sourceTree = "<group>"; };
 		61EB3D6D15E0FB4C009826F2 /* Polynomial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polynomial.h; sourceTree = "<group>"; };
 		61EB3D6E15E0FB4C009826F2 /* Polynomial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Polynomial.m; sourceTree = "<group>"; };
+		61EB3D7015E1064D009826F2 /* pengRobinsonHigh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pengRobinsonHigh.h; sourceTree = "<group>"; };
+		61EB3D7115E1064D009826F2 /* pengRobinsonHigh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pengRobinsonHigh.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +245,8 @@
 				61EB3D6B15E0FAD3009826F2 /* Complex.m */,
 				61EB3D6D15E0FB4C009826F2 /* Polynomial.h */,
 				61EB3D6E15E0FB4C009826F2 /* Polynomial.m */,
+				61EB3D7015E1064D009826F2 /* pengRobinsonHigh.h */,
+				61EB3D7115E1064D009826F2 /* pengRobinsonHigh.m */,
 			);
 			name = functions;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 				61EB3D6215E0CD0B009826F2 /* pengRobinsonLow.m in Sources */,
 				61EB3D6C15E0FAD3009826F2 /* Complex.m in Sources */,
 				61EB3D6F15E0FB4C009826F2 /* Polynomial.m in Sources */,
+				61EB3D7215E1064D009826F2 /* pengRobinsonHigh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

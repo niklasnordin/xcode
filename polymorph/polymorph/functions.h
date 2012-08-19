@@ -18,6 +18,7 @@
 
 #import "idealGasLaw.h"
 #import "pengRobinsonLow.h"
+#import "pengRobinsonHigh.h"
 
 @interface functions : NSObject
 

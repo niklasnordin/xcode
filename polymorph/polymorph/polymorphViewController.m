@@ -209,6 +209,12 @@
         _db.json = [[NSMutableDictionary alloc] init];
     }
     _link = [defaults objectForKey:@"link"];
+    //NSNumber *row = [defaults objectForKey:@"currentRow"];
+    //NSNumber *prop = [defaults objectForKey:@"currentProperty"];
+
+    _currentRow = 0;
+    _currentProperty = 0;
+    
 	// Do any additional setup after loading the view, typically from a nib.
     
     _functionNames = [[NSMutableArray alloc] init];
@@ -223,10 +229,8 @@
     [_functionNames addObject:[janaf_s name]];
     [_functionNames addObject:[idealGasLaw name]];
     [_functionNames addObject:[pengRobinsonLow name]];
+    [_functionNames addObject:[pengRobinsonHigh name]];
      
-    _currentRow = 0;
-    _currentProperty = 0;
-    
     CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
     self.picker = [[UIPickerView alloc] initWithFrame:pickerFrame];
     self.picker.showsSelectionIndicator = YES;
