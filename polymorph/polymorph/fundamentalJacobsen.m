@@ -26,16 +26,20 @@ static NSString *name = @"fundamentalJacobsen";
 
 -(double)value:(NSArray *)coeff T:(double)T p:(double)p
 {
+    /*
     double a[self.nCoefficients];
     
     for(int i=0; i<self.nCoefficients; i++)
     {
         a[i] = [[coeff objectAtIndex:i] doubleValue];
     }
-    double y = 0.0;
-    double y1 = p/( a[0]*T );
+    */
+    [self setCoeffs:coeff];
     
-    if (y1) y = y1;
+    double y = 0.0;
+    //double y1 = p/( a[0]*T );
+    
+    //if (y1) y = y1;
     return y;
 }
 
@@ -46,7 +50,24 @@ static NSString *name = @"fundamentalJacobsen";
 
 -(int)nCoefficients
 {
-    return 1;
+    return 96;
+}
+
+-(void)setCoeffs:(NSArray *)coeffs
+{
+    for (int i=0; i<23; i++)
+    {
+        [_nk addObject:[coeffs objectAtIndex:i]];
+        [_ik addObject:[coeffs objectAtIndex:i+23]];
+        [_jk addObject:[coeffs objectAtIndex:i+46]];
+        [_lk addObject:[coeffs objectAtIndex:i+69]];
+    }
+    
+    _tc   = [[coeffs objectAtIndex:92] doubleValue];
+    _pc   = [[coeffs objectAtIndex:93] doubleValue];
+    _rhoc = [[coeffs objectAtIndex:94] doubleValue];
+    _mw   = [[coeffs objectAtIndex:95] doubleValue];
+    
 }
 
 @end

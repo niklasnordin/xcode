@@ -24,6 +24,29 @@
 
 @implementation polymorphViewController
 
+-(void)loadFunctions
+{
+    _functionNames = [[NSMutableArray alloc] init];
+    
+    //[_functionNames addObject:[function_0001 name]];
+    //[_functionNames addObject:[function_0002 name]];
+    
+    [_functionNames addObject:[nsrds_0 name]];
+    [_functionNames addObject:[nsrds_1 name]];
+    [_functionNames addObject:[nsrds_5 name]];
+    
+    [_functionNames addObject:[janaf_cp name]];
+    [_functionNames addObject:[janaf_h name]];
+    [_functionNames addObject:[janaf_s name]];
+    
+    [_functionNames addObject:[idealGasLaw name]];
+    [_functionNames addObject:[pengRobinsonLow name]];
+    [_functionNames addObject:[pengRobinsonHigh name]];
+    
+    [_functionNames addObject:[fundamentalJacobsen name]];
+
+}
+
 -(void)checkPressureInput:(UITextField *)sender {
     
     NSArray *species = _db.species;
@@ -217,20 +240,7 @@
     
 	// Do any additional setup after loading the view, typically from a nib.
     
-    _functionNames = [[NSMutableArray alloc] init];
-    [_functionNames addObject:[function_0001 name]];
-    [_functionNames addObject:[function_0002 name]];
-    [_functionNames addObject:[nsrds_0 name]];
-    [_functionNames addObject:[nsrds_1 name]];
-    [_functionNames addObject:[nsrds_5 name]];
-    
-    [_functionNames addObject:[janaf_cp name]];
-    [_functionNames addObject:[janaf_h name]];
-    [_functionNames addObject:[janaf_s name]];
-    [_functionNames addObject:[idealGasLaw name]];
-    [_functionNames addObject:[pengRobinsonLow name]];
-    [_functionNames addObject:[pengRobinsonHigh name]];
-    [_functionNames addObject:[fundamentalJacobsen name]];
+    [self loadFunctions];
     
     CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
     self.picker = [[UIPickerView alloc] initWithFrame:pickerFrame];
