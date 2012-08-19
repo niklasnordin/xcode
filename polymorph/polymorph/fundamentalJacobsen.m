@@ -6,6 +6,35 @@
 //  Copyright (c) 2012 nequam. All rights reserved.
 //
 
+/*
+ 
+ // Vapor pressure coefficients
+ $a_[1] = -0.0514770863682;
+ $a_[2] = -8.27075196981;
+ $a_[3] = -5.4924538857;
+ $a_[4] = 5.64828891406;
+ 
+ // Saturated Liquid Density
+ $b_[1] = 2.22194636037;
+ $b_[2] = -0.0469267553094;
+ $b_[3] = 10.3035666311;
+ $b_[4] = -17.2304684516;
+ $b_[5] = 8.23564165285;
+ 
+ // Saturated Vapor Density
+ $c_[1] = -8.35647816638;
+ $c_[2] = -2.38721859682;
+ $c_[3] = -39.6946441837;
+ $c_[4] = -9.99133502692;
+ 
+ // Ideal Gas Heat Capacity
+ $d_[1] = 6.41129104405;
+ $d_[2] = 1.95988750679;
+ $d_[3] = 7.60084166080;
+ $d_[4] = 3.89583440622;
+ $d_[5] = 4.23238091363;
+*/
+
 #import "fundamentalJacobsen.h"
 
 #define Rgas 8314.462175
@@ -67,6 +96,7 @@ static NSString *name = @"fundamentalJacobsen";
     _pc   = [[coeffs objectAtIndex:93] doubleValue];
     _rhoc = [[coeffs objectAtIndex:94] doubleValue];
     _mw   = [[coeffs objectAtIndex:95] doubleValue];
+    
     /*
      $rho = rho($pressure, $temp);
     $d = $rho/$rhoc;
@@ -77,6 +107,75 @@ static NSString *name = @"fundamentalJacobsen";
     
 }
 
+-(double)rho:(double)pressure T:(double)T
+{
+    
+    double t = _tc/T;
+    double pv = [self Pv:T];
+    /*
+    //    echo "Pv($T) = $pv Pa.<br>\n";
+    $r = 0.0;
+    
+    if ($p > $pv)
+    {
+        $r = rholSat($T);
+        //echo "State is liquid.<br>\n";
+    }
+    else
+    {
+        $r = rhovSat($T);
+        //echo "State is vapour.<br>\n";
+    }
+    
+    $pq = $p/($R*$T);
+    
+    $i = 0;
+    $N = 2000;
+    $err = 1.0;
+    $tol = 1.0e-12;
+    
+    while (($err > $tol) && ($i<$N))
+    {
+        $delta = $r/$rhoc;
+        $A = daResdd($delta, $t)/$rhoc;
+        $B = d2aResdd2($delta, $t)/$rhoc;
+        $d = ($pq - $A*$r*$r - $r)/($B*$r*$r + 2.0*$A*$r + 1.0);
+        $err = abs($d)/$r;
+        $r = $r + 0.7*$d;
+        $i++;
+    }
+    
+    if ($i > $N-2)
+    {
+        echo "Warning! Density calculation did not converge. Error is $err.<br>\n";
+    }
+    return $r;
+     */
+    return 0.0;
+}
+
+-(double)Pv:(double)T
+{
+/*
+ 
+    {
+        global $a_, $Tc, $Pc;
+        $p = 1.0 - $T/$Tc;
+        if ($p < 0.0)
+        {
+            $p = 0.0;
+        }
+        
+        $s = $a_[1]*pow($p, 0.5) + $a_[2]*$p + $a_[3]*pow($p, 3.0) + $a_[4]*pow($p, 11.0/2.0);
+        
+        return $Pc*exp($Tc*$s/$T);
+    }
+ */
+    return 0.0;
+
+}
+// d = rho/rhoc (kmol/m^3)
+// t = Tc/T
 -(double)daResdd:(double)d t:(double)t
 {
     double sum = 0.0;
