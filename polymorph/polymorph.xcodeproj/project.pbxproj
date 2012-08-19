@@ -108,6 +108,10 @@
 		61BA3AE715DFC05D00928715 /* commentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commentVC.m; sourceTree = "<group>"; };
 		61BA3AE915DFCA2700928715 /* helpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpViewController.h; sourceTree = "<group>"; };
 		61BA3AEA15DFCA2800928715 /* helpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = helpViewController.m; sourceTree = "<group>"; };
+		61EB3D5C15E0C112009826F2 /* Complex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Complex.h; sourceTree = "<group>"; };
+		61EB3D5D15E0C112009826F2 /* Complex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Complex.m; sourceTree = "<group>"; };
+		61EB3D5E15E0C143009826F2 /* Polynomial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Polynomial.h; sourceTree = "<group>"; };
+		61EB3D5F15E0C143009826F2 /* Polynomial.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Polynomial.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,9 +190,9 @@
 				616622F315CFF295008FB530 /* loadDatabaseViewController.m */,
 				618FFDA215DD705800008703 /* RollerUIButton.h */,
 				618FFDA315DD705900008703 /* RollerUIButton.m */,
+				61EB3D5B15E0C0F0009826F2 /* Model */,
 				6164629115B7F705006B703D /* Supporting Files */,
 				616462B915BFC702006B703D /* functions */,
-				616462B015B8378D006B703D /* functionValue.h */,
 			);
 			path = polymorph;
 			sourceTree = "<group>";
@@ -207,6 +211,7 @@
 		616462B915BFC702006B703D /* functions */ = {
 			isa = PBXGroup;
 			children = (
+				616462B015B8378D006B703D /* functionValue.h */,
 				616462AE15B82A1F006B703D /* functions.m */,
 				616462AA15B7F8B9006B703D /* functions.h */,
 				616462A715B7F827006B703D /* function_0001.h */,
@@ -240,6 +245,17 @@
 				61A5CE8715C2E2E400937EA8 /* database.json */,
 			);
 			name = Documents;
+			sourceTree = "<group>";
+		};
+		61EB3D5B15E0C0F0009826F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				61EB3D5E15E0C143009826F2 /* Polynomial.h */,
+				61EB3D5F15E0C143009826F2 /* Polynomial.m */,
+				61EB3D5C15E0C112009826F2 /* Complex.h */,
+				61EB3D5D15E0C112009826F2 /* Complex.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
