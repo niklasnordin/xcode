@@ -7,7 +7,7 @@
 //
 
 #import "pengRobinsonLow.h"
-//#import "Polynomial.h"
+#import "Polynomial.h"
 #import "Complex.h"
 
 #define Rgas 8314.462175
@@ -28,12 +28,12 @@
 {
     double returnValue = 0.0;
     double a[self.nCoefficients];
+    /*
     a[0] = 0.0;
     a[1] = 0.0;
     a[2] = 0.0;
     a[3] = 0.0;
-    a[4] = 0.0;
-    
+    */
     for(int i=0; i<self.nCoefficients; i++)
     {
         a[i] = [[coeff objectAtIndex:i] doubleValue];
@@ -57,9 +57,9 @@
     double zB = capA - 3.0*capB*capB - 2.0*capB;
     double zC = -(capA*capB - capB*capB - capB*capB*capB);
     
-    //NSArray *rts = [Polynomial solveThirdOrder:zA coeffB:zB coeffC:zC];
+    NSArray *rts = [Polynomial solveThirdOrder:zA coeffB:zB coeffC:zC];
     
-    NSArray *rts = [[NSArray alloc] init];
+    //NSArray *rts = [[NSArray alloc] init];
     if ([rts count] == 1)
     {
         Complex *rt0 = [rts objectAtIndex:0];
@@ -79,10 +79,16 @@
         double rho1 = p*W/Rgas/T/Zmin;
         double rho2 = p*W/Rgas/T/Zmax;
         
-        returnValue = rho1;
-        if (rho2 < rho1)
+        if (rho1 > 0) {
+            returnValue = rho1;
+        }
+        
+        if (rho2 > 0)
         {
-            returnValue = rho2;
+            if (rho2 < rho1)
+            {
+                returnValue = rho2;
+            }
         }
     }
     
