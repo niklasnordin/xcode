@@ -9,7 +9,7 @@
 #import "diagramView.h"
 #import "functions.h"
 
-static NSUInteger nx = 320;//640;
+static NSUInteger nx = 640;//640;
 
 @implementation diagramView
 
@@ -343,12 +343,35 @@ static NSUInteger nx = 320;//640;
             
     NSArray *cf = self.coeffs;
     double p = 1.0e+6*self.pressure;
+    
+    NSMutableArray *pp = [[NSMutableArray alloc] init];
+    
+    for (int i=0; i<nx-1; i++)
+    {        
+        double xi = _xMin + i*(_xMax - _xMin)/(nx-1);
+        double yi = [_function value:cf T:xi p:p];
+        CGPoint p0 = [diagramView mapPoint:self X:xi Y:yi];
+        [pp addObject:[NSValue valueWithCGPoint:p0]];
+    }
+    
+    for (int i=1; i<nx-1; i++)
+    {
+        CGPoint p0 = [[pp objectAtIndex:i-1] CGPointValue];
+        CGPoint p1 = [[pp objectAtIndex:i] CGPointValue];
+        
+        CGContextMoveToPoint(context, p0.x, p0.y);
+        CGContextAddLineToPoint(context, p1.x, p1.y);
+    }
+    
+    // commented out cause it was too slow, instead preload all
+    // values into an array and plot that
+    /*
     for (int i=0; i<nx-1; i++)
     {
         CGPoint p0, p1;
         
         double xi = _xMin + i*(_xMax - _xMin)/(nx-1);
-        double yi = [[self function] value:cf T:xi p:p];
+        double yi = [_function value:cf T:xi p:p];
         p0 = [diagramView mapPoint:self X:xi Y:yi];
 
         double x1 = _xMin + (i+1)*(_xMax - _xMin)/(nx-1);
@@ -359,6 +382,8 @@ static NSUInteger nx = 320;//640;
         CGContextMoveToPoint(context, p0.x, p0.y);
         CGContextAddLineToPoint(context, p1.x, p1.y);
     }
+     */
+    
     _xMid = 0.5*(_xMin + _xMax);
     _yMid = [[self function] value:self.coeffs T:_xMid p:p];
     

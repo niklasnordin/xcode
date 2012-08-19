@@ -230,7 +230,8 @@
     [_functionNames addObject:[idealGasLaw name]];
     [_functionNames addObject:[pengRobinsonLow name]];
     [_functionNames addObject:[pengRobinsonHigh name]];
-     
+    [_functionNames addObject:[fundamentalJacobsen name]];
+    
     CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
     self.picker = [[UIPickerView alloc] initWithFrame:pickerFrame];
     self.picker.showsSelectionIndicator = YES;
@@ -260,6 +261,7 @@
     [self setSpeciesButton:nil];
     [self setViewButton:nil];
     [super viewDidUnload];
+    NSLog(@"unloading main view");
             
     // Release any retained subviews of the main view.
 }

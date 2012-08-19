@@ -1,16 +1,18 @@
 //
-//  idealGasLaw.m
+//  fundamentalJacobsen.m
 //  polymorph
 //
-//  Created by Niklas Nordin on 2012-08-18.
+//  Created by Niklas Nordin on 2012-08-19.
 //  Copyright (c) 2012 nequam. All rights reserved.
 //
 
-#import "idealGasLaw.h"
+#import "fundamentalJacobsen.h"
 
-static NSString *name = @"idealGasLaw";
+#define Rgas 8314.462175
 
-@implementation idealGasLaw
+static NSString *name = @"fundamentalJacobsen";
+
+@implementation fundamentalJacobsen
 
 +(NSString *)name
 {
@@ -19,7 +21,7 @@ static NSString *name = @"idealGasLaw";
 
 -(NSString *) name
 {
-    return [idealGasLaw name];
+    return [fundamentalJacobsen name];
 }
 
 -(double)value:(NSArray *)coeff T:(double)T p:(double)p

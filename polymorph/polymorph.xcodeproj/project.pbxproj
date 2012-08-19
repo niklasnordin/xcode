@@ -26,6 +26,7 @@
 		616462B815BAD77D006B703D /* diagramView.m in Sources */ = {isa = PBXBuildFile; fileRef = 616462B715BAD77D006B703D /* diagramView.m */; };
 		616462BC15BFC896006B703D /* diagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616462BB15BFC896006B703D /* diagramViewController.m */; };
 		616622F415CFF296008FB530 /* loadDatabaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616622F315CFF295008FB530 /* loadDatabaseViewController.m */; };
+		616F63F715E12FF6001861E6 /* fundamentalJacobsen.m in Sources */ = {isa = PBXBuildFile; fileRef = 616F63F615E12FF6001861E6 /* fundamentalJacobsen.m */; };
 		61807D7815D42BF7008E012C /* setPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D7715D42BF7008E012C /* setPropertyViewController.m */; };
 		61807D8315D54D16008E012C /* coefficientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D8215D54D16008E012C /* coefficientTableViewController.m */; };
 		618FFDA415DD705900008703 /* RollerUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FFDA315DD705900008703 /* RollerUIButton.m */; };
@@ -85,6 +86,8 @@
 		616462BB15BFC896006B703D /* diagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = diagramViewController.m; sourceTree = "<group>"; };
 		616622F215CFF295008FB530 /* loadDatabaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loadDatabaseViewController.h; sourceTree = "<group>"; };
 		616622F315CFF295008FB530 /* loadDatabaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loadDatabaseViewController.m; sourceTree = "<group>"; };
+		616F63F515E12FF6001861E6 /* fundamentalJacobsen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fundamentalJacobsen.h; sourceTree = "<group>"; };
+		616F63F615E12FF6001861E6 /* fundamentalJacobsen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fundamentalJacobsen.m; sourceTree = "<group>"; };
 		61807D7615D42BF7008E012C /* setPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setPropertyViewController.h; sourceTree = "<group>"; };
 		61807D7715D42BF7008E012C /* setPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setPropertyViewController.m; sourceTree = "<group>"; };
 		61807D8115D54D16008E012C /* coefficientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coefficientTableViewController.h; sourceTree = "<group>"; };
@@ -247,6 +250,8 @@
 				61EB3D6E15E0FB4C009826F2 /* Polynomial.m */,
 				61EB3D7015E1064D009826F2 /* pengRobinsonHigh.h */,
 				61EB3D7115E1064D009826F2 /* pengRobinsonHigh.m */,
+				616F63F515E12FF6001861E6 /* fundamentalJacobsen.h */,
+				616F63F615E12FF6001861E6 /* fundamentalJacobsen.m */,
 			);
 			name = functions;
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 				61EB3D6C15E0FAD3009826F2 /* Complex.m in Sources */,
 				61EB3D6F15E0FB4C009826F2 /* Polynomial.m in Sources */,
 				61EB3D7215E1064D009826F2 /* pengRobinsonHigh.m in Sources */,
+				616F63F715E12FF6001861E6 /* fundamentalJacobsen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,6 +20,8 @@
 #import "pengRobinsonLow.h"
 #import "pengRobinsonHigh.h"
 
+#import "fundamentalJacobsen.h"
+
 @interface functions : NSObject
 
 -(id) select:(NSString *) name;
