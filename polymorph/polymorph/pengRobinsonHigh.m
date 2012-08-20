@@ -74,7 +74,7 @@ static NSString *name = @"pengRobinsonHigh";
         double z0 = rt0.re;
         double z1 = rt1.re;
         double z2 = rt2.re;
-        
+        //NSLog(@"%g, %g, %g",z0,z1,z2);
         double rho0 = p*W/Rgas/T/z0;
         double rho1 = p*W/Rgas/T/z1;
         double rho2 = p*W/Rgas/T/z2;

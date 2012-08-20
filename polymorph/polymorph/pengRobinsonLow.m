@@ -63,7 +63,6 @@ static NSString *name = @"pengRobinsonLow";
         double rho = p*W/Rgas/T/z;
 
         returnValue = rho;
-        //NSLog(@"T = %g, %g",T, rt0.re);
     }
     else
     {
@@ -74,10 +73,28 @@ static NSString *name = @"pengRobinsonLow";
         double z0 = rt0.re;
         double z1 = rt1.re;
         double z2 = rt2.re;
-
+        double zMin = fmin(z0, fmin(z1, z2));
+        double zMax = fmax(z0, fmax(z1, z2));
+        
+        double logFugOverPmin = [self logFugacityOverP:zMin A:capA B:capB];
+        double logFugOverPmax = [self logFugacityOverP:zMax A:capA B:capB];
+        double pmin = p*exp(logFugOverPmin);
+        double pmax = p*exp(logFugOverPmax);
+        
+        double z = zMin;
+        if (pmax < pmin)
+        {
+            z = zMax;
+        }
+        double rho = p*W/Rgas/T/z;
+        returnValue = rho;
+        /*
+        //NSLog(@"p1 = %g, p2 = %g",f1,f2);
+        //NSLog(@"f1 = %g, f2 = %g", logFugOverPmin, logFugOverPmax);
         double rho0 = p*W/Rgas/T/z0;
         double rho1 = p*W/Rgas/T/z1;
         double rho2 = p*W/Rgas/T/z2;
+        
         
         BOOL allPositive = ((rho0 > 0) && (rho1 > 0) && (rho2 > 0)) ? YES : NO;
         
@@ -128,10 +145,18 @@ static NSString *name = @"pengRobinsonLow";
             }
         }
         //NSLog(@"Trippel T = %g, %g",T, returnValue);
-
+        */
     }
         
     return returnValue;
+}
+
+-(double)logFugacityOverP:(double)Z A:(double)A B:(double)B
+{
+    double c1 = 1.0/(2.0*sqrt(2.0));
+    double help1 = (Z + (1.0 + sqrt(2.0))*B)/(Z + (1.0 - sqrt(2.0))*B);
+    
+    return Z - 1.0 - log(Z-B) - (c1*A/B)*log(help1);
 }
 
 -(bool)pressureDependent
