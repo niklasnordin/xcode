@@ -74,27 +74,22 @@ static NSString *name = @"pengRobinson";
         double z0 = rt0.re;
         double z1 = rt1.re;
         double z2 = rt2.re;
-        double zMin = fmin(z0, fmin(z1, z2));
-        double zMax = fmax(z0, fmax(z1, z2));
+        double zLiq = fmin(z0, fmin(z1, z2));
+        double zVap = fmax(z0, fmax(z1, z2));
         
-        //double logFugOverPmin = [self logFugacityOverP:zMin A:capA B:capB];
-        double logFugOverPmax = [self logFugacityOverP:zMax A:capA B:capB];
-        //double pmin = p*exp(logFugOverPmin);
-        double pmax = p*exp(logFugOverPmax);
+        double logFugOverPliq = [self logFugacityOverP:zLiq A:capA B:capB];
+        double logFugOverPvap = [self logFugacityOverP:zVap A:capA B:capB];
+        double pliq = p*exp(logFugOverPliq);
+        double pvap = p*exp(logFugOverPvap);
         
-        double z = zMin;
+        // if fugacity of ph > pl, then equilibrium drives towards phase low
+        double z = zVap;
         
-        if (pmax < p)
+        if (pvap > pliq)
         {
-            z = zMax;
+            if (zLiq > 0) z = zLiq;
         }
-        else
-        {
-            if (z < 0)
-            {
-                z = zMax;
-            }
-        }
+                
         double rho = p*W/Rgas/T/z;
         returnValue = rho;
 

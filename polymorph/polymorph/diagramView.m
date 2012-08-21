@@ -71,7 +71,6 @@ static NSUInteger nx = 640;//640;
         //double yi = 2.0*xi -xi*xi;
         
         double yi = [[self function] value:self.coeffs T:xi p:p];
-        //NSLog(@"x = %f, yi = %f", xi,yi);
         if (yi < _yMin) _yMin = yi;
         if (yi > _yMax) _yMax = yi;
     }
@@ -326,8 +325,20 @@ static NSUInteger nx = 640;//640;
     }
     
     self.yMidLabel.text = [NSString stringWithFormat:@"%g, %g", self.xMid,self.yMid];
+    
     CGPoint pos = [diagramView mapPoint:self X:self.xMid Y:self.yMid];
 
+    int pixelOffset = 25;
+    if (pos.y < pixelOffset)
+    {
+        pos.y = pixelOffset;
+    }
+
+    if (pos.y > yAxisStart.y - pixelOffset)
+    {
+        pos.y = yAxisStart.y - pixelOffset;
+    }
+    
     self.yMidLabel.center = pos;
 
 }

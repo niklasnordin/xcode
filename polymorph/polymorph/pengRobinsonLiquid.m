@@ -78,22 +78,15 @@ static NSString *name = @"pengRobinsonLiquid";
         double zMax = fmax(z0, fmax(z1, z2));
         
         //double logFugOverPmin = [self logFugacityOverP:zMin A:capA B:capB];
-        double logFugOverPmax = [self logFugacityOverP:zMax A:capA B:capB];
+        //double logFugOverPmax = [self logFugacityOverP:zMax A:capA B:capB];
         //double pmin = p*exp(logFugOverPmin);
-        double pmax = p*exp(logFugOverPmax);
+        //double pmax = p*exp(logFugOverPmax);
         
-        double z = zMin;
+        double z = zMax;
         
-        if (pmax < p)
+        if (zMin > 0)
         {
-            z = zMax;
-        }
-        else
-        {
-            if (z < 0)
-            {
-                z = zMax;
-            }
+            z = zMin;
         }
         double rho = p*W/Rgas/T/z;
         returnValue = rho;
