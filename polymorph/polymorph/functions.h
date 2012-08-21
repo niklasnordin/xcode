@@ -17,8 +17,8 @@
 #import "janaf_s.h"
 
 #import "idealGasLaw.h"
-#import "pengRobinsonLow.h"
-#import "pengRobinsonHigh.h"
+#import "pengRobinson.h"
+#import "pengRobinsonLiquid.h"
 
 #import "fundamentalJacobsen.h"
 

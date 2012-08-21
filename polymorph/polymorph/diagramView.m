@@ -346,7 +346,7 @@ static NSUInteger nx = 640;//640;
     
     NSMutableArray *pp = [[NSMutableArray alloc] init];
     
-    for (int i=0; i<nx-1; i++)
+    for (int i=0; i<nx; i++)
     {        
         double xi = _xMin + i*(_xMax - _xMin)/(nx-1);
         double yi = [_function value:cf T:xi p:p];
@@ -354,7 +354,7 @@ static NSUInteger nx = 640;//640;
         [pp addObject:[NSValue valueWithCGPoint:p0]];
     }
     
-    for (int i=1; i<nx-1; i++)
+    for (int i=1; i<nx; i++)
     {
         CGPoint p0 = [[pp objectAtIndex:i-1] CGPointValue];
         CGPoint p1 = [[pp objectAtIndex:i] CGPointValue];

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "functionValue.h"
 
-@interface pengRobinsonLow : NSObject <functionValue>
+@interface pengRobinson : NSObject <functionValue>
 
 +(NSString *)name;
 

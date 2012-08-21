@@ -40,8 +40,8 @@
     [_functionNames addObject:[janaf_s name]];
     
     [_functionNames addObject:[idealGasLaw name]];
-    [_functionNames addObject:[pengRobinsonLow name]];
-    [_functionNames addObject:[pengRobinsonHigh name]];
+    [_functionNames addObject:[pengRobinson name]];
+    [_functionNames addObject:[pengRobinsonLiquid name]];
     
     [_functionNames addObject:[fundamentalJacobsen name]];
 

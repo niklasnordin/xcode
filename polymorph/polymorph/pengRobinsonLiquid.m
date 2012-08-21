@@ -6,15 +6,15 @@
 //  Copyright (c) 2012 nequam. All rights reserved.
 //
 
-#import "pengRobinsonHigh.h"
+#import "pengRobinsonLiquid.h"
 #import "Polynomial.h"
 #import "Complex.h"
 
 #define Rgas 8314.462175
 
-static NSString *name = @"pengRobinsonHigh";
+static NSString *name = @"pengRobinsonLiquid";
 
-@implementation pengRobinsonHigh
+@implementation pengRobinsonLiquid
 
 
 +(NSString *)name
@@ -24,7 +24,7 @@ static NSString *name = @"pengRobinsonHigh";
 
 -(NSString *) name
 {
-    return [pengRobinsonHigh name];
+    return [pengRobinsonLiquid name];
 }
 
 -(double)value:(NSArray *)coeff T:(double)T p:(double)p
@@ -74,18 +74,42 @@ static NSString *name = @"pengRobinsonHigh";
         double z0 = rt0.re;
         double z1 = rt1.re;
         double z2 = rt2.re;
-        //NSLog(@"%g, %g, %g",z0,z1,z2);
-        double rho0 = p*W/Rgas/T/z0;
-        double rho1 = p*W/Rgas/T/z1;
-        double rho2 = p*W/Rgas/T/z2;
-
-        returnValue = fmax(rho0, fmax(rho1, rho2));
+        double zMin = fmin(z0, fmin(z1, z2));
+        double zMax = fmax(z0, fmax(z1, z2));
+        
+        //double logFugOverPmin = [self logFugacityOverP:zMin A:capA B:capB];
+        double logFugOverPmax = [self logFugacityOverP:zMax A:capA B:capB];
+        //double pmin = p*exp(logFugOverPmin);
+        double pmax = p*exp(logFugOverPmax);
+        
+        double z = zMin;
+        
+        if (pmax < p)
+        {
+            z = zMax;
+        }
+        else
+        {
+            if (z < 0)
+            {
+                z = zMax;
+            }
+        }
+        double rho = p*W/Rgas/T/z;
+        returnValue = rho;
 
     }
     
     return returnValue;
 }
 
+-(double)logFugacityOverP:(double)Z A:(double)A B:(double)B
+{
+    double c1 = 1.0/(2.0*sqrt(2.0));
+    double help1 = (Z + (1.0 + sqrt(2.0))*B)/(Z + (1.0 - sqrt(2.0))*B);
+    
+    return Z - 1.0 - log(Z-B) - (c1*A/B)*log(help1);
+}
 -(bool)pressureDependent
 {
     return YES;

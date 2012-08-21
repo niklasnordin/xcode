@@ -43,10 +43,10 @@
 		61BA3AE515DFACCD00928715 /* idealGasLaw.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA3AE415DFACCC00928715 /* idealGasLaw.m */; };
 		61BA3AE815DFC05E00928715 /* commentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA3AE715DFC05D00928715 /* commentVC.m */; };
 		61BA3AEB15DFCA2900928715 /* helpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BA3AEA15DFCA2800928715 /* helpViewController.m */; };
-		61EB3D6215E0CD0B009826F2 /* pengRobinsonLow.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D6115E0CD0B009826F2 /* pengRobinsonLow.m */; };
+		61EB3D6215E0CD0B009826F2 /* pengRobinson.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D6115E0CD0B009826F2 /* pengRobinson.m */; };
 		61EB3D6C15E0FAD3009826F2 /* Complex.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D6B15E0FAD3009826F2 /* Complex.m */; };
 		61EB3D6F15E0FB4C009826F2 /* Polynomial.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D6E15E0FB4C009826F2 /* Polynomial.m */; };
-		61EB3D7215E1064D009826F2 /* pengRobinsonHigh.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D7115E1064D009826F2 /* pengRobinsonHigh.m */; };
+		61EB3D7215E1064D009826F2 /* pengRobinsonLiquid.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D7115E1064D009826F2 /* pengRobinsonLiquid.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,14 +115,14 @@
 		61BA3AE715DFC05D00928715 /* commentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commentVC.m; sourceTree = "<group>"; };
 		61BA3AE915DFCA2700928715 /* helpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpViewController.h; sourceTree = "<group>"; };
 		61BA3AEA15DFCA2800928715 /* helpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = helpViewController.m; sourceTree = "<group>"; };
-		61EB3D6015E0CD0B009826F2 /* pengRobinsonLow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pengRobinsonLow.h; sourceTree = "<group>"; };
-		61EB3D6115E0CD0B009826F2 /* pengRobinsonLow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pengRobinsonLow.m; sourceTree = "<group>"; };
+		61EB3D6015E0CD0B009826F2 /* pengRobinson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pengRobinson.h; sourceTree = "<group>"; };
+		61EB3D6115E0CD0B009826F2 /* pengRobinson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pengRobinson.m; sourceTree = "<group>"; };
 		61EB3D6A15E0FAD3009826F2 /* Complex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Complex.h; sourceTree = "<group>"; };
 		61EB3D6B15E0FAD3009826F2 /* Complex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Complex.m; sourceTree = "<group>"; };
 		61EB3D6D15E0FB4C009826F2 /* Polynomial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polynomial.h; sourceTree = "<group>"; };
 		61EB3D6E15E0FB4C009826F2 /* Polynomial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Polynomial.m; sourceTree = "<group>"; };
-		61EB3D7015E1064D009826F2 /* pengRobinsonHigh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pengRobinsonHigh.h; sourceTree = "<group>"; };
-		61EB3D7115E1064D009826F2 /* pengRobinsonHigh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pengRobinsonHigh.m; sourceTree = "<group>"; };
+		61EB3D7015E1064D009826F2 /* pengRobinsonLiquid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pengRobinsonLiquid.h; sourceTree = "<group>"; };
+		61EB3D7115E1064D009826F2 /* pengRobinsonLiquid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pengRobinsonLiquid.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,14 +242,14 @@
 				61BA3ADB15DD80F600928715 /* janaf_s.m */,
 				61BA3AE315DFACCC00928715 /* idealGasLaw.h */,
 				61BA3AE415DFACCC00928715 /* idealGasLaw.m */,
-				61EB3D6015E0CD0B009826F2 /* pengRobinsonLow.h */,
-				61EB3D6115E0CD0B009826F2 /* pengRobinsonLow.m */,
+				61EB3D6015E0CD0B009826F2 /* pengRobinson.h */,
+				61EB3D6115E0CD0B009826F2 /* pengRobinson.m */,
 				61EB3D6A15E0FAD3009826F2 /* Complex.h */,
 				61EB3D6B15E0FAD3009826F2 /* Complex.m */,
 				61EB3D6D15E0FB4C009826F2 /* Polynomial.h */,
 				61EB3D6E15E0FB4C009826F2 /* Polynomial.m */,
-				61EB3D7015E1064D009826F2 /* pengRobinsonHigh.h */,
-				61EB3D7115E1064D009826F2 /* pengRobinsonHigh.m */,
+				61EB3D7015E1064D009826F2 /* pengRobinsonLiquid.h */,
+				61EB3D7115E1064D009826F2 /* pengRobinsonLiquid.m */,
 				616F63F515E12FF6001861E6 /* fundamentalJacobsen.h */,
 				616F63F615E12FF6001861E6 /* fundamentalJacobsen.m */,
 			);
@@ -360,10 +360,10 @@
 				61BA3AE515DFACCD00928715 /* idealGasLaw.m in Sources */,
 				61BA3AE815DFC05E00928715 /* commentVC.m in Sources */,
 				61BA3AEB15DFCA2900928715 /* helpViewController.m in Sources */,
-				61EB3D6215E0CD0B009826F2 /* pengRobinsonLow.m in Sources */,
+				61EB3D6215E0CD0B009826F2 /* pengRobinson.m in Sources */,
 				61EB3D6C15E0FAD3009826F2 /* Complex.m in Sources */,
 				61EB3D6F15E0FB4C009826F2 /* Polynomial.m in Sources */,
-				61EB3D7215E1064D009826F2 /* pengRobinsonHigh.m in Sources */,
+				61EB3D7215E1064D009826F2 /* pengRobinsonLiquid.m in Sources */,
 				616F63F715E12FF6001861E6 /* fundamentalJacobsen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
