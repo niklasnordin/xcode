@@ -87,9 +87,12 @@ static NSString *name = @"pengRobinson";
         
         if (pvap > pliq)
         {
-            if (zLiq > 0) z = zLiq;
+            if (zLiq > 0)
+            {
+                z = zLiq;
+            }
         }
-                
+
         double rho = p*W/Rgas/T/z;
         returnValue = rho;
 

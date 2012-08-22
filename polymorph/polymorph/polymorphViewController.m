@@ -18,11 +18,15 @@
 @property (strong, nonatomic) UIActionSheet *actionSheet;
 @property (nonatomic) int currentRow;
 @property (nonatomic) int currentProperty;
+@property (nonatomic) int selectedConstantProperty;
+@property (nonatomic) BOOL pressureDependent;
 
 @property (strong,nonatomic) functions *selector;
 @end
 
 @implementation polymorphViewController
+@synthesize ptSegmentControl = _ptSegmentControl;
+@synthesize minPressureField = _minPressureField;
 
 -(void)loadFunctions
 {
@@ -41,13 +45,14 @@
     
     [_functionNames addObject:[idealGasLaw name]];
     [_functionNames addObject:[pengRobinson name]];
-    [_functionNames addObject:[pengRobinsonLiquid name]];
+    //[_functionNames addObject:[pengRobinsonLiquid name]];
     
     [_functionNames addObject:[fundamentalJacobsen name]];
 
 }
 
--(void)checkPressureInput:(UITextField *)sender {
+-(void)checkPressureInput:(UITextField *)sender
+{
     
     NSArray *species = _db.species;
     NSString *selectedSpecie = [species objectAtIndex:self.currentRow];
@@ -98,8 +103,28 @@
     [self checkPressureInput:sender];
 }
 
-- (IBAction)clickedSelect:(id)sender {
-    
+- (IBAction)changedPTSwitch:(UISegmentedControl *)sender
+{
+    if (!_pressureDependent)
+    {
+    int s = [sender selectedSegmentIndex];
+    if (s != _selectedConstantProperty)
+    {
+        NSLog(@"changed");
+        _selectedConstantProperty = s;
+        if (s == 0) {
+            //pressure is selected
+            [_minPressureField setHidden:YES];
+            [_temperatureMin setHidden:NO];
+        }
+        else
+        {
+            // temperature is selected
+            [_minPressureField setHidden:NO];
+            [_temperatureMin setHidden:YES];
+        }
+    }
+    }
 }
 
 - (IBAction)clickedSpecieButton:(id)sender {
@@ -141,6 +166,7 @@
     NSString *unitText = @"";
     
     [_pressureField setPlaceholder:@"pressure"];
+    _pressureDependent = NO;
 
     if ([species count])
     {
@@ -182,6 +208,7 @@
             {
                 [_pressureField setEnabled:YES];
                 [self checkPressureInput:_pressureField];
+                _pressureDependent = YES;
             }
             else
             {
@@ -249,6 +276,10 @@
     self.picker.delegate = self;
     self.picker.showsSelectionIndicator = YES;
     
+    // uisegmentcontrol config
+    _selectedConstantProperty = 0;
+    [_ptSegmentControl setSelectedSegmentIndex:_selectedConstantProperty];
+    [_minPressureField setHidden:YES];
     [self update];
 }
 
@@ -270,6 +301,9 @@
     [self setPressureField:nil];
     [self setSpeciesButton:nil];
     [self setViewButton:nil];
+    [self setMinPressureField:nil];
+
+    [self setPtSegmentControl:nil];
     [super viewDidUnload];
     NSLog(@"unloading main view");
             

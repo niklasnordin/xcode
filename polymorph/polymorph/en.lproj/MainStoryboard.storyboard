@@ -305,7 +305,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view opaque="NO" tag="-1" contentMode="scaleToFill" id="CTG-4u-vNp">
-                                <rect key="frame" x="0.0" y="98" width="320" height="3"/>
+                                <rect key="frame" x="0.0" y="139" width="320" height="3"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
@@ -315,12 +315,12 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
                             <view opaque="NO" userInteractionEnabled="NO" tag="-1" contentMode="scaleToFill" id="j3t-vm-vMk">
-                                <rect key="frame" x="0.0" y="179" width="320" height="3"/>
+                                <rect key="frame" x="7" y="238" width="320" height="3"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="P65-YT-eoN">
-                                <rect key="frame" x="20" y="206" width="280" height="94"/>
+                                <rect key="frame" x="20" y="249" width="280" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <state key="normal" title="View">
@@ -331,11 +331,10 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="clickedSelect:" destination="2" eventType="touchUpInside" id="33s-p2-tPm"/>
                                     <segue destination="i3I-7s-BDr" kind="push" identifier="drawViewSegue" id="ZbU-a4-6UX"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Temperature range [K]:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="k88-i2-umC">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Temperature [K]:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="k88-i2-umC">
                                 <rect key="frame" x="20" y="25" width="156" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -343,14 +342,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="300" borderStyle="roundedRect" placeholder="min" textAlignment="right" minimumFontSize="17" id="UTD-aW-ThJ">
-                                <rect key="frame" x="184" y="20" width="50" height="31"/>
+                                <rect key="frame" x="148" y="20" width="70" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="500" borderStyle="roundedRect" placeholder="max" textAlignment="right" minimumFontSize="17" id="3TX-59-8QB">
-                                <rect key="frame" x="250" y="20" width="50" height="31"/>
+                                <rect key="frame" x="230" y="20" width="70" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -363,8 +362,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.1" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" id="sDu-WC-BnO">
-                                <rect key="frame" x="170" y="59" width="130" height="31"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.1" borderStyle="roundedRect" placeholder="max" textAlignment="right" minimumFontSize="17" id="sDu-WC-BnO">
+                                <rect key="frame" x="230" y="59" width="70" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -374,14 +373,14 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Property" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="jRM-8o-Pz5">
-                                <rect key="frame" x="20" y="147" width="280" height="28"/>
+                                <rect key="frame" x="20" y="199" width="280" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JQq-Os-0vc">
-                                <rect key="frame" x="20" y="109" width="280" height="30"/>
+                                <rect key="frame" x="20" y="161" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Species">
@@ -410,6 +409,31 @@
                                     <segue destination="NEa-8V-GzM" kind="push" identifier="loadSegue" id="PHi-1E-Yus"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="min" minimumFontSize="17" id="jxF-Yw-ASI">
+                                <rect key="frame" x="148" y="59" width="70" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Constant:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="e7f-hz-kba">
+                                <rect key="frame" x="20" y="101" width="119" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="1Cw-wi-bIp">
+                                <rect key="frame" x="148" y="98" width="152" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Pressure"/>
+                                    <segment title="Temperature"/>
+                                </segments>
+                                <color key="tintColor" red="0.53725492949999998" green="0.61960786580000005" blue="0.5176470876" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <action selector="changedPTSwitch:" destination="2" eventType="valueChanged" id="9E8-pU-Ie7"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
@@ -421,8 +445,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="minPressureField" destination="jxF-Yw-ASI" id="Rhi-UN-kCE"/>
                         <outlet property="pressureField" destination="sDu-WC-BnO" id="8nk-YX-zdE"/>
                         <outlet property="propertyDisplay" destination="jRM-8o-Pz5" id="cYN-iE-faL"/>
+                        <outlet property="ptSegmentControl" destination="1Cw-wi-bIp" id="4hr-dz-xUS"/>
                         <outlet property="speciesButton" destination="JQq-Os-0vc" id="Yrh-Qk-sLA"/>
                         <outlet property="temperatureMax" destination="3TX-59-8QB" id="iAD-ZX-jvu"/>
                         <outlet property="temperatureMin" destination="UTD-aW-ThJ" id="HiW-02-mX0"/>
@@ -441,7 +467,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="For suggestions or other ways of improvement please mail me at niklas.nordin@nequam.se" id="MIW-H5-mlQ">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="For suggestions or other ways of improvement please mail me at niklas.nordin@nequam.se          " id="MIW-H5-mlQ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -652,7 +678,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -686,91 +712,6 @@
             <point key="canvasLocation" x="751" y="-2"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="coefficientTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/coefficientTableViewController.h"/>
-        </class>
-        <class className="commentVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/commentVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="commentTextView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="dbTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/dbTableViewController.h"/>
-        </class>
-        <class className="diagramView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/diagramView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="xMaxLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="xMinLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="yMaxLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="yMidLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="yMinLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="diagramViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/diagramViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="generateTable:"/>
-                <relationship kind="outlet" name="dview" candidateClass="diagramView"/>
-            </relationships>
-        </class>
-        <class className="functionView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/functionView.h"/>
-        </class>
-        <class className="helpViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/helpViewController.h"/>
-        </class>
-        <class className="loadDatabaseViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/loadDatabaseViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="exportButton:"/>
-                <relationship kind="action" name="linkFieldEnter:"/>
-                <relationship kind="action" name="loadButton:"/>
-                <relationship kind="action" name="mergeButton:"/>
-                <relationship kind="action" name="saveButton:"/>
-                <relationship kind="outlet" name="linkTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="statusTextField" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="polymorphViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/polymorphViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clickedSelect:"/>
-                <relationship kind="action" name="clickedSpecieButton:"/>
-                <relationship kind="action" name="enterPressureText:" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="pressureField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="propertyDisplay" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="speciesButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="temperatureMax" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="temperatureMin" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="viewButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="propertyTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/propertyTableViewController.h"/>
-        </class>
-        <class className="setPropertyViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/setPropertyViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clickedFunctionButton:"/>
-                <relationship kind="action" name="clickedInfoButton:"/>
-                <relationship kind="action" name="maxPressureEnter:" candidateClass="UITextField"/>
-                <relationship kind="action" name="maxTempEnter:" candidateClass="UITextField"/>
-                <relationship kind="action" name="minPressureEnter:" candidateClass="UITextField"/>
-                <relationship kind="action" name="minTempEnter:" candidateClass="UITextField"/>
-                <relationship kind="action" name="unitEnter:" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="clickedCoefficientsButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="functionButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="maxPressureField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="maxTemperatureField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="minPressureField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="minTemperatureField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="unitField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
