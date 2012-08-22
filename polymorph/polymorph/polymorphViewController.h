@@ -15,6 +15,7 @@
     UIActionSheetDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *speciesButton;
 
+@property (strong, nonatomic) IBOutlet UILabel *constantTextLabel;
 @property (strong, nonatomic) IBOutlet UILabel *propertyDisplay;
 @property (strong, nonatomic) IBOutlet UITextField *temperatureMin;
 @property (strong, nonatomic) IBOutlet UITextField *temperatureMax;

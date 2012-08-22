@@ -110,9 +110,10 @@ static NSString *name = @"fundamentalJacobsen";
 -(double)rho:(double)pressure T:(double)T
 {
     
+    /*
     double t = _tc/T;
     double pv = [self Pv:T];
-    /*
+    
     //    echo "Pv($T) = $pv Pa.<br>\n";
     $r = 0.0;
     

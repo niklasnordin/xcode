@@ -413,7 +413,7 @@
                                 <rect key="frame" x="148" y="59" width="70" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Constant:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="e7f-hz-kba">
                                 <rect key="frame" x="20" y="101" width="119" height="21"/>
@@ -445,6 +445,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="constantTextLabel" destination="e7f-hz-kba" id="4xQ-gd-LLI"/>
                         <outlet property="minPressureField" destination="jxF-Yw-ASI" id="Rhi-UN-kCE"/>
                         <outlet property="pressureField" destination="sDu-WC-BnO" id="8nk-YX-zdE"/>
                         <outlet property="propertyDisplay" destination="jRM-8o-Pz5" id="cYN-iE-faL"/>

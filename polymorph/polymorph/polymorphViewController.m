@@ -25,6 +25,7 @@
 @end
 
 @implementation polymorphViewController
+@synthesize constantTextLabel = _constantTextLabel;
 @synthesize ptSegmentControl = _ptSegmentControl;
 @synthesize minPressureField = _minPressureField;
 
@@ -105,25 +106,25 @@
 
 - (IBAction)changedPTSwitch:(UISegmentedControl *)sender
 {
-    if (!_pressureDependent)
+    //NSLog(@"pd = %d",_pressureDependent);
+    if (_pressureDependent)
     {
-    int s = [sender selectedSegmentIndex];
-    if (s != _selectedConstantProperty)
-    {
-        NSLog(@"changed");
-        _selectedConstantProperty = s;
-        if (s == 0) {
-            //pressure is selected
-            [_minPressureField setHidden:YES];
-            [_temperatureMin setHidden:NO];
-        }
-        else
+        int s = [sender selectedSegmentIndex];
+        if (s != _selectedConstantProperty)
         {
-            // temperature is selected
-            [_minPressureField setHidden:NO];
-            [_temperatureMin setHidden:YES];
+            _selectedConstantProperty = s;
+            if (s == 0) {
+                //pressure is selected
+                [_minPressureField setHidden:YES];
+                [_temperatureMin setHidden:NO];
+            }
+            else
+            {
+                // temperature is selected
+                [_minPressureField setHidden:NO];
+                [_temperatureMin setHidden:YES];
+            }
         }
-    }
     }
 }
 
@@ -165,9 +166,11 @@
     NSString *propertiesText = @"No database loaded";
     NSString *unitText = @"";
     
-    [_pressureField setPlaceholder:@"pressure"];
+    [_pressureField setPlaceholder:@"max"];
     _pressureDependent = NO;
-
+    [_ptSegmentControl setHidden:YES];
+    [_constantTextLabel setHidden:YES];
+    
     if ([species count])
     {
         if (_currentRow >= [species count])
@@ -208,7 +211,11 @@
             {
                 [_pressureField setEnabled:YES];
                 [self checkPressureInput:_pressureField];
+                [self checkPressureInput:_minPressureField];
                 _pressureDependent = YES;
+                [_ptSegmentControl setHidden:NO];
+                [_constantTextLabel setHidden:NO];
+
             }
             else
             {
@@ -245,6 +252,7 @@
     _temperatureMin.delegate = self;
     _temperatureMax.delegate = self;
     _pressureField.delegate = self;
+    _minPressureField.delegate = self;
     
     // load the database and initiate it
     _selector = [[functions alloc] init];
@@ -304,6 +312,7 @@
     [self setMinPressureField:nil];
 
     [self setPtSegmentControl:nil];
+    [self setConstantTextLabel:nil];
     [super viewDidUnload];
     NSLog(@"unloading main view");
             
@@ -417,8 +426,9 @@
     {
         double tMin = [self.temperatureMin.text doubleValue];
         double tMax = [self.temperatureMax.text doubleValue];
-        double p = [self.pressureField.text doubleValue];
-        
+        double pMin = 1.0e+6*[self.minPressureField.text doubleValue];
+        double pMax = 1.0e+6*[self.pressureField.text doubleValue];
+
         NSArray *species = self.db.species;
         NSString *selectedSpecie = [species objectAtIndex:self.currentRow];
         NSDictionary *propertiesDict = [self.db.json objectForKey:selectedSpecie];
@@ -433,12 +443,28 @@
         [segue.destinationViewController setSpecie:selectedSpecie];
         [segue.destinationViewController setProperty:selectedProperty];
         
-        [segue.destinationViewController setup:_function
-                                          dict:propDict
-                                           min:tMin
-                                           max:tMax
-                                      pressure:p];
+        // pressure is the constant property
+        if (_selectedConstantProperty == 0)
+        {
+            [segue.destinationViewController setup:_function
+                                              dict:propDict
+                                               min:tMin
+                                               max:tMax
+                                               cpv:pMax];
+            [segue.destinationViewController setXIsT:YES];
+            //[[segue.destinationViewController dview] setXIsT:YES];
+        }
         
+        if (_selectedConstantProperty == 1)
+        {
+            [segue.destinationViewController setup:_function
+                                              dict:propDict
+                                               min:pMin
+                                               max:pMax
+                                               cpv:tMax];
+            [segue.destinationViewController setXIsT:NO];
+            //[[segue.destinationViewController dview] setXIsT:NO];
+        }
         NSString *title = [NSString stringWithFormat:@"%@, %@",selectedSpecie, selectedProperty];
         [segue.destinationViewController setTitle:title];
     }

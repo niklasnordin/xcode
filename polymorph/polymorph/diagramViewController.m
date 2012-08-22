@@ -55,13 +55,13 @@
         dict:(NSDictionary *)dict
          min:(double)Tmin
          max:(double)Tmax
-    pressure:(double)p
+         cpv:(double)cpv
 {
     [self setFunction:f];
     _dict = dict;
     _xMin = Tmin;
     _xMax = Tmax;
-    _pressure = p;
+    _cpv = cpv;
 }
 
 -(void) setDview:(diagramView *)dview
@@ -79,7 +79,8 @@
     
     [_dview setFunction:_function];
     [_dview setDict:_dict];
-    [_dview setPressure:_pressure];
+    [_dview setCpv:_cpv];
+    [_dview setXIsT:_xIsT];
     [_dview setup:self.xMin max:self.xMax];
 }
 
@@ -122,13 +123,22 @@
 {
     if (buttonIndex == 1)
     {
-        //NSLog(@"Clicked OK");
         
         NSMutableString *output = [[NSMutableString alloc] init];
         int nPoints = [[[alertView textFieldAtIndex:0] text] intValue];
-        for (int i=0; i<nPoints; i++) {
+        for (int i=0; i<nPoints; i++)
+        {
             double x = _dview.xMin + (_dview.xMax -_dview.xMin)*i/(nPoints-1.0);
-            double y = [_function value:_coeffs T:x p:_pressure];
+            double y = 0.0;
+            if (_xIsT)
+            {
+                y = [_function value:_coeffs T:x p:_cpv];
+            }
+            else
+            {
+                y = [_function value:_coeffs T:_cpv p:x];
+
+            }
             output = [NSMutableString stringWithFormat:@"%@%g %g\n", output, x,y];
         }
         
@@ -141,7 +151,7 @@
         [mailer addAttachmentData:att mimeType:@"text/plain" fileName:filename];
         [mailer setMessageBody:msg isHTML:NO];
         [mailer setSubject:filename];
-        //[mailer setSi
+
         [self presentModalViewController:mailer animated:YES];
     }
 }

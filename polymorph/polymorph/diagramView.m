@@ -62,15 +62,20 @@ static NSUInteger nx = 640;//640;
     
     _yMin = 1.0e+15;
     _yMax = -1.0e+15;
-    
-    double p = 1.0e+6*self.pressure;
-    
+        
     for (int i=0; i<nx; i++) 
     {
         double xi = _xMin + i*(_xMax - _xMin)/(nx-1);
-        //double yi = 2.0*xi -xi*xi;
+        double yi = 0.0;
         
-        double yi = [[self function] value:self.coeffs T:xi p:p];
+        if (_xIsT) {
+            yi = [[self function] value:self.coeffs T:xi p:_cpv];
+        }
+        else
+        {
+            yi = [[self function] value:self.coeffs T:_cpv p:xi];
+        }
+        
         if (yi < _yMin) _yMin = yi;
         if (yi > _yMax) _yMax = yi;
     }
@@ -104,11 +109,22 @@ static NSUInteger nx = 640;//640;
 
     _coeffs = cs;
 
-    NSDictionary *rangeDict = [self.dict objectForKey:@"temperatureRange"];
-    NSNumber *lr = [rangeDict objectForKey:@"min"];
-    NSNumber *ur = [rangeDict objectForKey:@"max"];
-    _lowerRange = [lr doubleValue];
-    _upperRange = [ur doubleValue];
+    if (_xIsT)
+    {
+        NSDictionary *rangeDict = [self.dict objectForKey:@"temperatureRange"];
+        NSNumber *lr = [rangeDict objectForKey:@"min"];
+        NSNumber *ur = [rangeDict objectForKey:@"max"];
+        _lowerRange = [lr doubleValue];
+        _upperRange = [ur doubleValue];
+    }
+    else
+    {
+        NSDictionary *rangeDict = [self.dict objectForKey:@"pressureRange"];
+        NSNumber *lr = [rangeDict objectForKey:@"min"];
+        NSNumber *ur = [rangeDict objectForKey:@"max"];
+        _lowerRange = [lr doubleValue];
+        _upperRange = [ur doubleValue];
+    }
     
     [self fitToView:self];
 }
@@ -304,7 +320,13 @@ static NSUInteger nx = 640;//640;
     self.yMinLabel.text = [NSString stringWithFormat:@"%g", self.yMin];
     self.yMaxLabel.text = [NSString stringWithFormat:@"%g", self.yMax];
     
-    self.xMinLabel.text = [NSString stringWithFormat:@"%g", self.xMin];
+    double xv = self.xMin;
+    if (!_xIsT)
+    {
+        xv *= 1.0e-6;
+    }
+    self.xMinLabel.text = [NSString stringWithFormat:@"%g", xv];
+    
     if (_xMin < _lowerRange)
     {
         self.xMinLabel.textColor = [UIColor redColor];
@@ -314,7 +336,12 @@ static NSUInteger nx = 640;//640;
         self.xMinLabel.textColor = [UIColor whiteColor];
     }
     
-    self.xMaxLabel.text = [NSString stringWithFormat:@"%g", self.xMax];
+    xv = self.xMax;
+    if (!_xIsT)
+    {
+        xv *= 1.0e-6;
+    }
+    self.xMaxLabel.text = [NSString stringWithFormat:@"%g", xv];
     if (_xMax > _upperRange)
     {
         self.xMaxLabel.textColor = [UIColor redColor];
@@ -324,7 +351,13 @@ static NSUInteger nx = 640;//640;
         self.xMaxLabel.textColor = [UIColor whiteColor];
     }
     
-    self.yMidLabel.text = [NSString stringWithFormat:@"%g, %g", self.xMid,self.yMid];
+    xv = self.xMid;
+    if (!_xIsT)
+    {
+        xv *= 1.0e-6;
+    }
+    
+    self.yMidLabel.text = [NSString stringWithFormat:@"%g, %g", xv, self.yMid];
     
     CGPoint pos = [diagramView mapPoint:self X:self.xMid Y:self.yMid];
 
@@ -353,14 +386,22 @@ static NSUInteger nx = 640;//640;
     CGContextBeginPath(context);
             
     NSArray *cf = self.coeffs;
-    double p = 1.0e+6*self.pressure;
     
     NSMutableArray *pp = [[NSMutableArray alloc] init];
     
     for (int i=0; i<nx; i++)
     {        
         double xi = _xMin + i*(_xMax - _xMin)/(nx-1);
-        double yi = [_function value:cf T:xi p:p];
+        double yi = 0.0;
+        if (_xIsT)
+        {
+            yi = [_function value:cf T:xi p:_cpv];
+        }
+        else
+        {
+            yi = [_function value:cf T:_cpv p:xi];
+        }
+        
         CGPoint p0 = [diagramView mapPoint:self X:xi Y:yi];
         [pp addObject:[NSValue valueWithCGPoint:p0]];
     }
@@ -396,7 +437,14 @@ static NSUInteger nx = 640;//640;
      */
     
     _xMid = 0.5*(_xMin + _xMax);
-    _yMid = [[self function] value:self.coeffs T:_xMid p:p];
+    if (_xIsT)
+    {
+        _yMid = [[self function] value:self.coeffs T:_xMid p:_cpv];
+    }
+    else
+    {
+        _yMid = [[self function] value:self.coeffs T:_cpv p:_xMid];
+    }
     
     CGContextStrokePath(context);
     
