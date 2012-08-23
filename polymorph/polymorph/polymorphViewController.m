@@ -241,6 +241,12 @@
     [self.speciesButton setTitle:speciesText forState:UIControlStateNormal];
     _propertyDisplay.text = [NSString stringWithFormat:@"%@ [%@]", propertiesText, unitText];
 
+    if (!_pressureDependent)
+    {
+        [_temperatureMin setHidden:NO];
+        [_minPressureField setHidden:YES];
+    }
+    
     [_picker reloadAllComponents];
 
 }
