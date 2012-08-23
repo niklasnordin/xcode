@@ -168,6 +168,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:_db.json forKey:@"database"];
     [defaults setObject:_linkTextField.text forKey:@"link"];
+    
     [defaults synchronize];
     [self.statusTextField setText:@"Database saved"];
     [_parent setLink:_linkTextField.text];

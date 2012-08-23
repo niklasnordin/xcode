@@ -273,11 +273,11 @@
         _db.json = [[NSMutableDictionary alloc] init];
     }
     _link = [defaults objectForKey:@"link"];
-    //NSNumber *row = [defaults objectForKey:@"currentRow"];
-    //NSNumber *prop = [defaults objectForKey:@"currentProperty"];
+    NSNumber *row = [defaults objectForKey:@"currentRow"];
+    NSNumber *prop = [defaults objectForKey:@"currentProperty"];
 
-    _currentRow = 0;
-    _currentProperty = 0;
+    _currentRow = [row intValue]; // 0 default
+    _currentProperty = [prop intValue];
     
 	// Do any additional setup after loading the view, typically from a nib.
     
@@ -302,11 +302,22 @@
     return YES;
 }
 
-- (void)viewDidUnload
+- (void)save
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:_link forKey:@"link"];
+    NSNumber *cr = [[NSNumber alloc] initWithInt:_currentRow];
+    NSNumber *cp = [[NSNumber alloc] initWithInt:_currentProperty];
+    
+    [defaults setObject:cr forKey:@"currentRow"];
+    [defaults setObject:cp forKey:@"currentProperty"];
     [defaults synchronize];
+}
+
+- (void)viewDidUnload
+{
+
+    [self save];
     
     [self setPicker:nil];
     [self setTemperatureMin:nil];

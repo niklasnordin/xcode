@@ -55,7 +55,7 @@ static NSString *name = @"pengRobinson";
     double zB = capA - 3.0*capB*capB - 2.0*capB;
     double zC = -capB*(capA - capB - capB*capB);
     
-    NSArray *rts = [Polynomial solveThirdOrder:zA coeffB:zB coeffC:zC];
+    NSArray *rts = [Polynomial solveThirdOrderReal:zA coeffB:zB coeffC:zC];
     
     if ([rts count] == 1)
     {

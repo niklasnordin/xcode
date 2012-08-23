@@ -71,4 +71,54 @@
     return sol;
 }
 
+// x^3 + a*x^2 + b*x + c = 0
+// A     B       C     D
++ (NSMutableArray *)solveThirdOrderReal:(double)ca coeffB:(double)cb coeffC:(double)cc
+{
+    NSMutableArray *sol = [[NSMutableArray alloc] init];
+  
+    // x = t - ca/3.0 transformation
+    // t^3 + pt + q = 0;
+    double p = cb - ca*ca/3.0;
+    double q = (2.0*ca*ca*ca - 9.0*ca*cb + 27.0*cc)/27.0;
+    
+    // requirement for only real roots
+    if (p <= 0.0)
+    {
+        double r = sqrt(-4.0*p/3.0);
+        double arg = -4.0*q/r/r/r;
+        double chk = 4*p*p*p + 27.0*q*q;
+        if (chk > 0.0)
+        {
+            //NSLog(@"argument > 1, arg = %g",arg);
+            double r = -2.0*fabs(q)/q*sqrt(-p/3.0)*cosh(acosh(-3.0/2.0*fabs(q)/p*sqrt(-3.0/p))/3.0) - ca/3.0;
+            Complex *z = [[Complex alloc] initWithRe:r];
+            [sol addObject:z];
+        }
+        else
+        {
+            double tp3 = M_PI*2.0/3.0;
+            double a = acos(arg)/3.0;
+            double r1 = r*cos(a) - ca/3.0;
+            double r2 = r*cos(a+tp3) - ca/3.0;
+            double r3 = r*cos(a-tp3) - ca/3.0;
+            Complex *z1 = [[Complex alloc] initWithRe:r1];
+            Complex *z2 = [[Complex alloc] initWithRe:r2];
+            Complex *z3 = [[Complex alloc] initWithRe:r3];
+            [sol addObject:z1];
+            [sol addObject:z2];
+            [sol addObject:z3];
+        }
+    }
+    else
+    {
+        //NSLog(@"Error no 3 real roots");
+        double r = -2.0*sqrt(p/3.0)*sinh(asinh(3.0*q*sqrt(3.0/p)/2.0/p)/3.0) - ca/3.0;
+        Complex *z = [[Complex alloc] initWithRe:r];
+        [sol addObject:z];
+
+    }
+    return sol;
+}
+
 @end
