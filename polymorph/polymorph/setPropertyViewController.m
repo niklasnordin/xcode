@@ -301,6 +301,7 @@
     {
         NSString *name = [propertyDict objectForKey:@"function"];
         [segue.destinationViewController setFunctionName:name];
+        [segue.destinationViewController setTitle:name];
     }
 }
 
