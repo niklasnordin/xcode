@@ -183,7 +183,14 @@
         {
             MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
             mailer.mailComposeDelegate = self;
-            NSString *msg = [NSString stringWithFormat:@"%@",_db.json];
+            //NSString *msg = [NSString stringWithFormat:@"%@",_db.json];
+            NSError *error = nil;
+            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:_db.json
+                                                               options:NSJSONWritingPrettyPrinted
+                                                                 error:&error];
+            NSString *msg = [[NSString alloc] initWithData:jsonData
+                                                         encoding:NSUTF8StringEncoding];
+            //NSLog(@"%@",msg);
             NSData *att = [msg dataUsingEncoding:[NSString defaultCStringEncoding]];
             //[mailer setMessageBody:msg isHTML:NO];
             [mailer setMessageBody:@"sent from propertyView" isHTML:NO];
