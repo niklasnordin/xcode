@@ -48,7 +48,7 @@ static NSString *name = @"nsrds_0";
 
 - (NSString *)equationText
 {
-    return @"";
+    return @"y=A0 + A1*T + A2*T^2 + A3*T^3 + A4*T^4 + A5*T^5";
 }
 
 @end

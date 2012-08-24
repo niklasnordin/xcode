@@ -43,6 +43,8 @@
 
     [info setContentMode:UIViewContentModeTopLeft];
     [info setImage:infoImage];
+    
+    eqText.text = _equation;
 }
 
 - (void)viewDidUnload

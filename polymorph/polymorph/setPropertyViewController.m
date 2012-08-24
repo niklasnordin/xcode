@@ -301,12 +301,12 @@
     if ([segue.identifier isEqualToString:@"equationSegue"])
     {
         NSString *name = [propertyDict objectForKey:@"function"];
-        Class functionClass = (NSClassFromString(functionName));
+        Class functionClass = (NSClassFromString(name));
         
-        id f = [[functionClass alloc] init];
-        //NSString *eqText =
+        id<functionValue> f = [[functionClass alloc] init];
+        NSString *eqText = f.equationText;
         [segue.destinationViewController setFunctionName:name];
-        
+        [segue.destinationViewController setEquation:eqText];
         [segue.destinationViewController setTitle:name];
     }
 }
