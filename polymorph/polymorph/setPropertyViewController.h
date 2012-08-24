@@ -36,6 +36,4 @@ UIPickerViewDataSource, UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *clickedCoefficientsButton;
 - (IBAction)unitEnter:(UITextField *)sender;
 
-- (IBAction)clickedInfoButton:(id)sender;
-
 @end

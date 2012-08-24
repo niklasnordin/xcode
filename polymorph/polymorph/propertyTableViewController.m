@@ -29,7 +29,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //NSLog(@"properties = %@", _properties);
     //_propertyNames = [_properties allKeys];
     
     // Uncomment the following line to preserve selection between presentations.

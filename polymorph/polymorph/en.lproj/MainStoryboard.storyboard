@@ -140,7 +140,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="clickedInfoButton:" destination="zFj-dP-f3u" eventType="touchUpInside" id="uEJ-7t-cVz"/>
                                     <segue destination="Izc-Gv-bjG" kind="push" identifier="equationSegue" id="Uoq-uG-xRr"/>
                                 </connections>
                             </button>
@@ -306,7 +305,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="OnJ-1l-ga7">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                         </subviews>
@@ -315,6 +314,9 @@
                     <navigationItem key="navigationItem" title="Information" id="XvO-vc-TOM">
                         <barButtonItem key="backBarButtonItem" title="Function" id="4Aj-4J-Ty7"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="image" destination="OnJ-1l-ga7" id="CUU-gj-dM2"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="2526" y="-2"/>
@@ -505,6 +507,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Help" id="6TI-Oa-jSF"/>
+                    <connections>
+                        <outlet property="textField" destination="MIW-H5-mlQ" id="lbC-xu-4gy"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1170" y="607"/>
@@ -572,7 +577,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0Zy-Id-p1s">
-                                <rect key="frame" x="20" y="207" width="280" height="37"/>
+                                <rect key="frame" x="20" y="236" width="280" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Save">
@@ -587,7 +592,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="We2-xS-SW0">
-                                <rect key="frame" x="20" y="252" width="280" height="37"/>
+                                <rect key="frame" x="20" y="281" width="280" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Export">
@@ -736,6 +741,102 @@
             <point key="canvasLocation" x="751" y="-2"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="coefficientTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/coefficientTableViewController.h"/>
+        </class>
+        <class className="commentVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/commentVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="commentTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="dbTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/dbTableViewController.h"/>
+        </class>
+        <class className="diagramView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/diagramView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="xMaxLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="xMinLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="yMaxLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="yMidLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="yMinLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="diagramViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/diagramViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="generateTable:"/>
+                <relationship kind="outlet" name="dview" candidateClass="diagramView"/>
+            </relationships>
+        </class>
+        <class className="equationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/equationViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="functionView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/functionView.h"/>
+        </class>
+        <class className="helpViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/helpViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="textField" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="loadDatabaseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/loadDatabaseViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="exportButton:"/>
+                <relationship kind="action" name="linkFieldEnter:"/>
+                <relationship kind="action" name="loadButton:"/>
+                <relationship kind="action" name="mergeButton:"/>
+                <relationship kind="action" name="saveButton:"/>
+                <relationship kind="outlet" name="linkTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="statusTextField" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="polymorphViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/polymorphViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="changedPTSwitch:" candidateClass="UISegmentedControl"/>
+                <relationship kind="action" name="clickedSpecieButton:"/>
+                <relationship kind="action" name="enterPressureText:" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="constantTextLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="minPressureField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="pressureField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="propertyDisplay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ptSegmentControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="speciesButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="temperatureMax" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="temperatureMin" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="viewButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="propertyTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/propertyTableViewController.h"/>
+        </class>
+        <class className="setPropertyViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/setPropertyViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clickedFunctionButton:"/>
+                <relationship kind="action" name="maxPressureEnter:" candidateClass="UITextField"/>
+                <relationship kind="action" name="maxTempEnter:" candidateClass="UITextField"/>
+                <relationship kind="action" name="minPressureEnter:" candidateClass="UITextField"/>
+                <relationship kind="action" name="minTempEnter:" candidateClass="UITextField"/>
+                <relationship kind="action" name="unitEnter:" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="clickedCoefficientsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="functionButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="maxPressureField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="maxTemperatureField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="minPressureField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="minTemperatureField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="unitField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

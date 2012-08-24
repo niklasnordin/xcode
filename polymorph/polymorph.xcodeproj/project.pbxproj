@@ -29,6 +29,7 @@
 		616F63F715E12FF6001861E6 /* fundamentalJacobsen.m in Sources */ = {isa = PBXBuildFile; fileRef = 616F63F615E12FF6001861E6 /* fundamentalJacobsen.m */; };
 		617C7C7415E7BDB100B11073 /* nsrds_6.m in Sources */ = {isa = PBXBuildFile; fileRef = 617C7C7315E7BDB100B11073 /* nsrds_6.m */; };
 		617C7C7815E7C42C00B11073 /* equationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 617C7C7715E7C42B00B11073 /* equationViewController.m */; };
+		617C7C7A15E7C8E900B11073 /* nsrds_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7C7915E7C8E900B11073 /* nsrds_0.png */; };
 		61807D7815D42BF7008E012C /* setPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D7715D42BF7008E012C /* setPropertyViewController.m */; };
 		61807D8315D54D16008E012C /* coefficientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D8215D54D16008E012C /* coefficientTableViewController.m */; };
 		618FFDA415DD705900008703 /* RollerUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FFDA315DD705900008703 /* RollerUIButton.m */; };
@@ -94,6 +95,7 @@
 		617C7C7315E7BDB100B11073 /* nsrds_6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nsrds_6.m; sourceTree = "<group>"; };
 		617C7C7615E7C42B00B11073 /* equationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = equationViewController.h; sourceTree = "<group>"; };
 		617C7C7715E7C42B00B11073 /* equationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = equationViewController.m; sourceTree = "<group>"; };
+		617C7C7915E7C8E900B11073 /* nsrds_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nsrds_0.png; sourceTree = "<group>"; };
 		61807D7615D42BF7008E012C /* setPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setPropertyViewController.h; sourceTree = "<group>"; };
 		61807D7715D42BF7008E012C /* setPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setPropertyViewController.m; sourceTree = "<group>"; };
 		61807D8115D54D16008E012C /* coefficientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coefficientTableViewController.h; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		6164629015B7F705006B703D /* polymorph */ = {
 			isa = PBXGroup;
 			children = (
+				6164629C15B7F706006B703D /* MainStoryboard.storyboard */,
 				61A5CE8915C2E88A00937EA8 /* Documents */,
 				61A5CE8315C2D6DA00937EA8 /* database.h */,
 				61A5CE8415C2D6DA00937EA8 /* database.m */,
@@ -194,7 +197,6 @@
 				616462BB15BFC896006B703D /* diagramViewController.m */,
 				6164629915B7F706006B703D /* polymorphAppDelegate.h */,
 				6164629A15B7F706006B703D /* polymorphAppDelegate.m */,
-				6164629C15B7F706006B703D /* MainStoryboard.storyboard */,
 				617C7C7615E7C42B00B11073 /* equationViewController.h */,
 				617C7C7715E7C42B00B11073 /* equationViewController.m */,
 				61BA3AE915DFCA2700928715 /* helpViewController.h */,
@@ -269,6 +271,7 @@
 		61A5CE8915C2E88A00937EA8 /* Documents */ = {
 			isa = PBXGroup;
 			children = (
+				617C7C7915E7C8E900B11073 /* nsrds_0.png */,
 				61BA3AE115DFAB7400928715 /* Icon@2x.png */,
 				61BA3ADF15DFAB6C00928715 /* Icon.png */,
 				61BA3AD115DD756700928715 /* ni-banding-free-gradient.jpg */,
@@ -335,6 +338,7 @@
 				61BA3AD215DD756700928715 /* ni-banding-free-gradient.jpg in Resources */,
 				61BA3AE015DFAB6C00928715 /* Icon.png in Resources */,
 				61BA3AE215DFAB7500928715 /* Icon@2x.png in Resources */,
+				617C7C7A15E7C8E900B11073 /* nsrds_0.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

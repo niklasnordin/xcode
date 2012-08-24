@@ -107,7 +107,7 @@
 
 - (IBAction)changedPTSwitch:(UISegmentedControl *)sender
 {
-    //NSLog(@"pd = %d",_pressureDependent);
+
     if (_pressureDependent)
     {
         int s = [sender selectedSegmentIndex];
@@ -332,7 +332,6 @@
     [self setPtSegmentControl:nil];
     [self setConstantTextLabel:nil];
     [super viewDidUnload];
-    NSLog(@"unloading main view");
             
     // Release any retained subviews of the main view.
 }

@@ -10,4 +10,6 @@
 
 @interface helpViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITextView *textField;
+
 @end

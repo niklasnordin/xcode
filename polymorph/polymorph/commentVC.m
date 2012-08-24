@@ -28,6 +28,7 @@
 {
     [super viewDidLoad];
     _commentTextView.delegate = self;
+    [_commentTextView becomeFirstResponder];
     _commentTextView.text = _comment;
 	// Do any additional setup after loading the view.
 }
@@ -37,7 +38,6 @@
     [self setCommentTextView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    //NSLog(@"comment view unloaded");
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -49,7 +49,6 @@
 {
     _comment = [textView text];
     [_dict setObject:_comment forKey:@"comment"];
-    //NSString *specie = [self.presentingViewController specie];
 
     return YES;
 }

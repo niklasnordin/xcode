@@ -275,24 +275,32 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
+    NSMutableDictionary *speciesDict = [_db.json objectForKey:_specie];
+    NSMutableDictionary *propertyDict = [speciesDict objectForKey:_property];
+    
     if ([segue.identifier isEqualToString:@"coefficientsSegue"])
     {
-        NSMutableDictionary *speciesDict = [_db.json objectForKey:_specie];
-        NSMutableDictionary *propertyDict = [speciesDict objectForKey:_property];
-    
+
         NSMutableArray *coeffs = [propertyDict objectForKey:@"coefficients"];
+        
         [segue.destinationViewController setCoefficients:coeffs];
         [segue.destinationViewController setTitle:@"Coefficients"];
     }
     
     if ([segue.identifier isEqualToString:@"commentSegue"])
     {
-        NSMutableDictionary *speciesDict = [_db.json objectForKey:_specie];
-        NSMutableDictionary *propertyDict = [speciesDict objectForKey:_property];
-        
+ 
         NSString *comment = [propertyDict objectForKey:@"comment"];
+        
         [segue.destinationViewController setComment:comment];
         [segue.destinationViewController setDict:propertyDict];
+    }
+    
+    if ([segue.identifier isEqualToString:@"equationSegue"])
+    {
+        NSString *name = [propertyDict objectForKey:@"function"];
+        [segue.destinationViewController setFunctionName:name];
     }
 }
 
@@ -307,9 +315,4 @@
 
 }
 
-- (IBAction)clickedInfoButton:(id)sender
-{
-    NSLog(@"Clicked Info Button");
-    
-}
 @end

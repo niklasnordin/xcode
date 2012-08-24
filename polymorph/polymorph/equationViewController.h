@@ -10,4 +10,7 @@
 
 @interface equationViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIImageView *image;
+@property (strong,nonatomic) NSString *functionName;
+
 @end

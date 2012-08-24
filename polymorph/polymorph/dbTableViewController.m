@@ -148,7 +148,6 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      
      */
-    //NSLog(@"did select %@",indexPath);
     
 }
 

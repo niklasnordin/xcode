@@ -67,7 +67,6 @@
 -(void) setDview:(diagramView *)dview
 {
     // this is used before viewDidLoad
-    //NSLog(@"setDview");
     
     _dview = dview;
     [_dview addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self.dview action:@selector(pan:)]];
@@ -86,7 +85,6 @@
 
 - (void)viewDidLoad
 {
-    //NSLog(@"view did load");
     [super viewDidLoad];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
