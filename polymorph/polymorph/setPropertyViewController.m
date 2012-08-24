@@ -8,6 +8,8 @@
 
 #import "setPropertyViewController.h"
 #import "coefficientTableViewController.h"
+#import "equationViewController.h"
+
 #import "commentVC.h"
 #import "functions.h"
 

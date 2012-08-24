@@ -27,6 +27,8 @@
 		616462BC15BFC896006B703D /* diagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616462BB15BFC896006B703D /* diagramViewController.m */; };
 		616622F415CFF296008FB530 /* loadDatabaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616622F315CFF295008FB530 /* loadDatabaseViewController.m */; };
 		616F63F715E12FF6001861E6 /* fundamentalJacobsen.m in Sources */ = {isa = PBXBuildFile; fileRef = 616F63F615E12FF6001861E6 /* fundamentalJacobsen.m */; };
+		617C7C7415E7BDB100B11073 /* nsrds_6.m in Sources */ = {isa = PBXBuildFile; fileRef = 617C7C7315E7BDB100B11073 /* nsrds_6.m */; };
+		617C7C7815E7C42C00B11073 /* equationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 617C7C7715E7C42B00B11073 /* equationViewController.m */; };
 		61807D7815D42BF7008E012C /* setPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D7715D42BF7008E012C /* setPropertyViewController.m */; };
 		61807D8315D54D16008E012C /* coefficientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D8215D54D16008E012C /* coefficientTableViewController.m */; };
 		618FFDA415DD705900008703 /* RollerUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FFDA315DD705900008703 /* RollerUIButton.m */; };
@@ -88,6 +90,10 @@
 		616622F315CFF295008FB530 /* loadDatabaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loadDatabaseViewController.m; sourceTree = "<group>"; };
 		616F63F515E12FF6001861E6 /* fundamentalJacobsen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fundamentalJacobsen.h; sourceTree = "<group>"; };
 		616F63F615E12FF6001861E6 /* fundamentalJacobsen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fundamentalJacobsen.m; sourceTree = "<group>"; };
+		617C7C7215E7BDB100B11073 /* nsrds_6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nsrds_6.h; sourceTree = "<group>"; };
+		617C7C7315E7BDB100B11073 /* nsrds_6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nsrds_6.m; sourceTree = "<group>"; };
+		617C7C7615E7C42B00B11073 /* equationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = equationViewController.h; sourceTree = "<group>"; };
+		617C7C7715E7C42B00B11073 /* equationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = equationViewController.m; sourceTree = "<group>"; };
 		61807D7615D42BF7008E012C /* setPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setPropertyViewController.h; sourceTree = "<group>"; };
 		61807D7715D42BF7008E012C /* setPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setPropertyViewController.m; sourceTree = "<group>"; };
 		61807D8115D54D16008E012C /* coefficientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coefficientTableViewController.h; sourceTree = "<group>"; };
@@ -189,6 +195,8 @@
 				6164629915B7F706006B703D /* polymorphAppDelegate.h */,
 				6164629A15B7F706006B703D /* polymorphAppDelegate.m */,
 				6164629C15B7F706006B703D /* MainStoryboard.storyboard */,
+				617C7C7615E7C42B00B11073 /* equationViewController.h */,
+				617C7C7715E7C42B00B11073 /* equationViewController.m */,
 				61BA3AE915DFCA2700928715 /* helpViewController.h */,
 				61BA3AEA15DFCA2800928715 /* helpViewController.m */,
 				61BA3AE615DFC05D00928715 /* commentVC.h */,
@@ -234,6 +242,8 @@
 				61247A4D15C5976C004DB05F /* nsrds_1.m */,
 				61A5CE8A15C2F81E00937EA8 /* nsrds_5.h */,
 				61A5CE8B15C2F81E00937EA8 /* nsrds_5.m */,
+				617C7C7215E7BDB100B11073 /* nsrds_6.h */,
+				617C7C7315E7BDB100B11073 /* nsrds_6.m */,
 				61BA3AD415DD80BE00928715 /* janaf_cp.h */,
 				61BA3AD515DD80BE00928715 /* janaf_cp.m */,
 				61BA3AD715DD80E600928715 /* janaf_h.h */,
@@ -244,14 +254,14 @@
 				61BA3AE415DFACCC00928715 /* idealGasLaw.m */,
 				61EB3D6015E0CD0B009826F2 /* pengRobinson.h */,
 				61EB3D6115E0CD0B009826F2 /* pengRobinson.m */,
-				61EB3D6A15E0FAD3009826F2 /* Complex.h */,
-				61EB3D6B15E0FAD3009826F2 /* Complex.m */,
-				61EB3D6D15E0FB4C009826F2 /* Polynomial.h */,
-				61EB3D6E15E0FB4C009826F2 /* Polynomial.m */,
 				61EB3D7015E1064D009826F2 /* pengRobinsonLiquid.h */,
 				61EB3D7115E1064D009826F2 /* pengRobinsonLiquid.m */,
 				616F63F515E12FF6001861E6 /* fundamentalJacobsen.h */,
 				616F63F615E12FF6001861E6 /* fundamentalJacobsen.m */,
+				61EB3D6A15E0FAD3009826F2 /* Complex.h */,
+				61EB3D6B15E0FAD3009826F2 /* Complex.m */,
+				61EB3D6D15E0FB4C009826F2 /* Polynomial.h */,
+				61EB3D6E15E0FB4C009826F2 /* Polynomial.m */,
 			);
 			name = functions;
 			sourceTree = "<group>";
@@ -365,6 +375,8 @@
 				61EB3D6F15E0FB4C009826F2 /* Polynomial.m in Sources */,
 				61EB3D7215E1064D009826F2 /* pengRobinsonLiquid.m in Sources */,
 				616F63F715E12FF6001861E6 /* fundamentalJacobsen.m in Sources */,
+				617C7C7415E7BDB100B11073 /* nsrds_6.m in Sources */,
+				617C7C7815E7C42C00B11073 /* equationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

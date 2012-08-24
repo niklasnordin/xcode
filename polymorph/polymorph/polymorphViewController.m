@@ -39,6 +39,7 @@
     [_functionNames addObject:[nsrds_0 name]];
     [_functionNames addObject:[nsrds_1 name]];
     [_functionNames addObject:[nsrds_5 name]];
+    [_functionNames addObject:[nsrds_6 name]];
     
     [_functionNames addObject:[janaf_cp name]];
     [_functionNames addObject:[janaf_h name]];

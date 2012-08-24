@@ -11,6 +11,6 @@
 
 @interface pengRobinsonLiquid: NSObject <functionValue>
 
-+(NSString *)name;
+//+(NSString *)name;
 
 @end

@@ -11,6 +11,6 @@
 
 @interface idealGasLaw : NSObject <functionValue>
 
-+(NSString *)name;
+//+(NSString *)name;
 
 @end

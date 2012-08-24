@@ -11,6 +11,6 @@
 
 @interface janaf_cp : NSObject <functionValue>
 
-+(NSString *)name;
+//+(NSString *)name;
 
 @end

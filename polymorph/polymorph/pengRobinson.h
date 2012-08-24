@@ -11,6 +11,6 @@
 
 @interface pengRobinson : NSObject <functionValue>
 
-+(NSString *)name;
+//+(NSString *)name;
 
 @end

@@ -15,4 +15,6 @@
 -(bool) pressureDependent;
 -(NSString *) name;
 
++(NSString *)name;
+
 @end

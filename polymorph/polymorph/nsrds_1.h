@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "functionValue.h"
+
 @interface nsrds_1 : NSObject <functionValue>
 
-+(NSString *)name;
+//+(NSString *)name;
 
 @end
