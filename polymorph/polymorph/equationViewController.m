@@ -40,7 +40,7 @@
     NSString *infoName = [NSString stringWithFormat:@"%@_info.png",_functionName];
     UIImage *infoImage = [UIImage imageNamed:infoName];
 
-    [info setContentMode:UIViewContentModeScaleAspectFit];
+    [info setContentMode:UIViewContentModeTopLeft];
     [info setImage:infoImage];
 }
 
