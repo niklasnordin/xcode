@@ -12,6 +12,7 @@
 
 #import "commentVC.h"
 #import "functions.h"
+#import "functionValue.h"
 
 @interface setPropertyViewController ()
 @property (strong, nonatomic) UIPickerView *picker;
@@ -300,7 +301,12 @@
     if ([segue.identifier isEqualToString:@"equationSegue"])
     {
         NSString *name = [propertyDict objectForKey:@"function"];
+        Class functionClass = (NSClassFromString(functionName));
+        
+        id f = [[functionClass alloc] init];
+        //NSString *eqText =
         [segue.destinationViewController setFunctionName:name];
+        
         [segue.destinationViewController setTitle:name];
     }
 }

@@ -14,7 +14,7 @@
 -(int) nCoefficients;
 -(bool) pressureDependent;
 -(NSString *) name;
-
-+(NSString *)name;
+-(NSString *) equationText;
++(NSString *) name;
 
 @end

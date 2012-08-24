@@ -25,14 +25,6 @@ static NSString *name = @"janaf_s";
 -(double)value:(NSArray *)coeff T:(double)T p:(double)p
 {
     double a[self.nCoefficients];
-    a[0] = 0.0;
-    a[1] = 0.0;
-    a[2] = 0.0;
-    a[3] = 0.0;
-    a[4] = 0.0;
-    a[5] = 0.0;
-    a[6] = 0.0;
-    a[7] = 0.0;
 
     for(int i=0; i<self.nCoefficients; i++)
     {
@@ -53,6 +45,11 @@ static NSString *name = @"janaf_s";
 -(int)nCoefficients
 {
     return 8;
+}
+
+- (NSString *)equationText
+{
+    return @"";
 }
 
 @end

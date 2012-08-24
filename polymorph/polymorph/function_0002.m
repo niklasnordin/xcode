@@ -46,4 +46,9 @@ static NSString *name = @"function_0002";
     return 0;
 }
 
+- (NSString *)equationText
+{
+    return @"";
+}
+
 @end

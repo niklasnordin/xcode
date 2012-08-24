@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *image;
 @property (strong, nonatomic) IBOutlet UIImageView *info;
-@property (strong,nonatomic) NSString *functionName;
+@property (strong, nonatomic) NSString *functionName;
+@property (strong, nonatomic) NSString *equation;
+@property (strong, nonatomic) IBOutlet UITextView *eqText;
 
 @end

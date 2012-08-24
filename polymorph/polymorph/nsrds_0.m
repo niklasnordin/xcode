@@ -46,4 +46,9 @@ static NSString *name = @"nsrds_0";
     return 6;
 }
 
+- (NSString *)equationText
+{
+    return @"";
+}
+
 @end

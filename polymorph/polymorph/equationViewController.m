@@ -13,6 +13,7 @@
 @end
 
 @implementation equationViewController
+@synthesize eqText;
 @synthesize image;
 @synthesize info;
 
@@ -48,6 +49,7 @@
 {
     [self setImage:nil];
     [self setInfo:nil];
+    [self setEqText:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

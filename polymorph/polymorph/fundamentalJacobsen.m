@@ -203,4 +203,10 @@ static NSString *name = @"fundamentalJacobsen";
     return sum;
 }
 
+
+- (NSString *)equationText
+{
+    return @"";
+}
+
 @end

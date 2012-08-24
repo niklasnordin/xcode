@@ -47,4 +47,9 @@ static NSString *name = @"idealGasLaw";
     return 1;
 }
 
+- (NSString *)equationText
+{
+    return @"";
+}
+
 @end

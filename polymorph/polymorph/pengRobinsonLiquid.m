@@ -113,4 +113,9 @@ static NSString *name = @"pengRobinsonLiquid";
     return 4;
 }
 
+- (NSString *)equationText
+{
+    return @"";
+}
+
 @end
