@@ -1,0 +1,4 @@
+#!/bin/bash
+
+latex $1
+dvipng -bg Transparent -T tight -D 640 -z 9 $1.dvi -o $1.png
