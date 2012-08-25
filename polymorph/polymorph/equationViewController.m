@@ -13,9 +13,6 @@
 @end
 
 @implementation equationViewController
-@synthesize eqText;
-@synthesize image;
-@synthesize info;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,24 +31,27 @@
     NSString *fullName = [NSString stringWithFormat:@"%@.png",_functionName];
     
     UIImage *im = [UIImage imageNamed:fullName];
-
-    [image setContentMode:UIViewContentModeScaleAspectFit];
-    [image setImage:im];
+    [_image setContentMode:UIViewContentModeScaleAspectFit];
+    [_image setImage:im];
     
+    /*
     NSString *infoName = [NSString stringWithFormat:@"%@_info.png",_functionName];
     UIImage *infoImage = [UIImage imageNamed:infoName];
 
-    [info setContentMode:UIViewContentModeTopLeft];
+        //[info setContentMode:UIViewContentModeTopLeft];
+    [info setContentMode:UIViewContentModeScaleAspectFit];
+
     [info setImage:infoImage];
     
     eqText.text = _equation;
+     */
 }
 
 - (void)viewDidUnload
 {
     [self setImage:nil];
-    [self setInfo:nil];
-    [self setEqText:nil];
+    //[self setInfo:nil];
+    //[self setEqText:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

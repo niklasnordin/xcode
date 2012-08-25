@@ -29,13 +29,10 @@
 		616F63F715E12FF6001861E6 /* fundamentalJacobsen.m in Sources */ = {isa = PBXBuildFile; fileRef = 616F63F615E12FF6001861E6 /* fundamentalJacobsen.m */; };
 		617C7C7415E7BDB100B11073 /* nsrds_6.m in Sources */ = {isa = PBXBuildFile; fileRef = 617C7C7315E7BDB100B11073 /* nsrds_6.m */; };
 		617C7C7815E7C42C00B11073 /* equationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 617C7C7715E7C42B00B11073 /* equationViewController.m */; };
-		617C7C7A15E7C8E900B11073 /* nsrds_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7C7915E7C8E900B11073 /* nsrds_0.png */; };
-		617C7C7C15E7DDAC00B11073 /* nsrds_1_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7C7B15E7DDAC00B11073 /* nsrds_1_2.png */; };
 		617C7C7E15E7DE1D00B11073 /* nsrds_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7C7D15E7DE1D00B11073 /* nsrds_1.png */; };
 		617C7C8015E7E00C00B11073 /* nsrds_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7C7F15E7E00C00B11073 /* nsrds_5.png */; };
-		617C7C8215E7E27B00B11073 /* nsrds_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7C8115E7E27B00B11073 /* nsrds_6.png */; };
-		617C7C8415E7E37E00B11073 /* nsrds_6_info2.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7C8315E7E37E00B11073 /* nsrds_6_info2.png */; };
-		617C7C8E15E7EAD900B11073 /* nsrds_6_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7C8D15E7EAD900B11073 /* nsrds_6_info.png */; };
+		617C7CB415E9759900B11073 /* nsrds_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CB315E9759900B11073 /* nsrds_0.png */; };
+		617C7CBA15E97A8000B11073 /* nsrds_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CB915E97A8000B11073 /* nsrds_6.png */; };
 		61807D7815D42BF7008E012C /* setPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D7715D42BF7008E012C /* setPropertyViewController.m */; };
 		61807D8315D54D16008E012C /* coefficientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D8215D54D16008E012C /* coefficientTableViewController.m */; };
 		618FFDA415DD705900008703 /* RollerUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FFDA315DD705900008703 /* RollerUIButton.m */; };
@@ -101,13 +98,10 @@
 		617C7C7315E7BDB100B11073 /* nsrds_6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nsrds_6.m; sourceTree = "<group>"; };
 		617C7C7615E7C42B00B11073 /* equationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = equationViewController.h; sourceTree = "<group>"; };
 		617C7C7715E7C42B00B11073 /* equationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = equationViewController.m; sourceTree = "<group>"; };
-		617C7C7915E7C8E900B11073 /* nsrds_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nsrds_0.png; sourceTree = "<group>"; };
-		617C7C7B15E7DDAC00B11073 /* nsrds_1_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nsrds_1_2.png; sourceTree = "<group>"; };
 		617C7C7D15E7DE1D00B11073 /* nsrds_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nsrds_1.png; sourceTree = "<group>"; };
 		617C7C7F15E7E00C00B11073 /* nsrds_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nsrds_5.png; sourceTree = "<group>"; };
-		617C7C8115E7E27B00B11073 /* nsrds_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nsrds_6.png; sourceTree = "<group>"; };
-		617C7C8315E7E37E00B11073 /* nsrds_6_info2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nsrds_6_info2.png; sourceTree = "<group>"; };
-		617C7C8D15E7EAD900B11073 /* nsrds_6_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nsrds_6_info.png; sourceTree = "<group>"; };
+		617C7CB315E9759900B11073 /* nsrds_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nsrds_0.png; sourceTree = "<group>"; };
+		617C7CB915E97A8000B11073 /* nsrds_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nsrds_6.png; sourceTree = "<group>"; };
 		61807D7615D42BF7008E012C /* setPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setPropertyViewController.h; sourceTree = "<group>"; };
 		61807D7715D42BF7008E012C /* setPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setPropertyViewController.m; sourceTree = "<group>"; };
 		61807D8115D54D16008E012C /* coefficientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coefficientTableViewController.h; sourceTree = "<group>"; };
@@ -284,12 +278,9 @@
 			isa = PBXGroup;
 			children = (
 				617C7C7F15E7E00C00B11073 /* nsrds_5.png */,
-				617C7C7B15E7DDAC00B11073 /* nsrds_1_2.png */,
-				617C7C8315E7E37E00B11073 /* nsrds_6_info2.png */,
-				617C7C8115E7E27B00B11073 /* nsrds_6.png */,
-				617C7C8D15E7EAD900B11073 /* nsrds_6_info.png */,
+				617C7CB315E9759900B11073 /* nsrds_0.png */,
+				617C7CB915E97A8000B11073 /* nsrds_6.png */,
 				617C7C7D15E7DE1D00B11073 /* nsrds_1.png */,
-				617C7C7915E7C8E900B11073 /* nsrds_0.png */,
 				61BA3AE115DFAB7400928715 /* Icon@2x.png */,
 				61BA3ADF15DFAB6C00928715 /* Icon.png */,
 				61BA3AD115DD756700928715 /* ni-banding-free-gradient.jpg */,
@@ -356,13 +347,10 @@
 				61BA3AD215DD756700928715 /* ni-banding-free-gradient.jpg in Resources */,
 				61BA3AE015DFAB6C00928715 /* Icon.png in Resources */,
 				61BA3AE215DFAB7500928715 /* Icon@2x.png in Resources */,
-				617C7C7A15E7C8E900B11073 /* nsrds_0.png in Resources */,
-				617C7C7C15E7DDAC00B11073 /* nsrds_1_2.png in Resources */,
 				617C7C7E15E7DE1D00B11073 /* nsrds_1.png in Resources */,
 				617C7C8015E7E00C00B11073 /* nsrds_5.png in Resources */,
-				617C7C8215E7E27B00B11073 /* nsrds_6.png in Resources */,
-				617C7C8415E7E37E00B11073 /* nsrds_6_info2.png in Resources */,
-				617C7C8E15E7EAD900B11073 /* nsrds_6_info.png in Resources */,
+				617C7CB415E9759900B11073 /* nsrds_0.png in Resources */,
+				617C7CBA15E97A8000B11073 /* nsrds_6.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +466,7 @@
 		616462A515B7F706006B703D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMPRESS_PNG_FILES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "polymorph/polymorph-Prefix.pch";
 				INFOPLIST_FILE = "polymorph/polymorph-Info.plist";
@@ -489,6 +478,7 @@
 		616462A615B7F706006B703D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMPRESS_PNG_FILES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "polymorph/polymorph-Prefix.pch";
 				INFOPLIST_FILE = "polymorph/polymorph-Info.plist";
