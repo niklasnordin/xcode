@@ -115,7 +115,7 @@
     [self.actionSheet setOpaque:YES];
     [self.actionSheet addSubview:self.picker];
     
-    UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:@[@"Done"]];
+    UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:@[@"Select"]];
     closeButton.momentary = YES;
     closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
     closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
