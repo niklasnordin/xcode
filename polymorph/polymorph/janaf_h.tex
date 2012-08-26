@@ -1,0 +1,28 @@
+\documentclass[12pt]{article}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[fleqn]{amsmath}
+%\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+%\usepackage{palatino}
+
+% 1655 x ?
+% ? = 1655 * 416 / 320 = 2151
+% 100 pt = 885 pt in final
+% divide by 8.85
+\newcommand{\cfbox}[2]{%
+    \colorlet{currentcolor}{.}%
+    {\color{#1}\fbox{\begin{minipage}{180pt}\color{currentcolor}#2\end{minipage}}}%
+}
+
+\pagestyle{empty}
+\begin{document}
+\cfbox{white}{
+\begin{eqnarray*}
+\frac{h}{R} &=& A_0 T + \frac{A_1}{2} T^2 + \frac{A_2}{3} T^3\\
+ &+& \frac{A_3}{4} T^4 + \frac{A_4}{5} T^5 + A_5
+\end{eqnarray*}
+where :\\
+$R = A_7$ \vspace{119pt}\\
+}
+\end{document}

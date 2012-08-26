@@ -40,6 +40,12 @@
 		617C7CCF15E987AE00B11073 /* nsrds_6.tex in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CCE15E987AE00B11073 /* nsrds_6.tex */; };
 		617C7CD315EA45A200B11073 /* pengRobinson.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CD215EA45A200B11073 /* pengRobinson.png */; };
 		617C7CD515EA47DF00B11073 /* pengRobinson.tex in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CD415EA47DF00B11073 /* pengRobinson.tex */; };
+		617C7CDB15EA519500B11073 /* janaf_cp.tex in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CDA15EA519500B11073 /* janaf_cp.tex */; };
+		617C7CDD15EA51A600B11073 /* janaf_cp.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CDC15EA51A600B11073 /* janaf_cp.png */; };
+		617C7CDF15EA52D300B11073 /* janaf_h.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CDE15EA52D300B11073 /* janaf_h.png */; };
+		617C7CE115EA52EC00B11073 /* janaf_h.tex in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CE015EA52EC00B11073 /* janaf_h.tex */; };
+		617C7CE315EA546900B11073 /* janaf_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CE215EA546900B11073 /* janaf_s.png */; };
+		617C7CE515EA547200B11073 /* janaf_s.tex in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CE415EA547200B11073 /* janaf_s.tex */; };
 		61807D7815D42BF7008E012C /* setPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D7715D42BF7008E012C /* setPropertyViewController.m */; };
 		61807D8315D54D16008E012C /* coefficientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D8215D54D16008E012C /* coefficientTableViewController.m */; };
 		618FFDA415DD705900008703 /* RollerUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FFDA315DD705900008703 /* RollerUIButton.m */; };
@@ -116,6 +122,12 @@
 		617C7CCE15E987AE00B11073 /* nsrds_6.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nsrds_6.tex; sourceTree = "<group>"; };
 		617C7CD215EA45A200B11073 /* pengRobinson.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pengRobinson.png; sourceTree = "<group>"; };
 		617C7CD415EA47DF00B11073 /* pengRobinson.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pengRobinson.tex; sourceTree = "<group>"; };
+		617C7CDA15EA519500B11073 /* janaf_cp.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = janaf_cp.tex; sourceTree = "<group>"; };
+		617C7CDC15EA51A600B11073 /* janaf_cp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = janaf_cp.png; sourceTree = "<group>"; };
+		617C7CDE15EA52D300B11073 /* janaf_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = janaf_h.png; sourceTree = "<group>"; };
+		617C7CE015EA52EC00B11073 /* janaf_h.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = janaf_h.tex; sourceTree = "<group>"; };
+		617C7CE215EA546900B11073 /* janaf_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = janaf_s.png; sourceTree = "<group>"; };
+		617C7CE415EA547200B11073 /* janaf_s.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = janaf_s.tex; sourceTree = "<group>"; };
 		61807D7615D42BF7008E012C /* setPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setPropertyViewController.h; sourceTree = "<group>"; };
 		61807D7715D42BF7008E012C /* setPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setPropertyViewController.m; sourceTree = "<group>"; };
 		61807D8115D54D16008E012C /* coefficientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coefficientTableViewController.h; sourceTree = "<group>"; };
@@ -200,7 +212,6 @@
 			isa = PBXGroup;
 			children = (
 				6164629C15B7F706006B703D /* MainStoryboard.storyboard */,
-				61A5CE8915C2E88A00937EA8 /* Documents */,
 				61A5CE8315C2D6DA00937EA8 /* database.h */,
 				61A5CE8415C2D6DA00937EA8 /* database.m */,
 				61247A4F15C845C8004DB05F /* dbTableViewController.h */,
@@ -231,6 +242,7 @@
 				616622F315CFF295008FB530 /* loadDatabaseViewController.m */,
 				618FFDA215DD705800008703 /* RollerUIButton.h */,
 				618FFDA315DD705900008703 /* RollerUIButton.m */,
+				61A5CE8915C2E88A00937EA8 /* Documents */,
 				617C7CC515E9876500B11073 /* Latex */,
 				6164629115B7F705006B703D /* Supporting Files */,
 				616462B915BFC702006B703D /* functions */,
@@ -294,9 +306,12 @@
 			children = (
 				617C7CC815E9879400B11073 /* nsrds_0.tex */,
 				617C7CCA15E9879C00B11073 /* nsrds_1.tex */,
-				617C7CD415EA47DF00B11073 /* pengRobinson.tex */,
 				617C7CCC15E987A400B11073 /* nsrds_5.tex */,
 				617C7CCE15E987AE00B11073 /* nsrds_6.tex */,
+				617C7CD415EA47DF00B11073 /* pengRobinson.tex */,
+				617C7CDA15EA519500B11073 /* janaf_cp.tex */,
+				617C7CE015EA52EC00B11073 /* janaf_h.tex */,
+				617C7CE415EA547200B11073 /* janaf_s.tex */,
 				617C7CC615E9878A00B11073 /* texToPng */,
 			);
 			name = Latex;
@@ -309,8 +324,11 @@
 				617C7CBD15E97F2100B11073 /* nsrds_1.png */,
 				617C7CBF15E9805000B11073 /* nsrds_5.png */,
 				617C7CB915E97A8000B11073 /* nsrds_6.png */,
-				61BA3AE115DFAB7400928715 /* Icon@2x.png */,
 				617C7CD215EA45A200B11073 /* pengRobinson.png */,
+				617C7CDC15EA51A600B11073 /* janaf_cp.png */,
+				617C7CDE15EA52D300B11073 /* janaf_h.png */,
+				617C7CE215EA546900B11073 /* janaf_s.png */,
+				61BA3AE115DFAB7400928715 /* Icon@2x.png */,
 				61BA3ADF15DFAB6C00928715 /* Icon.png */,
 				61BA3AD115DD756700928715 /* ni-banding-free-gradient.jpg */,
 				61A5CE8715C2E2E400937EA8 /* database.json */,
@@ -387,6 +405,12 @@
 				617C7CCF15E987AE00B11073 /* nsrds_6.tex in Resources */,
 				617C7CD315EA45A200B11073 /* pengRobinson.png in Resources */,
 				617C7CD515EA47DF00B11073 /* pengRobinson.tex in Resources */,
+				617C7CDB15EA519500B11073 /* janaf_cp.tex in Resources */,
+				617C7CDD15EA51A600B11073 /* janaf_cp.png in Resources */,
+				617C7CDF15EA52D300B11073 /* janaf_h.png in Resources */,
+				617C7CE115EA52EC00B11073 /* janaf_h.tex in Resources */,
+				617C7CE315EA546900B11073 /* janaf_s.png in Resources */,
+				617C7CE515EA547200B11073 /* janaf_s.tex in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
