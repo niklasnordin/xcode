@@ -46,6 +46,8 @@
 		617C7CE115EA52EC00B11073 /* janaf_h.tex in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CE015EA52EC00B11073 /* janaf_h.tex */; };
 		617C7CE315EA546900B11073 /* janaf_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CE215EA546900B11073 /* janaf_s.png */; };
 		617C7CE515EA547200B11073 /* janaf_s.tex in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CE415EA547200B11073 /* janaf_s.tex */; };
+		617C7CE715EA565400B11073 /* idealGasLaw.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CE615EA565400B11073 /* idealGasLaw.png */; };
+		617C7CE915EA566100B11073 /* idealGasLaw.tex in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CE815EA566100B11073 /* idealGasLaw.tex */; };
 		61807D7815D42BF7008E012C /* setPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D7715D42BF7008E012C /* setPropertyViewController.m */; };
 		61807D8315D54D16008E012C /* coefficientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D8215D54D16008E012C /* coefficientTableViewController.m */; };
 		618FFDA415DD705900008703 /* RollerUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FFDA315DD705900008703 /* RollerUIButton.m */; };
@@ -128,6 +130,8 @@
 		617C7CE015EA52EC00B11073 /* janaf_h.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = janaf_h.tex; sourceTree = "<group>"; };
 		617C7CE215EA546900B11073 /* janaf_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = janaf_s.png; sourceTree = "<group>"; };
 		617C7CE415EA547200B11073 /* janaf_s.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = janaf_s.tex; sourceTree = "<group>"; };
+		617C7CE615EA565400B11073 /* idealGasLaw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = idealGasLaw.png; sourceTree = "<group>"; };
+		617C7CE815EA566100B11073 /* idealGasLaw.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = idealGasLaw.tex; sourceTree = "<group>"; };
 		61807D7615D42BF7008E012C /* setPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setPropertyViewController.h; sourceTree = "<group>"; };
 		61807D7715D42BF7008E012C /* setPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setPropertyViewController.m; sourceTree = "<group>"; };
 		61807D8115D54D16008E012C /* coefficientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coefficientTableViewController.h; sourceTree = "<group>"; };
@@ -309,6 +313,7 @@
 				617C7CCC15E987A400B11073 /* nsrds_5.tex */,
 				617C7CCE15E987AE00B11073 /* nsrds_6.tex */,
 				617C7CD415EA47DF00B11073 /* pengRobinson.tex */,
+				617C7CE815EA566100B11073 /* idealGasLaw.tex */,
 				617C7CDA15EA519500B11073 /* janaf_cp.tex */,
 				617C7CE015EA52EC00B11073 /* janaf_h.tex */,
 				617C7CE415EA547200B11073 /* janaf_s.tex */,
@@ -325,6 +330,7 @@
 				617C7CBF15E9805000B11073 /* nsrds_5.png */,
 				617C7CB915E97A8000B11073 /* nsrds_6.png */,
 				617C7CD215EA45A200B11073 /* pengRobinson.png */,
+				617C7CE615EA565400B11073 /* idealGasLaw.png */,
 				617C7CDC15EA51A600B11073 /* janaf_cp.png */,
 				617C7CDE15EA52D300B11073 /* janaf_h.png */,
 				617C7CE215EA546900B11073 /* janaf_s.png */,
@@ -411,6 +417,8 @@
 				617C7CE115EA52EC00B11073 /* janaf_h.tex in Resources */,
 				617C7CE315EA546900B11073 /* janaf_s.png in Resources */,
 				617C7CE515EA547200B11073 /* janaf_s.tex in Resources */,
+				617C7CE715EA565400B11073 /* idealGasLaw.png in Resources */,
+				617C7CE915EA566100B11073 /* idealGasLaw.tex in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
