@@ -21,6 +21,8 @@
 #import "pengRobinson.h"
 #import "pengRobinsonLiquid.h"
 
+#import "ancillary_1.h"
+
 #import "fundamentalJacobsen.h"
 
 @interface functions : NSObject

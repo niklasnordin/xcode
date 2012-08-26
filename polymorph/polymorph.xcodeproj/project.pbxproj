@@ -51,6 +51,9 @@
 		61807D7815D42BF7008E012C /* setPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D7715D42BF7008E012C /* setPropertyViewController.m */; };
 		61807D8315D54D16008E012C /* coefficientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D8215D54D16008E012C /* coefficientTableViewController.m */; };
 		618FFDA415DD705900008703 /* RollerUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FFDA315DD705900008703 /* RollerUIButton.m */; };
+		619394E115EA98130003EF01 /* ancillary_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 619394E015EA98120003EF01 /* ancillary_1.m */; };
+		619394E415EABE6F0003EF01 /* ancillary_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 619394E315EABE6F0003EF01 /* ancillary_1.png */; };
+		619394E615EAC1530003EF01 /* ancillary_1.tex in Resources */ = {isa = PBXBuildFile; fileRef = 619394E515EAC1530003EF01 /* ancillary_1.tex */; };
 		61A5CE8515C2D6DA00937EA8 /* database.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A5CE8415C2D6DA00937EA8 /* database.m */; };
 		61A5CE8815C2E2E400937EA8 /* database.json in Resources */ = {isa = PBXBuildFile; fileRef = 61A5CE8715C2E2E400937EA8 /* database.json */; };
 		61A5CE8C15C2F81E00937EA8 /* nsrds_5.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A5CE8B15C2F81E00937EA8 /* nsrds_5.m */; };
@@ -138,6 +141,10 @@
 		61807D8215D54D16008E012C /* coefficientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = coefficientTableViewController.m; sourceTree = "<group>"; };
 		618FFDA215DD705800008703 /* RollerUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RollerUIButton.h; sourceTree = "<group>"; };
 		618FFDA315DD705900008703 /* RollerUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RollerUIButton.m; sourceTree = "<group>"; };
+		619394DF15EA98120003EF01 /* ancillary_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ancillary_1.h; sourceTree = "<group>"; };
+		619394E015EA98120003EF01 /* ancillary_1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ancillary_1.m; sourceTree = "<group>"; };
+		619394E315EABE6F0003EF01 /* ancillary_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ancillary_1.png; sourceTree = "<group>"; };
+		619394E515EAC1530003EF01 /* ancillary_1.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ancillary_1.tex; sourceTree = "<group>"; };
 		61A5CE8315C2D6DA00937EA8 /* database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = database.h; sourceTree = "<group>"; };
 		61A5CE8415C2D6DA00937EA8 /* database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = database.m; sourceTree = "<group>"; };
 		61A5CE8715C2E2E400937EA8 /* database.json */ = {isa = PBXFileReference; explicitFileType = text.json; fileEncoding = 4; path = database.json; sourceTree = "<group>"; };
@@ -301,6 +308,8 @@
 				61EB3D6B15E0FAD3009826F2 /* Complex.m */,
 				61EB3D6D15E0FB4C009826F2 /* Polynomial.h */,
 				61EB3D6E15E0FB4C009826F2 /* Polynomial.m */,
+				619394DF15EA98120003EF01 /* ancillary_1.h */,
+				619394E015EA98120003EF01 /* ancillary_1.m */,
 			);
 			name = functions;
 			sourceTree = "<group>";
@@ -317,6 +326,7 @@
 				617C7CDA15EA519500B11073 /* janaf_cp.tex */,
 				617C7CE015EA52EC00B11073 /* janaf_h.tex */,
 				617C7CE415EA547200B11073 /* janaf_s.tex */,
+				619394E515EAC1530003EF01 /* ancillary_1.tex */,
 				617C7CC615E9878A00B11073 /* texToPng */,
 			);
 			name = Latex;
@@ -334,6 +344,7 @@
 				617C7CDC15EA51A600B11073 /* janaf_cp.png */,
 				617C7CDE15EA52D300B11073 /* janaf_h.png */,
 				617C7CE215EA546900B11073 /* janaf_s.png */,
+				619394E315EABE6F0003EF01 /* ancillary_1.png */,
 				61BA3AE115DFAB7400928715 /* Icon@2x.png */,
 				61BA3ADF15DFAB6C00928715 /* Icon.png */,
 				61BA3AD115DD756700928715 /* ni-banding-free-gradient.jpg */,
@@ -419,6 +430,8 @@
 				617C7CE515EA547200B11073 /* janaf_s.tex in Resources */,
 				617C7CE715EA565400B11073 /* idealGasLaw.png in Resources */,
 				617C7CE915EA566100B11073 /* idealGasLaw.tex in Resources */,
+				619394E415EABE6F0003EF01 /* ancillary_1.png in Resources */,
+				619394E615EAC1530003EF01 /* ancillary_1.tex in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +474,7 @@
 				616F63F715E12FF6001861E6 /* fundamentalJacobsen.m in Sources */,
 				617C7C7415E7BDB100B11073 /* nsrds_6.m in Sources */,
 				617C7C7815E7C42C00B11073 /* equationViewController.m in Sources */,
+				619394E115EA98130003EF01 /* ancillary_1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

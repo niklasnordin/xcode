@@ -43,7 +43,7 @@ static NSString *name = @"pengRobinson";
 
     double Tr = T/Tc;
     
-    double aPR = 0.457236*Rgas*Rgas*Tc*Tc/Pc;
+    double aPR = 0.457235*Rgas*Rgas*Tc*Tc/Pc;
     double bPR = 0.0777961*Rgas*Tc/Pc;
     double kappa = 0.37464+1.54226*omega-0.26992*omega*omega;
     double alpha = pow(1.0 + kappa*(1.0-sqrt(Tr)), 2.0);
