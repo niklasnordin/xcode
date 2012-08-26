@@ -33,13 +33,13 @@
 		617C7CBC15E97DB900B11073 /* nsrds_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CBB15E97DB800B11073 /* nsrds_0.png */; };
 		617C7CBE15E97F2100B11073 /* nsrds_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CBD15E97F2100B11073 /* nsrds_1.png */; };
 		617C7CC015E9805000B11073 /* nsrds_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CBF15E9805000B11073 /* nsrds_5.png */; };
-		617C7CC415E986AC00B11073 /* pengRobinson.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CC315E986AC00B11073 /* pengRobinson.png */; };
 		617C7CC715E9878A00B11073 /* texToPng in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CC615E9878A00B11073 /* texToPng */; };
 		617C7CC915E9879400B11073 /* nsrds_0.tex in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CC815E9879400B11073 /* nsrds_0.tex */; };
 		617C7CCB15E9879C00B11073 /* nsrds_1.tex in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CCA15E9879C00B11073 /* nsrds_1.tex */; };
 		617C7CCD15E987A400B11073 /* nsrds_5.tex in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CCC15E987A400B11073 /* nsrds_5.tex */; };
 		617C7CCF15E987AE00B11073 /* nsrds_6.tex in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CCE15E987AE00B11073 /* nsrds_6.tex */; };
-		617C7CD115E987BB00B11073 /* pengRobinson.tex in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CD015E987BB00B11073 /* pengRobinson.tex */; };
+		617C7CD315EA45A200B11073 /* pengRobinson.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CD215EA45A200B11073 /* pengRobinson.png */; };
+		617C7CD515EA47DF00B11073 /* pengRobinson.tex in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CD415EA47DF00B11073 /* pengRobinson.tex */; };
 		61807D7815D42BF7008E012C /* setPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D7715D42BF7008E012C /* setPropertyViewController.m */; };
 		61807D8315D54D16008E012C /* coefficientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D8215D54D16008E012C /* coefficientTableViewController.m */; };
 		618FFDA415DD705900008703 /* RollerUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FFDA315DD705900008703 /* RollerUIButton.m */; };
@@ -109,13 +109,13 @@
 		617C7CBB15E97DB800B11073 /* nsrds_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nsrds_0.png; sourceTree = "<group>"; };
 		617C7CBD15E97F2100B11073 /* nsrds_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nsrds_1.png; sourceTree = "<group>"; };
 		617C7CBF15E9805000B11073 /* nsrds_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nsrds_5.png; sourceTree = "<group>"; };
-		617C7CC315E986AC00B11073 /* pengRobinson.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pengRobinson.png; sourceTree = "<group>"; };
 		617C7CC615E9878A00B11073 /* texToPng */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = texToPng; sourceTree = "<group>"; };
 		617C7CC815E9879400B11073 /* nsrds_0.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nsrds_0.tex; sourceTree = "<group>"; };
 		617C7CCA15E9879C00B11073 /* nsrds_1.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nsrds_1.tex; sourceTree = "<group>"; };
 		617C7CCC15E987A400B11073 /* nsrds_5.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nsrds_5.tex; sourceTree = "<group>"; };
 		617C7CCE15E987AE00B11073 /* nsrds_6.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nsrds_6.tex; sourceTree = "<group>"; };
-		617C7CD015E987BB00B11073 /* pengRobinson.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pengRobinson.tex; sourceTree = "<group>"; };
+		617C7CD215EA45A200B11073 /* pengRobinson.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pengRobinson.png; sourceTree = "<group>"; };
+		617C7CD415EA47DF00B11073 /* pengRobinson.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pengRobinson.tex; sourceTree = "<group>"; };
 		61807D7615D42BF7008E012C /* setPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setPropertyViewController.h; sourceTree = "<group>"; };
 		61807D7715D42BF7008E012C /* setPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setPropertyViewController.m; sourceTree = "<group>"; };
 		61807D8115D54D16008E012C /* coefficientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coefficientTableViewController.h; sourceTree = "<group>"; };
@@ -294,9 +294,9 @@
 			children = (
 				617C7CC815E9879400B11073 /* nsrds_0.tex */,
 				617C7CCA15E9879C00B11073 /* nsrds_1.tex */,
+				617C7CD415EA47DF00B11073 /* pengRobinson.tex */,
 				617C7CCC15E987A400B11073 /* nsrds_5.tex */,
 				617C7CCE15E987AE00B11073 /* nsrds_6.tex */,
-				617C7CD015E987BB00B11073 /* pengRobinson.tex */,
 				617C7CC615E9878A00B11073 /* texToPng */,
 			);
 			name = Latex;
@@ -308,9 +308,9 @@
 				617C7CBB15E97DB800B11073 /* nsrds_0.png */,
 				617C7CBD15E97F2100B11073 /* nsrds_1.png */,
 				617C7CBF15E9805000B11073 /* nsrds_5.png */,
-				617C7CC315E986AC00B11073 /* pengRobinson.png */,
 				617C7CB915E97A8000B11073 /* nsrds_6.png */,
 				61BA3AE115DFAB7400928715 /* Icon@2x.png */,
+				617C7CD215EA45A200B11073 /* pengRobinson.png */,
 				61BA3ADF15DFAB6C00928715 /* Icon.png */,
 				61BA3AD115DD756700928715 /* ni-banding-free-gradient.jpg */,
 				61A5CE8715C2E2E400937EA8 /* database.json */,
@@ -380,13 +380,13 @@
 				617C7CBC15E97DB900B11073 /* nsrds_0.png in Resources */,
 				617C7CBE15E97F2100B11073 /* nsrds_1.png in Resources */,
 				617C7CC015E9805000B11073 /* nsrds_5.png in Resources */,
-				617C7CC415E986AC00B11073 /* pengRobinson.png in Resources */,
 				617C7CC715E9878A00B11073 /* texToPng in Resources */,
 				617C7CC915E9879400B11073 /* nsrds_0.tex in Resources */,
 				617C7CCB15E9879C00B11073 /* nsrds_1.tex in Resources */,
 				617C7CCD15E987A400B11073 /* nsrds_5.tex in Resources */,
 				617C7CCF15E987AE00B11073 /* nsrds_6.tex in Resources */,
-				617C7CD115E987BB00B11073 /* pengRobinson.tex in Resources */,
+				617C7CD315EA45A200B11073 /* pengRobinson.png in Resources */,
+				617C7CD515EA47DF00B11073 /* pengRobinson.tex in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

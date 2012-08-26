@@ -1,6 +1,8 @@
 \documentclass[12pt]{article}
 \usepackage{color}
 \usepackage{xcolor}
+\usepackage[fleqn]{amsmath}
+%\usepackage{amsmath}
 \usepackage[T1]{fontenc}
 %\usepackage{palatino}
 
@@ -15,27 +17,26 @@
 
 \pagestyle{empty}
 \begin{document}
-
 \cfbox{white}{
 Solves for $\rho$ in:
-\[ 
-p = \frac{RT}{V_m-b} - \frac{a\alpha}{V_m^2 + 2bV_m - b^2}
-\]
-where \\
+\begin{equation*}
+p = \frac{RT}{V_m-b} - \frac{a\alpha}{V_m^2 + 2bV_m - b^2} \hspace{2cm}
+\end{equation*}
+where :\\
 $A_0 = T_c, A_1 = P_c,$\\
 $ A_2 = \omega, A_3 = M_w$\\
 $V_m = M_w/\rho$\\
 \[
-a = \frac{0.457235 R^2 T^2}{P_c} 
+a = \frac{0.457235 R^2 T^2}{P_c} \hspace{5cm} 
 \]
 \[
-b = \frac{0.077796 R T_c}{P_c}
+b = \frac{0.077796 R T_c}{P_c}\hspace{5cm}
 \]
 \[
-\alpha = (1 + \kappa(1-T_r^{0.5}))^2
+\alpha = (1 + \kappa(1-T_r^{0.5}))^2 \hspace{5cm}
 \]
 \[
-\kappa = 0.37464 + 1.54226 \omega - 0.26992 \omega^2
+\kappa = 0.37464 + 1.54226 \omega - 0.26992 \omega^2 \hspace{5cm}  
 \]
 
 }
