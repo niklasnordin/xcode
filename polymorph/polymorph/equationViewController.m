@@ -22,17 +22,36 @@
     }
     return self;
 }
+/*
+-(void) setImage:(UIImageView *)image
+{
+    // this is used before viewDidLoad
+    _image = image;
+
+    NSLog(@"setImage");
+}
+*/
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view.
-    NSString *fullName = [NSString stringWithFormat:@"%@.png",_functionName];
+    NSString *name = [_functionNames objectAtIndex:_functionIndex];
+    NSString *fullName = [NSString stringWithFormat:@"%@.png",name];
     
     UIImage *im = [UIImage imageNamed:fullName];
     [_image setContentMode:UIViewContentModeScaleAspectFit];
     [_image setImage:im];
+    
+    UISwipeGestureRecognizer *swipeLeftRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGesture:)];
+    UISwipeGestureRecognizer *swipeRightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGesture:)];
+    swipeLeftRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+    swipeRightRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    
+    [self.view addGestureRecognizer:swipeLeftRecognizer];
+    [self.view addGestureRecognizer:swipeRightRecognizer];
+    //[self.view addGestureRecognizer:panRecognizer];
     
     /*
     NSString *infoName = [NSString stringWithFormat:@"%@_info.png",_functionName];
@@ -45,7 +64,7 @@
     
     eqText.text = _equation;
      */
-    //NSLog(@"hello");
+
 }
 
 - (void)viewDidUnload
@@ -53,7 +72,6 @@
     [self setImage:nil];
     //[self setInfo:nil];
     //[self setEqText:nil];
-    [self setSwipe:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -63,7 +81,44 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)swipeGesture:(id)sender {
-    NSLog(@"swipe");
+- (void)swipeGesture:(UISwipeGestureRecognizer *)gesture
+{
+    int numberOfNames = [_functionNames count];
+    
+    if (gesture.direction == UISwipeGestureRecognizerDirectionLeft) {
+        //NSLog(@"left");
+        _functionIndex++;
+    }
+
+    if (gesture.direction == UISwipeGestureRecognizerDirectionRight) {
+        //NSLog(@"right");
+        _functionIndex--;
+    }
+    
+    if (_functionIndex < 0)
+    {
+        _functionIndex = numberOfNames-1;
+    }
+    if (_functionIndex == numberOfNames)
+    {
+        _functionIndex = 0;
+    }
+    //NSLog(@"index = %d",_functionIndex);
+    
+    NSString *name = [_functionNames objectAtIndex:_functionIndex];
+    NSString *fullName = [NSString stringWithFormat:@"%@.png",name];
+    [self setTitle:name];
+
+    UIImage *im = [UIImage imageNamed:fullName];
+    [_image setContentMode:UIViewContentModeScaleAspectFit];
+    [_image setImage:im];
+
 }
+
+- (void)pan:(UIPanGestureRecognizer *)gesture
+{
+    NSLog(@"pan");
+}
+
+
 @end

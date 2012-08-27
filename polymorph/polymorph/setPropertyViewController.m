@@ -301,7 +301,9 @@
     if ([segue.identifier isEqualToString:@"equationSegue"])
     {
         NSString *name = [propertyDict objectForKey:@"function"];
-        [segue.destinationViewController setFunctionName:name];
+        int index = [_functionNames indexOfObject:name];
+        [segue.destinationViewController setFunctionIndex:index];
+        [segue.destinationViewController setFunctionNames:_functionNames];
         
         /*
         Class functionClass = (NSClassFromString(name));
