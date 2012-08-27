@@ -22,6 +22,7 @@
 #import "pengRobinsonLiquid.h"
 
 #import "ancillary_1.h"
+#import "ancillary_2.h"
 
 #import "fundamentalJacobsen.h"
 

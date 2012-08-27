@@ -31,9 +31,9 @@ static NSString *name = @"janaf_h";
     {
         a[i] = [[coeff objectAtIndex:i] doubleValue];
     }
-    double y = 0.0;
-    double y1 = (((((a[4]/5.0 + a[3]/4.0)*T + a[2]/3.0)*T + a[1]/2.0)*T + a[0])*T + a[5])*a[7];
-    if (y1) y = y1;
+
+    double y = (((((a[4]/5.0 + a[3]/4.0)*T + a[2]/3.0)*T + a[1]/2.0)*T + a[0])*T + a[5])*a[7];
+
     return y;
 }
 

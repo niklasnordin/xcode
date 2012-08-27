@@ -38,11 +38,7 @@ static NSString *name = @"ancillary_1";
     
     double rhs = a[0]*pow(phi, a[4]) + a[1]*pow(phi, a[5]) + a[2]*pow(phi, a[6]) + a[3]*pow(phi, a[7]);
     
-    double y = 0.0;
-    double y1 = pc*exp(Tc*rhs/T);
-    
-    if (y1) y = y1;
-    return y;
+    return pc*exp(Tc*rhs/T);
 }
 
 -(bool)pressureDependent

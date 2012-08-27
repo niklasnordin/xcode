@@ -1,16 +1,17 @@
 //
-//  janaf_s.m
+//  ancillary_2.m
 //  polymorph
 //
-//  Created by Niklas Nordin on 2012-08-16.
+//  Created by Niklas Nordin on 2012-08-27.
 //  Copyright (c) 2012 nequam. All rights reserved.
 //
 
-#import "janaf_s.h"
+#import "ancillary_2.h"
 
-static NSString *name = @"janaf_s";
+static NSString *name = @"ancillary_2";
 
-@implementation janaf_s
+@implementation ancillary_2
+
 
 +(NSString *)name
 {
@@ -19,21 +20,26 @@ static NSString *name = @"janaf_s";
 
 -(NSString *) name
 {
-    return [janaf_s name];
+    return [ancillary_2 name];
 }
 
 -(double)value:(NSArray *)coeff T:(double)T p:(double)p
 {
     double a[self.nCoefficients];
-
+    
     for(int i=0; i<self.nCoefficients; i++)
     {
         a[i] = [[coeff objectAtIndex:i] doubleValue];
     }
-
-    double y = ((((a[4]/4.0 + a[3]/3.0)*T + a[2]/2.0)*T + a[1])*T + a[0]*log(T) + a[6])*a[7];
-
-    return y;
+    double rhoc = a[10];
+    double Tc   = a[11];
+    
+    double phi = 1.0 - T/Tc;
+    
+    double rhs = a[0]*pow(phi, a[5]) + a[1]*pow(phi, a[6])
+        + a[2]*pow(phi, a[7]) + a[3]*pow(phi, a[8]) + a[4]*pow(phi, a[9]);
+    
+    return rhoc*rhs;
 }
 
 -(bool)pressureDependent
@@ -43,7 +49,7 @@ static NSString *name = @"janaf_s";
 
 -(int)nCoefficients
 {
-    return 8;
+    return 12;
 }
 
 - (NSString *)equationText

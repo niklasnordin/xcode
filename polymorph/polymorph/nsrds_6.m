@@ -33,9 +33,9 @@ static NSString *name = @"nsrds_6";
     }
     double Tr = T/a[5];
     double eVal = a[1] + Tr*(a[2] + Tr*(a[3] + a[4]*Tr));
-    double y = 0.0;
-    double y1 = a[0]*pow(1 - Tr, eVal);
-    if (y1) y = y1;
+
+    double y = a[0]*pow(1 - Tr, eVal);
+
     return y;
 }
 

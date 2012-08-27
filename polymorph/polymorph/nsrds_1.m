@@ -30,9 +30,9 @@ static NSString *name = @"nsrds_1";
     {
         a[i] = [[coeff objectAtIndex:i] doubleValue];
     }
-    double y = 0.0;
-    double y1 = exp(a[0] + a[1]/T + a[2]*log(T) + a[3]*pow(T, a[4]));
-    if (y1) y = y1;
+
+    double y = exp(a[0] + a[1]/T + a[2]*log(T) + a[3]*pow(T, a[4]));
+
     return y;
 }
 

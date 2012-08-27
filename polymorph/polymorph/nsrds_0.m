@@ -32,8 +32,8 @@ static NSString *name = @"nsrds_0";
         a[i] = [[coeff objectAtIndex:i] doubleValue];
     }
     
-    double y1 = ((((a[5]*T + a[4])*T + a[3])*T + a[2])*T + a[1])*T + a[0];
-    return y1;
+    double y = ((((a[5]*T + a[4])*T + a[3])*T + a[2])*T + a[1])*T + a[0];
+    return y;
 }
 
 -(bool)pressureDependent

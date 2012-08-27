@@ -30,11 +30,8 @@ static NSString *name = @"idealGasLaw";
     {
         a[i] = [[coeff objectAtIndex:i] doubleValue];
     }
-    double y = 0.0;
-    double y1 = p/( a[0]*T );
-    
-    if (y1) y = y1;
-    return y;
+
+    return p/( a[0]*T );
 }
 
 -(bool)pressureDependent
