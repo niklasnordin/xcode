@@ -307,6 +307,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="OnJ-1l-ga7">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="RfV-WZ-Drs" appends="YES" id="78Z-dt-NdU"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -316,8 +320,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="image" destination="OnJ-1l-ga7" id="CUU-gj-dM2"/>
+                        <outlet property="swipe" destination="RfV-WZ-Drs" id="fe2-wA-n5S"/>
                     </connections>
                 </viewController>
+                <swipeGestureRecognizer direction="right" id="RfV-WZ-Drs">
+                    <connections>
+                        <action selector="swipeGesture:" destination="Izc-Gv-bjG" id="A6X-s0-rMR"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2526" y="-2"/>
         </scene>
@@ -550,7 +560,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="daq-DS-nHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController definesPresentationContext="YES" id="PbO-2N-ooA" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="e2I-1C-jeV"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="LK7-XS-Har">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -824,7 +834,9 @@
         <class className="equationViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/equationViewController.h"/>
             <relationships>
+                <relationship kind="action" name="swipeGesture:"/>
                 <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="swipe" candidateClass="UISwipeGestureRecognizer"/>
             </relationships>
         </class>
         <class className="functionView" superclassName="UIView">

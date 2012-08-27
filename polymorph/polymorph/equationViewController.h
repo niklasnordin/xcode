@@ -13,5 +13,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *image;
 @property (strong, nonatomic) NSString *functionName;
 @property (strong, nonatomic) NSString *equation;
+- (IBAction)swipeGesture:(id)sender;
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipe;
 
 @end

@@ -45,6 +45,7 @@
     
     eqText.text = _equation;
      */
+    //NSLog(@"hello");
 }
 
 - (void)viewDidUnload
@@ -52,6 +53,7 @@
     [self setImage:nil];
     //[self setInfo:nil];
     //[self setEqText:nil];
+    [self setSwipe:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -61,4 +63,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)swipeGesture:(id)sender {
+    NSLog(@"swipe");
+}
 @end

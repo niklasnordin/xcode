@@ -51,6 +51,7 @@
     
     [_functionNames addObject:[ancillary_1 name]];
     [_functionNames addObject:[ancillary_2 name]];
+    [_functionNames addObject:[ancillary_3 name]];
     
     [_functionNames addObject:[fundamentalJacobsen name]];
 
