@@ -22,15 +22,6 @@
     }
     return self;
 }
-/*
--(void) setImage:(UIImageView *)image
-{
-    // this is used before viewDidLoad
-    _image = image;
-
-    NSLog(@"setImage");
-}
-*/
 
 - (void)viewDidLoad
 {
@@ -86,12 +77,10 @@
     int numberOfNames = [_functionNames count];
     
     if (gesture.direction == UISwipeGestureRecognizerDirectionLeft) {
-        //NSLog(@"left");
         _functionIndex++;
     }
 
     if (gesture.direction == UISwipeGestureRecognizerDirectionRight) {
-        //NSLog(@"right");
         _functionIndex--;
     }
     
@@ -103,14 +92,13 @@
     {
         _functionIndex = 0;
     }
-    //NSLog(@"index = %d",_functionIndex);
     
     NSString *name = [_functionNames objectAtIndex:_functionIndex];
     NSString *fullName = [NSString stringWithFormat:@"%@.png",name];
     [self setTitle:name];
 
     UIImage *im = [UIImage imageNamed:fullName];
-    [_image setContentMode:UIViewContentModeScaleAspectFit];
+    //[_image setContentMode:UIViewContentModeScaleAspectFit];
     [_image setImage:im];
 
 }
