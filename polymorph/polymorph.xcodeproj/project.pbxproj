@@ -60,6 +60,9 @@
 		619394F015EBDDAB0003EF01 /* ancillary_3.m in Sources */ = {isa = PBXBuildFile; fileRef = 619394EF15EBDDAB0003EF01 /* ancillary_3.m */; };
 		619394F215EBDE510003EF01 /* ancillary_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 619394F115EBDE510003EF01 /* ancillary_3.png */; };
 		619394F415EBDE5E0003EF01 /* ancillary_3.tex in Resources */ = {isa = PBXBuildFile; fileRef = 619394F315EBDE5E0003EF01 /* ancillary_3.tex */; };
+		619394F715ED2DC90003EF01 /* nsrds_2.m in Sources */ = {isa = PBXBuildFile; fileRef = 619394F615ED2DC90003EF01 /* nsrds_2.m */; };
+		619394F915ED2FEB0003EF01 /* nsrds_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 619394F815ED2FEB0003EF01 /* nsrds_2.png */; };
+		619394FB15ED2FFF0003EF01 /* nsrds_2.tex in Resources */ = {isa = PBXBuildFile; fileRef = 619394FA15ED2FFF0003EF01 /* nsrds_2.tex */; };
 		61A5CE8515C2D6DA00937EA8 /* database.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A5CE8415C2D6DA00937EA8 /* database.m */; };
 		61A5CE8815C2E2E400937EA8 /* database.json in Resources */ = {isa = PBXBuildFile; fileRef = 61A5CE8715C2E2E400937EA8 /* database.json */; };
 		61A5CE8C15C2F81E00937EA8 /* nsrds_5.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A5CE8B15C2F81E00937EA8 /* nsrds_5.m */; };
@@ -159,6 +162,10 @@
 		619394EF15EBDDAB0003EF01 /* ancillary_3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ancillary_3.m; sourceTree = "<group>"; };
 		619394F115EBDE510003EF01 /* ancillary_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ancillary_3.png; sourceTree = "<group>"; };
 		619394F315EBDE5E0003EF01 /* ancillary_3.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ancillary_3.tex; sourceTree = "<group>"; };
+		619394F515ED2DC80003EF01 /* nsrds_2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nsrds_2.h; sourceTree = "<group>"; };
+		619394F615ED2DC90003EF01 /* nsrds_2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nsrds_2.m; sourceTree = "<group>"; };
+		619394F815ED2FEB0003EF01 /* nsrds_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nsrds_2.png; sourceTree = "<group>"; };
+		619394FA15ED2FFF0003EF01 /* nsrds_2.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nsrds_2.tex; sourceTree = "<group>"; };
 		61A5CE8315C2D6DA00937EA8 /* database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = database.h; sourceTree = "<group>"; };
 		61A5CE8415C2D6DA00937EA8 /* database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = database.m; sourceTree = "<group>"; };
 		61A5CE8715C2E2E400937EA8 /* database.json */ = {isa = PBXFileReference; explicitFileType = text.json; fileEncoding = 4; path = database.json; sourceTree = "<group>"; };
@@ -300,6 +307,8 @@
 				61247A4915C593A9004DB05F /* nsrds_0.m */,
 				61247A4C15C5976C004DB05F /* nsrds_1.h */,
 				61247A4D15C5976C004DB05F /* nsrds_1.m */,
+				619394F515ED2DC80003EF01 /* nsrds_2.h */,
+				619394F615ED2DC90003EF01 /* nsrds_2.m */,
 				61A5CE8A15C2F81E00937EA8 /* nsrds_5.h */,
 				61A5CE8B15C2F81E00937EA8 /* nsrds_5.m */,
 				617C7C7215E7BDB100B11073 /* nsrds_6.h */,
@@ -337,6 +346,7 @@
 			children = (
 				617C7CC815E9879400B11073 /* nsrds_0.tex */,
 				617C7CCA15E9879C00B11073 /* nsrds_1.tex */,
+				619394FA15ED2FFF0003EF01 /* nsrds_2.tex */,
 				617C7CCC15E987A400B11073 /* nsrds_5.tex */,
 				617C7CCE15E987AE00B11073 /* nsrds_6.tex */,
 				617C7CD415EA47DF00B11073 /* pengRobinson.tex */,
@@ -357,6 +367,7 @@
 			children = (
 				617C7CBB15E97DB800B11073 /* nsrds_0.png */,
 				617C7CBD15E97F2100B11073 /* nsrds_1.png */,
+				619394F815ED2FEB0003EF01 /* nsrds_2.png */,
 				617C7CBF15E9805000B11073 /* nsrds_5.png */,
 				617C7CB915E97A8000B11073 /* nsrds_6.png */,
 				617C7CD215EA45A200B11073 /* pengRobinson.png */,
@@ -458,6 +469,8 @@
 				619394ED15EBD3150003EF01 /* ancillary_2.tex in Resources */,
 				619394F215EBDE510003EF01 /* ancillary_3.png in Resources */,
 				619394F415EBDE5E0003EF01 /* ancillary_3.tex in Resources */,
+				619394F915ED2FEB0003EF01 /* nsrds_2.png in Resources */,
+				619394FB15ED2FFF0003EF01 /* nsrds_2.tex in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +516,7 @@
 				619394E115EA98130003EF01 /* ancillary_1.m in Sources */,
 				619394E915EBD0AD0003EF01 /* ancillary_2.m in Sources */,
 				619394F015EBDDAB0003EF01 /* ancillary_3.m in Sources */,
+				619394F715ED2DC90003EF01 /* nsrds_2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
