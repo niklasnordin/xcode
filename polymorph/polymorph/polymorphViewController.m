@@ -40,6 +40,7 @@
     [_functionNames addObject:[nsrds_1 name]];
     [_functionNames addObject:[nsrds_2 name]];
     [_functionNames addObject:[nsrds_3 name]];
+    [_functionNames addObject:[nsrds_4 name]];
     [_functionNames addObject:[nsrds_5 name]];
     [_functionNames addObject:[nsrds_6 name]];
     
