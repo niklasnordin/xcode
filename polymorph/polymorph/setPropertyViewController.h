@@ -20,6 +20,8 @@ UIPickerViewDataSource, UITextFieldDelegate>
 @property (nonatomic,strong) NSString *specie;
 @property (nonatomic, strong) NSString *property;
 @property (strong, nonatomic) NSMutableArray *functionNames;
+@property (nonatomic) int currentRow;
+@property (strong, nonatomic) UIPickerView *picker;
 
 @property (strong, nonatomic) IBOutlet UIButton *functionButton;
 @property (strong, nonatomic) IBOutlet UITextField *minTemperatureField;
@@ -35,5 +37,7 @@ UIPickerViewDataSource, UITextFieldDelegate>
 - (IBAction)maxPressureEnter:(UITextField *)sender;
 @property (strong, nonatomic) IBOutlet UIButton *clickedCoefficientsButton;
 - (IBAction)unitEnter:(UITextField *)sender;
+
+-(void)setNewFunction:(NSString *)functionName;
 
 @end

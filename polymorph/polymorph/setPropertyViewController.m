@@ -15,9 +15,7 @@
 #import "functionValue.h"
 
 @interface setPropertyViewController ()
-@property (strong, nonatomic) UIPickerView *picker;
 @property (strong, nonatomic) UIActionSheet *actionSheet;
-@property (nonatomic) int currentRow;
 @property (strong, nonatomic) NSArray *originalCoefficients;
 @end
 
@@ -37,6 +35,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.minTemperatureField.delegate = self;
+    //[tf setClearButtonMode:UITextFieldViewModeWhileEditing];
+    [_minTemperatureField setClearButtonMode:UITextFieldViewModeWhileEditing];
+    
     self.maxTemperatureField.delegate = self;
     self.minPressureField.delegate = self;
     self.maxPressureField.delegate = self;
@@ -198,6 +199,42 @@
     [self.picker selectRow:selectedFunction inComponent:0 animated:YES];
 }
 
+- (void)setNewFunction:(NSString *)functionName
+{
+    NSMutableDictionary *speciesDict = [_db.json objectForKey:_specie];
+    NSMutableDictionary *propertyDict = [speciesDict objectForKey:_property];
+
+    functions *mySel = [[functions alloc] init];
+    
+    id newFunction = [mySel select:functionName];
+    
+    int newNCoeff = [newFunction nCoefficients];
+    int oldNCoeff = [_originalCoefficients count];
+    
+    [propertyDict removeObjectForKey:@"function"];
+    [propertyDict setObject:functionName forKey:@"function"];
+    
+    NSArray *newCoeffs = [_db createCoefficients:newNCoeff];
+    
+    // copy the old values to the new array
+    for (int i=0; i<newNCoeff; i++)
+    {
+        NSString *coeffName = [NSString stringWithFormat:@"A%d",i];
+        if (i < oldNCoeff)
+        {
+            NSMutableDictionary *old = [_originalCoefficients objectAtIndex:i];
+            NSMutableDictionary *new = [newCoeffs objectAtIndex:i];
+            [new setObject:[old objectForKey:coeffName] forKey:coeffName];
+        }
+    }
+    // remove old coefficients and add new ones
+    [propertyDict removeObjectForKey:@"coefficients"];
+    NSDictionary *coeffDict = @{ @"coefficients" : newCoeffs };
+    NSMutableDictionary *mcd = [[NSMutableDictionary alloc] initWithDictionary:coeffDict];
+    [propertyDict addEntriesFromDictionary:mcd];
+    [_parent update];
+}
+
 - (void)dismissActionSheet:(id)sender
 {
     
@@ -212,6 +249,9 @@
     
     if (![functionName isEqualToString:propFuncName])
     {
+        [self setNewFunction:functionName];
+        
+        /*
         // function has changed
         functions *mySel = [[functions alloc] init];
 
@@ -242,6 +282,7 @@
         NSDictionary *coeffDict = @{ @"coefficients" : newCoeffs };
         NSMutableDictionary *mcd = [[NSMutableDictionary alloc] initWithDictionary:coeffDict];
         [propertyDict addEntriesFromDictionary:mcd];
+         */
     }
 }
 
@@ -304,6 +345,7 @@
         int index = [_functionNames indexOfObject:name];
         [segue.destinationViewController setFunctionIndex:index];
         [segue.destinationViewController setFunctionNames:_functionNames];
+        [segue.destinationViewController setSpVC:self];
         
         /*
         Class functionClass = (NSClassFromString(name));

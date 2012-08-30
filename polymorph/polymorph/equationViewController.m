@@ -92,15 +92,21 @@
     {
         _functionIndex = 0;
     }
-    
+
+     //[self.picker selectRow:selectedFunction inComponent:0 animated:YES];
     NSString *name = [_functionNames objectAtIndex:_functionIndex];
     NSString *fullName = [NSString stringWithFormat:@"%@.png",name];
     [self setTitle:name];
-
+    
     UIImage *im = [UIImage imageNamed:fullName];
     //[_image setContentMode:UIViewContentModeScaleAspectFit];
     [_image setImage:im];
-
+    
+    [_spVC setCurrentRow:_functionIndex];
+    [_spVC.picker selectRow:_functionIndex inComponent:0 animated:NO];
+    [_spVC.functionButton setTitle:name forState:UIControlStateNormal];
+    [_spVC setNewFunction:name];
+    
 }
 
 - (void)pan:(UIPanGestureRecognizer *)gesture
