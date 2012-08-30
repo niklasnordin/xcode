@@ -76,12 +76,20 @@
 {
     int numberOfNames = [_functionNames count];
     
-    if (gesture.direction == UISwipeGestureRecognizerDirectionLeft) {
+    [UIView beginAnimations:@"flip" context:nil];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    if (gesture.direction == UISwipeGestureRecognizerDirectionLeft)
+    {
         _functionIndex++;
+        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view cache:YES];
     }
 
-    if (gesture.direction == UISwipeGestureRecognizerDirectionRight) {
+    if (gesture.direction == UISwipeGestureRecognizerDirectionRight)
+    {
         _functionIndex--;
+        [UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:self.view cache:YES];
     }
     
     if (_functionIndex < 0)
@@ -93,14 +101,16 @@
         _functionIndex = 0;
     }
 
-     //[self.picker selectRow:selectedFunction inComponent:0 animated:YES];
+
     NSString *name = [_functionNames objectAtIndex:_functionIndex];
     NSString *fullName = [NSString stringWithFormat:@"%@.png",name];
-    [self setTitle:name];
+
     
     UIImage *im = [UIImage imageNamed:fullName];
     //[_image setContentMode:UIViewContentModeScaleAspectFit];
     [_image setImage:im];
+    [UIView commitAnimations];
+    [self setTitle:name];
     
     [_spVC setCurrentRow:_functionIndex];
     [_spVC.picker selectRow:_functionIndex inComponent:0 animated:NO];
