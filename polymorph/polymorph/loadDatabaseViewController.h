@@ -20,9 +20,9 @@
     MFMailComposeViewControllerDelegate
 >
 
-@property (strong, nonatomic) database *db;
-@property (strong, nonatomic) polymorphViewController* parent;
-@property (strong, nonatomic) NSMutableArray *functionNames;
+@property (weak, nonatomic) database *db;
+@property (weak, nonatomic) polymorphViewController* parent;
+@property (weak, nonatomic) NSMutableArray *functionNames;
 @property (strong, nonatomic) NSString *link;
 @property (strong, nonatomic) IBOutlet UITextField *linkTextField;
 @property (strong, nonatomic) IBOutlet UILabel *statusTextField;

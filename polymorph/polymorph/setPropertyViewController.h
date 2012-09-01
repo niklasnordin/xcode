@@ -14,12 +14,12 @@
 @interface setPropertyViewController : UIViewController <UIPickerViewDelegate,
 UIPickerViewDataSource, UITextFieldDelegate>
 
-@property (strong, nonatomic) polymorphViewController* parent;
+@property (weak, nonatomic) polymorphViewController* parent;
 
-@property (strong, nonatomic) database *db;
+@property (weak, nonatomic) database *db;
 @property (nonatomic,strong) NSString *specie;
 @property (nonatomic, strong) NSString *property;
-@property (strong, nonatomic) NSMutableArray *functionNames;
+@property (weak, nonatomic) NSMutableArray *functionNames;
 @property (nonatomic) int currentRow;
 @property (strong, nonatomic) UIPickerView *picker;
 

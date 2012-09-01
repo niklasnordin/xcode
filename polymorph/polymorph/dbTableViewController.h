@@ -13,9 +13,9 @@
 @interface dbTableViewController : UITableViewController
 <UITextFieldDelegate, UIAlertViewDelegate>
 
-@property (strong,nonatomic) database *db;
-@property (strong, nonatomic) polymorphViewController* parent;
+@property (weak,nonatomic) database *db;
+@property (weak, nonatomic) polymorphViewController* parent;
 
-@property (strong, nonatomic) NSMutableArray *functionNames;
+@property (weak, nonatomic) NSMutableArray *functionNames;
 
 @end

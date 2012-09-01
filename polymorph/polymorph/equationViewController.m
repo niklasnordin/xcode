@@ -44,25 +44,11 @@
     [self.view addGestureRecognizer:swipeRightRecognizer];
     //[self.view addGestureRecognizer:panRecognizer];
     
-    /*
-    NSString *infoName = [NSString stringWithFormat:@"%@_info.png",_functionName];
-    UIImage *infoImage = [UIImage imageNamed:infoName];
-
-        //[info setContentMode:UIViewContentModeTopLeft];
-    [info setContentMode:UIViewContentModeScaleAspectFit];
-
-    [info setImage:infoImage];
-    
-    eqText.text = _equation;
-     */
-
 }
 
 - (void)viewDidUnload
 {
     [self setImage:nil];
-    //[self setInfo:nil];
-    //[self setEqText:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -78,7 +64,7 @@
     
     [UIView beginAnimations:@"flip" context:nil];
     [UIView setAnimationDuration:0.5];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
     
     if (gesture.direction == UISwipeGestureRecognizerDirectionLeft)
     {

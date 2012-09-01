@@ -13,10 +13,10 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *image;
 @property (nonatomic) int functionIndex;
-@property (strong, nonatomic) NSArray *functionNames;
-@property (strong, nonatomic) setPropertyViewController *spVC;
+@property (weak, nonatomic) NSArray *functionNames;
+@property (weak, nonatomic) setPropertyViewController *spVC;
 
-@property (strong, nonatomic) NSString *equation;
+//@property (strong, nonatomic) NSString *equation;
 
 - (void)swipeGesture:(UISwipeGestureRecognizer *)gesture;
 - (void)pan:(UIPanGestureRecognizer *)gesture;
