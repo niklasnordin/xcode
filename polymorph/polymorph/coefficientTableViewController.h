@@ -10,6 +10,6 @@
 
 @interface coefficientTableViewController : UITableViewController <UITextFieldDelegate, UIActionSheetDelegate>
 
-@property (strong, nonatomic) NSMutableArray *coefficients;
+@property (weak, nonatomic) NSMutableArray *coefficients;
 
 @end
