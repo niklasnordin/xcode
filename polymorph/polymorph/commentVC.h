@@ -11,7 +11,7 @@
 @interface commentVC : UIViewController <UITextViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextView *commentTextView;
-@property (strong, nonatomic) NSString *comment;
-@property (strong, nonatomic) NSMutableDictionary *dict;
+@property (weak, nonatomic) NSString *comment;
+@property (weak, nonatomic) NSMutableDictionary *dict;
 
 @end

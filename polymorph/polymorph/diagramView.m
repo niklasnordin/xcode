@@ -373,7 +373,6 @@ static NSUInteger nx = 640;//640;
     }
     
     self.yMidLabel.center = pos;
-
 }
 
 // Only override drawRect: if you perform custom drawing.

@@ -493,9 +493,27 @@
                     <view key="view" contentMode="scaleToFill" id="hpU-QM-IVl">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Help" id="6TI-Oa-jSF"/>
+                    <connections>
+                        <outlet property="textField" destination="MIW-H5-mlQ" id="lbC-xu-4gy"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1143" y="1507"/>
+        </scene>
+        <!--View Controller - Feedback-->
+        <scene sceneID="iDw-iq-oNf">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9bD-4m-Uxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="Feedback" title="Feedback" id="Vj9-Xr-PFG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="npi-92-89S">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="For suggestions or other ways of improvement please mail me at niklas.nordin@nequam.se" id="MIW-H5-mlQ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="For suggestions or other ways to improve the application please mail me at niklas.nordin@nequam.se" id="MIW-H5-mlQ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.13118007309999999" green="0.2340372352" blue="0.4311423788" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -508,15 +526,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Help" id="6TI-Oa-jSF"/>
-                    <connections>
-                        <outlet property="textField" destination="MIW-H5-mlQ" id="lbC-xu-4gy"/>
-                    </connections>
+                    <tabBarItem key="tabBarItem" title="Feedback" id="JUY-Mx-N4B"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="751" y="655"/>
+            <point key="canvasLocation" x="1625" y="1471"/>
         </scene>
-        <!--View Controller - Item 2-->
+        <!--View Controller - Database-->
         <scene sceneID="mZg-nz-xyw">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H4s-0Z-g8S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -524,33 +539,57 @@
                     <view key="view" contentMode="scaleToFill" id="8AM-vI-G3X">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="The database" id="lP8-5c-sWj">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.13118007309999999" green="0.2340372352" blue="0.4311423788" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" staticText="YES"/>
+                                </accessibility>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="YQd-Kl-nSB"/>
+                    <tabBarItem key="tabBarItem" title="Database" id="YQd-Kl-nSB"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2079" y="1322"/>
+            <point key="canvasLocation" x="2004" y="1225"/>
         </scene>
-        <!--View Controller - Item 1-->
+        <!--View Controller - View-->
         <scene sceneID="XuY-6b-V8H">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJh-KU-BBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="bhq-mr-edp" sceneMemberID="viewController">
+                <viewController title="View" id="bhq-mr-edp" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rbb-iV-0hD">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="xeq-xn-6Xn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.13118007309999999" green="0.2340372352" blue="0.4311423788" alpha="1" colorSpace="calibratedRGB"/>
+                                <mutableString key="text">The X-axis represents the temperature or pressure depending on what you have chosen. The Y-axis represents the value of your function. The numbers to the left and right on the X-axis shows the range and will turn red if the value is out of the valid range. The numbers at the top and bottom of the Y-axis shows the range of the Y-axis. The pair of numbers displayed in the center are the temperature/pressure and its corresponding function value. Three types of gestures are supported. Pan, pinch and double-tap. To move the view, hold and drag. Pinching will zoom in or out. Double-tap will fit the graph to the window. The 'Export Table' button will generate a number of X Y points and put them in a table that will be attached in an email.</mutableString>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" red="0.13118007309999999" green="0.2340372352" blue="0.4311423788" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="Bwn-CU-aau"/>
+                    <tabBarItem key="tabBarItem" title="View" id="Bwn-CU-aau"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2079" y="686"/>
+            <point key="canvasLocation" x="2004" y="666"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="pzV-aj-tgr">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="daq-DS-nHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tabBarController definesPresentationContext="YES" id="PbO-2N-ooA" sceneMemberID="viewController">
+                <tabBarController definesPresentationContext="YES" modalTransitionStyle="crossDissolve" id="PbO-2N-ooA" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="e2I-1C-jeV"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="LK7-XS-Har">
@@ -561,6 +600,7 @@
                     <connections>
                         <segue destination="bhq-mr-edp" kind="relationship" relationship="viewControllers" id="iRk-Sx-2FU"/>
                         <segue destination="mq1-f6-63N" kind="relationship" relationship="viewControllers" id="zJN-Tg-4A8"/>
+                        <segue destination="Vj9-Xr-PFG" kind="relationship" relationship="viewControllers" id="BQ7-hV-0By"/>
                     </connections>
                 </tabBarController>
             </objects>

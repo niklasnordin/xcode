@@ -255,9 +255,9 @@
         [_minPressureField setHidden:YES];
     }
     
-    [_picker reloadAllComponents];
     [_picker selectRow:_currentRow inComponent:0 animated:NO];
     [_picker selectRow:_currentProperty inComponent:1 animated:NO];
+    [_picker reloadAllComponents];
 
 }
 
