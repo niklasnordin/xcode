@@ -16,10 +16,11 @@
 @interface polymorphViewController ()
 @property (strong, nonatomic) UIPickerView *picker;
 @property (strong, nonatomic) UIActionSheet *actionSheet;
-@property (nonatomic) int currentRow;
-@property (nonatomic) int currentProperty;
 @property (nonatomic) int selectedConstantProperty;
 @property (nonatomic) BOOL pressureDependent;
+
+@property (strong, nonatomic) NSString *currentSpeciesName;
+@property (strong, nonatomic) NSString *currentPropertyName;
 
 @property (strong,nonatomic) functions *selector;
 @end
@@ -56,19 +57,15 @@
     [_functionNames addObject:[ancillary_2 name]];
     [_functionNames addObject:[ancillary_3 name]];
     
-    [_functionNames addObject:[fundamentalJacobsen name]];
+    //[_functionNames addObject:[fundamentalJacobsen name]];
 
 }
 
 -(void)checkPressureInput:(UITextField *)sender
 {
     
-    NSArray *species = _db.species;
-    NSString *selectedSpecie = [species objectAtIndex:self.currentRow];
-    NSDictionary *propertiesDict = [_db.json objectForKey:selectedSpecie];
-    NSArray *properties = [propertiesDict allKeys];
-    NSString *selectedProperty = [properties objectAtIndex:self.currentProperty];
-    NSDictionary *propDict = [propertiesDict objectForKey:selectedProperty];
+    NSDictionary *propertiesDict = [_db.json objectForKey:_currentSpeciesName];
+    NSDictionary *propDict = [propertiesDict objectForKey:_currentPropertyName];
     
     NSString *functionName = [propDict objectForKey:@"function"];
     Class functionClass = (NSClassFromString(functionName));
@@ -93,7 +90,6 @@
         double pMin = [[prd valueForKey:@"min"] doubleValue];
         double pMax = [[prd valueForKey:@"max"] doubleValue];
 
-        
         if (pInput <= pMin)
         {
             double pMinMpa = 1.0e-6*pMin;
@@ -168,7 +164,6 @@
 
 -(void) update
 {
-    
     NSArray *species = self.db.species;
     NSString *speciesText = @"";
     NSString *propertiesText = @"No database loaded";
@@ -179,27 +174,38 @@
     [_ptSegmentControl setHidden:YES];
     [_constantTextLabel setHidden:YES];
     
+    int index0 = 0;
+    int index1 = 0;
+    
     if ([species count])
     {
-        if (_currentRow >= [species count])
+        if ([species containsObject:_currentSpeciesName])
         {
-            _currentRow = 0;
+            index0 = [species indexOfObject:_currentSpeciesName];
         }
-        speciesText = [species objectAtIndex:self.currentRow];
-        NSDictionary *propertiesDict = [self.db.json objectForKey:speciesText];
+        else
+        {
+            _currentSpeciesName = [species objectAtIndex:index0];
+        }
+
+        NSDictionary *propertiesDict = [self.db.json objectForKey:_currentSpeciesName];
+        speciesText = _currentSpeciesName;
         
         if ([propertiesDict count])
         {
-            NSArray *properties = [propertiesDict allKeys];
-            if (_currentProperty >= [properties count])
-            {
-                _currentProperty = 0;
-            }
-            propertiesText = [properties objectAtIndex:self.currentProperty];
             
             [_viewButton setEnabled:YES];
-            
-            NSDictionary *propertyDict = [propertiesDict objectForKey:propertiesText];
+            NSArray *propertyNames = [propertiesDict allKeys];
+            if ([propertyNames containsObject:_currentPropertyName])
+            {
+                index1 = [propertyNames indexOfObject:_currentPropertyName];
+            }
+            else
+            {
+                _currentPropertyName = [propertyNames objectAtIndex:index1];
+            }
+            propertiesText = _currentPropertyName;
+            NSDictionary *propertyDict = [propertiesDict objectForKey:_currentPropertyName];
             unitText = [propertyDict objectForKey:@"unit"];
 
             NSString *functionName = [propertyDict objectForKey:@"function"];
@@ -254,9 +260,9 @@
         [_temperatureMin setHidden:NO];
         [_minPressureField setHidden:YES];
     }
-    
-    [_picker selectRow:_currentRow inComponent:0 animated:NO];
-    [_picker selectRow:_currentProperty inComponent:1 animated:NO];
+
+    [_picker selectRow:index0 inComponent:0 animated:NO];
+    [_picker selectRow:index1 inComponent:1 animated:NO];
     [_picker reloadAllComponents];
 
 }
@@ -273,21 +279,17 @@
     // load the database and initiate it
     _selector = [[functions alloc] init];
     _db = [[database alloc] init];
-    //_db.json = [[NSMutableDictionary alloc] init];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     _db.json = [defaults objectForKey:@"database"];
     if (!_db.json)
     {
-        //NSLog(@"No database");
         _db.json = [[NSMutableDictionary alloc] init];
     }
+    
     _link = [defaults objectForKey:@"link"];
-    NSNumber *row = [defaults objectForKey:@"currentRow"];
-    NSNumber *prop = [defaults objectForKey:@"currentProperty"];
-
-    _currentRow = [row intValue]; // 0 default
-    _currentProperty = [prop intValue];
+    _currentSpeciesName = [defaults objectForKey:@"currentSpeciesName"];
+    _currentPropertyName = [defaults objectForKey:@"currentPropertyName"];
     
 	// Do any additional setup after loading the view, typically from a nib.
     
@@ -315,12 +317,12 @@
 - (void)save
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:_link forKey:@"link"];
-    NSNumber *cr = [[NSNumber alloc] initWithInt:_currentRow];
-    NSNumber *cp = [[NSNumber alloc] initWithInt:_currentProperty];
     
-    [defaults setObject:cr forKey:@"currentRow"];
-    [defaults setObject:cp forKey:@"currentProperty"];
+    [defaults setObject:_link forKey:@"link"];
+    [defaults setObject:_currentSpeciesName forKey:@"currentSpeciesName"];
+    [defaults setObject:_currentPropertyName forKey:@"currentPropertyName"];
+    [defaults setObject:_db.json forKey:@"database"];
+    
     [defaults synchronize];
 }
 
@@ -418,22 +420,27 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
+    NSArray *species = self.db.species;
  
-    if (self.currentRow != [pickerView selectedRowInComponent:0])
+    int i0 = [pickerView selectedRowInComponent:0];
+    int i1 = [pickerView selectedRowInComponent:1];
+    
+    NSString *selectedSpeciesName = [species objectAtIndex:i0];
+    
+    if (![_currentSpeciesName isEqualToString:selectedSpeciesName])
     {
         [pickerView reloadComponent:1];
+        _currentSpeciesName = selectedSpeciesName;
     }
-    self.currentRow = [pickerView selectedRowInComponent:0];
-    self.currentProperty = [pickerView selectedRowInComponent:1];
-    
-    NSArray *species = self.db.species;
+        
     if ([species count])
     {
-        NSDictionary *propertiesDict = [self.db.json objectForKey:[species objectAtIndex:self.currentRow]];
+        NSDictionary *propertiesDict = [self.db.json objectForKey:_currentSpeciesName];
         if ([propertiesDict count])
         {
             NSArray *properties = [propertiesDict allKeys];
-            self.propertyDisplay.text = [properties objectAtIndex:self.currentProperty];
+            _currentPropertyName = [properties objectAtIndex:i1];
+            self.propertyDisplay.text = _currentPropertyName;
             _viewButton.enabled = YES;
         }
         else
@@ -455,19 +462,19 @@
         double pMin = 1.0e+6*[self.minPressureField.text doubleValue];
         double pMax = 1.0e+6*[self.pressureField.text doubleValue];
 
-        NSArray *species = self.db.species;
-        NSString *selectedSpecie = [species objectAtIndex:self.currentRow];
-        NSDictionary *propertiesDict = [self.db.json objectForKey:selectedSpecie];
-        NSArray *properties = [propertiesDict allKeys];
-        NSString *selectedProperty = [properties objectAtIndex:self.currentProperty];
-        NSDictionary *propDict = [propertiesDict objectForKey:selectedProperty];
+        //NSArray *species = self.db.species;
+        //NSString *selectedSpecie = [species objectAtIndex:self.currentRow];
+        NSDictionary *propertiesDict = [self.db.json objectForKey:_currentSpeciesName];
+        //NSArray *properties = [propertiesDict allKeys];
+        //NSString *selectedProperty = [properties objectAtIndex:self.currentProperty];
+        NSDictionary *propDict = [propertiesDict objectForKey:_currentPropertyName];
 
         NSString *funcName = [propDict objectForKey:@"function"];
 
         _function = [_selector select:funcName];
     
-        [segue.destinationViewController setSpecie:selectedSpecie];
-        [segue.destinationViewController setProperty:selectedProperty];
+        [segue.destinationViewController setSpecie:_currentSpeciesName];
+        [segue.destinationViewController setProperty:_currentPropertyName];
         
         // pressure is the constant property
         if (_selectedConstantProperty == 0)
@@ -478,7 +485,6 @@
                                                max:tMax
                                                cpv:pMax];
             [segue.destinationViewController setXIsT:YES];
-            //[[segue.destinationViewController dview] setXIsT:YES];
         }
         
         if (_selectedConstantProperty == 1)
@@ -489,9 +495,8 @@
                                                max:pMax
                                                cpv:tMax];
             [segue.destinationViewController setXIsT:NO];
-            //[[segue.destinationViewController dview] setXIsT:NO];
         }
-        NSString *title = [NSString stringWithFormat:@"%@, %@",selectedSpecie, selectedProperty];
+        NSString *title = [NSString stringWithFormat:@"%@, %@", _currentSpeciesName, _currentPropertyName];
         [segue.destinationViewController setTitle:title];
     }
 
