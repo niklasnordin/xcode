@@ -11,6 +11,4 @@
 
 @interface nsrds_0 : NSObject <functionValue>
 
-//+(NSString *)name;
-
 @end
