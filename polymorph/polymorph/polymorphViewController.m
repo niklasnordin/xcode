@@ -261,9 +261,10 @@
         [_minPressureField setHidden:YES];
     }
 
+    [_picker reloadAllComponents];
+
     [_picker selectRow:index0 inComponent:0 animated:NO];
     [_picker selectRow:index1 inComponent:1 animated:NO];
-    [_picker reloadAllComponents];
 
 }
 
@@ -372,7 +373,7 @@
     {
         if ([species count])
         {
-            NSInteger i = [pickerView selectedRowInComponent:0];
+            int i = [pickerView selectedRowInComponent:0];
             NSDictionary *propertiesDict = [self.db.json objectForKey:[species objectAtIndex:i]];
             if ([propertiesDict count])
             {
@@ -406,7 +407,7 @@
     {
         if ([species count])
         {
-            NSInteger i = [pickerView selectedRowInComponent:0];
+            int i = [pickerView selectedRowInComponent:0];
             NSDictionary *propertiesDict = [self.db.json objectForKey:[species objectAtIndex:i]];
             if ([propertiesDict count])
             {

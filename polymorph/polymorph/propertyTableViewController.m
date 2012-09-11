@@ -49,7 +49,6 @@
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter property name" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
     
-    //[alert addSubview:_nameTextField];
     alert.delegate = self;
     [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
 
@@ -118,7 +117,9 @@
         NSArray *propertyNames = [propertiesDict allKeys];
         NSString *property = [propertyNames objectAtIndex:indexPath.row];
         [propertiesDict removeObjectForKey:property];
+        [tableView beginUpdates];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView endUpdates];
         [_parent update];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
