@@ -13,7 +13,7 @@
 @interface propertyTableViewController : UITableViewController <UITextFieldDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, weak) database *db;
-@property (nonatomic, strong) NSString *specie;
+@property (nonatomic, weak) NSString *specie;
 @property (nonatomic, weak) NSMutableArray *functionNames;
 
 @property (weak, nonatomic) polymorphViewController* parent;

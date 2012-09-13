@@ -265,6 +265,8 @@
 
     [_picker selectRow:index0 inComponent:0 animated:NO];
     [_picker selectRow:index1 inComponent:1 animated:NO];
+    [_picker reloadAllComponents];
+
 
 }
 
@@ -291,6 +293,9 @@
     _link = [defaults objectForKey:@"link"];
     _currentSpeciesName = [defaults objectForKey:@"currentSpeciesName"];
     _currentPropertyName = [defaults objectForKey:@"currentPropertyName"];
+    
+    //NSLog(@"currentSpeciesName = %@",_currentSpeciesName);
+    //NSLog(@"currentPropertyName = %@",_currentPropertyName);
     
 	// Do any additional setup after loading the view, typically from a nib.
     
@@ -382,6 +387,7 @@
             }
         }
     }
+    //NSLog(@"numberofRowsInComponent %d = %d",component,num);
     return num;
 }
 

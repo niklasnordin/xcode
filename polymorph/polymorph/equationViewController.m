@@ -90,24 +90,34 @@
 
     NSString *name = [_functionNames objectAtIndex:_functionIndex];
     NSString *fullName = [NSString stringWithFormat:@"%@.png",name];
-
     
     UIImage *im = [UIImage imageNamed:fullName];
     //[_image setContentMode:UIViewContentModeScaleAspectFit];
     [_image setImage:im];
     [UIView commitAnimations];
     [self setTitle:name];
-    
+    /*
     [_spVC setCurrentRow:_functionIndex];
     [_spVC.picker selectRow:_functionIndex inComponent:0 animated:NO];
     [_spVC.functionButton setTitle:name forState:UIControlStateNormal];
     [_spVC setNewFunction:name];
+     */
     
 }
 
 - (void)pan:(UIPanGestureRecognizer *)gesture
 {
     NSLog(@"pan");
+}
+
+- (IBAction)setEquationPressed:(id)sender
+{
+    NSString *name = [_functionNames objectAtIndex:_functionIndex];
+
+    [_spVC setCurrentRow:_functionIndex];
+    [_spVC.picker selectRow:_functionIndex inComponent:0 animated:NO];
+    [_spVC.functionButton setTitle:name forState:UIControlStateNormal];
+    [_spVC setNewFunction:name];
 }
 
 

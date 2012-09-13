@@ -371,7 +371,7 @@ static NSUInteger nx = 640;//640;
     {
         pos.y = yAxisStart.y - pixelOffset;
     }
-    
+//    NSLog(@"pos = %g, %g",pos.x,pos.y);
     self.yMidLabel.center = pos;
 }
 

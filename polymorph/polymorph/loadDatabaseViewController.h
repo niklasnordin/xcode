@@ -23,9 +23,9 @@
 @property (weak, nonatomic) database *db;
 @property (weak, nonatomic) polymorphViewController* parent;
 @property (weak, nonatomic) NSMutableArray *functionNames;
-@property (strong, nonatomic) NSString *link;
-@property (strong, nonatomic) IBOutlet UITextField *linkTextField;
-@property (strong, nonatomic) IBOutlet UILabel *statusTextField;
+@property (weak, nonatomic) NSString *link;
+@property (weak, nonatomic) IBOutlet UITextField *linkTextField;
+@property (weak, nonatomic) IBOutlet UILabel *statusTextField;
 
 - (IBAction)loadButton:(id)sender;
 - (IBAction)mergeButton:(id)sender;

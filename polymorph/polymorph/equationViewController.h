@@ -11,7 +11,7 @@
 
 @interface equationViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (nonatomic) int functionIndex;
 @property (weak, nonatomic) NSArray *functionNames;
 @property (weak, nonatomic) setPropertyViewController *spVC;
@@ -20,6 +20,7 @@
 
 - (void)swipeGesture:(UISwipeGestureRecognizer *)gesture;
 - (void)pan:(UIPanGestureRecognizer *)gesture;
+- (IBAction)setEquationPressed:(id)sender;
 
 
 @end
