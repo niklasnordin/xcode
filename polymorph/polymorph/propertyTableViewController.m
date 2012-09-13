@@ -120,6 +120,7 @@
         [tableView beginUpdates];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [tableView endUpdates];
+        [tableView reloadData];
         [_parent update];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {

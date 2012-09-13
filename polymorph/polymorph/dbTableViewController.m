@@ -10,6 +10,7 @@
 #import "propertyTableViewController.h"
 
 @interface dbTableViewController ()
+@property (nonatomic) int alert;
 
 @end
 
@@ -37,6 +38,7 @@
 -(void)addSpecie
 {
 
+    _alert = 0;
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter species name" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
     
     alert.delegate = self;
@@ -108,23 +110,24 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         // Delete the row from the data source
 
         NSArray *species = _db.species;
-        NSLog(@"Count = %d, row = %d",[species count], indexPath.row);
-        NSString *specie = [[_db.json allKeys] objectAtIndex:indexPath.row];
+        NSString *specie = [species objectAtIndex:indexPath.row];
         [_db.json removeObjectForKey:specie];
 
         [tableView beginUpdates];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [tableView endUpdates];
-
+        [tableView reloadData];
         [_parent update];
 
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        NSLog(@"hello");
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
@@ -147,6 +150,28 @@
 
 #pragma mark - Table view delegate
 
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    //NSLog(@"clicked acc butt");
+    _alert = 1;
+    NSString *msg = [NSString stringWithFormat:@"A%d",indexPath.row];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter coefficient value for"
+                                                    message:msg
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"Enter", nil];
+    
+    alert.delegate = self;
+    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    UITextField *tf = [alert textFieldAtIndex:0];
+    tf.delegate = self;
+    [tf setClearButtonMode:UITextFieldViewModeWhileEditing];
+    [tf setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
+    tf.text = @"Calvin";
+    
+    [alert show];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
@@ -157,13 +182,11 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      
      */
-    
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-
-    NSArray *species = [_db.json allKeys];
+    NSArray *species = _db.species;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     int row = indexPath.row;
     NSString *key = [species objectAtIndex:row];
@@ -177,37 +200,50 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1)
+    // clicked add specie button
+    if (_alert == 0)
     {
-        NSString *name = [[alertView textFieldAtIndex:0] text];
-        
-        // check if name already exist
-        NSArray *species = [_db.json allKeys];
-        bool alreadyInDB = NO;
-        if ([species count])
+        if (buttonIndex == 1)
         {
-            for(int i=0; i<[species count];i++)
+            NSString *name = [[alertView textFieldAtIndex:0] text];
+        
+            // check if name already exist
+            NSArray *species = _db.species;
+            bool alreadyInDB = NO;
+            if ([species count])
             {
-                if ([name isEqualToString:[species objectAtIndex:i]])
+                for(int i=0; i<[species count]; i++)
                 {
-                    alreadyInDB = YES;
+                    if ([name isEqualToString:[species objectAtIndex:i]])
+                    {
+                        alreadyInDB = YES;
+                    }
                 }
             }
-        }
-        if (!alreadyInDB)
-        {
-            NSArray *keyArray = [[NSArray alloc] initWithObjects:name, nil];
-            NSMutableDictionary *noDict = [[NSMutableDictionary alloc] init];
-            NSArray *valArray = [[NSArray alloc] initWithObjects:noDict, nil];
+            if (!alreadyInDB)
+            {
+                NSArray *keyArray = [[NSArray alloc] initWithObjects:name, nil];
+                NSMutableDictionary *noDict = [[NSMutableDictionary alloc] init];
+                NSArray *valArray = [[NSArray alloc] initWithObjects:noDict, nil];
 
-            NSDictionary *dict = [[NSDictionary alloc] initWithObjects:valArray forKeys:keyArray];
-            [_db.json addEntriesFromDictionary:dict];
-            [self.tableView reloadData];
-            [_parent update];
+                NSDictionary *dict = [[NSDictionary alloc] initWithObjects:valArray forKeys:keyArray];
+                [_db.json addEntriesFromDictionary:dict];
+                [self.tableView reloadData];
+                [_parent update];
+            }
+        }
+    }
+    
+    //clicked rename button
+    if (_alert == 1)
+    {
+        if (buttonIndex == 1) {
+            NSLog(@"clicked OK for new name");
         }
     }
 
 }
+
 
 -(BOOL) textFieldShouldReturn:(UITextField*) textField {
     [textField resignFirstResponder];

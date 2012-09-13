@@ -10,7 +10,7 @@
 
 @interface coefficientTableViewController ()
 
-@property (strong, nonatomic) UIActionSheet *actionSheet;
+//@property (strong, nonatomic) UIActionSheet *actionSheet;
 @property (nonatomic) double inputValue;
 @property (nonatomic) int selectedIndex;
 
