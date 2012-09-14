@@ -11,7 +11,7 @@
 
 @interface propertyTableViewController ()
 
-//@property (strong,nonatomic) UITextField *nameTextField;
+@property (nonatomic) int alert;
 
 @end
 
@@ -46,7 +46,7 @@
 
 -(void)addProperty
 {
-    
+    _alert = 0;
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter property name" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
     
     alert.delegate = self;
@@ -147,6 +147,32 @@
 
 #pragma mark - Table view delegate
 
+
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    // set alert to 1 for the actionsheet
+    _alert = 1;
+
+    NSDictionary *dict = [_db.json objectForKey:_specie];
+    NSArray *properties = [dict allKeys];
+    NSString *name = [properties objectAtIndex:indexPath.row];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter new name for:"
+                                                    message:name
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"Enter", nil];
+    
+    alert.delegate = self;
+    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    UITextField *tf = [alert textFieldAtIndex:0];
+    tf.delegate = self;
+    [tf setClearButtonMode:UITextFieldViewModeWhileEditing];
+    //[tf setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
+    tf.text = name;
+    
+    [alert show];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
@@ -160,31 +186,51 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1)
+    if (_alert == 0)
     {
-        NSString *name = [[alertView textFieldAtIndex:0] text];
-        bool propertyAlreadyExist = NO;
-        NSArray *properties = [self.db propertiesForSpecie:_specie];
-        // check if property already exist
-        if ([properties count])
+        if (buttonIndex == 1)
         {
-            for (int i=0; i<[properties count]; i++) {
-                if ([name isEqualToString:[properties objectAtIndex:i]])
-                {
-                    propertyAlreadyExist = YES;
+            NSString *name = [[alertView textFieldAtIndex:0] text];
+            bool propertyAlreadyExist = NO;
+            NSArray *properties = [self.db propertiesForSpecie:_specie];
+            // check if property already exist
+            if ([properties count])
+            {
+                for (int i=0; i<[properties count]; i++) {
+                    if ([name isEqualToString:[properties objectAtIndex:i]])
+                    {
+                        propertyAlreadyExist = YES;
+                    }
                 }
             }
+            if (!propertyAlreadyExist)
+            {
+                NSMutableDictionary *specDict = [_db.json objectForKey:_specie];
+            
+                NSDictionary *defaultPropDict = [_db createEmptyPropertyDict];
+                NSDictionary *propDict = @{ name : defaultPropDict };
+                [specDict addEntriesFromDictionary:propDict];
+            
+                [self.tableView reloadData];
+                [_parent update];
+            }
         }
-        if (!propertyAlreadyExist)
-        {
+    }
+    
+    if (_alert == 1)
+    {
+        if (buttonIndex == 1) {
+            NSString *oldName = [alertView message];
+            NSString *newName = [[alertView textFieldAtIndex:0] text];
+            
+            NSLog(@"clicked OK to change name from %@ to %@",oldName,newName);
+            
             NSMutableDictionary *specDict = [_db.json objectForKey:_specie];
+            NSDictionary *dict = [specDict objectForKey:oldName];
             
-            NSDictionary *defaultPropDict = [_db createEmptyPropertyDict];
-            NSDictionary *propDict = @{ name : defaultPropDict };
-            [specDict addEntriesFromDictionary:propDict];
-            
+            [specDict setObject:dict forKey:newName];
+            [specDict removeObjectForKey:oldName];
             [self.tableView reloadData];
-            [_parent update];
         }
     }
 }

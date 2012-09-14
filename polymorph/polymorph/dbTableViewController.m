@@ -37,7 +37,7 @@
 
 -(void)addSpecie
 {
-
+    // set alert to 0 for the actionsheet
     _alert = 0;
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter species name" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
     
@@ -152,11 +152,13 @@
 
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    //NSLog(@"clicked acc butt");
+    // set alert to 1 for the actionsheet
     _alert = 1;
-    NSString *msg = [NSString stringWithFormat:@"A%d",indexPath.row];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter coefficient value for"
-                                                    message:msg
+    
+    NSArray *species = _db.species;
+    NSString *name = [species objectAtIndex:indexPath.row];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter new name for:"
+                                                    message:name
                                                    delegate:self
                                           cancelButtonTitle:@"Cancel"
                                           otherButtonTitles:@"Enter", nil];
@@ -166,8 +168,8 @@
     UITextField *tf = [alert textFieldAtIndex:0];
     tf.delegate = self;
     [tf setClearButtonMode:UITextFieldViewModeWhileEditing];
-    [tf setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
-    tf.text = @"Calvin";
+    //[tf setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
+    tf.text = name;
     
     [alert show];
 }
@@ -238,7 +240,16 @@
     if (_alert == 1)
     {
         if (buttonIndex == 1) {
-            NSLog(@"clicked OK for new name");
+            NSString *oldName = [alertView message];
+            NSString *newName = [[alertView textFieldAtIndex:0] text];
+
+            //NSLog(@"clicked OK to change name from %@ to %@",oldName,newName);
+            
+            NSDictionary *dict = [_db.json objectForKey:oldName];
+            
+            [_db.json setObject:dict forKey:newName];
+            [_db.json removeObjectForKey:oldName];
+            [self.tableView reloadData];
         }
     }
 
