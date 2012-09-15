@@ -22,11 +22,11 @@
 -(void)checkRange;
 -(void)fitToView:(diagramView *)view;
 -(void)setup:(double)xmin max:(double)xmax;
-@property (strong, nonatomic) IBOutlet UILabel *yMaxLabel;
-@property (strong, nonatomic) IBOutlet UILabel *yMinLabel;
-@property (strong, nonatomic) IBOutlet UILabel *xMinLabel;
-@property (strong, nonatomic) IBOutlet UILabel *xMaxLabel;
-@property (strong, nonatomic) IBOutlet UILabel *yMidLabel;
+@property (weak, nonatomic) IBOutlet UILabel *yMaxLabel;
+@property (weak, nonatomic) IBOutlet UILabel *yMinLabel;
+@property (weak, nonatomic) IBOutlet UILabel *xMinLabel;
+@property (weak, nonatomic) IBOutlet UILabel *xMaxLabel;
+@property (weak, nonatomic) IBOutlet UILabel *yMidLabel;
 
 -(void)drawCoordinateSystem:(CGContextRef)context;
 

@@ -82,7 +82,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
     
-    NSArray *species = [_db.json allKeys];
+    NSArray *species = [_db orderedSpecies];
 
     cell.textLabel.text = [species objectAtIndex:indexPath.row];
     
@@ -115,7 +115,7 @@
     {
         // Delete the row from the data source
 
-        NSArray *species = _db.species;
+        NSArray *species = _db.orderedSpecies;
         NSString *specie = [species objectAtIndex:indexPath.row];
         [_db.json removeObjectForKey:specie];
 
@@ -155,7 +155,7 @@
     // set alert to 1 for the actionsheet
     _alert = 1;
     
-    NSArray *species = _db.species;
+    NSArray *species = _db.orderedSpecies;
     NSString *name = [species objectAtIndex:indexPath.row];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter new name for:"
                                                     message:name
@@ -188,7 +188,7 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSArray *species = _db.species;
+    NSArray *species = _db.orderedSpecies;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     int row = indexPath.row;
     NSString *key = [species objectAtIndex:row];

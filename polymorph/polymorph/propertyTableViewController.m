@@ -29,16 +29,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //_propertyNames = [_properties allKeys];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                                               target:self
-                                                                               action:@selector(addProperty)];
+    UIBarButtonItem *addButton =
+    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                  target:self
+                                                  action:@selector(addProperty)];
     self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:self.editButtonItem, addButton, nil ];
 
 }
@@ -94,7 +94,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    NSArray *properties = [self.db propertiesForSpecie:_specie];
+    NSArray *properties = [self.db orderedPropertiesForSpecie:_specie];
     cell.textLabel.text = [properties objectAtIndex:indexPath.row];
     return cell;
 }
@@ -112,9 +112,9 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        //NSString *specie = [[_db.json allKeys] objectAtIndex:indexPath.row];
+
         NSMutableDictionary *propertiesDict = [_db.json objectForKey:_specie];
-        NSArray *propertyNames = [propertiesDict allKeys];
+        NSArray *propertyNames = [_db orderedPropertiesForSpecie:_specie];
         NSString *property = [propertyNames objectAtIndex:indexPath.row];
         [propertiesDict removeObjectForKey:property];
         [tableView beginUpdates];
@@ -153,8 +153,7 @@
     // set alert to 1 for the actionsheet
     _alert = 1;
 
-    NSDictionary *dict = [_db.json objectForKey:_specie];
-    NSArray *properties = [dict allKeys];
+    NSArray *properties = [_db orderedPropertiesForSpecie:_specie];
     NSString *name = [properties objectAtIndex:indexPath.row];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter new name for:"
                                                     message:name
@@ -167,7 +166,6 @@
     UITextField *tf = [alert textFieldAtIndex:0];
     tf.delegate = self;
     [tf setClearButtonMode:UITextFieldViewModeWhileEditing];
-    //[tf setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
     tf.text = name;
     
     [alert show];
@@ -225,10 +223,8 @@
             
             // need to check if newName already exists
             
-            //NSLog(@"clicked OK to change name from %@ to %@",oldName,newName);
-            
             NSMutableDictionary *specDict = [_db.json objectForKey:_specie];
-            NSArray *properties = [specDict allKeys];
+            NSArray *properties = [_db propertiesForSpecie:_specie];
             
             BOOL canChangeName = YES;
 
@@ -277,7 +273,7 @@
 
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     int row = indexPath.row;
-    NSArray *properties = [self.db propertiesForSpecie:_specie];
+    NSArray *properties = [self.db orderedPropertiesForSpecie:_specie];
     NSString *key = [properties objectAtIndex:row];
     
     [segue.destinationViewController setDb:_db];
