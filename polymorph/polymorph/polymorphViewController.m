@@ -18,10 +18,6 @@
 @property (strong, nonatomic) UIActionSheet *actionSheet;
 @property (nonatomic) int selectedConstantProperty;
 @property (nonatomic) BOOL pressureDependent;
-
-@property (strong, nonatomic) NSString *currentSpeciesName;
-@property (strong, nonatomic) NSString *currentPropertyName;
-
 @property (strong,nonatomic) functions *selector;
 @end
 

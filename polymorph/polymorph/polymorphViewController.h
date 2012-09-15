@@ -13,21 +13,26 @@
 @interface polymorphViewController : UIViewController
     <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate,
     UIActionSheetDelegate>
-@property (strong, nonatomic) IBOutlet UIButton *speciesButton;
 
-@property (strong, nonatomic) IBOutlet UILabel *constantTextLabel;
-@property (strong, nonatomic) IBOutlet UILabel *propertyDisplay;
-@property (strong, nonatomic) IBOutlet UITextField *temperatureMin;
-@property (strong, nonatomic) IBOutlet UITextField *temperatureMax;
-@property (strong, nonatomic) IBOutlet UITextField *minPressureField;
-@property (strong, nonatomic) IBOutlet UITextField *pressureField;
+
+@property (strong, nonatomic) NSString *currentSpeciesName;
+@property (strong, nonatomic) NSString *currentPropertyName;
+
+@property (weak, nonatomic) IBOutlet UIButton *speciesButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *constantTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *propertyDisplay;
+@property (weak, nonatomic) IBOutlet UITextField *temperatureMin;
+@property (weak, nonatomic) IBOutlet UITextField *temperatureMax;
+@property (weak, nonatomic) IBOutlet UITextField *minPressureField;
+@property (weak, nonatomic) IBOutlet UITextField *pressureField;
 @property (strong, nonatomic) id function;
 @property (strong, nonatomic) NSMutableArray *functionNames;
 @property (strong, nonatomic) NSString *link;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *ptSegmentControl;
 
 @property (strong, nonatomic) database *db;
-@property (strong, nonatomic) IBOutlet UIButton *viewButton;
+@property (weak, nonatomic) IBOutlet UIButton *viewButton;
 - (IBAction)enterPressureText:(UITextField *)sender;
 - (IBAction)changedPTSwitch:(UISegmentedControl *)sender;
 

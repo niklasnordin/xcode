@@ -223,14 +223,51 @@
             NSString *oldName = [alertView message];
             NSString *newName = [[alertView textFieldAtIndex:0] text];
             
-            NSLog(@"clicked OK to change name from %@ to %@",oldName,newName);
+            // need to check if newName already exists
+            
+            //NSLog(@"clicked OK to change name from %@ to %@",oldName,newName);
             
             NSMutableDictionary *specDict = [_db.json objectForKey:_specie];
-            NSDictionary *dict = [specDict objectForKey:oldName];
+            NSArray *properties = [specDict allKeys];
             
-            [specDict setObject:dict forKey:newName];
-            [specDict removeObjectForKey:oldName];
-            [self.tableView reloadData];
+            BOOL canChangeName = YES;
+
+            for (int i=0; i<[properties count]; i++)
+            {
+                if ([newName isEqualToString:[properties objectAtIndex:i]]) {
+                    canChangeName = NO;
+                }
+            }
+            if (canChangeName)
+            {
+                NSDictionary *dict = [specDict objectForKey:oldName];
+            
+                [specDict setObject:dict forKey:newName];
+                [specDict removeObjectForKey:oldName];
+                [self.tableView reloadData];
+                if ([[_parent currentPropertyName] isEqualToString:oldName])
+                {
+                    [_parent setCurrentPropertyName:newName];
+                }
+                [_parent update];
+            }
+            else
+            {
+               // send an alert
+                _alert = 2;
+                
+                NSString *title = [NSString stringWithFormat:@"%@ is already taken. Please choose another one", newName];
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                                message:nil
+                                                               delegate:self
+                                                      cancelButtonTitle:nil
+                                                      otherButtonTitles:@"OK", nil];
+                
+                alert.delegate = self;
+                [alert setAlertViewStyle:UIAlertViewStyleDefault];
+                [alert show];
+            }
         }
     }
 }
