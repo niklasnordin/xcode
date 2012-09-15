@@ -11,12 +11,20 @@
 #import "functions.h"
 
 @interface polymorphViewController : UIViewController
-    <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate,
-    UIActionSheetDelegate>
-
+<
+    UIPickerViewDelegate,
+    UIPickerViewDataSource,
+    UITextFieldDelegate,
+    UIActionSheetDelegate
+>
 
 @property (strong, nonatomic) NSString *currentSpeciesName;
 @property (strong, nonatomic) NSString *currentPropertyName;
+@property (strong, nonatomic) database *db;
+
+@property (strong, nonatomic) id function;
+@property (strong, nonatomic) NSMutableArray *functionNames;
+@property (strong, nonatomic) NSString *link;
 
 @property (weak, nonatomic) IBOutlet UIButton *speciesButton;
 
@@ -26,17 +34,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *temperatureMax;
 @property (weak, nonatomic) IBOutlet UITextField *minPressureField;
 @property (weak, nonatomic) IBOutlet UITextField *pressureField;
-@property (strong, nonatomic) id function;
-@property (strong, nonatomic) NSMutableArray *functionNames;
-@property (strong, nonatomic) NSString *link;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *ptSegmentControl;
-
-@property (strong, nonatomic) database *db;
 @property (weak, nonatomic) IBOutlet UIButton *viewButton;
+
 - (IBAction)enterPressureText:(UITextField *)sender;
 - (IBAction)changedPTSwitch:(UISegmentedControl *)sender;
-
 - (IBAction)clickedSpecieButton:(id)sender;
+
 -(void)update;
 
 @end

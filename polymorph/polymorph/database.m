@@ -44,21 +44,20 @@
 
 -(NSArray *)orderedSpecies
 {
-    NSArray *names = [[self species] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-    return names;
+    return [[self species] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    //return [_json allKeys];
 }
 
 -(NSArray *)propertiesForSpecie:(NSString *)specie
 {
-    NSDictionary *dict = [_json objectForKey:specie];
-    return [dict allKeys];
+    return [[_json objectForKey:specie] allKeys];
 }
 
 -(NSArray *)orderedPropertiesForSpecie:(NSString *)specie
 {
-    NSArray *names = [[self propertiesForSpecie:specie]
-                      sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-    return names;
+    return [[self propertiesForSpecie:specie]
+                sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    //return [[_json objectForKey:specie] allKeys];
 }
 
 -(NSMutableDictionary *)createEmptyPropertyDict

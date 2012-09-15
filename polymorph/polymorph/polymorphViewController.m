@@ -22,9 +22,6 @@
 @end
 
 @implementation polymorphViewController
-@synthesize constantTextLabel = _constantTextLabel;
-@synthesize ptSegmentControl = _ptSegmentControl;
-@synthesize minPressureField = _minPressureField;
 
 -(void)loadFunctions
 {
@@ -130,21 +127,26 @@
 
 - (IBAction)clickedSpecieButton:(id)sender {
     
-    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Properties" delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Properties"
+                                                   delegate:nil
+                                          cancelButtonTitle:nil
+                                     destructiveButtonTitle:nil
+                                          otherButtonTitles:nil];
     
     [self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
     [self.actionSheet setOpaque:YES];
     [self.actionSheet addSubview:self.picker];
     
     UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:@[@"Select"]];
-    closeButton.momentary = YES;
+    //closeButton.momentary = YES;
     closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
     closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
     closeButton.tintColor = [UIColor blackColor];
-    [closeButton addTarget:self action:@selector(dismissActionSheet:) forControlEvents:UIControlEventValueChanged];
+    [closeButton addTarget:self
+                    action:@selector(dismissActionSheet:)
+          forControlEvents:UIControlEventValueChanged];
     [self.actionSheet addSubview:closeButton];
     
-    //[actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
     [self.actionSheet showInView:self.view];
     [self.actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
 }
@@ -152,8 +154,8 @@
 
 - (void)dismissActionSheet:(id)sender
 {
-
     [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    _actionSheet = nil;
     [self update];
 }
 
@@ -161,7 +163,7 @@
 -(void) update
 {
     NSArray *species = self.db.orderedSpecies;
-    NSString *speciesText = @"";
+    NSString *speciesText = [[NSString alloc] init];
     NSString *propertiesText = @"No database loaded";
     NSString *unitText = @"";
     
@@ -225,7 +227,6 @@
                 _pressureDependent = YES;
                 [_ptSegmentControl setHidden:NO];
                 [_constantTextLabel setHidden:NO];
-
             }
             else
             {
@@ -249,7 +250,7 @@
     }
     
     [self.speciesButton setTitle:speciesText forState:UIControlStateNormal];
-    _propertyDisplay.text = [NSString stringWithFormat:@"%@ [%@]", propertiesText, unitText];
+    [_propertyDisplay setText:[NSString stringWithFormat:@"%@ [%@]", propertiesText, unitText]];
 
     if (!_pressureDependent)
     {
@@ -257,11 +258,13 @@
         [_minPressureField setHidden:YES];
     }
 
+    /*
     [_picker reloadAllComponents];
 
     [_picker selectRow:index0 inComponent:0 animated:NO];
     [_picker selectRow:index1 inComponent:1 animated:NO];
-    [_picker reloadAllComponents];
+     */
+    //[_picker reloadAllComponents];
 
 
 }
@@ -298,11 +301,10 @@
     [self loadFunctions];
     
     CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
-    self.picker = [[UIPickerView alloc] initWithFrame:pickerFrame];
-    self.picker.showsSelectionIndicator = YES;
-    self.picker.dataSource = self;
-    self.picker.delegate = self;
-    self.picker.showsSelectionIndicator = YES;
+    _picker = [[UIPickerView alloc] initWithFrame:pickerFrame];
+    _picker.showsSelectionIndicator = YES;
+    _picker.dataSource = self;
+    _picker.delegate = self;
     
     // uisegmentcontrol config
     _selectedConstantProperty = 0;
@@ -376,6 +378,8 @@
         {
             int i = [pickerView selectedRowInComponent:0];
             NSDictionary *propertiesDict = [self.db.json objectForKey:[species objectAtIndex:i]];
+            //NSDictionary *propertiesDict = [self.db.json objectForKey:_currentSpeciesName];
+
             if ([propertiesDict count])
             {
                 NSArray *properties = [propertiesDict allKeys];
@@ -383,22 +387,12 @@
             }
         }
     }
-    //NSLog(@"numberofRowsInComponent %d = %d",component,num);
     return num;
 }
 
-// returns width of column and height of row for each component. 
-//- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component;
-//- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component;
-//- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view;
-
-// these methods return either a plain UIString, or a view (e.g UILabel) to display the row for the component.
-// for the view versions, we cache any hidden and thus unused views and pass them back for reuse. 
-// If you return back a different object, the old one will be released. the view will be centered in the row rect
-
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    NSString *name = @"";
+    NSString *name = [[NSString alloc] init];
     NSArray *species = self.db.orderedSpecies;
     
     if ([species count])
@@ -424,35 +418,48 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
+    
     NSArray *species = self.db.orderedSpecies;
- 
-    int i0 = [pickerView selectedRowInComponent:0];
-    int i1 = [pickerView selectedRowInComponent:1];
     
-    NSString *selectedSpeciesName = [species objectAtIndex:i0];
-    
-    if (![_currentSpeciesName isEqualToString:selectedSpeciesName])
+    if (component == 0)
     {
-        [pickerView reloadComponent:1];
-        _currentSpeciesName = selectedSpeciesName;
-    }
-        
-    if ([species count])
-    {
-        NSDictionary *propertiesDict = [self.db.json objectForKey:_currentSpeciesName];
-        if ([propertiesDict count])
+        NSString *selectedSpeciesName = [species objectAtIndex:row];
+
+        if (![_currentSpeciesName isEqualToString:selectedSpeciesName])
         {
-            NSArray *properties = [self.db orderedPropertiesForSpecie:_currentSpeciesName];
-            _currentPropertyName = [properties objectAtIndex:i1];
-            self.propertyDisplay.text = _currentPropertyName;
-            _viewButton.enabled = YES;
-        }
-        else
-        {
-            self.propertyDisplay.text = @"";
-            _viewButton.enabled = NO;
+            [pickerView reloadComponent:1];
+            [pickerView selectRow:0 inComponent:1 animated:NO];
+            _currentSpeciesName = selectedSpeciesName;
         }
     }
+    
+    if (component == 1)
+    {
+        if ([species count])
+        {
+            int i = [pickerView selectedRowInComponent:0];
+            NSString *specie = [species objectAtIndex:i];
+            NSDictionary *propertiesDict = [self.db.json objectForKey:specie];
+            if ([propertiesDict count])
+            {
+                int selRow = row;
+                if (selRow >= [propertiesDict count])
+                {
+                    selRow = 0;
+                }
+                NSArray *properties = [self.db orderedPropertiesForSpecie:specie];
+                _currentPropertyName = [properties objectAtIndex:selRow];
+                [self.propertyDisplay setText:_currentPropertyName];
+                _viewButton.enabled = YES;
+            }
+            else
+            {
+                [self.propertyDisplay setText:@""];
+                _viewButton.enabled = NO;
+            }
+        }
+    }
+
 }
 
 
