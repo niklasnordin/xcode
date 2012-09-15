@@ -17,7 +17,9 @@
 -(void)readFile:(NSString *)file;
 -(void)readURL:(NSString *)link;
 -(NSArray *)species;
+-(NSArray *)orderedSpecies;
 -(NSArray *)propertiesForSpecie:(NSString *)specie;
+-(NSArray *)orderedPropertiesForSpecie:(NSString *)specie;
 -(NSMutableDictionary *)createEmptyPropertyDict;
 -(NSMutableArray *)createCoefficients:(int)numberOfCoefficients;
 

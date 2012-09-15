@@ -160,7 +160,7 @@
 
 -(void) update
 {
-    NSArray *species = self.db.species;
+    NSArray *species = self.db.orderedSpecies;
     NSString *speciesText = @"";
     NSString *propertiesText = @"No database loaded";
     NSString *unitText = @"";
@@ -191,7 +191,7 @@
         {
             
             [_viewButton setEnabled:YES];
-            NSArray *propertyNames = [propertiesDict allKeys];
+            NSArray *propertyNames = [_db orderedPropertiesForSpecie:_currentSpeciesName];
             if ([propertyNames containsObject:_currentPropertyName])
             {
                 index1 = [propertyNames indexOfObject:_currentPropertyName];
@@ -365,7 +365,7 @@
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     NSInteger num = 0;
-    NSArray *species = self.db.species;
+    NSArray *species = self.db.orderedSpecies;
     if (component == 0)
     {
         num = [species count];
@@ -394,26 +394,27 @@
 
 // these methods return either a plain UIString, or a view (e.g UILabel) to display the row for the component.
 // for the view versions, we cache any hidden and thus unused views and pass them back for reuse. 
-// If you return back a different object, the old one will be released. the view will be centered in the row rect  
+// If you return back a different object, the old one will be released. the view will be centered in the row rect
+
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     NSString *name = @"";
-    NSArray *species = self.db.species;
-
-    if (component == 0)
+    NSArray *species = self.db.orderedSpecies;
+    
+    if ([species count])
     {
-        if ([species count])
+        if (component == 0)
+        {
             name = [species objectAtIndex:row];
-    }
-    else
-    {
-        if ([species count])
+        }
+        else
         {
             int i = [pickerView selectedRowInComponent:0];
-            NSDictionary *propertiesDict = [self.db.json objectForKey:[species objectAtIndex:i]];
+            NSString *specie = [species objectAtIndex:i];
+            NSDictionary *propertiesDict = [self.db.json objectForKey:specie];
             if ([propertiesDict count])
             {
-                NSArray *properties = [propertiesDict allKeys];
+                NSArray *properties = [self.db orderedPropertiesForSpecie:specie];
                 name = [properties objectAtIndex:row];
             }
         }
@@ -423,7 +424,7 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    NSArray *species = self.db.species;
+    NSArray *species = self.db.orderedSpecies;
  
     int i0 = [pickerView selectedRowInComponent:0];
     int i1 = [pickerView selectedRowInComponent:1];
@@ -441,7 +442,7 @@
         NSDictionary *propertiesDict = [self.db.json objectForKey:_currentSpeciesName];
         if ([propertiesDict count])
         {
-            NSArray *properties = [propertiesDict allKeys];
+            NSArray *properties = [self.db orderedPropertiesForSpecie:_currentSpeciesName];
             _currentPropertyName = [properties objectAtIndex:i1];
             self.propertyDisplay.text = _currentPropertyName;
             _viewButton.enabled = YES;
@@ -465,11 +466,7 @@
         double pMin = 1.0e+6*[self.minPressureField.text doubleValue];
         double pMax = 1.0e+6*[self.pressureField.text doubleValue];
 
-        //NSArray *species = self.db.species;
-        //NSString *selectedSpecie = [species objectAtIndex:self.currentRow];
         NSDictionary *propertiesDict = [self.db.json objectForKey:_currentSpeciesName];
-        //NSArray *properties = [propertiesDict allKeys];
-        //NSString *selectedProperty = [properties objectAtIndex:self.currentProperty];
         NSDictionary *propDict = [propertiesDict objectForKey:_currentPropertyName];
 
         NSString *funcName = [propDict objectForKey:@"function"];
