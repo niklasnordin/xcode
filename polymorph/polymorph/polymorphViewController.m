@@ -19,6 +19,10 @@
 @property (nonatomic) int selectedConstantProperty;
 @property (nonatomic) BOOL pressureDependent;
 @property (strong,nonatomic) functions *selector;
+
+@property (nonatomic) int selectedComponent0;
+@property (nonatomic) int selectedComponent1;
+
 @end
 
 @implementation polymorphViewController
@@ -127,6 +131,10 @@
 
 - (IBAction)clickedSpecieButton:(id)sender {
     
+    _selectedComponent0 = [_picker selectedRowInComponent:0];
+    _selectedComponent1 = [_picker selectedRowInComponent:1];
+    //NSLog(@"1. c0 = %d, c1 = %d",_selectedComponent0, _selectedComponent1);
+    
     self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Properties"
                                                    delegate:nil
                                           cancelButtonTitle:nil
@@ -147,18 +155,68 @@
           forControlEvents:UIControlEventValueChanged];
     [self.actionSheet addSubview:closeButton];
     
+    UISegmentedControl *cancelButton = [[UISegmentedControl alloc] initWithItems:@[@"Cancel"]];
+    //cancelButton.momentary = YES;
+    cancelButton.frame = CGRectMake(10, 7.0f, 50.0f, 30.0f);
+    cancelButton.segmentedControlStyle = UISegmentedControlStyleBar;
+    UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:0.0];
+    cancelButton.tintColor = darkRed;
+    [cancelButton addTarget:self
+                     action:@selector(cancelActionSheet:)
+           forControlEvents:UIControlEventValueChanged];
+    [self.actionSheet addSubview:cancelButton];
+    
     [self.actionSheet showInView:self.view];
     [self.actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
+    
 }
 
 
 - (void)dismissActionSheet:(id)sender
 {
     [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
-    _actionSheet = nil;
+    //_actionSheet = nil;
+    
+    NSArray *species = self.db.orderedSpecies;
+    int i0 = [_picker selectedRowInComponent:0];
+    int i1 = [_picker selectedRowInComponent:1];
+
+    _currentSpeciesName = [species objectAtIndex:i0];
+    if ([species count])
+    {
+        NSDictionary *propertiesDict = [self.db.json objectForKey:_currentSpeciesName];
+        if ([propertiesDict count])
+        {
+            NSArray *properties = [self.db orderedPropertiesForSpecie:_currentSpeciesName];
+            _currentPropertyName = [properties objectAtIndex:i1];
+            [self.propertyDisplay setText:_currentPropertyName];
+            _viewButton.enabled = YES;
+        }
+        else
+        {
+            [self.propertyDisplay setText:@""];
+            _viewButton.enabled = NO;
+        }
+    }
+
     [self update];
 }
 
+
+- (void)cancelActionSheet:(id)sender
+{
+    //NSLog(@"cancelActionSheet");
+    // reset the picker
+    [_picker reloadComponent:0];
+    [_picker selectRow:_selectedComponent0 inComponent:0 animated:NO];
+    [_picker reloadComponent:1];
+    [_picker selectRow:_selectedComponent1 inComponent:1 animated:NO];
+    [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    //NSLog(@"2. c0 = %d, c1 = %d",_selectedComponent0, _selectedComponent1);
+
+    //[self update];
+
+}
 
 -(void) update
 {
@@ -259,12 +317,10 @@
     }
 
 
-    [_picker reloadAllComponents];
-
+    [_picker reloadComponent:0];
     [_picker selectRow:index0 inComponent:0 animated:NO];
+    [_picker reloadComponent:1];
     [_picker selectRow:index1 inComponent:1 animated:NO];
-
-    [_picker reloadAllComponents];
 
 
 }
@@ -418,48 +474,10 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    
-    NSArray *species = self.db.orderedSpecies;
-    
     if (component == 0)
     {
-        NSString *selectedSpeciesName = [species objectAtIndex:row];
-
-        if (![_currentSpeciesName isEqualToString:selectedSpeciesName])
-        {
-            [pickerView reloadComponent:1];
-            [pickerView selectRow:0 inComponent:1 animated:NO];
-            _currentSpeciesName = selectedSpeciesName;
-        }
+        [pickerView reloadComponent:1];
     }
-    
-    if (component == 1)
-    {
-        if ([species count])
-        {
-            int i = [pickerView selectedRowInComponent:0];
-            NSString *specie = [species objectAtIndex:i];
-            NSDictionary *propertiesDict = [self.db.json objectForKey:specie];
-            if ([propertiesDict count])
-            {
-                int selRow = row;
-                if (selRow >= [propertiesDict count])
-                {
-                    selRow = 0;
-                }
-                NSArray *properties = [self.db orderedPropertiesForSpecie:specie];
-                _currentPropertyName = [properties objectAtIndex:selRow];
-                [self.propertyDisplay setText:_currentPropertyName];
-                _viewButton.enabled = YES;
-            }
-            else
-            {
-                [self.propertyDisplay setText:@""];
-                _viewButton.enabled = NO;
-            }
-        }
-    }
-
 }
 
 

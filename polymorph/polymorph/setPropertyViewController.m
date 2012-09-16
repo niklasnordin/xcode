@@ -130,11 +130,8 @@
     cancelButton.frame = CGRectMake(10, 7.0f, 50.0f, 30.0f);
     cancelButton.segmentedControlStyle = UISegmentedControlStyleBar;
     UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:0.0];
-    cancelButton.tintColor = darkRed;
-    
-    //[cancelButton addTarget:self action:@selector(cancelActionSheet:) forControlEvents:UIControlEventTouchCancel];
+    cancelButton.tintColor = darkRed;    
     [cancelButton addTarget:self action:@selector(cancelActionSheet:) forControlEvents:UIControlEventValueChanged];
-
     
     [self.actionSheet addSubview:cancelButton];
     
@@ -250,39 +247,6 @@
     if (![functionName isEqualToString:propFuncName])
     {
         [self setNewFunction:functionName];
-        
-        /*
-        // function has changed
-        functions *mySel = [[functions alloc] init];
-
-        id newFunction = [mySel select:functionName];
-
-        int newNCoeff = [newFunction nCoefficients];
-        int oldNCoeff = [_originalCoefficients count];
-        
-        [propertyDict removeObjectForKey:@"function"];
-        [propertyDict setObject:functionName forKey:@"function"];
-
-
-        NSArray *newCoeffs = [_db createCoefficients:newNCoeff];
-            
-        // copy the old values to the new array
-        for (int i=0; i<newNCoeff; i++)
-        {
-            NSString *coeffName = [NSString stringWithFormat:@"A%d",i];
-            if (i < oldNCoeff)
-            {
-                NSMutableDictionary *old = [_originalCoefficients objectAtIndex:i];
-                NSMutableDictionary *new = [newCoeffs objectAtIndex:i];
-                [new setObject:[old objectForKey:coeffName] forKey:coeffName];
-            }
-        }
-        // remove old coefficients and add new ones
-        [propertyDict removeObjectForKey:@"coefficients"];
-        NSDictionary *coeffDict = @{ @"coefficients" : newCoeffs };
-        NSMutableDictionary *mcd = [[NSMutableDictionary alloc] initWithDictionary:coeffDict];
-        [propertyDict addEntriesFromDictionary:mcd];
-         */
     }
 }
 
@@ -346,13 +310,6 @@
         [segue.destinationViewController setFunctionIndex:index];
         [segue.destinationViewController setFunctionNames:_functionNames];
         [segue.destinationViewController setSpVC:self];
-        
-        /*
-        Class functionClass = (NSClassFromString(name));
-        id<functionValue> f = [[functionClass alloc] init];
-        NSString *eqText = f.equationText;
-        [segue.destinationViewController setEquation:eqText];
-        */
         [segue.destinationViewController setTitle:name];
     }
 }
