@@ -534,7 +534,7 @@
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" staticText="YES"/>
                                 </accessibility>
-                                <string key="text">The database is a JSON (http://www.json.org) and can be edited and exported. Load will clear the database and replace it with the loaded one, while merge will add the loaded JSON to the existing one. Name-clashes will be handled by appending _#, where # is a number. The edit button allows you to edit the database and add/delete species and properties. By clicking the small arrow icon on the right you can change the name.</string>
+                                <mutableString key="text">The database is a JSON (http://www.json.org) and can be edited and exported. Load will clear the database and replace it with the loaded one, while merge will add the loaded JSON to the existing one. Name-clashes will be handled by appending _#, where # is a number. NB! Nothing is saved by default, so all changes/additions will be lost if the applications exits without clicking the save button first. The edit button allows you to edit the database and add/delete species and properties. By clicking the small arrow icon on the right you can change the name.</mutableString>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

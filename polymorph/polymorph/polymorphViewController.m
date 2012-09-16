@@ -258,13 +258,13 @@
         [_minPressureField setHidden:YES];
     }
 
-    /*
+
     [_picker reloadAllComponents];
 
     [_picker selectRow:index0 inComponent:0 animated:NO];
     [_picker selectRow:index1 inComponent:1 animated:NO];
-     */
-    //[_picker reloadAllComponents];
+
+    [_picker reloadAllComponents];
 
 
 }
@@ -392,7 +392,7 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    NSString *name = [[NSString alloc] init];
+    NSString *name = @"";
     NSArray *species = self.db.orderedSpecies;
     
     if ([species count])

@@ -219,7 +219,7 @@
     {
         if (buttonIndex == 1) {
             NSString *oldName = [alertView message];
-            NSString *newName = [[alertView textFieldAtIndex:0] text];
+            NSMutableString *newName = [[NSMutableString alloc] initWithString:[[alertView textFieldAtIndex:0] text]];
             
             // need to check if newName already exists
             
