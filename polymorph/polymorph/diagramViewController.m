@@ -92,20 +92,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    int n = [_function nCoefficients];
-    NSArray *coeffDictArray = [self.dict objectForKey:@"coefficients"];
-    NSMutableArray *cs = [[NSMutableArray alloc] init];
-    
-    for (int i=0; i<n; i++)
-    {
-        NSDictionary *Adict = [coeffDictArray objectAtIndex:i];
-        NSString *name = [NSString stringWithFormat:@"A%d",i];
-        NSNumber *a = [Adict objectForKey:name];
-        [cs addObject:a];
-    }
-    
-    _coeffs = cs;
-
 }
 
 - (void)viewDidUnload

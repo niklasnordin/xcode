@@ -226,4 +226,14 @@ static NSString *name = @"fundamentalJacobsen";
     free(_A);
 }
 
+-(NSArray *)dependsOnFunctions
+{
+    return nil;
+}
+
+-(void)setFunction:(id)function forKey:(NSString *)key
+{
+    
+}
+
 @end

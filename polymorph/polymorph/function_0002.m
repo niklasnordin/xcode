@@ -50,4 +50,14 @@ static NSString *name = @"function_0002";
     return @"";
 }
 
+-(NSArray *)dependsOnFunctions
+{
+    return nil;
+}
+
+-(void)setFunction:(id)function forKey:(NSString *)key
+{
+    
+}
+
 @end

@@ -11,6 +11,4 @@
 
 @interface function_0001 : NSObject <functionValue>
 
-//+(NSString *)name;
-
 @end

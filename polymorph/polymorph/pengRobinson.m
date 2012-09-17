@@ -143,4 +143,14 @@ static NSString *name = @"pengRobinson";
     free(_A);
 }
 
+-(NSArray *)dependsOnFunctions
+{
+    return nil;
+}
+
+-(void)setFunction:(id)function forKey:(NSString *)key
+{
+    
+}
+
 @end

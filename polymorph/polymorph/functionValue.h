@@ -11,6 +11,8 @@
 @protocol functionValue <NSObject>
 
 -(id)initWithArray:(NSArray *)coeffs;
+-(NSArray *)dependsOnFunctions;
+-(void)setFunction:(id)function forKey:(NSString *)key;
 -(double) valueForT:(double)T andP:(double)p;
 -(int) nCoefficients;
 -(bool) pressureDependent;

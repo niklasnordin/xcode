@@ -72,4 +72,14 @@ static NSString *name = @"nsrds_6";
     free(_A);
 }
 
+-(NSArray *)dependsOnFunctions
+{
+    return nil;
+}
+
+-(void)setFunction:(id)function forKey:(NSString *)key
+{
+    
+}
+
 @end

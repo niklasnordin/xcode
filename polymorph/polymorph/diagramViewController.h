@@ -22,15 +22,14 @@
 >
 
 @property (strong,nonatomic) id <functionValue> function;
-@property (nonatomic) NSDictionary *dict;
+@property (weak, nonatomic) NSDictionary *dict;
 @property (nonatomic) double xMin, xMax;
 @property (nonatomic) double cpv; // constantPropertyValue
-@property (strong, nonatomic) NSArray *coeffs;
 @property (strong, nonatomic) NSString *specie;
 @property (strong, nonatomic) NSString *property;
 @property (nonatomic) BOOL xIsT;
 
-@property (strong, nonatomic) IBOutlet diagramView *dview;
+@property (weak, nonatomic) IBOutlet diagramView *dview;
 - (IBAction)generateTable:(id)sender;
 
 -(void) setup:(id <functionValue>)f
