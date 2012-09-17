@@ -11,6 +11,8 @@
 
 @interface fundamentalJacobsen : NSObject <functionValue>
 
+@property (nonatomic) double *A;
+
 @property (strong, nonatomic) NSMutableArray *ik;
 @property (strong, nonatomic) NSMutableArray *jk;
 @property (strong, nonatomic) NSMutableArray *nk;
@@ -20,7 +22,5 @@
 @property (nonatomic) double pc;
 @property (nonatomic) double rhoc;
 @property (nonatomic) double mw;
-
-+(NSString *)name;
 
 @end

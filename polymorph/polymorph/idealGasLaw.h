@@ -11,4 +11,6 @@
 
 @interface idealGasLaw : NSObject <functionValue>
 
+@property (nonatomic) double *A;
+
 @end

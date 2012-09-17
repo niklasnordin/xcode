@@ -130,11 +130,11 @@
             double y = 0.0;
             if (_xIsT)
             {
-                y = [_function value:_coeffs T:x p:_cpv];
+                y = [_function valueForT:x andP:_cpv];
             }
             else
             {
-                y = [_function value:_coeffs T:_cpv p:x];
+                y = [_function valueForT:_cpv andP:x];
 
             }
             output = [NSMutableString stringWithFormat:@"%@%g %g\n", output, x,y];

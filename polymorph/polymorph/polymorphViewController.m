@@ -495,9 +495,24 @@
         NSDictionary *propDict = [propertiesDict objectForKey:_currentPropertyName];
 
         NSString *funcName = [propDict objectForKey:@"function"];
+        NSArray *coeffDictArray = [propDict objectForKey:@"coefficients"];
 
-        _function = [_selector select:funcName];
-    
+        _function = [_selector select:funcName withArray:coeffDictArray];
+    /*
+        int n = [_function nCoefficients];
+        NSMutableArray *cs = [[NSMutableArray alloc] initWithCapacity:n];
+        
+        for (int i=0; i<n; i++)
+        {
+            NSDictionary *Adict = [coeffDictArray objectAtIndex:i];
+            NSString *name = [NSString stringWithFormat:@"A%d", i];
+            NSNumber *a = [Adict objectForKey:name];
+            [cs addObject:a];
+        }
+        [_function setCoefficients:cs];
+        //_coeffs = cs;
+*/
+        
         [segue.destinationViewController setSpecie:_currentSpeciesName];
         [segue.destinationViewController setProperty:_currentPropertyName];
         

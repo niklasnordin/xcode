@@ -17,21 +17,33 @@ static NSString *name = @"idealGasLaw";
     return name;
 }
 
+-(idealGasLaw *)initWithArray:(NSArray *)array
+{
+    self = [super init];
+    
+    int n = [self nCoefficients];
+    
+    _A = malloc(n*sizeof(double));
+    
+    for (int i=0; i<n; i++)
+    {
+        NSDictionary *Adict = [array objectAtIndex:i];
+        NSString *name = [NSString stringWithFormat:@"A%d", i];
+        NSNumber *a = [Adict objectForKey:name];
+        _A[i] = [a doubleValue];
+    }
+    
+    return self;
+}
+
 -(NSString *) name
 {
     return [idealGasLaw name];
 }
 
--(double)value:(NSArray *)coeff T:(double)T p:(double)p
+-(double)valueForT:(double)T andP:(double)p
 {
-    double a[self.nCoefficients];
-    
-    for(int i=0; i<self.nCoefficients; i++)
-    {
-        a[i] = [[coeff objectAtIndex:i] doubleValue];
-    }
-
-    return p/( a[0]*T );
+    return p/( _A[0]*T );
 }
 
 -(bool)pressureDependent
@@ -47,6 +59,11 @@ static NSString *name = @"idealGasLaw";
 - (NSString *)equationText
 {
     return @"";
+}
+
+- (void)dealloc
+{
+    free(_A);
 }
 
 @end

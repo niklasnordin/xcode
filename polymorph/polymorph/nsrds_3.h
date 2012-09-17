@@ -11,4 +11,6 @@
 
 @interface nsrds_3 : NSObject <functionValue>
 
+@property (nonatomic) double *A;
+
 @end

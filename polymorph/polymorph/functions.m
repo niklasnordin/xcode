@@ -10,14 +10,14 @@
 
 @implementation functions
 
--(id) select:(NSString *)name
+-(id) select:(NSString *)name withArray:(NSArray *)array
 {
     id f;
-
+    //NSLog(@"allocate %@",name);
     Class functionClass = (NSClassFromString(name));
     
     if (functionClass != nil) {
-        f = [[functionClass alloc] init];
+        f = [[functionClass alloc] initWithArray:array];
     }
     else
     {

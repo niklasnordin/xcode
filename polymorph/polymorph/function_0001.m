@@ -12,9 +12,10 @@ static NSString *name = @"function_0001";
 
 @implementation function_0001
 
--(function_0001 *) init
+-(function_0001 *)initWithArray:(NSArray *)array
 {
     self = [super init];
+    
     return self;
 }
 
@@ -28,7 +29,7 @@ static NSString *name = @"function_0001";
     return [function_0001 name];
 }
 
--(double)value:(NSArray *)coeff T:(double)T p:(double)p
+-(double)valueForT:(double)T andP:(double)p
 {
     double y = 2.0*T - T*T;
     return y;

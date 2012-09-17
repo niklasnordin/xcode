@@ -200,10 +200,11 @@
 {
     NSMutableDictionary *speciesDict = [_db.json objectForKey:_specie];
     NSMutableDictionary *propertyDict = [speciesDict objectForKey:_property];
-
+    NSArray *coeffsArray = [propertyDict objectForKey:@"coefficients"];
+    
     functions *mySel = [[functions alloc] init];
     
-    id newFunction = [mySel select:functionName];
+    id newFunction = [mySel select:functionName withArray:coeffsArray];
     
     int newNCoeff = [newFunction nCoefficients];
     int oldNCoeff = [_originalCoefficients count];

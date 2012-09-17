@@ -21,25 +21,38 @@ static NSString *name = @"pengRobinson";
     return name;
 }
 
+-(pengRobinson *)initWithArray:(NSArray *)array
+{
+    self = [super init];
+    
+    int n = [self nCoefficients];
+    
+    _A = malloc(n*sizeof(double));
+    
+    for (int i=0; i<n; i++)
+    {
+        NSDictionary *Adict = [array objectAtIndex:i];
+        NSString *name = [NSString stringWithFormat:@"A%d", i];
+        NSNumber *a = [Adict objectForKey:name];
+        _A[i] = [a doubleValue];
+    }
+    
+    return self;
+}
+
 -(NSString *) name
 {
     return [pengRobinson name];
 }
 
--(double)value:(NSArray *)coeff T:(double)T p:(double)p
+-(double)valueForT:(double)T andP:(double)p
 {
     double returnValue = 0.0;
-    double a[self.nCoefficients];
-
-    for(int i=0; i<self.nCoefficients; i++)
-    {
-        a[i] = [[coeff objectAtIndex:i] doubleValue];
-    }
     
-    double Tc    = a[0];
-    double Pc    = a[1];
-    double omega = a[2];
-    double W     = a[3];
+    double Tc    = _A[0];
+    double Pc    = _A[1];
+    double omega = _A[2];
+    double W     = _A[3];
 
     double Tr = T/Tc;
     
@@ -125,5 +138,9 @@ static NSString *name = @"pengRobinson";
     return @"";
 }
 
+- (void)dealloc
+{
+    free(_A);
+}
 
 @end

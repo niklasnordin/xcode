@@ -11,6 +11,6 @@
 
 @interface nsrds_6 : NSObject <functionValue>
 
-//+(NSString *)name;
+@property (nonatomic) double *A;
 
 @end

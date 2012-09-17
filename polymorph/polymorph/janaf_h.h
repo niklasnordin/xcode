@@ -11,6 +11,6 @@
 
 @interface janaf_h : NSObject <functionValue>
 
-//+(NSString *)name;
+@property (nonatomic) double *A;
 
 @end

@@ -12,10 +12,28 @@ static NSString *name = @"janaf_h";
 
 @implementation janaf_h
 
-
 +(NSString *)name
 {
     return name;
+}
+
+-(janaf_h *)initWithArray:(NSArray *)array
+{
+    self = [super init];
+    
+    int n = [self nCoefficients];
+    
+    _A = malloc(n*sizeof(double));
+    
+    for (int i=0; i<n; i++)
+    {
+        NSDictionary *Adict = [array objectAtIndex:i];
+        NSString *name = [NSString stringWithFormat:@"A%d", i];
+        NSNumber *a = [Adict objectForKey:name];
+        _A[i] = [a doubleValue];
+    }
+    
+    return self;
 }
 
 -(NSString *) name
@@ -23,17 +41,9 @@ static NSString *name = @"janaf_h";
     return [janaf_h name];
 }
 
--(double)value:(NSArray *)coeff T:(double)T p:(double)p
+-(double)valueForT:(double)T andP:(double)p
 {
-    double a[self.nCoefficients];
-
-    for(int i=0; i<self.nCoefficients; i++)
-    {
-        a[i] = [[coeff objectAtIndex:i] doubleValue];
-    }
-
-    double y = (((((a[4]/5.0 + a[3]/4.0)*T + a[2]/3.0)*T + a[1]/2.0)*T + a[0])*T + a[5])*a[7];
-
+    double y = (((((_A[4]/5.0 + _A[3]/4.0)*T + _A[2]/3.0)*T + _A[1]/2.0)*T + _A[0])*T + _A[5])*_A[7];
     return y;
 }
 
@@ -50,6 +60,11 @@ static NSString *name = @"janaf_h";
 - (NSString *)equationText
 {
     return @"";
+}
+
+- (void)dealloc
+{
+    free(_A);
 }
 
 @end

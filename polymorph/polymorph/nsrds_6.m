@@ -12,6 +12,24 @@ static NSString *name = @"nsrds_6";
 
 @implementation nsrds_6
 
+-(nsrds_6 *)initWithArray:(NSArray *)array
+{
+    self = [super init];
+    
+    int n = [self nCoefficients];
+
+    _A = malloc(n*sizeof(double));
+        
+    for (int i=0; i<n; i++)
+    {
+        NSDictionary *Adict = [array objectAtIndex:i];
+        NSString *name = [NSString stringWithFormat:@"A%d", i];
+        NSNumber *a = [Adict objectForKey:name];
+        _A[i] = [a doubleValue];
+    }
+
+    return self;
+}
 
 +(NSString *)name
 {
@@ -23,18 +41,13 @@ static NSString *name = @"nsrds_6";
     return [nsrds_6 name];
 }
 
--(double)value:(NSArray *)coeff T:(double)T p:(double)p
+-(double)valueForT:(double)T andP:(double)p
 {
-    double a[self.nCoefficients];
 
-    for(int i=0; i<self.nCoefficients; i++)
-    {
-        a[i] = [[coeff objectAtIndex:i] doubleValue];
-    }
-    double Tr = T/a[5];
-    double eVal = a[1] + Tr*(a[2] + Tr*(a[3] + a[4]*Tr));
+    double Tr = T/_A[5];
+    double eVal = _A[1] + Tr*(_A[2] + Tr*(_A[3] + _A[4]*Tr));
 
-    double y = a[0]*pow(1 - Tr, eVal);
+    double y = _A[0]*pow(1 - Tr, eVal);
 
     return y;
 }
@@ -54,5 +67,9 @@ static NSString *name = @"nsrds_6";
     return @"";
 }
 
+- (void)dealloc
+{
+    free(_A);
+}
 
 @end

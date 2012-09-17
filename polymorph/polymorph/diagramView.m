@@ -69,11 +69,11 @@ static NSUInteger nx = 640;//640;
         double yi = 0.0;
         
         if (_xIsT) {
-            yi = [[self function] value:self.coeffs T:xi p:_cpv];
+            yi = [[self function] valueForT:xi andP:_cpv];
         }
         else
         {
-            yi = [[self function] value:self.coeffs T:_cpv p:xi];
+            yi = [[self function] valueForT:_cpv andP:xi];
         }
         
         if (yi < _yMin) _yMin = yi;
@@ -95,19 +95,6 @@ static NSUInteger nx = 640;//640;
     self.contentMode = UIViewContentModeRedraw;
     _xMin = xmin;
     _xMax = xmax;
-    int n = [_function nCoefficients];
-    NSArray *coeffDictArray = [self.dict objectForKey:@"coefficients"];
-    NSMutableArray *cs = [[NSMutableArray alloc] init];
-    
-    for (int i=0; i<n; i++)
-    {
-        NSDictionary *Adict = [coeffDictArray objectAtIndex:i];
-        NSString *name = [NSString stringWithFormat:@"A%d",i];
-        NSNumber *a = [Adict objectForKey:name];
-        [cs addObject:a];
-    }
-
-    _coeffs = cs;
 
     if (_xIsT)
     {
@@ -383,9 +370,7 @@ static NSUInteger nx = 640;//640;
     // Drawing code
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextBeginPath(context);
-            
-    NSArray *cf = self.coeffs;
-    
+
     NSMutableArray *pp = [[NSMutableArray alloc] init];
     
     for (int i=0; i<nx; i++)
@@ -394,11 +379,11 @@ static NSUInteger nx = 640;//640;
         double yi = 0.0;
         if (_xIsT)
         {
-            yi = [_function value:cf T:xi p:_cpv];
+            yi = [_function valueForT:xi andP:_cpv];
         }
         else
         {
-            yi = [_function value:cf T:_cpv p:xi];
+            yi = [_function valueForT:_cpv andP:xi];
         }
         
         CGPoint p0 = [diagramView mapPoint:self X:xi Y:yi];
@@ -414,35 +399,15 @@ static NSUInteger nx = 640;//640;
         CGContextAddLineToPoint(context, p1.x, p1.y);
     }
     
-    // commented out cause it was too slow, instead preload all
-    // values into an array and plot that
-    /*
-    for (int i=0; i<nx-1; i++)
-    {
-        CGPoint p0, p1;
-        
-        double xi = _xMin + i*(_xMax - _xMin)/(nx-1);
-        double yi = [_function value:cf T:xi p:p];
-        p0 = [diagramView mapPoint:self X:xi Y:yi];
-
-        double x1 = _xMin + (i+1)*(_xMax - _xMin)/(nx-1);
-        double y1 = [_function value:cf T:x1 p:p];
-        
-        p1 = [diagramView mapPoint:self X:x1 Y:y1];
-
-        CGContextMoveToPoint(context, p0.x, p0.y);
-        CGContextAddLineToPoint(context, p1.x, p1.y);
-    }
-     */
     
     _xMid = 0.5*(_xMin + _xMax);
     if (_xIsT)
     {
-        _yMid = [[self function] value:self.coeffs T:_xMid p:_cpv];
+        _yMid = [[self function] valueForT:_xMid andP:_cpv];
     }
     else
     {
-        _yMid = [[self function] value:self.coeffs T:_cpv p:_xMid];
+        _yMid = [[self function] valueForT:_cpv andP:_xMid];
     }
     
     CGContextStrokePath(context);

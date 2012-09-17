@@ -12,10 +12,28 @@ static NSString *name = @"ancillary_1";
 
 @implementation ancillary_1
 
-
 +(NSString *)name
 {
     return name;
+}
+
+-(ancillary_1 *)initWithArray:(NSArray *)array
+{
+    self = [super init];
+    
+    int n = [self nCoefficients];
+    
+    _A = malloc(n*sizeof(double));
+    
+    for (int i=0; i<n; i++)
+    {
+        NSDictionary *Adict = [array objectAtIndex:i];
+        NSString *name = [NSString stringWithFormat:@"A%d", i];
+        NSNumber *a = [Adict objectForKey:name];
+        _A[i] = [a doubleValue];
+    }
+    
+    return self;
 }
 
 -(NSString *) name
@@ -23,20 +41,15 @@ static NSString *name = @"ancillary_1";
     return [ancillary_1 name];
 }
 
--(double)value:(NSArray *)coeff T:(double)T p:(double)p
+-(double)valueForT:(double)T andP:(double)p
 {
-    double a[self.nCoefficients];
-    
-    for(int i=0; i<self.nCoefficients; i++)
-    {
-        a[i] = [[coeff objectAtIndex:i] doubleValue];
-    }
-    double pc = a[8];
-    double Tc = a[9];
+
+    double pc = _A[8];
+    double Tc = _A[9];
     
     double phi = 1.0 - T/Tc;
     
-    double rhs = a[0]*pow(phi, a[4]) + a[1]*pow(phi, a[5]) + a[2]*pow(phi, a[6]) + a[3]*pow(phi, a[7]);
+    double rhs = _A[0]*pow(phi, _A[4]) + _A[1]*pow(phi, _A[5]) + _A[2]*pow(phi, _A[6]) + _A[3]*pow(phi, _A[7]);
     
     return pc*exp(Tc*rhs/T);
 }
@@ -54,6 +67,11 @@ static NSString *name = @"ancillary_1";
 - (NSString *)equationText
 {
     return @"";
+}
+
+- (void)dealloc
+{
+    free(_A);
 }
 
 @end

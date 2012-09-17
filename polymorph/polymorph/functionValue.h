@@ -10,7 +10,8 @@
 
 @protocol functionValue <NSObject>
 
--(double) value:(NSArray *)coeffs T:(double)T p:(double)p;
+-(id)initWithArray:(NSArray *)coeffs;
+-(double) valueForT:(double)T andP:(double)p;
 -(int) nCoefficients;
 -(bool) pressureDependent;
 -(NSString *) name;

@@ -15,7 +15,6 @@
 @property (nonatomic) double lowerRange, upperRange;
 @property (nonatomic) double cpv;
 @property (weak, nonatomic) id <functionValue> function;
-@property (strong, nonatomic) NSArray *coeffs;
 @property (weak, nonatomic) NSDictionary *dict;
 @property (nonatomic) BOOL xIsT;
 
