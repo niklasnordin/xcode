@@ -499,6 +499,22 @@
 
         _function = [_selector select:funcName withArray:coeffDictArray];
         
+        NSArray *funcNames = [_function dependsOnFunctions];
+
+        if (funcNames != nil)
+        {
+            NSArray *availableProperties = [propertiesDict allKeys];
+            int n = [funcNames count];
+            for (int i=0; i<n; i++)
+            {
+                NSString *name = [funcNames objectAtIndex:i];
+                if (![availableProperties containsObject:name])
+                {
+                    NSLog(@"You need to implement %@ first",name);
+                }
+            }
+        }
+        
         [segue.destinationViewController setSpecie:_currentSpeciesName];
         [segue.destinationViewController setProperty:_currentPropertyName];
         

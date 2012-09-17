@@ -203,9 +203,25 @@
     NSArray *coeffsArray = [propertyDict objectForKey:@"coefficients"];
     
     functions *mySel = [[functions alloc] init];
-    
     id newFunction = [mySel select:functionName withArray:coeffsArray];
     
+    NSArray *funcNames = [newFunction dependsOnFunctions];
+    
+    if (funcNames != nil)
+    {
+        NSArray *availableProperties = [speciesDict allKeys];
+        int n = [funcNames count];
+        for (int i=0; i<n; i++)
+        {
+            NSString *name = [funcNames objectAtIndex:i];
+            if (![availableProperties containsObject:name])
+            {
+                NSLog(@"You need to implement %@ first",name);
+                return;
+            }
+        }
+    }
+
     int newNCoeff = [newFunction nCoefficients];
     int oldNCoeff = [_originalCoefficients count];
     

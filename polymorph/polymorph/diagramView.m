@@ -348,6 +348,7 @@ static NSUInteger nx = 640;//640;
     
     CGPoint pos = [diagramView mapPoint:self X:self.xMid Y:self.yMid];
 
+    // make sure the text dont go out of view
     int pixelOffset = 25;
     if (pos.y < pixelOffset)
     {
