@@ -12,10 +12,15 @@ static NSString *name = @"function_0001";
 
 @implementation function_0001
 
+-(function_0001 *)initWithZero
+{
+    self = [super init];
+    return self;
+}
+
 -(function_0001 *)initWithArray:(NSArray *)array
 {
     self = [super init];
-    
     return self;
 }
 

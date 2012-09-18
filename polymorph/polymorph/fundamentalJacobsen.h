@@ -23,4 +23,5 @@
 @property (nonatomic) double rhoc;
 @property (nonatomic) double mw;
 
+@property NSMutableDictionary *functionPointers;
 @end

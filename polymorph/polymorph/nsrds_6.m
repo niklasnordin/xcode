@@ -12,6 +12,23 @@ static NSString *name = @"nsrds_6";
 
 @implementation nsrds_6
 
+
+-(nsrds_6 *)initWithZero
+{
+    self = [super init];
+    
+    int n = [self nCoefficients];
+    
+    _A = malloc(n*sizeof(double));
+    
+    for (int i=0; i<n; i++)
+    {
+        _A[i] = 0.0;
+    }
+    return self;
+}
+
+
 -(nsrds_6 *)initWithArray:(NSArray *)array
 {
     self = [super init];

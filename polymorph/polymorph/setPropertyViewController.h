@@ -11,8 +11,13 @@
 #import "polymorphViewController.h"
 #import "RollerUIButton.h"
 
-@interface setPropertyViewController : UIViewController <UIPickerViewDelegate,
-UIPickerViewDataSource, UITextFieldDelegate>
+@interface setPropertyViewController : UIViewController
+<
+    UIPickerViewDelegate,
+    UIPickerViewDataSource,
+    UITextFieldDelegate,
+    UIAlertViewDelegate
+>
 
 @property (weak, nonatomic) polymorphViewController* parent;
 

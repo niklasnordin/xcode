@@ -273,7 +273,6 @@
                 // send an alert
                 // set alert to 2 for the actionsheet
                 _alert = 2;
-                
                 NSString *title = [NSString stringWithFormat:@"%@ is already taken. Please choose another one", newName];
                 
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title

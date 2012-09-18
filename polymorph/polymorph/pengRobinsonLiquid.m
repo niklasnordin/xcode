@@ -21,6 +21,21 @@ static NSString *name = @"pengRobinsonLiquid";
     return name;
 }
 
+-(pengRobinsonLiquid *)initWithZero
+{
+    self = [super init];
+    
+    int n = [self nCoefficients];
+    
+    _A = malloc(n*sizeof(double));
+    
+    for (int i=0; i<n; i++)
+    {
+        _A[i] = 0.0;
+    }
+    return self;
+}
+
 -(pengRobinsonLiquid *)initWithArray:(NSArray *)array
 {
     self = [super init];

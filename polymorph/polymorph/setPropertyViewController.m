@@ -198,25 +198,38 @@
 
 - (void)setNewFunction:(NSString *)functionName
 {
+    NSLog(@"entering with name = %@",functionName);
     NSMutableDictionary *speciesDict = [_db.json objectForKey:_specie];
     NSMutableDictionary *propertyDict = [speciesDict objectForKey:_property];
     NSArray *coeffsArray = [propertyDict objectForKey:@"coefficients"];
-    
+    NSLog(@"coeffsArray size = %d",[coeffsArray count]);
     functions *mySel = [[functions alloc] init];
-    id newFunction = [mySel select:functionName withArray:coeffsArray];
+    id newFunction = [mySel select:functionName];
     
     NSArray *funcNames = [newFunction dependsOnFunctions];
     
     if (funcNames != nil)
     {
+        NSLog(@"Checking dependency");
         NSArray *availableProperties = [speciesDict allKeys];
         int n = [funcNames count];
+        NSLog(@"n = %d",n);
         for (int i=0; i<n; i++)
         {
             NSString *name = [funcNames objectAtIndex:i];
             if (![availableProperties containsObject:name])
             {
-                NSLog(@"You need to implement %@ first",name);
+                NSString *msg = [[NSString alloc] initWithFormat:@"You need to implement %@ first",name];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:msg
+                                                                message:nil
+                                                               delegate:self
+                                                      cancelButtonTitle:nil
+                                                      otherButtonTitles:@"OK", nil];
+                
+                alert.delegate = self;
+                [alert setAlertViewStyle:UIAlertViewStyleDefault];
+                [alert show];
+                
                 return;
             }
         }
@@ -251,7 +264,8 @@
 
 - (void)dismissActionSheet:(id)sender
 {
-    
+    //self.currentRow = [pickerView selectedRowInComponent:0];
+    self.currentRow = [_picker selectedRowInComponent:0];
     [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
     
     NSString *functionName = [_functionNames objectAtIndex:self.currentRow];
@@ -267,6 +281,25 @@
     }
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"alert");
+    NSDictionary *speciesDict = [_db.json objectForKey:_specie];
+    NSDictionary *propertyDict = [speciesDict objectForKey:_property];
+    NSString *functionName = [propertyDict objectForKey:@"function"];
+    
+    int selectedFunction = 0;
+    for (int i=0; i<[_functionNames count]; i++) {
+        if ([[_functionNames objectAtIndex:i] isEqualToString:functionName]) {
+            selectedFunction = i;
+        }
+    }
+    self.currentRow = selectedFunction;
+    [self.picker selectRow:selectedFunction inComponent:0 animated:YES];
+    NSString *fName = [_functionNames objectAtIndex:self.currentRow];
+    [_functionButton setTitle:fName forState:UIControlStateNormal];
+    
+}
 
 // returns the number of 'columns' to display.
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
@@ -287,7 +320,7 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.currentRow = [pickerView selectedRowInComponent:0];
+    //self.currentRow = [pickerView selectedRowInComponent:0];
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField*) textField {

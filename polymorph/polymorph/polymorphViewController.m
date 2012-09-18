@@ -54,7 +54,7 @@
     [_functionNames addObject:[ancillary_2 name]];
     [_functionNames addObject:[ancillary_3 name]];
     
-    //[_functionNames addObject:[fundamentalJacobsen name]];
+    [_functionNames addObject:[fundamentalJacobsen name]];
 
 }
 
@@ -316,13 +316,10 @@
         [_minPressureField setHidden:YES];
     }
 
-
     [_picker reloadComponent:0];
     [_picker selectRow:index0 inComponent:0 animated:NO];
     [_picker reloadComponent:1];
     [_picker selectRow:index1 inComponent:1 animated:NO];
-
-
 }
 
 - (void)viewDidLoad

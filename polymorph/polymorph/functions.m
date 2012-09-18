@@ -13,11 +13,27 @@
 -(id) select:(NSString *)name withArray:(NSArray *)array
 {
     id f;
-    //NSLog(@"allocate %@",name);
     Class functionClass = (NSClassFromString(name));
     
     if (functionClass != nil) {
         f = [[functionClass alloc] initWithArray:array];
+    }
+    else
+    {
+        NSLog(@"%@ is an illegal function. Abort!",name);
+        abort();
+    }
+    
+    return f;
+}
+
+-(id) select:(NSString *)name
+{
+    id f;
+    Class functionClass = (NSClassFromString(name));
+    
+    if (functionClass != nil) {
+        f = [[functionClass alloc] initWithZero];
     }
     else
     {

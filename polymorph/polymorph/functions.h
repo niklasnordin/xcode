@@ -32,6 +32,7 @@
 
 @interface functions : NSObject
 
--(id) select:(NSString *) name withArray:(NSArray *)array;
+-(id) select:(NSString *)name withArray:(NSArray *)array;
+-(id) select:(NSString *)name;
 
 @end

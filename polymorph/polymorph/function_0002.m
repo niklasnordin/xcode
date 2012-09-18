@@ -12,6 +12,13 @@ static NSString *name = @"function_0002";
 
 @implementation function_0002
 
+
+-(function_0002 *)initWithZero
+{
+    self = [super init];
+    return self;
+}
+
 -(function_0002 *)initWithArray:(NSArray *)array
 {
     self = [super init];
@@ -23,7 +30,6 @@ static NSString *name = @"function_0002";
 {
     return name;
 }
-
 
 -(NSString *) name
 {

@@ -48,6 +48,21 @@ static NSString *name = @"fundamentalJacobsen";
     return name;
 }
 
+-(fundamentalJacobsen *)initWithZero
+{
+    self = [super init];
+    
+    int n = [self nCoefficients];
+    
+    _A = malloc(n*sizeof(double));
+    
+    for (int i=0; i<n; i++)
+    {
+        _A[i] = 0.0;
+    }
+    return self;
+}
+
 -(fundamentalJacobsen *)initWithArray:(NSArray *)array
 {
     self = [super init];
@@ -64,6 +79,7 @@ static NSString *name = @"fundamentalJacobsen";
         _A[i] = [a doubleValue];
     }
     
+    _functionPointers = [[NSMutableDictionary alloc] init];
     return self;
 }
 
@@ -228,12 +244,12 @@ static NSString *name = @"fundamentalJacobsen";
 
 -(NSArray *)dependsOnFunctions
 {
-    return nil;
+    return @[ @"Pv" ];
 }
 
 -(void)setFunction:(id)function forKey:(NSString *)key
 {
-    
+    [_functionPointers setObject:function forKey:key];
 }
 
 @end
