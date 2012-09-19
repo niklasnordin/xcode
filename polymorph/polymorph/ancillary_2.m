@@ -75,6 +75,11 @@ static NSString *name = @"ancillary_2";
     return NO;
 }
 
+-(bool)temperatureDependent
+{
+    return YES;
+}
+
 -(int)nCoefficients
 {
     return 12;

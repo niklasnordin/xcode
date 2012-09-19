@@ -17,6 +17,7 @@
 -(double) valueForT:(double)T andP:(double)p;
 -(int) nCoefficients;
 -(bool) pressureDependent;
+-(bool) temperatureDependent;
 -(NSString *) name;
 -(NSString *) equationText;
 +(NSString *) name;

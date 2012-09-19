@@ -54,6 +54,7 @@
     [_functionNames addObject:[ancillary_2 name]];
     [_functionNames addObject:[ancillary_3 name]];
     
+    [_functionNames addObject:[boilingTemperature name]];
     [_functionNames addObject:[fundamentalJacobsen name]];
 
 }
@@ -508,6 +509,18 @@
                 if (![availableProperties containsObject:name])
                 {
                     NSLog(@"You need to implement %@ first",name);
+                }
+                else
+                {
+                    NSDictionary *pDict = [propertiesDict objectForKey:name];
+                    NSString *fdName = [pDict objectForKey:@"function"];
+                    NSArray *cArray = [pDict objectForKey:@"coefficients"];
+
+                    id<functionValue> fd = [_selector select:fdName withArray:cArray];
+                    [_function setFunction:fd forKey:name];
+                    //double as = [fd valueForT:300 andP:1.0];
+                    //NSLog(@"as = %g",as);
+                    //abort();
                 }
             }
         }

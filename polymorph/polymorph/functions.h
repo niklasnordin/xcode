@@ -29,6 +29,7 @@
 #import "ancillary_3.h"
 
 #import "fundamentalJacobsen.h"
+#import "boilingTemperature.h"
 
 @interface functions : NSObject
 

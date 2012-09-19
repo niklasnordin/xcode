@@ -12,6 +12,7 @@
 		61247A5115C845C9004DB05F /* dbTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61247A5015C845C8004DB05F /* dbTableViewController.m */; };
 		61247A5415C9B9DB004DB05F /* propertyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61247A5315C9B9DA004DB05F /* propertyTableViewController.m */; };
 		61247A5715CA6A0D004DB05F /* functionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61247A5615CA6A0D004DB05F /* functionView.m */; };
+		612EF27D160A286200D951E9 /* boilingTemperature.m in Sources */ = {isa = PBXBuildFile; fileRef = 612EF27C160A286200D951E9 /* boilingTemperature.m */; };
 		6164628B15B7F705006B703D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628A15B7F705006B703D /* UIKit.framework */; };
 		6164628D15B7F705006B703D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628C15B7F705006B703D /* Foundation.framework */; };
 		6164628F15B7F705006B703D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628E15B7F705006B703D /* CoreGraphics.framework */; };
@@ -99,6 +100,8 @@
 		61247A5315C9B9DA004DB05F /* propertyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = propertyTableViewController.m; sourceTree = "<group>"; };
 		61247A5515CA6A0C004DB05F /* functionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = functionView.h; sourceTree = "<group>"; };
 		61247A5615CA6A0D004DB05F /* functionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = functionView.m; sourceTree = "<group>"; };
+		612EF27B160A286200D951E9 /* boilingTemperature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boilingTemperature.h; sourceTree = "<group>"; };
+		612EF27C160A286200D951E9 /* boilingTemperature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = boilingTemperature.m; sourceTree = "<group>"; };
 		6164628615B7F705006B703D /* propertyView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = propertyView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6164628A15B7F705006B703D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6164628C15B7F705006B703D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -355,6 +358,8 @@
 				619394E815EBD0AD0003EF01 /* ancillary_2.m */,
 				619394EE15EBDDAB0003EF01 /* ancillary_3.h */,
 				619394EF15EBDDAB0003EF01 /* ancillary_3.m */,
+				612EF27B160A286200D951E9 /* boilingTemperature.h */,
+				612EF27C160A286200D951E9 /* boilingTemperature.m */,
 			);
 			name = functions;
 			sourceTree = "<group>";
@@ -545,6 +550,7 @@
 				619394F715ED2DC90003EF01 /* nsrds_2.m in Sources */,
 				619394FE15ED32100003EF01 /* nsrds_3.m in Sources */,
 				6193950915ED349F0003EF01 /* nsrds_4.m in Sources */,
+				612EF27D160A286200D951E9 /* boilingTemperature.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

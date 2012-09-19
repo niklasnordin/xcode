@@ -142,6 +142,11 @@ static NSString *name = @"pengRobinson";
     return YES;
 }
 
+-(bool)temperatureDependent
+{
+    return YES;
+}
+
 -(int)nCoefficients
 {
     return 4;

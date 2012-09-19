@@ -130,7 +130,13 @@ static NSString *name = @"pengRobinsonLiquid";
     
     return Z - 1.0 - log(Z-B) - (c1*A/B)*log(help1);
 }
+
 -(bool)pressureDependent
+{
+    return YES;
+}
+
+-(bool)temperatureDependent
 {
     return YES;
 }

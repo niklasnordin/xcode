@@ -45,6 +45,11 @@ static NSString *name = @"function_0001";
     return NO;
 }
 
+-(bool)temperatureDependent
+{
+    return YES;
+}
+
 -(int)nCoefficients
 {
     return 0;
@@ -64,4 +69,5 @@ static NSString *name = @"function_0001";
 {
     
 }
+
 @end

@@ -66,6 +66,11 @@ static NSString *name = @"idealGasLaw";
     return YES;
 }
 
+-(bool)temperatureDependent
+{
+    return YES;
+}
+
 -(int)nCoefficients
 {
     return 1;

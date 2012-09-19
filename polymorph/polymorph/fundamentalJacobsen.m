@@ -60,6 +60,8 @@ static NSString *name = @"fundamentalJacobsen";
     {
         _A[i] = 0.0;
     }
+    _functionPointers = [[NSMutableDictionary alloc] init];
+
     return self;
 }
 
@@ -101,6 +103,11 @@ static NSString *name = @"fundamentalJacobsen";
 }
 
 -(bool)pressureDependent
+{
+    return YES;
+}
+
+-(bool)temperatureDependent
 {
     return YES;
 }

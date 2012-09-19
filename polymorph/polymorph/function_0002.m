@@ -12,7 +12,6 @@ static NSString *name = @"function_0002";
 
 @implementation function_0002
 
-
 -(function_0002 *)initWithZero
 {
     self = [super init];
@@ -44,6 +43,11 @@ static NSString *name = @"function_0002";
 -(bool)pressureDependent
 {
     return NO;
+}
+
+-(bool)temperatureDependent
+{
+    return YES;
 }
 
 -(int)nCoefficients

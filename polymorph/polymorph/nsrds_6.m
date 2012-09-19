@@ -74,6 +74,11 @@ static NSString *name = @"nsrds_6";
     return NO;
 }
 
+-(bool)temperatureDependent
+{
+    return YES;
+}
+
 -(int)nCoefficients
 {
     return 6;

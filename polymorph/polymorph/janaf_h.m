@@ -17,7 +17,6 @@ static NSString *name = @"janaf_h";
     return name;
 }
 
-
 -(janaf_h *)initWithZero
 {
     self = [super init];
@@ -32,7 +31,6 @@ static NSString *name = @"janaf_h";
     }
     return self;
 }
-
 
 -(janaf_h *)initWithArray:(NSArray *)array
 {
@@ -67,6 +65,11 @@ static NSString *name = @"janaf_h";
 -(bool)pressureDependent
 {
     return NO;
+}
+
+-(bool)temperatureDependent
+{
+    return YES;
 }
 
 -(int)nCoefficients

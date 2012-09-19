@@ -67,6 +67,11 @@ static NSString *name = @"janaf_cp";
     return NO;
 }
 
+-(bool)temperatureDependent
+{
+    return YES;
+}
+
 -(int)nCoefficients
 {
     return 8;
