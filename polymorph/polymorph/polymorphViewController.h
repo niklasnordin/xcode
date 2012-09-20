@@ -38,6 +38,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *viewButton;
 
 - (IBAction)enterPressureText:(UITextField *)sender;
+- (IBAction)enterTemperatureText:(UITextField *)sender;
+
 - (IBAction)changedPTSwitch:(UISegmentedControl *)sender;
 - (IBAction)clickedSpecieButton:(id)sender;
 

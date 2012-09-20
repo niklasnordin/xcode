@@ -68,10 +68,10 @@
     NSString *functionName = [propDict objectForKey:@"function"];
     Class functionClass = (NSClassFromString(functionName));
     
-    id f;
+    id<functionValue> f;
     if (functionClass != nil)
     {
-        f = [[functionClass alloc] init];
+        f = [[functionClass alloc] initWithZero];
     }
     else
     {
@@ -104,6 +104,51 @@
 - (IBAction)enterPressureText:(UITextField *)sender
 {
     [self checkPressureInput:sender];
+}
+
+- (IBAction)enterTemperatureText:(UITextField *)sender
+{
+    [self checkTemperatureInput:sender];
+}
+
+-(void)checkTemperatureInput:(UITextField *)sender
+{
+    
+    NSDictionary *propertiesDict = [_db.json objectForKey:_currentSpeciesName];
+    NSDictionary *propDict = [propertiesDict objectForKey:_currentPropertyName];
+    
+    NSString *functionName = [propDict objectForKey:@"function"];
+    Class functionClass = (NSClassFromString(functionName));
+    
+    id<functionValue> f;
+    if (functionClass != nil)
+    {
+        f = [[functionClass alloc] initWithZero];
+    }
+    else
+    {
+        NSLog(@"%@ is an illegal function. Abort!",functionName);
+        abort();
+    }
+    
+    if ([f temperatureDependent])
+    {
+        NSDictionary *trd = [propDict objectForKey:@"temperatureRange"];
+        
+        double tInput = [[sender text] doubleValue];
+
+        double tMin = [[trd valueForKey:@"min"] doubleValue];
+        double tMax = [[trd valueForKey:@"max"] doubleValue];
+        
+        if (tInput <= tMin)
+        {
+            [sender setText:[NSString stringWithFormat:@"%g", tMin]];
+        }
+        if (tInput >= tMax)
+        {
+            [sender setText:[NSString stringWithFormat:@"%g", tMax]];
+        }
+    }
 }
 
 - (IBAction)changedPTSwitch:(UISegmentedControl *)sender
@@ -227,9 +272,8 @@
     NSString *unitText = @"";
     
     [_pressureField setPlaceholder:@"max"];
+    [_temperatureMax setPlaceholder:@"max"];
     _pressureDependent = NO;
-    [_ptSegmentControl setHidden:YES];
-    [_constantTextLabel setHidden:YES];
     
     int index0 = 0;
     int index1 = 0;
@@ -268,9 +312,9 @@
             NSString *functionName = [propertyDict objectForKey:@"function"];
             Class functionClass = (NSClassFromString(functionName));
             
-            id f;
+            id<functionValue> f;
             if (functionClass != nil) {
-                f = [[functionClass alloc] init];
+                f = [[functionClass alloc] initWithZero];
             }
             else
             {
@@ -280,15 +324,62 @@
                         
             if ([f pressureDependent])
             {
-                [_pressureField setEnabled:YES];
-                [self checkPressureInput:_pressureField];
-                [self checkPressureInput:_minPressureField];
                 _pressureDependent = YES;
-                [_ptSegmentControl setHidden:NO];
-                [_constantTextLabel setHidden:NO];
+
+                if ([f temperatureDependent])
+                {
+                    _selectedConstantProperty = [_ptSegmentControl selectedSegmentIndex];
+                    //[_ptSegmentControl setSelectedSegmentIndex:_selectedConstantProperty];
+                    [self checkPressureInput:_pressureField];
+                    [self checkPressureInput:_minPressureField];
+
+                    [_constantTextLabel setHidden:NO];
+                    [_ptSegmentControl setHidden:NO];
+                    
+                    [_pressureField setHidden:NO];
+                    [_temperatureMax setHidden:NO];
+                    [_pressureField setEnabled:YES];
+                    [_temperatureMax setEnabled:YES];
+                    // pressure is constant
+                    if (_selectedConstantProperty == 0)
+                    {
+                        [_minPressureField setHidden:YES];
+                        [_temperatureMin setHidden:NO];
+                    }
+                    else
+                    {
+                        [_minPressureField setHidden:NO];
+                        [_temperatureMin setHidden:YES];
+                    }
+
+                }
+                else
+                {
+                    _selectedConstantProperty = 1;
+                    [_constantTextLabel setHidden:YES];
+                    [_ptSegmentControl setHidden:YES];
+                    [_minPressureField setHidden:NO];
+                    [_pressureField setHidden:NO];
+                    [_pressureField setEnabled:YES];
+                    [_temperatureMin setHidden:YES];
+                    [_temperatureMax setHidden:NO];
+                    
+                    [_temperatureMax setText:@""];
+                    [_temperatureMax setPlaceholder:@"not used"];
+                    [_temperatureMax setEnabled:NO];
+                }
             }
             else
             {
+                _selectedConstantProperty = 0;
+                [_constantTextLabel setHidden:YES];
+                [_ptSegmentControl setHidden:YES];
+                [_minPressureField setHidden:YES];
+                [_pressureField setHidden:NO];
+                [_temperatureMin setHidden:NO];
+                [_temperatureMax setHidden:NO];
+                [_temperatureMax setEnabled:YES];
+
                 [_pressureField setText:@""];
                 [_pressureField setPlaceholder:@"not used"];
                 [_pressureField setEnabled:NO];
