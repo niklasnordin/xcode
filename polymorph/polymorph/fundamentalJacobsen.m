@@ -69,17 +69,37 @@ static NSString *name = @"fundamentalJacobsen";
 {
     self = [super init];
     
-    int n = [self nCoefficients];
-    
-    _A = malloc(n*sizeof(double));
+    int n = 23;
+
+    _ik = malloc(n*sizeof(double));
+    _jk = malloc(n*sizeof(double));
+    _lk = malloc(n*sizeof(double));
+    _nk = malloc(n*sizeof(double));
     
     for (int i=0; i<n; i++)
     {
         NSDictionary *Adict = [array objectAtIndex:i];
-        NSString *name = [NSString stringWithFormat:@"A%d", i];
-        NSNumber *a = [Adict objectForKey:name];
-        _A[i] = [a doubleValue];
+        NSString *iname = [NSString stringWithFormat:@"A%d", i];
+        NSString *jname = [NSString stringWithFormat:@"A%d", i+n];
+        NSString *lname = [NSString stringWithFormat:@"A%d", i+2*n];
+        NSString *nname = [NSString stringWithFormat:@"A%d", i+3*n];
+
+        NSNumber *aik = [Adict objectForKey:iname];
+        NSNumber *ajk = [Adict objectForKey:jname];
+        NSNumber *alk = [Adict objectForKey:lname];
+        NSNumber *ank = [Adict objectForKey:nname];
+
+        _ik[i] = [aik doubleValue];
+        _jk[i] = [ajk doubleValue];
+        _lk[i] = [alk doubleValue];
+        _nk[i] = [ank doubleValue];
+
     }
+    
+    _tc   = [[array objectAtIndex:92] doubleValue];
+    _pc   = [[array objectAtIndex:93] doubleValue];
+    _rhoc = [[array objectAtIndex:94] doubleValue];
+    _mw   = [[array objectAtIndex:95] doubleValue];
     
     _functionPointers = [[NSMutableDictionary alloc] init];
     return self;
@@ -117,99 +137,7 @@ static NSString *name = @"fundamentalJacobsen";
     return 96;
 }
 
--(void)setCoeffs:(NSArray *)coeffs
-{
-    for (int i=0; i<23; i++)
-    {
-        [_nk addObject:[coeffs objectAtIndex:i]];
-        [_ik addObject:[coeffs objectAtIndex:i+23]];
-        [_jk addObject:[coeffs objectAtIndex:i+46]];
-        [_lk addObject:[coeffs objectAtIndex:i+69]];
-    }
-    
-    _tc   = [[coeffs objectAtIndex:92] doubleValue];
-    _pc   = [[coeffs objectAtIndex:93] doubleValue];
-    _rhoc = [[coeffs objectAtIndex:94] doubleValue];
-    _mw   = [[coeffs objectAtIndex:95] doubleValue];
-    
-    /*
-     $rho = rho($pressure, $temp);
-    $d = $rho/$rhoc;
-    $t = $Tc/$temp;
-    
-    $cp = cp($d, $t)*1.0e-3/$Mw;
-     */
-    
-}
 
--(double)rho:(double)pressure T:(double)T
-{
-    
-    /*
-    double t = _tc/T;
-    double pv = [self Pv:T];
-    
-    //    echo "Pv($T) = $pv Pa.<br>\n";
-    $r = 0.0;
-    
-    if ($p > $pv)
-    {
-        $r = rholSat($T);
-        //echo "State is liquid.<br>\n";
-    }
-    else
-    {
-        $r = rhovSat($T);
-        //echo "State is vapour.<br>\n";
-    }
-    
-    $pq = $p/($R*$T);
-    
-    $i = 0;
-    $N = 2000;
-    $err = 1.0;
-    $tol = 1.0e-12;
-    
-    while (($err > $tol) && ($i<$N))
-    {
-        $delta = $r/$rhoc;
-        $A = daResdd($delta, $t)/$rhoc;
-        $B = d2aResdd2($delta, $t)/$rhoc;
-        $d = ($pq - $A*$r*$r - $r)/($B*$r*$r + 2.0*$A*$r + 1.0);
-        $err = abs($d)/$r;
-        $r = $r + 0.7*$d;
-        $i++;
-    }
-    
-    if ($i > $N-2)
-    {
-        echo "Warning! Density calculation did not converge. Error is $err.<br>\n";
-    }
-    return $r;
-     */
-    return 0.0;
-}
-
--(double)Pv:(double)T
-{
-/*
- 
-    {
-        global $a_, $Tc, $Pc;
-        $p = 1.0 - $T/$Tc;
-        if ($p < 0.0)
-        {
-            $p = 0.0;
-        }
-        
-        $s = $a_[1]*pow($p, 0.5) + $a_[2]*$p + $a_[3]*pow($p, 3.0) + $a_[4]*pow($p, 11.0/2.0);
-        
-        return $Pc*exp($Tc*$s/$T);
-    }
- */
-    return 0.0;
-
-}
 // d = rho/rhoc (kmol/m^3)
 // t = Tc/T
 -(double)daResdd:(double)d t:(double)t
@@ -218,26 +146,101 @@ static NSString *name = @"fundamentalJacobsen";
     for (int i=0; i<23; i++)
     {
         double gamma = 1.0;
-        double nk = [[_nk objectAtIndex:i] doubleValue];
-        double ik = [[_ik objectAtIndex:i] doubleValue];
-        double jk = [[_jk objectAtIndex:i] doubleValue];
-        double lk = [[_lk objectAtIndex:i] doubleValue];
         
-        if (abs(lk) < 1.0e-8)
+        if (abs(_lk[i]) < 1.0e-8)
         {
             gamma = 0.0;
         }
         
-        double a = nk*pow(t, jk)*exp(-gamma*pow(d, lk));
-        double da = -a*gamma*lk*pow(d, lk - 1.0);
-        double b = pow(d, ik);
-        double db = ik*pow(d, ik - 1.0);
+        double a = _nk[i]*pow(t, _jk[i])*exp(-gamma*pow(d, _lk[i]));
+        double da = -a*gamma*_lk[i]*pow(d, _lk[i] - 1.0);
+        double b = pow(d, _ik[i]);
+        double db = _ik[i]*pow(d, _ik[i] - 1.0);
         sum += a*db + b*da;
     }
     
     return sum;
 }
 
+// d = rho/rhoc (kmol/m^3)
+// t = Tc/T
+- (double)d2aResdd2:(double)d t:(double)t
+{
+
+    double sum = 0.0;
+    for (int i=0; i<23; i++)
+    {
+        double gamma = 1.0;
+        if (abs(_lk[i]) < 1.0e-8)
+        {
+            gamma = 0.0;
+        }
+        
+        double a = _nk[i]*pow(t, _jk[i])*exp(-gamma*pow(d, _lk[i]));
+        double da = -a*gamma*_lk[i]*pow(d, _lk[i]-1.0);
+        double dda = -da*gamma*_lk[i]*pow(d, _lk[i]-1.0) - a*gamma*_lk[i]*(_lk[i]-1.0)*pow(d, _lk[i]-2.0);
+        double b = pow(d, _ik[i]);
+        double db = _ik[i]*pow(d, _ik[i]-1.0);
+        double ddb = _ik[i]*(_ik[i]-1.0)*pow(d, _ik[i]-2.0);
+        
+        sum += a*ddb + da*db + db*da + b*dda;
+        
+    }
+    
+    return sum;
+}
+
+
+-(double)rho:(double)pressure T:(double)T
+{
+    
+    
+    double t = _tc/T;
+    id<functionValue> pv = [_functionPointers objectForKey:@"Pv"];
+    id<functionValue> rholSat = [_functionPointers objectForKey:@"rholSat"];
+    id<functionValue> rhovSat = [_functionPointers objectForKey:@"rhovSat"];
+
+    double pvap = [pv valueForT:T andP:pressure];
+    
+    double r = 0.0;
+    
+    if (pressure > pvap)
+    {
+        r = [rholSat valueForT:T andP:pressure];
+        //echo "State is liquid.<br>\n";
+    }
+    else
+    {
+        r = [rhovSat valueForT:T andP:pressure];
+        //echo "State is vapour.<br>\n";
+    }
+    
+    double pq = pressure/(Rgas*T);
+    
+    int i = 0;
+    int N = 2000;
+    double err = 1.0;
+    double tol = 1.0e-12;
+    
+    while ((err > tol) && (i < N))
+    {
+        double delta = r/_rhoc;
+        double A = [self daResdd:delta t:t]/_rhoc;
+        double B = [self d2aResdd2:delta t:t]/_rhoc;
+        double d = (pq - A*r*r - r)/(B*r*r + 2.0*A*r + 1.0);
+        err = fabs(d)/r;
+        r = r + 0.7*d;
+        i++;
+    }
+    
+    if (i > N-2)
+    {
+        NSLog(@"Warning! Density calculation did not converge. Error is %g",err);
+    }
+    
+    return r;
+
+}
 
 - (NSString *)equationText
 {
@@ -251,7 +254,7 @@ static NSString *name = @"fundamentalJacobsen";
 
 -(NSArray *)dependsOnFunctions
 {
-    return @[ @"Pv" ];
+    return @[ @"Pv", @"rholSat", @"rhovSat" ];
 }
 
 -(void)setFunction:(id)function forKey:(NSString *)key

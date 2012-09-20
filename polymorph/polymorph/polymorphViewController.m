@@ -251,14 +251,12 @@
 
 - (void)cancelActionSheet:(id)sender
 {
-    //NSLog(@"cancelActionSheet");
     // reset the picker
     [_picker reloadComponent:0];
     [_picker selectRow:_selectedComponent0 inComponent:0 animated:NO];
     [_picker reloadComponent:1];
     [_picker selectRow:_selectedComponent1 inComponent:1 animated:NO];
     [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
-    //NSLog(@"2. c0 = %d, c1 = %d",_selectedComponent0, _selectedComponent1);
 
     //[self update];
 
@@ -455,6 +453,8 @@
     _selectedConstantProperty = 0;
     [_ptSegmentControl setSelectedSegmentIndex:_selectedConstantProperty];
     [_minPressureField setHidden:YES];
+//    UIImage *gradImage = [UIImage imageNamed:@"ni-banding-free-gradient.jpg"];
+//    [_speciesButton setImage:gradImage forState:UIControlStateNormal];
     [self update];
 }
 

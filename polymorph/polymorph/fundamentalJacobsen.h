@@ -13,10 +13,10 @@
 
 @property (nonatomic) double *A;
 
-@property (strong, nonatomic) NSMutableArray *ik;
-@property (strong, nonatomic) NSMutableArray *jk;
-@property (strong, nonatomic) NSMutableArray *nk;
-@property (strong, nonatomic) NSMutableArray *lk;
+@property (nonatomic) double *ik;
+@property (nonatomic) double *jk;
+@property (nonatomic) double *lk;
+@property (nonatomic) double *nk;
 
 @property (nonatomic) double tc;
 @property (nonatomic) double pc;
