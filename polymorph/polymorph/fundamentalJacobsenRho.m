@@ -203,29 +203,41 @@ static NSString *name = @"fundamentalJacobsenRho";
     if (pressure > pvap)
     {
         r = [rholSat valueForT:T andP:pressure];
-        //echo "State is liquid.<br>\n";
+        //NSLog(@"State is in liquid");
+
     }
     else
     {
-        r = [rhovSat valueForT:T andP:pressure];
-        //echo "State is vapour.<br>\n";
+        if (T < _tc)
+        {
+            r = [rhovSat valueForT:T andP:pressure];
+        }
+        else
+        {
+            r = [rholSat valueForT:T andP:pressure]; 
+        }
+        //NSLog(@"State is in vapor");
     }
     
     double pq = pressure/(Rgas*T);
-    
+    //NSLog(@"r = %g, pg = %g",r,pq);
     int i = 0;
-    int N = 2000;
+    int N = 1000;
     double err = 1.0;
-    double tol = 1.0e-12;
+    double tol = 1.0e-8;
     
     while ((err > tol) && (i < N))
     {
         double delta = r/_rhoc;
         double A = [self daResdd:delta t:t]/_rhoc;
+
+        /*
         double B = [self d2aResdd2:delta t:t]/_rhoc;
         double d = (pq - A*r*r - r)/(B*r*r + 2.0*A*r + 1.0);
+ */
+        double d = pressure/Rgas/T/(1+r*A) - r;
         err = fabs(d)/r;
-        r = r + 0.7*d;
+        r = r + 0.3*d;
         i++;
     }
     
