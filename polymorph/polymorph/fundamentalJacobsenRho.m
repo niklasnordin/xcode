@@ -35,20 +35,20 @@
  $d_[5] = 4.23238091363;
 */
 
-#import "fundamentalJacobsen.h"
+#import "fundamentalJacobsenRho.h"
 
 #define Rgas 8314.462175
 
-static NSString *name = @"fundamentalJacobsen";
+static NSString *name = @"fundamentalJacobsenRho";
 
-@implementation fundamentalJacobsen
+@implementation fundamentalJacobsenRho
 
 +(NSString *)name
 {
     return name;
 }
 
--(fundamentalJacobsen *)initWithZero
+-(fundamentalJacobsenRho *)initWithZero
 {
     self = [super init];
     
@@ -65,7 +65,7 @@ static NSString *name = @"fundamentalJacobsen";
     return self;
 }
 
--(fundamentalJacobsen *)initWithArray:(NSArray *)array
+-(fundamentalJacobsenRho *)initWithArray:(NSArray *)array
 {
     self = [super init];
     
@@ -78,16 +78,20 @@ static NSString *name = @"fundamentalJacobsen";
     
     for (int i=0; i<n; i++)
     {
-        NSDictionary *Adict = [array objectAtIndex:i];
+        NSDictionary *Aidict = [array objectAtIndex:i];
+        NSDictionary *Ajdict = [array objectAtIndex:i+n];
+        NSDictionary *Aldict = [array objectAtIndex:i+2*n];
+        NSDictionary *Andict = [array objectAtIndex:i+3*n];
+
         NSString *iname = [NSString stringWithFormat:@"A%d", i];
         NSString *jname = [NSString stringWithFormat:@"A%d", i+n];
         NSString *lname = [NSString stringWithFormat:@"A%d", i+2*n];
         NSString *nname = [NSString stringWithFormat:@"A%d", i+3*n];
 
-        NSNumber *aik = [Adict objectForKey:iname];
-        NSNumber *ajk = [Adict objectForKey:jname];
-        NSNumber *alk = [Adict objectForKey:lname];
-        NSNumber *ank = [Adict objectForKey:nname];
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *alk = [Aldict objectForKey:lname];
+        NSNumber *ank = [Andict objectForKey:nname];
 
         _ik[i] = [aik doubleValue];
         _jk[i] = [ajk doubleValue];
@@ -96,10 +100,10 @@ static NSString *name = @"fundamentalJacobsen";
 
     }
     
-    _tc   = [[array objectAtIndex:92] doubleValue];
-    _pc   = [[array objectAtIndex:93] doubleValue];
-    _rhoc = [[array objectAtIndex:94] doubleValue];
-    _mw   = [[array objectAtIndex:95] doubleValue];
+    _tc   = [[[array objectAtIndex:92] objectForKey:@"A92"] doubleValue];
+    _pc   = [[[array objectAtIndex:93] objectForKey:@"A93"] doubleValue];
+    _rhoc = [[[array objectAtIndex:94] objectForKey:@"A94"] doubleValue];
+    _mw   = [[[array objectAtIndex:95] objectForKey:@"A95"] doubleValue];
     
     _functionPointers = [[NSMutableDictionary alloc] init];
     return self;
@@ -107,19 +111,12 @@ static NSString *name = @"fundamentalJacobsen";
 
 -(NSString *) name
 {
-    return [fundamentalJacobsen name];
+    return [fundamentalJacobsenRho name];
 }
 
 -(double)valueForT:(double)T andP:(double)p
 {
-
-    //[self setCoeffs:coeff];
-    
-    double y = 0.0;
-    //double y1 = p/( a[0]*T );
-    
-    //if (y1) y = y1;
-    return y;
+    return [self rho:p T:T]*_mw;
 }
 
 -(bool)pressureDependent
@@ -193,7 +190,6 @@ static NSString *name = @"fundamentalJacobsen";
 
 -(double)rho:(double)pressure T:(double)T
 {
-    
     
     double t = _tc/T;
     id<functionValue> pv = [_functionPointers objectForKey:@"Pv"];

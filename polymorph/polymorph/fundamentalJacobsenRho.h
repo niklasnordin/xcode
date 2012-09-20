@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "functionValue.h"
 
-@interface fundamentalJacobsen : NSObject <functionValue>
+@interface fundamentalJacobsenRho : NSObject <functionValue>
 
 @property (nonatomic) double *A;
 

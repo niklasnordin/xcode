@@ -27,7 +27,7 @@
 		616462B815BAD77D006B703D /* diagramView.m in Sources */ = {isa = PBXBuildFile; fileRef = 616462B715BAD77D006B703D /* diagramView.m */; };
 		616462BC15BFC896006B703D /* diagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616462BB15BFC896006B703D /* diagramViewController.m */; };
 		616622F415CFF296008FB530 /* loadDatabaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616622F315CFF295008FB530 /* loadDatabaseViewController.m */; };
-		616F63F715E12FF6001861E6 /* fundamentalJacobsen.m in Sources */ = {isa = PBXBuildFile; fileRef = 616F63F615E12FF6001861E6 /* fundamentalJacobsen.m */; };
+		616F63F715E12FF6001861E6 /* fundamentalJacobsenRho.m in Sources */ = {isa = PBXBuildFile; fileRef = 616F63F615E12FF6001861E6 /* fundamentalJacobsenRho.m */; };
 		617C7C7415E7BDB100B11073 /* nsrds_6.m in Sources */ = {isa = PBXBuildFile; fileRef = 617C7C7315E7BDB100B11073 /* nsrds_6.m */; };
 		617C7C7815E7C42C00B11073 /* equationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 617C7C7715E7C42B00B11073 /* equationViewController.m */; };
 		617C7CBA15E97A8000B11073 /* nsrds_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CB915E97A8000B11073 /* nsrds_6.png */; };
@@ -87,6 +87,8 @@
 		61D2AEA3160AD68E00A7FC78 /* boilingTemperature.tex in Resources */ = {isa = PBXBuildFile; fileRef = 61D2AEA2160AD68E00A7FC78 /* boilingTemperature.tex */; };
 		61D2AEA5160AD69800A7FC78 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 61D2AEA4160AD69800A7FC78 /* readme.txt */; };
 		61D7352B160A6CB800362373 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61D7352A160A6CB800362373 /* Default-568h@2x.png */; };
+		61DB407E160B7FC0004BE1C3 /* fundamentalJacobsenRho.tex in Resources */ = {isa = PBXBuildFile; fileRef = 61DB407D160B7FC0004BE1C3 /* fundamentalJacobsenRho.tex */; };
+		61DB4080160B7FD4004BE1C3 /* fundamentalJacobsenRho.png in Resources */ = {isa = PBXBuildFile; fileRef = 61DB407F160B7FD4004BE1C3 /* fundamentalJacobsenRho.png */; };
 		61EB3D6215E0CD0B009826F2 /* pengRobinson.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D6115E0CD0B009826F2 /* pengRobinson.m */; };
 		61EB3D6C15E0FAD3009826F2 /* Complex.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D6B15E0FAD3009826F2 /* Complex.m */; };
 		61EB3D6F15E0FB4C009826F2 /* Polynomial.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D6E15E0FB4C009826F2 /* Polynomial.m */; };
@@ -132,8 +134,8 @@
 		616462BB15BFC896006B703D /* diagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = diagramViewController.m; sourceTree = "<group>"; };
 		616622F215CFF295008FB530 /* loadDatabaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loadDatabaseViewController.h; sourceTree = "<group>"; };
 		616622F315CFF295008FB530 /* loadDatabaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loadDatabaseViewController.m; sourceTree = "<group>"; };
-		616F63F515E12FF6001861E6 /* fundamentalJacobsen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fundamentalJacobsen.h; sourceTree = "<group>"; };
-		616F63F615E12FF6001861E6 /* fundamentalJacobsen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fundamentalJacobsen.m; sourceTree = "<group>"; };
+		616F63F515E12FF6001861E6 /* fundamentalJacobsenRho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fundamentalJacobsenRho.h; sourceTree = "<group>"; };
+		616F63F615E12FF6001861E6 /* fundamentalJacobsenRho.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fundamentalJacobsenRho.m; sourceTree = "<group>"; };
 		617C7C7215E7BDB100B11073 /* nsrds_6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nsrds_6.h; sourceTree = "<group>"; };
 		617C7C7315E7BDB100B11073 /* nsrds_6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nsrds_6.m; sourceTree = "<group>"; };
 		617C7C7615E7C42B00B11073 /* equationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = equationViewController.h; sourceTree = "<group>"; };
@@ -212,6 +214,8 @@
 		61D2AEA2160AD68E00A7FC78 /* boilingTemperature.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = boilingTemperature.tex; sourceTree = "<group>"; };
 		61D2AEA4160AD69800A7FC78 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		61D7352A160A6CB800362373 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		61DB407D160B7FC0004BE1C3 /* fundamentalJacobsenRho.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fundamentalJacobsenRho.tex; sourceTree = "<group>"; };
+		61DB407F160B7FD4004BE1C3 /* fundamentalJacobsenRho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fundamentalJacobsenRho.png; sourceTree = "<group>"; };
 		61EB3D6015E0CD0B009826F2 /* pengRobinson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pengRobinson.h; sourceTree = "<group>"; };
 		61EB3D6115E0CD0B009826F2 /* pengRobinson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pengRobinson.m; sourceTree = "<group>"; };
 		61EB3D6A15E0FAD3009826F2 /* Complex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Complex.h; sourceTree = "<group>"; };
@@ -354,8 +358,8 @@
 				61EB3D6115E0CD0B009826F2 /* pengRobinson.m */,
 				61EB3D7015E1064D009826F2 /* pengRobinsonLiquid.h */,
 				61EB3D7115E1064D009826F2 /* pengRobinsonLiquid.m */,
-				616F63F515E12FF6001861E6 /* fundamentalJacobsen.h */,
-				616F63F615E12FF6001861E6 /* fundamentalJacobsen.m */,
+				616F63F515E12FF6001861E6 /* fundamentalJacobsenRho.h */,
+				616F63F615E12FF6001861E6 /* fundamentalJacobsenRho.m */,
 				61EB3D6A15E0FAD3009826F2 /* Complex.h */,
 				61EB3D6B15E0FAD3009826F2 /* Complex.m */,
 				61EB3D6D15E0FB4C009826F2 /* Polynomial.h */,
@@ -390,6 +394,7 @@
 				619394E515EAC1530003EF01 /* ancillary_1.tex */,
 				619394EC15EBD3150003EF01 /* ancillary_2.tex */,
 				619394F315EBDE5E0003EF01 /* ancillary_3.tex */,
+				61DB407D160B7FC0004BE1C3 /* fundamentalJacobsenRho.tex */,
 				61D2AEA2160AD68E00A7FC78 /* boilingTemperature.tex */,
 				61D2AEA4160AD69800A7FC78 /* readme.txt */,
 				617C7CC615E9878A00B11073 /* texToPng */,
@@ -416,6 +421,7 @@
 				619394EA15EBD3010003EF01 /* ancillary_2.png */,
 				619394F115EBDE510003EF01 /* ancillary_3.png */,
 				61D2AE9F160AD66B00A7FC78 /* boilingTemperature.png */,
+				61DB407F160B7FD4004BE1C3 /* fundamentalJacobsenRho.png */,
 				61D7352A160A6CB800362373 /* Default-568h@2x.png */,
 				61BA3AE115DFAB7400928715 /* Icon@2x.png */,
 				61BA3ADF15DFAB6C00928715 /* Icon.png */,
@@ -518,6 +524,8 @@
 				61D2AEA0160AD66B00A7FC78 /* boilingTemperature.png in Resources */,
 				61D2AEA3160AD68E00A7FC78 /* boilingTemperature.tex in Resources */,
 				61D2AEA5160AD69800A7FC78 /* readme.txt in Resources */,
+				61DB407E160B7FC0004BE1C3 /* fundamentalJacobsenRho.tex in Resources */,
+				61DB4080160B7FD4004BE1C3 /* fundamentalJacobsenRho.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,7 +565,7 @@
 				61EB3D6C15E0FAD3009826F2 /* Complex.m in Sources */,
 				61EB3D6F15E0FB4C009826F2 /* Polynomial.m in Sources */,
 				61EB3D7215E1064D009826F2 /* pengRobinsonLiquid.m in Sources */,
-				616F63F715E12FF6001861E6 /* fundamentalJacobsen.m in Sources */,
+				616F63F715E12FF6001861E6 /* fundamentalJacobsenRho.m in Sources */,
 				617C7C7415E7BDB100B11073 /* nsrds_6.m in Sources */,
 				617C7C7815E7C42C00B11073 /* equationViewController.m in Sources */,
 				619394E115EA98130003EF01 /* ancillary_1.m in Sources */,

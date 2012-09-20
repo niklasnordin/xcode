@@ -210,10 +210,10 @@
     
     if (funcNames != nil)
     {
-        NSLog(@"Checking dependency");
+        //NSLog(@"Checking dependency");
         NSArray *availableProperties = [speciesDict allKeys];
         int n = [funcNames count];
-        NSLog(@"n = %d",n);
+        //NSLog(@"n = %d",n);
         for (int i=0; i<n; i++)
         {
             NSString *name = [funcNames objectAtIndex:i];

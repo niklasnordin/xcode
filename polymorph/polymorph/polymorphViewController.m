@@ -55,7 +55,7 @@
     [_functionNames addObject:[ancillary_3 name]];
     
     [_functionNames addObject:[boilingTemperature name]];
-    [_functionNames addObject:[fundamentalJacobsen name]];
+    [_functionNames addObject:[fundamentalJacobsenRho name]];
 
 }
 
@@ -588,15 +588,15 @@
 
         _function = [_selector select:funcName withArray:coeffDictArray];
         
-        NSArray *funcNames = [_function dependsOnFunctions];
+        NSArray *funcDepNames = [_function dependsOnFunctions];
 
-        if (funcNames != nil)
+        if (funcDepNames != nil)
         {
             NSArray *availableProperties = [propertiesDict allKeys];
-            int n = [funcNames count];
+            int n = [funcDepNames count];
             for (int i=0; i<n; i++)
             {
-                NSString *name = [funcNames objectAtIndex:i];
+                NSString *name = [funcDepNames objectAtIndex:i];
                 if (![availableProperties containsObject:name])
                 {
                     NSLog(@"You need to implement %@ first",name);
