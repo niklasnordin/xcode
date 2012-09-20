@@ -144,7 +144,7 @@ static NSString *name = @"fundamentalJacobsenRho";
     {
         double gamma = 1.0;
         
-        if (abs(_lk[i]) < 1.0e-8)
+        if (fabs(_lk[i]) < 1.0e-8)
         {
             gamma = 0.0;
         }
@@ -168,7 +168,7 @@ static NSString *name = @"fundamentalJacobsenRho";
     for (int i=0; i<23; i++)
     {
         double gamma = 1.0;
-        if (abs(_lk[i]) < 1.0e-8)
+        if (fabs(_lk[i]) < 1.0e-8)
         {
             gamma = 0.0;
         }

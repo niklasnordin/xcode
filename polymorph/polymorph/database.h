@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) NSURL *url;
 @property (strong, nonatomic) NSMutableDictionary *json;
-@property (strong, nonatomic) NSData *jsonData;
+//@property (strong, nonatomic) NSData *jsonData;
 
 -(void)readFile:(NSString *)file;
 -(void)readURL:(NSString *)link;

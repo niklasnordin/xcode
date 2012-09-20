@@ -23,17 +23,16 @@
     //NSURL *url = [NSURL URLWithString:@"http://properties.nequam.se/database.json"];
     
     _url = nil;
-    _jsonData = nil;
     _json = nil;
     
     NSError *error = nil;
 
     _url = [NSURL URLWithString:link];
-    _jsonData = [NSData dataWithContentsOfURL:_url];
+    NSData *jsonData = [NSData dataWithContentsOfURL:_url];
     
-    if (_jsonData)
+    if (jsonData)
     {
-        _json = [NSJSONSerialization JSONObjectWithData:_jsonData options:NSJSONReadingMutableContainers error:&error];
+        _json = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
     }
 }
 
