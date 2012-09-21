@@ -63,7 +63,7 @@ static NSString *name = @"ancillary_1";
     double Tc = _A[9];
     
     double phi = 1.0 - T/Tc;
-    
+    //phi = fmax(0.0, phi);
     double rhs = _A[0]*pow(phi, _A[4]) + _A[1]*pow(phi, _A[5]) + _A[2]*pow(phi, _A[6]) + _A[3]*pow(phi, _A[7]);
     
     return pc*exp(Tc*rhs/T);

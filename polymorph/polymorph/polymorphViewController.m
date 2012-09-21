@@ -406,6 +406,11 @@
         [_minPressureField setHidden:YES];
     }
 
+    [self checkTemperatureInput:_temperatureMax];
+    [self checkTemperatureInput:_temperatureMin];
+    [self checkPressureInput:_minPressureField];
+    [self checkPressureInput:_pressureField];
+    
     [_picker reloadComponent:0];
     [_picker selectRow:index0 inComponent:0 animated:NO];
     [_picker reloadComponent:1];

@@ -15,18 +15,14 @@ static NSString *name = @"boilingTemperature";
 -(boilingTemperature *)initWithZero
 {
     self = [super init];
-
     _functionPointers = [[NSMutableDictionary alloc] init];
-
     return self;
 }
 
 -(boilingTemperature *)initWithArray:(NSArray *)array
 {
     self = [super init];
-
     _functionPointers = [[NSMutableDictionary alloc] init];
-
     return self;
 }
 
@@ -80,7 +76,6 @@ static NSString *name = @"boilingTemperature";
                 Tg = Tg0 + (Tg - Tg0)*(p - pg0)/(pg - pg0);
             }
         }
-        //NSLog(@"T = %g, dT = %g, Pv = %g",Tg, dt, pg);
         pg0 = pg;
         
     }
@@ -114,8 +109,7 @@ static NSString *name = @"boilingTemperature";
 
 -(void)setFunction:(id<functionValue>)function forKey:(NSString *)key
 {
-    //double val = [function valueForT:300.0 andP:1.0];
-    //NSLog(@"setting functionPointer val = %g",val);
+
     [_functionPointers setObject:function forKey:key];
 }
 

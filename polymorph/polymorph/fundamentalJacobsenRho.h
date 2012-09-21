@@ -11,8 +11,6 @@
 
 @interface fundamentalJacobsenRho : NSObject <functionValue>
 
-@property (nonatomic) double *A;
-
 @property (nonatomic) double *ik;
 @property (nonatomic) double *jk;
 @property (nonatomic) double *lk;
