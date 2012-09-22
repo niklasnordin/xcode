@@ -98,6 +98,22 @@
             double pMaxMPa = 1.0e-6*pMax;
             [sender setText:[NSString stringWithFormat:@"%g", pMaxMPa]];
         }
+        if (_selectedConstantProperty == 1)
+        {
+            double Pmin = [[_minPressureField text] doubleValue];
+            double Pmax = [[_pressureField text] doubleValue];
+            // add 0.01 bar to Tmax if difference is too small
+            if (fabs(Pmin-Pmax) < 1.0e-6)
+            {
+                [_pressureField setText:[NSString stringWithFormat:@"%g", Pmin+0.01]];
+            }
+            // switch temperature if TMin > Tmax
+            if (Pmin > Pmax)
+            {
+                [_minPressureField setText:[NSString stringWithFormat:@"%g", Pmin]];
+                [_pressureField setText:[NSString stringWithFormat:@"%g", Pmax]];
+            }
+        }
     }
 }
 
@@ -148,6 +164,23 @@
         {
             [sender setText:[NSString stringWithFormat:@"%g", tMax]];
         }
+        
+        if (_selectedConstantProperty == 0)
+        {
+            double Tmin = [[_temperatureMin text] doubleValue];
+            double Tmax = [[_temperatureMax text] doubleValue];
+            // add 0.01 K to Tmax if difference is too small
+            if (fabs(Tmin-Tmax) < 1.0e-6)
+            {
+                [_temperatureMax setText:[NSString stringWithFormat:@"%g", Tmin+0.01]];
+            }
+            // switch temperature if TMin > Tmax
+            if (Tmin > Tmax)
+            {
+                [_temperatureMax setText:[NSString stringWithFormat:@"%g", Tmin]];
+                [_temperatureMin setText:[NSString stringWithFormat:@"%g", Tmax]];
+            }
+        }
     }
 }
 
@@ -160,16 +193,23 @@
         if (s != _selectedConstantProperty)
         {
             _selectedConstantProperty = s;
-            if (s == 0) {
+            if (s == 0)
+            {
                 //pressure is selected
                 [_minPressureField setHidden:YES];
                 [_temperatureMin setHidden:NO];
+
+                [self checkTemperatureInput:_temperatureMin];
+                [self checkTemperatureInput:_temperatureMax];
             }
             else
             {
                 // temperature is selected
                 [_minPressureField setHidden:NO];
                 [_temperatureMin setHidden:YES];
+
+                [self checkPressureInput:_minPressureField];
+                [self checkPressureInput:_pressureField];
             }
         }
     }

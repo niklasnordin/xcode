@@ -180,20 +180,10 @@ static NSString *name = @"fundamentalJacobsenRho";
             gamma = 1.0;
         }
         
-        double a,da,dda;
-        
-        if (gamma > 0.5)
-        {
-            a = _nk[i]*pow(t, _jk[i])*exp(-gamma*pow(d, _lk[i]));
-            da = -a*gamma*_lk[i]*pow(d, _lk[i]-1.0);
-            dda = -da*gamma*_lk[i]*pow(d, _lk[i]-1.0) - a*gamma*_lk[i]*(_lk[i]-1.0)*pow(d, _lk[i]-2.0);
-        }
-        else
-        {
-            a = _nk[i]*pow(t, _jk[i]);
-            da = 0.0;
-            dda = 0.0;
-        }
+        double a = _nk[i]*pow(t, _jk[i])*exp(-gamma*pow(d, _lk[i]));
+        double da = -a*gamma*_lk[i]*pow(d, _lk[i]-1.0);
+        double dda = -da*gamma*_lk[i]*pow(d, _lk[i]-1.0) - a*gamma*_lk[i]*(_lk[i]-1.0)*pow(d, _lk[i]-2.0);
+
         double b = pow(d, _ik[i]);
         double db = _ik[i]*pow(d, _ik[i]-1.0);
         double ddb = _ik[i]*(_ik[i]-1.0)*pow(d, _ik[i]-2.0);
@@ -210,10 +200,9 @@ static NSString *name = @"fundamentalJacobsenRho";
 {
     
     double t = _tc/Temperature;
-    double r = _rhoc;
+    double r = 0.01*_rhoc;
     double q = _rhoc*Rgas*Temperature;
     double pq = pressure/q;
-    
     
     if (Temperature < _tc)
     {
@@ -231,11 +220,12 @@ static NSString *name = @"fundamentalJacobsenRho";
             id<functionValue> rhovSat = [_functionPointers objectForKey:@"rhovSat"];
             r = [rhovSat valueForT:Temperature andP:pressure];
             r *= 0.5;
+
             //NSLog(@"T=%g, r=%g",Temperature,r);
             //NSLog(@"State is in vapor");
         }
     }
-    
+
     int i = 0;
     int N = 200;
     double err = 1.0;
