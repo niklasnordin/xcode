@@ -198,11 +198,11 @@
 
 - (void)setNewFunction:(NSString *)functionName
 {
-    NSLog(@"entering with name = %@",functionName);
+    //NSLog(@"entering with name = %@",functionName);
     NSMutableDictionary *speciesDict = [_db.json objectForKey:_specie];
     NSMutableDictionary *propertyDict = [speciesDict objectForKey:_property];
     NSArray *coeffsArray = [propertyDict objectForKey:@"coefficients"];
-    NSLog(@"coeffsArray size = %d",[coeffsArray count]);
+    //NSLog(@"coeffsArray size = %d",[coeffsArray count]);
     functions *mySel = [[functions alloc] init];
     id newFunction = [mySel select:functionName];
     
