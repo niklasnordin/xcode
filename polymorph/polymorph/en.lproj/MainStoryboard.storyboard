@@ -500,20 +500,17 @@
             <point key="canvasLocation" x="1170" y="-2"/>
         </scene>
         <!--View Controller - Feedback-->
-        <scene sceneID="iDw-iq-oNf">
+        <scene sceneID="Qat-lf-smU">
             <objects>
-                <viewController storyboardIdentifier="Feedback" title="Feedback" id="Vj9-Xr-PFG" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="npi-92-89S">
+                <viewController id="Arw-pk-c2k" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z4X-hp-S4E">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="If you want a function added or if you think of any way to improve the application please mail me at niklas.nordin@nequam.se" id="MIW-H5-mlQ">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="If you want a function added or if you think of any way to improve the application please mail me at niklas.nordin@nequam.se" id="Bzk-c4-gET">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.13118007309999999" green="0.2340372352" blue="0.4311423788" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES" staticText="YES"/>
-                                </accessibility>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -521,7 +518,36 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Feedback" id="JUY-Mx-N4B"/>
+                    <tabBarItem key="tabBarItem" title="Feedback" id="vCz-9a-7M2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hU5-5w-hk2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1225" y="1407"/>
+        </scene>
+        <!--View Controller - Feedback-->
+        <scene sceneID="iDw-iq-oNf">
+            <objects>
+                <viewController storyboardIdentifier="Feedback" title="Feedback" id="Vj9-Xr-PFG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="npi-92-89S">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="MIW-H5-mlQ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.13118007309999999" green="0.2340372352" blue="0.4311423788" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" staticText="YES"/>
+                                </accessibility>
+                                <mutableString key="text">The X-axis represents the temperature or pressure depending on what you have chosen. The Y-axis represents the value of your function. The numbers to the left and right on the X-axis shows the range and will turn red if the value is out of the valid range. The numbers at the top and bottom of the Y-axis shows the range of the Y-axis. The pair of numbers displayed in the center are the temperature/pressure and its corresponding function value. Three types of gestures are supported. Pan, pinch and double-tap. To move the view, hold and drag. Pinching will zoom in or out. Double-tap will rescale the graph so that it fits the view. The 'Export Table' button will generate a number of X Y points and put them in a table that will be attached in an email.</mutableString>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="View" id="JUY-Mx-N4B"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9bD-4m-Uxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -564,11 +590,10 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="xeq-xn-6Xn">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="fmZ-LC-4TS">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.13118007309999999" green="0.2340372352" blue="0.4311423788" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">The X-axis represents the temperature or pressure depending on what you have chosen. The Y-axis represents the value of your function. The numbers to the left and right on the X-axis shows the range and will turn red if the value is out of the valid range. The numbers at the top and bottom of the Y-axis shows the range of the Y-axis. The pair of numbers displayed in the center are the temperature/pressure and its corresponding function value. Three types of gestures are supported. Pan, pinch and double-tap. To move the view, hold and drag. Pinching will zoom in or out. Double-tap will rescale the graph so that it fits the view. The 'Export Table' button will generate a number of X Y points and put them in a table that will be attached in an email.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -576,7 +601,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.13118007309999999" green="0.2340372352" blue="0.4311423788" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="View" id="Bwn-CU-aau"/>
+                    <tabBarItem key="tabBarItem" title="About" id="Bwn-CU-aau"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJh-KU-BBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -597,6 +622,7 @@
                         <segue destination="bhq-mr-edp" kind="relationship" relationship="viewControllers" id="iRk-Sx-2FU"/>
                         <segue destination="mq1-f6-63N" kind="relationship" relationship="viewControllers" id="zJN-Tg-4A8"/>
                         <segue destination="Vj9-Xr-PFG" kind="relationship" relationship="viewControllers" id="BQ7-hV-0By"/>
+                        <segue destination="Arw-pk-c2k" kind="relationship" relationship="viewControllers" id="E9m-XX-JEM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="daq-DS-nHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
