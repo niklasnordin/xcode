@@ -11,6 +11,7 @@
 
 @implementation Polynomial
 
+// y = x^2 + a x + b
 + (NSArray *)solveSecondOrder:(double)a coeffB:(double)b
 {
     NSMutableArray *sol = [[NSMutableArray alloc] init];

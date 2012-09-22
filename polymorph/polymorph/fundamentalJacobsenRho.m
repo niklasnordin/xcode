@@ -54,10 +54,10 @@ static NSString *name = @"fundamentalJacobsenRho";
     
     int n = 23;
     
-    _ik = malloc(n*sizeof(double));
-    _jk = malloc(n*sizeof(double));
-    _lk = malloc(n*sizeof(double));
-    _nk = malloc(n*sizeof(double));
+    _ik = malloc(n*sizeof(long double));
+    _jk = malloc(n*sizeof(long double));
+    _lk = malloc(n*sizeof(long double));
+    _nk = malloc(n*sizeof(long double));
     
     for (int i=0; i<n; i++)
     {
@@ -77,10 +77,10 @@ static NSString *name = @"fundamentalJacobsenRho";
     
     int n = 23;
 
-    _ik = malloc(n*sizeof(double));
-    _jk = malloc(n*sizeof(double));
-    _lk = malloc(n*sizeof(double));
-    _nk = malloc(n*sizeof(double));
+    _ik = malloc(n*sizeof(long double));
+    _jk = malloc(n*sizeof(long double));
+    _lk = malloc(n*sizeof(long double));
+    _nk = malloc(n*sizeof(long double));
     
     for (int i=0; i<n; i++)
     {
@@ -143,24 +143,32 @@ static NSString *name = @"fundamentalJacobsenRho";
 
 // d = rho/rhoc (kmol/m^3)
 // t = Tc/T
--(double)daResdd:(double)d t:(double)t
+-(double)daResdd:(long double)d t:(long double)t
 {
-    double sum = 0.0;
+    long double sum = 0.0;
     
     for (int i=0; i<23; i++)
     {
-        double gamma = 0.0;
+        long double gamma = 0.0;
         
         if (fabs(_lk[i]) > 1.0e-3)
         {
             gamma = 1.0;
         }
         
+        long double pl = powl(d, _lk[i]);
+
+        long double K = _nk[i]*powl(t, _jk[i]);
+        long double da = powl(d, _ik[i]-1.0)*expl(-gamma*pl);
+        long double db = _ik[i] - gamma*_lk[i]*pl;
+        /*
         double a = _nk[i]*pow(t, _jk[i])*exp(-gamma*pow(d, _lk[i]));
         double da = -a*gamma*_lk[i]*pow(d, _lk[i] - 1.0);
         double b = pow(d, _ik[i]);
         double db = _ik[i]*pow(d, _ik[i] - 1.0);
         sum += a*db + b*da;
+         */
+        sum += K*da*db;
     }
 
     return sum;
@@ -168,18 +176,18 @@ static NSString *name = @"fundamentalJacobsenRho";
 
 // d = rho/rhoc (kmol/m^3)
 // t = Tc/T
-- (double)d2aResdd2:(double)d t:(double)t
+- (double)d2aResdd2:(long double)d t:(long double)t
 {
 
-    double sum = 0.0;
+    long double sum = 0.0;
     for (int i=0; i<23; i++)
     {
-        double gamma = 0.0;
+        long double gamma = 0.0;
         if (fabs(_lk[i]) > 1.0e-3)
         {
             gamma = 1.0;
         }
-        
+        /*
         double a = _nk[i]*pow(t, _jk[i])*exp(-gamma*pow(d, _lk[i]));
         double da = -a*gamma*_lk[i]*pow(d, _lk[i]-1.0);
         double dda = -da*gamma*_lk[i]*pow(d, _lk[i]-1.0) - a*gamma*_lk[i]*(_lk[i]-1.0)*pow(d, _lk[i]-2.0);
@@ -188,8 +196,24 @@ static NSString *name = @"fundamentalJacobsenRho";
         double db = _ik[i]*pow(d, _ik[i]-1.0);
         double ddb = _ik[i]*(_ik[i]-1.0)*pow(d, _ik[i]-2.0);
         
-        sum += a*ddb + da*db + db*da + b*dda;
+        double s1 = a*ddb + da*db + db*da + b*dda;
+        */
+        long double K = _nk[i]*powl(t, _jk[i]);
+        long double pl = powl(d, _lk[i]);
+        long double a1 = powl(d, _ik[i]-2.0)*expl(-gamma*pl);
+        long double a2 = -_ik[i]*(2.0*gamma*_lk[i]*pl + 1.0);
+        long double a3 = gamma*_lk[i]*pl*(_lk[i]*(gamma*pl - 1.0) + 1.0) + _ik[i]*_ik[i];
         
+        long double s2 = K*a1*( a2 + a3 );
+        /*
+        double diff = s2 - s1;
+        
+        if (fabs(diff)> 1.0e-3)
+        {
+            NSLog(@"diff=%g, s1 = %g, s2 = %g",diff,s1,s2);
+        }
+         */
+        sum += s2;
     }
 
     return sum;
@@ -200,9 +224,10 @@ static NSString *name = @"fundamentalJacobsenRho";
 {
     
     double t = _tc/Temperature;
-    double r = 0.01*_rhoc;
+    double r = _rhoc;
     double q = _rhoc*Rgas*Temperature;
     double pq = pressure/q;
+    BOOL liquidState = YES;
     
     if (Temperature < _tc)
     {
@@ -219,47 +244,44 @@ static NSString *name = @"fundamentalJacobsenRho";
         {
             id<functionValue> rhovSat = [_functionPointers objectForKey:@"rhovSat"];
             r = [rhovSat valueForT:Temperature andP:pressure];
-            r *= 0.5;
-
-            //NSLog(@"T=%g, r=%g",Temperature,r);
-            //NSLog(@"State is in vapor");
+            r *= 0.1;
+            liquidState = NO;
         }
     }
-
+    
     int i = 0;
-    int N = 200;
+    int N = 100;
     double err = 1.0;
-    double tol = 1.0e-7;
     double delta = r/_rhoc;
+    double tol = 1.0e-7;
     while ((err > tol) && (i < N))
     {
+        // pq = delta*(1 + delta*A)
+        // A delta^2 + delta - pq = 0
         double A = [self daResdd:delta t:t];
-        double nom = pq - delta*(A*delta + 1.0);
-
         double B = [self d2aResdd2:delta t:t];
-        double denom = delta*(B*delta + 2.0*A) + 1.0;
-        double d = nom/denom;
-/*
-        if (fabs(denom) < 1.0e-50)
-        {
-            //NSLog(@"divergence");
-            denom = 2.0*B*delta + A;
-            d = sqrt(nom/denom);
-        }
+
+        double nom = pq - delta*(1.0 + delta*A);
+        double denom = 1.0 + delta*(delta*B + 2.0*A);
         
-        double d;
-        double denom = 2.0*A*delta + 1.0;
-        if (fabs(denom) > 1.0e-20)
+        double d = nom/denom;
+        //NSLog(@"%d: d=%g, %g",i,d,delta);
+        if (fabs(denom) < 1.0e-10)
         {
-            d = nom/denom;
+            //NSLog(@"denom = %g",denom);
+        }
+        err = fabs(d);
+        
+        // dont take too large steps
+        if (d > 0)
+        {
+            d = fmin(delta,d);
         }
         else
         {
-            d = nom/A;
+            d = -fmin(-d, delta);
         }
-        */
-        err = fabs(d);
-        delta += 0.7*d;
+        delta += 0.9*d;
         delta = fmax(1.0e-30, delta);
 
         i++;

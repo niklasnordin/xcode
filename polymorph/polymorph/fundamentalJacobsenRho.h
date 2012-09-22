@@ -11,15 +11,15 @@
 
 @interface fundamentalJacobsenRho : NSObject <functionValue>
 
-@property (nonatomic) double *ik;
-@property (nonatomic) double *jk;
-@property (nonatomic) double *lk;
-@property (nonatomic) double *nk;
+@property (nonatomic) long double *ik;
+@property (nonatomic) long double *jk;
+@property (nonatomic) long double *lk;
+@property (nonatomic) long double *nk;
 
-@property (nonatomic) double tc;
-@property (nonatomic) double pc;
-@property (nonatomic) double rhoc;
-@property (nonatomic) double mw;
+@property (nonatomic) long double tc;
+@property (nonatomic) long double pc;
+@property (nonatomic) long double rhoc;
+@property (nonatomic) long double mw;
 
 @property NSMutableDictionary *functionPointers;
 @end
