@@ -178,7 +178,7 @@ static NSString *name = @"fundamentalJacobsenCv";
     for (int i=0; i<23; i++)
     {
         long double gamma = 0.0;
-        if (abs(_lk[i]) > 1.0e-8)
+        if (fabs(_lk[i]) > 1.0e-8)
         {
             gamma = 1.0;
         }

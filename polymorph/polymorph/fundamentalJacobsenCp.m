@@ -172,7 +172,7 @@ static NSString *name = @"fundamentalJacobsenCp";
     for (int i=0; i<23; i++)
     {
         long double gamma = 0.0;
-        if (abs(_lk[i]) > 1.0e-8)
+        if (fabs(_lk[i]) > 1.0e-8)
         {
             gamma = 1.0;
         }
@@ -184,9 +184,28 @@ static NSString *name = @"fundamentalJacobsenCp";
     return sum;
 }
 
--(double)d2aResdddt:(double)delta t:(double)t
+-(double)d2aResdddt:(long double)delta t:(long double)t
 {
-    return 0.0;
+    
+    long double sum = 0.0;
+    for (int i=0; i<23; i++)
+    {
+        long double gamma = 1.0;
+        if (fabs(_lk[i]) < 1.0e-8)
+        {
+            gamma = 0.0;
+        }
+        
+        //long double a = _nk[i]*powl(t, _jk[i])*expl(-gamma*powl(delta, _lk[i]));
+        long double b = powl(delta, _ik[i]);
+        long double db = _ik[i]*powl(delta, _ik[i]-1.0);
+        long double dat = _nk[i]*_jk[i]*powl(t, _jk[i]-1.0)*expl(-gamma*powl(delta, _lk[i]));
+        long double dadt = -dat*gamma*_lk[i]*powl(delta, _lk[i]-1.0);
+        sum += dat*db + b*dadt;
+    }
+    
+    return sum;
+
 }
 
 -(double)cp:(double)pressure T:(double)Temperature
