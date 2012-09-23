@@ -613,6 +613,34 @@
     }
 }
 
+-(void)checkFunctionDependency:(id<functionValue>)f forDict:(NSDictionary *)dict
+{
+    NSArray *funcDepNames = [f dependsOnFunctions];
+    
+    if (funcDepNames != nil)
+    {
+        NSArray *availableProperties = [dict allKeys];
+        int n = [funcDepNames count];
+        for (int i=0; i<n; i++)
+        {
+            NSString *name = [funcDepNames objectAtIndex:i];
+            if (![availableProperties containsObject:name])
+            {
+                NSLog(@"You need to implement %@ first",name);
+            }
+            else
+            {
+                NSDictionary *pDict = [dict objectForKey:name];
+                NSString *fdName = [pDict objectForKey:@"function"];
+                NSArray *cArray = [pDict objectForKey:@"coefficients"];
+                
+                id<functionValue> fd = [_selector select:fdName withArray:cArray];
+                [f setFunction:fd forKey:name];
+                [self checkFunctionDependency:fd forDict:dict];
+            }
+        }
+    }
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -631,34 +659,7 @@
         NSArray *coeffDictArray = [propDict objectForKey:@"coefficients"];
 
         _function = [_selector select:funcName withArray:coeffDictArray];
-        
-        NSArray *funcDepNames = [_function dependsOnFunctions];
-
-        if (funcDepNames != nil)
-        {
-            NSArray *availableProperties = [propertiesDict allKeys];
-            int n = [funcDepNames count];
-            for (int i=0; i<n; i++)
-            {
-                NSString *name = [funcDepNames objectAtIndex:i];
-                if (![availableProperties containsObject:name])
-                {
-                    NSLog(@"You need to implement %@ first",name);
-                }
-                else
-                {
-                    NSDictionary *pDict = [propertiesDict objectForKey:name];
-                    NSString *fdName = [pDict objectForKey:@"function"];
-                    NSArray *cArray = [pDict objectForKey:@"coefficients"];
-
-                    id<functionValue> fd = [_selector select:fdName withArray:cArray];
-                    [_function setFunction:fd forKey:name];
-                    //double as = [fd valueForT:300 andP:1.0];
-                    //NSLog(@"as = %g",as);
-                    //abort();
-                }
-            }
-        }
+        [self checkFunctionDependency:_function forDict:propertiesDict];
         
         [segue.destinationViewController setSpecie:_currentSpeciesName];
         [segue.destinationViewController setProperty:_currentPropertyName];

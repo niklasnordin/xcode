@@ -52,13 +52,7 @@
             [myDict setDictionary:cpDict];
         }
     }
-    /*
-    _inputValue = [[[alertView textFieldAtIndex:0] text] doubleValue];
-    NSString *name = [NSString stringWithFormat:@"A%d",_selectedIndex];
-    NSMutableDictionary *myDict = [_coefficients objectAtIndex:_selectedIndex];
-    NSNumber *num = [[NSNumber alloc] initWithDouble:_inputValue];
-    [myDict setObject:num forKey:name];
-     */
+
     [self.tableView reloadData];
 
 }
