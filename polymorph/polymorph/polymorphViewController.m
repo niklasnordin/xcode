@@ -57,6 +57,7 @@
     
     [_functionNames addObject:[fundamentalJacobsenRho name]];
     [_functionNames addObject:[fundamentalJacobsenCv name]];
+    [_functionNames addObject:[fundamentalJacobsenCp name]];
 
     [_functionNames addObject:[boilingTemperature name]];
 

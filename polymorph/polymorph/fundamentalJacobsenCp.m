@@ -1,16 +1,16 @@
 //
-//  fundamentalJacobsenCv.m
+//  fundamentalJacobsenCp.m
 //  polymorph
 //
-//  Created by Niklas Nordin on 2012-09-22.
+//  Created by Niklas Nordin on 2012-09-23.
 //  Copyright (c) 2012 nequam. All rights reserved.
 //
 
-#import "fundamentalJacobsenCv.h"
+#import "fundamentalJacobsenCp.h"
 
-static NSString *name = @"fundamentalJacobsenCv";
+static NSString *name = @"fundamentalJacobsenCp";
 
-@implementation fundamentalJacobsenCv
+@implementation fundamentalJacobsenCp
 
 #define Rgas 8314.462175
 
@@ -19,7 +19,7 @@ static NSString *name = @"fundamentalJacobsenCv";
     return name;
 }
 
--(fundamentalJacobsenCv *)initWithZero
+-(fundamentalJacobsenCp *)initWithZero
 {
     self = [super init];
     
@@ -42,7 +42,7 @@ static NSString *name = @"fundamentalJacobsenCv";
     return self;
 }
 
--(fundamentalJacobsenCv *)initWithArray:(NSArray *)array
+-(fundamentalJacobsenCp *)initWithArray:(NSArray *)array
 {
     self = [super init];
     
@@ -88,12 +88,12 @@ static NSString *name = @"fundamentalJacobsenCv";
 
 -(NSString *) name
 {
-    return [fundamentalJacobsenCv name];
+    return [fundamentalJacobsenCp name];
 }
 
 -(double)valueForT:(double)T andP:(double)p
 {
-    return [self cv:p T:T]*_mw;
+    return [self cp:p T:T]*_mw;
 }
 
 -(bool)pressureDependent
@@ -132,7 +132,7 @@ static NSString *name = @"fundamentalJacobsenCv";
         long double K = _nk[i]*powl(t, _jk[i]);
         long double da = powl(d, _ik[i]-1.0)*expl(-gamma*pl);
         long double db = _ik[i] - gamma*_lk[i]*pl;
-
+        
         sum += K*da*db;
     }
     
@@ -152,7 +152,7 @@ static NSString *name = @"fundamentalJacobsenCv";
         {
             gamma = 1.0;
         }
-
+        
         long double K = _nk[i]*powl(t, _jk[i]);
         long double pl = powl(d, _lk[i]);
         long double a1 = powl(d, _ik[i]-2.0)*expl(-gamma*pl);
@@ -163,12 +163,6 @@ static NSString *name = @"fundamentalJacobsenCv";
     }
     
     return sum;
-}
-
--(double)d2a0dt2:(double)pressure T:(double)temperature
-{
-    double tauInv = temperature/_tc;
-    return (1.0 - [_cp0 valueForT:temperature andP:pressure]/Rgas)*tauInv*tauInv;
 }
 
 -(double)d2aResdt2:(long double)delta t:(long double)t
@@ -190,16 +184,28 @@ static NSString *name = @"fundamentalJacobsenCv";
     return sum;
 }
 
--(double)cv:(double)pressure T:(double)Temperature
+-(double)d2aResdddt:(double)delta t:(double)t
 {
+    return 0.0;
+}
+
+-(double)cp:(double)pressure T:(double)Temperature
+{
+    double cv = [_cv valueForT:Temperature andP:pressure]/_mw;
+    
     double t = _tc/Temperature;
     double rho = [_rho valueForT:Temperature andP:pressure]*_mw;
-    
     double delta = rho/_rhoc;
-    double cv1 = [self d2a0dt2:pressure T:Temperature];
-    double cv2 = [self d2aResdt2:delta t:t];
-    //NSLog(@"rho=%g, cv1=%g, cv2=%g",rho,cv1,cv2);
-    return -Rgas*t*t*(cv1 + cv2);
+    
+    double t1 = [self daResdd:delta t:t];
+    double t2 = [self d2aResdddt:delta t:t];
+    double t3 = [self d2aResdd2:delta t:t];
+    
+    double nom = 1.0 + delta*t1 - delta*t*t2;
+    double denom = 1.0 + 2.0*delta*t1 + delta*delta*t3;
+
+    double cp = cv + nom/denom;
+    return cp*_mw;
 }
 
 - (NSString *)equationText
@@ -217,7 +223,7 @@ static NSString *name = @"fundamentalJacobsenCv";
 
 -(NSArray *)dependsOnFunctions
 {
-    return @[ @"cp0", @"rho" ];
+    return @[ @"cv", @"rho" ];
 }
 
 -(void)setFunction:(id)function forKey:(NSString *)key
@@ -228,10 +234,11 @@ static NSString *name = @"fundamentalJacobsenCv";
         _rho = function;
     }
     
-    if ([key isEqualToString:@"cp0"])
+    if ([key isEqualToString:@"cv"])
     {
-        _cp0 = function;
+        _cv = function;
     }
 }
+
 
 @end
