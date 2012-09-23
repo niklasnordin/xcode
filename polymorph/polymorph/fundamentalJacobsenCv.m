@@ -172,19 +172,19 @@ static NSString *name = @"fundamentalJacobsenCv";
     return (1.0 - [_cp0 valueForT:temperature andP:pressure]/Rgas)*tauInv*tauInv;
 }
 
--(double)d2aResdt2:(double)delta t:(double)t
+-(double)d2aResdt2:(long double)delta t:(long double)t
 {
-    double sum = 0.0;
+    long double sum = 0.0;
     
     for (int i=0; i<23; i++)
     {
-        double gamma = 0.0;
+        long double gamma = 0.0;
         if (abs(_lk[i]) > 1.0e-8)
         {
             gamma = 1.0;
         }
         
-        sum += _jk[i]*(_jk[i] - 1.0)*_nk[i]*pow(delta, _ik[i])*pow(t, _jk[i] - 2.0)*exp(-gamma*pow(delta, _lk[i]));
+        sum += _jk[i]*(_jk[i] - 1.0)*_nk[i]*powl(delta, _ik[i])*powl(t, _jk[i] - 2.0)*expl(-gamma*powl(delta, _lk[i]));
     }
     
     return sum;
