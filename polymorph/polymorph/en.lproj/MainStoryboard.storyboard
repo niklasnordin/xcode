@@ -786,7 +786,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.5372549295425415" green="0.61960786581039429" blue="0.52549022436141968" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.53725492949999998" green="0.61960786580000005" blue="0.5176470876" alpha="1" colorSpace="deviceRGB"/>
                         <gestureRecognizers/>
                         <connections>
                             <outlet property="xMaxLabel" destination="mRB-zz-V6O" id="eSZ-1Y-UFY"/>
@@ -858,6 +858,98 @@
             <point key="canvasLocation" x="751" y="-2"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="coefficientTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/coefficientTableViewController.h"/>
+        </class>
+        <class className="commentVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/commentVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="commentTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="dbTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/dbTableViewController.h"/>
+        </class>
+        <class className="diagramView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/diagramView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="xMaxLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="xMinLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="yMaxLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="yMidLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="yMinLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="diagramViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/diagramViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="generateTable:"/>
+                <relationship kind="outlet" name="dview" candidateClass="diagramView"/>
+            </relationships>
+        </class>
+        <class className="equationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/equationViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="setEquationPressed:"/>
+                <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="functionView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/functionView.h"/>
+        </class>
+        <class className="loadDatabaseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/loadDatabaseViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="exportButton:"/>
+                <relationship kind="action" name="linkFieldEnter:"/>
+                <relationship kind="action" name="loadButton:"/>
+                <relationship kind="action" name="mergeButton:"/>
+                <relationship kind="action" name="saveButton:"/>
+                <relationship kind="outlet" name="linkTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="statusTextField" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="polymorphViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/polymorphViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="changedPTSwitch:" candidateClass="UISegmentedControl"/>
+                <relationship kind="action" name="clickedSpecieButton:"/>
+                <relationship kind="action" name="enterPressureText:" candidateClass="UITextField"/>
+                <relationship kind="action" name="enterTemperatureText:" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="constantTextLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="minPressureField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="pressureField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="propertyDisplay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ptSegmentControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="speciesButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="temperatureMax" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="temperatureMin" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="viewButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="propertyTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/propertyTableViewController.h"/>
+        </class>
+        <class className="setPropertyViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/setPropertyViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clickedFunctionButton:"/>
+                <relationship kind="action" name="maxPressureEnter:" candidateClass="UITextField"/>
+                <relationship kind="action" name="maxTempEnter:" candidateClass="UITextField"/>
+                <relationship kind="action" name="minPressureEnter:" candidateClass="UITextField"/>
+                <relationship kind="action" name="minTempEnter:" candidateClass="UITextField"/>
+                <relationship kind="action" name="unitEnter:" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="clickedCoefficientsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="functionButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="maxPressureField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="maxTemperatureField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="minPressureField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="minTemperatureField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="unitField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

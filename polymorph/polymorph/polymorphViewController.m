@@ -53,9 +53,12 @@
     [_functionNames addObject:[ancillary_1 name]];
     [_functionNames addObject:[ancillary_2 name]];
     [_functionNames addObject:[ancillary_3 name]];
+    [_functionNames addObject:[ancillary_4 name]];
     
-    [_functionNames addObject:[boilingTemperature name]];
     [_functionNames addObject:[fundamentalJacobsenRho name]];
+    [_functionNames addObject:[fundamentalJacobsenCv name]];
+
+    [_functionNames addObject:[boilingTemperature name]];
 
 }
 

@@ -66,7 +66,8 @@ static NSString *name = @"fundamentalJacobsenRho";
         _lk[i] = 0.0;
         _nk[i] = 0.0;
     }
-    _functionPointers = [[NSMutableDictionary alloc] init];
+    
+    //_functionPointers = [[NSMutableDictionary alloc] init];
 
     return self;
 }
@@ -111,7 +112,7 @@ static NSString *name = @"fundamentalJacobsenRho";
     _rhoc = [[[array objectAtIndex:94] objectForKey:@"A94"] doubleValue];
     _mw   = [[[array objectAtIndex:95] objectForKey:@"A95"] doubleValue];
     
-    _functionPointers = [[NSMutableDictionary alloc] init];
+    //_functionPointers = [[NSMutableDictionary alloc] init];
     return self;
 }
 
@@ -231,19 +232,19 @@ static NSString *name = @"fundamentalJacobsenRho";
     
     if (Temperature < _tc)
     {
-        id<functionValue> pv = [_functionPointers objectForKey:@"Pv"];
-        double pvap = [pv valueForT:Temperature andP:pressure];
+        //id<functionValue> pv = [_functionPointers objectForKey:@"Pv"];
+        double pvap = [_pv valueForT:Temperature andP:pressure];
 
         if (pressure > pvap)
         {
-            id<functionValue> rholSat = [_functionPointers objectForKey:@"rholSat"];
-            r = [rholSat valueForT:Temperature andP:pressure];
+            //id<functionValue> rholSat = [_functionPointers objectForKey:@"rholSat"];
+            r = [_rholSat valueForT:Temperature andP:pressure];
             //NSLog(@"State is in liquid");
         }
         else
         {
-            id<functionValue> rhovSat = [_functionPointers objectForKey:@"rhovSat"];
-            r = [rhovSat valueForT:Temperature andP:pressure];
+            //id<functionValue> rhovSat = [_functionPointers objectForKey:@"rhovSat"];
+            r = [_rhovSat valueForT:Temperature andP:pressure];
             r *= 0.1;
             liquidState = NO;
         }
@@ -316,7 +317,22 @@ static NSString *name = @"fundamentalJacobsenRho";
 
 -(void)setFunction:(id)function forKey:(NSString *)key
 {
-    [_functionPointers setObject:function forKey:key];
+    //[_functionPointers setObject:function forKey:key];
+    
+    if ([key isEqualToString:@"Pv"])
+    {
+        _pv = function;
+    }
+    
+    if ([key isEqualToString:@"rholSat"])
+    {
+        _rholSat = function;
+    }
+    
+    if ([key isEqualToString:@"rhovSat"])
+    {
+        _rhovSat = function;
+    }
 }
 
 @end

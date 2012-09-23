@@ -283,7 +283,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"alert");
+    //NSLog(@"alert");
     NSDictionary *speciesDict = [_db.json objectForKey:_specie];
     NSDictionary *propertyDict = [speciesDict objectForKey:_property];
     NSString *functionName = [propertyDict objectForKey:@"function"];

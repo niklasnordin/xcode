@@ -12,6 +12,7 @@
 @implementation polymorphAppDelegate
 
 @synthesize window = _window;
+@synthesize statusBarView = _statusBarView;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -41,6 +42,12 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [application setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+    CGRect statRect = [application statusBarFrame];
+    _statusBarView = [[UIView alloc] initWithFrame:statRect];
+    UIColor *col = [[UIColor alloc] initWithRed:0.53516 green:0.617188 blue:0.515625 alpha:1.0];
+    [_statusBarView setBackgroundColor:col];
+    [_window addSubview:_statusBarView];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

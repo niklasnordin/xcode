@@ -10,6 +10,9 @@
 		610F3A98160E487900D44418 /* fundamentalJacobsenRho.png in Resources */ = {isa = PBXBuildFile; fileRef = 610F3A97160E487900D44418 /* fundamentalJacobsenRho.png */; };
 		610F3A9A160E488100D44418 /* fundamentalJacobsenRho.tex in Resources */ = {isa = PBXBuildFile; fileRef = 610F3A99160E488100D44418 /* fundamentalJacobsenRho.tex */; };
 		610F3A9D160E4FD100D44418 /* fundamentalJacobsenCv.m in Sources */ = {isa = PBXBuildFile; fileRef = 610F3A9C160E4FD100D44418 /* fundamentalJacobsenCv.m */; };
+		610F3AA0160EE97500D44418 /* ancillary_4.m in Sources */ = {isa = PBXBuildFile; fileRef = 610F3A9F160EE97500D44418 /* ancillary_4.m */; };
+		610F3AA2160F307600D44418 /* ancillary_4.tex in Resources */ = {isa = PBXBuildFile; fileRef = 610F3AA1160F307600D44418 /* ancillary_4.tex */; };
+		610F3AA4160F308400D44418 /* ancillary_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 610F3AA3160F308400D44418 /* ancillary_4.png */; };
 		61247A4A15C593A9004DB05F /* nsrds_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 61247A4915C593A9004DB05F /* nsrds_0.m */; };
 		61247A4E15C5976C004DB05F /* nsrds_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 61247A4D15C5976C004DB05F /* nsrds_1.m */; };
 		61247A5115C845C9004DB05F /* dbTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61247A5015C845C8004DB05F /* dbTableViewController.m */; };
@@ -101,6 +104,10 @@
 		610F3A99160E488100D44418 /* fundamentalJacobsenRho.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fundamentalJacobsenRho.tex; sourceTree = "<group>"; };
 		610F3A9B160E4FD100D44418 /* fundamentalJacobsenCv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fundamentalJacobsenCv.h; sourceTree = "<group>"; };
 		610F3A9C160E4FD100D44418 /* fundamentalJacobsenCv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fundamentalJacobsenCv.m; sourceTree = "<group>"; };
+		610F3A9E160EE97400D44418 /* ancillary_4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ancillary_4.h; sourceTree = "<group>"; };
+		610F3A9F160EE97500D44418 /* ancillary_4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ancillary_4.m; sourceTree = "<group>"; };
+		610F3AA1160F307600D44418 /* ancillary_4.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ancillary_4.tex; sourceTree = "<group>"; };
+		610F3AA3160F308400D44418 /* ancillary_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ancillary_4.png; sourceTree = "<group>"; };
 		61247A4815C593A9004DB05F /* nsrds_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nsrds_0.h; sourceTree = "<group>"; };
 		61247A4915C593A9004DB05F /* nsrds_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nsrds_0.m; sourceTree = "<group>"; };
 		61247A4C15C5976C004DB05F /* nsrds_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nsrds_1.h; sourceTree = "<group>"; };
@@ -375,6 +382,8 @@
 				619394E815EBD0AD0003EF01 /* ancillary_2.m */,
 				619394EE15EBDDAB0003EF01 /* ancillary_3.h */,
 				619394EF15EBDDAB0003EF01 /* ancillary_3.m */,
+				610F3A9E160EE97400D44418 /* ancillary_4.h */,
+				610F3A9F160EE97500D44418 /* ancillary_4.m */,
 				612EF27B160A286200D951E9 /* boilingTemperature.h */,
 				612EF27C160A286200D951E9 /* boilingTemperature.m */,
 			);
@@ -399,6 +408,7 @@
 				619394E515EAC1530003EF01 /* ancillary_1.tex */,
 				619394EC15EBD3150003EF01 /* ancillary_2.tex */,
 				619394F315EBDE5E0003EF01 /* ancillary_3.tex */,
+				610F3AA1160F307600D44418 /* ancillary_4.tex */,
 				610F3A99160E488100D44418 /* fundamentalJacobsenRho.tex */,
 				61D2AEA2160AD68E00A7FC78 /* boilingTemperature.tex */,
 				61D2AEA4160AD69800A7FC78 /* readme.txt */,
@@ -425,6 +435,7 @@
 				619394E315EABE6F0003EF01 /* ancillary_1.png */,
 				619394EA15EBD3010003EF01 /* ancillary_2.png */,
 				619394F115EBDE510003EF01 /* ancillary_3.png */,
+				610F3AA3160F308400D44418 /* ancillary_4.png */,
 				610F3A97160E487900D44418 /* fundamentalJacobsenRho.png */,
 				61D2AE9F160AD66B00A7FC78 /* boilingTemperature.png */,
 				61D7352A160A6CB800362373 /* Default-568h@2x.png */,
@@ -531,6 +542,8 @@
 				61D2AEA5160AD69800A7FC78 /* readme.txt in Resources */,
 				610F3A98160E487900D44418 /* fundamentalJacobsenRho.png in Resources */,
 				610F3A9A160E488100D44418 /* fundamentalJacobsenRho.tex in Resources */,
+				610F3AA2160F307600D44418 /* ancillary_4.tex in Resources */,
+				610F3AA4160F308400D44418 /* ancillary_4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +594,7 @@
 				6193950915ED349F0003EF01 /* nsrds_4.m in Sources */,
 				612EF27D160A286200D951E9 /* boilingTemperature.m in Sources */,
 				610F3A9D160E4FD100D44418 /* fundamentalJacobsenCv.m in Sources */,
+				610F3AA0160EE97500D44418 /* ancillary_4.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

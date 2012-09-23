@@ -14,7 +14,6 @@ static NSString *name = @"fundamentalJacobsenCv";
 
 #define Rgas 8314.462175
 
-
 +(NSString *)name
 {
     return name;
@@ -94,7 +93,8 @@ static NSString *name = @"fundamentalJacobsenCv";
 
 -(double)valueForT:(double)T andP:(double)p
 {
-    return [self rho:p T:T]*_mw;
+    double tau = _tc/T;
+    return -[self cv:p T:T]*_mw*tau*tau;
 }
 
 -(bool)pressureDependent
@@ -165,9 +165,10 @@ static NSString *name = @"fundamentalJacobsenCv";
     
     return sum;
 }
--(doubled)2a0dt2:(double)delta t:(double)t
+
+-(double)d2a0dt2:(double)delta t:(double)t
 {
-    
+    return 0.0;
 }
 
 -(double)cv:(double)pressure T:(double)Temperature
@@ -175,83 +176,7 @@ static NSString *name = @"fundamentalJacobsenCv";
     double t = _tc/Temperature;
     //double cv1 = [self d2a
     //return -$R*$t*$t*(d2a0dt2($d, $t) + d2aResdt2($d, $t));
-
-}
-
--(double)rho:(double)pressure T:(double)Temperature
-{
-    
-    double t = _tc/Temperature;
-    double r = _rhoc;
-    double q = _rhoc*Rgas*Temperature;
-    double pq = pressure/q;
-    BOOL liquidState = YES;
-    
-    if (Temperature < _tc)
-    {
-        id<functionValue> pv = [_functionPointers objectForKey:@"Pv"];
-        double pvap = [pv valueForT:Temperature andP:pressure];
-        
-        if (pressure > pvap)
-        {
-            id<functionValue> rholSat = [_functionPointers objectForKey:@"rholSat"];
-            r = [rholSat valueForT:Temperature andP:pressure];
-            //NSLog(@"State is in liquid");
-        }
-        else
-        {
-            id<functionValue> rhovSat = [_functionPointers objectForKey:@"rhovSat"];
-            r = [rhovSat valueForT:Temperature andP:pressure];
-            r *= 0.1;
-            liquidState = NO;
-        }
-    }
-    
-    int i = 0;
-    int N = 100;
-    double err = 1.0;
-    double delta = r/_rhoc;
-    double tol = 1.0e-7;
-    while ((err > tol) && (i < N))
-    {
-        // pq = delta*(1 + delta*A)
-        // A delta^2 + delta - pq = 0
-        double A = [self daResdd:delta t:t];
-        double B = [self d2aResdd2:delta t:t];
-        
-        double nom = pq - delta*(1.0 + delta*A);
-        double denom = 1.0 + delta*(delta*B + 2.0*A);
-        
-        double d = nom/denom;
-        //NSLog(@"%d: d=%g, %g",i,d,delta);
-        if (fabs(denom) < 1.0e-10)
-        {
-            //NSLog(@"denom = %g",denom);
-        }
-        err = fabs(d);
-        
-        // dont take too large steps
-        if (d > 0)
-        {
-            d = fmin(delta,d);
-        }
-        else
-        {
-            d = -fmin(-d, delta);
-        }
-        delta += 0.9*d;
-        delta = fmax(1.0e-30, delta);
-        
-        i++;
-    }
-    
-    if (i > N-2)
-    {
-        //NSLog(@"Warning! Density calculation did not converge. Error is %g",err);
-    }
-    
-    return delta*_rhoc;
-    
+    return t;
 }
 
 - (NSString *)equationText
@@ -269,7 +194,7 @@ static NSString *name = @"fundamentalJacobsenCv";
 
 -(NSArray *)dependsOnFunctions
 {
-    return @[ @"Pv", @"rholSat", @"rhovSat" ];
+    return @[ @"cp0", @"rho" ];
 }
 
 -(void)setFunction:(id)function forKey:(NSString *)key

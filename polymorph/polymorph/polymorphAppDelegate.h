@@ -11,5 +11,5 @@
 @interface polymorphAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) UIView *statusBarView;
 @end
