@@ -342,6 +342,7 @@
         
         [segue.destinationViewController setCoefficients:coeffs];
         [segue.destinationViewController setTitle:@"Coefficients"];
+        [segue.destinationViewController setParent:_parent];
     }
     
     if ([segue.identifier isEqualToString:@"commentSegue"])

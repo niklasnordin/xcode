@@ -21,6 +21,7 @@
 @property (nonatomic) long double rhoc;
 @property (nonatomic) long double mw;
 
-@property NSMutableDictionary *functionPointers;
+@property (strong, nonatomic) id<functionValue> rho;
+@property (strong, nonatomic) id<functionValue> cp0;
 
 @end

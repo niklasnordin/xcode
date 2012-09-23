@@ -484,9 +484,6 @@
     _currentSpeciesName = [defaults objectForKey:@"currentSpeciesName"];
     _currentPropertyName = [defaults objectForKey:@"currentPropertyName"];
     
-    //NSLog(@"currentSpeciesName = %@",_currentSpeciesName);
-    //NSLog(@"currentPropertyName = %@",_currentPropertyName);
-    
 	// Do any additional setup after loading the view, typically from a nib.
     
     [self loadFunctions];
@@ -501,8 +498,7 @@
     _selectedConstantProperty = 0;
     [_ptSegmentControl setSelectedSegmentIndex:_selectedConstantProperty];
     [_minPressureField setHidden:YES];
-//    UIImage *gradImage = [UIImage imageNamed:@"ni-banding-free-gradient.jpg"];
-//    [_speciesButton setImage:gradImage forState:UIControlStateNormal];
+
     [self update];
 }
 

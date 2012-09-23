@@ -254,7 +254,7 @@
             <objects>
                 <tableViewController id="1FS-Vy-dAP" customClass="coefficientTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xNk-W0-d5t">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -289,9 +289,14 @@
                             <outlet property="delegate" destination="1FS-Vy-dAP" id="ViQ-vB-J3D"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="RTU-xP-0gJ">
-                        <barButtonItem key="rightBarButtonItem" title="Copy" id="AQn-Vx-EaL"/>
-                    </navigationItem>
+                    <toolbarItems>
+                        <barButtonItem title="Copy" id="AQn-Vx-EaL"/>
+                        <barButtonItem title="Item" id="K4N-Zc-6L7"/>
+                        <barButtonItem title="Item" id="ktE-dG-uyl"/>
+                        <barButtonItem title="Item" id="yFL-5a-rBh"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="RTU-xP-0gJ"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3PV-Be-ifB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

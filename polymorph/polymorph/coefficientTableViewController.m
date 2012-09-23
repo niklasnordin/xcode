@@ -27,6 +27,41 @@
     return self;
 }
 
+- (void)copyButtonPressed:(id)sender
+{
+    [_parent setCpArray:_coefficients];
+    UIBarButtonItem *pasteButton = [self.navigationItem.rightBarButtonItems objectAtIndex:1];
+    [pasteButton setEnabled:YES];
+}
+
+- (void)pasteButtonPressed:(id)sender
+{
+
+    int n = [_coefficients count];
+    NSArray *cp = [_parent cpArray];
+    int m = [cp count];
+
+    for (int i=0; i<n; i++)
+    {
+        //NSString *name = [NSString stringWithFormat:@"A%d",i];
+        NSMutableDictionary *myDict = [_coefficients objectAtIndex:i];
+        
+        if (i < m)
+        {
+            NSDictionary *cpDict = [cp objectAtIndex:i];
+            [myDict setDictionary:cpDict];
+        }
+    }
+    /*
+    _inputValue = [[[alertView textFieldAtIndex:0] text] doubleValue];
+    NSString *name = [NSString stringWithFormat:@"A%d",_selectedIndex];
+    NSMutableDictionary *myDict = [_coefficients objectAtIndex:_selectedIndex];
+    NSNumber *num = [[NSNumber alloc] initWithDouble:_inputValue];
+    [myDict setObject:num forKey:name];
+     */
+    [self.tableView reloadData];
+
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -36,6 +71,21 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    UIBarButtonItem *copyButton = [[UIBarButtonItem alloc] initWithTitle:@"Copy" style:UIBarButtonItemStylePlain target:self action:@selector(copyButtonPressed:)];
+    
+    UIBarButtonItem *pasteButton = [[UIBarButtonItem alloc] initWithTitle:@"Paste" style:UIBarButtonItemStylePlain target:self action:@selector(pasteButtonPressed:)];
+    
+    if ([[_parent cpArray] count] == 0)
+    {
+        [pasteButton setEnabled:NO];
+    }
+    
+    NSArray *buttons = [[NSArray alloc] initWithObjects:copyButton, pasteButton, nil];
+    self.navigationItem.rightBarButtonItems = buttons;
+    
+//    [self setToolbarItems:buttons];
+     
 }
 
 - (void)viewDidUnload

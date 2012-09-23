@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSString *currentSpeciesName;
 @property (strong, nonatomic) NSString *currentPropertyName;
 @property (strong, nonatomic) database *db;
+@property (strong, nonatomic) NSArray *cpArray;
 
 @property (strong, nonatomic) id function;
 @property (strong, nonatomic) NSMutableArray *functionNames;

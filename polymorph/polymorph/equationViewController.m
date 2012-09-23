@@ -182,6 +182,7 @@
         [self.view setCenter:center];
         
         [self setTitle:name];
+        //[[self navigationItem] titleView] set
     }
 }
 

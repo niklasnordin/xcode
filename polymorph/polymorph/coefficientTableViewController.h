@@ -7,8 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "polymorphViewController.h"
 
-@interface coefficientTableViewController : UITableViewController <UITextFieldDelegate, UIActionSheetDelegate>
+@interface coefficientTableViewController : UITableViewController
+<
+    UITextFieldDelegate,
+    UIActionSheetDelegate
+>
+
+@property (weak, nonatomic) polymorphViewController* parent;
 
 @property (weak, nonatomic) NSMutableArray *coefficients;
 

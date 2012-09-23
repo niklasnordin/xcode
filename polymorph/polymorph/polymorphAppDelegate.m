@@ -45,7 +45,9 @@
     [application setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
     CGRect statRect = [application statusBarFrame];
     _statusBarView = [[UIView alloc] initWithFrame:statRect];
-    UIColor *col = [[UIColor alloc] initWithRed:0.53516 green:0.617188 blue:0.515625 alpha:1.0];
+    //UIColor *col = [[UIColor alloc] initWithRed:0.53516 green:0.617188 blue:0.515625 alpha:1.0];
+    UIColor *col = [[UIColor alloc] initWithRed:1.0 green:0.5 blue:0.0 alpha:1.0];
+
     [_statusBarView setBackgroundColor:col];
     [_window addSubview:_statusBarView];
 }

@@ -37,7 +37,7 @@ static NSString *name = @"fundamentalJacobsenCv";
         _lk[i] = 0.0;
         _nk[i] = 0.0;
     }
-    _functionPointers = [[NSMutableDictionary alloc] init];
+    //_functionPointers = [[NSMutableDictionary alloc] init];
     
     return self;
 }
@@ -82,7 +82,7 @@ static NSString *name = @"fundamentalJacobsenCv";
     _rhoc = [[[array objectAtIndex:94] objectForKey:@"A94"] doubleValue];
     _mw   = [[[array objectAtIndex:95] objectForKey:@"A95"] doubleValue];
     
-    _functionPointers = [[NSMutableDictionary alloc] init];
+    //_functionPointers = [[NSMutableDictionary alloc] init];
     return self;
 }
 
@@ -166,17 +166,39 @@ static NSString *name = @"fundamentalJacobsenCv";
     return sum;
 }
 
--(double)d2a0dt2:(double)delta t:(double)t
+-(double)d2a0dt2:(double)pressure T:(double)temperature
 {
-    return 0.0;
+    double tauInv = temperature/_tc;
+    return (1.0 - [_cp0 valueForT:temperature andP:pressure]/Rgas)*tauInv*tauInv;
+}
+
+-(double)d2aResdt2:(double)delta t:(double)t
+{
+    double sum = 0.0;
+    
+    for (int i=0; i<23; i++)
+    {
+        double gamma = 0.0;
+        if (abs(_lk[i]) > 1.0e-8)
+        {
+            gamma = 1.0;
+        }
+        
+        sum += _jk[i]*(_jk[i] - 1.0)*_nk[i]*pow(delta, _ik[i])*pow(t, _jk[i] - 2.0)*exp(-gamma*pow(delta, _lk[i]));
+    }
+    
+    return sum;
 }
 
 -(double)cv:(double)pressure T:(double)Temperature
 {
     double t = _tc/Temperature;
-    //double cv1 = [self d2a
-    //return -$R*$t*$t*(d2a0dt2($d, $t) + d2aResdt2($d, $t));
-    return t;
+    double rho = [_rho valueForT:Temperature andP:pressure];
+    double delta = rho/_rhoc;
+    double cv1 = [self d2a0dt2:pressure T:Temperature];
+    double cv2 = [self d2aResdt2:delta t:t];
+    
+    return -Rgas*t*t*(cv1 + cv2);
 }
 
 - (NSString *)equationText
@@ -199,7 +221,16 @@ static NSString *name = @"fundamentalJacobsenCv";
 
 -(void)setFunction:(id)function forKey:(NSString *)key
 {
-    [_functionPointers setObject:function forKey:key];
+    
+    if ([key isEqualToString:@"rho"])
+    {
+        _rho = function;
+    }
+    
+    if ([key isEqualToString:@"cp0"])
+    {
+        _cp0 = function;
+    }
 }
 
 @end
