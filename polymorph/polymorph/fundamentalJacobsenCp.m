@@ -213,7 +213,7 @@ static NSString *name = @"fundamentalJacobsenCp";
     double cv = [_cv valueForT:Temperature andP:pressure]/_mw;
     
     double t = _tc/Temperature;
-    double rho = [_rho valueForT:Temperature andP:pressure]*_mw;
+    double rho = [_rho valueForT:Temperature andP:pressure]/_mw;
     double delta = rho/_rhoc;
     
     double t1 = [self daResdd:delta t:t];
@@ -223,7 +223,7 @@ static NSString *name = @"fundamentalJacobsenCp";
     double nom = 1.0 + delta*t1 - delta*t*t2;
     double denom = 1.0 + 2.0*delta*t1 + delta*delta*t3;
 
-    double cp = cv + nom/denom;
+    double cp = cv + nom*nom/denom;
     return cp*_mw;
 }
 

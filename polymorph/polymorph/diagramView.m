@@ -9,7 +9,7 @@
 #import "diagramView.h"
 #import "functions.h"
 
-static NSUInteger nx = 640;//640;
+static NSUInteger nx = 320;//640;
 
 @implementation diagramView
 
@@ -60,8 +60,8 @@ static NSUInteger nx = 640;//640;
         return;
     }
     
-    _yMin = 1.0e+15;
-    _yMax = -1.0e+15;
+    _yMin = 1.0e+50;
+    _yMax = -1.0e+50;
         
     for (int i=0; i<nx; i++) 
     {

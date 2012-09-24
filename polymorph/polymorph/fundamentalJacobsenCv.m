@@ -171,20 +171,20 @@ static NSString *name = @"fundamentalJacobsenCv";
     return (1.0 - [_cp0 valueForT:temperature andP:pressure]/Rgas)*tauInv*tauInv;
 }
 
--(double)d2aResdt2:(long double)delta t:(long double)t
+-(double)d2aResdt2:(long double)delta t:(long double)tau
 {
     long double sum = 0.0;
     
     for (int i=0; i<23; i++)
     {
         long double gamma = 0.0;
-        if (fabs(_lk[i]) > 1.0e-8)
+        if (fabs(_lk[i]) > 1.0e-3)
         {
             gamma = 1.0;
         }
         
         long double term1 = _nk[i]*powl(delta, _ik[i])*expl(-gamma*powl(delta, _lk[i]));
-        sum += _jk[i]*(_jk[i] - 1.0)*powl(t, _jk[i] - 2.0)*term1;
+        sum += _jk[i]*(_jk[i] - 1.0)*powl(tau, _jk[i] - 2.0)*term1;
     }
     
     return sum;
@@ -192,14 +192,14 @@ static NSString *name = @"fundamentalJacobsenCv";
 
 -(double)cv:(double)pressure T:(double)Temperature
 {
-    double t = _tc/Temperature;
-    double rho = [_rho valueForT:Temperature andP:pressure]*_mw;
+    double tau = _tc/Temperature;
+    double rho = [_rho valueForT:Temperature andP:pressure]/_mw;
     
     double delta = rho/_rhoc;
     double cv1 = [self d2a0dt2:pressure T:Temperature];
-    double cv2 = [self d2aResdt2:delta t:t];
-    //NSLog(@"rho=%g, cv1=%g, cv2=%g",rho,cv1,cv2);
-    return -Rgas*t*t*(cv1 + cv2);
+    double cv2 = [self d2aResdt2:delta t:tau];
+    NSLog(@"T=%g, rho=%g, cv1=%g, cv2=%g",Temperature,rho,cv1,cv2);
+    return -Rgas*tau*tau*(cv1 + cv2);
 }
 
 - (NSString *)equationText

@@ -44,9 +44,10 @@ static NSString *name = @"boilingTemperature";
     double dt = 10.0;
     id<functionValue> pv = [_functionPointers objectForKey:@"Pv"];
     double pg0 = [pv valueForT:Tg andP:p];
-
-    while (dt > errMax)
+    int i = 0;
+    while ((dt > errMax) && (i <100))
     {
+        i++;
         double pg = [pv valueForT:Tg andP:p];
         // if temperature gets too high it will probably return nan
         // so set the pressure to something slightly higher than previous guess
