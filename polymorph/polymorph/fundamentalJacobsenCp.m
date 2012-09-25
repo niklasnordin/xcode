@@ -93,7 +93,7 @@ static NSString *name = @"fundamentalJacobsenCp";
 
 -(double)valueForT:(double)T andP:(double)p
 {
-    return [self cp:p T:T]*_mw;
+    return [self cp:p T:T];
 }
 
 -(bool)pressureDependent
@@ -141,7 +141,7 @@ static NSString *name = @"fundamentalJacobsenCp";
 
 // d = rho/rhoc (kmol/m^3)
 // t = Tc/T
-- (double)d2aResdd2:(long double)d t:(long double)t
+- (double)d2aResdd2:(long double)d t:(long double)tau
 {
     
     long double sum = 0.0;
@@ -153,7 +153,7 @@ static NSString *name = @"fundamentalJacobsenCp";
             gamma = 1.0;
         }
         
-        long double K = _nk[i]*powl(t, _jk[i]);
+        long double K = _nk[i]*powl(tau, _jk[i]);
         long double pl = powl(d, _lk[i]);
         long double a1 = powl(d, _ik[i]-2.0)*expl(-gamma*pl);
         long double a2 = -_ik[i]*(2.0*gamma*_lk[i]*pl + 1.0);
@@ -165,43 +165,48 @@ static NSString *name = @"fundamentalJacobsenCp";
     return sum;
 }
 
--(double)d2aResdt2:(long double)delta t:(long double)t
+-(double)d2aResdt2:(long double)delta t:(long double)tau
 {
     long double sum = 0.0;
     
     for (int i=0; i<23; i++)
     {
         long double gamma = 0.0;
-        if (fabs(_lk[i]) > 1.0e-8)
+        if (fabs(_lk[i]) > 1.0e-3)
         {
             gamma = 1.0;
         }
         
         long double term1 = _nk[i]*powl(delta, _ik[i])*expl(-gamma*powl(delta, _lk[i]));
-        sum += _jk[i]*(_jk[i] - 1.0)*powl(t, _jk[i] - 2.0)*term1;
+        sum += _jk[i]*(_jk[i] - 1.0)*powl(tau, _jk[i] - 2.0)*term1;
     }
     
     return sum;
 }
 
--(double)d2aResdddt:(long double)delta t:(long double)t
+-(double)d2aResdddt:(long double)delta t:(long double)tau
 {
     
     long double sum = 0.0;
     for (int i=0; i<23; i++)
     {
-        long double gamma = 1.0;
-        if (fabs(_lk[i]) < 1.0e-8)
+        long double gamma = 0.0;
+        if (fabs(_lk[i]) > 1.0e-3)
         {
-            gamma = 0.0;
+            gamma = 1.0;
         }
-        
-        //long double a = _nk[i]*powl(t, _jk[i])*expl(-gamma*powl(delta, _lk[i]));
+        /*
         long double b = powl(delta, _ik[i]);
         long double db = _ik[i]*powl(delta, _ik[i]-1.0);
-        long double dat = _nk[i]*_jk[i]*powl(t, _jk[i]-1.0)*expl(-gamma*powl(delta, _lk[i]));
+        long double dat = _nk[i]*_jk[i]*powl(tau, _jk[i]-1.0)*expl(-gamma*powl(delta, _lk[i]));
         long double dadt = -dat*gamma*_lk[i]*powl(delta, _lk[i]-1.0);
         sum += dat*db + b*dadt;
+         */
+        
+        long double K = _nk[i]*_jk[i]*powl(tau, _jk[i]-1.0)*powl(delta, _lk[i]);
+        long double pl = powl(delta, _lk[i]);
+        long double dd = (1.0 - gamma*_lk[i]*pl)*expl(-gamma*pl);
+        sum += K*pl*dd;
     }
     
     return sum;
@@ -210,21 +215,21 @@ static NSString *name = @"fundamentalJacobsenCp";
 
 -(double)cp:(double)pressure T:(double)Temperature
 {
-    double cv = [_cv valueForT:Temperature andP:pressure]/_mw;
+    double cv = [_cv valueForT:Temperature andP:pressure];
     
     double t = _tc/Temperature;
-    double rho = [_rho valueForT:Temperature andP:pressure]/_mw;
+    double rho = [_rho valueForT:Temperature andP:pressure];
     double delta = rho/_rhoc;
     
     double t1 = [self daResdd:delta t:t];
     double t2 = [self d2aResdddt:delta t:t];
     double t3 = [self d2aResdd2:delta t:t];
-    
+    //NSLog(@"%g, %g, %g",t1,t2,t3);
     double nom = 1.0 + delta*t1 - delta*t*t2;
     double denom = 1.0 + 2.0*delta*t1 + delta*delta*t3;
 
     double cp = cv + nom*nom/denom;
-    return cp*_mw;
+    return cp;
 }
 
 - (NSString *)equationText

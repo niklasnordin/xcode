@@ -522,6 +522,7 @@
 
 - (void)viewDidUnload
 {
+    NSLog(@"viewDidDisappear");
 
     [self save];
     
@@ -541,9 +542,9 @@
     // Release any retained subviews of the main view.
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return UIInterfaceOrientationPortrait;
 }
 
 

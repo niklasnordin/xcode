@@ -93,7 +93,7 @@ static NSString *name = @"fundamentalJacobsenCv";
 
 -(double)valueForT:(double)T andP:(double)p
 {
-    return [self cv:p T:T]*_mw;
+    return [self cv:p T:T];
 }
 
 -(bool)pressureDependent
@@ -141,7 +141,7 @@ static NSString *name = @"fundamentalJacobsenCv";
 
 // d = rho/rhoc (kmol/m^3)
 // t = Tc/T
-- (double)d2aResdd2:(long double)d t:(long double)t
+- (double)d2aResdd2:(long double)d t:(long double)tau
 {
     
     long double sum = 0.0;
@@ -153,7 +153,7 @@ static NSString *name = @"fundamentalJacobsenCv";
             gamma = 1.0;
         }
 
-        long double K = _nk[i]*powl(t, _jk[i]);
+        long double K = _nk[i]*powl(tau, _jk[i]);
         long double pl = powl(d, _lk[i]);
         long double a1 = powl(d, _ik[i]-2.0)*expl(-gamma*pl);
         long double a2 = -_ik[i]*(2.0*gamma*_lk[i]*pl + 1.0);
@@ -167,8 +167,19 @@ static NSString *name = @"fundamentalJacobsenCv";
 
 -(double)d2a0dt2:(double)pressure T:(double)temperature
 {
-    double tauInv = temperature/_tc;
-    return (1.0 - [_cp0 valueForT:temperature andP:pressure]/Rgas)*tauInv*tauInv;
+    double tau = _tc/temperature;
+    /*
+    double tp = 1.0001*temperature;
+    double tm = 0.9999*temperature;
+    double cp = [_cp0 valueForT:tp andP:pressure];
+    double cm = [_cp0 valueForT:tm andP:pressure];
+    double taup = _tc/tp;
+    double taum = _tc/tm;
+    double dcpdt = (cp - cm)/(taup - taum);
+    //NSLog(@"dcpdt=%g",dcpdt);
+    */
+    return (1.0 - [_cp0 valueForT:temperature andP:pressure]/Rgas)/tau/tau;
+        //+ 2.0*dcpdt/Rgas/tau;
 }
 
 -(double)d2aResdt2:(long double)delta t:(long double)tau
@@ -193,12 +204,12 @@ static NSString *name = @"fundamentalJacobsenCv";
 -(double)cv:(double)pressure T:(double)Temperature
 {
     double tau = _tc/Temperature;
-    double rho = [_rho valueForT:Temperature andP:pressure]/_mw;
+    double rho = [_rho valueForT:Temperature andP:pressure];
     
     double delta = rho/_rhoc;
     double cv1 = [self d2a0dt2:pressure T:Temperature];
     double cv2 = [self d2aResdt2:delta t:tau];
-    NSLog(@"T=%g, rho=%g, cv1=%g, cv2=%g",Temperature,rho,cv1,cv2);
+    //NSLog(@"T=%g, rho=%g, tau=%g, cv1=%g, cv2=%g",Temperature,rho,tau,cv1,cv2);
     return -Rgas*tau*tau*(cv1 + cv2);
 }
 

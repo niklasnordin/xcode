@@ -73,7 +73,7 @@ static NSString *name = @"ancillary_4";
         double theta = _A[i+5]/T;
         double eth = exp(theta);
         
-        sum += _A[i+1]*pow(theta, 2.0)*eth*pow(eth-1.0, -2.0);
+        sum += _A[i+1]*theta*theta*eth*pow(eth-1.0, -2.0);
     }
     
     return sum*_Rgas;

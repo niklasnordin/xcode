@@ -18,6 +18,8 @@
 @property (weak, nonatomic) NSDictionary *dict;
 @property (nonatomic) BOOL xIsT;
 
+@property (nonatomic) double *yValues;
+
 -(void)checkRange;
 -(void)fitToView:(diagramView *)view;
 -(void)setup:(double)xmin max:(double)xmax;

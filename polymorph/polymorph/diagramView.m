@@ -13,7 +13,6 @@ static NSUInteger nx = 320;//640;
 
 @implementation diagramView
 
-
 -(void)setXMin:(double)xMin
 {
     _xMin = xMin;
@@ -69,11 +68,11 @@ static NSUInteger nx = 320;//640;
         double yi = 0.0;
         
         if (_xIsT) {
-            yi = [[self function] valueForT:xi andP:_cpv];
+            yi = [_function valueForT:xi andP:_cpv];
         }
         else
         {
-            yi = [[self function] valueForT:_cpv andP:xi];
+            yi = [_function valueForT:_cpv andP:xi];
         }
         
         if (yi < _yMin) _yMin = yi;
@@ -95,7 +94,8 @@ static NSUInteger nx = 320;//640;
     self.contentMode = UIViewContentModeRedraw;
     _xMin = xmin;
     _xMax = xmax;
-
+    //_yValues = malloc(nx*sizeof(float));
+    
     if (_xIsT)
     {
         NSDictionary *rangeDict = [self.dict objectForKey:@"temperatureRange"];
@@ -115,7 +115,12 @@ static NSUInteger nx = 320;//640;
     
     [self fitToView:self];
 }
-
+/*
+- (void)dealloc
+{
+    free(_yValues);
+}
+*/
 -(void)awakeFromNib
 {
     //[self setup];
@@ -389,7 +394,7 @@ static NSUInteger nx = 320;//640;
         {
             yi = [_function valueForT:_cpv andP:xi];
         }
-        
+        //_yValues[i] = yi;
         CGPoint p0 = [diagramView mapPoint:self X:xi Y:yi];
         [pp addObject:[NSValue valueWithCGPoint:p0]];
     }
@@ -407,11 +412,11 @@ static NSUInteger nx = 320;//640;
     _xMid = 0.5*(_xMin + _xMax);
     if (_xIsT)
     {
-        _yMid = [[self function] valueForT:_xMid andP:_cpv];
+        _yMid = [_function valueForT:_xMid andP:_cpv];
     }
     else
     {
-        _yMid = [[self function] valueForT:_cpv andP:_xMid];
+        _yMid = [_function valueForT:_cpv andP:_xMid];
     }
     
     CGContextStrokePath(context);

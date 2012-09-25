@@ -123,7 +123,7 @@ static NSString *name = @"fundamentalJacobsenRho";
 
 -(double)valueForT:(double)T andP:(double)p
 {
-    return [self rho:p T:T]*_mw;
+    return [self rho:p T:T];
 }
 
 -(bool)pressureDependent
