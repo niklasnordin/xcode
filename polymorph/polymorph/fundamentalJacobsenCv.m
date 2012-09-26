@@ -204,12 +204,12 @@ static NSString *name = @"fundamentalJacobsenCv";
 -(double)cv:(double)pressure T:(double)Temperature
 {
     double tau = _tc/Temperature;
-    double rho = [_rho valueForT:Temperature andP:pressure];
+    double rho = [_rho valueForT:Temperature andP:pressure]/_mw;
     
     double delta = rho/_rhoc;
     double cv1 = [self d2a0dt2:pressure T:Temperature];
     double cv2 = [self d2aResdt2:delta t:tau];
-    //NSLog(@"T=%g, rho=%g, tau=%g, cv1=%g, cv2=%g",Temperature,rho,tau,cv1,cv2);
+    //NSLog(@"T=%g, cv1=%g, cv2=%g",Temperature,cv1,cv2);
     return -Rgas*tau*tau*(cv1 + cv2);
 }
 

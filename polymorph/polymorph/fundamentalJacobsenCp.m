@@ -218,7 +218,7 @@ static NSString *name = @"fundamentalJacobsenCp";
     double cv = [_cv valueForT:Temperature andP:pressure];
     
     double t = _tc/Temperature;
-    double rho = [_rho valueForT:Temperature andP:pressure];
+    double rho = [_rho valueForT:Temperature andP:pressure]/_mw;
     double delta = rho/_rhoc;
     
     double t1 = [self daResdd:delta t:t];

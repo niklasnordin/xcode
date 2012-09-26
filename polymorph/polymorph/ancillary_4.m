@@ -23,7 +23,7 @@ static NSString *name = @"ancillary_4";
 {
     self = [super init];
     
-    int n = 9;
+    int n = [self nCoefficients];
     
     _A = malloc(n*sizeof(double));
     
@@ -31,16 +31,14 @@ static NSString *name = @"ancillary_4";
     {
         _A[i] = 0.0;
     }
-    _Rgas = 1.0;
+
     return self;
 }
 
 -(ancillary_4 *)initWithArray:(NSArray *)array
 {
     self = [super init];
-    
-    int n = 9;
-    
+    int n = [self nCoefficients];
     _A = malloc(n*sizeof(double));
     
     for (int i=0; i<n; i++)
@@ -50,11 +48,12 @@ static NSString *name = @"ancillary_4";
         NSNumber *a = [Adict objectForKey:name];
         _A[i] = [a doubleValue];
     }
-    
+    /*
     NSDictionary *Rdict = [array objectAtIndex:9];
     NSString *Rname = [NSString stringWithFormat:@"A%d", 9];
     NSNumber *R = [Rdict objectForKey:Rname];
     _Rgas = [R doubleValue];
+    */
     
     return self;
 }
@@ -66,17 +65,17 @@ static NSString *name = @"ancillary_4";
 
 -(double)valueForT:(double)T andP:(double)p
 {
-    double sum = _A[0];
+    long double sum = _A[0];
     
-    for (int i=0; i<4; i++)
+    for (int i=1; i<5; i++)
     {
-        double theta = _A[i+5]/T;
-        double eth = exp(theta);
-        
-        sum += _A[i+1]*theta*theta*eth*pow(eth-1.0, -2.0);
+        long double theta = _A[i+4]/T;
+        long double eth = expl(theta);
+        long double denom = (eth-1.0)*(eth-1.0);
+        sum += _A[i]*theta*theta*eth/denom;
     }
     
-    return sum*_Rgas;
+    return sum*_A[9];
 }
 
 -(bool)pressureDependent
