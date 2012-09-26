@@ -195,18 +195,19 @@ static NSString *name = @"fundamentalJacobsenCp";
         {
             gamma = 1.0;
         }
-        /*
+        
         long double b = powl(delta, _ik[i]);
         long double db = _ik[i]*powl(delta, _ik[i]-1.0);
         long double dat = _nk[i]*_jk[i]*powl(tau, _jk[i]-1.0)*expl(-gamma*powl(delta, _lk[i]));
         long double dadt = -dat*gamma*_lk[i]*powl(delta, _lk[i]-1.0);
         sum += dat*db + b*dadt;
-         */
         
+        /*
         long double K = _nk[i]*_jk[i]*powl(tau, _jk[i]-1.0)*powl(delta, _lk[i]);
         long double pl = powl(delta, _lk[i]);
         long double dd = (1.0 - gamma*_lk[i]*pl)*expl(-gamma*pl);
         sum += K*pl*dd;
+         */
     }
     
     return sum;
@@ -217,18 +218,18 @@ static NSString *name = @"fundamentalJacobsenCp";
 {
     double cv = [_cv valueForT:Temperature andP:pressure];
     
-    double t = _tc/Temperature;
+    double tau = _tc/Temperature;
     double rho = [_rho valueForT:Temperature andP:pressure]/_mw;
     double delta = rho/_rhoc;
     
-    double t1 = [self daResdd:delta t:t];
-    double t2 = [self d2aResdddt:delta t:t];
-    double t3 = [self d2aResdd2:delta t:t];
-    //NSLog(@"%g, %g, %g",t1,t2,t3);
-    double nom = 1.0 + delta*t1 - delta*t*t2;
+    double t1 = [self daResdd:delta t:tau];
+    double t2 = [self d2aResdddt:delta t:tau];
+    double t3 = [self d2aResdd2:delta t:tau];
+    //NSLog(@"T=%g,%g, %g, %g",Temperature,t1,t2,t3);
+    double nom = 1.0 + delta*t1 - delta*tau*t2;
     double denom = 1.0 + 2.0*delta*t1 + delta*delta*t3;
 
-    double cp = cv + nom*nom/denom;
+    double cp = cv + Rgas*nom*nom/denom;
     return cp;
 }
 
