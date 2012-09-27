@@ -11,6 +11,10 @@
 
 static NSUInteger nx = 640;//640;
 
+@interface diagramView ()
+@property (nonatomic) BOOL needToUpdateValues;
+@end
+
 @implementation diagramView
 
 -(void)setXMin:(double)xMin
@@ -61,19 +65,11 @@ static NSUInteger nx = 640;//640;
     
     _yMin = 1.0e+50;
     _yMax = -1.0e+50;
-        
+
+    double *values = [self functionValues];
     for (int i=0; i<nx; i++) 
     {
-        double xi = _xMin + i*(_xMax - _xMin)/(nx-1);
-        double yi = 0.0;
-        
-        if (_xIsT) {
-            yi = [_function valueForT:xi andP:_cpv];
-        }
-        else
-        {
-            yi = [_function valueForT:_cpv andP:xi];
-        }
+        double yi = values[i];
         
         if (yi < _yMin) _yMin = yi;
         if (yi > _yMax) _yMax = yi;
@@ -94,7 +90,7 @@ static NSUInteger nx = 640;//640;
     self.contentMode = UIViewContentModeRedraw;
     _xMin = xmin;
     _xMax = xmax;
-    //_yValues = malloc(nx*sizeof(float));
+    _yValues = malloc(nx*sizeof(double));
     
     if (_xIsT)
     {
@@ -112,15 +108,16 @@ static NSUInteger nx = 640;//640;
         _lowerRange = [lr doubleValue];
         _upperRange = [ur doubleValue];
     }
-    
+    _needToUpdateValues = YES;
     [self fitToView:self];
 }
-/*
+
 - (void)dealloc
 {
+    NSLog(@"free _yValues");
     free(_yValues);
 }
-*/
+
 -(void)awakeFromNib
 {
     //[self setup];
@@ -190,6 +187,7 @@ static NSUInteger nx = 640;//640;
         (gesture.state == UIGestureRecognizerStateEnded)
     )
     {
+        _needToUpdateValues = YES;
         pan = [gesture translationInView:self];
         float xScale = self.bounds.size.width/(self.xMax - self.xMin);
         float yScale = self.bounds.size.height/(self.yMax - self.yMin);
@@ -204,6 +202,7 @@ static NSUInteger nx = 640;//640;
         [gesture setTranslation:zero inView:self];
     }
 }
+
 -(void)pinch:(UIPinchGestureRecognizer *)gesture
 {
     if
@@ -215,6 +214,7 @@ static NSUInteger nx = 640;//640;
         CGFloat scale = gesture.scale;
         if (scale != 1.0)
         {
+            _needToUpdateValues = YES;
             float xScale = self.xMax - self.xMin;
             float yScale = self.yMax - self.yMin;
             float newXmax = self.xMin + xScale/scale;
@@ -237,6 +237,7 @@ static NSUInteger nx = 640;//640;
 {
     if (gesture.state == UIGestureRecognizerStateEnded)
     {
+        _needToUpdateValues = YES;
         [self fitToView:self];
         [self setNeedsDisplay];
     }
@@ -371,6 +372,29 @@ static NSUInteger nx = 640;//640;
     self.yMidLabel.center = pos;
 }
 
+-(double *)functionValues
+{
+    if (_needToUpdateValues)
+    {
+        for (int i=0; i<nx; i++)
+        {
+            double xi = _xMin + i*(_xMax - _xMin)/(nx-1);
+        
+            if (_xIsT)
+            {
+                _yValues[i] = [_function valueForT:xi andP:_cpv];
+            }
+            else
+            {
+                _yValues[i] = [_function valueForT:_cpv andP:xi];
+            }
+        }
+        _needToUpdateValues = NO;
+    }
+    
+    return _yValues;
+}
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
@@ -381,20 +405,12 @@ static NSUInteger nx = 640;//640;
     CGContextBeginPath(context);
 
     NSMutableArray *pp = [[NSMutableArray alloc] init];
-    
+
+    double *values = [self functionValues];
     for (int i=0; i<nx; i++)
-    {        
+    {
         double xi = _xMin + i*(_xMax - _xMin)/(nx-1);
-        double yi = 0.0;
-        if (_xIsT)
-        {
-            yi = [_function valueForT:xi andP:_cpv];
-        }
-        else
-        {
-            yi = [_function valueForT:_cpv andP:xi];
-        }
-        //_yValues[i] = yi;
+        double yi = values[i];
         CGPoint p0 = [diagramView mapPoint:self X:xi Y:yi];
         [pp addObject:[NSValue valueWithCGPoint:p0]];
     }

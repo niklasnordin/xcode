@@ -168,7 +168,7 @@ static NSString *name = @"fundamentalJacobsenCv";
 -(double)d2a0dt2:(double)pressure T:(double)temperature
 {
     double tau = _tc/temperature;
-    
+    /*
     double tp = 1.000001*temperature;
     double tm = 0.999999*temperature;
     double cp = [_cp0 valueForT:tp andP:pressure];
@@ -177,7 +177,7 @@ static NSString *name = @"fundamentalJacobsenCv";
     double taum = _tc/tm;
     double dcpdt = (cp - cm)/(taup - taum);
     //NSLog(@"dcpdt=%g",dcpdt);
-    
+    */
     return (1.0 - [_cp0 valueForT:temperature andP:pressure]/Rgas)/tau/tau;
             //+ 2.0*dcpdt/Rgas/tau;
 }

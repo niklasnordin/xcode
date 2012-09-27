@@ -232,18 +232,15 @@ static NSString *name = @"fundamentalJacobsenRho";
     
     if (Temperature < _tc)
     {
-        //id<functionValue> pv = [_functionPointers objectForKey:@"Pv"];
         double pvap = [_pv valueForT:Temperature andP:pressure];
 
         if (pressure > pvap)
         {
-            //id<functionValue> rholSat = [_functionPointers objectForKey:@"rholSat"];
             r = [_rholSat valueForT:Temperature andP:pressure];
             //NSLog(@"State is in liquid");
         }
         else
         {
-            //id<functionValue> rhovSat = [_functionPointers objectForKey:@"rhovSat"];
             r = [_rhovSat valueForT:Temperature andP:pressure];
             r *= 0.1;
             liquidState = NO;
