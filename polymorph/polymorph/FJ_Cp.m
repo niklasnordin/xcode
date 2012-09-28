@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 nequam. All rights reserved.
 //
 
-#import "fundamentalJacobsenCp.h"
+#import "FJ_Cp.h"
 
-static NSString *name = @"fundamentalJacobsenCp";
+static NSString *name = @"FJ_Cp";
 
-@implementation fundamentalJacobsenCp
+@implementation FJ_Cp
 
 #define Rgas 8314.462175
 
@@ -19,13 +19,13 @@ static NSString *name = @"fundamentalJacobsenCp";
     return name;
 }
 
--(fundamentalJacobsenCp *)initWithZero
+-(FJ_Cp *)initWithZero
 {
     self = [super initWithZero];
     return self;
 }
 
--(fundamentalJacobsenCp *)initWithArray:(NSArray *)array
+-(FJ_Cp *)initWithArray:(NSArray *)array
 {
     self = [super initWithArray:array];
     return self;
@@ -33,7 +33,7 @@ static NSString *name = @"fundamentalJacobsenCp";
 
 -(NSString *) name
 {
-    return [fundamentalJacobsenCp name];
+    return [FJ_Cp name];
 }
 
 -(double)valueForT:(double)T andP:(double)p

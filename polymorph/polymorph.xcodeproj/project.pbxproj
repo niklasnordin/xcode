@@ -97,9 +97,9 @@
 		61EB3D6C15E0FAD3009826F2 /* Complex.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D6B15E0FAD3009826F2 /* Complex.m */; };
 		61EB3D6F15E0FB4C009826F2 /* Polynomial.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D6E15E0FB4C009826F2 /* Polynomial.m */; };
 		61EB3D7215E1064D009826F2 /* pengRobinsonLiquid.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D7115E1064D009826F2 /* pengRobinsonLiquid.m */; };
-		61FD28C1160FA526007C1A6F /* fundamentalJacobsenCp.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FD28C0160FA526007C1A6F /* fundamentalJacobsenCp.m */; };
+		61FD28C1160FA526007C1A6F /* FJ_Cp.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FD28C0160FA526007C1A6F /* FJ_Cp.m */; };
 		61FD28C51614DCEF007C1A6F /* fundamentalJacobsen.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FD28C41614DCEE007C1A6F /* fundamentalJacobsen.m */; };
-		61FD28C81614DF3D007C1A6F /* fundamentalJacobsenSoundSpeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FD28C71614DF3D007C1A6F /* fundamentalJacobsenSoundSpeed.m */; };
+		61FD28C81614DF3D007C1A6F /* FJ_SoundSpeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FD28C71614DF3D007C1A6F /* FJ_SoundSpeed.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -237,12 +237,12 @@
 		61EB3D6E15E0FB4C009826F2 /* Polynomial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Polynomial.m; sourceTree = "<group>"; };
 		61EB3D7015E1064D009826F2 /* pengRobinsonLiquid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pengRobinsonLiquid.h; sourceTree = "<group>"; };
 		61EB3D7115E1064D009826F2 /* pengRobinsonLiquid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pengRobinsonLiquid.m; sourceTree = "<group>"; };
-		61FD28BF160FA526007C1A6F /* fundamentalJacobsenCp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fundamentalJacobsenCp.h; sourceTree = "<group>"; };
-		61FD28C0160FA526007C1A6F /* fundamentalJacobsenCp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fundamentalJacobsenCp.m; sourceTree = "<group>"; };
+		61FD28BF160FA526007C1A6F /* FJ_Cp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJ_Cp.h; sourceTree = "<group>"; };
+		61FD28C0160FA526007C1A6F /* FJ_Cp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJ_Cp.m; sourceTree = "<group>"; };
 		61FD28C31614DCEE007C1A6F /* fundamentalJacobsen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fundamentalJacobsen.h; sourceTree = "<group>"; };
 		61FD28C41614DCEE007C1A6F /* fundamentalJacobsen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fundamentalJacobsen.m; sourceTree = "<group>"; };
-		61FD28C61614DF3D007C1A6F /* fundamentalJacobsenSoundSpeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fundamentalJacobsenSoundSpeed.h; sourceTree = "<group>"; };
-		61FD28C71614DF3D007C1A6F /* fundamentalJacobsenSoundSpeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fundamentalJacobsenSoundSpeed.m; sourceTree = "<group>"; };
+		61FD28C61614DF3D007C1A6F /* FJ_SoundSpeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJ_SoundSpeed.h; sourceTree = "<group>"; };
+		61FD28C71614DF3D007C1A6F /* FJ_SoundSpeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJ_SoundSpeed.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,10 +383,10 @@
 				616F63F615E12FF6001861E6 /* FJ_Rho.m */,
 				610F3A9B160E4FD100D44418 /* FJ_Cv.h */,
 				610F3A9C160E4FD100D44418 /* FJ_Cv.m */,
-				61FD28BF160FA526007C1A6F /* fundamentalJacobsenCp.h */,
-				61FD28C0160FA526007C1A6F /* fundamentalJacobsenCp.m */,
-				61FD28C61614DF3D007C1A6F /* fundamentalJacobsenSoundSpeed.h */,
-				61FD28C71614DF3D007C1A6F /* fundamentalJacobsenSoundSpeed.m */,
+				61FD28BF160FA526007C1A6F /* FJ_Cp.h */,
+				61FD28C0160FA526007C1A6F /* FJ_Cp.m */,
+				61FD28C61614DF3D007C1A6F /* FJ_SoundSpeed.h */,
+				61FD28C71614DF3D007C1A6F /* FJ_SoundSpeed.m */,
 				61EB3D6A15E0FAD3009826F2 /* Complex.h */,
 				61EB3D6B15E0FAD3009826F2 /* Complex.m */,
 				61EB3D6D15E0FB4C009826F2 /* Polynomial.h */,
@@ -610,9 +610,9 @@
 				612EF27D160A286200D951E9 /* boilingTemperature.m in Sources */,
 				610F3A9D160E4FD100D44418 /* FJ_Cv.m in Sources */,
 				610F3AA0160EE97500D44418 /* ancillary_4.m in Sources */,
-				61FD28C1160FA526007C1A6F /* fundamentalJacobsenCp.m in Sources */,
+				61FD28C1160FA526007C1A6F /* FJ_Cp.m in Sources */,
 				61FD28C51614DCEF007C1A6F /* fundamentalJacobsen.m in Sources */,
-				61FD28C81614DF3D007C1A6F /* fundamentalJacobsenSoundSpeed.m in Sources */,
+				61FD28C81614DF3D007C1A6F /* FJ_SoundSpeed.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

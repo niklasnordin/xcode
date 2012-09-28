@@ -20,8 +20,9 @@
     }
     else
     {
-        NSLog(@"%@ is an illegal function. Abort!",name);
-        abort();
+        //NSLog(@"%@ is an illegal function. Abort!",name);
+        //abort();
+        f = nil;
     }
     
     return f;

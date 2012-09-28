@@ -6,21 +6,21 @@
 //  Copyright (c) 2012 nequam. All rights reserved.
 //
 
-#import "fundamentalJacobsenSoundSpeed.h"
+#import "FJ_SoundSpeed.h"
 
-static NSString *name = @"fundamentalJacobsenSoundSpeed";
+static NSString *name = @"FJ_SoundSpeed";
 
-@implementation fundamentalJacobsenSoundSpeed
+@implementation FJ_SoundSpeed
 
 #define Rgas 8314.462175
 
--(fundamentalJacobsenSoundSpeed *)initWithZero
+-(FJ_SoundSpeed *)initWithZero
 {
     self = [super initWithZero];
     return self;
 }
 
--(fundamentalJacobsenSoundSpeed *)initWithArray:(NSArray *)array
+-(FJ_SoundSpeed *)initWithArray:(NSArray *)array
 {
     self = [super initWithArray:array];
     return self;
@@ -33,7 +33,7 @@ static NSString *name = @"fundamentalJacobsenSoundSpeed";
 
 -(NSString *) name
 {
-    return [fundamentalJacobsenSoundSpeed name];
+    return [FJ_SoundSpeed name];
 }
 
 -(double)valueForT:(double)Temperature andP:(double)pressure

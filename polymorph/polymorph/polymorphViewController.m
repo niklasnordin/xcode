@@ -57,8 +57,8 @@
     
     [_functionNames addObject:[FJ_Rho name]];
     [_functionNames addObject:[FJ_Cv name]];
-    [_functionNames addObject:[fundamentalJacobsenCp name]];
-    [_functionNames addObject:[fundamentalJacobsenSoundSpeed name]];
+    [_functionNames addObject:[FJ_Cp name]];
+    [_functionNames addObject:[FJ_SoundSpeed name]];
 
     [_functionNames addObject:[boilingTemperature name]];
 
@@ -81,7 +81,7 @@
     else
     {
         NSLog(@"%@ is an illegal function. Abort!",functionName);
-        abort();
+        //abort();
     }
         
     if ([f pressureDependent])
@@ -149,7 +149,7 @@
     else
     {
         NSLog(@"%@ is an illegal function. Abort!",functionName);
-        abort();
+        //abort();
     }
     
     if ([f temperatureDependent])
@@ -362,7 +362,8 @@
             else
             {
                 NSLog(@"%@ is an illegal function. Abort!",functionName);
-                abort();
+                //abort();
+                
             }
                         
             if ([f pressureDependent])

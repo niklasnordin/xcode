@@ -31,8 +31,8 @@
 
 #import "FJ_Rho.h"
 #import "FJ_Cv.h"
-#import "fundamentalJacobsenCp.h"
-#import "fundamentalJacobsenSoundSpeed.h"
+#import "FJ_Cp.h"
+#import "FJ_SoundSpeed.h"
 
 #import "boilingTemperature.h"
 
