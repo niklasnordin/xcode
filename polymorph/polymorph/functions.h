@@ -29,8 +29,8 @@
 #import "ancillary_3.h"
 #import "ancillary_4.h"
 
-#import "fundamentalJacobsenRho.h"
-#import "fundamentalJacobsenCv.h"
+#import "FJ_Rho.h"
+#import "FJ_Cv.h"
 #import "fundamentalJacobsenCp.h"
 #import "fundamentalJacobsenSoundSpeed.h"
 

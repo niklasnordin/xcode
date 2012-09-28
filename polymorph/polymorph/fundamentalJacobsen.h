@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "functionValue.h"
 
 @interface fundamentalJacobsen : NSObject
 
@@ -23,6 +24,7 @@
 -(fundamentalJacobsen *)initWithZero;
 -(fundamentalJacobsen *)initWithArray:(NSArray *)array;
 
+-(double)d2a0dt2:(double)pressure T:(double)temperature cp0:(id<functionValue>)cp0;
 -(double)daResdd:(long double)d t:(long double)t;
 -(double)d2aResdd2:(long double)d t:(long double)tau;
 -(double)d2aResdt2:(long double)delta t:(long double)tau;

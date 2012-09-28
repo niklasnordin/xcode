@@ -1,8 +1,8 @@
 //
-//  fundamentalJacobsenCp.h
+//  fundamentalJacobsenCv.h
 //  polymorph
 //
-//  Created by Niklas Nordin on 2012-09-23.
+//  Created by Niklas Nordin on 2012-09-22.
 //  Copyright (c) 2012 nequam. All rights reserved.
 //
 
@@ -10,9 +10,9 @@
 #import "functionValue.h"
 #import "fundamentalJacobsen.h"
 
-@interface fundamentalJacobsenCp : fundamentalJacobsen <functionValue>
+@interface FJ_Cv : fundamentalJacobsen <functionValue>
 
 @property (strong, nonatomic) id<functionValue> rho;
-@property (strong, nonatomic) id<functionValue> cv;
+@property (strong, nonatomic) id<functionValue> cp0;
 
 @end

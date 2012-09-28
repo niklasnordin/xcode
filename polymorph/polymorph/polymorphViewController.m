@@ -55,8 +55,8 @@
     [_functionNames addObject:[ancillary_3 name]];
     [_functionNames addObject:[ancillary_4 name]];
     
-    [_functionNames addObject:[fundamentalJacobsenRho name]];
-    [_functionNames addObject:[fundamentalJacobsenCv name]];
+    [_functionNames addObject:[FJ_Rho name]];
+    [_functionNames addObject:[FJ_Cv name]];
     [_functionNames addObject:[fundamentalJacobsenCp name]];
     [_functionNames addObject:[fundamentalJacobsenSoundSpeed name]];
 

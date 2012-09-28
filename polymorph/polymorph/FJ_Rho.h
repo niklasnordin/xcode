@@ -10,7 +10,7 @@
 #import "fundamentalJacobsen.h"
 #import "functionValue.h"
 
-@interface fundamentalJacobsenRho : fundamentalJacobsen <functionValue>
+@interface FJ_Rho : fundamentalJacobsen <functionValue>
 
 @property (strong, nonatomic) id<functionValue> pv;
 @property (strong, nonatomic) id<functionValue> rholSat;

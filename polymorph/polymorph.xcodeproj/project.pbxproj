@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		610F3A98160E487900D44418 /* fundamentalJacobsenRho.png in Resources */ = {isa = PBXBuildFile; fileRef = 610F3A97160E487900D44418 /* fundamentalJacobsenRho.png */; };
+		610F3A98160E487900D44418 /* FJ_Rho.png in Resources */ = {isa = PBXBuildFile; fileRef = 610F3A97160E487900D44418 /* FJ_Rho.png */; };
 		610F3A9A160E488100D44418 /* fundamentalJacobsenRho.tex in Resources */ = {isa = PBXBuildFile; fileRef = 610F3A99160E488100D44418 /* fundamentalJacobsenRho.tex */; };
-		610F3A9D160E4FD100D44418 /* fundamentalJacobsenCv.m in Sources */ = {isa = PBXBuildFile; fileRef = 610F3A9C160E4FD100D44418 /* fundamentalJacobsenCv.m */; };
+		610F3A9D160E4FD100D44418 /* FJ_Cv.m in Sources */ = {isa = PBXBuildFile; fileRef = 610F3A9C160E4FD100D44418 /* FJ_Cv.m */; };
 		610F3AA0160EE97500D44418 /* ancillary_4.m in Sources */ = {isa = PBXBuildFile; fileRef = 610F3A9F160EE97500D44418 /* ancillary_4.m */; };
 		610F3AA2160F307600D44418 /* ancillary_4.tex in Resources */ = {isa = PBXBuildFile; fileRef = 610F3AA1160F307600D44418 /* ancillary_4.tex */; };
 		610F3AA4160F308400D44418 /* ancillary_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 610F3AA3160F308400D44418 /* ancillary_4.png */; };
@@ -33,7 +33,7 @@
 		616462B815BAD77D006B703D /* diagramView.m in Sources */ = {isa = PBXBuildFile; fileRef = 616462B715BAD77D006B703D /* diagramView.m */; };
 		616462BC15BFC896006B703D /* diagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616462BB15BFC896006B703D /* diagramViewController.m */; };
 		616622F415CFF296008FB530 /* loadDatabaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616622F315CFF295008FB530 /* loadDatabaseViewController.m */; };
-		616F63F715E12FF6001861E6 /* fundamentalJacobsenRho.m in Sources */ = {isa = PBXBuildFile; fileRef = 616F63F615E12FF6001861E6 /* fundamentalJacobsenRho.m */; };
+		616F63F715E12FF6001861E6 /* FJ_Rho.m in Sources */ = {isa = PBXBuildFile; fileRef = 616F63F615E12FF6001861E6 /* FJ_Rho.m */; };
 		617C7C7415E7BDB100B11073 /* nsrds_6.m in Sources */ = {isa = PBXBuildFile; fileRef = 617C7C7315E7BDB100B11073 /* nsrds_6.m */; };
 		617C7C7815E7C42C00B11073 /* equationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 617C7C7715E7C42B00B11073 /* equationViewController.m */; };
 		617C7CBA15E97A8000B11073 /* nsrds_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CB915E97A8000B11073 /* nsrds_6.png */; };
@@ -103,10 +103,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		610F3A97160E487900D44418 /* fundamentalJacobsenRho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fundamentalJacobsenRho.png; sourceTree = "<group>"; };
+		610F3A97160E487900D44418 /* FJ_Rho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FJ_Rho.png; sourceTree = "<group>"; };
 		610F3A99160E488100D44418 /* fundamentalJacobsenRho.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fundamentalJacobsenRho.tex; sourceTree = "<group>"; };
-		610F3A9B160E4FD100D44418 /* fundamentalJacobsenCv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fundamentalJacobsenCv.h; sourceTree = "<group>"; };
-		610F3A9C160E4FD100D44418 /* fundamentalJacobsenCv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fundamentalJacobsenCv.m; sourceTree = "<group>"; };
+		610F3A9B160E4FD100D44418 /* FJ_Cv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJ_Cv.h; sourceTree = "<group>"; };
+		610F3A9C160E4FD100D44418 /* FJ_Cv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJ_Cv.m; sourceTree = "<group>"; };
 		610F3A9E160EE97400D44418 /* ancillary_4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ancillary_4.h; sourceTree = "<group>"; };
 		610F3A9F160EE97500D44418 /* ancillary_4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ancillary_4.m; sourceTree = "<group>"; };
 		610F3AA1160F307600D44418 /* ancillary_4.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ancillary_4.tex; sourceTree = "<group>"; };
@@ -149,8 +149,8 @@
 		616462BB15BFC896006B703D /* diagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = diagramViewController.m; sourceTree = "<group>"; };
 		616622F215CFF295008FB530 /* loadDatabaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loadDatabaseViewController.h; sourceTree = "<group>"; };
 		616622F315CFF295008FB530 /* loadDatabaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loadDatabaseViewController.m; sourceTree = "<group>"; };
-		616F63F515E12FF6001861E6 /* fundamentalJacobsenRho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fundamentalJacobsenRho.h; sourceTree = "<group>"; };
-		616F63F615E12FF6001861E6 /* fundamentalJacobsenRho.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fundamentalJacobsenRho.m; sourceTree = "<group>"; };
+		616F63F515E12FF6001861E6 /* FJ_Rho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJ_Rho.h; sourceTree = "<group>"; };
+		616F63F615E12FF6001861E6 /* FJ_Rho.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJ_Rho.m; sourceTree = "<group>"; };
 		617C7C7215E7BDB100B11073 /* nsrds_6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nsrds_6.h; sourceTree = "<group>"; };
 		617C7C7315E7BDB100B11073 /* nsrds_6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nsrds_6.m; sourceTree = "<group>"; };
 		617C7C7615E7C42B00B11073 /* equationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = equationViewController.h; sourceTree = "<group>"; };
@@ -379,10 +379,10 @@
 				61EB3D7115E1064D009826F2 /* pengRobinsonLiquid.m */,
 				61FD28C31614DCEE007C1A6F /* fundamentalJacobsen.h */,
 				61FD28C41614DCEE007C1A6F /* fundamentalJacobsen.m */,
-				616F63F515E12FF6001861E6 /* fundamentalJacobsenRho.h */,
-				616F63F615E12FF6001861E6 /* fundamentalJacobsenRho.m */,
-				610F3A9B160E4FD100D44418 /* fundamentalJacobsenCv.h */,
-				610F3A9C160E4FD100D44418 /* fundamentalJacobsenCv.m */,
+				616F63F515E12FF6001861E6 /* FJ_Rho.h */,
+				616F63F615E12FF6001861E6 /* FJ_Rho.m */,
+				610F3A9B160E4FD100D44418 /* FJ_Cv.h */,
+				610F3A9C160E4FD100D44418 /* FJ_Cv.m */,
 				61FD28BF160FA526007C1A6F /* fundamentalJacobsenCp.h */,
 				61FD28C0160FA526007C1A6F /* fundamentalJacobsenCp.m */,
 				61FD28C61614DF3D007C1A6F /* fundamentalJacobsenSoundSpeed.h */,
@@ -451,7 +451,7 @@
 				619394EA15EBD3010003EF01 /* ancillary_2.png */,
 				619394F115EBDE510003EF01 /* ancillary_3.png */,
 				610F3AA3160F308400D44418 /* ancillary_4.png */,
-				610F3A97160E487900D44418 /* fundamentalJacobsenRho.png */,
+				610F3A97160E487900D44418 /* FJ_Rho.png */,
 				61D2AE9F160AD66B00A7FC78 /* boilingTemperature.png */,
 				61D7352A160A6CB800362373 /* Default-568h@2x.png */,
 				61BA3AE115DFAB7400928715 /* Icon@2x.png */,
@@ -555,7 +555,7 @@
 				61D2AEA0160AD66B00A7FC78 /* boilingTemperature.png in Resources */,
 				61D2AEA3160AD68E00A7FC78 /* boilingTemperature.tex in Resources */,
 				61D2AEA5160AD69800A7FC78 /* readme.txt in Resources */,
-				610F3A98160E487900D44418 /* fundamentalJacobsenRho.png in Resources */,
+				610F3A98160E487900D44418 /* FJ_Rho.png in Resources */,
 				610F3A9A160E488100D44418 /* fundamentalJacobsenRho.tex in Resources */,
 				610F3AA2160F307600D44418 /* ancillary_4.tex in Resources */,
 				610F3AA4160F308400D44418 /* ancillary_4.png in Resources */,
@@ -598,7 +598,7 @@
 				61EB3D6C15E0FAD3009826F2 /* Complex.m in Sources */,
 				61EB3D6F15E0FB4C009826F2 /* Polynomial.m in Sources */,
 				61EB3D7215E1064D009826F2 /* pengRobinsonLiquid.m in Sources */,
-				616F63F715E12FF6001861E6 /* fundamentalJacobsenRho.m in Sources */,
+				616F63F715E12FF6001861E6 /* FJ_Rho.m in Sources */,
 				617C7C7415E7BDB100B11073 /* nsrds_6.m in Sources */,
 				617C7C7815E7C42C00B11073 /* equationViewController.m in Sources */,
 				619394E115EA98130003EF01 /* ancillary_1.m in Sources */,
@@ -608,7 +608,7 @@
 				619394FE15ED32100003EF01 /* nsrds_3.m in Sources */,
 				6193950915ED349F0003EF01 /* nsrds_4.m in Sources */,
 				612EF27D160A286200D951E9 /* boilingTemperature.m in Sources */,
-				610F3A9D160E4FD100D44418 /* fundamentalJacobsenCv.m in Sources */,
+				610F3A9D160E4FD100D44418 /* FJ_Cv.m in Sources */,
 				610F3AA0160EE97500D44418 /* ancillary_4.m in Sources */,
 				61FD28C1160FA526007C1A6F /* fundamentalJacobsenCp.m in Sources */,
 				61FD28C51614DCEF007C1A6F /* fundamentalJacobsen.m in Sources */,
