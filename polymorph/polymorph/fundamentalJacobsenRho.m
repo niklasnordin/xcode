@@ -50,69 +50,13 @@ static NSString *name = @"fundamentalJacobsenRho";
 
 -(fundamentalJacobsenRho *)initWithZero
 {
-    self = [super init];
-    
-    int n = 23;
-    
-    _ik = malloc(n*sizeof(long double));
-    _jk = malloc(n*sizeof(long double));
-    _lk = malloc(n*sizeof(long double));
-    _nk = malloc(n*sizeof(long double));
-    
-    for (int i=0; i<n; i++)
-    {
-        _ik[i] = 0.0;
-        _jk[i] = 0.0;
-        _lk[i] = 0.0;
-        _nk[i] = 0.0;
-    }
-    
-    //_functionPointers = [[NSMutableDictionary alloc] init];
-
+    self = [super initWithZero];
     return self;
 }
 
 -(fundamentalJacobsenRho *)initWithArray:(NSArray *)array
 {
-    self = [super init];
-    
-    int n = 23;
-
-    _ik = malloc(n*sizeof(long double));
-    _jk = malloc(n*sizeof(long double));
-    _lk = malloc(n*sizeof(long double));
-    _nk = malloc(n*sizeof(long double));
-    
-    for (int i=0; i<n; i++)
-    {
-        NSDictionary *Aidict = [array objectAtIndex:i];
-        NSDictionary *Ajdict = [array objectAtIndex:i+n];
-        NSDictionary *Aldict = [array objectAtIndex:i+2*n];
-        NSDictionary *Andict = [array objectAtIndex:i+3*n];
-
-        NSString *iname = [NSString stringWithFormat:@"A%d", i];
-        NSString *jname = [NSString stringWithFormat:@"A%d", i+n];
-        NSString *lname = [NSString stringWithFormat:@"A%d", i+2*n];
-        NSString *nname = [NSString stringWithFormat:@"A%d", i+3*n];
-
-        NSNumber *aik = [Aidict objectForKey:iname];
-        NSNumber *ajk = [Ajdict objectForKey:jname];
-        NSNumber *alk = [Aldict objectForKey:lname];
-        NSNumber *ank = [Andict objectForKey:nname];
-
-        _ik[i] = [aik doubleValue];
-        _jk[i] = [ajk doubleValue];
-        _lk[i] = [alk doubleValue];
-        _nk[i] = [ank doubleValue];
-
-    }
-    
-    _tc   = [[[array objectAtIndex:92] objectForKey:@"A92"] doubleValue];
-    _pc   = [[[array objectAtIndex:93] objectForKey:@"A93"] doubleValue];
-    _rhoc = [[[array objectAtIndex:94] objectForKey:@"A94"] doubleValue];
-    _mw   = [[[array objectAtIndex:95] objectForKey:@"A95"] doubleValue];
-    
-    //_functionPointers = [[NSMutableDictionary alloc] init];
+    self = [super initWithArray:array];
     return self;
 }
 
@@ -123,7 +67,9 @@ static NSString *name = @"fundamentalJacobsenRho";
 
 -(double)valueForT:(double)T andP:(double)p
 {
-    return [self rho:p T:T]*_mw;
+    double Temp = T;
+    Tem = fmax(Temp,150);
+    return [self rho:p T:Temp]*[self mw];
 }
 
 -(bool)pressureDependent
@@ -141,96 +87,16 @@ static NSString *name = @"fundamentalJacobsenRho";
     return 96;
 }
 
-
-// d = rho/rhoc (kmol/m^3)
-// t = Tc/T
--(double)daResdd:(long double)d t:(long double)t
-{
-    long double sum = 0.0;
-    
-    for (int i=0; i<23; i++)
-    {
-        long double gamma = 0.0;
-        
-        if (fabs(_lk[i]) > 1.0e-3)
-        {
-            gamma = 1.0;
-        }
-        
-        long double pl = powl(d, _lk[i]);
-
-        long double K = _nk[i]*powl(t, _jk[i]);
-        long double da = powl(d, _ik[i]-1.0)*expl(-gamma*pl);
-        long double db = _ik[i] - gamma*_lk[i]*pl;
-        /*
-        double a = _nk[i]*pow(t, _jk[i])*exp(-gamma*pow(d, _lk[i]));
-        double da = -a*gamma*_lk[i]*pow(d, _lk[i] - 1.0);
-        double b = pow(d, _ik[i]);
-        double db = _ik[i]*pow(d, _ik[i] - 1.0);
-        sum += a*db + b*da;
-         */
-        sum += K*da*db;
-    }
-
-    return sum;
-}
-
-// d = rho/rhoc (kmol/m^3)
-// t = Tc/T
-- (double)d2aResdd2:(long double)d t:(long double)t
-{
-
-    long double sum = 0.0;
-    for (int i=0; i<23; i++)
-    {
-        long double gamma = 0.0;
-        if (fabs(_lk[i]) > 1.0e-3)
-        {
-            gamma = 1.0;
-        }
-        /*
-        double a = _nk[i]*pow(t, _jk[i])*exp(-gamma*pow(d, _lk[i]));
-        double da = -a*gamma*_lk[i]*pow(d, _lk[i]-1.0);
-        double dda = -da*gamma*_lk[i]*pow(d, _lk[i]-1.0) - a*gamma*_lk[i]*(_lk[i]-1.0)*pow(d, _lk[i]-2.0);
-
-        double b = pow(d, _ik[i]);
-        double db = _ik[i]*pow(d, _ik[i]-1.0);
-        double ddb = _ik[i]*(_ik[i]-1.0)*pow(d, _ik[i]-2.0);
-        
-        double s1 = a*ddb + da*db + db*da + b*dda;
-        */
-        long double K = _nk[i]*powl(t, _jk[i]);
-        long double pl = powl(d, _lk[i]);
-        long double a1 = powl(d, _ik[i]-2.0)*expl(-gamma*pl);
-        long double a2 = -_ik[i]*(2.0*gamma*_lk[i]*pl + 1.0);
-        long double a3 = gamma*_lk[i]*pl*(_lk[i]*(gamma*pl - 1.0) + 1.0) + _ik[i]*_ik[i];
-        
-        long double s2 = K*a1*( a2 + a3 );
-        /*
-        double diff = s2 - s1;
-        
-        if (fabs(diff)> 1.0e-3)
-        {
-            NSLog(@"diff=%g, s1 = %g, s2 = %g",diff,s1,s2);
-        }
-         */
-        sum += s2;
-    }
-
-    return sum;
-}
-
-
 -(double)rho:(double)pressure T:(double)Temperature
 {
     
-    double t = _tc/Temperature;
-    double r = _rhoc;
-    double q = _rhoc*Rgas*Temperature;
+    double t = [self tc]/Temperature;
+    double r = [self rhoc];
+    double q = [ self rhoc]*Rgas*Temperature;
     double pq = pressure/q;
     BOOL liquidState = YES;
     
-    if (Temperature < _tc)
+    if (Temperature < [self tc])
     {
         double pvap = [_pv valueForT:Temperature andP:pressure];
 
@@ -250,7 +116,7 @@ static NSString *name = @"fundamentalJacobsenRho";
     int i = 0;
     int N = 100;
     double err = 1.0;
-    double delta = r/_rhoc;
+    double delta = r/[self rhoc];
     double tol = 1.0e-7;
     while ((err > tol) && (i < N))
     {
@@ -273,11 +139,11 @@ static NSString *name = @"fundamentalJacobsenRho";
         // dont take too large steps
         if (d > 0)
         {
-            d = fmin(delta,d);
+            d = fmin(0.7*delta,d);
         }
         else
         {
-            d = -fmin(-d, delta);
+            d = -fmin(-d, 0.7*delta);
         }
         delta += 0.9*d;
         delta = fmax(1.0e-30, delta);
@@ -290,21 +156,13 @@ static NSString *name = @"fundamentalJacobsenRho";
         //NSLog(@"Warning! Density calculation did not converge. Error is %g",err);
     }
     
-    return delta*_rhoc;
+    return delta*[self rhoc];
 
 }
 
 - (NSString *)equationText
 {
     return @"";
-}
-
-- (void)dealloc
-{
-    free(_ik);
-    free(_jk);
-    free(_lk);
-    free(_nk);
 }
 
 -(NSArray *)dependsOnFunctions

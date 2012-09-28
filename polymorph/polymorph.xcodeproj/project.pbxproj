@@ -377,6 +377,8 @@
 				61EB3D6115E0CD0B009826F2 /* pengRobinson.m */,
 				61EB3D7015E1064D009826F2 /* pengRobinsonLiquid.h */,
 				61EB3D7115E1064D009826F2 /* pengRobinsonLiquid.m */,
+				61FD28C31614DCEE007C1A6F /* fundamentalJacobsen.h */,
+				61FD28C41614DCEE007C1A6F /* fundamentalJacobsen.m */,
 				616F63F515E12FF6001861E6 /* fundamentalJacobsenRho.h */,
 				616F63F615E12FF6001861E6 /* fundamentalJacobsenRho.m */,
 				610F3A9B160E4FD100D44418 /* fundamentalJacobsenCv.h */,
@@ -399,8 +401,6 @@
 				610F3A9F160EE97500D44418 /* ancillary_4.m */,
 				612EF27B160A286200D951E9 /* boilingTemperature.h */,
 				612EF27C160A286200D951E9 /* boilingTemperature.m */,
-				61FD28C31614DCEE007C1A6F /* fundamentalJacobsen.h */,
-				61FD28C41614DCEE007C1A6F /* fundamentalJacobsen.m */,
 			);
 			name = functions;
 			sourceTree = "<group>";

@@ -7,21 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "fundamentalJacobsen.h"
 #import "functionValue.h"
 
-@interface fundamentalJacobsenRho : NSObject <functionValue>
+@interface fundamentalJacobsenRho : fundamentalJacobsen <functionValue>
 
-@property (nonatomic) long double *ik;
-@property (nonatomic) long double *jk;
-@property (nonatomic) long double *lk;
-@property (nonatomic) long double *nk;
-
-@property (nonatomic) long double tc;
-@property (nonatomic) long double pc;
-@property (nonatomic) long double rhoc;
-@property (nonatomic) long double mw;
-
-//@property NSMutableDictionary *functionPointers;
 @property (strong, nonatomic) id<functionValue> pv;
 @property (strong, nonatomic) id<functionValue> rholSat;
 @property (strong, nonatomic) id<functionValue> rhovSat;

@@ -7,9 +7,11 @@
 //
 
 #import "fundamentalJacobsen.h"
+#import "functionValue.h"
 
 @implementation fundamentalJacobsen
 
+#define Rgas 8314.462175
 
 -(fundamentalJacobsen *)initWithZero
 {
@@ -74,6 +76,24 @@
     _mw   = [[[array objectAtIndex:95] objectForKey:@"A95"] doubleValue];
     
     return self;
+}
+
+
+-(double)d2a0dt2:(double)pressure T:(double)temperature cp0:(id<functionValue>)cp0
+{
+    double tau = _tc/temperature;
+    /*
+     double tp = 1.000001*temperature;
+     double tm = 0.999999*temperature;
+     double cp = [_cp0 valueForT:tp andP:pressure];
+     double cm = [_cp0 valueForT:tm andP:pressure];
+     double taup = _tc/tp;
+     double taum = _tc/tm;
+     double dcpdt = (cp - cm)/(taup - taum);
+     //NSLog(@"dcpdt=%g",dcpdt);
+     */
+    return (1.0 - [cp0 valueForT:temperature andP:pressure]/Rgas)/tau/tau;
+    //+ 2.0*dcpdt/Rgas/tau;
 }
 
 // d = rho/rhoc (kmol/m^3)
