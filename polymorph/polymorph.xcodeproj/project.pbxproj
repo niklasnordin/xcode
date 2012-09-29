@@ -470,9 +470,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6164628515B7F705006B703D /* propertyView */ = {
+		6164628515B7F705006B703D /* thermoPlot */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 616462A415B7F706006B703D /* Build configuration list for PBXNativeTarget "propertyView" */;
+			buildConfigurationList = 616462A415B7F706006B703D /* Build configuration list for PBXNativeTarget "thermoPlot" */;
 			buildPhases = (
 				6164628215B7F705006B703D /* Sources */,
 				6164628315B7F705006B703D /* Frameworks */,
@@ -482,7 +482,7 @@
 			);
 			dependencies = (
 			);
-			name = propertyView;
+			name = thermoPlot;
 			productName = polymorph;
 			productReference = 6164628615B7F705006B703D /* propertyView.app */;
 			productType = "com.apple.product-type.application";
@@ -509,7 +509,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6164628515B7F705006B703D /* propertyView */,
+				6164628515B7F705006B703D /* thermoPlot */,
 			);
 		};
 /* End PBXProject section */
@@ -725,7 +725,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		616462A415B7F706006B703D /* Build configuration list for PBXNativeTarget "propertyView" */ = {
+		616462A415B7F706006B703D /* Build configuration list for PBXNativeTarget "thermoPlot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				616462A515B7F706006B703D /* Debug */,

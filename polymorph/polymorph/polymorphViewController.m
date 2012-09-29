@@ -69,7 +69,11 @@
     
     NSDictionary *propertiesDict = [_db.json objectForKey:_currentSpeciesName];
     NSDictionary *propDict = [propertiesDict objectForKey:_currentPropertyName];
-    
+    if ([propDict count] == 0)
+    {
+        // no property available
+        return;
+    }
     NSString *functionName = [propDict objectForKey:@"function"];
     Class functionClass = (NSClassFromString(functionName));
     
@@ -80,7 +84,7 @@
     }
     else
     {
-        NSLog(@"%@ is an illegal function. Abort!",functionName);
+        NSLog(@"checkPressureInput: %@ is an illegal function. Abort!",functionName);
         //abort();
     }
         
@@ -137,7 +141,11 @@
     
     NSDictionary *propertiesDict = [_db.json objectForKey:_currentSpeciesName];
     NSDictionary *propDict = [propertiesDict objectForKey:_currentPropertyName];
-    
+    if ([propDict count] == 0)
+    {
+        // no property available
+        return;
+    }
     NSString *functionName = [propDict objectForKey:@"function"];
     Class functionClass = (NSClassFromString(functionName));
     
@@ -148,7 +156,7 @@
     }
     else
     {
-        NSLog(@"%@ is an illegal function. Abort!",functionName);
+        NSLog(@"checkTemperatureInput: %@ is an illegal function. Abort!",functionName);
         //abort();
     }
     
