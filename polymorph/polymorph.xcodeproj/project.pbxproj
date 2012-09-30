@@ -92,6 +92,8 @@
 		61C284E31615E65100AC0EEB /* FJ_u.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C284E21615E65100AC0EEB /* FJ_u.m */; };
 		61C285241618BA4800AC0EEB /* FJ_Cv.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C285231618BA4800AC0EEB /* FJ_Cv.png */; };
 		61C285261618BA5F00AC0EEB /* FJ_Cv.tex in Resources */ = {isa = PBXBuildFile; fileRef = 61C285251618BA5F00AC0EEB /* FJ_Cv.tex */; };
+		61C285281618BDD500AC0EEB /* FJ_Cp.tex in Resources */ = {isa = PBXBuildFile; fileRef = 61C285271618BDD500AC0EEB /* FJ_Cp.tex */; };
+		61C2852A1618BDE500AC0EEB /* FJ_Cp.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C285291618BDE500AC0EEB /* FJ_Cp.png */; };
 		61D2AEA0160AD66B00A7FC78 /* boilingTemperature.png in Resources */ = {isa = PBXBuildFile; fileRef = 61D2AE9F160AD66B00A7FC78 /* boilingTemperature.png */; };
 		61D2AEA3160AD68E00A7FC78 /* boilingTemperature.tex in Resources */ = {isa = PBXBuildFile; fileRef = 61D2AEA2160AD68E00A7FC78 /* boilingTemperature.tex */; };
 		61D2AEA5160AD69800A7FC78 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 61D2AEA4160AD69800A7FC78 /* readme.txt */; };
@@ -232,6 +234,8 @@
 		61C284E21615E65100AC0EEB /* FJ_u.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJ_u.m; sourceTree = "<group>"; };
 		61C285231618BA4800AC0EEB /* FJ_Cv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FJ_Cv.png; sourceTree = "<group>"; };
 		61C285251618BA5F00AC0EEB /* FJ_Cv.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FJ_Cv.tex; sourceTree = "<group>"; };
+		61C285271618BDD500AC0EEB /* FJ_Cp.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FJ_Cp.tex; sourceTree = "<group>"; };
+		61C285291618BDE500AC0EEB /* FJ_Cp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FJ_Cp.png; sourceTree = "<group>"; };
 		61D2AE9F160AD66B00A7FC78 /* boilingTemperature.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boilingTemperature.png; sourceTree = "<group>"; };
 		61D2AEA2160AD68E00A7FC78 /* boilingTemperature.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = boilingTemperature.tex; sourceTree = "<group>"; };
 		61D2AEA4160AD69800A7FC78 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
@@ -435,6 +439,7 @@
 				610F3AA1160F307600D44418 /* ancillary_4.tex */,
 				610F3A99160E488100D44418 /* FJ_Rho.tex */,
 				61C285251618BA5F00AC0EEB /* FJ_Cv.tex */,
+				61C285271618BDD500AC0EEB /* FJ_Cp.tex */,
 				61D2AEA2160AD68E00A7FC78 /* boilingTemperature.tex */,
 				61D2AEA4160AD69800A7FC78 /* readme.txt */,
 				617C7CC615E9878A00B11073 /* texToPng */,
@@ -463,6 +468,7 @@
 				610F3AA3160F308400D44418 /* ancillary_4.png */,
 				610F3A97160E487900D44418 /* FJ_Rho.png */,
 				61C285231618BA4800AC0EEB /* FJ_Cv.png */,
+				61C285291618BDE500AC0EEB /* FJ_Cp.png */,
 				61D2AE9F160AD66B00A7FC78 /* boilingTemperature.png */,
 				61D7352A160A6CB800362373 /* Default-568h@2x.png */,
 				61BA3AE115DFAB7400928715 /* Icon@2x.png */,
@@ -572,6 +578,8 @@
 				610F3AA4160F308400D44418 /* ancillary_4.png in Resources */,
 				61C285241618BA4800AC0EEB /* FJ_Cv.png in Resources */,
 				61C285261618BA5F00AC0EEB /* FJ_Cv.tex in Resources */,
+				61C285281618BDD500AC0EEB /* FJ_Cp.tex in Resources */,
+				61C2852A1618BDE500AC0EEB /* FJ_Cp.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
