@@ -32,6 +32,10 @@
 		616462AF15B82A1F006B703D /* functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 616462AE15B82A1F006B703D /* functions.m */; };
 		616462B815BAD77D006B703D /* diagramView.m in Sources */ = {isa = PBXBuildFile; fileRef = 616462B715BAD77D006B703D /* diagramView.m */; };
 		616462BC15BFC896006B703D /* diagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616462BB15BFC896006B703D /* diagramViewController.m */; };
+		61648CDD1618D95500D499E6 /* FJ_SoundSpeed.png in Resources */ = {isa = PBXBuildFile; fileRef = 61648CDC1618D95500D499E6 /* FJ_SoundSpeed.png */; };
+		61648CDF1618D98B00D499E6 /* FJ_SoundSpeed.tex in Resources */ = {isa = PBXBuildFile; fileRef = 61648CDE1618D98B00D499E6 /* FJ_SoundSpeed.tex */; };
+		61648CE11618DA3300D499E6 /* boilingTemperature.png in Resources */ = {isa = PBXBuildFile; fileRef = 61648CE01618DA3300D499E6 /* boilingTemperature.png */; };
+		61648CE31618DA4300D499E6 /* boilingTemperature.tex in Resources */ = {isa = PBXBuildFile; fileRef = 61648CE21618DA4300D499E6 /* boilingTemperature.tex */; };
 		616622F415CFF296008FB530 /* loadDatabaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616622F315CFF295008FB530 /* loadDatabaseViewController.m */; };
 		616F63F715E12FF6001861E6 /* FJ_Rho.m in Sources */ = {isa = PBXBuildFile; fileRef = 616F63F615E12FF6001861E6 /* FJ_Rho.m */; };
 		617C7C7415E7BDB100B11073 /* nsrds_6.m in Sources */ = {isa = PBXBuildFile; fileRef = 617C7C7315E7BDB100B11073 /* nsrds_6.m */; };
@@ -94,8 +98,6 @@
 		61C285261618BA5F00AC0EEB /* FJ_Cv.tex in Resources */ = {isa = PBXBuildFile; fileRef = 61C285251618BA5F00AC0EEB /* FJ_Cv.tex */; };
 		61C285281618BDD500AC0EEB /* FJ_Cp.tex in Resources */ = {isa = PBXBuildFile; fileRef = 61C285271618BDD500AC0EEB /* FJ_Cp.tex */; };
 		61C2852A1618BDE500AC0EEB /* FJ_Cp.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C285291618BDE500AC0EEB /* FJ_Cp.png */; };
-		61D2AEA0160AD66B00A7FC78 /* boilingTemperature.png in Resources */ = {isa = PBXBuildFile; fileRef = 61D2AE9F160AD66B00A7FC78 /* boilingTemperature.png */; };
-		61D2AEA3160AD68E00A7FC78 /* boilingTemperature.tex in Resources */ = {isa = PBXBuildFile; fileRef = 61D2AEA2160AD68E00A7FC78 /* boilingTemperature.tex */; };
 		61D2AEA5160AD69800A7FC78 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 61D2AEA4160AD69800A7FC78 /* readme.txt */; };
 		61D7352B160A6CB800362373 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61D7352A160A6CB800362373 /* Default-568h@2x.png */; };
 		61EB3D6215E0CD0B009826F2 /* pengRobinson.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D6115E0CD0B009826F2 /* pengRobinson.m */; };
@@ -128,7 +130,7 @@
 		61247A5615CA6A0D004DB05F /* functionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = functionView.m; sourceTree = "<group>"; };
 		612EF27B160A286200D951E9 /* boilingTemperature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boilingTemperature.h; sourceTree = "<group>"; };
 		612EF27C160A286200D951E9 /* boilingTemperature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = boilingTemperature.m; sourceTree = "<group>"; };
-		6164628615B7F705006B703D /* propertyView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = propertyView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6164628615B7F705006B703D /* thermoPlot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thermoPlot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6164628A15B7F705006B703D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6164628C15B7F705006B703D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6164628E15B7F705006B703D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -152,6 +154,10 @@
 		616462B715BAD77D006B703D /* diagramView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = diagramView.m; sourceTree = "<group>"; };
 		616462BA15BFC896006B703D /* diagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = diagramViewController.h; sourceTree = "<group>"; };
 		616462BB15BFC896006B703D /* diagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = diagramViewController.m; sourceTree = "<group>"; };
+		61648CDC1618D95500D499E6 /* FJ_SoundSpeed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FJ_SoundSpeed.png; sourceTree = "<group>"; };
+		61648CDE1618D98B00D499E6 /* FJ_SoundSpeed.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FJ_SoundSpeed.tex; sourceTree = "<group>"; };
+		61648CE01618DA3300D499E6 /* boilingTemperature.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boilingTemperature.png; sourceTree = "<group>"; };
+		61648CE21618DA4300D499E6 /* boilingTemperature.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = boilingTemperature.tex; sourceTree = "<group>"; };
 		616622F215CFF295008FB530 /* loadDatabaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loadDatabaseViewController.h; sourceTree = "<group>"; };
 		616622F315CFF295008FB530 /* loadDatabaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loadDatabaseViewController.m; sourceTree = "<group>"; };
 		616F63F515E12FF6001861E6 /* FJ_Rho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJ_Rho.h; sourceTree = "<group>"; };
@@ -236,8 +242,6 @@
 		61C285251618BA5F00AC0EEB /* FJ_Cv.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FJ_Cv.tex; sourceTree = "<group>"; };
 		61C285271618BDD500AC0EEB /* FJ_Cp.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FJ_Cp.tex; sourceTree = "<group>"; };
 		61C285291618BDE500AC0EEB /* FJ_Cp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FJ_Cp.png; sourceTree = "<group>"; };
-		61D2AE9F160AD66B00A7FC78 /* boilingTemperature.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boilingTemperature.png; sourceTree = "<group>"; };
-		61D2AEA2160AD68E00A7FC78 /* boilingTemperature.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = boilingTemperature.tex; sourceTree = "<group>"; };
 		61D2AEA4160AD69800A7FC78 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		61D7352A160A6CB800362373 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		61EB3D6015E0CD0B009826F2 /* pengRobinson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pengRobinson.h; sourceTree = "<group>"; };
@@ -283,7 +287,7 @@
 		6164628715B7F705006B703D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6164628615B7F705006B703D /* propertyView.app */,
+				6164628615B7F705006B703D /* thermoPlot.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -437,10 +441,11 @@
 				619394EC15EBD3150003EF01 /* ancillary_2.tex */,
 				619394F315EBDE5E0003EF01 /* ancillary_3.tex */,
 				610F3AA1160F307600D44418 /* ancillary_4.tex */,
+				61648CE21618DA4300D499E6 /* boilingTemperature.tex */,
 				610F3A99160E488100D44418 /* FJ_Rho.tex */,
 				61C285251618BA5F00AC0EEB /* FJ_Cv.tex */,
 				61C285271618BDD500AC0EEB /* FJ_Cp.tex */,
-				61D2AEA2160AD68E00A7FC78 /* boilingTemperature.tex */,
+				61648CDE1618D98B00D499E6 /* FJ_SoundSpeed.tex */,
 				61D2AEA4160AD69800A7FC78 /* readme.txt */,
 				617C7CC615E9878A00B11073 /* texToPng */,
 			);
@@ -466,10 +471,11 @@
 				619394EA15EBD3010003EF01 /* ancillary_2.png */,
 				619394F115EBDE510003EF01 /* ancillary_3.png */,
 				610F3AA3160F308400D44418 /* ancillary_4.png */,
+				61648CE01618DA3300D499E6 /* boilingTemperature.png */,
 				610F3A97160E487900D44418 /* FJ_Rho.png */,
 				61C285231618BA4800AC0EEB /* FJ_Cv.png */,
 				61C285291618BDE500AC0EEB /* FJ_Cp.png */,
-				61D2AE9F160AD66B00A7FC78 /* boilingTemperature.png */,
+				61648CDC1618D95500D499E6 /* FJ_SoundSpeed.png */,
 				61D7352A160A6CB800362373 /* Default-568h@2x.png */,
 				61BA3AE115DFAB7400928715 /* Icon@2x.png */,
 				61BA3ADF15DFAB6C00928715 /* Icon.png */,
@@ -496,7 +502,7 @@
 			);
 			name = thermoPlot;
 			productName = polymorph;
-			productReference = 6164628615B7F705006B703D /* propertyView.app */;
+			productReference = 6164628615B7F705006B703D /* thermoPlot.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -569,8 +575,6 @@
 				6193950415ED346F0003EF01 /* nsrds_4.png in Resources */,
 				6193950615ED347E0003EF01 /* nsrds_4.tex in Resources */,
 				61D7352B160A6CB800362373 /* Default-568h@2x.png in Resources */,
-				61D2AEA0160AD66B00A7FC78 /* boilingTemperature.png in Resources */,
-				61D2AEA3160AD68E00A7FC78 /* boilingTemperature.tex in Resources */,
 				61D2AEA5160AD69800A7FC78 /* readme.txt in Resources */,
 				610F3A98160E487900D44418 /* FJ_Rho.png in Resources */,
 				610F3A9A160E488100D44418 /* FJ_Rho.tex in Resources */,
@@ -580,6 +584,10 @@
 				61C285261618BA5F00AC0EEB /* FJ_Cv.tex in Resources */,
 				61C285281618BDD500AC0EEB /* FJ_Cp.tex in Resources */,
 				61C2852A1618BDE500AC0EEB /* FJ_Cp.png in Resources */,
+				61648CDD1618D95500D499E6 /* FJ_SoundSpeed.png in Resources */,
+				61648CDF1618D98B00D499E6 /* FJ_SoundSpeed.tex in Resources */,
+				61648CE11618DA3300D499E6 /* boilingTemperature.png in Resources */,
+				61648CE31618DA4300D499E6 /* boilingTemperature.tex in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
