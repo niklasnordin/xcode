@@ -116,11 +116,12 @@
             {
                 [_pressureField setText:[NSString stringWithFormat:@"%g", Pmin+0.01]];
             }
-            // switch temperature if TMin > Tmax
+
+            // switch temperature if PMin > Pmax
             if (Pmin > Pmax)
             {
-                [_minPressureField setText:[NSString stringWithFormat:@"%g", Pmin]];
-                [_pressureField setText:[NSString stringWithFormat:@"%g", Pmax]];
+                [_minPressureField setText:[NSString stringWithFormat:@"%g", Pmax]];
+                [_pressureField setText:[NSString stringWithFormat:@"%g", Pmin]];
             }
         }
     }
@@ -225,6 +226,11 @@
                 [self checkPressureInput:_pressureField];
             }
         }
+    }
+    else
+    {
+        [self checkTemperatureInput:_temperatureMin];
+        [self checkTemperatureInput:_temperatureMax];
     }
 }
 
