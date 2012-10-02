@@ -131,7 +131,7 @@
         mailer.mailComposeDelegate = self;
         NSData *att = [output dataUsingEncoding:[NSString defaultCStringEncoding]];
         //NSString *msg = [NSString stringWithFormat:@"%@",output];
-        NSString *msg = @"Sent from propertyView";
+        NSString *msg = @"Sent from thermoPlot";
         [mailer addAttachmentData:att mimeType:@"text/plain" fileName:filename];
         [mailer setMessageBody:msg isHTML:NO];
         [mailer setSubject:filename];

@@ -34,7 +34,7 @@
     UIImage *im = [UIImage imageNamed:fullName];
     [_image setContentMode:UIViewContentModeScaleAspectFit];
     [_image setImage:im];
-    
+    im = nil;
     UISwipeGestureRecognizer *swipeLeftRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGesture:)];
     UISwipeGestureRecognizer *swipeRightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGesture:)];
     swipeLeftRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
@@ -69,7 +69,7 @@
         _functionIndex = 0;
     }
 
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.view cache:YES];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.view cache:NO];
  
 }
 
@@ -83,7 +83,7 @@
         _functionIndex = numberOfNames-1;
     }
     
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:YES];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:NO];
     //[UIView setAnimationTransition:UIViewAnimationCurveEaseInOut forView:self.view cache:YES];
 
 }
@@ -107,13 +107,13 @@
 
     NSString *name = [_functionNames objectAtIndex:_functionIndex];
     NSString *fullName = [NSString stringWithFormat:@"%@.png",name];
-    
+
     UIImage *im = [UIImage imageNamed:fullName];
-    //[_image setContentMode:UIViewContentModeScaleAspectFit];
+
     [_image setImage:im];
     [UIView commitAnimations];
     [self setTitle:name];
-
+    im = nil;
 }
 
 - (void)pan:(UIPanGestureRecognizer *)gesture
