@@ -24,6 +24,7 @@
 -(fundamentalJacobsen *)initWithZero;
 -(fundamentalJacobsen *)initWithArray:(NSArray *)array;
 
+-(double)a0:(double)delta t:(double)tau;
 -(double)d2a0dt2:(double)pressure T:(double)temperature cp0:(id<functionValue>)cp0;
 -(double)daResdd:(long double)d t:(long double)t;
 -(double)d2aResdd2:(long double)d t:(long double)tau;

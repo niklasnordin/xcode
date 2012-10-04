@@ -12,6 +12,8 @@
 @implementation fundamentalJacobsen
 
 #define Rgas 8314.462175
+#define Tref 273.15
+#define Pref 0.001e+6
 
 -(fundamentalJacobsen *)initWithZero
 {
@@ -77,6 +79,41 @@
     
     return self;
 }
+
+-(double)a0:(double)delta t:(double)tau
+{
+    /*
+    double rho0 = Pref/(Rgas*Tref);
+    double d0 = rho0/_rhoc;
+    double t0 = _tc/Tref;
+    double T = _tc/tau;
+
+    $a1 = $h0*$t/$Tc;
+    $a2 = 0.0;
+    $a3 = 0.0;
+    $sum = 0.0;
+    
+    if ($useFit == 0)
+    {
+        $dummy = integrateCp($t, $t0, $a2, $a3);
+        $sum = $a2 - $t*$a3;
+    }
+    else
+    {
+        if (($T < 200.0) || ($T > 1500.0))
+        {
+            $dummy = integrateCp($t, $t0, $a2, $a3);
+            $sum = $a2 - $t*$a3;
+        }
+        else
+        {
+            $sum = numFit($t);
+        }
+    }
+    return ($a1 - $s0 + $sum)/$R - 1.0 + log($d*$t0/($d0*$t));
+     */
+    return 0.0;
+} 
 
 
 -(double)d2a0dt2:(double)pressure T:(double)temperature cp0:(id<functionValue>)cp0

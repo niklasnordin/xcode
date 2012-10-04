@@ -538,9 +538,9 @@
 
 - (void)viewDidUnload
 {
-    NSLog(@"viewDidDisappear");
+    //NSLog(@"viewDidDisappear");
 
-    [self save];
+    //[self save];
     
     [self setPicker:nil];
     [self setTemperatureMin:nil];
