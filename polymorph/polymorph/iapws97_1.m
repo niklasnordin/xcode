@@ -23,15 +23,15 @@ static NSString *name = @"iapws97_1";
     
     int n = 34;
     
-    _ik = malloc(n*sizeof(long double));
-    _jk = malloc(n*sizeof(long double));
-    _nk = malloc(n*sizeof(long double));
+    _ii = malloc(n*sizeof(long double));
+    _ji = malloc(n*sizeof(long double));
+    _ni = malloc(n*sizeof(long double));
     
     for (int i=0; i<n; i++)
     {
-        _ik[i] = 0.0;
-        _jk[i] = 0.0;
-        _nk[i] = 0.0;
+        _ii[i] = 0.0;
+        _ji[i] = 0.0;
+        _ni[i] = 0.0;
     }
 
     _pstar = 16.53e+6;
@@ -47,9 +47,9 @@ static NSString *name = @"iapws97_1";
 
     int n = 34;
     
-    _ik = malloc(n*sizeof(long double));
-    _jk = malloc(n*sizeof(long double));
-    _nk = malloc(n*sizeof(long double));
+    _ii = malloc(n*sizeof(long double));
+    _ji = malloc(n*sizeof(long double));
+    _ni = malloc(n*sizeof(long double));
     
     for (int i=0; i<n; i++)
     {
@@ -65,9 +65,9 @@ static NSString *name = @"iapws97_1";
         NSNumber *ajk = [Ajdict objectForKey:jname];
         NSNumber *ank = [Andict objectForKey:nname];
         
-        _ik[i] = [aik doubleValue];
-        _jk[i] = [ajk doubleValue];
-        _nk[i] = [ank doubleValue];
+        _ii[i] = [aik doubleValue];
+        _ji[i] = [ajk doubleValue];
+        _ni[i] = [ank doubleValue];
         
     }
     
@@ -110,9 +110,9 @@ static NSString *name = @"iapws97_1";
 
 - (void)dealloc
 {
-    free(_ik);
-    free(_jk);
-    free(_nk);
+    free(_ii);
+    free(_ji);
+    free(_ni);
 }
 
 -(NSArray *)dependsOnFunctions
@@ -126,7 +126,112 @@ static NSString *name = @"iapws97_1";
 
 -(long double)gammaForP:(long double)p andT:(long double)T
 {
-    return 0.0;
+    long double pi = p/_pstar;
+    long double tau = T/_tstar;
+    
+    long double a = 0.0;
+    long double b = 0.0;
+    long double sum = 0.0;
+    for (int i=0; i<34; i++)
+    {
+        a = powl(7.1 - pi, _ii[i]);
+        b = powl(tau - 1.222, _ji[i]);
+        sum += _ni[i]*a*b;
+    }
+    
+    return sum;
+}
+
+-(long double)dgdpForP:(long double)p andT:(long double)T
+{
+    long double pi = p/_pstar;
+    long double tau = T/_tstar;
+    
+    long double a = 0.0;
+    long double b = 0.0;
+    long double sum = 0.0;
+    for (int i=0; i<34; i++)
+    {
+        a = -_ii[i]*powl(7.1 - pi, _ii[i]-1.0);
+        b = powl(tau - 1.222, _ji[i]);
+        sum += _ni[i]*a*b;
+    }
+    
+    return sum;
+}
+
+-(long double)d2gdp2ForP:(long double)p andT:(long double)T
+{
+    long double pi = p/_pstar;
+    long double tau = T/_tstar;
+    
+    long double a = 0.0;
+    long double b = 0.0;
+    long double sum = 0.0;
+    for (int i=0; i<34; i++)
+    {
+        a = _ii[i]*(_ii[i]-1.0)*powl(7.1 - pi, _ii[i]-2.0);
+        b = powl(tau - 1.222, _ji[i]);
+        sum += _ni[i]*a*b;
+    }
+    
+    return sum;
+}
+
+-(long double)dgdtForP:(long double)p andT:(long double)T
+{
+    long double pi = p/_pstar;
+    long double tau = T/_tstar;
+    
+    long double a = 0.0;
+    long double b = 0.0;
+    long double sum = 0.0;
+    for (int i=0; i<34; i++)
+    {
+        a = powl(7.1 - pi, _ii[i]);
+        b = _ji[i]*powl(tau - 1.222, _ji[i]-1.0);
+        sum += _ni[i]*a*b;
+    }
+    
+    return sum;
+}
+
+
+-(long double)d2gdt2ForP:(long double)p andT:(long double)T
+{
+    long double pi = p/_pstar;
+    long double tau = T/_tstar;
+    
+    long double a = 0.0;
+    long double b = 0.0;
+    long double sum = 0.0;
+    for (int i=0; i<34; i++)
+    {
+        a = powl(7.1 - pi, _ii[i]);
+        b = _ji[i]*(_ji[i]-1.0)*powl(tau - 1.222, _ji[i]-2.0);
+        sum += _ni[i]*a*b;
+    }
+    
+    return sum;
+}
+
+
+-(long double)d2gdtdpForP:(long double)p andT:(long double)T
+{
+    long double pi = p/_pstar;
+    long double tau = T/_tstar;
+    
+    long double a = 0.0;
+    long double b = 0.0;
+    long double sum = 0.0;
+    for (int i=0; i<34; i++)
+    {
+        a = -_ii[i]*powl(7.1 - pi, _ii[i]);
+        b = _ji[i]*powl(tau - 1.222, _ji[i]-1.0);
+        sum += _ni[i]*a*b;
+    }
+    
+    return sum;
 }
 
 @end
