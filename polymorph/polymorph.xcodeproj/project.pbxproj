@@ -16,6 +16,7 @@
 		6117FFC5161F4466005E074A /* sutherland.m in Sources */ = {isa = PBXBuildFile; fileRef = 6117FFC4161F4465005E074A /* sutherland.m */; };
 		6117FFC8161F47E2005E074A /* sutherland.png in Resources */ = {isa = PBXBuildFile; fileRef = 6117FFC7161F47E2005E074A /* sutherland.png */; };
 		6117FFCA161F47F4005E074A /* sutherland.tex in Resources */ = {isa = PBXBuildFile; fileRef = 6117FFC9161F47F4005E074A /* sutherland.tex */; };
+		6117FFCD161F543D005E074A /* iapws97_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 6117FFCC161F543C005E074A /* iapws97_1.m */; };
 		61247A4A15C593A9004DB05F /* nsrds_0.m in Sources */ = {isa = PBXBuildFile; fileRef = 61247A4915C593A9004DB05F /* nsrds_0.m */; };
 		61247A4E15C5976C004DB05F /* nsrds_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 61247A4D15C5976C004DB05F /* nsrds_1.m */; };
 		61247A5115C845C9004DB05F /* dbTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61247A5015C845C8004DB05F /* dbTableViewController.m */; };
@@ -125,6 +126,8 @@
 		6117FFC4161F4465005E074A /* sutherland.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sutherland.m; sourceTree = "<group>"; };
 		6117FFC7161F47E2005E074A /* sutherland.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sutherland.png; sourceTree = "<group>"; };
 		6117FFC9161F47F4005E074A /* sutherland.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sutherland.tex; sourceTree = "<group>"; };
+		6117FFCB161F543C005E074A /* iapws97_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iapws97_1.h; sourceTree = "<group>"; };
+		6117FFCC161F543C005E074A /* iapws97_1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iapws97_1.m; sourceTree = "<group>"; };
 		61247A4815C593A9004DB05F /* nsrds_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nsrds_0.h; sourceTree = "<group>"; };
 		61247A4915C593A9004DB05F /* nsrds_0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nsrds_0.m; sourceTree = "<group>"; };
 		61247A4C15C5976C004DB05F /* nsrds_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nsrds_1.h; sourceTree = "<group>"; };
@@ -427,6 +430,8 @@
 				61EB3D6E15E0FB4C009826F2 /* Polynomial.m */,
 				6117FFC3161F4465005E074A /* sutherland.h */,
 				6117FFC4161F4465005E074A /* sutherland.m */,
+				6117FFCB161F543C005E074A /* iapws97_1.h */,
+				6117FFCC161F543C005E074A /* iapws97_1.m */,
 			);
 			name = functions;
 			sourceTree = "<group>";
@@ -657,6 +662,7 @@
 				61FD28C81614DF3D007C1A6F /* FJ_SoundSpeed.m in Sources */,
 				61C284E31615E65100AC0EEB /* FJ_u.m in Sources */,
 				6117FFC5161F4466005E074A /* sutherland.m in Sources */,
+				6117FFCD161F543D005E074A /* iapws97_1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
