@@ -71,9 +71,9 @@ static NSString *name = @"iapws97_1";
         
     }
     
-    _pstar = [[[array objectAtIndex:92] objectForKey:@"A102"] doubleValue];
-    _tstar = [[[array objectAtIndex:93] objectForKey:@"A103"] doubleValue];
-    _R     = [[[array objectAtIndex:94] objectForKey:@"A104"] doubleValue];
+    _pstar = [[[array objectAtIndex:102] objectForKey:@"A102"] doubleValue];
+    _tstar = [[[array objectAtIndex:103] objectForKey:@"A103"] doubleValue];
+    _R     = [[[array objectAtIndex:104] objectForKey:@"A104"] doubleValue];
     
     return self;
 }
@@ -85,7 +85,9 @@ static NSString *name = @"iapws97_1";
 
 -(double)valueForT:(double)T andP:(double)p
 {
-    return 0.0;
+    double y = [self gammaForP:p andT:T];
+
+    return y;
 }
 
 -(bool)pressureDependent
@@ -127,7 +129,7 @@ static NSString *name = @"iapws97_1";
 -(long double)gammaForP:(long double)p andT:(long double)T
 {
     long double pi = p/_pstar;
-    long double tau = T/_tstar;
+    long double tau = _tstar/T;
     
     long double a = 0.0;
     long double b = 0.0;
@@ -145,7 +147,7 @@ static NSString *name = @"iapws97_1";
 -(long double)dgdpForP:(long double)p andT:(long double)T
 {
     long double pi = p/_pstar;
-    long double tau = T/_tstar;
+    long double tau = _tstar/T;
     
     long double a = 0.0;
     long double b = 0.0;
@@ -163,7 +165,7 @@ static NSString *name = @"iapws97_1";
 -(long double)d2gdp2ForP:(long double)p andT:(long double)T
 {
     long double pi = p/_pstar;
-    long double tau = T/_tstar;
+    long double tau = _tstar/T;
     
     long double a = 0.0;
     long double b = 0.0;
@@ -181,7 +183,7 @@ static NSString *name = @"iapws97_1";
 -(long double)dgdtForP:(long double)p andT:(long double)T
 {
     long double pi = p/_pstar;
-    long double tau = T/_tstar;
+    long double tau = _tstar/T;
     
     long double a = 0.0;
     long double b = 0.0;
@@ -200,7 +202,7 @@ static NSString *name = @"iapws97_1";
 -(long double)d2gdt2ForP:(long double)p andT:(long double)T
 {
     long double pi = p/_pstar;
-    long double tau = T/_tstar;
+    long double tau = _tstar/T;
     
     long double a = 0.0;
     long double b = 0.0;
@@ -219,7 +221,7 @@ static NSString *name = @"iapws97_1";
 -(long double)d2gdtdpForP:(long double)p andT:(long double)T
 {
     long double pi = p/_pstar;
-    long double tau = T/_tstar;
+    long double tau = _tstar/T;
     
     long double a = 0.0;
     long double b = 0.0;

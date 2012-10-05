@@ -37,6 +37,8 @@
 #import "boilingTemperature.h"
 #import "sutherland.h"
 
+#import "iapws97_1.h"
+
 @interface functions : NSObject
 
 -(id) select:(NSString *)name withArray:(NSArray *)array;
