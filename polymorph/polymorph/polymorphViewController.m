@@ -61,6 +61,7 @@
     [_functionNames addObject:[FJ_SoundSpeed name]];
 
     [_functionNames addObject:[boilingTemperature name]];
+    [_functionNames addObject:[sutherland name]];
 
 }
 
