@@ -85,7 +85,7 @@ static NSString *name = @"iapws97_1";
 
 -(double)valueForT:(double)T andP:(double)p
 {
-    double y = [self gammaForP:p andT:T];
+    double y = [self rhoForP:p andT:T];
 
     return y;
 }
@@ -234,6 +234,87 @@ static NSString *name = @"iapws97_1";
     }
     
     return sum;
+}
+
+-(double)vForP:(long double)p andT:(long double)T
+{
+    double gamma_p = [self dgdpForP:p andT:T];
+    double pi = p/_pstar;
+    
+    double denom = _R*T*pi*gamma_p;
+    return denom/p;
+}
+
+-(double)rhoForP:(long double)p andT:(long double)T
+{
+    return 1.0/[self vForP:p andT:T];
+}
+
+-(double)uForP:(long double)p andT:(long double)T
+{
+    double gamma_t = [self dgdtForP:p andT:T];
+    double gamma_p = [self dgdpForP:p andT:T];
+    
+    double pi = p/_pstar;
+    double tau = _tstar/T;
+
+    return _R*T*(tau*gamma_t - pi*gamma_p);
+}
+
+-(double)hForP:(long double)p andT:(long double)T
+{
+    double gamma_t = [self dgdtForP:p andT:T];
+    
+    double tau = _tstar/T;
+    
+    return _R*T*tau*gamma_t;
+}
+
+-(double)sForP:(long double)p andT:(long double)T
+{
+    double gamma_t = [self dgdtForP:p andT:T];
+    double gamma = [self gammaForP:p andT:T];
+    
+    double tau = _tstar/T;
+    
+    return _R*(tau*gamma_t - gamma);
+}
+
+-(double)cpForP:(long double)p andT:(long double)T
+{
+    double gamma_tt = [self d2gdt2ForP:p andT:T];
+    
+    double tau = _tstar/T;
+    
+    return -_R*tau*tau*gamma_tt;
+}
+
+-(double)cvForP:(long double)p andT:(long double)T
+{
+    double gamma_tt = [self d2gdt2ForP:p andT:T];
+    double gamma_p = [self dgdpForP:p andT:T];
+    double gamma_pp = [self d2gdp2ForP:p andT:T];
+    double gamma_pt = [self d2gdtdpForP:p andT:T];
+    
+    double tau = _tstar/T;
+    double nom = gamma_p - tau*gamma_pt;
+    
+    return _R*( -tau*tau*gamma_tt + nom*nom/gamma_pp);
+}
+
+-(double)wForP:(long double)p andT:(long double)T
+{
+    double gamma_tt = [self d2gdt2ForP:p andT:T];
+    double gamma_p = [self dgdpForP:p andT:T];
+    double gamma_pp = [self d2gdp2ForP:p andT:T];
+    double gamma_pt = [self d2gdtdpForP:p andT:T];
+    
+    double tau = _tstar/T;
+    
+    double nom = gamma_p - tau*gamma_pt;
+    double denom = nom*nom/(tau*tau*gamma_tt) - gamma_pp;
+    
+    return _R*T*gamma_p*gamma_p/denom;
 }
 
 @end
