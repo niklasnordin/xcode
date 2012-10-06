@@ -96,4 +96,8 @@ static NSString *name = @"idealGasLaw";
     
 }
 
+-(NSArray *)coefficientNames
+{
+    return nil;
+}
 @end

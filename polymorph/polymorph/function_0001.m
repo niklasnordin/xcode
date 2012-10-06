@@ -70,4 +70,9 @@ static NSString *name = @"function_0001";
     
 }
 
+-(NSArray *)coefficientNames
+{
+    return nil;
+}
+
 @end

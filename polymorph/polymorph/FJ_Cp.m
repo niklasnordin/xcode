@@ -99,5 +99,10 @@ static NSString *name = @"FJ_Cp";
     }
 }
 
+-(NSArray *)coefficientNames
+{
+    return nil;
+}
+
 
 @end

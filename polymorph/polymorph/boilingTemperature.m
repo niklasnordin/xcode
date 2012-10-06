@@ -114,4 +114,9 @@ static NSString *name = @"boilingTemperature";
     [_functionPointers setObject:function forKey:key];
 }
 
+-(NSArray *)coefficientNames
+{
+    return nil;
+}
+
 @end

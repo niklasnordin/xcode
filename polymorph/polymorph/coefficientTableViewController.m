@@ -132,7 +132,7 @@
     
     cell.textLabel.text = name;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%g",[num doubleValue]];
-    if (indexPath.row == 1) [cell.detailTextLabel setBackgroundColor:[UIColor greenColor]];
+    //if (indexPath.row == 1) [cell.detailTextLabel setBackgroundColor:[UIColor greenColor]];
     return cell;
 }
 
@@ -177,7 +177,6 @@
         NSNumber *num = [[NSNumber alloc] initWithDouble:_inputValue];
         [myDict setObject:num forKey:name];
         [self.tableView reloadData];
-        
     }
 }
 

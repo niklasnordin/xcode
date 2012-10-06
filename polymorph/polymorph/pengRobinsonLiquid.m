@@ -166,4 +166,9 @@ static NSString *name = @"pengRobinsonLiquid";
     
 }
 
+-(NSArray *)coefficientNames
+{
+    return nil;
+}
+
 @end

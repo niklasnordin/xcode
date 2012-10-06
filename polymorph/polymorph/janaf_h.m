@@ -97,4 +97,9 @@ static NSString *name = @"janaf_h";
     
 }
 
+-(NSArray *)coefficientNames
+{
+    return nil;
+}
+
 @end

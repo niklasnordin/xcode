@@ -93,4 +93,9 @@ static NSString *name = @"FJ_Cv";
     }
 }
 
+-(NSArray *)coefficientNames
+{
+    return nil;
+}
+
 @end

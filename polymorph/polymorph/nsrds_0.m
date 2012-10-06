@@ -99,4 +99,9 @@ static NSString *name = @"nsrds_0";
     
 }
 
+-(NSArray *)coefficientNames
+{
+    return nil;
+}
+
 @end

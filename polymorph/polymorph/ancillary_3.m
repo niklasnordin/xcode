@@ -104,4 +104,9 @@ static NSString *name = @"ancillary_3";
     
 }
 
+-(NSArray *)coefficientNames
+{
+    return nil;
+}
+
 @end

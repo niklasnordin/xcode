@@ -160,4 +160,9 @@ static NSString *name = @"FJ_Rho";
     }
 }
 
+-(NSArray *)coefficientNames
+{
+    return nil;
+}
+
 @end

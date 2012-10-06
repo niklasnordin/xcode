@@ -95,4 +95,10 @@ static NSString *name = @"sutherland";
 {
 }
 
+-(NSArray *)coefficientNames
+{
+    return nil;
+}
+
+
 @end

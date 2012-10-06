@@ -314,4 +314,9 @@ static int nCoeffs = 43;
     return sqrt(_R*T*gamma_p*gamma_p/denom);
 }
 
+-(NSArray *)coefficientNames
+{
+    return nil;
+}
+
 @end

@@ -104,4 +104,8 @@ static NSString *name = @"nsrds_6";
     
 }
 
+-(NSArray *)coefficientNames
+{
+    return nil;
+}
 @end

@@ -97,4 +97,10 @@ static NSString *name = @"FJ_SoundSpeed";
     }
 }
 
+-(NSArray *)coefficientNames
+{
+    return nil;
+}
+
+
 @end
