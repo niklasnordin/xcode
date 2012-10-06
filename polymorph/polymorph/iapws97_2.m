@@ -1,24 +1,24 @@
 //
-//  iapws97_1.m
+//  iapws97_2.m
 //  polymorph
 //
-//  Created by Niklas Nordin on 2012-10-05.
+//  Created by Niklas Nordin on 2012-10-06.
 //  Copyright (c) 2012 nequam. All rights reserved.
 //
 
-#import "iapws97_1.h"
+#import "iapws97_2.h"
 
-static NSString *name = @"iapws97_1";
-static int nCoeffs = 34;
+static NSString *name = @"iapws97_2";
+static int nCoeffs = 43;
 
-@implementation iapws97_1
+@implementation iapws97_2
 
 +(NSString *)name
 {
     return name;
 }
 
--(iapws97_1 *)initWithZero
+-(iapws97_2 *)initWithZero
 {
     self = [super init];
     
@@ -32,7 +32,7 @@ static int nCoeffs = 34;
         _ji[i] = 0.0;
         _ni[i] = 0.0;
     }
-
+    
     _pstar = 16.53e+6;
     _tstar = 1386.0;
     _R = 461.526;
@@ -40,10 +40,10 @@ static int nCoeffs = 34;
     return self;
 }
 
--(iapws97_1 *)initWithArray:(NSArray *)array
+-(iapws97_2 *)initWithArray:(NSArray *)array
 {
     self = [super init];
-
+    
     _ii = malloc(nCoeffs*sizeof(long double));
     _ji = malloc(nCoeffs*sizeof(long double));
     _ni = malloc(nCoeffs*sizeof(long double));
@@ -77,13 +77,13 @@ static int nCoeffs = 34;
 
 -(NSString *) name
 {
-    return [iapws97_1 name];
+    return [iapws97_2 name];
 }
 
 -(double)valueForT:(double)T andP:(double)p
 {
     double y = [self wForP:p andT:T];
-
+    
     return y;
 }
 
@@ -99,7 +99,7 @@ static int nCoeffs = 34;
 
 -(int)nCoefficients
 {
-    return 105; //34*3 + 3;
+    return 105; //44*3 + 3;
 }
 
 - (NSString *)equationText
@@ -254,7 +254,7 @@ static int nCoeffs = 34;
     
     double pi = p/_pstar;
     double tau = _tstar/T;
-
+    
     return _R*T*(tau*gamma_t - pi*gamma_p);
 }
 
