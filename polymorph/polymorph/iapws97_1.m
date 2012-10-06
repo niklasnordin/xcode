@@ -85,7 +85,7 @@ static NSString *name = @"iapws97_1";
 
 -(double)valueForT:(double)T andP:(double)p
 {
-    double y = [self rhoForP:p andT:T];
+    double y = [self wForP:p andT:T];
 
     return y;
 }
@@ -228,7 +228,7 @@ static NSString *name = @"iapws97_1";
     long double sum = 0.0;
     for (int i=0; i<34; i++)
     {
-        a = -_ii[i]*powl(7.1 - pi, _ii[i]);
+        a = -_ii[i]*powl(7.1 - pi, _ii[i]-1.0);
         b = _ji[i]*powl(tau - 1.222, _ji[i]-1.0);
         sum += _ni[i]*a*b;
     }
@@ -299,7 +299,7 @@ static NSString *name = @"iapws97_1";
     double tau = _tstar/T;
     double nom = gamma_p - tau*gamma_pt;
     
-    return _R*( -tau*tau*gamma_tt + nom*nom/gamma_pp);
+    return _R*( -tau*tau*gamma_tt + nom*nom/gamma_pp );
 }
 
 -(double)wForP:(long double)p andT:(long double)T
@@ -314,7 +314,7 @@ static NSString *name = @"iapws97_1";
     double nom = gamma_p - tau*gamma_pt;
     double denom = nom*nom/(tau*tau*gamma_tt) - gamma_pp;
     
-    return _R*T*gamma_p*gamma_p/denom;
+    return sqrt(_R*T*gamma_p*gamma_p/denom);
 }
 
 @end
