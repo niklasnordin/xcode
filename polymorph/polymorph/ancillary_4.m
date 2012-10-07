@@ -23,13 +23,15 @@ static NSString *name = @"ancillary_4";
 {
     self = [super init];
     
-    int n = [self nCoefficients];
+    int n = 5;
     
     _A = malloc(n*sizeof(double));
+    _theta = malloc(n*sizeof(double));
     
     for (int i=0; i<n; i++)
     {
         _A[i] = 0.0;
+        _theta[i] = 0.0;
     }
 
     return self;
@@ -38,9 +40,11 @@ static NSString *name = @"ancillary_4";
 -(ancillary_4 *)initWithArray:(NSArray *)array
 {
     self = [super init];
-    int n = [self nCoefficients];
-    _A = malloc(n*sizeof(double));
+    int n = 5;
     
+    _A = malloc(n*sizeof(double));
+    _theta = malloc(n*sizeof(double));
+
     for (int i=0; i<n; i++)
     {
         NSDictionary *Adict = [array objectAtIndex:i];
@@ -48,13 +52,17 @@ static NSString *name = @"ancillary_4";
         NSNumber *a = [Adict objectForKey:name];
         _A[i] = [a doubleValue];
     }
-    /*
-    NSDictionary *Rdict = [array objectAtIndex:9];
-    NSString *Rname = [NSString stringWithFormat:@"A%d", 9];
-    NSNumber *R = [Rdict objectForKey:Rname];
-    _Rgas = [R doubleValue];
-    */
     
+    for (int i=0; i<4; i++)
+    {
+        NSDictionary *thetaDict = [array objectAtIndex:i+n];
+        NSString *name = [NSString stringWithFormat:@"theta%d", i+1];
+        NSNumber *theta = [thetaDict objectForKey:name];
+        _theta[i+1] = [theta doubleValue];
+    }
+
+    _R  = [[[array objectAtIndex:9] objectForKey:@"R"] doubleValue];
+
     return self;
 }
 
@@ -69,13 +77,13 @@ static NSString *name = @"ancillary_4";
     
     for (int i=1; i<5; i++)
     {
-        long double theta = _A[i+4]/T;
+        long double theta = _theta[i]/T;
         long double eth = expl(theta);
         long double denom = (eth-1.0)*(eth-1.0);
         sum += _A[i]*theta*theta*eth/denom;
     }
     
-    return sum*_A[9];
+    return sum*_R;
 }
 
 -(bool)pressureDependent
@@ -101,6 +109,7 @@ static NSString *name = @"ancillary_4";
 - (void)dealloc
 {
     free(_A);
+    free(_theta);
 }
 
 -(NSArray *)dependsOnFunctions
@@ -117,11 +126,17 @@ static NSString *name = @"ancillary_4";
 {
     
     NSMutableArray *names = [[NSMutableArray alloc] init];
-    for (int i=0; i<[self nCoefficients]; i++)
+    for (int i=0; i<5; i++)
     {
         NSString *name = [[NSString alloc] initWithFormat:@"A%d", i];
         [names addObject:name];
     }
+    for (int i=0; i<4; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"theta%d", i+1];
+        [names addObject:name];
+    }
+    [names addObject:@"R"];
     return names;
 
 }

@@ -12,5 +12,8 @@
 @interface ancillary_4 : NSObject <functionValue>
 
 @property (nonatomic) double *A;
+@property (nonatomic) double *theta;
+
+@property (nonatomic) double R;
 
 @end
