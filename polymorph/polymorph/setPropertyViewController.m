@@ -17,6 +17,7 @@
 @interface setPropertyViewController ()
 @property (strong, nonatomic) UIActionSheet *actionSheet;
 @property (strong, nonatomic) NSArray *originalCoefficients;
+@property (strong, nonatomic) NSString *originalFunctionName;
 @end
 
 @implementation setPropertyViewController
@@ -47,6 +48,7 @@
     NSDictionary *propertyDict = [speciesDict objectForKey:_property];
     
     NSString *functionName = [propertyDict objectForKey:@"function"];
+    _originalFunctionName = functionName;
     _originalCoefficients = [NSArray arrayWithArray:[propertyDict objectForKey:@"coefficients"]];
     
     [_functionButton setTitle:functionName forState:UIControlStateNormal];
@@ -104,7 +106,8 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)clickedFunctionButton:(id)sender {
+- (IBAction)clickedFunctionButton:(id)sender
+{
     
     self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Properties"
                                                    delegate:nil
@@ -201,19 +204,22 @@
     //NSLog(@"entering with name = %@",functionName);
     NSMutableDictionary *speciesDict = [_db.json objectForKey:_specie];
     NSMutableDictionary *propertyDict = [speciesDict objectForKey:_property];
-    //NSArray *coeffsArray = [propertyDict objectForKey:@"coefficients"];
-    //NSLog(@"coeffsArray size = %d",[coeffsArray count]);
+
     functions *mySel = [[functions alloc] init];
+
     id newFunction = [mySel select:functionName];
+    id oldFunction = [mySel select:_originalFunctionName];
     
     NSArray *funcNames = [newFunction dependsOnFunctions];
+    NSArray *newCoeffNames = [newFunction coefficientNames];
+    NSArray *oldCoeffNames = [oldFunction coefficientNames];
     
     if (funcNames != nil)
     {
-        //NSLog(@"Checking dependency");
+
         NSArray *availableProperties = [speciesDict allKeys];
         int n = [funcNames count];
-        //NSLog(@"n = %d",n);
+
         for (int i=0; i<n; i++)
         {
             NSString *name = [funcNames objectAtIndex:i];
@@ -241,17 +247,20 @@
     [propertyDict removeObjectForKey:@"function"];
     [propertyDict setObject:functionName forKey:@"function"];
     
-    NSArray *newCoeffs = [_db createCoefficients:newNCoeff];
+    NSArray *newCoeffs = [_db createCoefficients:newNCoeff withNames:newCoeffNames];
     
     // copy the old values to the new array
     for (int i=0; i<newNCoeff; i++)
     {
-        NSString *coeffName = [NSString stringWithFormat:@"A%d",i];
+        //NSString *coeffName = [NSString stringWithFormat:@"A%d",i];
+        NSString *coeffName = [newCoeffNames objectAtIndex:i];
+
         if (i < oldNCoeff)
         {
+            NSString *oldCoeffName = [oldCoeffNames objectAtIndex:i];
             NSMutableDictionary *old = [_originalCoefficients objectAtIndex:i];
             NSMutableDictionary *new = [newCoeffs objectAtIndex:i];
-            [new setObject:[old objectForKey:coeffName] forKey:coeffName];
+            [new setObject:[old objectForKey:oldCoeffName] forKey:coeffName];
         }
     }
     // remove old coefficients and add new ones

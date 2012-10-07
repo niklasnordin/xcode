@@ -115,7 +115,15 @@ static NSString *name = @"ancillary_4";
 
 -(NSArray *)coefficientNames
 {
-    return nil;
+    
+    NSMutableArray *names = [[NSMutableArray alloc] init];
+    for (int i=0; i<[self nCoefficients]; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"A%d", i];
+        [names addObject:name];
+    }
+    return names;
+
 }
 
 @end

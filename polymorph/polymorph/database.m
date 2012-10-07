@@ -67,7 +67,13 @@
 
     NSMutableDictionary *mTempRangeDict = [[NSMutableDictionary alloc] initWithDictionary:tempRangeDict];
     NSMutableDictionary *mPressureRangeDict = [[NSMutableDictionary alloc] initWithDictionary:pressureRangeDict];
-    NSMutableArray *coefficients = [self createCoefficients:6];
+    NSMutableArray *names = [[NSMutableArray alloc] init];
+    for (int i=0; i<6; i++) {
+        NSString *name = [[NSString alloc] initWithFormat:@"A%d", i];
+        [names addObject:name];
+    }
+    
+    NSMutableArray *coefficients = [self createCoefficients:6 withNames:names];
     
     NSDictionary *dict = @{
         @"function" : @"nsrds_0",
@@ -82,11 +88,12 @@
     return muteDict;
 }
 
--(NSMutableArray *)createCoefficients:(int)numberOfCoefficients
+-(NSMutableArray *)createCoefficients:(int)numberOfCoefficients withNames:(NSArray *)names
 {
     NSMutableArray *arr = [[NSMutableArray alloc] init];
     for (int i=0; i<numberOfCoefficients; i++) {
-        NSString *name = [NSString stringWithFormat:@"A%d",i];
+        //NSString *name = [NSString stringWithFormat:@"A%d",i];
+        NSString *name = [names objectAtIndex:i];
         NSNumber *num = @0.0;
         NSDictionary *dict = @{ name : num };
         NSMutableDictionary *mDict = [[NSMutableDictionary alloc] initWithDictionary:dict];

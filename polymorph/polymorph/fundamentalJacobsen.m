@@ -243,9 +243,4 @@
     free(_nk);
 }
 
--(NSArray *)coefficientNames
-{
-    return nil;
-}
-
 @end

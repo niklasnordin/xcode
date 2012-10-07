@@ -21,6 +21,7 @@
 -(NSArray *)propertiesForSpecie:(NSString *)specie;
 -(NSArray *)orderedPropertiesForSpecie:(NSString *)specie;
 -(NSMutableDictionary *)createEmptyPropertyDict;
--(NSMutableArray *)createCoefficients:(int)numberOfCoefficients;
+-(NSMutableArray *)createCoefficients:(int)numberOfCoefficients
+                            withNames:(NSArray *)names;
 
 @end
