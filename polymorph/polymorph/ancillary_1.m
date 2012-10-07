@@ -58,6 +58,9 @@ static NSString *name = @"ancillary_1";
         _B[i] = [b doubleValue];
     }
     
+    _pc = [[[array objectAtIndex:8] objectForKey:@"Pc"] doubleValue];
+    _tc = [[[array objectAtIndex:8] objectForKey:@"Tc"] doubleValue];
+
     return self;
 }
 

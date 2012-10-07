@@ -21,10 +21,11 @@ static NSString *name = @"ancillary_2";
 {
     self = [super init];
     
-    int n = [self nCoefficients];
+    int n = 5;
     
     _A = malloc(n*sizeof(double));
-    
+    _B = malloc(n*sizeof(double));
+
     for (int i=0; i<n; i++)
     {
         _A[i] = 0.0;
@@ -36,18 +37,29 @@ static NSString *name = @"ancillary_2";
 {
     self = [super init];
     
-    int n = [self nCoefficients];
+    int n = 5;
     
     _A = malloc(n*sizeof(double));
+    _B = malloc(n*sizeof(double));
     
     for (int i=0; i<n; i++)
     {
         NSDictionary *Adict = [array objectAtIndex:i];
-        NSString *name = [NSString stringWithFormat:@"A%d", i];
-        NSNumber *a = [Adict objectForKey:name];
+        NSDictionary *Bdict = [array objectAtIndex:i+n];
+        
+        NSString *Aname = [NSString stringWithFormat:@"A%d", i];
+        NSString *Bname = [NSString stringWithFormat:@"B%d", i];
+        
+        NSNumber *a = [Adict objectForKey:Aname];
         _A[i] = [a doubleValue];
+        
+        NSNumber *b = [Bdict objectForKey:Bname];
+        _B[i] = [b doubleValue];
     }
     
+    _rhoc  = [[[array objectAtIndex:10] objectForKey:@"rhoc"] doubleValue];
+    _tc    = [[[array objectAtIndex:11] objectForKey:@"Tc"] doubleValue];
+
     return self;
 }
 
@@ -58,17 +70,17 @@ static NSString *name = @"ancillary_2";
 
 -(double)valueForT:(double)T andP:(double)p
 {
+    
+    double phi = 1.0 - T/_tc;
 
-    double rhoc = _A[10];
-    double Tc   = _A[11];
+    double rhs = 1.0;
     
-    double phi = 1.0 - T/Tc;
-    //phi = fmax(0.0, phi);
-    
-    double rhs = 1.0 + _A[0]*pow(phi, _A[5]) + _A[1]*pow(phi, _A[6])
-        + _A[2]*pow(phi, _A[7]) + _A[3]*pow(phi, _A[8]) + _A[4]*pow(phi, _A[9]);
-    
-    return rhoc*rhs;
+    for (int i=0; i<5; i++)
+    {
+        rhs += _A[i]*pow(phi, _B[i]);
+    }
+        
+    return _rhoc*rhs;
 }
 
 -(bool)pressureDependent
@@ -94,6 +106,8 @@ static NSString *name = @"ancillary_2";
 - (void)dealloc
 {
     free(_A);
+    free(_B);
+
 }
 
 -(NSArray *)dependsOnFunctions
@@ -103,18 +117,25 @@ static NSString *name = @"ancillary_2";
 
 -(void)setFunction:(id)function forKey:(NSString *)key
 {
-    
 }
 
 -(NSArray *)coefficientNames
 {
     
     NSMutableArray *names = [[NSMutableArray alloc] init];
-    for (int i=0; i<[self nCoefficients]; i++)
+    for (int i=0; i<5; i++)
     {
         NSString *name = [[NSString alloc] initWithFormat:@"A%d", i];
         [names addObject:name];
     }
+    for (int i=0; i<5; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"B%d", i];
+        [names addObject:name];
+    }
+    [names addObject:@"rhoc"];
+    [names addObject:@"Tc"];
+    
     return names;
 
 }
