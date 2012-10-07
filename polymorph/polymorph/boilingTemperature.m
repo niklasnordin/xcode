@@ -116,15 +116,7 @@ static NSString *name = @"boilingTemperature";
 
 -(NSArray *)coefficientNames
 {
-    
-    NSMutableArray *names = [[NSMutableArray alloc] init];
-    for (int i=0; i<[self nCoefficients]; i++)
-    {
-        NSString *name = [[NSString alloc] initWithFormat:@"A%d", i];
-        [names addObject:name];
-    }
-    return names;
-
+    return nil;
 }
 
 @end

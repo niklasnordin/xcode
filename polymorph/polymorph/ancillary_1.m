@@ -59,7 +59,7 @@ static NSString *name = @"ancillary_1";
     }
     
     _pc = [[[array objectAtIndex:8] objectForKey:@"Pc"] doubleValue];
-    _tc = [[[array objectAtIndex:8] objectForKey:@"Tc"] doubleValue];
+    _tc = [[[array objectAtIndex:9] objectForKey:@"Tc"] doubleValue];
 
     return self;
 }

@@ -267,15 +267,11 @@ static int nCoeffs = 23;
         [names addObject:name];
     }
     
-    NSString *tcName = @"Tc";
-    NSString *pcName = @"Pc";
-    NSString *rhocName = @"rhoc";
-    NSString *mwName = @"Mw";
-    
-    [names addObject:tcName];
-    [names addObject:pcName];
-    [names addObject:rhocName];
-    [names addObject:mwName];
+
+    [names addObject:@"Tc"];
+    [names addObject:@"Pc"];
+    [names addObject:@"rhoc"];
+    [names addObject:@"Mw"];
     
     return names;
 }

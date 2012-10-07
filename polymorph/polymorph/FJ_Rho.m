@@ -159,43 +159,5 @@ static NSString *name = @"FJ_Rho";
         _rhovSat = function;
     }
 }
-/*
--(NSArray *)coefficientNames
-{
-    
-    NSMutableArray *names = [[NSMutableArray alloc] init];
-    for (int i=0; i<23; i++)
-    {
-        NSString *name = [[NSString alloc] initWithFormat:@"i%d", i+1];
-        [names addObject:name];
-    }
-    for (int i=0; i<23; i++)
-    {
-        NSString *name = [[NSString alloc] initWithFormat:@"j%d", i+1];
-        [names addObject:name];
-    }
-    for (int i=0; i<23; i++)
-    {
-        NSString *name = [[NSString alloc] initWithFormat:@"k%d", i+1];
-        [names addObject:name];
-    }
-    for (int i=0; i<23; i++)
-    {
-        NSString *name = [[NSString alloc] initWithFormat:@"n%d", i+1];
-        [names addObject:name];
-    }
-    
-    NSString *tcName = @"Tc";
-    NSString *pcName = @"Pc";
-    NSString *rhocName = @"rhoc";
-    NSString *mwName = @"Mw";
-    
-    [names addObject:tcName];
-    [names addObject:pcName];
-    [names addObject:rhocName];
-    [names addObject:mwName];
-    
-    return names;
-}
-*/
+
 @end

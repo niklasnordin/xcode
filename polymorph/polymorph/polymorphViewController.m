@@ -520,7 +520,7 @@
     [_minPressureField setHidden:YES];
 
     [self update];
-    [self convertDatabaseToNewFormat:_db.json];
+    //[self convertDatabaseToNewFormat:_db.json];
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField*) textField {
@@ -757,7 +757,7 @@
             
         }
     }
-    NSLog(@"%@",dict);
+    //NSLog(@"%@",dict);
 }
 
 @end

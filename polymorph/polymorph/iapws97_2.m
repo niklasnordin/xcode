@@ -54,9 +54,9 @@ static int nCoeffs = 43;
         NSDictionary *Ajdict = [array objectAtIndex:i+nCoeffs];
         NSDictionary *Andict = [array objectAtIndex:i+2*nCoeffs];
         
-        NSString *iname = [NSString stringWithFormat:@"A%d", i];
-        NSString *jname = [NSString stringWithFormat:@"A%d", i+nCoeffs];
-        NSString *nname = [NSString stringWithFormat:@"A%d", i+2*nCoeffs];
+        NSString *iname = [NSString stringWithFormat:@"i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"n%d", i+1];
         
         NSNumber *aik = [Aidict objectForKey:iname];
         NSNumber *ajk = [Ajdict objectForKey:jname];
@@ -68,9 +68,9 @@ static int nCoeffs = 43;
         
     }
     
-    _pstar = [[[array objectAtIndex:102] objectForKey:@"A102"] doubleValue];
-    _tstar = [[[array objectAtIndex:103] objectForKey:@"A103"] doubleValue];
-    _R     = [[[array objectAtIndex:104] objectForKey:@"A104"] doubleValue];
+    _tstar = [[[array objectAtIndex:nCoeffs*3] objectForKey:@"Tstar"] doubleValue];
+    _pstar = [[[array objectAtIndex:nCoeffs*3+1] objectForKey:@"Pstar"] doubleValue];
+    _R     = [[[array objectAtIndex:nCoeffs*3+2] objectForKey:@"R"] doubleValue];
     
     return self;
 }
@@ -318,13 +318,28 @@ static int nCoeffs = 43;
 {
     
     NSMutableArray *names = [[NSMutableArray alloc] init];
-    for (int i=0; i<[self nCoefficients]; i++)
+    
+    for (int i=0; i<nCoeffs; i++)
     {
-        NSString *name = [[NSString alloc] initWithFormat:@"A%d", i];
+        NSString *name = [[NSString alloc] initWithFormat:@"i%d", i+1];
         [names addObject:name];
     }
-    return names;
+    for (int i=0; i<nCoeffs; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nCoeffs; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"n%d", i+1];
+        [names addObject:name];
+    }
+    
+    [names addObject:@"Tstar"];
+    [names addObject:@"Pstar"];
+    [names addObject:@"R"];
 
+    return names;
 }
 
 @end
