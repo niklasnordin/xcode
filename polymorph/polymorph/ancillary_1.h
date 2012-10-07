@@ -12,5 +12,9 @@
 @interface ancillary_1 : NSObject <functionValue>
 
 @property (nonatomic) double *A;
+@property (nonatomic) double *B;
+
+@property (nonatomic) double pc;
+@property (nonatomic) double tc;
 
 @end

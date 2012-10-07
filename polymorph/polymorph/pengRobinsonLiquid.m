@@ -24,15 +24,7 @@ static NSString *name = @"pengRobinsonLiquid";
 -(pengRobinsonLiquid *)initWithZero
 {
     self = [super init];
-    
-    int n = [self nCoefficients];
-    
-    _A = malloc(n*sizeof(double));
-    
-    for (int i=0; i<n; i++)
-    {
-        _A[i] = 0.0;
-    }
+
     return self;
 }
 
@@ -40,17 +32,17 @@ static NSString *name = @"pengRobinsonLiquid";
 {
     self = [super init];
     
-    int n = [self nCoefficients];
+    NSDictionary *A0dict = [array objectAtIndex:0];
+    _tc = [[A0dict objectForKey:@"Tc"] doubleValue];
     
-    _A = malloc(n*sizeof(double));
+    NSDictionary *A1dict = [array objectAtIndex:1];
+    _pc = [[A1dict objectForKey:@"Pc"] doubleValue];
     
-    for (int i=0; i<n; i++)
-    {
-        NSDictionary *Adict = [array objectAtIndex:i];
-        NSString *name = [NSString stringWithFormat:@"A%d", i];
-        NSNumber *a = [Adict objectForKey:name];
-        _A[i] = [a doubleValue];
-    }
+    NSDictionary *A2dict = [array objectAtIndex:2];
+    _omega = [[A2dict objectForKey:@"omega"] doubleValue];
+    
+    NSDictionary *A3dict = [array objectAtIndex:3];
+    _mw = [[A3dict objectForKey:@"Mw"] doubleValue];
     
     return self;
 }
@@ -64,16 +56,11 @@ static NSString *name = @"pengRobinsonLiquid";
 {
     double returnValue = 0.0;
 
-    double Tc    = _A[0];
-    double Pc    = _A[1];
-    double omega = _A[2];
-    double W     = _A[3];
+    double Tr = T/_tc;
     
-    double Tr = T/Tc;
-    
-    double aPR = 0.457236*Rgas*Rgas*Tc*Tc/Pc;
-    double bPR = 0.0777961*Rgas*Tc/Pc;
-    double alpha = pow(1.0 + (0.37464+1.54226*omega-0.26992*omega*omega)*(1.0-sqrt(Tr)), 2.0);
+    double aPR = 0.457236*Rgas*Rgas*_tc*_tc/_pc;
+    double bPR = 0.0777961*Rgas*_tc/_pc;
+    double alpha = pow(1.0 + (0.37464+1.54226*_omega-0.26992*_omega*_omega)*(1.0-sqrt(Tr)), 2.0);
     
     double capA = aPR*alpha*p/(Rgas*Rgas*T*T);
     double capB = bPR*p/(Rgas*T);
@@ -88,7 +75,7 @@ static NSString *name = @"pengRobinsonLiquid";
     {
         Complex *rt0 = [rts objectAtIndex:0];
         double z = rt0.re;
-        double rho = p*W/Rgas/T/z;
+        double rho = p*_mw/Rgas/T/z;
         
         returnValue = rho;
     }
@@ -115,7 +102,7 @@ static NSString *name = @"pengRobinsonLiquid";
         {
             z = zMin;
         }
-        double rho = p*W/Rgas/T/z;
+        double rho = p*_mw/Rgas/T/z;
         returnValue = rho;
 
     }
@@ -151,11 +138,6 @@ static NSString *name = @"pengRobinsonLiquid";
     return @"";
 }
 
-- (void)dealloc
-{
-    free(_A);
-}
-
 -(NSArray *)dependsOnFunctions
 {
     return nil;
@@ -168,14 +150,7 @@ static NSString *name = @"pengRobinsonLiquid";
 
 -(NSArray *)coefficientNames
 {
-    
-    NSMutableArray *names = [[NSMutableArray alloc] init];
-    for (int i=0; i<[self nCoefficients]; i++)
-    {
-        NSString *name = [[NSString alloc] initWithFormat:@"A%d", i];
-        [names addObject:name];
-    }
-    return names;
+    return @[ @"Tc", @"Pc", @"omega", @"Mw" ];
 }
 
 @end

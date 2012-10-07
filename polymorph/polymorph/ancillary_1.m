@@ -21,13 +21,15 @@ static NSString *name = @"ancillary_1";
 {
     self = [super init];
     
-    int n = [self nCoefficients];
+    int n = 4;
     
     _A = malloc(n*sizeof(double));
+    _B = malloc(n*sizeof(double));
     
     for (int i=0; i<n; i++)
     {
         _A[i] = 0.0;
+        _B[i] = 0.0;
     }
     return self;
 }
@@ -36,16 +38,24 @@ static NSString *name = @"ancillary_1";
 {
     self = [super init];
     
-    int n = [self nCoefficients];
+    int n = 4;
     
     _A = malloc(n*sizeof(double));
-    
+    _B = malloc(n*sizeof(double));
+
     for (int i=0; i<n; i++)
     {
         NSDictionary *Adict = [array objectAtIndex:i];
-        NSString *name = [NSString stringWithFormat:@"A%d", i];
-        NSNumber *a = [Adict objectForKey:name];
+        NSDictionary *Bdict = [array objectAtIndex:i+n];
+
+        NSString *Aname = [NSString stringWithFormat:@"A%d", i];
+        NSString *Bname = [NSString stringWithFormat:@"B%d", i];
+
+        NSNumber *a = [Adict objectForKey:Aname];
         _A[i] = [a doubleValue];
+        
+        NSNumber *b = [Bdict objectForKey:Bname];
+        _B[i] = [b doubleValue];
     }
     
     return self;
@@ -58,15 +68,16 @@ static NSString *name = @"ancillary_1";
 
 -(double)valueForT:(double)T andP:(double)p
 {
-
-    double pc = _A[8];
-    double Tc = _A[9];
     
-    double phi = 1.0 - T/Tc;
-    //phi = fmax(0.0, phi);
-    double rhs = _A[0]*pow(phi, _A[4]) + _A[1]*pow(phi, _A[5]) + _A[2]*pow(phi, _A[6]) + _A[3]*pow(phi, _A[7]);
+    double phi = 1.0 - T/_tc;
     
-    return pc*exp(Tc*rhs/T);
+    double rhs = 0;
+    for (int i=0; i<4; i++)
+    {
+        rhs += _A[i]*pow(phi, _B[i]);
+    }
+    
+    return _pc*exp(_tc*rhs/T);
 }
 
 -(bool)pressureDependent
@@ -92,6 +103,7 @@ static NSString *name = @"ancillary_1";
 - (void)dealloc
 {
     free(_A);
+    free(_B);
 }
 
 -(NSArray *)dependsOnFunctions
@@ -108,11 +120,21 @@ static NSString *name = @"ancillary_1";
 {
     
     NSMutableArray *names = [[NSMutableArray alloc] init];
-    for (int i=0; i<[self nCoefficients]; i++)
+    for (int i=0; i<4; i++)
     {
         NSString *name = [[NSString alloc] initWithFormat:@"A%d", i];
         [names addObject:name];
     }
+
+    for (int i=0; i<4; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"B%d", i];
+        [names addObject:name];
+    }
+
+    [names addObject:@"Pc"];
+    [names addObject:@"Tc"];
+    
     return names;
 
 }
