@@ -98,7 +98,7 @@ static NSString *name = @"FJ_Cp";
         _cv = function;
     }
 }
-
+/*
 -(NSArray *)coefficientNames
 {
     
@@ -111,6 +111,6 @@ static NSString *name = @"FJ_Cp";
     return names;
 
 }
-
+*/
 
 @end

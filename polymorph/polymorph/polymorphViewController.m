@@ -520,6 +520,7 @@
     [_minPressureField setHidden:YES];
 
     [self update];
+    [self convertDatabaseToNewFormat:_db.json];
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField*) textField {
@@ -716,6 +717,47 @@
         [segue.destinationViewController setFunctionNames:_functionNames];
         [segue.destinationViewController setLink:_link];
     }
+}
+
+// only to be used once, when converting to the new coefficient standard
+-(void)convertDatabaseToNewFormat:(NSMutableDictionary *)dict
+{
+    //NSLog(@"%@",dict);
+    functions *mySel = [[functions alloc] init];
+
+    NSArray *species = [dict allKeys];
+    for (int i=0; i<[species count]; i++)
+    {
+        NSMutableDictionary *speciesDict = [dict objectForKey:[species objectAtIndex:i]];
+        NSArray *propertyNames = [speciesDict allKeys];
+        for (int j=0; j<[propertyNames count]; j++)
+        {
+            NSMutableDictionary *propDict = [speciesDict objectForKey:[propertyNames objectAtIndex:j]];
+            
+            NSString *functionName = [propDict objectForKey:@"function"];
+            id function = [mySel select:functionName];
+            NSArray *coefficients = [propDict objectForKey:@"coefficients"];
+            int nCoeffs = [coefficients count];
+            NSArray *newCoefficientNames = [function coefficientNames];
+            for (int k=0; k<nCoeffs; k++)
+            {
+                NSString *oldName = [[NSString alloc] initWithFormat:@"A%d",k];
+                NSString *newName = [newCoefficientNames objectAtIndex:k];
+                NSMutableDictionary *cDict = [coefficients objectAtIndex:k];
+                NSArray *cDictEntries = [cDict allKeys];
+                if ([cDictEntries containsObject:oldName])
+                {
+                    NSNumber *num = [cDict objectForKey:oldName];
+                    NSDictionary *newDict = @{newName : num};
+
+                    [cDict removeObjectForKey:oldName];
+                    [cDict addEntriesFromDictionary:newDict];
+                }
+            }
+            
+        }
+    }
+    NSLog(@"%@",dict);
 }
 
 @end

@@ -15,18 +15,18 @@
 #define Tref 273.15
 #define Pref 0.001e+6
 
+static int nCoeffs = 23;
+
 -(fundamentalJacobsen *)initWithZero
 {
     self = [super init];
     
-    int n = 23;
+    _ik = malloc(nCoeffs*sizeof(long double));
+    _jk = malloc(nCoeffs*sizeof(long double));
+    _lk = malloc(nCoeffs*sizeof(long double));
+    _nk = malloc(nCoeffs*sizeof(long double));
     
-    _ik = malloc(n*sizeof(long double));
-    _jk = malloc(n*sizeof(long double));
-    _lk = malloc(n*sizeof(long double));
-    _nk = malloc(n*sizeof(long double));
-    
-    for (int i=0; i<n; i++)
+    for (int i=0; i<nCoeffs; i++)
     {
         _ik[i] = 0.0;
         _jk[i] = 0.0;
@@ -41,24 +41,22 @@
 {
     self = [super init];
     
-    int n = 23;
+    _ik = malloc(nCoeffs*sizeof(long double));
+    _jk = malloc(nCoeffs*sizeof(long double));
+    _lk = malloc(nCoeffs*sizeof(long double));
+    _nk = malloc(nCoeffs*sizeof(long double));
     
-    _ik = malloc(n*sizeof(long double));
-    _jk = malloc(n*sizeof(long double));
-    _lk = malloc(n*sizeof(long double));
-    _nk = malloc(n*sizeof(long double));
-    
-    for (int i=0; i<n; i++)
+    for (int i=0; i<nCoeffs; i++)
     {
         NSDictionary *Aidict = [array objectAtIndex:i];
-        NSDictionary *Ajdict = [array objectAtIndex:i+n];
-        NSDictionary *Aldict = [array objectAtIndex:i+2*n];
-        NSDictionary *Andict = [array objectAtIndex:i+3*n];
+        NSDictionary *Ajdict = [array objectAtIndex:i+nCoeffs];
+        NSDictionary *Aldict = [array objectAtIndex:i+2*nCoeffs];
+        NSDictionary *Andict = [array objectAtIndex:i+3*nCoeffs];
         
-        NSString *iname = [NSString stringWithFormat:@"A%d", i];
-        NSString *jname = [NSString stringWithFormat:@"A%d", i+n];
-        NSString *lname = [NSString stringWithFormat:@"A%d", i+2*n];
-        NSString *nname = [NSString stringWithFormat:@"A%d", i+3*n];
+        NSString *iname = [NSString stringWithFormat:@"i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"j%d", i+1];
+        NSString *lname = [NSString stringWithFormat:@"k%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"n%d", i+1];
         
         NSNumber *aik = [Aidict objectForKey:iname];
         NSNumber *ajk = [Ajdict objectForKey:jname];
@@ -72,10 +70,10 @@
         
     }
     
-    _tc   = [[[array objectAtIndex:92] objectForKey:@"A92"] doubleValue];
-    _pc   = [[[array objectAtIndex:93] objectForKey:@"A93"] doubleValue];
-    _rhoc = [[[array objectAtIndex:94] objectForKey:@"A94"] doubleValue];
-    _mw   = [[[array objectAtIndex:95] objectForKey:@"A95"] doubleValue];
+    _tc   = [[[array objectAtIndex:92] objectForKey:@"Tc"] doubleValue];
+    _pc   = [[[array objectAtIndex:93] objectForKey:@"Pc"] doubleValue];
+    _rhoc = [[[array objectAtIndex:94] objectForKey:@"rhoc"] doubleValue];
+    _mw   = [[[array objectAtIndex:95] objectForKey:@"Mw"] doubleValue];
     
     return self;
 }
@@ -139,7 +137,7 @@
 {
     long double sum = 0.0;
     
-    for (int i=0; i<23; i++)
+    for (int i=0; i<nCoeffs; i++)
     {
         long double gamma = 0.0;
         
@@ -166,7 +164,7 @@
 {
     
     long double sum = 0.0;
-    for (int i=0; i<23; i++)
+    for (int i=0; i<nCoeffs; i++)
     {
         long double gamma = 0.0;
         if (fabs(_lk[i]) > 1.0e-3)
@@ -190,7 +188,7 @@
 {
     long double sum = 0.0;
     
-    for (int i=0; i<23; i++)
+    for (int i=0; i<nCoeffs; i++)
     {
         long double gamma = 0.0;
         if (fabs(_lk[i]) > 1.0e-3)
@@ -209,7 +207,7 @@
 {
     
     long double sum = 0.0;
-    for (int i=0; i<23; i++)
+    for (int i=0; i<nCoeffs; i++)
     {
         long double gamma = 0.0;
         if (fabs(_lk[i]) > 1.0e-3)
@@ -241,6 +239,45 @@
     free(_jk);
     free(_lk);
     free(_nk);
+}
+
+
+-(NSArray *)coefficientNames
+{
+    
+    NSMutableArray *names = [[NSMutableArray alloc] init];
+    for (int i=0; i<nCoeffs; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nCoeffs; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nCoeffs; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"k%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nCoeffs; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"n%d", i+1];
+        [names addObject:name];
+    }
+    
+    NSString *tcName = @"Tc";
+    NSString *pcName = @"Pc";
+    NSString *rhocName = @"rhoc";
+    NSString *mwName = @"Mw";
+    
+    [names addObject:tcName];
+    [names addObject:pcName];
+    [names addObject:rhocName];
+    [names addObject:mwName];
+    
+    return names;
 }
 
 @end

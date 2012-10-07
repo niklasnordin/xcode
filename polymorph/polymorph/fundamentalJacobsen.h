@@ -31,4 +31,6 @@
 -(double)d2aResdt2:(long double)delta t:(long double)tau;
 -(double)d2aResdddt:(long double)delta t:(long double)tau;
 
+-(NSArray *)coefficientNames;
+
 @end

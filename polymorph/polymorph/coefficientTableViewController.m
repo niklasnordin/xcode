@@ -43,14 +43,17 @@
 
     for (int i=0; i<n; i++)
     {
-        //NSString *name = [NSString stringWithFormat:@"A%d",i];
+        NSString *name = [_coefficientNames objectAtIndex:i];
         NSMutableDictionary *myDict = [_coefficients objectAtIndex:i];
         
         if (i < m)
         {
             NSDictionary *cpDict = [cp objectAtIndex:i];
-            [myDict setDictionary:cpDict];
+            NSNumber *num = [cpDict objectForKey:name];
+                //[myDict setDictionary:cpDict];
+            [myDict setObject:num forKey:name];
         }
+        
     }
 
     [self.tableView reloadData];
@@ -126,7 +129,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    NSString *name = [NSString stringWithFormat:@"A%d",indexPath.row];
+    //NSString *name = [NSString stringWithFormat:@"A%d",indexPath.row];
+    NSString *name = [_coefficientNames objectAtIndex:indexPath.row];
     NSDictionary *myDict = [_coefficients objectAtIndex:indexPath.row];
     NSNumber *num = [myDict objectForKey:name];
     
@@ -147,12 +151,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     _selectedIndex = indexPath.row;
-    NSString *name = [NSString stringWithFormat:@"A%d",_selectedIndex];
+    //NSString *name = [NSString stringWithFormat:@"A%d",_selectedIndex];
+    NSString *name = [_coefficientNames objectAtIndex:_selectedIndex];
+
     NSDictionary *myDict = [_coefficients objectAtIndex:_selectedIndex];
     NSNumber *num = [myDict objectForKey:name];
     
-    NSString *msg = [NSString stringWithFormat:@"A%d",indexPath.row];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter coefficient value for" message:msg delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
+    //NSString *msg = [NSString stringWithFormat:@"A%d",indexPath.row];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter coefficient value for" message:name delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
     
     alert.delegate = self;
     [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
@@ -172,7 +178,9 @@
     if (buttonIndex == 1)
     {
         _inputValue = [[[alertView textFieldAtIndex:0] text] doubleValue];
-        NSString *name = [NSString stringWithFormat:@"A%d",_selectedIndex];
+        //NSString *name = [NSString stringWithFormat:@"A%d",_selectedIndex];
+        NSString *name = [_coefficientNames objectAtIndex:_selectedIndex];
+
         NSMutableDictionary *myDict = [_coefficients objectAtIndex:_selectedIndex];
         NSNumber *num = [[NSNumber alloc] initWithDouble:_inputValue];
         [myDict setObject:num forKey:name];

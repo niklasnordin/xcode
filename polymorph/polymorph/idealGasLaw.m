@@ -20,34 +20,17 @@ static NSString *name = @"idealGasLaw";
 -(idealGasLaw *)initWithZero
 {
     self = [super init];
-    
-    int n = [self nCoefficients];
-    
-    _A = malloc(n*sizeof(double));
-    
-    for (int i=0; i<n; i++)
-    {
-        _A[i] = 0.0;
-    }
     return self;
 }
 
 -(idealGasLaw *)initWithArray:(NSArray *)array
 {
     self = [super init];
-    
-    int n = [self nCoefficients];
-    
-    _A = malloc(n*sizeof(double));
-    
-    for (int i=0; i<n; i++)
-    {
-        NSDictionary *Adict = [array objectAtIndex:i];
-        NSString *name = [NSString stringWithFormat:@"A%d", i];
-        NSNumber *a = [Adict objectForKey:name];
-        _A[i] = [a doubleValue];
-    }
-    
+
+    NSDictionary *Adict = [array objectAtIndex:0];
+    NSNumber *a = [Adict objectForKey:@"R"];
+    _R = [a doubleValue];
+
     return self;
 }
 
@@ -58,7 +41,7 @@ static NSString *name = @"idealGasLaw";
 
 -(double)valueForT:(double)T andP:(double)p
 {
-    return p/( _A[0]*T );
+    return p/( _R*T );
 }
 
 -(bool)pressureDependent
@@ -81,11 +64,6 @@ static NSString *name = @"idealGasLaw";
     return @"";
 }
 
-- (void)dealloc
-{
-    free(_A);
-}
-
 -(NSArray *)dependsOnFunctions
 {
     return nil;
@@ -100,11 +78,7 @@ static NSString *name = @"idealGasLaw";
 {
     
     NSMutableArray *names = [[NSMutableArray alloc] init];
-    for (int i=0; i<[self nCoefficients]; i++)
-    {
-        NSString *name = [[NSString alloc] initWithFormat:@"A%d", i];
-        [names addObject:name];
-    }
+    [names addObject:@"R"];
     return names;
 }
 @end

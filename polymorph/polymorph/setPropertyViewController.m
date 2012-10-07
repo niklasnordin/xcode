@@ -201,7 +201,7 @@
 
 - (void)setNewFunction:(NSString *)functionName
 {
-    //NSLog(@"entering with name = %@",functionName);
+
     NSMutableDictionary *speciesDict = [_db.json objectForKey:_specie];
     NSMutableDictionary *propertyDict = [speciesDict objectForKey:_property];
 
@@ -348,8 +348,14 @@
     {
 
         NSMutableArray *coeffs = [propertyDict objectForKey:@"coefficients"];
+        NSString *functionName = [propertyDict objectForKey:@"function"];
+
+        functions *mySel = [[functions alloc] init];
+        id function = [mySel select:functionName];
+        NSArray *coeffNames = [function coefficientNames];
         
         [segue.destinationViewController setCoefficients:coeffs];
+        [segue.destinationViewController setCoefficientNames:coeffNames];
         [segue.destinationViewController setTitle:@"Coefficients"];
         [segue.destinationViewController setParent:_parent];
     }

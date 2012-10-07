@@ -11,6 +11,9 @@
 
 @interface pengRobinson : NSObject <functionValue>
 
-@property (nonatomic) double *A;
+@property (nonatomic) double tc;
+@property (nonatomic) double pc;
+@property (nonatomic) double omega;
+@property (nonatomic) double mw;
 
 @end

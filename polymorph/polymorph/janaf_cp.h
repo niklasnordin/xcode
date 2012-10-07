@@ -12,5 +12,6 @@
 @interface janaf_cp : NSObject <functionValue>
 
 @property (nonatomic) double *A;
+@property (nonatomic) double R;
 
 @end

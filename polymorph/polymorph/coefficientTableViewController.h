@@ -18,5 +18,6 @@
 @property (weak, nonatomic) polymorphViewController* parent;
 
 @property (weak, nonatomic) NSMutableArray *coefficients;
+@property (strong, nonatomic) NSArray *coefficientNames;
 
 @end

@@ -21,7 +21,7 @@ static NSString *name = @"janaf_cp";
 {
     self = [super init];
     
-    int n = [self nCoefficients];
+    int n = [self nCoefficients]-1;
     
     _A = malloc(n*sizeof(double));
     
@@ -36,7 +36,7 @@ static NSString *name = @"janaf_cp";
 {
     self = [super init];
     
-    int n = [self nCoefficients];
+    int n = [self nCoefficients]-1;
     
     _A = malloc(n*sizeof(double));
     
@@ -48,6 +48,9 @@ static NSString *name = @"janaf_cp";
         _A[i] = [a doubleValue];
     }
     
+    NSDictionary *Adict = [array objectAtIndex:7];
+    NSNumber *a = [Adict objectForKey:@"R"];
+    _R = [a doubleValue];
     return self;
 }
 
@@ -58,7 +61,7 @@ static NSString *name = @"janaf_cp";
 
 -(double)valueForT:(double)T andP:(double)p
 {
-    double y = ((((_A[4]*T + _A[3])*T + _A[2])*T + _A[1])*T + _A[0] )*_A[7];
+    double y = ((((_A[4]*T + _A[3])*T + _A[2])*T + _A[1])*T + _A[0] )*_R;
     return y;
 }
 
@@ -101,11 +104,13 @@ static NSString *name = @"janaf_cp";
 {
     
     NSMutableArray *names = [[NSMutableArray alloc] init];
-    for (int i=0; i<[self nCoefficients]; i++)
+    for (int i=0; i<[self nCoefficients]-1; i++)
     {
         NSString *name = [[NSString alloc] initWithFormat:@"A%d", i];
         [names addObject:name];
     }
+    [names addObject:@"R"];
+    
     return names;
 }
 
