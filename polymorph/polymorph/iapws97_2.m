@@ -336,69 +336,87 @@ static int n0Coeffs = 9;
 
 -(double)uForP:(long double)p andT:(long double)T
 {
+    double gamma0_t = [self dg0dtForP:p andT:T];
+    double gamma0_p = [self dg0dpForP:p andT:T];
+    
     double gamma_t = [self dgdtForP:p andT:T];
     double gamma_p = [self dgdpForP:p andT:T];
     
     double pi = p/_pstar;
     double tau = _tstar/T;
     
-    return _R*T*(tau*gamma_t - pi*gamma_p);
+    return _R*T*(tau*(gamma0_t + gamma_t) - pi*(gamma0_p+gamma_p));
 }
 
 -(double)hForP:(long double)p andT:(long double)T
 {
+    double gamma0_t = [self dg0dtForP:p andT:T];
     double gamma_t = [self dgdtForP:p andT:T];
     
     double tau = _tstar/T;
     
-    return _R*T*tau*gamma_t;
+    return _R*T*tau*(gamma0_t+gamma_t);
 }
 
 -(double)sForP:(long double)p andT:(long double)T
 {
+    double gamma0_t = [self dg0dtForP:p andT:T];
+    double gamma0 = [self gamma0ForP:p andT:T];
+    
     double gamma_t = [self dgdtForP:p andT:T];
     double gamma = [self gammaForP:p andT:T];
     
     double tau = _tstar/T;
     
-    return _R*(tau*gamma_t - gamma);
+    return _R*(tau*(gamma0_t + gamma_t) - (gamma0 + gamma));
 }
 
 -(double)cpForP:(long double)p andT:(long double)T
 {
     double gamma_tt = [self d2gdt2ForP:p andT:T];
+    double gamma0_tt = [self d2g0dt2ForP:p andT:T];
     
     double tau = _tstar/T;
     
-    return -_R*tau*tau*gamma_tt;
+    return -_R*tau*tau*(gamma0_tt+gamma_tt);
 }
 
 -(double)cvForP:(long double)p andT:(long double)T
 {
+    double pi = p/_pstar;
+    double tau = _tstar/T;
+    
+    double gamma0_tt = [self d2g0dt2ForP:p andT:T];
+
     double gamma_tt = [self d2gdt2ForP:p andT:T];
     double gamma_p = [self dgdpForP:p andT:T];
     double gamma_pp = [self d2gdp2ForP:p andT:T];
     double gamma_pt = [self d2gdtdpForP:p andT:T];
     
-    double tau = _tstar/T;
-    double nom = gamma_p - tau*gamma_pt;
+    double nom = 1.0 + pi*gamma_p - tau*pi*gamma_pt;
+    double denom = 1.0 - pi*pi*gamma_pp;
     
-    return _R*( -tau*tau*gamma_tt + nom*nom/gamma_pp );
+    return -_R*( tau*tau*(gamma0_tt+gamma_tt) + nom*nom/denom );
 }
 
 -(double)wForP:(long double)p andT:(long double)T
 {
+    double pi = p/_pstar;
+    double tau = _tstar/T;
+    
+    double gamma0_tt = [self d2g0dt2ForP:p andT:T];
+
     double gamma_tt = [self d2gdt2ForP:p andT:T];
     double gamma_p = [self dgdpForP:p andT:T];
     double gamma_pp = [self d2gdp2ForP:p andT:T];
     double gamma_pt = [self d2gdtdpForP:p andT:T];
     
-    double tau = _tstar/T;
+    double nom = 1.0 + 2.0*pi*gamma_p + pi*pi*gamma_p*gamma_p;
+    double A = 1.0 + pi*gamma_p - tau*pi*gamma_pt;
+    double B = tau*tau*(gamma0_tt + gamma_tt);
+    double denom = (1.0 - pi*pi*gamma_pp) + A*A/B;
     
-    double nom = gamma_p - tau*gamma_pt;
-    double denom = nom*nom/(tau*tau*gamma_tt) - gamma_pp;
-    
-    return sqrt(_R*T*gamma_p*gamma_p/denom);
+    return sqrt(_R*T*nom/denom);
 }
 
 -(NSArray *)coefficientNames
