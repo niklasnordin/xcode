@@ -163,8 +163,8 @@ static int n0Coeffs = 9;
     long double sum = 0.0;
     for (int i=0; i<nCoeffs; i++)
     {
-        a = powl(7.1 - pi, _ii[i]);
-        b = powl(tau - 1.222, _ji[i]);
+        a = powl(pi, _ii[i]);
+        b = powl(tau - 0.5, _ji[i]);
         sum += _ni[i]*a*b;
     }
     
@@ -181,8 +181,8 @@ static int n0Coeffs = 9;
     long double sum = 0.0;
     for (int i=0; i<nCoeffs; i++)
     {
-        a = -_ii[i]*powl(7.1 - pi, _ii[i]-1.0);
-        b = powl(tau - 1.222, _ji[i]);
+        a = _ii[i]*powl(pi, _ii[i]-1.0);
+        b = powl(tau - 0.5, _ji[i]);
         sum += _ni[i]*a*b;
     }
     
@@ -199,8 +199,8 @@ static int n0Coeffs = 9;
     long double sum = 0.0;
     for (int i=0; i<nCoeffs; i++)
     {
-        a = _ii[i]*(_ii[i]-1.0)*powl(7.1 - pi, _ii[i]-2.0);
-        b = powl(tau - 1.222, _ji[i]);
+        a = _ii[i]*(_ii[i]-1.0)*powl(pi, _ii[i]-2.0);
+        b = powl(tau - 0.5, _ji[i]);
         sum += _ni[i]*a*b;
     }
     
@@ -217,8 +217,8 @@ static int n0Coeffs = 9;
     long double sum = 0.0;
     for (int i=0; i<nCoeffs; i++)
     {
-        a = powl(7.1 - pi, _ii[i]);
-        b = _ji[i]*powl(tau - 1.222, _ji[i]-1.0);
+        a = powl(pi, _ii[i]);
+        b = _ji[i]*powl(tau - 0.5, _ji[i]-1.0);
         sum += _ni[i]*a*b;
     }
     
@@ -236,8 +236,8 @@ static int n0Coeffs = 9;
     long double sum = 0.0;
     for (int i=0; i<nCoeffs; i++)
     {
-        a = powl(7.1 - pi, _ii[i]);
-        b = _ji[i]*(_ji[i]-1.0)*powl(tau - 1.222, _ji[i]-2.0);
+        a = powl(pi, _ii[i]);
+        b = _ji[i]*(_ji[i]-1.0)*powl(tau - 0.5, _ji[i]-2.0);
         sum += _ni[i]*a*b;
     }
     
@@ -255,20 +255,77 @@ static int n0Coeffs = 9;
     long double sum = 0.0;
     for (int i=0; i<nCoeffs; i++)
     {
-        a = -_ii[i]*powl(7.1 - pi, _ii[i]-1.0);
-        b = _ji[i]*powl(tau - 1.222, _ji[i]-1.0);
+        a = _ii[i]*powl(pi, _ii[i]-1.0);
+        b = _ji[i]*powl(tau - 0.5, _ji[i]-1.0);
         sum += _ni[i]*a*b;
     }
     
     return sum;
 }
 
+-(double)gamma0ForP:(long double)p andT:(long double)T
+{
+    double pi = p/_pstar;
+    double tau = _tstar/T;
+    
+    double g0 = log(pi);
+    for (int i=0; i<n0Coeffs; i++)
+    {
+        g0 += _n0i[i]*powl(tau, _j0i[i]);
+    }
+    return g0;
+}
+
+-(double)dg0dpForP:(long double)p andT:(long double)T
+{
+    double pi = p/_pstar;
+    
+    return 1.0/pi;
+}
+
+-(double)d2g0dp2ForP:(long double)p andT:(long double)T
+{
+    double pi = p/_pstar;
+    
+    return -1.0/(pi*pi);
+}
+
+-(double)dg0dtForP:(long double)p andT:(long double)T
+{
+    double tau = _tstar/T;
+    
+    double g0 = 0.0;
+    for (int i=0; i<n0Coeffs; i++)
+    {
+        g0 += _n0i[i]*_j0i[i]*powl(tau, _j0i[i]-1.0);
+    }
+    return g0;
+}
+
+-(double)d2g0dt2ForP:(long double)p andT:(long double)T
+{
+    double tau = _tstar/T;
+    
+    double g0 = 0.0;
+    for (int i=0; i<n0Coeffs; i++)
+    {
+        g0 += _n0i[i]*_j0i[i]*(_j0i[i]-1.0)*powl(tau, _j0i[i]-2.0);
+    }
+    return g0;
+}
+
+-(double)d2g0dtdpForP:(long double)p andT:(long double)T
+{
+    return 0.0;
+}
+
 -(double)vForP:(long double)p andT:(long double)T
 {
     double gamma_p = [self dgdpForP:p andT:T];
+    double gamma0_p = [self dg0dpForP:p andT:T];
     double pi = p/_pstar;
     
-    double denom = _R*T*pi*gamma_p;
+    double denom = _R*T*pi*(gamma0_p + gamma_p);
     return denom/p;
 }
 
