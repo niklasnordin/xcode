@@ -68,8 +68,8 @@ static int nCoeffs = 34;
         
     }
     
-    _pstar = [[[array objectAtIndex:102] objectForKey:@"Tstar"] doubleValue];
-    _tstar = [[[array objectAtIndex:103] objectForKey:@"Pstar"] doubleValue];
+    _tstar = [[[array objectAtIndex:102] objectForKey:@"Tstar"] doubleValue];
+    _pstar = [[[array objectAtIndex:103] objectForKey:@"Pstar"] doubleValue];
     _R     = [[[array objectAtIndex:104] objectForKey:@"R"] doubleValue];
     
     return self;
