@@ -64,6 +64,7 @@
     [_functionNames addObject:[sutherland name]];
     
     [_functionNames addObject:[iapws97_1 name]];
+    [_functionNames addObject:[iapws97_2 name]];
 
 }
 

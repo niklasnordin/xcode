@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "functionValue.h"
 
-@interface iapws97_2 : NSObject
+@interface iapws97_2 : NSObject <functionValue>
 
 @property (nonatomic) long double *ii;
 @property (nonatomic) long double *ji;
 @property (nonatomic) long double *ni;
+
+@property (nonatomic) long double *j0i;
+@property (nonatomic) long double *n0i;
 
 @property (nonatomic) long double tstar;
 @property (nonatomic) long double pstar;

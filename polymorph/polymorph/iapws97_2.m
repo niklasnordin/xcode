@@ -10,6 +10,7 @@
 
 static NSString *name = @"iapws97_2";
 static int nCoeffs = 43;
+static int n0Coeffs = 9;
 
 @implementation iapws97_2
 
@@ -25,7 +26,10 @@ static int nCoeffs = 43;
     _ii = malloc(nCoeffs*sizeof(long double));
     _ji = malloc(nCoeffs*sizeof(long double));
     _ni = malloc(nCoeffs*sizeof(long double));
-    
+
+    _j0i = malloc(n0Coeffs*sizeof(long double));
+    _n0i = malloc(n0Coeffs*sizeof(long double));
+
     for (int i=0; i<nCoeffs; i++)
     {
         _ii[i] = 0.0;
@@ -33,8 +37,15 @@ static int nCoeffs = 43;
         _ni[i] = 0.0;
     }
     
-    _pstar = 16.53e+6;
-    _tstar = 1386.0;
+
+    for (int i=0; i<n0Coeffs; i++)
+    {
+        _j0i[i] = 0.0;
+        _n0i[i] = 0.0;
+    }
+    
+    _pstar = 1.0e+6;
+    _tstar = 540.0;
     _R = 461.526;
     
     return self;
@@ -47,7 +58,10 @@ static int nCoeffs = 43;
     _ii = malloc(nCoeffs*sizeof(long double));
     _ji = malloc(nCoeffs*sizeof(long double));
     _ni = malloc(nCoeffs*sizeof(long double));
-    
+
+    _j0i = malloc(n0Coeffs*sizeof(long double));
+    _n0i = malloc(n0Coeffs*sizeof(long double));
+
     for (int i=0; i<nCoeffs; i++)
     {
         NSDictionary *Aidict = [array objectAtIndex:i];
@@ -68,9 +82,25 @@ static int nCoeffs = 43;
         
     }
     
-    _tstar = [[[array objectAtIndex:nCoeffs*3] objectForKey:@"Tstar"] doubleValue];
-    _pstar = [[[array objectAtIndex:nCoeffs*3+1] objectForKey:@"Pstar"] doubleValue];
-    _R     = [[[array objectAtIndex:nCoeffs*3+2] objectForKey:@"R"] doubleValue];
+    for (int i=0; i<n0Coeffs; i++)
+    {
+        NSDictionary *Ajdict = [array objectAtIndex:i+3*nCoeffs];
+        NSDictionary *Andict = [array objectAtIndex:i+3*nCoeffs + n0Coeffs];
+        
+        NSString *jname = [NSString stringWithFormat:@"j0_%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"n0_%d", i+1];
+        
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _j0i[i] = [ajk doubleValue];
+        _n0i[i] = [ank doubleValue];
+        
+    }
+
+    _tstar = [[[array objectAtIndex:nCoeffs*3+2*n0Coeffs] objectForKey:@"Tstar"] doubleValue];
+    _pstar = [[[array objectAtIndex:nCoeffs*3+2*n0Coeffs + 1] objectForKey:@"Pstar"] doubleValue];
+    _R     = [[[array objectAtIndex:nCoeffs*3+2*n0Coeffs + 2] objectForKey:@"R"] doubleValue];
     
     return self;
 }
@@ -99,7 +129,7 @@ static int nCoeffs = 43;
 
 -(int)nCoefficients
 {
-    return 105; //44*3 + 3;
+    return nCoeffs*3 + n0Coeffs*2 + 3;
 }
 
 - (NSString *)equationText
@@ -332,6 +362,19 @@ static int nCoeffs = 43;
     for (int i=0; i<nCoeffs; i++)
     {
         NSString *name = [[NSString alloc] initWithFormat:@"n%d", i+1];
+        [names addObject:name];
+    }
+    
+
+    for (int i=0; i<n0Coeffs; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"j0_%d", i+1];
+        [names addObject:name];
+    }
+    
+    for (int i=0; i<n0Coeffs; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"n0_%d", i+1];
         [names addObject:name];
     }
     
