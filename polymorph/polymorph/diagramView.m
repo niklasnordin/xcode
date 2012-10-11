@@ -114,7 +114,6 @@ static NSUInteger nx = 320;//640;
 
 - (void)dealloc
 {
-    //NSLog(@"free _yValues");
     free(_yValues);
 }
 

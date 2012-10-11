@@ -112,7 +112,7 @@ static int n0Coeffs = 9;
 
 -(double)valueForT:(double)T andP:(double)p
 {
-    double y = [self wForP:p andT:T];
+    double y = [self vForP:p andT:T];
     
     return y;
 }
