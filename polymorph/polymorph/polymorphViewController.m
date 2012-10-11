@@ -65,6 +65,7 @@
     
     [_functionNames addObject:[iapws97_1 name]];
     [_functionNames addObject:[iapws97_2 name]];
+    [_functionNames addObject:[iapws97_2b name]];
 
 }
 
