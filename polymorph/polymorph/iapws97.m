@@ -79,6 +79,57 @@ static int nCoeffs = 5;
     return _tstar*theta;
 }
 
+-(int)setRegionForPressure:(double)p andT:(double)T
+{
+    int region = -1;
+    if (T < 1073.15)
+    {
+        if (T < 623.15)
+        {
+            double p23 = [_iapws4 saturationPressureForT:T];
+            
+            if (p > p23)
+            {
+                region = 1;
+            }
+            else
+            {
+                region = 2;
+            }
+        }
+        else
+        {
+            if (T < 863.15)
+            {
+                double ps = [self pressureForT:T];
+                if (p < ps)
+                {
+                    region = 2;
+                }
+            }
+            else
+            {
+                if (p < 100.0e+6)
+                {
+                    region = 2;
+                }
+            }
+        }
+    }
+    else
+    {
+        if (T < 2273.15)
+        {
+            if (p < 50.0e+6)
+            {
+                region = 5;
+            }
+        }
+    }
+    
+    return region;
+}
+
 -(bool)pressureDependent
 {
     return YES;

@@ -81,6 +81,11 @@ static int nCoeffs = 0;
     return 0.0;
 }
 
+-(double)saturationPressureForT:(double)T
+{
+    return 0.0;
+}
+
 -(bool)pressureDependent
 {
     return YES;

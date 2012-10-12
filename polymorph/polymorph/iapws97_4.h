@@ -11,4 +11,6 @@
 
 @interface iapws97_4 : NSObject <functionValue>
 
+-(double)saturationPressureForT:(double)T;
+
 @end
