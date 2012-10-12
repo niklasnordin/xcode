@@ -44,8 +44,8 @@ static int n0Coeffs = 9;
         _n0i[i] = 0.0;
     }
     
-    _pstar = 1.0e+6;
     _tstar = 540.0;
+    _pstar = 1.0e+6;
     _R = 461.526;
     
     return self;

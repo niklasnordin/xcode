@@ -68,9 +68,9 @@ static int nCoeffs = 34;
         
     }
     
-    _tstar = [[[array objectAtIndex:102] objectForKey:@"Tstar"] doubleValue];
-    _pstar = [[[array objectAtIndex:103] objectForKey:@"Pstar"] doubleValue];
-    _R     = [[[array objectAtIndex:104] objectForKey:@"R"] doubleValue];
+    _tstar = [[[array objectAtIndex:3*nCoeffs] objectForKey:@"Tstar"] doubleValue];
+    _pstar = [[[array objectAtIndex:3*nCoeffs+1] objectForKey:@"Pstar"] doubleValue];
+    _R     = [[[array objectAtIndex:3*nCoeffs+2] objectForKey:@"R"] doubleValue];
     
     return self;
 }
@@ -99,7 +99,7 @@ static int nCoeffs = 34;
 
 -(int)nCoefficients
 {
-    return 105; //34*3 + 3;
+    return 3*nCoeffs+3;
 }
 
 - (NSString *)equationText
