@@ -294,6 +294,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6139E67A16285B8F00954BCF /* janaf */ = {
+			isa = PBXGroup;
+			children = (
+				61BA3AD415DD80BE00928715 /* janaf_cp.h */,
+				61BA3AD515DD80BE00928715 /* janaf_cp.m */,
+				61BA3AD715DD80E600928715 /* janaf_h.h */,
+				61BA3AD815DD80E600928715 /* janaf_h.m */,
+				61BA3ADA15DD80F600928715 /* janaf_s.h */,
+				61BA3ADB15DD80F600928715 /* janaf_s.m */,
+			);
+			name = janaf;
+			sourceTree = "<group>";
+		};
+		6139E67B16285BC400954BCF /* eos */ = {
+			isa = PBXGroup;
+			children = (
+				61BA3AE315DFACCC00928715 /* idealGasLaw.h */,
+				61BA3AE415DFACCC00928715 /* idealGasLaw.m */,
+				61EB3D6015E0CD0B009826F2 /* pengRobinson.h */,
+				61EB3D6115E0CD0B009826F2 /* pengRobinson.m */,
+				61EB3D7015E1064D009826F2 /* pengRobinsonLiquid.h */,
+				61EB3D7115E1064D009826F2 /* pengRobinsonLiquid.m */,
+			);
+			name = eos;
+			sourceTree = "<group>";
+		};
+		6139E67C16285BE400954BCF /* ethanol */ = {
+			isa = PBXGroup;
+			children = (
+				61FD28C31614DCEE007C1A6F /* fundamentalJacobsen.h */,
+				61FD28C41614DCEE007C1A6F /* fundamentalJacobsen.m */,
+				616F63F515E12FF6001861E6 /* FJ_Rho.h */,
+				616F63F615E12FF6001861E6 /* FJ_Rho.m */,
+				610F3A9B160E4FD100D44418 /* FJ_Cv.h */,
+				610F3A9C160E4FD100D44418 /* FJ_Cv.m */,
+				61FD28BF160FA526007C1A6F /* FJ_Cp.h */,
+				61FD28C0160FA526007C1A6F /* FJ_Cp.m */,
+				61FD28C61614DF3D007C1A6F /* FJ_SoundSpeed.h */,
+				61FD28C71614DF3D007C1A6F /* FJ_SoundSpeed.m */,
+				61C284E11615E65100AC0EEB /* FJ_u.h */,
+				61C284E21615E65100AC0EEB /* FJ_u.m */,
+				619394DF15EA98120003EF01 /* ancillary_1.h */,
+				619394E015EA98120003EF01 /* ancillary_1.m */,
+				619394E715EBD0AD0003EF01 /* ancillary_2.h */,
+				619394E815EBD0AD0003EF01 /* ancillary_2.m */,
+				619394EE15EBDDAB0003EF01 /* ancillary_3.h */,
+				619394EF15EBDDAB0003EF01 /* ancillary_3.m */,
+				610F3A9E160EE97400D44418 /* ancillary_4.h */,
+				610F3A9F160EE97500D44418 /* ancillary_4.m */,
+			);
+			name = ethanol;
+			sourceTree = "<group>";
+		};
+		6139E67D16285C0A00954BCF /* iapws97 */ = {
+			isa = PBXGroup;
+			children = (
+				6117FFCB161F543C005E074A /* iapws97_1.h */,
+				6117FFCC161F543C005E074A /* iapws97_1.m */,
+				61B9CCDA1620741700DD1A62 /* iapws97_2.h */,
+				61B9CCDB1620741700DD1A62 /* iapws97_2.m */,
+				61B9CD3C1627420200DD1A62 /* iapws97_2b.h */,
+				61B9CD3D1627420400DD1A62 /* iapws97_2b.m */,
+				61B9CD3F162750E400DD1A62 /* iapws97_3.h */,
+				61B9CD40162750E700DD1A62 /* iapws97_3.m */,
+			);
+			name = iapws97;
+			sourceTree = "<group>";
+		};
 		6164627B15B7F705006B703D = {
 			isa = PBXGroup;
 			children = (
@@ -385,52 +453,11 @@
 				616462A815B7F827006B703D /* function_0001.m */,
 				616462AB15B82757006B703D /* function_0002.h */,
 				616462AC15B82757006B703D /* function_0002.m */,
-				61247A4815C593A9004DB05F /* nsrds_0.h */,
-				61247A4915C593A9004DB05F /* nsrds_0.m */,
-				61247A4C15C5976C004DB05F /* nsrds_1.h */,
-				61247A4D15C5976C004DB05F /* nsrds_1.m */,
-				619394F515ED2DC80003EF01 /* nsrds_2.h */,
-				619394F615ED2DC90003EF01 /* nsrds_2.m */,
-				619394FC15ED320F0003EF01 /* nsrds_3.h */,
-				619394FD15ED320F0003EF01 /* nsrds_3.m */,
-				6193950715ED349E0003EF01 /* nsrds_4.h */,
-				6193950815ED349E0003EF01 /* nsrds_4.m */,
-				61A5CE8A15C2F81E00937EA8 /* nsrds_5.h */,
-				61A5CE8B15C2F81E00937EA8 /* nsrds_5.m */,
-				617C7C7215E7BDB100B11073 /* nsrds_6.h */,
-				617C7C7315E7BDB100B11073 /* nsrds_6.m */,
-				61BA3AD415DD80BE00928715 /* janaf_cp.h */,
-				61BA3AD515DD80BE00928715 /* janaf_cp.m */,
-				61BA3AD715DD80E600928715 /* janaf_h.h */,
-				61BA3AD815DD80E600928715 /* janaf_h.m */,
-				61BA3ADA15DD80F600928715 /* janaf_s.h */,
-				61BA3ADB15DD80F600928715 /* janaf_s.m */,
-				61BA3AE315DFACCC00928715 /* idealGasLaw.h */,
-				61BA3AE415DFACCC00928715 /* idealGasLaw.m */,
-				61EB3D6015E0CD0B009826F2 /* pengRobinson.h */,
-				61EB3D6115E0CD0B009826F2 /* pengRobinson.m */,
-				61EB3D7015E1064D009826F2 /* pengRobinsonLiquid.h */,
-				61EB3D7115E1064D009826F2 /* pengRobinsonLiquid.m */,
-				61FD28C31614DCEE007C1A6F /* fundamentalJacobsen.h */,
-				61FD28C41614DCEE007C1A6F /* fundamentalJacobsen.m */,
-				616F63F515E12FF6001861E6 /* FJ_Rho.h */,
-				616F63F615E12FF6001861E6 /* FJ_Rho.m */,
-				610F3A9B160E4FD100D44418 /* FJ_Cv.h */,
-				610F3A9C160E4FD100D44418 /* FJ_Cv.m */,
-				61FD28BF160FA526007C1A6F /* FJ_Cp.h */,
-				61FD28C0160FA526007C1A6F /* FJ_Cp.m */,
-				61FD28C61614DF3D007C1A6F /* FJ_SoundSpeed.h */,
-				61FD28C71614DF3D007C1A6F /* FJ_SoundSpeed.m */,
-				61C284E11615E65100AC0EEB /* FJ_u.h */,
-				61C284E21615E65100AC0EEB /* FJ_u.m */,
-				619394DF15EA98120003EF01 /* ancillary_1.h */,
-				619394E015EA98120003EF01 /* ancillary_1.m */,
-				619394E715EBD0AD0003EF01 /* ancillary_2.h */,
-				619394E815EBD0AD0003EF01 /* ancillary_2.m */,
-				619394EE15EBDDAB0003EF01 /* ancillary_3.h */,
-				619394EF15EBDDAB0003EF01 /* ancillary_3.m */,
-				610F3A9E160EE97400D44418 /* ancillary_4.h */,
-				610F3A9F160EE97500D44418 /* ancillary_4.m */,
+				61B9CD4216285A5E00DD1A62 /* nsrds */,
+				6139E67A16285B8F00954BCF /* janaf */,
+				6139E67B16285BC400954BCF /* eos */,
+				6139E67C16285BE400954BCF /* ethanol */,
+				6139E67D16285C0A00954BCF /* iapws97 */,
 				612EF27B160A286200D951E9 /* boilingTemperature.h */,
 				612EF27C160A286200D951E9 /* boilingTemperature.m */,
 				61EB3D6A15E0FAD3009826F2 /* Complex.h */,
@@ -439,14 +466,6 @@
 				61EB3D6E15E0FB4C009826F2 /* Polynomial.m */,
 				6117FFC3161F4465005E074A /* sutherland.h */,
 				6117FFC4161F4465005E074A /* sutherland.m */,
-				6117FFCB161F543C005E074A /* iapws97_1.h */,
-				6117FFCC161F543C005E074A /* iapws97_1.m */,
-				61B9CCDA1620741700DD1A62 /* iapws97_2.h */,
-				61B9CCDB1620741700DD1A62 /* iapws97_2.m */,
-				61B9CD3C1627420200DD1A62 /* iapws97_2b.h */,
-				61B9CD3D1627420400DD1A62 /* iapws97_2b.m */,
-				61B9CD3F162750E400DD1A62 /* iapws97_3.h */,
-				61B9CD40162750E700DD1A62 /* iapws97_3.m */,
 			);
 			name = functions;
 			sourceTree = "<group>";
@@ -514,6 +533,27 @@
 				61A5CE8715C2E2E400937EA8 /* database.json */,
 			);
 			name = Pictures;
+			sourceTree = "<group>";
+		};
+		61B9CD4216285A5E00DD1A62 /* nsrds */ = {
+			isa = PBXGroup;
+			children = (
+				61247A4815C593A9004DB05F /* nsrds_0.h */,
+				61247A4915C593A9004DB05F /* nsrds_0.m */,
+				61247A4C15C5976C004DB05F /* nsrds_1.h */,
+				61247A4D15C5976C004DB05F /* nsrds_1.m */,
+				619394F515ED2DC80003EF01 /* nsrds_2.h */,
+				619394F615ED2DC90003EF01 /* nsrds_2.m */,
+				619394FC15ED320F0003EF01 /* nsrds_3.h */,
+				619394FD15ED320F0003EF01 /* nsrds_3.m */,
+				6193950715ED349E0003EF01 /* nsrds_4.h */,
+				6193950815ED349E0003EF01 /* nsrds_4.m */,
+				61A5CE8A15C2F81E00937EA8 /* nsrds_5.h */,
+				61A5CE8B15C2F81E00937EA8 /* nsrds_5.m */,
+				617C7C7215E7BDB100B11073 /* nsrds_6.h */,
+				617C7C7315E7BDB100B11073 /* nsrds_6.m */,
+			);
+			name = nsrds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
