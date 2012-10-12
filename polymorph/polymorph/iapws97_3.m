@@ -29,7 +29,7 @@ static int nCoeffs = 40;
     }
     
     _tstar = 1386.0;
-    _pstar = 16.53e+6;
+    _rhostar = 16.53e+6;
     _R = 461.526;
 
     return self;
@@ -60,7 +60,7 @@ static int nCoeffs = 40;
     }
     
     _tstar = [[[array objectAtIndex:3*nCoeffs] objectForKey:@"Tstar"] doubleValue];
-    _pstar = [[[array objectAtIndex:3*nCoeffs+1] objectForKey:@"Pstar"] doubleValue];
+    _rhostar = [[[array objectAtIndex:3*nCoeffs+1] objectForKey:@"rhostar"] doubleValue];
     _R     = [[[array objectAtIndex:3*nCoeffs+2] objectForKey:@"R"] doubleValue];
 
     return self;
@@ -111,6 +111,155 @@ static int nCoeffs = 40;
     
 }
 
+-(long double)phiForDelta:(long double)delta andTau:(long double)tau
+{
+    long double sum = _ni[0]*log(delta);
+    for (int i=1; i<nCoeffs; i++)
+    {
+        long double a = powl(delta, _ii[i]);
+        long double b = powl(tau, _ji[i]);
+        sum += _ni[i]*a*b;
+    }
+    return sum;
+}
+
+-(long double)dphiddForDelta:(long double)delta andTau:(long double)tau
+{
+    long double sum = _ni[0]/delta;
+    for (int i=1; i<nCoeffs; i++)
+    {
+        long double a = _ii[i]*powl(delta, _ii[i]-1.0);
+        long double b = powl(tau, _ji[i]);
+        sum += _ni[i]*a*b;
+    }
+    return sum;
+}
+
+-(long double)d2phidd2ForDelta:(long double)delta andTau:(long double)tau
+{
+    long double sum = -_ni[0]/delta/delta;
+    for (int i=1; i<nCoeffs; i++)
+    {
+        long double a = _ii[i]*(_ii[i]-1.0)*powl(delta, _ii[i]-2.0);
+        long double b = powl(tau, _ji[i]);
+        sum += _ni[i]*a*b;
+    }
+    return sum;
+}
+
+-(long double)dphidtForDelta:(long double)delta andTau:(long double)tau
+{
+    long double sum = 0.0;
+    for (int i=1; i<nCoeffs; i++)
+    {
+        long double a = powl(delta, _ii[i]);
+        long double b = _ji[i]*powl(tau, _ji[i]-1.0);
+        sum += _ni[i]*a*b;
+    }
+    return sum;
+}
+
+-(long double)d2phidt2ForDelta:(long double)delta andTau:(long double)tau
+{
+    long double sum = 0.0;
+    for (int i=1; i<nCoeffs; i++)
+    {
+        long double a = powl(delta, _ii[i]);
+        long double b = _ji[i]*(_ji[i]-1.0)*powl(tau, _ji[i]-2.0);
+        sum += _ni[i]*a*b;
+    }
+    return sum;
+}
+
+-(long double)d2phidtddForDelta:(long double)delta andTau:(long double)tau
+{
+    long double sum = 0.0;
+    for (int i=1; i<nCoeffs; i++)
+    {
+        long double a = _ii[i]*powl(delta, _ii[i]-1.0);
+        long double b = _ji[i]*powl(tau, _ji[i]-1.0);
+        sum += _ni[i]*a*b;
+    }
+    return sum;
+}
+
+-(double)vForP:(long double)p andT:(long double)T
+{
+    return 1.0/[self rhoForP:p andT:T];
+}
+
+-(double)rhoForP:(long double)p andT:(long double)T
+{
+    return 1.0;
+}
+
+-(double)uForP:(long double)p andT:(long double)T
+{
+    long double rho = [self rhoForP:p andT:T];
+    long double delta = rho/_rhostar;
+    long double tau = _tstar/T;
+    return _R*T*tau*[self dphidtForDelta:delta andTau:tau];
+}
+
+-(double)hForP:(long double)p andT:(long double)T
+{
+    long double rho = [self rhoForP:p andT:T];
+    long double delta = rho/_rhostar;
+    long double tau = _tstar/T;
+    
+    return _R*T*(tau*[self dphidtForDelta:delta andTau:tau] + delta*[self dphiddForDelta:delta andTau:tau]);
+}
+
+-(double)sForP:(long double)p andT:(long double)T
+{
+    long double rho = [self rhoForP:p andT:T];
+    long double delta = rho/_rhostar;
+    long double tau = _tstar/T;
+    
+    return _R*(tau*[self dphidtForDelta:delta andTau:tau] - [self phiForDelta:delta andTau:tau]);
+}
+
+-(double)cvForP:(long double)p andT:(long double)T
+{
+    long double rho = [self rhoForP:p andT:T];
+    long double delta = rho/_rhostar;
+    long double tau = _tstar/T;
+    
+    return _R*tau*tau*[self d2phidt2ForDelta:delta andTau:tau];
+}
+
+-(double)cpForP:(long double)p andT:(long double)T
+{
+    long double rho = [self rhoForP:p andT:T];
+    long double delta = rho/_rhostar;
+    long double tau = _tstar/T;
+    
+    double cv = -tau*tau*[self d2phidt2ForDelta:delta andTau:tau];
+    
+    double dphidd = [self dphiddForDelta:delta andTau:tau];
+    double nom = delta*dphidd - delta*tau*[self d2phidtddForDelta:delta andTau:tau];
+    double denom = 2.0*delta*dphidd + delta*delta*[self d2phidd2ForDelta:delta andTau:tau];
+    return _R*(cv + nom*nom/denom);
+}
+
+-(double)wForP:(long double)p andT:(long double)T
+{
+    long double rho = [self rhoForP:p andT:T];
+    long double delta = rho/_rhostar;
+    long double tau = _tstar/T;
+ 
+    long double dphidd = [self dphiddForDelta:delta andTau:tau];
+    //long double dphidt = [self dphidtForDelta:delta andTau:tau];
+    long double d2phidd = [self d2phidd2ForDelta:delta andTau:tau];
+    long double d2phidt = [self d2phidt2ForDelta:delta andTau:tau];
+    long double dddt = [self d2phidtddForDelta:delta andTau:tau];
+    
+    long nom = delta*dphidd - delta*tau*dddt;
+    long denom = tau*tau*d2phidt;
+    
+    return _R*T*(2.0*delta*dphidd + delta*delta*d2phidd - nom*nom/denom);
+}
+
 -(NSArray *)coefficientNames
 {
     
@@ -133,7 +282,7 @@ static int nCoeffs = 40;
     }
     
     [names addObject:@"Tstar"];
-    [names addObject:@"Pstar"];
+    [names addObject:@"rhostar"];
     [names addObject:@"R"];
     
     return names;

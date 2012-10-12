@@ -16,7 +16,17 @@
 @property (nonatomic) long double *ni;
 
 @property (nonatomic) long double tstar;
-@property (nonatomic) long double pstar;
+@property (nonatomic) long double rhostar;
 @property (nonatomic) long double R;
+
+-(double)vForP:(long double)p andT:(long double)T;
+-(double)rhoForP:(long double)p andT:(long double)T;
+-(double)uForP:(long double)p andT:(long double)T;
+-(double)hForP:(long double)p andT:(long double)T;
+-(double)sForP:(long double)p andT:(long double)T;
+-(double)cpForP:(long double)p andT:(long double)T;
+-(double)cvForP:(long double)p andT:(long double)T;
+-(double)wForP:(long double)p andT:(long double)T;
+
 
 @end
