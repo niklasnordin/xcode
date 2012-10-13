@@ -63,6 +63,7 @@
 
     [_functionNames addObject:[boilingTemperature name]];
     [_functionNames addObject:[sutherland name]];
+    [_functionNames addObject:[antoine name]];
     
     [_functionNames addObject:[iapws97_1 name]];
     [_functionNames addObject:[iapws97_2 name]];

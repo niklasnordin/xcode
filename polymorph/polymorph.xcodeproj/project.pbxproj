@@ -29,6 +29,9 @@
 		6139E69D1629A2BB00954BCF /* pengRobinson.png in Resources */ = {isa = PBXBuildFile; fileRef = 6139E69C1629A2BB00954BCF /* pengRobinson.png */; };
 		6139E69F1629A2C400954BCF /* pengRobinsonLiquid.png in Resources */ = {isa = PBXBuildFile; fileRef = 6139E69E1629A2C400954BCF /* pengRobinsonLiquid.png */; };
 		6139E6A11629A2CB00954BCF /* pengRobinsonVapour.png in Resources */ = {isa = PBXBuildFile; fileRef = 6139E6A01629A2CB00954BCF /* pengRobinsonVapour.png */; };
+		6139E6A41629A64F00954BCF /* antoine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6139E6A31629A64E00954BCF /* antoine.m */; };
+		6139E6A61629AB7F00954BCF /* antoine.tex in Resources */ = {isa = PBXBuildFile; fileRef = 6139E6A51629AB7F00954BCF /* antoine.tex */; };
+		6139E6A81629AB8F00954BCF /* antoine.png in Resources */ = {isa = PBXBuildFile; fileRef = 6139E6A71629AB8F00954BCF /* antoine.png */; };
 		6164628B15B7F705006B703D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628A15B7F705006B703D /* UIKit.framework */; };
 		6164628D15B7F705006B703D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628C15B7F705006B703D /* Foundation.framework */; };
 		6164628F15B7F705006B703D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628E15B7F705006B703D /* CoreGraphics.framework */; };
@@ -161,6 +164,10 @@
 		6139E69C1629A2BB00954BCF /* pengRobinson.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pengRobinson.png; sourceTree = "<group>"; };
 		6139E69E1629A2C400954BCF /* pengRobinsonLiquid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pengRobinsonLiquid.png; sourceTree = "<group>"; };
 		6139E6A01629A2CB00954BCF /* pengRobinsonVapour.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pengRobinsonVapour.png; sourceTree = "<group>"; };
+		6139E6A21629A64E00954BCF /* antoine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = antoine.h; sourceTree = "<group>"; };
+		6139E6A31629A64E00954BCF /* antoine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = antoine.m; sourceTree = "<group>"; };
+		6139E6A51629AB7F00954BCF /* antoine.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = antoine.tex; sourceTree = "<group>"; };
+		6139E6A71629AB8F00954BCF /* antoine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = antoine.png; sourceTree = "<group>"; };
 		6164628615B7F705006B703D /* thermoPlot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thermoPlot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6164628A15B7F705006B703D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6164628C15B7F705006B703D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -494,6 +501,8 @@
 				61EB3D6E15E0FB4C009826F2 /* Polynomial.m */,
 				6117FFC3161F4465005E074A /* sutherland.h */,
 				6117FFC4161F4465005E074A /* sutherland.m */,
+				6139E6A21629A64E00954BCF /* antoine.h */,
+				6139E6A31629A64E00954BCF /* antoine.m */,
 			);
 			name = functions;
 			sourceTree = "<group>";
@@ -524,6 +533,7 @@
 				61C285251618BA5F00AC0EEB /* FJ_Cv.tex */,
 				61C285271618BDD500AC0EEB /* FJ_Cp.tex */,
 				61648CDE1618D98B00D499E6 /* FJ_SoundSpeed.tex */,
+				6139E6A51629AB7F00954BCF /* antoine.tex */,
 				6117FFC9161F47F4005E074A /* sutherland.tex */,
 				61D2AEA4160AD69800A7FC78 /* readme.txt */,
 				617C7CC615E9878A00B11073 /* texToPng */,
@@ -558,6 +568,7 @@
 				61C285291618BDE500AC0EEB /* FJ_Cp.png */,
 				61648CDC1618D95500D499E6 /* FJ_SoundSpeed.png */,
 				6117FFC7161F47E2005E074A /* sutherland.png */,
+				6139E6A71629AB8F00954BCF /* antoine.png */,
 				61D7352A160A6CB800362373 /* Default-568h@2x.png */,
 				61BA3AE115DFAB7400928715 /* Icon@2x.png */,
 				61BA3ADF15DFAB6C00928715 /* Icon.png */,
@@ -697,6 +708,8 @@
 				6139E69D1629A2BB00954BCF /* pengRobinson.png in Resources */,
 				6139E69F1629A2C400954BCF /* pengRobinsonLiquid.png in Resources */,
 				6139E6A11629A2CB00954BCF /* pengRobinsonVapour.png in Resources */,
+				6139E6A61629AB7F00954BCF /* antoine.tex in Resources */,
+				6139E6A81629AB8F00954BCF /* antoine.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,6 +774,7 @@
 				6139E6831628609C00954BCF /* iapws97_5.m in Sources */,
 				6139E686162860EE00954BCF /* iapws97.m in Sources */,
 				6139E6891629905500954BCF /* pengRobinsonVapour.m in Sources */,
+				6139E6A41629A64F00954BCF /* antoine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
