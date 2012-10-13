@@ -86,15 +86,18 @@ static int nCoeffs = 5;
     {
         if (T < 623.15)
         {
-            double p23 = [_iapws4 saturationPressureForT:T];
+            if (T > 273.15)
+            {
+                double p23 = [_iapws4 saturationPressureForT:T];
             
-            if (p > p23)
-            {
-                region = 1;
-            }
-            else
-            {
-                region = 2;
+                if (p > p23)
+                {
+                    region = 1;
+                }
+                else
+                {
+                    region = 2;
+                }
             }
         }
         else

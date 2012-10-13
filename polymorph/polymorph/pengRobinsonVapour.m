@@ -1,32 +1,32 @@
 //
-//  pengRobinsonLow.m
+//  pengRobinsonVapour.m
 //  polymorph
 //
-//  Created by Niklas Nordin on 2012-08-19.
+//  Created by Niklas Nordin on 2012-10-13.
 //  Copyright (c) 2012 nequam. All rights reserved.
 //
 
-#import "pengRobinson.h"
+#import "pengRobinsonVapour.h"
 #import "Polynomial.h"
 #import "Complex.h"
 
 #define Rgas 8314.462175
-static NSString *name = @"pengRobinson";
+static NSString *name = @"pengRobinsonVapour";
 
-@implementation pengRobinson
+@implementation pengRobinsonVapour
 
 +(NSString *)name
 {
     return name;
 }
 
--(pengRobinson *)initWithZero
+-(pengRobinsonVapour *)initWithZero
 {
     self = [super init];
     return self;
 }
 
--(pengRobinson *)initWithArray:(NSArray *)array
+-(pengRobinsonVapour *)initWithArray:(NSArray *)array
 {
     self = [super init];
     
@@ -41,13 +41,13 @@ static NSString *name = @"pengRobinson";
     
     NSDictionary *A3dict = [array objectAtIndex:3];
     _mw = [[A3dict objectForKey:@"Mw"] doubleValue];
-
+    
     return self;
 }
 
 -(NSString *) name
 {
-    return [pengRobinson name];
+    return [pengRobinsonVapour name];
 }
 
 -(double)valueForT:(double)T andP:(double)p
@@ -74,7 +74,7 @@ static NSString *name = @"pengRobinson";
         Complex *rt0 = [rts objectAtIndex:0];
         double z = rt0.re;
         double rho = p*_mw/Rgas/T/z;
-
+        
         returnValue = rho;
     }
     else
@@ -82,34 +82,18 @@ static NSString *name = @"pengRobinson";
         Complex *rt0 = [rts objectAtIndex:0];
         Complex *rt1 = [rts objectAtIndex:1];
         Complex *rt2 = [rts objectAtIndex:2];
-
+        
         double z0 = rt0.re;
         double z1 = rt1.re;
         double z2 = rt2.re;
-        double zLiq = fmin(z0, fmin(z1, z2));
+        //double zLiq = fmin(z0, fmin(z1, z2));
         double zVap = fmax(z0, fmax(z1, z2));
-        
-        double logFugOverPliq = [self logFugacityOverP:zLiq A:capA B:capB];
-        double logFugOverPvap = [self logFugacityOverP:zVap A:capA B:capB];
-        double pliq = p*exp(logFugOverPliq);
-        double pvap = p*exp(logFugOverPvap);
-        
-        // if fugacity of ph > pl, then equilibrium drives towards phase low
-        double z = zVap;
-        
-        if (pvap > pliq)
-        {
-            if (zLiq > 0)
-            {
-                z = zLiq;
-            }
-        }
-
-        double rho = p*_mw/Rgas/T/z;
+                
+        double rho = p*_mw/Rgas/T/zVap;
         returnValue = rho;
-
-    }
         
+    }
+    
     return returnValue;
 }
 
@@ -156,5 +140,6 @@ static NSString *name = @"pengRobinson";
 {
     return @[ @"Tc", @"Pc", @"omega", @"Mw" ];
 }
+
 
 @end

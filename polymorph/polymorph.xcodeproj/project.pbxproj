@@ -22,6 +22,7 @@
 		6139E68016285F4C00954BCF /* iapws97_4.m in Sources */ = {isa = PBXBuildFile; fileRef = 6139E67F16285F4C00954BCF /* iapws97_4.m */; };
 		6139E6831628609C00954BCF /* iapws97_5.m in Sources */ = {isa = PBXBuildFile; fileRef = 6139E6821628609C00954BCF /* iapws97_5.m */; };
 		6139E686162860EE00954BCF /* iapws97.m in Sources */ = {isa = PBXBuildFile; fileRef = 6139E685162860EE00954BCF /* iapws97.m */; };
+		6139E6891629905500954BCF /* pengRobinsonVapour.m in Sources */ = {isa = PBXBuildFile; fileRef = 6139E6881629905500954BCF /* pengRobinsonVapour.m */; };
 		6164628B15B7F705006B703D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628A15B7F705006B703D /* UIKit.framework */; };
 		6164628D15B7F705006B703D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628C15B7F705006B703D /* Foundation.framework */; };
 		6164628F15B7F705006B703D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628E15B7F705006B703D /* CoreGraphics.framework */; };
@@ -148,6 +149,8 @@
 		6139E6821628609C00954BCF /* iapws97_5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iapws97_5.m; sourceTree = "<group>"; };
 		6139E684162860EE00954BCF /* iapws97.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iapws97.h; sourceTree = "<group>"; };
 		6139E685162860EE00954BCF /* iapws97.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iapws97.m; sourceTree = "<group>"; };
+		6139E6871629905500954BCF /* pengRobinsonVapour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pengRobinsonVapour.h; sourceTree = "<group>"; };
+		6139E6881629905500954BCF /* pengRobinsonVapour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pengRobinsonVapour.m; sourceTree = "<group>"; };
 		6164628615B7F705006B703D /* thermoPlot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thermoPlot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6164628A15B7F705006B703D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6164628C15B7F705006B703D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -325,6 +328,8 @@
 				61EB3D6115E0CD0B009826F2 /* pengRobinson.m */,
 				61EB3D7015E1064D009826F2 /* pengRobinsonLiquid.h */,
 				61EB3D7115E1064D009826F2 /* pengRobinsonLiquid.m */,
+				6139E6871629905500954BCF /* pengRobinsonVapour.h */,
+				6139E6881629905500954BCF /* pengRobinsonVapour.m */,
 			);
 			name = eos;
 			sourceTree = "<group>";
@@ -739,6 +744,7 @@
 				6139E68016285F4C00954BCF /* iapws97_4.m in Sources */,
 				6139E6831628609C00954BCF /* iapws97_5.m in Sources */,
 				6139E686162860EE00954BCF /* iapws97.m in Sources */,
+				6139E6891629905500954BCF /* pengRobinsonVapour.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
