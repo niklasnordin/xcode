@@ -58,18 +58,19 @@ static NSString *name = @"pengRobinsonLiquid";
 
     double Tr = T/_tc;
     
-    double aPR = 0.457236*Rgas*Rgas*_tc*_tc/_pc;
+    double aPR = 0.457235*Rgas*Rgas*_tc*_tc/_pc;
     double bPR = 0.0777961*Rgas*_tc/_pc;
-    double alpha = pow(1.0 + (0.37464+1.54226*_omega-0.26992*_omega*_omega)*(1.0-sqrt(Tr)), 2.0);
+    double kappa = 0.37464+1.54226*_omega-0.26992*_omega*_omega;
+    double alpha = pow(1.0 + kappa*(1.0-sqrt(Tr)), 2.0);
     
     double capA = aPR*alpha*p/(Rgas*Rgas*T*T);
     double capB = bPR*p/(Rgas*T);
     
     double zA = -(1.0 - capB);
     double zB = capA - 3.0*capB*capB - 2.0*capB;
-    double zC = -(capA*capB - capB*capB - capB*capB*capB);
-    
-    NSArray *rts = [Polynomial solveThirdOrder:zA coeffB:zB coeffC:zC];
+    double zC = -capB*(capA - capB - capB*capB);
+
+    NSArray *rts = [Polynomial solveThirdOrderReal:zA coeffB:zB coeffC:zC];
     
     if ([rts count] == 1)
     {
@@ -90,18 +91,12 @@ static NSString *name = @"pengRobinsonLiquid";
         double z2 = rt2.re;
         double zMin = fmin(z0, fmin(z1, z2));
         double zMax = fmax(z0, fmax(z1, z2));
-        
-        //double logFugOverPmin = [self logFugacityOverP:zMin A:capA B:capB];
-        //double logFugOverPmax = [self logFugacityOverP:zMax A:capA B:capB];
-        //double pmin = p*exp(logFugOverPmin);
-        //double pmax = p*exp(logFugOverPmax);
-        
-        double z = zMax;
-        
-        if (zMin > 0)
+        double z = zMin;
+        if (z < 0.0)
         {
-            z = zMin;
+            z = zMax;
         }
+
         double rho = p*_mw/Rgas/T/z;
         returnValue = rho;
 
