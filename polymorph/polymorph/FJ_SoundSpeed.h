@@ -13,7 +13,6 @@
 @interface FJ_SoundSpeed : fundamentalJacobsen <functionValue>
 
 @property (strong, nonatomic) id<functionValue> rho;
-@property (strong, nonatomic) id<functionValue> cp;
-@property (strong, nonatomic) id<functionValue> cv;
+@property (strong, nonatomic) id<functionValue> cp0;
 
 @end

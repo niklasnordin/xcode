@@ -75,6 +75,10 @@ static int nCoeffs = 23;
     _rhoc = [[[array objectAtIndex:94] objectForKey:@"rhoc"] doubleValue];
     _mw   = [[[array objectAtIndex:95] objectForKey:@"Mw"] doubleValue];
     
+    // convert rhoc
+    // rhoc input is SI units (kg/m3), but usage is kmol/m3 (mol/dm3)
+    _rhoc = _rhoc/_mw;
+    
     return self;
 }
 
@@ -117,18 +121,8 @@ static int nCoeffs = 23;
 -(double)d2a0dt2:(double)pressure T:(double)temperature cp0:(id<functionValue>)cp0
 {
     double tau = _tc/temperature;
-    /*
-     double tp = 1.000001*temperature;
-     double tm = 0.999999*temperature;
-     double cp = [_cp0 valueForT:tp andP:pressure];
-     double cm = [_cp0 valueForT:tm andP:pressure];
-     double taup = _tc/tp;
-     double taum = _tc/tm;
-     double dcpdt = (cp - cm)/(taup - taum);
-     //NSLog(@"dcpdt=%g",dcpdt);
-     */
-    return (1.0 - [cp0 valueForT:temperature andP:pressure]/Rgas)/tau/tau;
-    //+ 2.0*dcpdt/Rgas/tau;
+    double cp0Mole = [cp0 valueForT:temperature andP:pressure]*[self mw];
+    return (1.0 - cp0Mole/Rgas)/tau/tau;
 }
 
 // d = rho/rhoc (kmol/m^3)

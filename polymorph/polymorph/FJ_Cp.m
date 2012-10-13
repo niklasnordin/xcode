@@ -58,7 +58,7 @@ static NSString *name = @"FJ_Cp";
 
 -(double)cp:(double)pressure T:(double)Temperature
 {
-    double cv = [_cv valueForT:Temperature andP:pressure];
+    //double cv = [_cv valueForT:Temperature andP:pressure];
     
     double tau = [self tc]/Temperature;
     double rho = [_rho valueForT:Temperature andP:pressure]/[self mw];
@@ -71,8 +71,13 @@ static NSString *name = @"FJ_Cp";
     double nom = 1.0 + delta*t1 - delta*tau*t2;
     double denom = 1.0 + 2.0*delta*t1 + delta*delta*t3;
 
+    double cv1 = [self d2a0dt2:pressure T:Temperature cp0:_cp0];
+    double cv2 = [self d2aResdt2:delta t:tau];
+    
+    double cv = -Rgas*tau*tau*(cv1 + cv2);
+
     double cp = cv + Rgas*nom*nom/denom;
-    return cp;
+    return cp/[self mw];
 }
 
 - (NSString *)equationText
@@ -82,7 +87,7 @@ static NSString *name = @"FJ_Cp";
 
 -(NSArray *)dependsOnFunctions
 {
-    return @[ @"cv", @"rho" ];
+    return @[ @"cp0", @"rho" ];
 }
 
 -(void)setFunction:(id)function forKey:(NSString *)key
@@ -93,9 +98,9 @@ static NSString *name = @"FJ_Cp";
         _rho = function;
     }
     
-    if ([key isEqualToString:@"cv"])
+    if ([key isEqualToString:@"cp0"])
     {
-        _cv = function;
+        _cp0 = function;
     }
 }
 /*

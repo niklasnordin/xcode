@@ -13,6 +13,6 @@
 @interface FJ_Cp : fundamentalJacobsen <functionValue>
 
 @property (strong, nonatomic) id<functionValue> rho;
-@property (strong, nonatomic) id<functionValue> cv;
+@property (strong, nonatomic) id<functionValue> cp0;
 
 @end

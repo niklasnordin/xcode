@@ -66,7 +66,7 @@ static NSString *name = @"FJ_Cv";
     double cv1 = [self d2a0dt2:pressure T:Temperature cp0:_cp0];
     double cv2 = [self d2aResdt2:delta t:tau];
 
-    return -Rgas*tau*tau*(cv1 + cv2);
+    return -Rgas*tau*tau*(cv1 + cv2)/[self mw];
 }
 
 - (NSString *)equationText
@@ -92,17 +92,5 @@ static NSString *name = @"FJ_Cv";
         _cp0 = function;
     }
 }
-/*
--(NSArray *)coefficientNames
-{
-    
-    NSMutableArray *names = [[NSMutableArray alloc] init];
-    for (int i=0; i<96; i++)
-    {
-        NSString *name = [[NSString alloc] initWithFormat:@"A%d", i];
-        [names addObject:name];
-    }
-    return names;
-}
-*/
+
 @end

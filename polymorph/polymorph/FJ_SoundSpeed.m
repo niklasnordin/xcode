@@ -41,14 +41,22 @@ static NSString *name = @"FJ_SoundSpeed";
     double rho = [_rho valueForT:Temperature andP:pressure]/[self mw];
     double delta = rho/[self rhoc];
     double tau = [self tc]/Temperature;
+        
+    double cv1 = [self d2a0dt2:pressure T:Temperature cp0:_cp0];
+    double cv2 = [self d2aResdt2:delta t:tau];
     
-    double cv = [_cv valueForT:Temperature andP:pressure];
-    double cp = [_cp valueForT:Temperature andP:pressure];
+    double cv = -Rgas*tau*tau*(cv1 + cv2);
     
     double t1 = [self daResdd:delta t:tau];
-    double t2 = [self d2aResdd2:delta t:tau];
+    double t2 = [self d2aResdddt:delta t:tau];
+    double t3 = [self d2aResdd2:delta t:tau];
     
-    double w2 = Rgas*Temperature*(cp/cv)*(1.0 + 2.0*delta*t1 + delta*delta*t2)/[self mw];
+    double nom = 1.0 + delta*t1 - delta*tau*t2;
+    double denom = 1.0 + 2.0*delta*t1 + delta*delta*t3;
+       
+    double cp = cv + Rgas*nom*nom/denom;
+        
+    double w2 = Rgas*Temperature*(cp/cv)*(1.0 + 2.0*delta*t1 + delta*delta*t3)/[self mw];
     return sqrt(w2);
 }
 
@@ -74,7 +82,7 @@ static NSString *name = @"FJ_SoundSpeed";
 
 -(NSArray *)dependsOnFunctions
 {
-    return @[ @"cp", @"cv", @"rho" ];
+    return @[ @"cp0", @"rho" ];
 
 }
 
@@ -86,29 +94,10 @@ static NSString *name = @"FJ_SoundSpeed";
         _rho = function;
     }
     
-    if ([key isEqualToString:@"cv"])
+    if ([key isEqualToString:@"cp0"])
     {
-        _cv = function;
-    }
-
-    if ([key isEqualToString:@"cp"])
-    {
-        _cp = function;
+        _cp0 = function;
     }
 }
-/*
--(NSArray *)coefficientNames
-{
-    
-    NSMutableArray *names = [[NSMutableArray alloc] init];
-    for (int i=0; i<96; i++)
-    {
-        NSString *name = [[NSString alloc] initWithFormat:@"A%d", i];
-        [names addObject:name];
-    }
-    return names;
-
-}
-*/
 
 @end
