@@ -151,23 +151,23 @@ static int nCoeffs = 5;
     
     switch (reg) {
         case reg1:
-            value = 0.0; //iapws1 rhoForP:p andT:T];
+            value = [_iapws1 rhoForP:p andT:T];
             break;
             
         case reg2:
-            value = 0.0;
+            value = [_iapws2 rhoForP:p andT:T];
             break;
             
         case reg2b:
-            value = 0.0;
+            value = [_iapws2b rhoForP:p andT:T];
             break;
             
         case reg3:
-            value = 0.0;
+            value = [_iapws3 rhoForP:p andT:T];
             break;
             
         case reg5:
-            value = 0.0;
+            value = [_iapws5 rhoForP:p andT:T];
             break;
             
         default:

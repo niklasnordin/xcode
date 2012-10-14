@@ -341,6 +341,16 @@ static int nCoeffs = 40;
     return _R*T*(2.0*delta*dphidd + delta*delta*d2phidd - nom*nom/denom);
 }
 
+-(double)pForRho:(long double)rho andT:(long double)T
+{
+    long double delta = rho/_rhostar;
+    long double tau = _tstar/T;
+    
+    double dphi = [self dphiddForDelta:delta andTau:tau];
+    
+    return rho*_R*T*delta*dphi;
+}
+
 -(NSArray *)coefficientNames
 {
     

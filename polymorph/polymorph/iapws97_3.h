@@ -32,6 +32,6 @@
 -(double)cpForP:(long double)p andT:(long double)T;
 -(double)cvForP:(long double)p andT:(long double)T;
 -(double)wForP:(long double)p andT:(long double)T;
-
+-(double)pForRho:(long double)rho andT:(long double)T;
 
 @end

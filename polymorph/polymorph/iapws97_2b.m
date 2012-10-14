@@ -142,6 +142,8 @@ static int n0Coeffs = 9;
     free(_ii);
     free(_ji);
     free(_ni);
+    free(_n0i);
+    free(_j0i);
 }
 
 -(NSArray *)dependsOnFunctions

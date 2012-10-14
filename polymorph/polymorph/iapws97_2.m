@@ -142,6 +142,8 @@ static int n0Coeffs = 9;
     free(_ii);
     free(_ji);
     free(_ni);
+    free(_n0i);
+    free(_j0i);
 }
 
 -(NSArray *)dependsOnFunctions
@@ -325,8 +327,8 @@ static int n0Coeffs = 9;
     double gamma0_p = [self dg0dpForP:p andT:T];
     double pi = p/_pstar;
     
-    double denom = _R*T*pi*(gamma0_p + gamma_p);
-    return denom/p;
+    double nom = _R*T*pi*(gamma0_p + gamma_p);
+    return nom/p;
 }
 
 -(double)rhoForP:(long double)p andT:(long double)T
