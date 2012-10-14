@@ -39,6 +39,10 @@ static int nCoeffs = 40;
 {
     self = [super init];
     
+    _ii = malloc(nCoeffs*sizeof(long double));
+    _ji = malloc(nCoeffs*sizeof(long double));
+    _ni = malloc(nCoeffs*sizeof(long double));
+    
     for (int i=0; i<nCoeffs; i++)
     {
         NSDictionary *Aidict = [array objectAtIndex:i];
