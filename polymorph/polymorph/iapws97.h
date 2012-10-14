@@ -17,7 +17,7 @@
 
 typedef enum { reg1, reg2, reg2b, reg3, reg5, none } region;
 
-@interface iapws97 : NSObject <functionValue>
+@interface iapws97 : NSObject
 
 @property (nonatomic) long double *ni;
 @property (nonatomic) long double tstar;
@@ -31,8 +31,13 @@ typedef enum { reg1, reg2, reg2b, reg3, reg5, none } region;
 @property (strong, nonatomic) iapws97_4 *iapws4;
 @property (strong, nonatomic) iapws97_5 *iapws5;
 
+-(iapws97 *)initWithZero;
+-(iapws97 *)initWithArray:(NSArray *)array;
+
 -(double)PsForT:(double)T;
 -(double)TsForP:(double)p;
 -(region)setRegionForPressure:(double)p andT:(double)T;
+
+-(double)rhoForP:(double)p andT:(long double)T;
 
 @end

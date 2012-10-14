@@ -46,6 +46,7 @@
 #import "iapws97_4.h"
 #import "iapws97_5.h"
 #import "iapws97.h"
+#import "iapws97_rho.h"
 
 @interface functions : NSObject
 

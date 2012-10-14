@@ -32,6 +32,7 @@
 		6139E6B01629F5A600954BCF /* pengRobinson.tex in Resources */ = {isa = PBXBuildFile; fileRef = 6139E6AF1629F5A600954BCF /* pengRobinson.tex */; };
 		6139E6B21629F5B100954BCF /* pengRobinsonLiquid.tex in Resources */ = {isa = PBXBuildFile; fileRef = 6139E6B11629F5B100954BCF /* pengRobinsonLiquid.tex */; };
 		6139E6B41629F5BA00954BCF /* pengRobinsonVapour.tex in Resources */ = {isa = PBXBuildFile; fileRef = 6139E6B31629F5BA00954BCF /* pengRobinsonVapour.tex */; };
+		6139E6B7162B200600954BCF /* iapws97_rho.m in Sources */ = {isa = PBXBuildFile; fileRef = 6139E6B6162B200500954BCF /* iapws97_rho.m */; };
 		6164628B15B7F705006B703D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628A15B7F705006B703D /* UIKit.framework */; };
 		6164628D15B7F705006B703D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628C15B7F705006B703D /* Foundation.framework */; };
 		6164628F15B7F705006B703D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628E15B7F705006B703D /* CoreGraphics.framework */; };
@@ -168,6 +169,8 @@
 		6139E6AF1629F5A600954BCF /* pengRobinson.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pengRobinson.tex; sourceTree = "<group>"; };
 		6139E6B11629F5B100954BCF /* pengRobinsonLiquid.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pengRobinsonLiquid.tex; sourceTree = "<group>"; };
 		6139E6B31629F5BA00954BCF /* pengRobinsonVapour.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pengRobinsonVapour.tex; sourceTree = "<group>"; };
+		6139E6B5162B200500954BCF /* iapws97_rho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iapws97_rho.h; sourceTree = "<group>"; };
+		6139E6B6162B200500954BCF /* iapws97_rho.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iapws97_rho.m; sourceTree = "<group>"; };
 		6164628615B7F705006B703D /* thermoPlot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thermoPlot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6164628A15B7F705006B703D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6164628C15B7F705006B703D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -379,6 +382,8 @@
 		6139E67D16285C0A00954BCF /* iapws97 */ = {
 			isa = PBXGroup;
 			children = (
+				6139E6B5162B200500954BCF /* iapws97_rho.h */,
+				6139E6B6162B200500954BCF /* iapws97_rho.m */,
 				6139E684162860EE00954BCF /* iapws97.h */,
 				6139E685162860EE00954BCF /* iapws97.m */,
 				6117FFCB161F543C005E074A /* iapws97_1.h */,
@@ -775,6 +780,7 @@
 				6139E686162860EE00954BCF /* iapws97.m in Sources */,
 				6139E6891629905500954BCF /* pengRobinsonVapour.m in Sources */,
 				6139E6A41629A64F00954BCF /* antoine.m in Sources */,
+				6139E6B7162B200600954BCF /* iapws97_rho.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

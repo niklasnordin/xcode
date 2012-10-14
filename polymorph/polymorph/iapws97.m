@@ -7,8 +7,8 @@
 //
 
 #import "iapws97.h"
+#import "iapws97_1.h"
 
-static NSString *name = @"iapws97";
 static int nCoeffs = 5;
 
 @implementation iapws97
@@ -48,21 +48,6 @@ static int nCoeffs = 5;
      _pstar = [[[array objectAtIndex:nCoeffs+1] objectForKey:@"Pstar"] doubleValue];
 
     return self;
-}
-
-+(NSString *)name
-{
-    return name;
-}
-
--(NSString *) name
-{
-    return [iapws97 name];
-}
-
--(double)valueForT:(double)T andP:(double)p
-{
-    return 0.0;
 }
 
 -(double)PsForT:(double)T
@@ -158,80 +143,37 @@ static int nCoeffs = 5;
     return reg;
 }
 
--(bool)pressureDependent
+-(double)rhoForP:(double)p andT:(long double)T
 {
-    return YES;
-}
-
--(bool)temperatureDependent
-{
-    return YES;
-}
-
--(int)nCoefficients
-{
-    return nCoeffs+2;
-}
-
-- (NSString *)equationText
-{
-    return @"";
-}
-
--(NSArray *)dependsOnFunctions
-{
-    return @[ @"iapws97_1", @"iapws97_2", @"iapws97_2b", @"iapws97_3", @"iapws97_4", @"iapws97_5" ];
-}
-
--(void)setFunction:(id)function forKey:(NSString *)key
-{
-    if ([key isEqualToString:@"iapws97_1"])
-    {
-        _iapws1 = function;
+    region reg = [self setRegionForPressure:p andT:T];
+    
+    double value = 0.0;
+    
+    switch (reg) {
+        case reg1:
+            value = 0.0; //iapws1 rhoForP:p andT:T];
+            break;
+            
+        case reg2:
+            value = 0.0;
+            break;
+            
+        case reg2b:
+            value = 0.0;
+            break;
+            
+        case reg3:
+            value = 0.0;
+            break;
+            
+        case reg5:
+            value = 0.0;
+            break;
+            
+        default:
+            break;
     }
     
-    if ([key isEqualToString:@"iapws97_2"])
-    {
-        _iapws2 = function;
-    }
-    
-    if ([key isEqualToString:@"iapws97_2b"])
-    {
-        _iapws2b = function;
-    }
-    
-    if ([key isEqualToString:@"iapws97_3"])
-    {
-        _iapws3 = function;
-    }
-    
-    if ([key isEqualToString:@"iapws97_4"])
-    {
-        _iapws4 = function;
-    }
-    
-    if ([key isEqualToString:@"iapws97_5"])
-    {
-        _iapws5 = function;
-    }
+    return value;
 }
-
--(NSArray *)coefficientNames
-{
-
-     NSMutableArray *names = [[NSMutableArray alloc] init];
-     
-     for (int i=0; i<nCoeffs; i++)
-     {
-         NSString *name = [[NSString alloc] initWithFormat:@"n%d", i+1];
-         [names addObject:name];
-     }
-
-     [names addObject:@"Tstar"];
-     [names addObject:@"Pstar"];
-    
-     return names;
-
-}
-
 @end
