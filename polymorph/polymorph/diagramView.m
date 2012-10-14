@@ -20,12 +20,24 @@ static NSUInteger nx = 320;//640;
 -(void)setXMin:(double)xMin
 {
     _xMin = xMin;
+    if (_xMin > _xMax)
+    {
+        double temp = _xMax;
+        _xMax = _xMin;
+        _xMin = temp;
+    }
     [self setNeedsDisplay];
 }
 
 -(void)setXMax:(double)xMax
 {
     _xMax = xMax;
+    if (_xMin > _xMax)
+    {
+        double temp = _xMax;
+        _xMax = _xMin;
+        _xMin = temp;
+    }
     [self setNeedsDisplay];
 }
 

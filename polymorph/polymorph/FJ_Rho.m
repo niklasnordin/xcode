@@ -39,7 +39,7 @@ static NSString *name = @"FJ_Rho";
 -(double)valueForT:(double)T andP:(double)p
 {
     double Temp = T;
-    Temp = fmax(Temp,150);
+    //Temp = fmax(Temp,150);
     return [self rho:p T:Temp]*[self mw];
 }
 
@@ -60,10 +60,10 @@ static NSString *name = @"FJ_Rho";
 
 -(double)rho:(double)pressure T:(double)Temperature
 {
-    
+    double mw = [self mw];
     double t = [self tc]/Temperature;
     double r = [self rhoc];
-    double q = [ self rhoc]*Rgas*Temperature;
+    double q = r*Rgas*Temperature;
     double pq = pressure/q;
     BOOL liquidState = YES;
     
@@ -73,22 +73,24 @@ static NSString *name = @"FJ_Rho";
 
         if (pressure > pvap)
         {
-            r = [_rholSat valueForT:Temperature andP:pressure];
+            r = [_rholSat valueForT:Temperature andP:pressure]/mw;
             //NSLog(@"State is in liquid");
+            //r *= 2.0;
         }
         else
         {
-            r = [_rhovSat valueForT:Temperature andP:pressure];
-            r *= 0.1;
+            r = [_rhovSat valueForT:Temperature andP:pressure]/mw;
+            //r *= 0.2;
             liquidState = NO;
         }
     }
-    
+
     int i = 0;
     int N = 100;
     double err = 1.0;
     double delta = r/[self rhoc];
     double tol = 1.0e-7;
+    double urlx = 0.9;
     while ((err > tol) && (i < N))
     {
         // pq = delta*(1 + delta*A)
@@ -97,26 +99,21 @@ static NSString *name = @"FJ_Rho";
         double B = [self d2aResdd2:delta t:t];
 
         double nom = pq - delta*(1.0 + delta*A);
-        double denom = 1.0 + delta*(delta*B + 2.0*A);
+        double denom = 1.0 + delta*(delta*B + 1.0*A);
         
         double d = nom/denom;
-        //NSLog(@"%d: d=%g, %g",i,d,delta);
-        if (fabs(denom) < 1.0e-10)
-        {
-            //NSLog(@"denom = %g",denom);
-        }
         err = fabs(d);
         
         // dont take too large steps
         if (d > 0)
         {
-            d = fmin(0.7*delta,d);
+            d = fmin(urlx*delta,d);
         }
         else
         {
-            d = -fmin(-d, 0.7*delta);
+            d = -fmin(-d, urlx*delta);
         }
-        delta += 0.9*d;
+        delta += urlx*d;
         delta = fmax(1.0e-30, delta);
 
         i++;
