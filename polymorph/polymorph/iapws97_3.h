@@ -19,6 +19,11 @@
 @property (nonatomic) long double rhostar;
 @property (nonatomic) long double R;
 
+
+@property (strong, nonatomic) id<functionValue> pv;
+@property (strong, nonatomic) id<functionValue> rholSat;
+@property (strong, nonatomic) id<functionValue> rhovSat;
+
 -(double)vForP:(long double)p andT:(long double)T;
 -(double)rhoForP:(long double)p andT:(long double)T;
 -(double)uForP:(long double)p andT:(long double)T;

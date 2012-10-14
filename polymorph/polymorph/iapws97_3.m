@@ -78,7 +78,7 @@ static int nCoeffs = 40;
 
 -(double)valueForT:(double)T andP:(double)p
 {
-    return 0.0;
+    return [self rhoForP:p andT:T];
 }
 
 -(bool)pressureDependent
@@ -103,12 +103,27 @@ static int nCoeffs = 40;
 
 -(NSArray *)dependsOnFunctions
 {
-    return nil;
+    return @[ @"Pv", @"rholSat", @"rhovSat" ];
 }
 
 -(void)setFunction:(id)function forKey:(NSString *)key
 {
     
+    if ([key isEqualToString:@"Pv"])
+    {
+        _pv = function;
+    }
+    
+    if ([key isEqualToString:@"rholSat"])
+    {
+        _rholSat = function;
+    }
+    
+    if ([key isEqualToString:@"rhovSat"])
+    {
+        _rhovSat = function;
+    }
+
 }
 
 -(long double)phiForDelta:(long double)delta andTau:(long double)tau
@@ -190,7 +205,73 @@ static int nCoeffs = 40;
 
 -(double)rhoForP:(long double)p andT:(long double)T
 {
-    return 1.0;
+    //return 1.0;
+
+    double tau = _tstar/T;
+    double q = _rhostar*_R*T;
+    double pq = p/q;
+    BOOL liquidState = YES;
+    
+    double rho = _rhostar;
+    if (T < _tstar)
+    {
+        double pvap = [_pv valueForT:T andP:p];
+        
+        if (p > pvap)
+        {
+            rho = [_rholSat valueForT:T andP:p];
+            //NSLog(@"State is in liquid");
+            //r *= 2.0;
+        }
+        else
+        {
+            rho = [_rhovSat valueForT:T andP:p];
+            //r *= 0.2;
+            liquidState = NO;
+        }
+    }
+    
+    int i = 0;
+    int N = 100;
+    double err = 1.0;
+    double delta = rho/_rhostar;
+    double tol = 1.0e-7;
+    double urlx = 0.9;
+    while ((err > tol) && (i < N))
+    {
+        // pq = delta*(1 + delta*A)
+        // A delta^2 + delta - pq = 0
+        double A = [self dphiddForDelta:delta andTau:tau];
+        double B = [self d2phidd2ForDelta:delta andTau:tau];
+        
+        double nom = pq - delta*(1.0 + delta*A);
+        double denom = 1.0 + delta*(delta*B + 1.0*A);
+        
+        double d = nom/denom;
+        err = fabs(d);
+        
+        // dont take too large steps
+        if (d > 0)
+        {
+            d = fmin(urlx*delta,d);
+        }
+        else
+        {
+            d = -fmin(-d, urlx*delta);
+        }
+        delta += urlx*d;
+        delta = fmax(1.0e-30, delta);
+        
+        i++;
+    }
+    
+    if (i > N-2)
+    {
+        //NSLog(@"Warning! Density calculation did not converge. Error is %g",err);
+    }
+    
+    return delta*_rhostar;
+
 }
 
 -(double)uForP:(long double)p andT:(long double)T
