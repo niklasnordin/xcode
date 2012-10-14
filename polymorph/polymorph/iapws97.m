@@ -88,7 +88,7 @@ static int nCoeffs = 5;
         {
             if (T > 273.15)
             {
-                double p23 = [_iapws4 saturationPressureForT:T];
+                double p23 = [_iapws4 PsForT:T];
             
                 if (p > p23)
                 {

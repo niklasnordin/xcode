@@ -11,6 +11,10 @@
 
 @interface iapws97_4 : NSObject <functionValue>
 
--(double)saturationPressureForT:(double)T;
+@property (nonatomic) double *ni;
+@property (nonatomic) double tstar;
+@property (nonatomic) double pstar;
+
+-(double)PsForT:(double)T;
 
 @end
