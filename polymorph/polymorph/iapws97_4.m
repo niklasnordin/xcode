@@ -81,6 +81,21 @@ static int nCoeffs = 10;
     return q*_pstar;
 }
 
+-(double)TsForp:(double)p
+{
+    double beta = pow(p/_pstar, 0.25);
+    double E = beta*beta + _ni[2]*beta + _ni[5];
+    double F = _ni[0]*beta*beta + _ni[3]*beta + _ni[6];
+    double G = _ni[1]*beta*beta + _ni[4]*beta + _ni[7];
+    
+    double D = 2.0*G/( -F - sqrt(F*F - 4.0*E*G));
+    
+    double s = (_ni[9]+D)*(_ni[9]+D) - 4.0*(_ni[8] + _ni[9]*D);
+    double q = _ni[9] + D - sqrt(s);
+    
+    return q*_tstar;
+}
+
 -(bool)pressureDependent
 {
     return NO;

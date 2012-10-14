@@ -15,6 +15,8 @@
 #import "iapws97_4.h"
 #import "iapws97_5.h"
 
+typedef enum { reg1, reg2, reg2b, reg3, reg5, none } region;
+
 @interface iapws97 : NSObject <functionValue>
 
 @property (nonatomic) long double *ni;
@@ -29,8 +31,8 @@
 @property (strong, nonatomic) iapws97_4 *iapws4;
 @property (strong, nonatomic) iapws97_5 *iapws5;
 
--(double)pressureForT:(double)T;
--(double)temperatureForP:(double)p;
--(int)setRegionForPressure:(double)p andT:(double)T;
+-(double)PsForT:(double)T;
+-(double)TsForP:(double)p;
+-(region)setRegionForPressure:(double)p andT:(double)T;
 
 @end

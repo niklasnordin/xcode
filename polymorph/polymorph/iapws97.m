@@ -65,23 +65,30 @@ static int nCoeffs = 5;
     return 0.0;
 }
 
--(double)pressureForT:(double)T
+-(double)PsForT:(double)T
 {
     double theta = T/_tstar;
     double pi = _ni[0] + _ni[1]*theta + _ni[2]*theta*theta;
     return _pstar*pi;
 }
 
--(double)temperatureForP:(double)p
+-(double)TsForP:(double)p
 {
     double pi = p/_pstar;
     double theta = _ni[3] + sqrt((pi-_ni[4])/_ni[2]);
     return _tstar*theta;
 }
 
--(int)setRegionForPressure:(double)p andT:(double)T
+-(region)setRegionForPressure:(double)p andT:(double)T
 {
-    int region = -1;
+    region reg = none;
+    double pMeta = 10.0e+6;
+    
+    if (p > 100.0e+6)
+    {
+        return reg;
+    }
+    
     if (T < 1073.15)
     {
         if (T < 623.15)
@@ -92,11 +99,18 @@ static int nCoeffs = 5;
             
                 if (p > p23)
                 {
-                    region = 1;
+                    reg = reg1;
                 }
                 else
                 {
-                    region = 2;
+                    if (p >pMeta)
+                    {
+                        reg = reg2;
+                    }
+                    else
+                    {
+                        reg = reg2b;
+                    }
                 }
             }
         }
@@ -104,17 +118,28 @@ static int nCoeffs = 5;
         {
             if (T < 863.15)
             {
-                double ps = [self pressureForT:T];
+                double ps = [self PsForT:T];
                 if (p < ps)
                 {
-                    region = 2;
+                    reg = reg2;
+                }
+                else
+                {
+                    reg = reg3;
                 }
             }
             else
             {
                 if (p < 100.0e+6)
                 {
-                    region = 2;
+                    if (p < pMeta)
+                    {
+                        reg = reg2b;
+                    }
+                    else
+                    {
+                        reg = reg2;
+                    }
                 }
             }
         }
@@ -125,12 +150,12 @@ static int nCoeffs = 5;
         {
             if (p < 50.0e+6)
             {
-                region = 5;
+                reg = reg5;
             }
         }
     }
     
-    return region;
+    return reg;
 }
 
 -(bool)pressureDependent

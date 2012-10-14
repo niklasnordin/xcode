@@ -16,5 +16,6 @@
 @property (nonatomic) double pstar;
 
 -(double)PsForT:(double)T;
+-(double)TsForp:(double)p;
 
 @end
