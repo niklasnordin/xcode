@@ -224,22 +224,19 @@ static int nCoeffs = 40;
         if (p > pvap)
         {
             rho = [_rholSat valueForT:T andP:p];
-            //NSLog(@"State is in liquid");
-            //r *= 2.0;
         }
         else
         {
             rho = [_rhovSat valueForT:T andP:p];
-            //r *= 0.2;
             liquidState = NO;
         }
     }
-    
+    //rho = 500.0;
     int i = 0;
-    int N = 100;
+    int N = 1000;
     double err = 1.0;
     double delta = rho/_rhostar;
-    double tol = 1.0e-7;
+    double tol = 1.0e-9;
     double urlx = 0.9;
     while ((err > tol) && (i < N))
     {
@@ -247,10 +244,10 @@ static int nCoeffs = 40;
         // A delta^2 + delta - pq = 0
         double A = [self dphiddForDelta:delta andTau:tau];
         double B = [self d2phidd2ForDelta:delta andTau:tau];
-        
-        double nom = pq - delta*(1.0 + delta*A);
-        double denom = 1.0 + delta*(delta*B + 1.0*A);
-        
+        double d2 = delta*delta;
+        double nom = pq - d2*A;
+        double denom = delta*(delta*B + 2.0*A);
+
         double d = nom/denom;
         err = fabs(d);
         
@@ -273,7 +270,10 @@ static int nCoeffs = 40;
     {
         //NSLog(@"Warning! Density calculation did not converge. Error is %g",err);
     }
-    
+    double rc = delta*_rhostar;
+    double pc = [self pForRho:rho andT:T];
+    double pdd = p;
+    //NSLog(@"p = %g, rho = %g, p(rho) = %g",pdd,rc,pc);
     return delta*_rhostar;
 
 }
