@@ -5,7 +5,7 @@
 //  Created by Niklas Nordin on 2012-07-19.
 //  Copyright (c) 2012 nequam. All rights reserved.
 //
-
+#import "polymorphAppDelegate.h"
 #import "polymorphViewController.h"
 #import "diagramViewController.h"
 #import "diagramView.h"
@@ -527,6 +527,9 @@
     [_ptSegmentControl setSelectedSegmentIndex:_selectedConstantProperty];
     [_minPressureField setHidden:YES];
 
+    polymorphAppDelegate *appDelegate = (polymorphAppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.pvc = self;
+    
     [self update];
     //[self convertDatabaseToNewFormat:_db.json];
 }
@@ -536,13 +539,28 @@
     return YES;
 }
 
-- (void)save
+- (void)saveUI
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     [defaults setObject:_link forKey:@"link"];
     [defaults setObject:_currentSpeciesName forKey:@"currentSpeciesName"];
     [defaults setObject:_currentPropertyName forKey:@"currentPropertyName"];
+    
+    [defaults synchronize];
+}
+
+- (void)save
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    /*
+    [defaults setObject:_link forKey:@"link"];
+    [defaults setObject:_currentSpeciesName forKey:@"currentSpeciesName"];
+    [defaults setObject:_currentPropertyName forKey:@"currentPropertyName"];
+     */
+    
+    [self saveUI];
     [defaults setObject:_db.json forKey:@"database"];
     
     [defaults synchronize];
@@ -550,9 +568,6 @@
 
 - (void)viewDidUnload
 {
-    //NSLog(@"viewDidDisappear");
-
-    //[self save];
     
     [self setPicker:nil];
     [self setTemperatureMin:nil];

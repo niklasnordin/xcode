@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "polymorphViewController.h"
 
 @interface polymorphAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UIView *statusBarView;
+@property (weak, nonatomic) polymorphViewController *pvc;
 @end

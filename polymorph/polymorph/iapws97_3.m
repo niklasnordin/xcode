@@ -216,65 +216,69 @@ static int nCoeffs = 40;
     double pq = p/q;
     BOOL liquidState = YES;
     
-    double rho = _rhostar;
+    double rhox = _rhostar;
+    
     if (T < _tstar)
     {
         double pvap = [_pv valueForT:T andP:p];
         
         if (p > pvap)
         {
-            rho = [_rholSat valueForT:T andP:p];
+            rhox = [_rholSat valueForT:T andP:p];
         }
         else
         {
-            rho = [_rhovSat valueForT:T andP:p];
+            rhox = [_rhovSat valueForT:T andP:p];
             liquidState = NO;
         }
     }
-    //rho = 500.0;
+    
     int i = 0;
-    int N = 1000;
+    int N = 50;
     double err = 1.0;
-    double delta = rho/_rhostar;
+    double delta = rhox/_rhostar;
     double tol = 1.0e-9;
-    double urlx = 0.9;
+    double urlx = 0.5;
+    
     while ((err > tol) && (i < N))
     {
-        // pq = delta*(1 + delta*A)
+        // pq = delta*delta*(A + eps*B)
         // A delta^2 + delta - pq = 0
         double A = [self dphiddForDelta:delta andTau:tau];
         double B = [self d2phidd2ForDelta:delta andTau:tau];
         double d2 = delta*delta;
-        double nom = pq - d2*A;
-        double denom = delta*(delta*B + 2.0*A);
-
+        
+            //double nom = pq - d2*A;
+            //double denom = delta*(delta*B + 2.0*A);
+        double nom = pq/d2 - A;
+        double denom = B;
         double d = nom/denom;
         err = fabs(d);
-        
+        /*
         // dont take too large steps
         if (d > 0)
         {
-            d = fmin(urlx*delta,d);
+            d = fmin(urlx*delta, d);
         }
         else
         {
             d = -fmin(-d, urlx*delta);
         }
-        delta += urlx*d;
+         */
+        delta += d;
         delta = fmax(1.0e-30, delta);
         
         i++;
     }
     
-    if (i > N-2)
+    double pRho = [self pForRho:rhox andT:T];
+    if (err > 1.0)
     {
-        //NSLog(@"Warning! Density calculation did not converge. Error is %g",err);
+        NSLog(@"rhox = %g, err = %g, p=%g, prho=%g",rhox,err, p, pRho);
     }
-    double rc = delta*_rhostar;
-    double pc = [self pForRho:rho andT:T];
-    double pdd = p;
-    //NSLog(@"p = %g, rho = %g, p(rho) = %g",pdd,rc,pc);
-    return delta*_rhostar;
+    
+    return rhox;
+    //return delta*_rhostar;
 
 }
 

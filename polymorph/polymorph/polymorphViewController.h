@@ -45,5 +45,6 @@
 - (IBAction)clickedSpecieButton:(id)sender;
 
 -(void)update;
+-(void)saveUI;
 
 @end

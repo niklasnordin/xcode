@@ -133,7 +133,7 @@ static int nCoeffs = 5;
     {
         if (T < 2273.15)
         {
-            if (p < 50.0e+6)
+            if (p <= 50.0e+6)
             {
                 reg = reg5;
             }
