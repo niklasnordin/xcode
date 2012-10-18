@@ -60,7 +60,7 @@ static int nCoeffs = 5;
 {
     return @"";
 }
-
+/*
 -(NSArray *)dependsOnFunctions
 {
     return @[ @"iapws97_1", @"iapws97_2", @"iapws97_2b", @"iapws97_3", @"iapws97_4", @"iapws97_5" ];
@@ -116,5 +116,5 @@ static int nCoeffs = 5;
     return names;
     
 }
-
+*/
 @end

@@ -512,6 +512,13 @@
     _currentSpeciesName = [defaults objectForKey:@"currentSpeciesName"];
     _currentPropertyName = [defaults objectForKey:@"currentPropertyName"];
     
+    _temperatureMin.text = [defaults objectForKey:@"minTemp"];
+    _temperatureMax.text = [defaults objectForKey:@"maxTemp"];
+    _minPressureField.text = [defaults objectForKey:@"minPressure"];
+    _pressureField.text = [defaults objectForKey:@"maxPressure"];
+    NSNumber *scp = [defaults objectForKey:@"constProperty"];
+    _selectedConstantProperty = [scp intValue];
+    
 	// Do any additional setup after loading the view, typically from a nib.
     
     [self loadFunctions];
@@ -546,6 +553,13 @@
     [defaults setObject:_link forKey:@"link"];
     [defaults setObject:_currentSpeciesName forKey:@"currentSpeciesName"];
     [defaults setObject:_currentPropertyName forKey:@"currentPropertyName"];
+    
+    [defaults setObject:_temperatureMin.text forKey:@"minTemp"];
+    [defaults setObject:_temperatureMax.text forKey:@"maxTemp"];
+    [defaults setObject:_minPressureField.text forKey:@"minPressure"];
+    [defaults setObject:_pressureField.text forKey:@"maxPressure"];
+    NSNumber *scp = [[NSNumber alloc] initWithInt:_selectedConstantProperty];
+    [defaults setObject:scp forKey:@"constProperty"];
     
     [defaults synchronize];
 }

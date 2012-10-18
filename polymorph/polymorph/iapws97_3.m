@@ -214,7 +214,6 @@ static int nCoeffs = 40;
     double tau = _tstar/T;
     double q = _rhostar*_R*T;
     double pq = p/q;
-    BOOL liquidState = YES;
     
     double rhox = _rhostar;
     
@@ -229,16 +228,15 @@ static int nCoeffs = 40;
         else
         {
             rhox = [_rhovSat valueForT:T andP:p];
-            liquidState = NO;
         }
     }
     
     int i = 0;
     int N = 50;
     double err = 1.0;
-    double delta = rhox/_rhostar;
+    double delta = rhox;
     double tol = 1.0e-9;
-    double urlx = 0.5;
+    //double urlx = 0.5;
     
     while ((err > tol) && (i < N))
     {
@@ -274,7 +272,7 @@ static int nCoeffs = 40;
     double pRho = [self pForRho:rhox andT:T];
     if (err > 1.0)
     {
-        NSLog(@"rhox = %g, err = %g, p=%g, prho=%g",rhox,err, p, pRho);
+        NSLog(@"rhox = %g, err = %g, p=%Lg, prho=%g",rhox, err, p, pRho);
     }
     
     return rhox;

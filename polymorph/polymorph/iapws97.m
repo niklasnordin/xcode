@@ -176,4 +176,61 @@ static int nCoeffs = 5;
     
     return value;
 }
+
+-(NSArray *)dependsOnFunctions
+{
+    return @[ @"iapws97_1", @"iapws97_2", @"iapws97_2b", @"iapws97_3", @"iapws97_4", @"iapws97_5" ];
+}
+
+-(void)setFunction:(id)function forKey:(NSString *)key
+{
+    if ([key isEqualToString:@"iapws97_1"])
+    {
+        self.iapws1 = function;
+    }
+    
+    if ([key isEqualToString:@"iapws97_2"])
+    {
+        self.iapws2 = function;
+    }
+    
+    if ([key isEqualToString:@"iapws97_2b"])
+    {
+        self.iapws2b = function;
+    }
+    
+    if ([key isEqualToString:@"iapws97_3"])
+    {
+        self.iapws3 = function;
+    }
+    
+    if ([key isEqualToString:@"iapws97_4"])
+    {
+        self.iapws4 = function;
+    }
+    
+    if ([key isEqualToString:@"iapws97_5"])
+    {
+        self.iapws5 = function;
+    }
+}
+
+-(NSArray *)coefficientNames
+{
+    
+    NSMutableArray *names = [[NSMutableArray alloc] init];
+    
+    for (int i=0; i<nCoeffs; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"n%d", i+1];
+        [names addObject:name];
+    }
+    
+    [names addObject:@"Tstar"];
+    [names addObject:@"Pstar"];
+    
+    return names;
+    
+}
+
 @end
