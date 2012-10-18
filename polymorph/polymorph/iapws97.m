@@ -73,35 +73,36 @@ static int nCoeffs = 5;
     {
         return reg;
     }
+    if (T < 273.15)
+    {
+        return reg;
+    }
     
     if (T < 1073.15)
     {
         if (T < 623.15)
         {
-            if (T >= 273.15)
-            {
-                double p23 = [_iapws4 PsForT:T];
+            double p23 = [_iapws4 PsForT:T];
             
-                if (p > p23)
+            if (p > p23)
+            {
+                reg = reg1;
+            }
+            else
+            {
+                if (p >pMeta)
                 {
-                    reg = reg1;
+                    reg = reg2;
                 }
                 else
                 {
-                    if (p >pMeta)
-                    {
-                        reg = reg2;
-                    }
-                    else
-                    {
-                        reg = reg2b;
-                    }
+                    reg = reg2b;
                 }
             }
         }
         else
         {
-            if (T < 863.15)
+            if (T <= 863.15)
             {
                 double ps = [self PsForT:T];
                 if (p < ps)

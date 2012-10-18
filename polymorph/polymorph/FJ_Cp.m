@@ -74,10 +74,10 @@ static NSString *name = @"FJ_Cp";
     double cv1 = [self d2a0dt2:pressure T:Temperature cp0:_cp0];
     double cv2 = [self d2aResdt2:delta t:tau];
     
-    double cv = -Rgas*tau*tau*(cv1 + cv2);
+    double cv = -tau*tau*(cv1 + cv2);
 
-    double cp = cv + Rgas*nom*nom/denom;
-    return cp/[self mw];
+    double cp = cv + nom*nom/denom;
+    return cp*Rgas/[self mw];
 }
 
 - (NSString *)equationText

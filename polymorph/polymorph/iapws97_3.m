@@ -204,13 +204,14 @@ static int nCoeffs = 40;
 
 -(double)vForP:(long double)p andT:(long double)T
 {
+    
     return 1.0/[self rhoForP:p andT:T];
 }
 
 -(double)rhoForP:(long double)p andT:(long double)T
 {
-    //return 1.0;
-
+    return 1.0/[self vForP:p andT:T];
+/*
     double tau = _tstar/T;
     double q = _rhostar*_R*T;
     double pq = p/q;
@@ -230,13 +231,14 @@ static int nCoeffs = 40;
             rhox = [_rhovSat valueForT:T andP:p];
         }
     }
-    
+
+    //rhox = 600.0;
     int i = 0;
-    int N = 50;
+    int N = 100;
     double err = 1.0;
-    double delta = rhox;
+    double delta = rhox/_rhostar;
     double tol = 1.0e-9;
-    //double urlx = 0.5;
+    double urlx = 0.95;
     
     while ((err > tol) && (i < N))
     {
@@ -246,13 +248,13 @@ static int nCoeffs = 40;
         double B = [self d2phidd2ForDelta:delta andTau:tau];
         double d2 = delta*delta;
         
-            //double nom = pq - d2*A;
-            //double denom = delta*(delta*B + 2.0*A);
-        double nom = pq/d2 - A;
-        double denom = B;
+        double nom = pq - d2*A;
+        double denom = delta*(delta*B + 2.0*A);
+        //double nom = pq/d2 - A;
+        //double denom = B;
         double d = nom/denom;
         err = fabs(d);
-        /*
+        
         // dont take too large steps
         if (d > 0)
         {
@@ -262,22 +264,22 @@ static int nCoeffs = 40;
         {
             d = -fmin(-d, urlx*delta);
         }
-         */
-        delta += d;
-        delta = fmax(1.0e-30, delta);
         
+        delta += 0.9*d;
+        delta = fmax(1.0e-30, delta);
+        //NSLog(@"%d. e=%g, d")
         i++;
     }
-    
+    rhox = delta*_rhostar;
     double pRho = [self pForRho:rhox andT:T];
-    if (err > 1.0)
+    if (fabs(pRho-p) > 1.0)
     {
-        NSLog(@"rhox = %g, err = %g, p=%Lg, prho=%g",rhox, err, p, pRho);
+        NSLog(@"rhox = %g, err = %g, p=%Lg, prho=%g, it=%d",rhox, err, p, pRho,i);
     }
     
     return rhox;
     //return delta*_rhostar;
-
+*/
 }
 
 -(double)uForP:(long double)p andT:(long double)T

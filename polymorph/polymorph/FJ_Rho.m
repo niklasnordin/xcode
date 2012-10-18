@@ -86,10 +86,10 @@ static NSString *name = @"FJ_Rho";
     }
 
     int i = 0;
-    int N = 100;
+    int N = 200;
     double err = 1.0;
     double delta = r/[self rhoc];
-    double tol = 1.0e-7;
+    double tol = 1.0e-9;
     double urlx = 0.9;
     while ((err > tol) && (i < N))
     {

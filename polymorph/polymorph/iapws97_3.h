@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "functionValue.h"
 
+typedef enum {
+                a, b, c, d, e, f, g,
+                h, i, j, k, l, m, n,
+                o, p, q, r, s, t, u,
+                v, x, y, z, none
+            } subregion3;
+
 @interface iapws97_3 : NSObject <functionValue>
 
 @property (nonatomic) long double *ii;
@@ -33,5 +40,10 @@
 -(double)cvForP:(long double)p andT:(long double)T;
 -(double)wForP:(long double)p andT:(long double)T;
 -(double)pForRho:(long double)rho andT:(long double)T;
+
+-(subregion3)identifyRegionForP:(double)p andT:(double)T;
+-(double)T1splitForPi:(double)pi coefficientsN:(double *)n andI:(double)i;
+-(double)T2splitForPi:(double)pi coefficientsN:(double *)n andI:(double)i;
+-(double)T3splitForPi:(double)pi coefficientsN:(double *)n andI:(double)i;
 
 @end
