@@ -26,10 +26,173 @@ typedef enum {
 @property (nonatomic) long double rhostar;
 @property (nonatomic) long double R;
 
+@property (nonatomic) long double *it3ab;
+@property (nonatomic) long double *nt3ab;
 
-@property (strong, nonatomic) id<functionValue> pv;
-@property (strong, nonatomic) id<functionValue> rholSat;
-@property (strong, nonatomic) id<functionValue> rhovSat;
+@property (nonatomic) long double *it3cd;
+@property (nonatomic) long double *nt3cd;
+
+@property (nonatomic) long double *it3ef;
+@property (nonatomic) long double *nt3ef;
+
+@property (nonatomic) long double *it3gh;
+@property (nonatomic) long double *nt3gh;
+
+@property (nonatomic) long double *it3ij;
+@property (nonatomic) long double *nt3ij;
+
+@property (nonatomic) long double *it3jk;
+@property (nonatomic) long double *nt3jk;
+
+@property (nonatomic) long double *it3mn;
+@property (nonatomic) long double *nt3mn;
+
+@property (nonatomic) long double *it3op;
+@property (nonatomic) long double *nt3op;
+
+@property (nonatomic) long double *it3qu;
+@property (nonatomic) long double *nt3qu;
+
+@property (nonatomic) long double *it3rx;
+@property (nonatomic) long double *nt3rx;
+
+@property (nonatomic) long double *it3uv;
+@property (nonatomic) long double *nt3uv;
+
+@property (nonatomic) long double *it3wx;
+@property (nonatomic) long double *nt3wx;
+
+@property (nonatomic) long double *para;
+@property (nonatomic) long double *parb;
+@property (nonatomic) long double *parc;
+@property (nonatomic) long double *pard;
+
+@property (nonatomic) long double *pari;
+@property (nonatomic) long double *parj;
+@property (nonatomic) long double *park;
+@property (nonatomic) long double *parl;
+
+@property (nonatomic) long double *parm;
+@property (nonatomic) long double *parn;
+@property (nonatomic) long double *paro;
+@property (nonatomic) long double *parp;
+
+@property (nonatomic) long double *parq;
+@property (nonatomic) long double *parr;
+@property (nonatomic) long double *pars;
+@property (nonatomic) long double *part;
+
+@property (nonatomic) long double *paru;
+@property (nonatomic) long double *parv;
+@property (nonatomic) long double *parw;
+@property (nonatomic) long double *parx;
+@property (nonatomic) long double *pary;
+@property (nonatomic) long double *parz;
+
+@property (nonatomic) long double *iv3a;
+@property (nonatomic) long double *jv3a;
+@property (nonatomic) long double *nv3a;
+
+@property (nonatomic) long double *iv3b;
+@property (nonatomic) long double *jv3b;
+@property (nonatomic) long double *nv3b;
+
+@property (nonatomic) long double *iv3c;
+@property (nonatomic) long double *jv3c;
+@property (nonatomic) long double *nv3c;
+
+@property (nonatomic) long double *iv3d;
+@property (nonatomic) long double *jv3d;
+@property (nonatomic) long double *nv3d;
+
+@property (nonatomic) long double *iv3e;
+@property (nonatomic) long double *jv3e;
+@property (nonatomic) long double *nv3e;
+
+@property (nonatomic) long double *iv3f;
+@property (nonatomic) long double *jv3f;
+@property (nonatomic) long double *nv3f;
+
+@property (nonatomic) long double *iv3g;
+@property (nonatomic) long double *jv3g;
+@property (nonatomic) long double *nv3g;
+
+@property (nonatomic) long double *iv3h;
+@property (nonatomic) long double *jv3h;
+@property (nonatomic) long double *nv3h;
+
+@property (nonatomic) long double *iv3i;
+@property (nonatomic) long double *jv3i;
+@property (nonatomic) long double *nv3i;
+
+@property (nonatomic) long double *iv3j;
+@property (nonatomic) long double *jv3j;
+@property (nonatomic) long double *nv3j;
+
+@property (nonatomic) long double *iv3k;
+@property (nonatomic) long double *jv3k;
+@property (nonatomic) long double *nv3k;
+
+@property (nonatomic) long double *iv3l;
+@property (nonatomic) long double *jv3l;
+@property (nonatomic) long double *nv3l;
+
+@property (nonatomic) long double *iv3m;
+@property (nonatomic) long double *jv3m;
+@property (nonatomic) long double *nv3m;
+
+@property (nonatomic) long double *iv3n;
+@property (nonatomic) long double *jv3n;
+@property (nonatomic) long double *nv3n;
+
+@property (nonatomic) long double *iv3o;
+@property (nonatomic) long double *jv3o;
+@property (nonatomic) long double *nv3o;
+
+@property (nonatomic) long double *iv3p;
+@property (nonatomic) long double *jv3p;
+@property (nonatomic) long double *nv3p;
+
+@property (nonatomic) long double *iv3q;
+@property (nonatomic) long double *jv3q;
+@property (nonatomic) long double *nv3q;
+
+@property (nonatomic) long double *iv3r;
+@property (nonatomic) long double *jv3r;
+@property (nonatomic) long double *nv3r;
+
+@property (nonatomic) long double *iv3s;
+@property (nonatomic) long double *jv3s;
+@property (nonatomic) long double *nv3s;
+
+@property (nonatomic) long double *iv3t;
+@property (nonatomic) long double *jv3t;
+@property (nonatomic) long double *nv3t;
+
+@property (nonatomic) long double *iv3u;
+@property (nonatomic) long double *jv3u;
+@property (nonatomic) long double *nv3u;
+
+@property (nonatomic) long double *iv3v;
+@property (nonatomic) long double *jv3v;
+@property (nonatomic) long double *nv3v;
+
+@property (nonatomic) long double *iv3w;
+@property (nonatomic) long double *jv3w;
+@property (nonatomic) long double *nv3w;
+
+@property (nonatomic) long double *iv3x;
+@property (nonatomic) long double *jv3x;
+@property (nonatomic) long double *nv3x;
+
+@property (nonatomic) long double *iv3y;
+@property (nonatomic) long double *jv3y;
+@property (nonatomic) long double *nv3y;
+
+@property (nonatomic) long double *iv3z;
+@property (nonatomic) long double *jv3z;
+@property (nonatomic) long double *nv3z;
+
 
 -(double)vForP:(long double)p andT:(long double)T;
 -(double)rhoForP:(long double)p andT:(long double)T;
@@ -45,5 +208,6 @@ typedef enum {
 -(double)T1splitForPi:(double)pi coefficientsN:(double *)n andI:(double)i;
 -(double)T2splitForPi:(double)pi coefficientsN:(double *)n andI:(double)i;
 -(double)T3splitForPi:(double)pi coefficientsN:(double *)n andI:(double)i;
+-(double)vptForP:(long double)p andT:(long double)T 
 
 @end

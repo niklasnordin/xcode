@@ -107,27 +107,11 @@ static int nCoeffs = 40;
 
 -(NSArray *)dependsOnFunctions
 {
-    return @[ @"Pv", @"rholSat", @"rhovSat" ];
+    return nil;
 }
 
 -(void)setFunction:(id)function forKey:(NSString *)key
 {
-    
-    if ([key isEqualToString:@"Pv"])
-    {
-        _pv = function;
-    }
-    
-    if ([key isEqualToString:@"rholSat"])
-    {
-        _rholSat = function;
-    }
-    
-    if ([key isEqualToString:@"rhovSat"])
-    {
-        _rhovSat = function;
-    }
-
 }
 
 -(long double)phiForDelta:(long double)delta andTau:(long double)tau
