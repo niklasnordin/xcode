@@ -13,7 +13,7 @@ typedef enum {
                 a, b, c, d, e, f, g,
                 h, i, j, k, l, m, n,
                 o, p, q, r, s, t, u,
-                v, x, y, z, none
+                v, x, y, z
             } subregion3;
 
 @interface iapws97_3 : NSObject <functionValue>
@@ -208,6 +208,6 @@ typedef enum {
 -(double)T1splitForPi:(double)pi coefficientsN:(double *)n andI:(double)i;
 -(double)T2splitForPi:(double)pi coefficientsN:(double *)n andI:(double)i;
 -(double)T3splitForPi:(double)pi coefficientsN:(double *)n andI:(double)i;
--(double)vptForP:(long double)p andT:(long double)T 
+-(double)vptForP:(long double)p andT:(long double)T;
 
 @end

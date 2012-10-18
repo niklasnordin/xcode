@@ -67,7 +67,38 @@ static int nCoeffs = 40;
     _rhostar = [[[array objectAtIndex:3*nCoeffs+1] objectForKey:@"rhostar"] doubleValue];
     _R     = [[[array objectAtIndex:3*nCoeffs+2] objectForKey:@"R"] doubleValue];
 
+    int nOff = 3*nCoeffs+3;
+    int nVar = 5;
+    
+    _it3ab = malloc(nVar*sizeof(long double));
+    _nt3ab = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *idict = [array objectAtIndex:i+nOff];
+        NSDictionary *ndict = [array objectAtIndex:i+nVar+nOff];
+        
+        NSString *iname = [NSString stringWithFormat:@"t3ab_i%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"t3ab_n%d", i+1];
+        
+        NSNumber *aik = [idict objectForKey:iname];
+        NSNumber *ank = [ndict objectForKey:nname];
+        
+        _it3ab[i] = [aik doubleValue];
+        _nt3ab[i] = [ank doubleValue];
+        
+    }
+
     return self;
+}
+
+- (void)dealloc
+{
+    free(_ii);
+    free(_ji);
+    free(_ni);
+    free(_it3ab);
+    free(_nt3ab);
 }
 
 +(NSString *)name
@@ -97,7 +128,8 @@ static int nCoeffs = 40;
 
 -(int)nCoefficients
 {
-    return 3*nCoeffs+3;
+    //return 3*nCoeffs+3;
+    return [[self coefficientNames] count];
 }
 
 - (NSString *)equationText
@@ -189,7 +221,7 @@ static int nCoeffs = 40;
 -(double)vForP:(long double)p andT:(long double)T
 {
     
-    return 1.0/[self rhoForP:p andT:T];
+    return 1.0;
 }
 
 -(double)rhoForP:(long double)p andT:(long double)T
@@ -353,11 +385,13 @@ static int nCoeffs = 40;
         NSString *name = [[NSString alloc] initWithFormat:@"i%d", i+1];
         [names addObject:name];
     }
+    
     for (int i=0; i<nCoeffs; i++)
     {
         NSString *name = [[NSString alloc] initWithFormat:@"j%d", i+1];
         [names addObject:name];
     }
+    
     for (int i=0; i<nCoeffs; i++)
     {
         NSString *name = [[NSString alloc] initWithFormat:@"n%d", i+1];
@@ -368,6 +402,18 @@ static int nCoeffs = 40;
     [names addObject:@"rhostar"];
     [names addObject:@"R"];
     
+    for (int i=0; i<5; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3ab_i%d", i+1];
+        [names addObject:name];
+    }
+
+    for (int i=0; i<5; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3ab_n%d", i+1];
+        [names addObject:name];
+    }
+
     return names;
 
 }

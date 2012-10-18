@@ -117,8 +117,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     int n = 0;
-    if ([_coefficients count]) {
-        n = [_coefficients count];
+    if ([_coefficientNames count]) {
+        n = [_coefficientNames count];
     }
     return n;
 }
@@ -131,11 +131,18 @@
     // Configure the cell...
     //NSString *name = [NSString stringWithFormat:@"A%d",indexPath.row];
     NSString *name = [_coefficientNames objectAtIndex:indexPath.row];
-    NSDictionary *myDict = [_coefficients objectAtIndex:indexPath.row];
-    NSNumber *num = [myDict objectForKey:name];
+    
+    double value = 0.0;
+    int nSize = [_coefficients count];
+    if (indexPath.row < nSize)
+    {
+        NSDictionary *myDict = [_coefficients objectAtIndex:indexPath.row];
+        NSNumber *num = [myDict objectForKey:name];
+        value = [num doubleValue];
+    }
     
     cell.textLabel.text = name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%g",[num doubleValue]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%g",value];
     //if (indexPath.row == 1) [cell.detailTextLabel setBackgroundColor:[UIColor greenColor]];
     return cell;
 }
