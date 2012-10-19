@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "functionValue.h"
+#import "iapws97_4.h"
 
 typedef enum {
                 a, b, c, d, e, f, g,
@@ -209,5 +210,8 @@ typedef enum {
 -(double)T2splitForPi:(double)pi coefficientsN:(double *)n andI:(double)i;
 -(double)T3splitForPi:(double)pi coefficientsN:(double *)n andI:(double)i;
 -(double)vptForP:(long double)p andT:(long double)T;
+
+//@property (strong, nonatomic) id<functionValue> p23;
+@property (strong, nonatomic) iapws97_4 *iapws4;
 
 @end

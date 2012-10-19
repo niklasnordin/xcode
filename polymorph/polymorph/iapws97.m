@@ -181,38 +181,46 @@ static int nCoeffs = 5;
 -(NSArray *)dependsOnFunctions
 {
     return @[ @"iapws97_1", @"iapws97_2", @"iapws97_2b", @"iapws97_3", @"iapws97_4", @"iapws97_5" ];
+
+//    return @[ @"p23", @"iapws97_1", @"iapws97_2", @"iapws97_2b", @"iapws97_3", @"iapws97_4", @"iapws97_5" ];
 }
 
 -(void)setFunction:(id)function forKey:(NSString *)key
 {
+    /*
+    if ([key isEqualToString:@"p23"])
+    {
+        _p23 = function;
+    }
+*/
     if ([key isEqualToString:@"iapws97_1"])
     {
-        self.iapws1 = function;
+        _iapws1 = function;
     }
     
     if ([key isEqualToString:@"iapws97_2"])
     {
-        self.iapws2 = function;
+        _iapws2 = function;
     }
     
     if ([key isEqualToString:@"iapws97_2b"])
     {
-        self.iapws2b = function;
+        _iapws2b = function;
     }
     
     if ([key isEqualToString:@"iapws97_3"])
     {
-        self.iapws3 = function;
+        _iapws3 = function;
     }
     
     if ([key isEqualToString:@"iapws97_4"])
     {
-        self.iapws4 = function;
+        _iapws4 = function;
     }
     
     if ([key isEqualToString:@"iapws97_5"])
     {
-        self.iapws5 = function;
+        _iapws5 = function;
     }
 }
 

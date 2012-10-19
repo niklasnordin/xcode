@@ -23,7 +23,7 @@ typedef enum { reg1, reg2, reg2b, reg3, reg5, none } region;
 @property (nonatomic) long double tstar;
 @property (nonatomic) long double pstar;
 
-//@property (strong, nonatomic) id<functionValue> iapws1;
+//@property (strong, nonatomic) id<functionValue> p23;
 @property (strong, nonatomic) iapws97_1 *iapws1;
 @property (strong, nonatomic) iapws97_2 *iapws2;
 @property (strong, nonatomic) iapws97_2b *iapws2b;

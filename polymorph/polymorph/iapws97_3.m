@@ -32,6 +32,16 @@ static int nCoeffs = 40;
     _rhostar = 16.53e+6;
     _R = 461.526;
 
+    int nVar = 5;
+    
+    _it3ab = malloc(nVar*sizeof(long double));
+    _nt3ab = malloc(nVar*sizeof(long double));
+    for (int i=0; i<nCoeffs; i++)
+    {
+        _it3ab[i] = 0.0;
+        _nt3ab[i] = 0.0;
+    }
+    
     return self;
 }
 
@@ -139,11 +149,16 @@ static int nCoeffs = 40;
 
 -(NSArray *)dependsOnFunctions
 {
-    return nil;
+    return @[ @"iapws97_4" ];
 }
 
 -(void)setFunction:(id)function forKey:(NSString *)key
 {
+    if ([key isEqualToString:@"iapws97_4"])
+    {
+        _iapws4 = function;
+    }
+
 }
 
 -(long double)phiForDelta:(long double)delta andTau:(long double)tau
@@ -220,7 +235,6 @@ static int nCoeffs = 40;
 
 -(double)vForP:(long double)p andT:(long double)T
 {
-    
     return 1.0;
 }
 
