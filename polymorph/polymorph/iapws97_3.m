@@ -40,27 +40,228 @@ static int nCoeffs = 40;
     _it3ab = malloc(nVar*sizeof(long double));
     _nt3ab = malloc(nVar*sizeof(long double));
     
-    for (int i=0; i<nVar; i++)
-    {
-        _it3ab[i] = 0.0;
-        _nt3ab[i] = 0.0;
-    }
-    
     _it3cd = malloc(4*sizeof(long double));
     _nt3cd = malloc(4*sizeof(long double));
-
-    for (int i=0; i<4; i++)
-    {
-        _it3cd[i] = 0.0;
-        _nt3cd[i] = 0.0;
-    }
     
     _ct3ef = malloc(3*sizeof(long double));
 
-    for (int i=0; i<3; i++)
-    {
-        _ct3ef[i] = 0.0;
-    }
+    
+    nVar = 5;
+    _it3gh = malloc(nVar*sizeof(long double));
+    _nt3gh = malloc(nVar*sizeof(long double));
+    
+    nVar = 5;
+    _it3ij = malloc(nVar*sizeof(long double));
+    _nt3ij = malloc(nVar*sizeof(long double));
+
+    nVar = 5;
+    _it3jk = malloc(nVar*sizeof(long double));
+    _nt3jk = malloc(nVar*sizeof(long double));
+
+    nVar = 4;
+    _it3mn = malloc(nVar*sizeof(long double));
+    _nt3mn = malloc(nVar*sizeof(long double));
+    
+    nVar = 5;
+    _it3op = malloc(nVar*sizeof(long double));
+    _nt3op = malloc(nVar*sizeof(long double));
+
+    nVar = 4;
+    _it3qu = malloc(nVar*sizeof(long double));
+    _nt3qu = malloc(nVar*sizeof(long double));
+
+    nVar = 4;
+    _it3rx = malloc(nVar*sizeof(long double));
+    _nt3rx = malloc(nVar*sizeof(long double));
+
+    nVar = 5;
+    _it3wx = malloc(nVar*sizeof(long double));
+    _nt3wx = malloc(nVar*sizeof(long double));
+    
+    nVar = 8;
+    _para = malloc(nVar*sizeof(long double));
+    _parb = malloc(nVar*sizeof(long double));
+    _parc = malloc(nVar*sizeof(long double));
+    _pard = malloc(nVar*sizeof(long double));
+    _pare = malloc(nVar*sizeof(long double));
+    _parf = malloc(nVar*sizeof(long double));
+    _parg = malloc(nVar*sizeof(long double));
+    _parh = malloc(nVar*sizeof(long double));
+    _pari = malloc(nVar*sizeof(long double));
+    _parj = malloc(nVar*sizeof(long double));
+    _park = malloc(nVar*sizeof(long double));
+    _parl = malloc(nVar*sizeof(long double));
+    _parm = malloc(nVar*sizeof(long double));
+    _parn = malloc(nVar*sizeof(long double));
+    _paro = malloc(nVar*sizeof(long double));
+    _parp = malloc(nVar*sizeof(long double));
+    _parq = malloc(nVar*sizeof(long double));
+    _parr = malloc(nVar*sizeof(long double));
+    _pars = malloc(nVar*sizeof(long double));
+    _part = malloc(nVar*sizeof(long double));
+    _paru = malloc(nVar*sizeof(long double));
+    _parv = malloc(nVar*sizeof(long double));
+    _parw = malloc(nVar*sizeof(long double));
+    _parx = malloc(nVar*sizeof(long double));
+    _pary = malloc(nVar*sizeof(long double));
+    _parz = malloc(nVar*sizeof(long double));
+
+    
+    // a
+    nVar = 30;
+    _iv3a = malloc(nVar*sizeof(long double));
+    _jv3a = malloc(nVar*sizeof(long double));
+    _nv3a = malloc(nVar*sizeof(long double));
+    
+    // b
+    nVar = 32;
+    _iv3b = malloc(nVar*sizeof(long double));
+    _jv3b = malloc(nVar*sizeof(long double));
+    _nv3b = malloc(nVar*sizeof(long double));
+    
+    // c
+    nVar = 35;
+    _iv3c = malloc(nVar*sizeof(long double));
+    _jv3c = malloc(nVar*sizeof(long double));
+    _nv3c = malloc(nVar*sizeof(long double));
+    
+    // d
+    nVar = 38;
+    _iv3d = malloc(nVar*sizeof(long double));
+    _jv3d = malloc(nVar*sizeof(long double));
+    _nv3d = malloc(nVar*sizeof(long double));
+    
+    // e
+    nVar = 29;
+    _iv3e = malloc(nVar*sizeof(long double));
+    _jv3e = malloc(nVar*sizeof(long double));
+    _nv3e = malloc(nVar*sizeof(long double));
+    
+    // f
+    nVar = 42;
+    _iv3f = malloc(nVar*sizeof(long double));
+    _jv3f = malloc(nVar*sizeof(long double));
+    _nv3f = malloc(nVar*sizeof(long double));
+    
+    // g
+    nVar = 38;
+    _iv3g = malloc(nVar*sizeof(long double));
+    _jv3g = malloc(nVar*sizeof(long double));
+    _nv3g = malloc(nVar*sizeof(long double));
+    
+    // h
+    nVar = 29;
+    _iv3h = malloc(nVar*sizeof(long double));
+    _jv3h = malloc(nVar*sizeof(long double));
+    _nv3h = malloc(nVar*sizeof(long double));
+    
+    // i
+    nVar = 42;
+    _iv3i = malloc(nVar*sizeof(long double));
+    _jv3i = malloc(nVar*sizeof(long double));
+    _nv3i = malloc(nVar*sizeof(long double));
+    
+    // j
+    nVar = 29;
+    _iv3j = malloc(nVar*sizeof(long double));
+    _jv3j = malloc(nVar*sizeof(long double));
+    _nv3j = malloc(nVar*sizeof(long double));
+    
+    // k
+    nVar = 34;
+    _iv3k = malloc(nVar*sizeof(long double));
+    _jv3k = malloc(nVar*sizeof(long double));
+    _nv3k = malloc(nVar*sizeof(long double));
+    
+    // l
+    nVar = 43;
+    _iv3l = malloc(nVar*sizeof(long double));
+    _jv3l = malloc(nVar*sizeof(long double));
+    _nv3l = malloc(nVar*sizeof(long double));
+    
+    // m
+    nVar = 40;
+    _iv3m = malloc(nVar*sizeof(long double));
+    _jv3m = malloc(nVar*sizeof(long double));
+    _nv3m = malloc(nVar*sizeof(long double));
+    
+    // n
+    nVar = 39;
+    _iv3n = malloc(nVar*sizeof(long double));
+    _jv3n = malloc(nVar*sizeof(long double));
+    _nv3n = malloc(nVar*sizeof(long double));
+    
+    // o
+    nVar = 24;
+    _iv3o = malloc(nVar*sizeof(long double));
+    _jv3o = malloc(nVar*sizeof(long double));
+    _nv3o = malloc(nVar*sizeof(long double));
+    
+    // p
+    nVar = 27;
+    _iv3p = malloc(nVar*sizeof(long double));
+    _jv3p = malloc(nVar*sizeof(long double));
+    _nv3p = malloc(nVar*sizeof(long double));
+    
+    // q
+    nVar = 24;
+    _iv3q = malloc(nVar*sizeof(long double));
+    _jv3q = malloc(nVar*sizeof(long double));
+    _nv3q = malloc(nVar*sizeof(long double));
+    
+    // r
+    nVar = 27;
+    _iv3r = malloc(nVar*sizeof(long double));
+    _jv3r = malloc(nVar*sizeof(long double));
+    _nv3r = malloc(nVar*sizeof(long double));
+    
+    // s
+    nVar = 29;
+    _iv3s = malloc(nVar*sizeof(long double));
+    _jv3s = malloc(nVar*sizeof(long double));
+    _nv3s = malloc(nVar*sizeof(long double));
+    
+    // t
+    nVar = 33;
+    _iv3t = malloc(nVar*sizeof(long double));
+    _jv3t = malloc(nVar*sizeof(long double));
+    _nv3t = malloc(nVar*sizeof(long double));
+    
+    // u
+    nVar = 38;
+    _iv3u = malloc(nVar*sizeof(long double));
+    _jv3u = malloc(nVar*sizeof(long double));
+    _nv3u = malloc(nVar*sizeof(long double));
+    
+    // v
+    nVar = 39;
+    _iv3v = malloc(nVar*sizeof(long double));
+    _jv3v = malloc(nVar*sizeof(long double));
+    _nv3v = malloc(nVar*sizeof(long double));
+    
+    // w
+    nVar = 35;
+    _iv3w = malloc(nVar*sizeof(long double));
+    _jv3w = malloc(nVar*sizeof(long double));
+    _nv3w = malloc(nVar*sizeof(long double));
+    
+    // x
+    nVar = 36;
+    _iv3x = malloc(nVar*sizeof(long double));
+    _jv3x = malloc(nVar*sizeof(long double));
+    _nv3x = malloc(nVar*sizeof(long double));
+    
+    // y
+    nVar = 20;
+    _iv3y = malloc(nVar*sizeof(long double));
+    _jv3y = malloc(nVar*sizeof(long double));
+    _nv3y = malloc(nVar*sizeof(long double));
+    
+    // z
+    nVar = 23;
+    _iv3z = malloc(nVar*sizeof(long double));
+    _jv3z = malloc(nVar*sizeof(long double));
+    _nv3z = malloc(nVar*sizeof(long double));
     
     return self;
 }
@@ -96,7 +297,6 @@ static int nCoeffs = 40;
     _rhostar = [[[array objectAtIndex:3*nCoeffs+1] objectForKey:@"rhostar"] doubleValue];
     _R       = [[[array objectAtIndex:3*nCoeffs+2] objectForKey:@"R"] doubleValue];
 
-
     int nOff = 3*nCoeffs+3;
     int nVar = 5;
     //NSLog(@"size = %d, nOff = %d",[array count],nOff);
@@ -118,7 +318,6 @@ static int nCoeffs = 40;
         
         _it3ab[i] = [aik doubleValue];
         _nt3ab[i] = [ank doubleValue];
-        
     }
     
     nOff += 2*nVar;
@@ -140,7 +339,6 @@ static int nCoeffs = 40;
         
         _it3cd[i] = [aik doubleValue];
         _nt3cd[i] = [ank doubleValue];
-        
     }
     nOff += 2*nVar;
     
@@ -153,7 +351,6 @@ static int nCoeffs = 40;
         NSString *iname = [NSString stringWithFormat:@"t3ef_c%d", i+1];
         NSNumber *aik = [idict objectForKey:iname];
         _ct3ef[i] = [aik doubleValue];
-        
     }
     nOff += 3;
 
@@ -174,7 +371,6 @@ static int nCoeffs = 40;
         
         _it3gh[i] = [aik doubleValue];
         _nt3gh[i] = [ank doubleValue];
-        
     }
     nOff += 2*nVar;
 
@@ -195,7 +391,6 @@ static int nCoeffs = 40;
         
         _it3ij[i] = [aik doubleValue];
         _nt3ij[i] = [ank doubleValue];
-        
     }
     nOff += 2*nVar;
 
@@ -216,7 +411,6 @@ static int nCoeffs = 40;
         
         _it3jk[i] = [aik doubleValue];
         _nt3jk[i] = [ank doubleValue];
-        
     }
     nOff += 2*nVar;
 
@@ -237,7 +431,6 @@ static int nCoeffs = 40;
         
         _it3mn[i] = [aik doubleValue];
         _nt3mn[i] = [ank doubleValue];
-        
     }
     nOff += 2*nVar;
     
@@ -258,7 +451,6 @@ static int nCoeffs = 40;
         
         _it3op[i] = [aik doubleValue];
         _nt3op[i] = [ank doubleValue];
-        
     }
     nOff += 2*nVar;
 
@@ -279,7 +471,6 @@ static int nCoeffs = 40;
         
         _it3qu[i] = [aik doubleValue];
         _nt3qu[i] = [ank doubleValue];
-        
     }
     nOff += 2*nVar;
 
@@ -300,7 +491,6 @@ static int nCoeffs = 40;
         
         _it3rx[i] = [aik doubleValue];
         _nt3rx[i] = [ank doubleValue];
-        
     }
     nOff += 2*nVar;
 
@@ -321,7 +511,6 @@ static int nCoeffs = 40;
         
         _it3wx[i] = [aik doubleValue];
         _nt3wx[i] = [ank doubleValue];
-        
     }
     nOff += 2*nVar;
 
@@ -664,7 +853,6 @@ static int nCoeffs = 40;
         _nv3h[i] = [ank doubleValue];
     }
     nOff += 3*nVar;
-
     
     // i
     nVar = 42;
@@ -1434,7 +1622,35 @@ static int nCoeffs = 40;
 
 -(double)vForP:(long double)p andT:(long double)T
 {
-    return 1.0;
+    subregion3 region = [self identifyRegionForP:p andT:T];
+    
+    double v = 0.0;
+    
+    switch (region) {
+        case a:
+            v = [self vptForP:p andT:T par:_para coeffI:_iv3a coeffJ:_jv3a coeffN:_nv3a N:30];
+            break;
+        case b:
+            v = [self vptForP:p andT:T par:_parb coeffI:_iv3b coeffJ:_jv3b coeffN:_nv3b N:32];
+            break;
+        case c:
+            v = [self vptForP:p andT:T par:_parc coeffI:_iv3c coeffJ:_jv3c coeffN:_nv3b N:35];
+            break;
+        case d:
+            v = [self vptForP:p andT:T par:_pard coeffI:_iv3d coeffJ:_jv3d coeffN:_nv3d N:38];
+            break;
+        case e:
+            v = [self vptForP:p andT:T par:_pare coeffI:_iv3e coeffJ:_jv3e coeffN:_nv3e N:29];
+            break;
+        case f:
+            v = [self vptForP:p andT:T par:_parf coeffI:_iv3f coeffJ:_jv3f coeffN:_nv3f N:42];
+            break;
+
+        default:
+            break;
+    }
+    
+    return v;
 }
 
 -(double)rhoForP:(long double)p andT:(long double)T
@@ -2341,10 +2557,31 @@ static int nCoeffs = 40;
     return c[0]*(pi - c[1]) + c[2];
 }
 
--(double)vptForP:(long double)p andT:(long double)T
+-(double)vptForP:(long double)p
+            andT:(long double)T
+             par:(long double *)par
+          coeffI:(long double *)ci
+          coeffJ:(long double *)cj
+          coeffN:(long double *)cn
+               N:(int)N
 {
-    double v = 0.0;
-    return v;
+    long double v = 0.0;
+    long double pi = p/par[1];
+    long double theta = T/par[2];
+    long double a = par[3];
+    long double b = par[4];
+    long double c = par[5];
+    long double d = par[6];
+    long double e = par[7];
+    
+    for (int i=0; i<N; i++)
+    {
+        long double t1 = powl(pi - a, c);
+        long double t2 = powl(theta - b, d);
+        v += cn[i]*powl(t1, ci[i])*powl(t2, cj[i]);
+    }
+    v = powl(v, e);
+    return v*par[0];
 }
 
 @end

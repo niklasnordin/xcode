@@ -215,8 +215,14 @@ typedef enum {
 -(double)T1splitForPi:(double)pi coefficientsN:(long double *)n andI:(long double *)ic andN:(int)N;
 -(double)T2splitForPi:(double)pi coefficientsN:(long double *)n andI:(long double *)ic andN:(int)N;
 -(double)T3splitForPi:(double)pi coefficients:(long double *)c;
--(double)vptForP:(long double)p andT:(long double)T;
 
+-(double)vptForP:(long double)p
+            andT:(long double)T
+             par:(long double *)par
+          coeffI:(long double *)ci
+          coeffJ:(long double *)cj
+          coeffN:(long double *)cn
+               N:(int)N;
 //@property (strong, nonatomic) id<functionValue> p23;
 @property (strong, nonatomic) iapws97_4 *iapws4;
 
