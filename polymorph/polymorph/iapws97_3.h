@@ -14,7 +14,7 @@ typedef enum {
                 a, b, c, d, e, f, g,
                 h, i, j, k, l, m, n,
                 o, p, q, r, s, t, u,
-                v, x, y, z
+                v, x, y, z, none3
             } subregion3;
 
 @interface iapws97_3 : NSObject <functionValue>
@@ -194,6 +194,8 @@ typedef enum {
 @property (nonatomic) long double *jv3z;
 @property (nonatomic) long double *nv3z;
 
+@property (nonatomic) long double tbackstar;
+@property (nonatomic) long double pbackstar;
 
 -(double)vForP:(long double)p andT:(long double)T;
 -(double)rhoForP:(long double)p andT:(long double)T;
@@ -206,12 +208,12 @@ typedef enum {
 -(double)pForRho:(long double)rho andT:(long double)T;
 
 -(subregion3)identifyRegionForP:(double)p andT:(double)T;
--(double)T1splitForPi:(double)pi coefficientsN:(double *)n andI:(double)i;
--(double)T2splitForPi:(double)pi coefficientsN:(double *)n andI:(double)i;
--(double)T3splitForPi:(double)pi coefficientsN:(double *)n andI:(double)i;
+-(double)T1splitForPi:(double)pi coefficientsN:(long double *)n andI:(long double *)ic;
+-(double)T2splitForPi:(double)pi coefficientsN:(long double *)n andI:(long double *)ic;
+-(double)T3splitForPi:(double)pi coefficientsN:(long double *)n andI:(long double *)ic;
 -(double)vptForP:(long double)p andT:(long double)T;
 
-//@property (strong, nonatomic) id<functionValue> p23;
+@property (strong, nonatomic) id<functionValue> p23;
 @property (strong, nonatomic) iapws97_4 *iapws4;
 
 @end

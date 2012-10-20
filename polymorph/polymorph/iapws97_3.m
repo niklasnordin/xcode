@@ -32,6 +32,9 @@ static int nCoeffs = 40;
     _rhostar = 16.53e+6;
     _R = 461.526;
 
+    _tbackstar = 1.0;
+    _pbackstar = 1.0e+6;
+    
     int nVar = 5;
     
     _it3ab = malloc(nVar*sizeof(long double));
@@ -430,6 +433,91 @@ static int nCoeffs = 40;
 
     return names;
 
+}
+
+-(subregion3)identifyRegionForP:(double)p andT:(double)T
+{
+    subregion3 reg = none3;
+    
+    if (p >= 100.0e+6)
+    {
+        return reg;
+    }
+    
+    double pi = p/_pbackstar;
+    double tau = T/_tbackstar;
+    
+    if (p > 40.0e+6)
+    {
+        double t3ab = [self T1splitForPi:pi coefficientsN:_nt3ab andI:_it3ab];
+        reg = (T < t3ab) ? a : b;
+    }
+    else
+    {
+        if (p > 25.0e+6)
+        {
+         
+        }
+        else
+        {
+            if (p > 23.5e+6)
+            {
+                
+            }
+            else
+            {
+                if (p > 23.0e+6)
+                {
+                    
+                }
+                else
+                {
+                    if (p > 22.5e+6)
+                    {
+                        
+                    }
+                    else
+                    {
+                        double T0 = 643.15;
+                        double psat = [_iapws4 PsForT:T0];
+                    }
+                }
+            }
+        }
+    }
+    return reg;
+}
+
+-(double)T1splitForPi:(double)pi coefficientsN:(long double *)n andI:(long double *)ic
+{
+    double sum = 0.0;
+    
+    for (int i=0; i<5; i++)
+    {
+        sum += n[i]*powl(pi, ic[i]);
+    }
+    return sum;
+}
+
+-(double)T2splitForPi:(double)pi coefficientsN:(long double *)n andI:(long double *)ic
+{
+    double sum = 0.0;
+    for (int i=0; i<5; i++)
+    {
+        sum += n[i]*powl(logl(pi), ic[i]);
+    }
+    return sum;
+}
+
+-(double)T3splitForPi:(double)pi coefficientsN:(long double *)n andI:(long double *)ic
+{
+    return 0.0;
+}
+
+-(double)vptForP:(long double)p andT:(long double)T
+{
+    double v = 0.0;
+    return v;
 }
 
 @end
