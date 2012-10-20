@@ -242,7 +242,7 @@
     }
 
     int newNCoeff = [newFunction nCoefficients];
-    int oldNCoeff = [_originalCoefficients count];
+    int oldNCoeff = [oldFunction nCoefficients];//[_originalCoefficients count];
     
     [propertyDict removeObjectForKey:@"function"];
     [propertyDict setObject:functionName forKey:@"function"];

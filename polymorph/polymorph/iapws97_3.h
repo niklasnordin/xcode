@@ -33,8 +33,7 @@ typedef enum {
 @property (nonatomic) long double *it3cd;
 @property (nonatomic) long double *nt3cd;
 
-@property (nonatomic) long double *it3ef;
-@property (nonatomic) long double *nt3ef;
+@property (nonatomic) long double *ct3ef;
 
 @property (nonatomic) long double *it3gh;
 @property (nonatomic) long double *nt3gh;
@@ -67,6 +66,11 @@ typedef enum {
 @property (nonatomic) long double *parb;
 @property (nonatomic) long double *parc;
 @property (nonatomic) long double *pard;
+
+@property (nonatomic) long double *pare;
+@property (nonatomic) long double *parf;
+@property (nonatomic) long double *parg;
+@property (nonatomic) long double *parh;
 
 @property (nonatomic) long double *pari;
 @property (nonatomic) long double *parj;
@@ -208,12 +212,12 @@ typedef enum {
 -(double)pForRho:(long double)rho andT:(long double)T;
 
 -(subregion3)identifyRegionForP:(double)p andT:(double)T;
--(double)T1splitForPi:(double)pi coefficientsN:(long double *)n andI:(long double *)ic;
--(double)T2splitForPi:(double)pi coefficientsN:(long double *)n andI:(long double *)ic;
--(double)T3splitForPi:(double)pi coefficientsN:(long double *)n andI:(long double *)ic;
+-(double)T1splitForPi:(double)pi coefficientsN:(long double *)n andI:(long double *)ic andN:(int)N;
+-(double)T2splitForPi:(double)pi coefficientsN:(long double *)n andI:(long double *)ic andN:(int)N;
+-(double)T3splitForPi:(double)pi coefficients:(long double *)c;
 -(double)vptForP:(long double)p andT:(long double)T;
 
-@property (strong, nonatomic) id<functionValue> p23;
+//@property (strong, nonatomic) id<functionValue> p23;
 @property (strong, nonatomic) iapws97_4 *iapws4;
 
 @end
