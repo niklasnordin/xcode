@@ -90,17 +90,16 @@ static int nCoeffs = 40;
         _ii[i] = [aik doubleValue];
         _ji[i] = [ajk doubleValue];
         _ni[i] = [ank doubleValue];
-        
     }
     
-    _tstar = [[[array objectAtIndex:3*nCoeffs] objectForKey:@"Tstar"] doubleValue];
+    _tstar   = [[[array objectAtIndex:3*nCoeffs] objectForKey:@"Tstar"] doubleValue];
     _rhostar = [[[array objectAtIndex:3*nCoeffs+1] objectForKey:@"rhostar"] doubleValue];
-    _R     = [[[array objectAtIndex:3*nCoeffs+2] objectForKey:@"R"] doubleValue];
+    _R       = [[[array objectAtIndex:3*nCoeffs+2] objectForKey:@"R"] doubleValue];
 
 
     int nOff = 3*nCoeffs+3;
     int nVar = 5;
-    NSLog(@"size = %d, nOff = %d",[array count],nOff);
+    //NSLog(@"size = %d, nOff = %d",[array count],nOff);
     
     _it3ab = malloc(nVar*sizeof(long double));
     _nt3ab = malloc(nVar*sizeof(long double));
@@ -326,6 +325,815 @@ static int nCoeffs = 40;
     }
     nOff += 2*nVar;
 
+    nVar = 8;
+    _para = malloc(nVar*sizeof(long double));
+    _parb = malloc(nVar*sizeof(long double));
+    _parc = malloc(nVar*sizeof(long double));
+    _pard = malloc(nVar*sizeof(long double));
+    _pare = malloc(nVar*sizeof(long double));
+    _parf = malloc(nVar*sizeof(long double));
+    _parg = malloc(nVar*sizeof(long double));
+    _parh = malloc(nVar*sizeof(long double));
+    _pari = malloc(nVar*sizeof(long double));
+    _parj = malloc(nVar*sizeof(long double));
+    _park = malloc(nVar*sizeof(long double));
+    _parl = malloc(nVar*sizeof(long double));
+    _parm = malloc(nVar*sizeof(long double));
+    _parn = malloc(nVar*sizeof(long double));
+    _paro = malloc(nVar*sizeof(long double));
+    _parp = malloc(nVar*sizeof(long double));
+    _parq = malloc(nVar*sizeof(long double));
+    _parr = malloc(nVar*sizeof(long double));
+    _pars = malloc(nVar*sizeof(long double));
+    _part = malloc(nVar*sizeof(long double));
+    _paru = malloc(nVar*sizeof(long double));
+    _parv = malloc(nVar*sizeof(long double));
+    _parw = malloc(nVar*sizeof(long double));
+    _parx = malloc(nVar*sizeof(long double));
+    _pary = malloc(nVar*sizeof(long double));
+    _parz = malloc(nVar*sizeof(long double));
+    
+    NSArray *prefix = @[ @"a", @"b", @"c", @"d", @"e", @"f",
+    @"g", @"h", @"i", @"j", @"k", @"l",
+    @"m", @"n", @"o", @"p", @"q", @"r",
+    @"s", @"t", @"u", @"v", @"w", @"x",
+    @"y", @"z" ];
+    
+    NSArray *postfix = @[ @"vStar", @"pStar", @"Tstar", @"a", @"b", @"c", @"d", @"e" ];
+    
+    for (int i=0; i<[prefix count]; i++)
+    {
+        for (int j=0; j<nVar; j++)
+        {
+            NSDictionary *dict = [array objectAtIndex:j+nOff];
+            NSString *name = [[NSString alloc] initWithFormat:@"%@_%@",prefix[i],postfix[j]];
+            NSNumber *a = [dict objectForKey:name];
+        
+            switch (i) {
+                case 0:
+                    _para[j] = [a doubleValue];
+                    break;
+                case 1:
+                    _parb[j] = [a doubleValue];
+                    break;
+                case 2:
+                    _parc[j] = [a doubleValue];
+                    break;
+                case 3:
+                    _pard[j] = [a doubleValue];
+                    break;
+                case 4:
+                    _pare[j] = [a doubleValue];
+                    break;
+                case 5:
+                    _parf[j] = [a doubleValue];
+                    break;
+                case 6:
+                    _parg[j] = [a doubleValue];
+                    break;
+                case 7:
+                    _parh[j] = [a doubleValue];
+                    break;
+                case 8:
+                    _pari[j] = [a doubleValue];
+                    break;
+                case 9:
+                    _parj[j] = [a doubleValue];
+                    break;
+                case 10:
+                    _park[j] = [a doubleValue];
+                    break;
+                case 11:
+                    _parl[j] = [a doubleValue];
+                    break;
+                case 12:
+                    _parm[j] = [a doubleValue];
+                    break;
+                case 13:
+                    _parn[j] = [a doubleValue];
+                    break;
+                case 14:
+                    _paro[j] = [a doubleValue];
+                    break;
+                case 15:
+                    _parp[j] = [a doubleValue];
+                    break;
+                case 16:
+                    _parq[j] = [a doubleValue];
+                    break;
+                case 17:
+                    _pare[j] = [a doubleValue];
+                    break;
+                case 18:
+                    _pars[j] = [a doubleValue];
+                    break;
+                case 19:
+                    _part[j] = [a doubleValue];
+                    break;
+                case 20:
+                    _paru[j] = [a doubleValue];
+                    break;
+                case 21:
+                    _parv[j] = [a doubleValue];
+                    break;
+                case 22:
+                    _parw[j] = [a doubleValue];
+                    break;
+                case 23:
+                    _parx[j] = [a doubleValue];
+                    break;
+                case 24:
+                    _pary[j] = [a doubleValue];
+                    break;
+                case 25:
+                    _parz[j] = [a doubleValue];
+                    break;
+                    
+                default:
+                    break;
+            }
+
+            nOff++;
+        }
+    }
+    
+    // a
+    nVar = 30;
+    _iv3a = malloc(nVar*sizeof(long double));
+    _jv3a = malloc(nVar*sizeof(long double));
+    _nv3a = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3a_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3a_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3a_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3a[i] = [aik doubleValue];
+        _jv3a[i] = [ajk doubleValue];
+        _nv3a[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // b
+    nVar = 32;
+    _iv3b = malloc(nVar*sizeof(long double));
+    _jv3b = malloc(nVar*sizeof(long double));
+    _nv3b = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3b_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3b_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3b_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3b[i] = [aik doubleValue];
+        _jv3b[i] = [ajk doubleValue];
+        _nv3b[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // c
+    nVar = 35;
+    _iv3c = malloc(nVar*sizeof(long double));
+    _jv3c = malloc(nVar*sizeof(long double));
+    _nv3c = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3c_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3c_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3c_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3c[i] = [aik doubleValue];
+        _jv3c[i] = [ajk doubleValue];
+        _nv3c[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // d
+    nVar = 38;
+    _iv3d = malloc(nVar*sizeof(long double));
+    _jv3d = malloc(nVar*sizeof(long double));
+    _nv3d = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3d_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3d_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3d_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3d[i] = [aik doubleValue];
+        _jv3d[i] = [ajk doubleValue];
+        _nv3d[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // e
+    nVar = 29;
+    _iv3e = malloc(nVar*sizeof(long double));
+    _jv3e = malloc(nVar*sizeof(long double));
+    _nv3e = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3e_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3e_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3e_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3e[i] = [aik doubleValue];
+        _jv3e[i] = [ajk doubleValue];
+        _nv3e[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // f
+    nVar = 42;
+    _iv3f = malloc(nVar*sizeof(long double));
+    _jv3f = malloc(nVar*sizeof(long double));
+    _nv3f = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3f_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3f_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3f_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3f[i] = [aik doubleValue];
+        _jv3f[i] = [ajk doubleValue];
+        _nv3f[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // g
+    nVar = 38;
+    _iv3g = malloc(nVar*sizeof(long double));
+    _jv3g = malloc(nVar*sizeof(long double));
+    _nv3g = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3g_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3g_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3g_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3g[i] = [aik doubleValue];
+        _jv3g[i] = [ajk doubleValue];
+        _nv3g[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // h
+    nVar = 29;
+    _iv3h = malloc(nVar*sizeof(long double));
+    _jv3h = malloc(nVar*sizeof(long double));
+    _nv3h = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3h_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3h_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3h_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3h[i] = [aik doubleValue];
+        _jv3h[i] = [ajk doubleValue];
+        _nv3h[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    
+    // i
+    nVar = 42;
+    _iv3i = malloc(nVar*sizeof(long double));
+    _jv3i = malloc(nVar*sizeof(long double));
+    _nv3i = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3i_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3i_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3i_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3i[i] = [aik doubleValue];
+        _jv3i[i] = [ajk doubleValue];
+        _nv3i[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // j
+    nVar = 29;
+    _iv3j = malloc(nVar*sizeof(long double));
+    _jv3j = malloc(nVar*sizeof(long double));
+    _nv3j = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3j_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3j_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3j_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3j[i] = [aik doubleValue];
+        _jv3j[i] = [ajk doubleValue];
+        _nv3j[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // k
+    nVar = 34;
+    _iv3k = malloc(nVar*sizeof(long double));
+    _jv3k = malloc(nVar*sizeof(long double));
+    _nv3k = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3k_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3k_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3k_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3k[i] = [aik doubleValue];
+        _jv3k[i] = [ajk doubleValue];
+        _nv3k[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // l
+    nVar = 43;
+    _iv3l = malloc(nVar*sizeof(long double));
+    _jv3l = malloc(nVar*sizeof(long double));
+    _nv3l = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3l_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3l_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3l_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3l[i] = [aik doubleValue];
+        _jv3l[i] = [ajk doubleValue];
+        _nv3l[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // m
+    nVar = 40;
+    _iv3m = malloc(nVar*sizeof(long double));
+    _jv3m = malloc(nVar*sizeof(long double));
+    _nv3m = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3m_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3m_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3m_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3m[i] = [aik doubleValue];
+        _jv3m[i] = [ajk doubleValue];
+        _nv3m[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // n
+    nVar = 39;
+    _iv3n = malloc(nVar*sizeof(long double));
+    _jv3n = malloc(nVar*sizeof(long double));
+    _nv3n = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3n_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3n_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3n_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3n[i] = [aik doubleValue];
+        _jv3n[i] = [ajk doubleValue];
+        _nv3n[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // o
+    nVar = 24;
+    _iv3o = malloc(nVar*sizeof(long double));
+    _jv3o = malloc(nVar*sizeof(long double));
+    _nv3o = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3o_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3o_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3o_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3o[i] = [aik doubleValue];
+        _jv3o[i] = [ajk doubleValue];
+        _nv3o[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // p
+    nVar = 27;
+    _iv3p = malloc(nVar*sizeof(long double));
+    _jv3p = malloc(nVar*sizeof(long double));
+    _nv3p = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3p_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3p_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3p_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3p[i] = [aik doubleValue];
+        _jv3p[i] = [ajk doubleValue];
+        _nv3p[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // q
+    nVar = 24;
+    _iv3q = malloc(nVar*sizeof(long double));
+    _jv3q = malloc(nVar*sizeof(long double));
+    _nv3q = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3q_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3q_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3q_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3q[i] = [aik doubleValue];
+        _jv3q[i] = [ajk doubleValue];
+        _nv3q[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // r
+    nVar = 27;
+    _iv3r = malloc(nVar*sizeof(long double));
+    _jv3r = malloc(nVar*sizeof(long double));
+    _nv3r = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3r_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3r_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3r_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3r[i] = [aik doubleValue];
+        _jv3r[i] = [ajk doubleValue];
+        _nv3r[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // s
+    nVar = 29;
+    _iv3s = malloc(nVar*sizeof(long double));
+    _jv3s = malloc(nVar*sizeof(long double));
+    _nv3s = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3s_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3s_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3s_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3s[i] = [aik doubleValue];
+        _jv3s[i] = [ajk doubleValue];
+        _nv3s[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // t
+    nVar = 33;
+    _iv3t = malloc(nVar*sizeof(long double));
+    _jv3t = malloc(nVar*sizeof(long double));
+    _nv3t = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3t_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3t_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3t_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3t[i] = [aik doubleValue];
+        _jv3t[i] = [ajk doubleValue];
+        _nv3t[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // u
+    nVar = 38;
+    _iv3u = malloc(nVar*sizeof(long double));
+    _jv3u = malloc(nVar*sizeof(long double));
+    _nv3u = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3u_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3u_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3u_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3u[i] = [aik doubleValue];
+        _jv3u[i] = [ajk doubleValue];
+        _nv3u[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // v
+    nVar = 39;
+    _iv3v = malloc(nVar*sizeof(long double));
+    _jv3v = malloc(nVar*sizeof(long double));
+    _nv3v = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3v_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3v_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3v_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3v[i] = [aik doubleValue];
+        _jv3v[i] = [ajk doubleValue];
+        _nv3v[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // w
+    nVar = 35;
+    _iv3w = malloc(nVar*sizeof(long double));
+    _jv3w = malloc(nVar*sizeof(long double));
+    _nv3w = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3w_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3w_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3w_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3w[i] = [aik doubleValue];
+        _jv3w[i] = [ajk doubleValue];
+        _nv3w[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // x
+    nVar = 36;
+    _iv3x = malloc(nVar*sizeof(long double));
+    _jv3x = malloc(nVar*sizeof(long double));
+    _nv3x = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3x_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3x_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3x_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3x[i] = [aik doubleValue];
+        _jv3x[i] = [ajk doubleValue];
+        _nv3x[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // y
+    nVar = 20;
+    _iv3y = malloc(nVar*sizeof(long double));
+    _jv3y = malloc(nVar*sizeof(long double));
+    _nv3y = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3y_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3y_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3y_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3y[i] = [aik doubleValue];
+        _jv3y[i] = [ajk doubleValue];
+        _nv3y[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;
+
+    // z
+    nVar = 23;
+    _iv3z = malloc(nVar*sizeof(long double));
+    _jv3z = malloc(nVar*sizeof(long double));
+    _nv3z = malloc(nVar*sizeof(long double));
+    
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *Aidict = [array objectAtIndex:nOff+i];
+        NSDictionary *Ajdict = [array objectAtIndex:nOff+i+nVar];
+        NSDictionary *Andict = [array objectAtIndex:nOff+i+2*nVar];
+        
+        NSString *iname = [NSString stringWithFormat:@"v3z_i%d", i+1];
+        NSString *jname = [NSString stringWithFormat:@"v3z_j%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"v3z_n%d", i+1];
+        
+        NSNumber *aik = [Aidict objectForKey:iname];
+        NSNumber *ajk = [Ajdict objectForKey:jname];
+        NSNumber *ank = [Andict objectForKey:nname];
+        
+        _iv3z[i] = [aik doubleValue];
+        _jv3z[i] = [ajk doubleValue];
+        _nv3z[i] = [ank doubleValue];
+    }
+    nOff += 3*nVar;    
+    
     _tstar = [[[array objectAtIndex:nOff] objectForKey:@"Tstar"] doubleValue];
     _rhostar = [[[array objectAtIndex:nOff+1] objectForKey:@"rhostar"] doubleValue];
     
@@ -807,25 +1615,25 @@ static int nCoeffs = 40;
     [names addObject:@"rhostar"];
     [names addObject:@"R"];
     
+    // ab
     for (int i=0; i<5; i++)
     {
         NSString *name = [[NSString alloc] initWithFormat:@"t3ab_i%d", i+1];
         [names addObject:name];
     }
-
     for (int i=0; i<5; i++)
     {
         NSString *name = [[NSString alloc] initWithFormat:@"t3ab_n%d", i+1];
         [names addObject:name];
     }
 
-    for (int i=0; i<5; i++)
+    // cd
+    for (int i=0; i<4; i++)
     {
         NSString *name = [[NSString alloc] initWithFormat:@"t3cd_i%d", i+1];
         [names addObject:name];
     }
-    
-    for (int i=0; i<5; i++)
+    for (int i=0; i<4; i++)
     {
         NSString *name = [[NSString alloc] initWithFormat:@"t3cd_n%d", i+1];
         [names addObject:name];
@@ -834,6 +1642,598 @@ static int nCoeffs = 40;
     for (int i=0; i<3; i++)
     {
         NSString *name = [[NSString alloc] initWithFormat:@"t3ef_c%d", i+1];
+        [names addObject:name];
+    }
+
+    // gh
+    for (int i=0; i<5; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3gh_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<5; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3gh_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // ij
+    for (int i=0; i<5; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3ij_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<5; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3ij_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // jk
+    for (int i=0; i<5; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3jk_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<5; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3jk_n%d", i+1];
+        [names addObject:name];
+    }
+    
+    // mn
+    for (int i=0; i<4; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3mn_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<4; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3mn_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // op
+    for (int i=0; i<5; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3op_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<5; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3op_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // qu
+    for (int i=0; i<4; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3qu_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<4; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3qu_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // rx
+    for (int i=0; i<4; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3rx_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<4; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3rx_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // uv
+    for (int i=0; i<4; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3uv_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<4; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3uv_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // wx
+    for (int i=0; i<5; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3wx_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<5; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"t3wx_n%d", i+1];
+        [names addObject:name];
+    }
+
+    NSArray *prefix = @[ @"a", @"b", @"c", @"d", @"e", @"f",
+                            @"g", @"h", @"i", @"j", @"k", @"l",
+                            @"m", @"n", @"o", @"p", @"q", @"r",
+                            @"s", @"t", @"u", @"v", @"w", @"x",
+                            @"y", @"z" ];
+    
+    NSArray *postfix = @[ @"vStar", @"pStar", @"Tstar", @"a", @"b", @"c", @"d", @"e" ];
+    
+    for (int i=0; i<[prefix count]; i++)
+    {
+        for (int j=0; j<[postfix count]; j++) {
+            NSString *name = [[NSString alloc] initWithFormat:@"%@_%@",prefix[i],postfix[j]];
+            [names addObject:name];
+        }
+    }
+    
+    // a
+    int nVar = 30;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3a_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3a_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3a_n%d", i+1];
+        [names addObject:name];
+    }
+    
+    // b
+    nVar = 32;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3b_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3b_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3b_n%d", i+1];
+        [names addObject:name];
+    }
+    
+    // c
+    nVar = 35;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3c_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3c_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3c_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // d
+    nVar = 38;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3d_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3d_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3d_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // e
+    nVar = 29;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3e_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3e_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3e_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // f
+    nVar = 42;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3f_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3f_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3f_n%d", i+1];
+        [names addObject:name];
+    }
+    
+    // g
+    nVar = 38;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3g_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3g_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3g_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // h
+    nVar = 29;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3h_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3h_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3h_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // i
+    nVar = 42;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3i_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3i_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3i_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // j
+    nVar = 29;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3j_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3j_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3j_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // k
+    nVar = 34;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3k_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3k_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3k_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // l
+    nVar = 43;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3l_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3l_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3l_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // m
+    nVar = 40;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3m_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3m_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3m_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // n
+    nVar = 39;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3n_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3n_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3n_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // o
+    nVar = 24;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3o_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3o_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3o_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // p
+    nVar = 27;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3p_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3p_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3p_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // q
+    nVar = 24;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3q_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3q_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3q_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // r
+    nVar = 27;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3r_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3r_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3r_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // s
+    nVar = 29;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3s_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3s_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3s_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // t
+    nVar = 33;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3t_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3t_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3t_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // u
+    nVar = 38;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3u_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3u_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3u_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // v
+    nVar = 39;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3v_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3v_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3v_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // w
+    nVar = 35;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3w_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3w_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3w_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // x
+    nVar = 36;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3x_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3x_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3x_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // y
+    nVar = 20;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3y_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3y_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3y_n%d", i+1];
+        [names addObject:name];
+    }
+
+    // z
+    nVar = 23;
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3z_i%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3z_j%d", i+1];
+        [names addObject:name];
+    }
+    for (int i=0; i<nVar; i++)
+    {
+        NSString *name = [[NSString alloc] initWithFormat:@"v3z_n%d", i+1];
         [names addObject:name];
     }
 
