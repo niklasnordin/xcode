@@ -2452,74 +2452,409 @@ static int nCoeffs = 40;
 
 }
 
--(subregion3)identifyRegionForP:(double)p andT:(double)T
+-(subregion3)identifyRegionForP:(double)pressure andT:(double)T
 {
     subregion3 reg = none3;
     
-    if (p >= 100.0e+6)
+    // ab and op use 2
+    // ef use 3
+    // rest use 1
+    if (pressure >= 100.0e+6)
     {
         return reg;
     }
     
-    double pi = p/_pbackstar;
+    double pi = pressure/_pbackstar;
     //double tau = T/_tbackstar;
     
-    if (p > 40.0e+6)
+    if (pressure > 40.0e+6)
     {
         double t3ab = _tbackstar*[self T2splitForPi:pi coefficientsN:_nt3ab andI:_it3ab andN:5];
         reg = (T < t3ab) ? a : b;
     }
     else
     {
-        if (p > 25.0e+6)
+        if (pressure > 25.0e+6)
         {
-            double t3ab = _tbackstar*[self T2splitForPi:pi coefficientsN:_nt3ab andI:_it3ab andN:5];
             double t3cd = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3cd andI:_it3cd andN:4];
-            double t3ef = _tbackstar*[self T3splitForPi:pi coefficients:_ct3ef];
-
             if (T <= t3cd)
             {
                 reg = c;
             }
             else
             {
+                double t3ab = _tbackstar*[self T2splitForPi:pi coefficientsN:_nt3ab andI:_it3ab andN:5];
                 if (T <= t3ab)
                 {
                     reg = d;
                 }
                 else
                 {
+                    double t3ef = _tbackstar*[self T3splitForPi:pi coefficients:_ct3ef];
                     reg = (T <= t3ef) ? e : f;
                 }
             }
         }
         else
         {
-            if (p > 23.5e+6)
+
+            if (pressure > 23.5e+6)
             {
-                
-            }
-            else
-            {
-                if (p > 23.0e+6)
+                double t3cd = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3cd andI:_it3cd andN:4];
+                if (T <= t3cd)
                 {
-                    
+                    reg = c;
                 }
                 else
                 {
-                    if (p > 22.5e+6)
+                    double t3gh = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3gh andI:_it3gh andN:5];
+                    if (T <= t3gh)
                     {
-                        
+                        reg = g;
+                    }
+                    else
+                    {
+                        double t3ef = _tbackstar*[self T3splitForPi:pi coefficients:_ct3ef];
+                        if (T <= t3ef)
+                        {
+                            reg = h;
+                        }
+                        else
+                        {
+                            double t3ij = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3ij andI:_it3ij andN:5];
+                            if (T <= t3ij)
+                            {
+                                reg = i;
+                            }
+                            else
+                            {
+                                double t3jk = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3jk andI:_it3jk andN:5];
+                                reg = (T <= t3jk) ? j : k;
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (pressure > 23.0e+6)
+                {
+                    double t3cd = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3cd andI:_it3cd andN:4];
+                    if ( T <= t3cd )
+                    {
+                        reg = c;
+                    }
+                    else
+                    {
+                        double t3gh = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3gh andI:_it3gh andN:5];
+                        if ( T <= t3gh )
+                        {
+                            reg = l;
+                        }
+                        else
+                        {
+                            double t3ef = _tbackstar*[self T3splitForPi:pi coefficients:_ct3ef];
+                            if ( T <=  t3ef )
+                            {
+                                reg = h;
+                            }
+                            else
+                            {
+                                double t3ij = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3ij andI:_it3ij andN:5];
+                                if ( T <= t3ij )
+                                {
+                                    reg = i;
+                                }
+                                else
+                                {
+                                    double t3jk = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3jk andI:_it3jk andN:5];
+                                    reg = ( T <= t3jk ) ? j : k;
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (pressure > 22.5e+6)
+                    {
+                        double t3cd = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3cd andI:_it3cd andN:4];
+                        if  ( T <= t3cd )
+                        {
+                            reg = c;
+                        }
+                        else
+                        {
+                            double t3gh = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3gh andI:_it3gh andN:5];
+                            if ( T <= t3gh )
+                            {
+                                reg = l;
+                            }
+                            else
+                            {
+                                double t3mn = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3mn andI:_it3mn andN:5];
+                                if ( T <= t3mn )
+                                {
+                                    reg = m;
+                                }
+                                else
+                                {
+                                    double t3ef = _tbackstar*[self T3splitForPi:pi coefficients:_ct3ef];
+                                    if ( T <= t3ef )
+                                    {
+                                        reg = n;
+                                    }
+                                    else
+                                    {
+                                        double t3op = _tbackstar*[self T2splitForPi:pi coefficientsN:_nt3op andI:_it3op andN:5];
+                                        if ( T <= t3op )
+                                        {
+                                            reg = o;
+                                        }
+                                        else
+                                        {
+                                            double t3ij = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3ij andI:_it3ij andN:5];
+                                            if ( T <= t3ij )
+                                            {
+                                                reg = p;
+                                            }
+                                            else
+                                            {
+                                                double t3jk = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3jk andI:_it3jk andN:5];
+                                                reg = ( T <= t3jk ) ? j : k;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                     else
                     {
                         double T0 = 643.15;
                         double psat = [_iapws4 PsForT:T0];
+                        
+                        if (pressure > psat)
+                        {
+                            double t3cd = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3cd andI:_it3cd andN:4];
+                            if ( T <= t3cd )
+                            {
+                                reg = c;
+                            }
+                            else
+                            {
+                                double t3qu = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3qu andI:_it3qu andN:4];
+                                if ( T <= t3qu )
+                                {
+                                    reg = q;
+                                }
+                                else
+                                {
+                                    double t3rx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3rx andI:_it3rx andN:4];
+
+                                    if ( T > t3rx )
+                                    {
+                                        double t3jk = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3jk andI:_it3jk andN:5];
+                                        reg = ( T < t3jk ) ? r : k;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if ( pressure > 20.5e6 )
+                            {
+                                double t3cd = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3cd andI:_it3cd andN:4];
+                                if ( T <= t3cd )
+                                {
+                                    reg = c;
+                                }
+                                else
+                                {
+                                    double Tsat = [_iapws4 TsForp:pressure];
+                                    if ( T <= Tsat )
+                                    {
+                                        reg = s;
+                                    }
+                                    else
+                                    {
+                                        double t3jk = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3jk andI:_it3jk andN:5];
+                                        reg = ( T <= t3jk ) ? r : k;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if ( pressure > 1.900881189173929e7)
+                                {
+                                    double t3cd = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3cd andI:_it3cd andN:4];
+                                    if ( T < t3cd )
+                                    {
+                                        reg = c;
+                                    }
+                                    else
+                                    {
+                                        double Tsat = [_iapws4 TsForp:pressure];
+                                        reg = ( T <= Tsat ) ? s : t;
+                                    }
+                                }
+                                else
+                                {
+                                    double T0 = 623.15;
+                                    double psat = [_iapws4 PsForT:T0];
+                                    if (pressure > psat)
+                                    {
+                                        double Tsat = [_iapws4 TsForp:pressure];
+                                        reg = ( T < Tsat ) ? c : t;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
     }
+    
+    // close to critical point
+    double T0 = 643.15;
+    double psat = [_iapws4 PsForT:T0];
+    if ( (psat < pressure) && ( pressure <= 22.5e+6) )
+    {
+        double t3qu = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3qu andI:_it3qu andN:4];
+        if ( T > t3qu )
+        {
+            if ( pressure > 22.11e+6 )
+            {
+                double t3uv = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3uv andI:_it3uv andN:4];
+                if ( T <= t3uv )
+                {
+                    reg = u;
+                }
+                else
+                {
+                    double t3ef = _tbackstar*[self T3splitForPi:pi coefficients:_ct3ef];
+                    if ( T <= t3ef )
+                    {
+                        reg = v;
+                    }
+                    else
+                    {
+                        double t3wx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3wx andI:_it3wx andN:5];
+                        if ( T <= t3wx )
+                        {
+                            reg = w;
+                        }
+                        else
+                        {
+                            double t3rx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3rx andI:_it3rx andN:4];
+                            if ( T <= t3rx )
+                            {
+                                reg = x;
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if ( pressure > 22.064e+6 )
+                {
+                    double t3uv = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3uv andI:_it3uv andN:4];
+                    if ( T <= t3uv)
+                    {
+                        reg = u;
+                    }
+                    else
+                    {
+                        double t3ef = _tbackstar*[self T3splitForPi:pi coefficients:_ct3ef];
+                        if ( T <= t3ef )
+                        {
+                            reg = y;
+                        }
+                        else
+                        {
+                            double t3wx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3wx andI:_it3wx andN:5];
+                            if ( T <= t3wx)
+                            {
+                                reg = z;
+                            }
+                            else
+                            {
+                                double t3rx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3rx andI:_it3rx andN:4];
+                                if ( T <= t3rx )
+                                {
+                                    reg = x;
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    double pe = 2.193161551e+7;
+                    double pf = 2.190096265e+7;
+                    double Tsat = [_iapws4 TsForp:pressure];
+                    if ( T <= Tsat )
+                    {
+                        if ( pressure > pe)
+                        {
+                            {
+                                double t3uv = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3uv andI:_it3uv andN:4];
+                                reg = ( T <= t3uv ) ? u : y;
+                            }
+                        }
+                        else
+                        {
+                            double T0 = 643.15;
+                            double psat = [_iapws4 PsForT:T0];
+                            if (pressure > psat)
+                            {
+                                double t3qu = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3qu andI:_it3qu andN:4];
+                                if ( T > t3qu)
+                                {
+                                    reg = y;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if ( pressure > pf )
+                        {
+                            double t3wx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3wx andI:_it3wx andN:5];
+                            if ( T <= t3wx)
+                            {
+                                reg = z;
+                            }
+                            else
+                            {
+                                double t3rx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3rx andI:_it3rx andN:4];
+                                if ( T <= t3rx)
+                                {
+                                    reg = x;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            double T0 = 643.15;
+                            double psat = [_iapws4 PsForT:T0];
+                            if (pressure > psat)
+                            {
+                                double t3rx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3rx andI:_it3rx andN:4];
+                                if ( T <= t3rx)
+                                {
+                                    reg = x;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     return reg;
 }
 
