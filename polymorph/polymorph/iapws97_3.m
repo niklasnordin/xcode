@@ -1620,111 +1620,104 @@ static int nCoeffs = 40;
     return sum;
 }
 
--(double)vForP:(long double)p andT:(long double)T
+-(double)vForP:(long double)pres andT:(long double)T
 {
-    subregion3 region = [self identifyRegionForP:p andT:T];
+    subregion3 region = [self identifyRegionForP:pres andT:T];
     
-    double v = 0.0;
+    double vv = 1.0e+15;
     
-    switch (region) {
+    switch (region)
+    {
         case a:
-            v = [self vptForP:p andT:T par:_para coeffI:_iv3a coeffJ:_jv3a coeffN:_nv3a N:30];
+            vv = [self vptForP:pres andT:T par:_para coeffI:_iv3a coeffJ:_jv3a coeffN:_nv3a N:30];
             break;
         case b:
-            v = [self vptForP:p andT:T par:_parb coeffI:_iv3b coeffJ:_jv3b coeffN:_nv3b N:32];
+            vv = [self vptForP:pres andT:T par:_parb coeffI:_iv3b coeffJ:_jv3b coeffN:_nv3b N:32];
             break;
         case c:
-            v = [self vptForP:p andT:T par:_parc coeffI:_iv3c coeffJ:_jv3c coeffN:_nv3b N:35];
+            vv = [self vptForP:pres andT:T par:_parc coeffI:_iv3c coeffJ:_jv3c coeffN:_nv3b N:35];
             break;
         case d:
-            v = [self vptForP:p andT:T par:_pard coeffI:_iv3d coeffJ:_jv3d coeffN:_nv3d N:38];
+            vv = [self vptForP:pres andT:T par:_pard coeffI:_iv3d coeffJ:_jv3d coeffN:_nv3d N:38];
             break;
         case e:
-            v = [self vptForP:p andT:T par:_pare coeffI:_iv3e coeffJ:_jv3e coeffN:_nv3e N:29];
+            vv = [self vptForP:pres andT:T par:_pare coeffI:_iv3e coeffJ:_jv3e coeffN:_nv3e N:29];
             break;
         case f:
-            v = [self vptForP:p andT:T par:_parf coeffI:_iv3f coeffJ:_jv3f coeffN:_nv3f N:42];
+            vv = [self vptForP:pres andT:T par:_parf coeffI:_iv3f coeffJ:_jv3f coeffN:_nv3f N:42];
             break;
-
+        case g:
+            vv = [self vptForP:pres andT:T par:_parg coeffI:_iv3g coeffJ:_jv3g coeffN:_nv3g N:38];
+            break;
+        case h:
+            vv = [self vptForP:pres andT:T par:_parh coeffI:_iv3h coeffJ:_jv3h coeffN:_nv3h N:29];
+            break;
+        case i:
+            vv = [self vptForP:pres andT:T par:_pari coeffI:_iv3i coeffJ:_jv3i coeffN:_nv3i N:42];
+            break;
+        case j:
+            vv = [self vptForP:pres andT:T par:_parj coeffI:_iv3j coeffJ:_jv3j coeffN:_nv3j N:29];
+            break;
+        case k:
+            vv = [self vptForP:pres andT:T par:_park coeffI:_iv3k coeffJ:_jv3k coeffN:_nv3k N:34];
+            break;
+        case l:
+            vv = [self vptForP:pres andT:T par:_parl coeffI:_iv3l coeffJ:_jv3l coeffN:_nv3l N:43];
+            break;
+        case m:
+            vv = [self vptForP:pres andT:T par:_parm coeffI:_iv3m coeffJ:_jv3m coeffN:_nv3m N:40];
+            break;
+        case n:
+            // special case, change this later
+            vv = [self vptForP:pres andT:T par:_parn coeffI:_iv3n coeffJ:_jv3n coeffN:_nv3n N:39];
+            break;
+        case o:
+            vv = [self vptForP:pres andT:T par:_paro coeffI:_iv3o coeffJ:_jv3o coeffN:_nv3o N:24];
+            break;
+        case p:
+            vv = [self vptForP:pres andT:T par:_parp coeffI:_iv3p coeffJ:_jv3p coeffN:_nv3p N:27];
+            break;
+        case q:
+            vv = [self vptForP:pres andT:T par:_parq coeffI:_iv3q coeffJ:_jv3q coeffN:_nv3q N:24];
+            break;
+        case r:
+            vv = [self vptForP:pres andT:T par:_parr coeffI:_iv3r coeffJ:_jv3r coeffN:_nv3r N:27];
+            break;
+        case s:
+            vv = [self vptForP:pres andT:T par:_pars coeffI:_iv3s coeffJ:_jv3s coeffN:_nv3s N:29];
+            break;
+        case t:
+            vv = [self vptForP:pres andT:T par:_part coeffI:_iv3t coeffJ:_jv3t coeffN:_nv3t N:33];
+            break;
+        case u:
+            vv = [self vptForP:pres andT:T par:_paru coeffI:_iv3u coeffJ:_jv3u coeffN:_nv3u N:38];
+            break;
+        case v:
+            vv = [self vptForP:pres andT:T par:_parv coeffI:_iv3v coeffJ:_jv3v coeffN:_nv3v N:39];
+            break;
+        case w:
+            vv = [self vptForP:pres andT:T par:_parw coeffI:_iv3w coeffJ:_jv3w coeffN:_nv3w N:35];
+            break;
+        case x:
+            vv = [self vptForP:pres andT:T par:_parx coeffI:_iv3x coeffJ:_jv3x coeffN:_nv3x N:36];
+            break;
+        case y:
+            vv = [self vptForP:pres andT:T par:_pary coeffI:_iv3y coeffJ:_jv3y coeffN:_nv3y N:20];
+            break;
+        case z:
+            vv = [self vptForP:pres andT:T par:_parz coeffI:_iv3z coeffJ:_jv3z coeffN:_nv3z N:23];
+            break;
+            
         default:
             break;
     }
     
-    return v;
+    return vv;
 }
 
 -(double)rhoForP:(long double)p andT:(long double)T
 {
     return 1.0/[self vForP:p andT:T];
-/*
-    double tau = _tstar/T;
-    double q = _rhostar*_R*T;
-    double pq = p/q;
-    
-    double rhox = _rhostar;
-    
-    if (T < _tstar)
-    {
-        double pvap = [_pv valueForT:T andP:p];
-        
-        if (p > pvap)
-        {
-            rhox = [_rholSat valueForT:T andP:p];
-        }
-        else
-        {
-            rhox = [_rhovSat valueForT:T andP:p];
-        }
-    }
-
-    //rhox = 600.0;
-    int i = 0;
-    int N = 100;
-    double err = 1.0;
-    double delta = rhox/_rhostar;
-    double tol = 1.0e-9;
-    double urlx = 0.95;
-    
-    while ((err > tol) && (i < N))
-    {
-        // pq = delta*delta*(A + eps*B)
-        // A delta^2 + delta - pq = 0
-        double A = [self dphiddForDelta:delta andTau:tau];
-        double B = [self d2phidd2ForDelta:delta andTau:tau];
-        double d2 = delta*delta;
-        
-        double nom = pq - d2*A;
-        double denom = delta*(delta*B + 2.0*A);
-        //double nom = pq/d2 - A;
-        //double denom = B;
-        double d = nom/denom;
-        err = fabs(d);
-        
-        // dont take too large steps
-        if (d > 0)
-        {
-            d = fmin(urlx*delta, d);
-        }
-        else
-        {
-            d = -fmin(-d, urlx*delta);
-        }
-        
-        delta += 0.9*d;
-        delta = fmax(1.0e-30, delta);
-        //NSLog(@"%d. e=%g, d")
-        i++;
-    }
-    rhox = delta*_rhostar;
-    double pRho = [self pForRho:rhox andT:T];
-    if (fabs(pRho-p) > 1.0)
-    {
-        NSLog(@"rhox = %g, err = %g, p=%Lg, prho=%g, it=%d",rhox, err, p, pRho,i);
-    }
-    
-    return rhox;
-    //return delta*_rhostar;
-*/
 }
 
 -(double)uForP:(long double)p andT:(long double)T

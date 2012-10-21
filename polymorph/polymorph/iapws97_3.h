@@ -14,7 +14,7 @@ typedef enum {
                 a, b, c, d, e, f, g,
                 h, i, j, k, l, m, n,
                 o, p, q, r, s, t, u,
-                v, x, y, z, none3
+                v, w, x, y, z, none3
             } subregion3;
 
 @interface iapws97_3 : NSObject <functionValue>
@@ -201,7 +201,7 @@ typedef enum {
 @property (nonatomic) long double tbackstar;
 @property (nonatomic) long double pbackstar;
 
--(double)vForP:(long double)p andT:(long double)T;
+-(double)vForP:(long double)pres andT:(long double)T;
 -(double)rhoForP:(long double)p andT:(long double)T;
 -(double)uForP:(long double)p andT:(long double)T;
 -(double)hForP:(long double)p andT:(long double)T;
