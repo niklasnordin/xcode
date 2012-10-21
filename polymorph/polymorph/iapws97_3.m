@@ -1668,8 +1668,7 @@ static int nCoeffs = 40;
             vv = [self vptForP:pres andT:T par:_parm coeffI:_iv3m coeffJ:_jv3m coeffN:_nv3m N:40];
             break;
         case n:
-            // special case, change this later
-            vv = [self vptForP:pres andT:T par:_parn coeffI:_iv3n coeffJ:_jv3n coeffN:_nv3n N:39];
+            vv = [self vnptForP:pres andT:T par:_parn coeffI:_iv3n coeffJ:_jv3n coeffN:_nv3n N:39];
             break;
         case o:
             vv = [self vptForP:pres andT:T par:_paro coeffI:_iv3o coeffJ:_jv3o coeffN:_nv3o N:24];
@@ -2574,6 +2573,31 @@ static int nCoeffs = 40;
         v += cn[i]*powl(t1, ci[i])*powl(t2, cj[i]);
     }
     v = powl(v, e);
+    
+    return v*par[0];
+}
+
+-(double)vnptForP:(long double)p
+            andT:(long double)T
+             par:(long double *)par
+          coeffI:(long double *)ci
+          coeffJ:(long double *)cj
+          coeffN:(long double *)cn
+               N:(int)N
+{
+    long double v = 0.0;
+    long double pi = p/par[1];
+    long double theta = T/par[2];
+    long double a = par[3];
+    long double b = par[4];
+    
+    for (int i=0; i<N; i++)
+    {
+        long double t1 = pi - a;
+        long double t2 = theta - b;
+        v += cn[i]*powl(t1, ci[i])*powl(t2, cj[i]);
+    }
+    v = expl(v);
     return v*par[0];
 }
 

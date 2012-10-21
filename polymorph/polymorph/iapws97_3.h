@@ -223,6 +223,15 @@ typedef enum {
           coeffJ:(long double *)cj
           coeffN:(long double *)cn
                N:(int)N;
+
+-(double)vnptForP:(long double)p
+            andT:(long double)T
+             par:(long double *)par
+          coeffI:(long double *)ci
+          coeffJ:(long double *)cj
+          coeffN:(long double *)cn
+               N:(int)N;
+
 //@property (strong, nonatomic) id<functionValue> p23;
 @property (strong, nonatomic) iapws97_4 *iapws4;
 
