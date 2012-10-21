@@ -11,10 +11,10 @@
 #import "iapws97_4.h"
 
 typedef enum {
-                a, b, c, d, e, f, g,
-                h, i, j, k, l, m, n,
-                o, p, q, r, s, t, u,
-                v, w, x, y, z, none3
+                r3a, r3b, r3c, r3d, r3e, r3f, r3g,
+                r3h, r3i, r3j, r3k, r3l, r3m, r3n,
+                r3o, r3p, r3q, r3r, r3s, r3t, r3u,
+                r3v, r3w, r3x, r3y, r3z, none3
             } subregion3;
 
 @interface iapws97_3 : NSObject <functionValue>

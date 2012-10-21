@@ -44,7 +44,6 @@ static int nCoeffs = 40;
     _nt3cd = malloc(4*sizeof(long double));
     
     _ct3ef = malloc(3*sizeof(long double));
-
     
     nVar = 5;
     _it3gh = malloc(nVar*sizeof(long double));
@@ -309,10 +308,9 @@ static int nCoeffs = 40;
     {
         NSDictionary *idict = [array objectAtIndex:i+nOff];
         NSDictionary *ndict = [array objectAtIndex:i+nVar+nOff];
-        
+
         NSString *iname = [NSString stringWithFormat:@"t3ab_i%d", i+1];
         NSString *nname = [NSString stringWithFormat:@"t3ab_n%d", i+1];
-        
         NSNumber *aik = [idict objectForKey:iname];
         NSNumber *ank = [ndict objectForKey:nname];
         
@@ -342,6 +340,7 @@ static int nCoeffs = 40;
     }
     nOff += 2*nVar;
     
+    nVar = 3;
     _ct3ef = malloc(nVar*sizeof(long double));
     
     // ef
@@ -371,6 +370,7 @@ static int nCoeffs = 40;
         
         _it3gh[i] = [aik doubleValue];
         _nt3gh[i] = [ank doubleValue];
+
     }
     nOff += 2*nVar;
 
@@ -493,7 +493,27 @@ static int nCoeffs = 40;
         _nt3rx[i] = [ank doubleValue];
     }
     nOff += 2*nVar;
-
+    
+    // uv
+    nVar = 4;
+    _it3uv = malloc(nVar*sizeof(long double));
+    _nt3uv = malloc(nVar*sizeof(long double));
+    for (int i=0; i<nVar; i++)
+    {
+        NSDictionary *idict = [array objectAtIndex:i+nOff];
+        NSDictionary *ndict = [array objectAtIndex:i+nVar+nOff];
+        
+        NSString *iname = [NSString stringWithFormat:@"t3uv_i%d", i+1];
+        NSString *nname = [NSString stringWithFormat:@"t3uv_n%d", i+1];
+        
+        NSNumber *aik = [idict objectForKey:iname];
+        NSNumber *ank = [ndict objectForKey:nname];
+        
+        _it3uv[i] = [aik doubleValue];
+        _nt3uv[i] = [ank doubleValue];
+    }
+    nOff += 2*nVar;
+    
     // wx
     nVar = 5;
     _it3wx = malloc(nVar*sizeof(long double));
@@ -554,10 +574,10 @@ static int nCoeffs = 40;
     {
         for (int j=0; j<nVar; j++)
         {
-            NSDictionary *dict = [array objectAtIndex:j+nOff];
+            NSDictionary *dict = [array objectAtIndex:nOff];
             NSString *name = [[NSString alloc] initWithFormat:@"%@_%@",prefix[i],postfix[j]];
             NSNumber *a = [dict objectForKey:name];
-        
+
             switch (i) {
                 case 0:
                     _para[j] = [a doubleValue];
@@ -669,6 +689,7 @@ static int nCoeffs = 40;
         _iv3a[i] = [aik doubleValue];
         _jv3a[i] = [ajk doubleValue];
         _nv3a[i] = [ank doubleValue];
+        //NSLog(@"%d, i=%Lg, j=%Lg, n=%Lg",i, _iv3a[i],_jv3a[i],_nv3a[i]);
     }
     nOff += 3*nVar;
 
@@ -1320,11 +1341,11 @@ static int nCoeffs = 40;
         _jv3z[i] = [ajk doubleValue];
         _nv3z[i] = [ank doubleValue];
     }
-    nOff += 3*nVar;    
+    nOff += 3*nVar;
     
-    _tstar = [[[array objectAtIndex:nOff] objectForKey:@"Tstar"] doubleValue];
-    _rhostar = [[[array objectAtIndex:nOff+1] objectForKey:@"rhostar"] doubleValue];
-    
+    _tbackstar = [[[array objectAtIndex:nOff] objectForKey:@"Tv3Star"] doubleValue];
+    _pbackstar = [[[array objectAtIndex:nOff+1] objectForKey:@"Pv3Star"] doubleValue];
+
     return self;
 }
 
@@ -1628,82 +1649,84 @@ static int nCoeffs = 40;
     
     switch (region)
     {
-        case a:
+        case r3a:
+            NSLog(@"region a");
             vv = [self vptForP:pres andT:T par:_para coeffI:_iv3a coeffJ:_jv3a coeffN:_nv3a N:30];
             break;
-        case b:
+        case r3b:
+            NSLog(@"region b");
             vv = [self vptForP:pres andT:T par:_parb coeffI:_iv3b coeffJ:_jv3b coeffN:_nv3b N:32];
             break;
-        case c:
+        case r3c:
             vv = [self vptForP:pres andT:T par:_parc coeffI:_iv3c coeffJ:_jv3c coeffN:_nv3b N:35];
             break;
-        case d:
+        case r3d:
             vv = [self vptForP:pres andT:T par:_pard coeffI:_iv3d coeffJ:_jv3d coeffN:_nv3d N:38];
             break;
-        case e:
+        case r3e:
             vv = [self vptForP:pres andT:T par:_pare coeffI:_iv3e coeffJ:_jv3e coeffN:_nv3e N:29];
             break;
-        case f:
+        case r3f:
             vv = [self vptForP:pres andT:T par:_parf coeffI:_iv3f coeffJ:_jv3f coeffN:_nv3f N:42];
             break;
-        case g:
+        case r3g:
             vv = [self vptForP:pres andT:T par:_parg coeffI:_iv3g coeffJ:_jv3g coeffN:_nv3g N:38];
             break;
-        case h:
+        case r3h:
             vv = [self vptForP:pres andT:T par:_parh coeffI:_iv3h coeffJ:_jv3h coeffN:_nv3h N:29];
             break;
-        case i:
+        case r3i:
             vv = [self vptForP:pres andT:T par:_pari coeffI:_iv3i coeffJ:_jv3i coeffN:_nv3i N:42];
             break;
-        case j:
+        case r3j:
             vv = [self vptForP:pres andT:T par:_parj coeffI:_iv3j coeffJ:_jv3j coeffN:_nv3j N:29];
             break;
-        case k:
+        case r3k:
             vv = [self vptForP:pres andT:T par:_park coeffI:_iv3k coeffJ:_jv3k coeffN:_nv3k N:34];
             break;
-        case l:
+        case r3l:
             vv = [self vptForP:pres andT:T par:_parl coeffI:_iv3l coeffJ:_jv3l coeffN:_nv3l N:43];
             break;
-        case m:
+        case r3m:
             vv = [self vptForP:pres andT:T par:_parm coeffI:_iv3m coeffJ:_jv3m coeffN:_nv3m N:40];
             break;
-        case n:
+        case r3n:
             vv = [self vnptForP:pres andT:T par:_parn coeffI:_iv3n coeffJ:_jv3n coeffN:_nv3n N:39];
             break;
-        case o:
+        case r3o:
             vv = [self vptForP:pres andT:T par:_paro coeffI:_iv3o coeffJ:_jv3o coeffN:_nv3o N:24];
             break;
-        case p:
+        case r3p:
             vv = [self vptForP:pres andT:T par:_parp coeffI:_iv3p coeffJ:_jv3p coeffN:_nv3p N:27];
             break;
-        case q:
+        case r3q:
             vv = [self vptForP:pres andT:T par:_parq coeffI:_iv3q coeffJ:_jv3q coeffN:_nv3q N:24];
             break;
-        case r:
+        case r3r:
             vv = [self vptForP:pres andT:T par:_parr coeffI:_iv3r coeffJ:_jv3r coeffN:_nv3r N:27];
             break;
-        case s:
+        case r3s:
             vv = [self vptForP:pres andT:T par:_pars coeffI:_iv3s coeffJ:_jv3s coeffN:_nv3s N:29];
             break;
-        case t:
+        case r3t:
             vv = [self vptForP:pres andT:T par:_part coeffI:_iv3t coeffJ:_jv3t coeffN:_nv3t N:33];
             break;
-        case u:
+        case r3u:
             vv = [self vptForP:pres andT:T par:_paru coeffI:_iv3u coeffJ:_jv3u coeffN:_nv3u N:38];
             break;
-        case v:
+        case r3v:
             vv = [self vptForP:pres andT:T par:_parv coeffI:_iv3v coeffJ:_jv3v coeffN:_nv3v N:39];
             break;
-        case w:
+        case r3w:
             vv = [self vptForP:pres andT:T par:_parw coeffI:_iv3w coeffJ:_jv3w coeffN:_nv3w N:35];
             break;
-        case x:
+        case r3x:
             vv = [self vptForP:pres andT:T par:_parx coeffI:_iv3x coeffJ:_jv3x coeffN:_nv3x N:36];
             break;
-        case y:
+        case r3y:
             vv = [self vptForP:pres andT:T par:_pary coeffI:_iv3y coeffJ:_jv3y coeffN:_nv3y N:20];
             break;
-        case z:
+        case r3z:
             vv = [self vptForP:pres andT:T par:_parz coeffI:_iv3z coeffJ:_jv3z coeffN:_nv3z N:23];
             break;
             
@@ -1711,6 +1734,7 @@ static int nCoeffs = 40;
             break;
     }
     
+    NSLog(@"region = %d, p=%Lg, T=%Lg, v=%g", region, pres,T,vv);
     return vv;
 }
 
@@ -2466,11 +2490,13 @@ static int nCoeffs = 40;
     
     double pi = pressure/_pbackstar;
     //double tau = T/_tbackstar;
-    
+    NSLog(@"p=%g, ps=%g",pressure,_pbackstar);
     if (pressure > 40.0e+6)
     {
         double t3ab = _tbackstar*[self T2splitForPi:pi coefficientsN:_nt3ab andI:_it3ab andN:5];
-        reg = (T < t3ab) ? a : b;
+        NSLog(@"T = %g, T3ab = %g",T,t3ab);
+        reg = (T < t3ab) ? r3a : r3b;
+        NSLog(@"reg = %d",reg);
     }
     else
     {
@@ -2479,19 +2505,19 @@ static int nCoeffs = 40;
             double t3cd = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3cd andI:_it3cd andN:4];
             if (T <= t3cd)
             {
-                reg = c;
+                reg = r3c;
             }
             else
             {
                 double t3ab = _tbackstar*[self T2splitForPi:pi coefficientsN:_nt3ab andI:_it3ab andN:5];
                 if (T <= t3ab)
                 {
-                    reg = d;
+                    reg = r3d;
                 }
                 else
                 {
                     double t3ef = _tbackstar*[self T3splitForPi:pi coefficients:_ct3ef];
-                    reg = (T <= t3ef) ? e : f;
+                    reg = (T <= t3ef) ? r3e : r3f;
                 }
             }
         }
@@ -2503,33 +2529,33 @@ static int nCoeffs = 40;
                 double t3cd = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3cd andI:_it3cd andN:4];
                 if (T <= t3cd)
                 {
-                    reg = c;
+                    reg = r3c;
                 }
                 else
                 {
                     double t3gh = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3gh andI:_it3gh andN:5];
                     if (T <= t3gh)
                     {
-                        reg = g;
+                        reg = r3g;
                     }
                     else
                     {
                         double t3ef = _tbackstar*[self T3splitForPi:pi coefficients:_ct3ef];
                         if (T <= t3ef)
                         {
-                            reg = h;
+                            reg = r3h;
                         }
                         else
                         {
                             double t3ij = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3ij andI:_it3ij andN:5];
                             if (T <= t3ij)
                             {
-                                reg = i;
+                                reg = r3i;
                             }
                             else
                             {
                                 double t3jk = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3jk andI:_it3jk andN:5];
-                                reg = (T <= t3jk) ? j : k;
+                                reg = (T <= t3jk) ? r3j : r3k;
                             }
                         }
                     }
@@ -2542,33 +2568,33 @@ static int nCoeffs = 40;
                     double t3cd = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3cd andI:_it3cd andN:4];
                     if ( T <= t3cd )
                     {
-                        reg = c;
+                        reg = r3c;
                     }
                     else
                     {
                         double t3gh = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3gh andI:_it3gh andN:5];
                         if ( T <= t3gh )
                         {
-                            reg = l;
+                            reg = r3l;
                         }
                         else
                         {
                             double t3ef = _tbackstar*[self T3splitForPi:pi coefficients:_ct3ef];
                             if ( T <=  t3ef )
                             {
-                                reg = h;
+                                reg = r3h;
                             }
                             else
                             {
                                 double t3ij = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3ij andI:_it3ij andN:5];
                                 if ( T <= t3ij )
                                 {
-                                    reg = i;
+                                    reg = r3i;
                                 }
                                 else
                                 {
                                     double t3jk = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3jk andI:_it3jk andN:5];
-                                    reg = ( T <= t3jk ) ? j : k;
+                                    reg = ( T <= t3jk ) ? r3j : r3k;
                                 }
                             }
                         }
@@ -2581,47 +2607,47 @@ static int nCoeffs = 40;
                         double t3cd = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3cd andI:_it3cd andN:4];
                         if  ( T <= t3cd )
                         {
-                            reg = c;
+                            reg = r3c;
                         }
                         else
                         {
                             double t3gh = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3gh andI:_it3gh andN:5];
                             if ( T <= t3gh )
                             {
-                                reg = l;
+                                reg = r3l;
                             }
                             else
                             {
                                 double t3mn = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3mn andI:_it3mn andN:5];
                                 if ( T <= t3mn )
                                 {
-                                    reg = m;
+                                    reg = r3m;
                                 }
                                 else
                                 {
                                     double t3ef = _tbackstar*[self T3splitForPi:pi coefficients:_ct3ef];
                                     if ( T <= t3ef )
                                     {
-                                        reg = n;
+                                        reg = r3n;
                                     }
                                     else
                                     {
                                         double t3op = _tbackstar*[self T2splitForPi:pi coefficientsN:_nt3op andI:_it3op andN:5];
                                         if ( T <= t3op )
                                         {
-                                            reg = o;
+                                            reg = r3o;
                                         }
                                         else
                                         {
                                             double t3ij = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3ij andI:_it3ij andN:5];
                                             if ( T <= t3ij )
                                             {
-                                                reg = p;
+                                                reg = r3p;
                                             }
                                             else
                                             {
                                                 double t3jk = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3jk andI:_it3jk andN:5];
-                                                reg = ( T <= t3jk ) ? j : k;
+                                                reg = ( T <= t3jk ) ? r3j : r3k;
                                             }
                                         }
                                     }
@@ -2639,14 +2665,14 @@ static int nCoeffs = 40;
                             double t3cd = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3cd andI:_it3cd andN:4];
                             if ( T <= t3cd )
                             {
-                                reg = c;
+                                reg = r3c;
                             }
                             else
                             {
                                 double t3qu = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3qu andI:_it3qu andN:4];
                                 if ( T <= t3qu )
                                 {
-                                    reg = q;
+                                    reg = r3q;
                                 }
                                 else
                                 {
@@ -2655,7 +2681,7 @@ static int nCoeffs = 40;
                                     if ( T > t3rx )
                                     {
                                         double t3jk = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3jk andI:_it3jk andN:5];
-                                        reg = ( T < t3jk ) ? r : k;
+                                        reg = ( T < t3jk ) ? r3r : r3k;
                                     }
                                 }
                             }
@@ -2667,19 +2693,19 @@ static int nCoeffs = 40;
                                 double t3cd = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3cd andI:_it3cd andN:4];
                                 if ( T <= t3cd )
                                 {
-                                    reg = c;
+                                    reg = r3c;
                                 }
                                 else
                                 {
                                     double Tsat = [_iapws4 TsForp:pressure];
                                     if ( T <= Tsat )
                                     {
-                                        reg = s;
+                                        reg = r3s;
                                     }
                                     else
                                     {
                                         double t3jk = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3jk andI:_it3jk andN:5];
-                                        reg = ( T <= t3jk ) ? r : k;
+                                        reg = ( T <= t3jk ) ? r3r : r3k;
                                     }
                                 }
                             }
@@ -2690,12 +2716,12 @@ static int nCoeffs = 40;
                                     double t3cd = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3cd andI:_it3cd andN:4];
                                     if ( T < t3cd )
                                     {
-                                        reg = c;
+                                        reg = r3c;
                                     }
                                     else
                                     {
                                         double Tsat = [_iapws4 TsForp:pressure];
-                                        reg = ( T <= Tsat ) ? s : t;
+                                        reg = ( T <= Tsat ) ? r3s : r3t;
                                     }
                                 }
                                 else
@@ -2705,7 +2731,7 @@ static int nCoeffs = 40;
                                     if (pressure > psat)
                                     {
                                         double Tsat = [_iapws4 TsForp:pressure];
-                                        reg = ( T < Tsat ) ? c : t;
+                                        reg = ( T < Tsat ) ? r3c : r3t;
                                     }
                                 }
                             }
@@ -2729,28 +2755,28 @@ static int nCoeffs = 40;
                 double t3uv = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3uv andI:_it3uv andN:4];
                 if ( T <= t3uv )
                 {
-                    reg = u;
+                    reg = r3u;
                 }
                 else
                 {
                     double t3ef = _tbackstar*[self T3splitForPi:pi coefficients:_ct3ef];
                     if ( T <= t3ef )
                     {
-                        reg = v;
+                        reg = r3v;
                     }
                     else
                     {
                         double t3wx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3wx andI:_it3wx andN:5];
                         if ( T <= t3wx )
                         {
-                            reg = w;
+                            reg = r3w;
                         }
                         else
                         {
                             double t3rx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3rx andI:_it3rx andN:4];
                             if ( T <= t3rx )
                             {
-                                reg = x;
+                                reg = r3x;
                             }
                         }
                     }
@@ -2763,28 +2789,28 @@ static int nCoeffs = 40;
                     double t3uv = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3uv andI:_it3uv andN:4];
                     if ( T <= t3uv)
                     {
-                        reg = u;
+                        reg = r3u;
                     }
                     else
                     {
                         double t3ef = _tbackstar*[self T3splitForPi:pi coefficients:_ct3ef];
                         if ( T <= t3ef )
                         {
-                            reg = y;
+                            reg = r3y;
                         }
                         else
                         {
                             double t3wx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3wx andI:_it3wx andN:5];
                             if ( T <= t3wx)
                             {
-                                reg = z;
+                                reg = r3z;
                             }
                             else
                             {
                                 double t3rx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3rx andI:_it3rx andN:4];
                                 if ( T <= t3rx )
                                 {
-                                    reg = x;
+                                    reg = r3x;
                                 }
                             }
                         }
@@ -2801,7 +2827,7 @@ static int nCoeffs = 40;
                         {
                             {
                                 double t3uv = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3uv andI:_it3uv andN:4];
-                                reg = ( T <= t3uv ) ? u : y;
+                                reg = ( T <= t3uv ) ? r3u : r3y;
                             }
                         }
                         else
@@ -2813,7 +2839,7 @@ static int nCoeffs = 40;
                                 double t3qu = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3qu andI:_it3qu andN:4];
                                 if ( T > t3qu)
                                 {
-                                    reg = y;
+                                    reg = r3y;
                                 }
                             }
                         }
@@ -2825,14 +2851,14 @@ static int nCoeffs = 40;
                             double t3wx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3wx andI:_it3wx andN:5];
                             if ( T <= t3wx)
                             {
-                                reg = z;
+                                reg = r3z;
                             }
                             else
                             {
                                 double t3rx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3rx andI:_it3rx andN:4];
                                 if ( T <= t3rx)
                                 {
-                                    reg = x;
+                                    reg = r3x;
                                 }
                             }
                         }
@@ -2845,7 +2871,7 @@ static int nCoeffs = 40;
                                 double t3rx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3rx andI:_it3rx andN:4];
                                 if ( T <= t3rx)
                                 {
-                                    reg = x;
+                                    reg = r3x;
                                 }
                             }
                         }
@@ -2875,6 +2901,7 @@ static int nCoeffs = 40;
     for (int i=0; i<N; i++)
     {
         sum += n[i]*powl(logl(pi), ic[i]);
+        NSLog(@"%d, sum=%g, n=%g, ic=%g",i,sum,n[i],ic[i]);
     }
     return sum;
 }
@@ -2892,7 +2919,7 @@ static int nCoeffs = 40;
           coeffN:(long double *)cn
                N:(int)N
 {
-    long double v = 0.0;
+    long double vv = 0.0;
     long double pi = p/par[1];
     long double theta = T/par[2];
     long double a = par[3];
@@ -2900,16 +2927,17 @@ static int nCoeffs = 40;
     long double c = par[5];
     long double d = par[6];
     long double e = par[7];
-    
+    NSLog(@"pi = %Lg, theta=%Lg, %Lg, %Lg, %Lg, %Lg, %Lg",pi,theta,a,b,c,d,e);
     for (int i=0; i<N; i++)
     {
         long double t1 = powl(pi - a, c);
         long double t2 = powl(theta - b, d);
-        v += cn[i]*powl(t1, ci[i])*powl(t2, cj[i]);
+        //NSLog(@"%d. i=%g, j=%g, n=%g",i, ci[i],cj[i],cn[i]);
+        vv += cn[i]*powl(t1, ci[i])*powl(t2, cj[i]);
     }
-    v = powl(v, e);
+    vv = powl(vv, e);
     
-    return v*par[0];
+    return vv*par[0];
 }
 
 -(double)vnptForP:(long double)p
