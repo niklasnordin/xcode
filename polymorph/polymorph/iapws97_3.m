@@ -1650,11 +1650,9 @@ static int nCoeffs = 40;
     switch (region)
     {
         case r3a:
-            NSLog(@"region a");
             vv = [self vptForP:pres andT:T par:_para coeffI:_iv3a coeffJ:_jv3a coeffN:_nv3a N:30];
             break;
         case r3b:
-            NSLog(@"region b");
             vv = [self vptForP:pres andT:T par:_parb coeffI:_iv3b coeffJ:_jv3b coeffN:_nv3b N:32];
             break;
         case r3c:
@@ -1734,7 +1732,6 @@ static int nCoeffs = 40;
             break;
     }
     
-    NSLog(@"region = %d, p=%Lg, T=%Lg, v=%g", region, pres,T,vv);
     return vv;
 }
 
@@ -2490,13 +2487,11 @@ static int nCoeffs = 40;
     
     double pi = pressure/_pbackstar;
     //double tau = T/_tbackstar;
-    NSLog(@"p=%g, ps=%g",pressure,_pbackstar);
+
     if (pressure > 40.0e+6)
     {
         double t3ab = _tbackstar*[self T2splitForPi:pi coefficientsN:_nt3ab andI:_it3ab andN:5];
-        NSLog(@"T = %g, T3ab = %g",T,t3ab);
         reg = (T < t3ab) ? r3a : r3b;
-        NSLog(@"reg = %d",reg);
     }
     else
     {
@@ -2901,7 +2896,6 @@ static int nCoeffs = 40;
     for (int i=0; i<N; i++)
     {
         sum += n[i]*powl(logl(pi), ic[i]);
-        NSLog(@"%d, sum=%g, n=%g, ic=%g",i,sum,n[i],ic[i]);
     }
     return sum;
 }
@@ -2927,7 +2921,7 @@ static int nCoeffs = 40;
     long double c = par[5];
     long double d = par[6];
     long double e = par[7];
-    NSLog(@"pi = %Lg, theta=%Lg, %Lg, %Lg, %Lg, %Lg, %Lg",pi,theta,a,b,c,d,e);
+    //NSLog(@"pi = %Lg, theta=%Lg, %Lg, %Lg, %Lg, %Lg, %Lg",pi,theta,a,b,c,d,e);
     for (int i=0; i<N; i++)
     {
         long double t1 = powl(pi - a, c);
