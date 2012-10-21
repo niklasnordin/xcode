@@ -142,7 +142,7 @@
     }
     
     cell.textLabel.text = name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%g",value];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.15g",value];
     //if (indexPath.row == 1) [cell.detailTextLabel setBackgroundColor:[UIColor greenColor]];
     return cell;
 }

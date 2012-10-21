@@ -123,7 +123,7 @@
                 y = [_function valueForT:_cpv andP:x];
 
             }
-            output = [NSMutableString stringWithFormat:@"%@%g %g\n", output, x,y];
+            output = [NSMutableString stringWithFormat:@"%@%.15e %.15e\n", output, x,y];
         }
         
         NSString *filename = [NSString stringWithFormat:@"%@-%@.dat",_specie,_property];

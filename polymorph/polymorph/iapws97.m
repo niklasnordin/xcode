@@ -175,7 +175,7 @@ static int nCoeffs = 5;
             break;
     }
     
-    return value;
+    return 1.0/value;
 }
 
 -(NSArray *)dependsOnFunctions
