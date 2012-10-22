@@ -361,7 +361,7 @@ static NSUInteger nx = 320;//640;
         xv *= 1.0e-6;
     }
     
-    self.yMidLabel.text = [NSString stringWithFormat:@"%g, %g", xv, self.yMid];
+    self.yMidLabel.text = [NSString stringWithFormat:@"%g, %.10e", xv, self.yMid];
     
     CGPoint pos = [diagramView mapPoint:self X:self.xMid Y:self.yMid];
 
