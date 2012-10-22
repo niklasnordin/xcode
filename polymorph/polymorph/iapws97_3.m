@@ -1650,18 +1650,21 @@ static int nCoeffs = 40;
     switch (region)
     {
         case r3a:
+            // 0
             vv = [self vptForP:pres andT:T par:_para coeffI:_iv3a coeffJ:_jv3a coeffN:_nv3a N:30];
             break;
         case r3b:
             vv = [self vptForP:pres andT:T par:_parb coeffI:_iv3b coeffJ:_jv3b coeffN:_nv3b N:32];
             break;
         case r3c:
+            // 2
             vv = [self vptForP:pres andT:T par:_parc coeffI:_iv3c coeffJ:_jv3c coeffN:_nv3c N:35];
             break;
         case r3d:
             vv = [self vptForP:pres andT:T par:_pard coeffI:_iv3d coeffJ:_jv3d coeffN:_nv3d N:38];
             break;
         case r3e:
+            // 4
             vv = [self vptForP:pres andT:T par:_pare coeffI:_iv3e coeffJ:_jv3e coeffN:_nv3e N:29];
             break;
         case r3f:
@@ -1732,7 +1735,7 @@ static int nCoeffs = 40;
             break;
     }
     
-    //NSLog(@"region = %d", region);
+    NSLog(@"region = %d, T=%g, p=%g", region,T,pres);
     return vv;
 }
 
