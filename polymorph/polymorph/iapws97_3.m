@@ -1735,7 +1735,7 @@ static int nCoeffs = 40;
             break;
     }
     
-    NSLog(@"region = %d, T=%g, p=%g", region,T,pres);
+    //NSLog(@"region = %d, T=%g, p=%g", region,T,pres);
     return vv;
 }
 
