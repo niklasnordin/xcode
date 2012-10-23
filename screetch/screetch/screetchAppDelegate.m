@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Niklas Nordin. All rights reserved.
 //
 
-#import "thermoViewAppDelegate.h"
+#import "screetchAppDelegate.h"
 
-@implementation thermoViewAppDelegate
+@implementation screetchAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface thermoViewViewController : UIViewController
+@interface screetchViewController : UIViewController
 
 @end

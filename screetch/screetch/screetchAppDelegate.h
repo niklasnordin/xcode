@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface thermoViewAppDelegate : UIResponder <UIApplicationDelegate>
+@interface screetchAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

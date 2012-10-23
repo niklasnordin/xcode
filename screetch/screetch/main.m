@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "thermoViewAppDelegate.h"
+#import "screetchAppDelegate.h"
 
 int main(int argc, char *argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([thermoViewAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([screetchAppDelegate class]));
     }
 }

@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 Niklas Nordin. All rights reserved.
 //
 
-#import "thermoViewViewController.h"
+#import "screetchViewController.h"
 
-@interface thermoViewViewController ()
+@interface screetchViewController ()
 
 @end
 
-@implementation thermoViewViewController
+@implementation screetchViewController
 
 - (void)viewDidLoad
 {

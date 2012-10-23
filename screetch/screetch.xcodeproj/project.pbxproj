@@ -12,13 +12,13 @@
 		610DB63616371544004153AC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610DB63516371544004153AC /* CoreGraphics.framework */; };
 		610DB63C16371544004153AC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 610DB63A16371544004153AC /* InfoPlist.strings */; };
 		610DB63E16371544004153AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DB63D16371544004153AC /* main.m */; };
-		610DB64216371544004153AC /* thermoViewAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DB64116371544004153AC /* thermoViewAppDelegate.m */; };
+		610DB64216371544004153AC /* screetchAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DB64116371544004153AC /* screetchAppDelegate.m */; };
 		610DB64416371544004153AC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 610DB64316371544004153AC /* Default.png */; };
 		610DB64616371544004153AC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 610DB64516371544004153AC /* Default@2x.png */; };
 		610DB64816371544004153AC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 610DB64716371544004153AC /* Default-568h@2x.png */; };
 		610DB64B16371544004153AC /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 610DB64916371544004153AC /* MainStoryboard_iPhone.storyboard */; };
 		610DB64E16371544004153AC /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 610DB64C16371544004153AC /* MainStoryboard_iPad.storyboard */; };
-		610DB65116371544004153AC /* thermoViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DB65016371544004153AC /* thermoViewViewController.m */; };
+		610DB65116371544004153AC /* screetchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DB65016371544004153AC /* screetchViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,15 +30,15 @@
 		610DB63B16371544004153AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		610DB63D16371544004153AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		610DB63F16371544004153AC /* screetch-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "screetch-Prefix.pch"; sourceTree = "<group>"; };
-		610DB64016371544004153AC /* thermoViewAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thermoViewAppDelegate.h; sourceTree = "<group>"; };
-		610DB64116371544004153AC /* thermoViewAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = thermoViewAppDelegate.m; sourceTree = "<group>"; };
+		610DB64016371544004153AC /* screetchAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = screetchAppDelegate.h; sourceTree = "<group>"; };
+		610DB64116371544004153AC /* screetchAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = screetchAppDelegate.m; sourceTree = "<group>"; };
 		610DB64316371544004153AC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		610DB64516371544004153AC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		610DB64716371544004153AC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		610DB64A16371544004153AC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		610DB64D16371544004153AC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		610DB64F16371544004153AC /* thermoViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thermoViewViewController.h; sourceTree = "<group>"; };
-		610DB65016371544004153AC /* thermoViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = thermoViewViewController.m; sourceTree = "<group>"; };
+		610DB64F16371544004153AC /* screetchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = screetchViewController.h; sourceTree = "<group>"; };
+		610DB65016371544004153AC /* screetchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = screetchViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,12 +85,12 @@
 		610DB63716371544004153AC /* screetch */ = {
 			isa = PBXGroup;
 			children = (
-				610DB64016371544004153AC /* thermoViewAppDelegate.h */,
-				610DB64116371544004153AC /* thermoViewAppDelegate.m */,
+				610DB64016371544004153AC /* screetchAppDelegate.h */,
+				610DB64116371544004153AC /* screetchAppDelegate.m */,
 				610DB64916371544004153AC /* MainStoryboard_iPhone.storyboard */,
 				610DB64C16371544004153AC /* MainStoryboard_iPad.storyboard */,
-				610DB64F16371544004153AC /* thermoViewViewController.h */,
-				610DB65016371544004153AC /* thermoViewViewController.m */,
+				610DB64F16371544004153AC /* screetchViewController.h */,
+				610DB65016371544004153AC /* screetchViewController.m */,
 				610DB63816371544004153AC /* Supporting Files */,
 			);
 			path = screetch;
@@ -179,8 +179,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				610DB63E16371544004153AC /* main.m in Sources */,
-				610DB64216371544004153AC /* thermoViewAppDelegate.m in Sources */,
-				610DB65116371544004153AC /* thermoViewViewController.m in Sources */,
+				610DB64216371544004153AC /* screetchAppDelegate.m in Sources */,
+				610DB65116371544004153AC /* screetchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
