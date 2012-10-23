@@ -631,7 +631,7 @@ static int nCoeffs = 40;
                     _parq[j] = [a doubleValue];
                     break;
                 case 17:
-                    _pare[j] = [a doubleValue];
+                    _parr[j] = [a doubleValue];
                     break;
                 case 18:
                     _pars[j] = [a doubleValue];
@@ -2925,12 +2925,12 @@ static int nCoeffs = 40;
     long double c = par[5];
     long double d = par[6];
     long double e = par[7];
-    //NSLog(@"pi = %Lg, theta=%Lg, %Lg, %Lg, %Lg, %Lg, %Lg",pi,theta,a,b,c,d,e);
+    //NSLog(@"p0=%Lg, pi=%Lg, t=%Lg, %Lg, %Lg, %Lg, %Lg, %Lg",par[0],par[1],par[2],a,b,c,d,e);
     for (int i=0; i<N; i++)
     {
         long double t1 = powl(pi - a, c);
         long double t2 = powl(theta - b, d);
-        //NSLog(@"%d. i=%g, j=%g, n=%g",i, ci[i],cj[i],cn[i]);
+        //NSLog(@"%d. i=%g, j=%g, n=%e",i, ci[i],cj[i],cn[i]);
         vv += cn[i]*powl(t1, ci[i])*powl(t2, cj[i]);
     }
     vv = powl(vv, e);
