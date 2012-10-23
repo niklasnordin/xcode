@@ -19,6 +19,7 @@
 		610DB64B16371544004153AC /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 610DB64916371544004153AC /* MainStoryboard_iPhone.storyboard */; };
 		610DB64E16371544004153AC /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 610DB64C16371544004153AC /* MainStoryboard_iPad.storyboard */; };
 		610DB65116371544004153AC /* screetchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DB65016371544004153AC /* screetchViewController.m */; };
+		610DB65816372019004153AC /* 250px-Cornflakes_in_bowl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 610DB65716372019004153AC /* 250px-Cornflakes_in_bowl.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		610DB64D16371544004153AC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		610DB64F16371544004153AC /* screetchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = screetchViewController.h; sourceTree = "<group>"; };
 		610DB65016371544004153AC /* screetchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = screetchViewController.m; sourceTree = "<group>"; };
+		610DB65716372019004153AC /* 250px-Cornflakes_in_bowl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "250px-Cornflakes_in_bowl.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		610DB63716371544004153AC /* screetch */ = {
 			isa = PBXGroup;
 			children = (
+				610DB65716372019004153AC /* 250px-Cornflakes_in_bowl.jpg */,
 				610DB64016371544004153AC /* screetchAppDelegate.h */,
 				610DB64116371544004153AC /* screetchAppDelegate.m */,
 				610DB64916371544004153AC /* MainStoryboard_iPhone.storyboard */,
@@ -168,6 +171,7 @@
 				610DB64816371544004153AC /* Default-568h@2x.png in Resources */,
 				610DB64B16371544004153AC /* MainStoryboard_iPhone.storyboard in Resources */,
 				610DB64E16371544004153AC /* MainStoryboard_iPad.storyboard in Resources */,
+				610DB65816372019004153AC /* 250px-Cornflakes_in_bowl.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
