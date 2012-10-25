@@ -2842,24 +2842,13 @@ static int nCoeffs = 40;
                     {
                         if ( pressure > pe)
                         {
-                            {
-                                double t3uv = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3uv andI:_it3uv andN:4];
-                                reg = ( T <= t3uv ) ? r3u : r3y;
-                            }
+                            double t3uv = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3uv andI:_it3uv andN:4];
+                            reg = ( T <= t3uv ) ? r3u : r3y;
                         }
                         else
                         {
-                            double T0 = 643.15;
-                            double psat = [_iapws4 PsForT:T0];
-                            if (pressure > psat)
-                            {
-                                //double t3qu = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3qu andI:_it3qu andN:4];
-                                //NSLog(@"T=%g, t3qu=%g, p=%g, psat=%g",T,t3qu,pressure,psat);
-                                if ( T > t3qu)
-                                {
-                                    reg = r3y;
-                                }
-                            }
+                            //NSLog(@"T=%g, t3qu=%g, p=%g, psat=%g",T,t3qu,pressure,psat);
+                            reg = r3u;
                         }
                     }
                     else
