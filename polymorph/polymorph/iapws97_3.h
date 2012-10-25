@@ -212,7 +212,7 @@ typedef enum {
 -(double)pForRho:(long double)rho andT:(long double)T;
 
 -(subregion3)identifyRegionForP:(double)pressure andT:(double)T;
--(double)T1splitForPi:(double)pi coefficientsN:(long double *)n andI:(long double *)ic andN:(int)N;
+-(double)T1splitForPi:(long double)pi coefficientsN:(long double *)n andI:(long double *)ic andN:(int)N;
 -(double)T2splitForPi:(double)pi coefficientsN:(long double *)n andI:(long double *)ic andN:(int)N;
 -(double)T3splitForPi:(double)pi coefficients:(long double *)c;
 

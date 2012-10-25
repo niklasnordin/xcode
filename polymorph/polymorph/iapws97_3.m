@@ -1671,60 +1671,70 @@ static int nCoeffs = 40;
             vv = [self vptForP:pres andT:T par:_parf coeffI:_iv3f coeffJ:_jv3f coeffN:_nv3f N:42];
             break;
         case r3g:
+            // 6
             vv = [self vptForP:pres andT:T par:_parg coeffI:_iv3g coeffJ:_jv3g coeffN:_nv3g N:38];
             break;
         case r3h:
             vv = [self vptForP:pres andT:T par:_parh coeffI:_iv3h coeffJ:_jv3h coeffN:_nv3h N:29];
             break;
         case r3i:
+            // 8
             vv = [self vptForP:pres andT:T par:_pari coeffI:_iv3i coeffJ:_jv3i coeffN:_nv3i N:42];
             break;
         case r3j:
             vv = [self vptForP:pres andT:T par:_parj coeffI:_iv3j coeffJ:_jv3j coeffN:_nv3j N:29];
             break;
         case r3k:
+            // 10
             vv = [self vptForP:pres andT:T par:_park coeffI:_iv3k coeffJ:_jv3k coeffN:_nv3k N:34];
             break;
         case r3l:
             vv = [self vptForP:pres andT:T par:_parl coeffI:_iv3l coeffJ:_jv3l coeffN:_nv3l N:43];
             break;
         case r3m:
+            // 12
             vv = [self vptForP:pres andT:T par:_parm coeffI:_iv3m coeffJ:_jv3m coeffN:_nv3m N:40];
             break;
         case r3n:
             vv = [self vnptForP:pres andT:T par:_parn coeffI:_iv3n coeffJ:_jv3n coeffN:_nv3n N:39];
             break;
         case r3o:
+            // 14
             vv = [self vptForP:pres andT:T par:_paro coeffI:_iv3o coeffJ:_jv3o coeffN:_nv3o N:24];
             break;
         case r3p:
             vv = [self vptForP:pres andT:T par:_parp coeffI:_iv3p coeffJ:_jv3p coeffN:_nv3p N:27];
             break;
         case r3q:
+            // 16
             vv = [self vptForP:pres andT:T par:_parq coeffI:_iv3q coeffJ:_jv3q coeffN:_nv3q N:24];
             break;
         case r3r:
             vv = [self vptForP:pres andT:T par:_parr coeffI:_iv3r coeffJ:_jv3r coeffN:_nv3r N:27];
             break;
         case r3s:
+            // 18
             vv = [self vptForP:pres andT:T par:_pars coeffI:_iv3s coeffJ:_jv3s coeffN:_nv3s N:29];
             break;
         case r3t:
             vv = [self vptForP:pres andT:T par:_part coeffI:_iv3t coeffJ:_jv3t coeffN:_nv3t N:33];
             break;
         case r3u:
+            // 20
             vv = [self vptForP:pres andT:T par:_paru coeffI:_iv3u coeffJ:_jv3u coeffN:_nv3u N:38];
             break;
         case r3v:
             vv = [self vptForP:pres andT:T par:_parv coeffI:_iv3v coeffJ:_jv3v coeffN:_nv3v N:39];
             break;
         case r3w:
+            // 22
             vv = [self vptForP:pres andT:T par:_parw coeffI:_iv3w coeffJ:_jv3w coeffN:_nv3w N:35];
             break;
         case r3x:
             vv = [self vptForP:pres andT:T par:_parx coeffI:_iv3x coeffJ:_jv3x coeffN:_nv3x N:36];
             break;
         case r3y:
+            // 24
             vv = [self vptForP:pres andT:T par:_pary coeffI:_iv3y coeffJ:_jv3y coeffN:_nv3y N:20];
             break;
         case r3z:
@@ -2489,7 +2499,7 @@ static int nCoeffs = 40;
         return reg;
     }
     
-    double pi = pressure/_pbackstar;
+    long double pi = pressure/_pbackstar;
     //double tau = T/_tbackstar;
 
     if (pressure > 40.0e+6)
@@ -2669,6 +2679,8 @@ static int nCoeffs = 40;
                             else
                             {
                                 double t3qu = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3qu andI:_it3qu andN:4];
+                                //NSLog(@"t3qu = %g, T=%g, p=%g, psat=%g",t3qu,T,pressure,psat);
+
                                 if ( T <= t3qu )
                                 {
                                     reg = r3q;
@@ -2676,11 +2688,14 @@ static int nCoeffs = 40;
                                 else
                                 {
                                     double t3rx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3rx andI:_it3rx andN:4];
+                                    //NSLog(@"t3rx = %g, T=%g, p=%g, psat=%g",t3rx,T,pressure,psat);
 
                                     if ( T > t3rx )
                                     {
                                         double t3jk = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3jk andI:_it3jk andN:5];
-                                        reg = ( T < t3jk ) ? r3r : r3k;
+                                        //NSLog(@"t3jk = %g, T=%g, p=%g, psat=%g",t3jk,T,pressure,psat);
+
+                                        reg = ( T <= t3jk ) ? r3r : r3k;
                                     }
                                 }
                             }
@@ -2744,9 +2759,11 @@ static int nCoeffs = 40;
     // close to critical point
     double T0 = 643.15;
     double psat = [_iapws4 PsForT:T0];
-    if ( (psat < pressure) && ( pressure <= 22.5e+6) )
+    double t3qu = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3qu andI:_it3qu andN:4];
+    double t3rx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3rx andI:_it3rx andN:4];
+
+    if ( (psat < pressure) && ( pressure <= 22.5e+6) && (t3qu < T) && ( T <= t3rx))
     {
-        double t3qu = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3qu andI:_it3qu andN:4];
         if ( T > t3qu )
         {
             if ( pressure > 22.11e+6 )
@@ -2772,7 +2789,6 @@ static int nCoeffs = 40;
                         }
                         else
                         {
-                            double t3rx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3rx andI:_it3rx andN:4];
                             if ( T <= t3rx )
                             {
                                 reg = r3x;
@@ -2806,7 +2822,7 @@ static int nCoeffs = 40;
                             }
                             else
                             {
-                                double t3rx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3rx andI:_it3rx andN:4];
+                                //double t3rx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3rx andI:_it3rx andN:4];
                                 if ( T <= t3rx )
                                 {
                                     reg = r3x;
@@ -2835,7 +2851,8 @@ static int nCoeffs = 40;
                             double psat = [_iapws4 PsForT:T0];
                             if (pressure > psat)
                             {
-                                double t3qu = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3qu andI:_it3qu andN:4];
+                                //double t3qu = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3qu andI:_it3qu andN:4];
+                                //NSLog(@"T=%g, t3qu=%g, p=%g, psat=%g",T,t3qu,pressure,psat);
                                 if ( T > t3qu)
                                 {
                                     reg = r3y;
@@ -2854,7 +2871,7 @@ static int nCoeffs = 40;
                             }
                             else
                             {
-                                double t3rx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3rx andI:_it3rx andN:4];
+                                //double t3rx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3rx andI:_it3rx andN:4];
                                 if ( T <= t3rx)
                                 {
                                     reg = r3x;
@@ -2867,7 +2884,7 @@ static int nCoeffs = 40;
                             double psat = [_iapws4 PsForT:T0];
                             if (pressure > psat)
                             {
-                                double t3rx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3rx andI:_it3rx andN:4];
+                                //double t3rx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3rx andI:_it3rx andN:4];
                                 if ( T <= t3rx)
                                 {
                                     reg = r3x;
@@ -2883,12 +2900,13 @@ static int nCoeffs = 40;
     return reg;
 }
 
--(double)T1splitForPi:(double)pi coefficientsN:(long double *)n andI:(long double *)ic andN:(int)N
+-(double)T1splitForPi:(long double)pi coefficientsN:(long double *)n andI:(long double *)ic andN:(int)N
 {
     double sum = 0.0;
     
     for (int i=0; i<N; i++)
     {
+        //NSLog(@"%d. i=%.10Le, n=%.10Le",i,ic[i], n[i]);
         sum += n[i]*powl(pi, ic[i]);
     }
     return sum;
