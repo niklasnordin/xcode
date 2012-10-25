@@ -93,7 +93,7 @@ static int nCoeffs = 10;
     double s = (_ni[9]+D)*(_ni[9]+D) - 4.0*(_ni[8] + _ni[9]*D);
     double q = _ni[9] + D - sqrt(s);
     
-    return q*_tstar;
+    return 0.5*q*_tstar;
 }
 
 -(bool)pressureDependent

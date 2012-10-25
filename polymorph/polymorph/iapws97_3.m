@@ -1745,7 +1745,7 @@ static int nCoeffs = 40;
             break;
     }
     
-    //NSLog(@"region = %d, T=%g, p=%g", region,T,pres);
+    NSLog(@"region = %d, T=%Lg, p=%Lg", region,T,pres);
     return vv;
 }
 
@@ -2725,7 +2725,8 @@ static int nCoeffs = 40;
                             }
                             else
                             {
-                                if ( pressure > 1.900881189173929e7)
+                                double p3cd = 1.900881189173929e7;
+                                if ( pressure > p3cd)
                                 {
                                     double t3cd = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3cd andI:_it3cd andN:4];
                                     if ( T < t3cd )
@@ -2745,6 +2746,7 @@ static int nCoeffs = 40;
                                     if (pressure > psat)
                                     {
                                         double Tsat = [_iapws4 TsForp:pressure];
+                                        NSLog(@"T=%g, Tsat=%g",T,Tsat);
                                         reg = ( T < Tsat ) ? r3c : r3t;
                                     }
                                 }
