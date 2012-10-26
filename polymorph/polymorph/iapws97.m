@@ -175,24 +175,17 @@ static int nCoeffs = 5;
             break;
     }
     
-    return 1.0/value;
+    return value;
 }
 
 -(NSArray *)dependsOnFunctions
 {
     return @[ @"iapws97_1", @"iapws97_2", @"iapws97_2b", @"iapws97_3", @"iapws97_4", @"iapws97_5" ];
-
-//    return @[ @"p23", @"iapws97_1", @"iapws97_2", @"iapws97_2b", @"iapws97_3", @"iapws97_4", @"iapws97_5" ];
 }
 
 -(void)setFunction:(id)function forKey:(NSString *)key
 {
-    /*
-    if ([key isEqualToString:@"p23"])
-    {
-        _p23 = function;
-    }
-*/
+
     if ([key isEqualToString:@"iapws97_1"])
     {
         _iapws1 = function;

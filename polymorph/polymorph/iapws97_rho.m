@@ -38,6 +38,7 @@ static int nCoeffs = 5;
 -(double)valueForT:(double)T andP:(double)p
 {
     double Temp = fmax(T, 273.15);
+    Temp = fmin(Temp, 2273.149999999);
     return [self rhoForP:p andT:Temp];
 }
 
