@@ -1,0 +1,34 @@
+\documentclass[10pt]{article}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+%\usepackage{palatino}
+
+% 1655 x ?
+% ? = 1655 * 416 / 320 = 2151
+% 100 pt = 885 pt in final
+% divide by 8.85
+\newcommand{\cfbox}[2]{%
+    \colorlet{currentcolor}{.}%
+    {\color{#1}\fbox{\begin{minipage}{180pt}\color{currentcolor}#2\end{minipage}}}%
+}
+
+\pagestyle{empty}
+\begin{document}
+
+\cfbox{white}{
+The dimensionless Gibbs free energy for region 2.
+\[ 
+\gamma(\pi, \tau) = \gamma^0(\pi, \tau) + \gamma^r(\pi, \tau) 
+\]
+\[
+\gamma^0(\pi, \tau) = \ln \pi + \sum_{i=1}^9 n^0_i \tau^{J_i^0}
+\]
+\[
+\gamma^r(\pi, \tau) = \sum_{i=1}^{43} n_i \pi^{I_i} (\tau-0.5)^{J_i}
+\]
+The function returns specific volume.\\
+For more details please visit http://www.iapws.org.
+\vspace{63pt}\\
+}
+\end{document}
