@@ -1,0 +1,30 @@
+\documentclass[10pt]{article}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+%\usepackage{palatino}
+
+% 1655 x ?
+% ? = 1655 * 416 / 320 = 2151
+% 100 pt = 885 pt in final
+% divide by 8.85
+\newcommand{\cfbox}[2]{%
+    \colorlet{currentcolor}{.}%
+    {\color{#1}\fbox{\begin{minipage}{180pt}\color{currentcolor}#2\end{minipage}}}%
+}
+
+\pagestyle{empty}
+\begin{document}
+
+\cfbox{white}{
+The dimensionless Helmholtz free energy for region 3
+\[ 
+\phi(\delta, \tau) = n_1\ln \delta + \sum_{i=2}^{40}n_i\delta^{I_i}\tau^{J_i}
+\]
+The function returns specific volume.\\
+Since the function depends on the density and not pressure, the coefficients for
+the backwards equations for the specific volume $v(p,T)$ needs to be implemented as well.
+For more details please visit http://www.iapws.org.
+\vspace{71pt}\\
+}
+\end{document}
