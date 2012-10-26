@@ -33,6 +33,8 @@
 		6139E6B21629F5B100954BCF /* pengRobinsonLiquid.tex in Resources */ = {isa = PBXBuildFile; fileRef = 6139E6B11629F5B100954BCF /* pengRobinsonLiquid.tex */; };
 		6139E6B41629F5BA00954BCF /* pengRobinsonVapour.tex in Resources */ = {isa = PBXBuildFile; fileRef = 6139E6B31629F5BA00954BCF /* pengRobinsonVapour.tex */; };
 		6139E6B7162B200600954BCF /* iapws97_rho.m in Sources */ = {isa = PBXBuildFile; fileRef = 6139E6B6162B200500954BCF /* iapws97_rho.m */; };
+		61460BFE163AEFAF00A1D1EE /* iapws97_1.tex in Resources */ = {isa = PBXBuildFile; fileRef = 61460BFD163AEFAF00A1D1EE /* iapws97_1.tex */; };
+		61460C01163AEFC700A1D1EE /* iapws97_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 61460C00163AEFC700A1D1EE /* iapws97_1.png */; };
 		6164628B15B7F705006B703D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628A15B7F705006B703D /* UIKit.framework */; };
 		6164628D15B7F705006B703D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628C15B7F705006B703D /* Foundation.framework */; };
 		6164628F15B7F705006B703D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628E15B7F705006B703D /* CoreGraphics.framework */; };
@@ -171,6 +173,8 @@
 		6139E6B31629F5BA00954BCF /* pengRobinsonVapour.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pengRobinsonVapour.tex; sourceTree = "<group>"; };
 		6139E6B5162B200500954BCF /* iapws97_rho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iapws97_rho.h; sourceTree = "<group>"; };
 		6139E6B6162B200500954BCF /* iapws97_rho.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iapws97_rho.m; sourceTree = "<group>"; };
+		61460BFD163AEFAF00A1D1EE /* iapws97_1.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iapws97_1.tex; sourceTree = "<group>"; };
+		61460C00163AEFC700A1D1EE /* iapws97_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iapws97_1.png; sourceTree = "<group>"; };
 		6164628615B7F705006B703D /* thermoPlot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thermoPlot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6164628A15B7F705006B703D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6164628C15B7F705006B703D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -540,6 +544,7 @@
 				61648CDE1618D98B00D499E6 /* FJ_SoundSpeed.tex */,
 				6139E6A51629AB7F00954BCF /* antoine.tex */,
 				6117FFC9161F47F4005E074A /* sutherland.tex */,
+				61460BFD163AEFAF00A1D1EE /* iapws97_1.tex */,
 				61D2AEA4160AD69800A7FC78 /* readme.txt */,
 				617C7CC615E9878A00B11073 /* texToPng */,
 			);
@@ -574,6 +579,7 @@
 				61648CDC1618D95500D499E6 /* FJ_SoundSpeed.png */,
 				6117FFC7161F47E2005E074A /* sutherland.png */,
 				6139E6A71629AB8F00954BCF /* antoine.png */,
+				61460C00163AEFC700A1D1EE /* iapws97_1.png */,
 				61D7352A160A6CB800362373 /* Default-568h@2x.png */,
 				61BA3AE115DFAB7400928715 /* Icon@2x.png */,
 				61BA3ADF15DFAB6C00928715 /* Icon.png */,
@@ -715,6 +721,8 @@
 				6139E6B01629F5A600954BCF /* pengRobinson.tex in Resources */,
 				6139E6B21629F5B100954BCF /* pengRobinsonLiquid.tex in Resources */,
 				6139E6B41629F5BA00954BCF /* pengRobinsonVapour.tex in Resources */,
+				61460BFE163AEFAF00A1D1EE /* iapws97_1.tex in Resources */,
+				61460C01163AEFC700A1D1EE /* iapws97_1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1524,7 +1524,7 @@ static int nCoeffs = 40;
 
 -(double)valueForT:(double)T andP:(double)p
 {
-    return [self rhoForP:p andT:T];
+    return [self vForP:p andT:T];
 }
 
 -(bool)pressureDependent
