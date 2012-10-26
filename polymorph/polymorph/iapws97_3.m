@@ -2746,7 +2746,6 @@ static int nCoeffs = 40;
                                     if (pressure > psat)
                                     {
                                         double Tsat = [_iapws4 TsForp:pressure];
-                                        NSLog(@"T=%g, Tsat=%g",T,Tsat);
                                         reg = ( T < Tsat ) ? r3c : r3t;
                                     }
                                 }
@@ -2784,17 +2783,16 @@ static int nCoeffs = 40;
                     }
                     else
                     {
-                        double t3wx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3wx andI:_it3wx andN:5];
+                        double t3wx = _tbackstar*[self T2splitForPi:pi coefficientsN:_nt3wx andI:_it3wx andN:5];
+                        //NSLog(@"1. T = %g, t3wx = %g",T,t3wx);
+
                         if ( T <= t3wx )
                         {
                             reg = r3w;
                         }
                         else
                         {
-                            if ( T <= t3rx )
-                            {
-                                reg = r3x;
-                            }
+                            reg = r3x;
                         }
                     }
                 }
@@ -2817,18 +2815,15 @@ static int nCoeffs = 40;
                         }
                         else
                         {
-                            double t3wx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3wx andI:_it3wx andN:5];
+                            double t3wx = _tbackstar*[self T2splitForPi:pi coefficientsN:_nt3wx andI:_it3wx andN:5];
+                            //NSLog(@"2. T = %g, t3wx = %g",T,t3wx);
                             if ( T <= t3wx)
                             {
                                 reg = r3z;
                             }
                             else
                             {
-                                //double t3rx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3rx andI:_it3rx andN:4];
-                                if ( T <= t3rx )
-                                {
-                                    reg = r3x;
-                                }
+                                reg = r3x;
                             }
                         }
                     }
@@ -2855,7 +2850,7 @@ static int nCoeffs = 40;
                     {
                         if ( pressure > pf )
                         {
-                            double t3wx = _tbackstar*[self T1splitForPi:pi coefficientsN:_nt3wx andI:_it3wx andN:5];
+                            double t3wx = _tbackstar*[self T2splitForPi:pi coefficientsN:_nt3wx andI:_it3wx andN:5];
                             if ( T <= t3wx)
                             {
                                 reg = r3z;
