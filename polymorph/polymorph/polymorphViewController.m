@@ -73,6 +73,11 @@
     [_functionNames addObject:[iapws97_5 name]];
     [_functionNames addObject:[iapws97_rho name]];
     [_functionNames addObject:[iapws97_u name]];
+    [_functionNames addObject:[iapws97_h name]];
+    [_functionNames addObject:[iapws97_s name]];
+    [_functionNames addObject:[iapws97_cp name]];
+    [_functionNames addObject:[iapws97_cv name]];
+    [_functionNames addObject:[iapws97_w name]];
 
 }
 

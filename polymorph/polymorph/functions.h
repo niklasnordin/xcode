@@ -48,6 +48,11 @@
 #import "iapws97.h"
 #import "iapws97_rho.h"
 #import "iapws97_u.h"
+#import "iapws97_h.h"
+#import "iapws97_s.h"
+#import "iapws97_cp.h"
+#import "iapws97_cv.h"
+#import "iapws97_w.h"
 
 @interface functions : NSObject
 

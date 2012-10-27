@@ -1,26 +1,25 @@
 //
-//  iapws97_u.m
+//  iapws97_cv.m
 //  polymorph
 //
 //  Created by Niklas Nordin on 2012-10-27.
 //  Copyright (c) 2012 nequam. All rights reserved.
 //
 
-#import "iapws97_u.h"
+#import "iapws97_cv.h"
 
-
-static NSString *name = @"iapws97_u";
+static NSString *name = @"iapws97_cv";
 static int nCoeffs = 5;
 
-@implementation iapws97_u
+@implementation iapws97_cv
 
--(iapws97_u *)initWithZero
+-(iapws97_cv *)initWithZero
 {
     self = [super init];
     return self;
 }
 
--(iapws97_u *)initWithArray:(NSArray *)array
+-(iapws97_cv *)initWithArray:(NSArray *)array
 {
     self = [super initWithArray:array];
     return self;
@@ -33,14 +32,14 @@ static int nCoeffs = 5;
 
 -(NSString *) name
 {
-    return [iapws97_u name];
+    return [iapws97_cv name];
 }
 
 -(double)valueForT:(double)T andP:(double)p
 {
     double Temp = fmax(T, 273.15);
     Temp = fmin(Temp, 2273.149999999);
-    return [self uForP:p andT:Temp];
+    return [self cvForP:p andT:Temp];
 }
 
 -(bool)pressureDependent
