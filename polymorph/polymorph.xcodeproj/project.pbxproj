@@ -47,6 +47,7 @@
 		61460C15163B032500A1D1EE /* iapws97_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 61460C14163B032500A1D1EE /* iapws97_5.png */; };
 		61460C17163BC86B00A1D1EE /* iapws97_rho.tex in Resources */ = {isa = PBXBuildFile; fileRef = 61460C16163BC86B00A1D1EE /* iapws97_rho.tex */; };
 		61460C19163BC87E00A1D1EE /* iapws97_rho.png in Resources */ = {isa = PBXBuildFile; fileRef = 61460C18163BC87E00A1D1EE /* iapws97_rho.png */; };
+		61460C1C163C1D3E00A1D1EE /* iapws97_u.m in Sources */ = {isa = PBXBuildFile; fileRef = 61460C1B163C1D3E00A1D1EE /* iapws97_u.m */; };
 		6164628B15B7F705006B703D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628A15B7F705006B703D /* UIKit.framework */; };
 		6164628D15B7F705006B703D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628C15B7F705006B703D /* Foundation.framework */; };
 		6164628F15B7F705006B703D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6164628E15B7F705006B703D /* CoreGraphics.framework */; };
@@ -199,6 +200,8 @@
 		61460C14163B032500A1D1EE /* iapws97_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iapws97_5.png; sourceTree = "<group>"; };
 		61460C16163BC86B00A1D1EE /* iapws97_rho.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iapws97_rho.tex; sourceTree = "<group>"; };
 		61460C18163BC87E00A1D1EE /* iapws97_rho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iapws97_rho.png; sourceTree = "<group>"; };
+		61460C1A163C1D3E00A1D1EE /* iapws97_u.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iapws97_u.h; sourceTree = "<group>"; };
+		61460C1B163C1D3E00A1D1EE /* iapws97_u.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iapws97_u.m; sourceTree = "<group>"; };
 		6164628615B7F705006B703D /* thermoPlot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thermoPlot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6164628A15B7F705006B703D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6164628C15B7F705006B703D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -426,6 +429,8 @@
 				6139E67F16285F4C00954BCF /* iapws97_4.m */,
 				6139E6811628609C00954BCF /* iapws97_5.h */,
 				6139E6821628609C00954BCF /* iapws97_5.m */,
+				61460C1A163C1D3E00A1D1EE /* iapws97_u.h */,
+				61460C1B163C1D3E00A1D1EE /* iapws97_u.m */,
 			);
 			name = iapws97;
 			sourceTree = "<group>";
@@ -837,6 +842,7 @@
 				6139E6891629905500954BCF /* pengRobinsonVapour.m in Sources */,
 				6139E6A41629A64F00954BCF /* antoine.m in Sources */,
 				6139E6B7162B200600954BCF /* iapws97_rho.m in Sources */,
+				61460C1C163C1D3E00A1D1EE /* iapws97_u.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

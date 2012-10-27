@@ -178,6 +178,210 @@ static int nCoeffs = 5;
     return value;
 }
 
+-(double)uForP:(double)p andT:(long double)T
+{
+    region reg = [self setRegionForPressure:p andT:T];
+    
+    double value = 0.0;
+    
+    switch (reg) {
+        case reg1:
+            value = [_iapws1 uForP:p andT:T];
+            break;
+            
+        case reg2:
+            value = [_iapws2 uForP:p andT:T];
+            break;
+            
+        case reg2b:
+            value = [_iapws2b uForP:p andT:T];
+            break;
+            
+        case reg3:
+            value = [_iapws3 uForP:p andT:T];
+            break;
+            
+        case reg5:
+            value = [_iapws5 uForP:p andT:T];
+            break;
+            
+        default:
+            break;
+    }
+    
+    return value;
+}
+
+-(double)hForP:(double)p andT:(long double)T
+{
+    region reg = [self setRegionForPressure:p andT:T];
+    
+    double value = 0.0;
+    
+    switch (reg) {
+        case reg1:
+            value = [_iapws1 hForP:p andT:T];
+            break;
+            
+        case reg2:
+            value = [_iapws2 hForP:p andT:T];
+            break;
+            
+        case reg2b:
+            value = [_iapws2b hForP:p andT:T];
+            break;
+            
+        case reg3:
+            value = [_iapws3 hForP:p andT:T];
+            break;
+            
+        case reg5:
+            value = [_iapws5 hForP:p andT:T];
+            break;
+            
+        default:
+            break;
+    }
+    
+    return value;
+}
+
+-(double)sForP:(double)p andT:(long double)T
+{
+    region reg = [self setRegionForPressure:p andT:T];
+    
+    double value = 0.0;
+    
+    switch (reg) {
+        case reg1:
+            value = [_iapws1 sForP:p andT:T];
+            break;
+            
+        case reg2:
+            value = [_iapws2 sForP:p andT:T];
+            break;
+            
+        case reg2b:
+            value = [_iapws2b sForP:p andT:T];
+            break;
+            
+        case reg3:
+            value = [_iapws3 sForP:p andT:T];
+            break;
+            
+        case reg5:
+            value = [_iapws5 sForP:p andT:T];
+            break;
+            
+        default:
+            break;
+    }
+    
+    return value;
+}
+
+-(double)cpForP:(double)p andT:(long double)T
+{
+    region reg = [self setRegionForPressure:p andT:T];
+    
+    double value = 0.0;
+    
+    switch (reg) {
+        case reg1:
+            value = [_iapws1 cpForP:p andT:T];
+            break;
+            
+        case reg2:
+            value = [_iapws2 cpForP:p andT:T];
+            break;
+            
+        case reg2b:
+            value = [_iapws2b cpForP:p andT:T];
+            break;
+            
+        case reg3:
+            value = [_iapws3 cpForP:p andT:T];
+            break;
+            
+        case reg5:
+            value = [_iapws5 cpForP:p andT:T];
+            break;
+            
+        default:
+            break;
+    }
+    
+    return value;
+}
+
+-(double)cvForP:(double)p andT:(long double)T
+{
+    region reg = [self setRegionForPressure:p andT:T];
+    
+    double value = 0.0;
+    
+    switch (reg) {
+        case reg1:
+            value = [_iapws1 cvForP:p andT:T];
+            break;
+            
+        case reg2:
+            value = [_iapws2 cvForP:p andT:T];
+            break;
+            
+        case reg2b:
+            value = [_iapws2b cvForP:p andT:T];
+            break;
+            
+        case reg3:
+            value = [_iapws3 cvForP:p andT:T];
+            break;
+            
+        case reg5:
+            value = [_iapws5 cvForP:p andT:T];
+            break;
+            
+        default:
+            break;
+    }
+    
+    return value;
+}
+
+-(double)wForP:(double)p andT:(long double)T
+{
+    region reg = [self setRegionForPressure:p andT:T];
+    
+    double value = 0.0;
+    
+    switch (reg) {
+        case reg1:
+            value = [_iapws1 wForP:p andT:T];
+            break;
+            
+        case reg2:
+            value = [_iapws2 wForP:p andT:T];
+            break;
+            
+        case reg2b:
+            value = [_iapws2b wForP:p andT:T];
+            break;
+            
+        case reg3:
+            value = [_iapws3 wForP:p andT:T];
+            break;
+            
+        case reg5:
+            value = [_iapws5 wForP:p andT:T];
+            break;
+            
+        default:
+            break;
+    }
+    
+    return value;
+}
+
 -(NSArray *)dependsOnFunctions
 {
     return @[ @"iapws97_1", @"iapws97_2", @"iapws97_2b", @"iapws97_3", @"iapws97_4", @"iapws97_5" ];

@@ -38,9 +38,17 @@ typedef enum { reg1, reg2, reg2b, reg3, reg5, none } region;
 -(double)TsForP:(double)p;
 -(region)setRegionForPressure:(double)p andT:(double)T;
 
--(double)rhoForP:(double)p andT:(long double)T;
+
 -(NSArray *)dependsOnFunctions;
 -(void)setFunction:(id)function forKey:(NSString *)key;
 -(NSArray *)coefficientNames;
+
+-(double)rhoForP:(double)p andT:(long double)T;
+-(double)uForP:(double)p andT:(long double)T;
+-(double)hForP:(double)p andT:(long double)T;
+-(double)sForP:(double)p andT:(long double)T;
+-(double)cpForP:(double)p andT:(long double)T;
+-(double)cvForP:(double)p andT:(long double)T;
+-(double)wForP:(double)p andT:(long double)T;
 
 @end
