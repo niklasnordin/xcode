@@ -75,4 +75,9 @@ static NSString *name = @"function_0002";
     return nil;
 }
 
+-(BOOL)requirementsFulfilled
+{
+    return YES;
+}
+
 @end

@@ -140,4 +140,9 @@ static NSString *name = @"ancillary_2";
 
 }
 
+-(BOOL)requirementsFulfilled
+{
+    return YES;
+}
+
 @end

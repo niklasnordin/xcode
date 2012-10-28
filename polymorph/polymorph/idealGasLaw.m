@@ -81,4 +81,10 @@ static NSString *name = @"idealGasLaw";
     [names addObject:@"R"];
     return names;
 }
+
+-(BOOL)requirementsFulfilled
+{
+    return YES;
+}
+
 @end

@@ -2966,4 +2966,9 @@ static int nCoeffs = 40;
     return v*par[0];
 }
 
+-(BOOL)requirementsFulfilled
+{
+    return YES;
+}
+
 @end

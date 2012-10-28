@@ -343,4 +343,9 @@ static int nCoeffs = 34;
 
 }
 
+-(BOOL)requirementsFulfilled
+{
+    return YES;
+}
+
 @end

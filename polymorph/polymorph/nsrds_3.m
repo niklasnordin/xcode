@@ -110,4 +110,9 @@ static NSString *name = @"nsrds_3";
     return names;
 }
 
+-(BOOL)requirementsFulfilled
+{
+    return YES;
+}
+
 @end

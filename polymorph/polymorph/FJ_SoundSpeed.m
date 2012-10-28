@@ -100,4 +100,9 @@ static NSString *name = @"FJ_SoundSpeed";
     }
 }
 
+-(BOOL)requirementsFulfilled
+{
+    return YES;
+}
+
 @end

@@ -119,4 +119,9 @@ static NSString *name = @"boilingTemperature";
     return nil;
 }
 
+-(BOOL)requirementsFulfilled
+{
+    return YES;
+}
+
 @end

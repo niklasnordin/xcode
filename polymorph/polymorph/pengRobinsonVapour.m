@@ -141,5 +141,9 @@ static NSString *name = @"pengRobinsonVapour";
     return @[ @"Tc", @"Pc", @"omega", @"Mw" ];
 }
 
+-(BOOL)requirementsFulfilled
+{
+    return YES;
+}
 
 @end

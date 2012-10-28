@@ -157,4 +157,9 @@ static NSString *name = @"FJ_Rho";
     }
 }
 
+-(BOOL)requirementsFulfilled
+{
+    return YES;
+}
+
 @end

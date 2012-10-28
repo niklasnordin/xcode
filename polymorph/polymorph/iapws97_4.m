@@ -148,4 +148,9 @@ static int nCoeffs = 10;
     return names;
 }
 
+-(BOOL)requirementsFulfilled
+{
+    return YES;
+}
+
 @end

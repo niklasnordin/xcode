@@ -463,4 +463,9 @@ static int n0Coeffs = 6;
     return names;
 }
 
+-(BOOL)requirementsFulfilled
+{
+    return YES;
+}
+
 @end

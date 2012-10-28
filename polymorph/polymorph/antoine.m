@@ -117,4 +117,9 @@ static NSString *name = @"antoine";
     return names;
 }
 
+-(BOOL)requirementsFulfilled
+{
+    return YES;
+}
+
 @end

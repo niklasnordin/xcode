@@ -93,4 +93,9 @@ static NSString *name = @"FJ_Cv";
     }
 }
 
+-(BOOL)requirementsFulfilled
+{
+    return YES;
+}
+
 @end

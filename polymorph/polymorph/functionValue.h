@@ -22,5 +22,6 @@
 -(NSString *) equationText;
 +(NSString *) name;
 -(NSArray *)coefficientNames;
+-(BOOL)requirementsFulfilled;
 
 @end
