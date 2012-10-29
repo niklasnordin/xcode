@@ -15,14 +15,12 @@ static NSString *name = @"boilingTemperature";
 -(boilingTemperature *)initWithZero
 {
     self = [super init];
-    _functionPointers = [[NSMutableDictionary alloc] init];
     return self;
 }
 
 -(boilingTemperature *)initWithArray:(NSArray *)array
 {
     self = [super init];
-    _functionPointers = [[NSMutableDictionary alloc] init];
     return self;
 }
 
@@ -42,13 +40,13 @@ static NSString *name = @"boilingTemperature";
     double Tg = 300.0;
     double Tg0 = Tg;
     double dt = 10.0;
-    id<functionValue> pv = [_functionPointers objectForKey:@"Pv"];
-    double pg0 = [pv valueForT:Tg andP:p];
+    //id<functionValue> pv = [_functionPointers objectForKey:@"Pv"];
+    double pg0 = [_pv valueForT:Tg andP:p];
     int i = 0;
     while ((dt > errMax) && (i <100))
     {
         i++;
-        double pg = [pv valueForT:Tg andP:p];
+        double pg = [_pv valueForT:Tg andP:p];
         // if temperature gets too high it will probably return nan
         // so set the pressure to something slightly higher than previous guess
         if (isnan(pg)) {
@@ -110,8 +108,10 @@ static NSString *name = @"boilingTemperature";
 
 -(void)setFunction:(id<functionValue>)function forKey:(NSString *)key
 {
-
-    [_functionPointers setObject:function forKey:key];
+    if ([key isEqualToString:@"Pv"])
+    {
+        _pv = function;
+    }
 }
 
 -(NSArray *)coefficientNames
@@ -121,7 +121,7 @@ static NSString *name = @"boilingTemperature";
 
 -(BOOL)requirementsFulfilled
 {
-    return YES;
+    return (_pv != nil) ? YES : NO;
 }
 
 @end

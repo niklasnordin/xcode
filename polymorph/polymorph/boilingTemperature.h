@@ -12,5 +12,6 @@
 
 @interface boilingTemperature : NSObject <functionValue>
 
-@property (strong, nonatomic) NSMutableDictionary *functionPointers;
+@property (strong, nonatomic) id<functionValue> pv;
+
 @end

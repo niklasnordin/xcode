@@ -103,24 +103,21 @@ static NSString *name = @"FJ_Cp";
         _cp0 = function;
     }
 }
-/*
--(NSArray *)coefficientNames
-{
-    
-    NSMutableArray *names = [[NSMutableArray alloc] init];
-    for (int i=0; i<96; i++)
-    {
-        NSString *name = [[NSString alloc] initWithFormat:@"A%d", i];
-        [names addObject:name];
-    }
-    return names;
-
-}
-*/
 
 -(BOOL)requirementsFulfilled
 {
-    return YES;
+    BOOL fulfilled = YES;
+    if (_rho == nil)
+    {
+        fulfilled = NO;
+    }
+    
+    if (_cp0 == nil)
+    {
+        fulfilled = NO;
+    }
+    
+    return fulfilled;
 }
 
 @end

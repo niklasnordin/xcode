@@ -82,21 +82,40 @@ static int nCoeffs = 5;
     {
         if (T < 623.15)
         {
-            double p23 = [_iapws4 PsForT:T];
-            
-            if (p > p23)
+            double ps = [_iapws4 PsForT:T];
+
+
+            //NSLog(@"p=%g, ps=%g, T=%g, Ts=%g",p,ps,T,Ts);
+            //NSLog(@"h=%g, hs=%g, f=%g",h,hs,frac);
+            if (p >= ps)
             {
+                double Ts = [_iapws4 TsForp:p];
+                double h = [_iapws1 hForP:p andT:T];
+                double hs = [_iapws1 hForP:p andT:Ts];
+                double frac = fabs((h-hs)/hs);
+
                 reg = reg1;
+                //reg = (frac < 0.05) ? reg2b : reg1;
             }
             else
             {
-                if (p >pMeta)
+                if (p > pMeta)
                 {
                     reg = reg2;
                 }
                 else
                 {
-                    reg = reg2b;
+                    double Ts = [_iapws4 TsForp:p];
+                    double h = [_iapws2b hForP:p andT:T];
+                    double hs = [_iapws2b hForP:p andT:Ts];
+                    double frac = fabs((h-hs)/hs);
+
+                    // calculate enthalpies to determine region
+                    reg = (frac < 0.05) ? reg2b : reg2;
+                    if (reg == reg2b)
+                    {
+                        NSLog(@"region is reg2b");
+                    }
                 }
             }
         }
@@ -104,8 +123,8 @@ static int nCoeffs = 5;
         {
             if (T <= 863.15)
             {
-                double ps = [self PsForT:T];
-                if (p < ps)
+                double p23 = [self PsForT:T];
+                if (p < p23)
                 {
                     reg = reg2;
                 }
@@ -118,14 +137,7 @@ static int nCoeffs = 5;
             {
                 if (p < 100.0e+6)
                 {
-                    if (p < pMeta)
-                    {
-                        reg = reg2b;
-                    }
-                    else
-                    {
-                        reg = reg2;
-                    }
+                    reg = reg2;
                 }
             }
         }
@@ -141,6 +153,7 @@ static int nCoeffs = 5;
         }
     }
     
+    //NSLog(@"p = %g, T = %g, reg = %d",p,T,reg);
     return reg;
 }
 
@@ -439,4 +452,89 @@ static int nCoeffs = 5;
     
 }
 
+-(BOOL)requirementsFulfilled
+{
+    
+    BOOL fulfilled = YES;
+    
+    if (_iapws1 == nil)
+    {
+        fulfilled = NO;
+    }
+    else
+    {
+        Class fc = (NSClassFromString(@"iapws97_1"));
+        if ([_iapws1 class] != [fc class])
+        {
+            fulfilled = NO;
+        }
+    }
+    
+    if (_iapws2 == nil)
+    {
+        fulfilled = NO;
+    }
+    else
+    {
+        Class fc = (NSClassFromString(@"iapws97_2"));
+        if ([_iapws2 class] != [fc class])
+        {
+            fulfilled = NO;
+        }
+    }
+    
+    if (_iapws2b == nil)
+    {
+        fulfilled = NO;
+    }
+    else
+    {
+        Class fc = (NSClassFromString(@"iapws97_2b"));
+        if ([_iapws2b class] != [fc class])
+        {
+            fulfilled = NO;
+        }
+    }
+
+    if (_iapws3 == nil)
+    {
+        fulfilled = NO;
+    }
+    else
+    {
+        Class fc = (NSClassFromString(@"iapws97_3"));
+        if ([_iapws3 class] != [fc class])
+        {
+            fulfilled = NO;
+        }
+    }
+
+    if (_iapws4 == nil)
+    {
+        fulfilled = NO;
+    }
+    else
+    {
+        Class fc = (NSClassFromString(@"iapws97_4"));
+        if ([_iapws4 class] != [fc class])
+        {
+            fulfilled = NO;
+        }
+    }
+
+    if (_iapws5 == nil)
+    {
+        fulfilled = NO;
+    }
+    else
+    {
+        Class fc = (NSClassFromString(@"iapws97_5"));
+        if ([_iapws5 class] != [fc class])
+        {
+            fulfilled = NO;
+        }
+    }
+
+    return fulfilled;
+}
 @end

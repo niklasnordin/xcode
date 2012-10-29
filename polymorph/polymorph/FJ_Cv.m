@@ -81,7 +81,6 @@ static NSString *name = @"FJ_Cv";
 
 -(void)setFunction:(id)function forKey:(NSString *)key
 {
-    
     if ([key isEqualToString:@"rho"])
     {
         _rho = function;
@@ -95,7 +94,18 @@ static NSString *name = @"FJ_Cv";
 
 -(BOOL)requirementsFulfilled
 {
-    return YES;
+    BOOL fulfilled = YES;
+    if (_rho == nil)
+    {
+        fulfilled = NO;
+    }
+    
+    if (_cp0 == nil)
+    {
+        fulfilled = NO;
+    }
+    
+    return fulfilled;
 }
 
 @end

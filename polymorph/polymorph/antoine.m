@@ -100,7 +100,6 @@ static NSString *name = @"antoine";
 
 -(void)setFunction:(id)function forKey:(NSString *)key
 {
-    
 }
 
 -(NSArray *)coefficientNames

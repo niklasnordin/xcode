@@ -159,7 +159,22 @@ static NSString *name = @"FJ_Rho";
 
 -(BOOL)requirementsFulfilled
 {
-    return YES;
+    BOOL fulfilled = YES;
+    if (_pv == nil)
+    {
+        fulfilled = NO;
+    }
+    
+    if (_rholSat == nil)
+    {
+        fulfilled = NO;
+    }
+    
+    if (_rhovSat == nil)
+    {
+        fulfilled = NO;
+    }
+    return fulfilled;
 }
 
 @end

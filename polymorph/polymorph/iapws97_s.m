@@ -62,9 +62,4 @@ static int nCoeffs = 5;
     return @"";
 }
 
--(BOOL)requirementsFulfilled
-{
-    return YES;
-}
-
 @end

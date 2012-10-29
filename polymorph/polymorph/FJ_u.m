@@ -83,24 +83,10 @@ static NSString *name = @"FJ_u";
     }
 
 }
-/*
--(NSArray *)coefficientNames
-{
-    
-    NSMutableArray *names = [[NSMutableArray alloc] init];
-    for (int i=0; i<96; i++)
-    {
-        NSString *name = [[NSString alloc] initWithFormat:@"A%d", i];
-        [names addObject:name];
-    }
-    return names;
-    
-}
-*/
 
 -(BOOL)requirementsFulfilled
 {
-    return YES;
+    return (_rho != nil) ? YES : NO;
 }
 
 @end

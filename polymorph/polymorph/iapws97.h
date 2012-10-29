@@ -42,6 +42,7 @@ typedef enum { reg1, reg2, reg2b, reg3, reg5, none } region;
 -(NSArray *)dependsOnFunctions;
 -(void)setFunction:(id)function forKey:(NSString *)key;
 -(NSArray *)coefficientNames;
+-(BOOL)requirementsFulfilled;
 
 -(double)rhoForP:(double)p andT:(long double)T;
 -(double)uForP:(double)p andT:(long double)T;

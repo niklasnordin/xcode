@@ -255,7 +255,6 @@
     
     _selectedComponent0 = [_picker selectedRowInComponent:0];
     _selectedComponent1 = [_picker selectedRowInComponent:1];
-    //NSLog(@"1. c0 = %d, c1 = %d",_selectedComponent0, _selectedComponent1);
     
     self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Properties"
                                                    delegate:nil
@@ -492,6 +491,22 @@
     [_picker selectRow:index0 inComponent:0 animated:NO];
     [_picker reloadComponent:1];
     [_picker selectRow:index1 inComponent:1 animated:NO];
+    
+    // check if selected function fulfills requirements
+    NSDictionary *propertiesDict = [self.db.json objectForKey:_currentSpeciesName];
+    NSDictionary *propDict = [propertiesDict objectForKey:_currentPropertyName];
+    
+    NSString *funcName = [propDict objectForKey:@"function"];
+    NSArray *coeffDictArray = [propDict objectForKey:@"coefficients"];
+    
+    _function = [_selector select:funcName withArray:coeffDictArray];
+    if (_function != nil)
+    {
+        [self checkFunctionDependency:_function forDict:propertiesDict];
+
+        BOOL fulfilled = [_function requirementsFulfilled];
+        [_viewButton setEnabled:fulfilled];
+    }
 }
 
 - (void)viewDidLoad
@@ -604,12 +619,12 @@
             
     // Release any retained subviews of the main view.
 }
-
+/*
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
 {
     return UIInterfaceOrientationPortrait;
 }
-
+*/
 
 // returns the number of 'columns' to display.
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView

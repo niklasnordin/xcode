@@ -1556,12 +1556,7 @@ static int nCoeffs = 40;
 
 -(void)setFunction:(id)function forKey:(NSString *)key
 {
-    /*
-    if ([key isEqualToString:@"p23"])
-    {
-        _p23 = function;
-    }
-*/
+
     if ([key isEqualToString:@"iapws97_4"])
     {
         _iapws4 = function;
@@ -1786,7 +1781,7 @@ static int nCoeffs = 40;
     long double delta = rho/_rhostar;
     long double tau = _tstar/T;
     
-    return _R*tau*tau*[self d2phidt2ForDelta:delta andTau:tau];
+    return -_R*tau*tau*[self d2phidt2ForDelta:delta andTau:tau];
 }
 
 -(double)cpForP:(long double)p andT:(long double)T
@@ -1818,7 +1813,7 @@ static int nCoeffs = 40;
     long nom = delta*dphidd - delta*tau*dddt;
     long denom = tau*tau*d2phidt;
     
-    return _R*T*(2.0*delta*dphidd + delta*delta*d2phidd - nom*nom/denom);
+    return sqrt(_R*T*(2.0*delta*dphidd + delta*delta*d2phidd - nom*nom/denom));
 }
 
 -(double)pForRho:(long double)rho andT:(long double)T
@@ -2968,7 +2963,23 @@ static int nCoeffs = 40;
 
 -(BOOL)requirementsFulfilled
 {
-    return YES;
+    BOOL fulfilled = YES;
+    
+    if (_iapws4 == nil)
+    {
+        fulfilled = NO;
+    }
+    else
+    {
+        Class fc = (NSClassFromString(@"iapws97_4"));
+        if ([_iapws4 class] != [fc class])
+        {
+            fulfilled = NO;
+        }
+    }
+
+    return fulfilled;
+    
 }
 
 @end

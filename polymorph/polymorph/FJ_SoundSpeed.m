@@ -102,7 +102,18 @@ static NSString *name = @"FJ_SoundSpeed";
 
 -(BOOL)requirementsFulfilled
 {
-    return YES;
+    BOOL fulfilled = YES;
+    if (_rho == nil)
+    {
+        fulfilled = NO;
+    }
+    
+    if (_cp0 == nil)
+    {
+        fulfilled = NO;
+    }
+    
+    return fulfilled;
 }
 
 @end

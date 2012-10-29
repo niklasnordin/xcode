@@ -270,7 +270,7 @@ static int n0Coeffs = 9;
     double pi = p/_pstar;
     double tau = _tstar/T;
     
-    double g0 = log(pi);
+    long double g0 = log(pi);
     for (int i=0; i<n0Coeffs; i++)
     {
         g0 += _n0i[i]*powl(tau, _j0i[i]);
@@ -296,7 +296,7 @@ static int n0Coeffs = 9;
 {
     double tau = _tstar/T;
     
-    double g0 = 0.0;
+    long double g0 = 0.0;
     for (int i=0; i<n0Coeffs; i++)
     {
         g0 += _n0i[i]*_j0i[i]*powl(tau, _j0i[i]-1.0);
@@ -308,7 +308,7 @@ static int n0Coeffs = 9;
 {
     double tau = _tstar/T;
     
-    double g0 = 0.0;
+    long double g0 = 0.0;
     for (int i=0; i<n0Coeffs; i++)
     {
         g0 += _n0i[i]*_j0i[i]*(_j0i[i]-1.0)*powl(tau, _j0i[i]-2.0);
