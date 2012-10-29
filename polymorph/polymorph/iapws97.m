@@ -89,11 +89,12 @@ static int nCoeffs = 5;
             //NSLog(@"h=%g, hs=%g, f=%g",h,hs,frac);
             if (p >= ps)
             {
+                /*
                 double Ts = [_iapws4 TsForp:p];
                 double h = [_iapws1 hForP:p andT:T];
                 double hs = [_iapws1 hForP:p andT:Ts];
                 double frac = fabs((h-hs)/hs);
-
+                 */
                 reg = reg1;
                 //reg = (frac < 0.05) ? reg2b : reg1;
             }
@@ -105,17 +106,20 @@ static int nCoeffs = 5;
                 }
                 else
                 {
+                    // calculate enthalpies to determine region
                     double Ts = [_iapws4 TsForp:p];
                     double h = [_iapws2b hForP:p andT:T];
                     double hs = [_iapws2b hForP:p andT:Ts];
                     double frac = fabs((h-hs)/hs);
 
-                    // calculate enthalpies to determine region
                     reg = (frac < 0.05) ? reg2b : reg2;
+                    /*
                     if (reg == reg2b)
                     {
-                        NSLog(@"region is reg2b");
+                        NSLog(@"reg2b: T=%g, p=%g, f=%g",T,p,frac);
                     }
+                     */
+                    //reg = reg2;
                 }
             }
         }
