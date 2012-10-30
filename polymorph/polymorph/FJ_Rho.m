@@ -65,7 +65,7 @@ static NSString *name = @"FJ_Rho";
     double r = [self rhoc];
     double q = r*Rgas*Temperature;
     double pq = pressure/q;
-    BOOL liquidState = YES;
+    //BOOL liquidState = YES;
     
     if (Temperature < [self tc])
     {
@@ -81,7 +81,7 @@ static NSString *name = @"FJ_Rho";
         {
             r = [_rhovSat valueForT:Temperature andP:pressure]/mw;
             //r *= 0.2;
-            liquidState = NO;
+            //liquidState = NO;
         }
     }
 

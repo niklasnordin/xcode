@@ -38,7 +38,7 @@ static NSString *name = @"boilingTemperature";
 {
     double errMax = 1.0e-3;
     double Tg = 300.0;
-    double Tg0 = Tg;
+    double Tg0;
     double dt = 10.0;
     //id<functionValue> pv = [_functionPointers objectForKey:@"Pv"];
     double pg0 = [_pv valueForT:Tg andP:p];
