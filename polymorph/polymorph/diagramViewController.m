@@ -136,7 +136,8 @@
         [mailer setMessageBody:msg isHTML:NO];
         [mailer setSubject:filename];
 
-        [self presentModalViewController:mailer animated:YES];
+        //[self presentModalViewController:mailer animated:YES];
+        [self presentViewController:mailer animated:YES completion:NULL];
     }
 }
 
@@ -144,7 +145,8 @@
          didFinishWithResult:(MFMailComposeResult)result
                        error:(NSError *)error
 {
-    [self dismissModalViewControllerAnimated:YES];
+    //[self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

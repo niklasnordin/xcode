@@ -194,7 +194,8 @@
             [mailer setMessageBody:@"sent from myPlot" isHTML:NO];
             [mailer setSubject:@"database.json"];
             [mailer addAttachmentData:att mimeType:@"text/plain" fileName:@"database.json"];
-            [self presentModalViewController:mailer animated:YES];
+            //[self presentModalViewController:mailer animated:YES];
+            [self presentViewController:mailer animated:YES completion:NULL];
         }
         else
         {
@@ -259,8 +260,9 @@
          didFinishWithResult:(MFMailComposeResult)result
                        error:(NSError *)error
 {
-    [self dismissModalViewControllerAnimated:YES];
-
+    //[self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    
     if (error)
     {
         [self.statusTextField setText:[error localizedDescription]];
