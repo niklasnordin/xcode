@@ -191,7 +191,7 @@
                                                          encoding:NSUTF8StringEncoding];
             NSData *att = [msg dataUsingEncoding:[NSString defaultCStringEncoding]];
             //[mailer setMessageBody:msg isHTML:NO];
-            [mailer setMessageBody:@"sent from thermoPlot" isHTML:NO];
+            [mailer setMessageBody:@"sent from myPlot" isHTML:NO];
             [mailer setSubject:@"database.json"];
             [mailer addAttachmentData:att mimeType:@"text/plain" fileName:@"database.json"];
             [self presentModalViewController:mailer animated:YES];

@@ -328,7 +328,7 @@
             </objects>
             <point key="canvasLocation" x="2526" y="-2"/>
         </scene>
-        <!--Polymorph View Controller - thermoPlot-->
+        <!--Polymorph View Controller - myPlot-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="polymorphViewController" sceneMemberID="viewController">
@@ -477,7 +477,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.61176472902297974" green="0.69411766529083252" blue="0.76470595598220825" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="thermoPlot" id="Xxh-Xi-BQY">
+                    <navigationItem key="navigationItem" title="myPlot" id="Xxh-Xi-BQY">
                         <barButtonItem key="rightBarButtonItem" title="Help" id="fNe-tb-qbr">
                             <connections>
                                 <segue destination="PbO-2N-ooA" kind="push" id="7g2-FW-TR4"/>

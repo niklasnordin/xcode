@@ -241,7 +241,7 @@
 		61460C3E163EF7F000A1D1EE /* iapws97_s.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iapws97_s.tex; sourceTree = "<group>"; };
 		61460C40163EF82200A1D1EE /* iapws97_w.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iapws97_w.tex; sourceTree = "<group>"; };
 		61460C42163EF82C00A1D1EE /* iapws97_w.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iapws97_w.png; sourceTree = "<group>"; };
-		6164628615B7F705006B703D /* thermoPlot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thermoPlot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6164628615B7F705006B703D /* myPlot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myPlot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6164628A15B7F705006B703D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6164628C15B7F705006B703D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6164628E15B7F705006B703D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -496,7 +496,7 @@
 		6164628715B7F705006B703D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6164628615B7F705006B703D /* thermoPlot.app */,
+				6164628615B7F705006B703D /* myPlot.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -715,9 +715,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6164628515B7F705006B703D /* thermoPlot */ = {
+		6164628515B7F705006B703D /* myPlot */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 616462A415B7F706006B703D /* Build configuration list for PBXNativeTarget "thermoPlot" */;
+			buildConfigurationList = 616462A415B7F706006B703D /* Build configuration list for PBXNativeTarget "myPlot" */;
 			buildPhases = (
 				6164628215B7F705006B703D /* Sources */,
 				6164628315B7F705006B703D /* Frameworks */,
@@ -727,9 +727,9 @@
 			);
 			dependencies = (
 			);
-			name = thermoPlot;
+			name = myPlot;
 			productName = polymorph;
-			productReference = 6164628615B7F705006B703D /* thermoPlot.app */;
+			productReference = 6164628615B7F705006B703D /* myPlot.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -754,7 +754,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6164628515B7F705006B703D /* thermoPlot */,
+				6164628515B7F705006B703D /* myPlot */,
 			);
 		};
 /* End PBXProject section */
@@ -994,11 +994,14 @@
 		616462A515B7F706006B703D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nicklas Nordin";
 				COMPRESS_PNG_FILES = YES;
+				CURRENT_PROJECT_VERSION = 1.0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "polymorph/polymorph-Prefix.pch";
 				INFOPLIST_FILE = "polymorph/polymorph-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "55C67AEE-2B81-43C4-9292-AD108D229FE3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1006,11 +1009,14 @@
 		616462A615B7F706006B703D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nicklas Nordin";
 				COMPRESS_PNG_FILES = YES;
+				CURRENT_PROJECT_VERSION = 1.0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "polymorph/polymorph-Prefix.pch";
 				INFOPLIST_FILE = "polymorph/polymorph-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "55C67AEE-2B81-43C4-9292-AD108D229FE3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1027,7 +1033,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		616462A415B7F706006B703D /* Build configuration list for PBXNativeTarget "thermoPlot" */ = {
+		616462A415B7F706006B703D /* Build configuration list for PBXNativeTarget "myPlot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				616462A515B7F706006B703D /* Debug */,

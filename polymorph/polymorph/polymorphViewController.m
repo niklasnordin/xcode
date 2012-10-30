@@ -302,9 +302,10 @@
     int i0 = [_picker selectedRowInComponent:0];
     int i1 = [_picker selectedRowInComponent:1];
 
-    _currentSpeciesName = [species objectAtIndex:i0];
     if ([species count])
     {
+        _currentSpeciesName = [species objectAtIndex:i0];
+
         NSDictionary *propertiesDict = [self.db.json objectForKey:_currentSpeciesName];
         if ([propertiesDict count])
         {
