@@ -85,16 +85,10 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="250px-Cornflakes_in_bowl.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="dyF-D0-zWv">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="WYd-Y9-Npw"/>
-                                    <constraint firstAttribute="width" constant="300" id="dDA-bx-85i"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiI-IA-532">
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="95" id="sch-j0-0yg"/>
+                                    <constraint firstAttribute="width" constant="90" id="4fZ-Ai-Z0M"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -118,48 +112,62 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dC7-r4-YV2" customClass="screetchView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="4y2-Z9-SHG" firstAttribute="top" secondItem="dC7-r4-YV2" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="4t5-GC-acq"/>
                             <constraint firstItem="SWb-3I-po4" firstAttribute="trailing" secondItem="bib-Zp-VLX" secondAttribute="trailing" type="default" id="5JS-PD-OUP"/>
                             <constraint firstItem="4y2-Z9-SHG" firstAttribute="trailing" secondItem="qPf-Kk-2jo" secondAttribute="trailing" type="default" id="9pS-tJ-BJs"/>
                             <constraint firstItem="VNC-uC-eM6" firstAttribute="bottom" secondItem="SWb-3I-po4" secondAttribute="bottom" type="default" id="BIa-6X-lGG"/>
                             <constraint firstItem="VNC-uC-eM6" firstAttribute="top" secondItem="SWb-3I-po4" secondAttribute="top" type="default" id="BgT-Wd-dOy"/>
                             <constraint firstItem="qPf-Kk-2jo" firstAttribute="baseline" secondItem="WiI-IA-532" secondAttribute="baseline" type="default" id="Ctv-LN-Alk"/>
-                            <constraint firstItem="sZX-q5-jub" firstAttribute="top" secondItem="dyF-D0-zWv" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="MIy-MD-95h"/>
+                            <constraint firstItem="dC7-r4-YV2" firstAttribute="centerX" secondItem="qPf-Kk-2jo" secondAttribute="centerX" type="default" id="DOY-TI-LQV"/>
+                            <constraint firstItem="dC7-r4-YV2" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="IDC-g7-qr1"/>
+                            <constraint firstAttribute="trailing" secondItem="bib-Zp-VLX" secondAttribute="trailing" constant="10" id="JQJ-JN-pXp"/>
                             <constraint firstItem="4y2-Z9-SHG" firstAttribute="bottom" secondItem="sZX-q5-jub" secondAttribute="bottom" type="default" id="P31-UF-QNa"/>
-                            <constraint firstItem="bib-Zp-VLX" firstAttribute="trailing" secondItem="dyF-D0-zWv" secondAttribute="trailing" type="default" id="Tvf-8c-t8G"/>
+                            <constraint firstItem="dC7-r4-YV2" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="QFM-uf-t9S"/>
                             <constraint firstAttribute="bottom" secondItem="VNC-uC-eM6" secondAttribute="bottom" constant="53" id="UN8-ky-wT7"/>
                             <constraint firstItem="4y2-Z9-SHG" firstAttribute="leading" secondItem="qPf-Kk-2jo" secondAttribute="leading" type="default" id="Vcq-co-Cxb"/>
                             <constraint firstAttribute="trailing" secondItem="4PM-DJ-qpU" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Vfn-fV-k5j"/>
-                            <constraint firstItem="dyF-D0-zWv" firstAttribute="top" secondItem="WiI-IA-532" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WvA-dT-39R"/>
-                            <constraint firstItem="dyF-D0-zWv" firstAttribute="centerX" secondItem="qPf-Kk-2jo" secondAttribute="centerX" type="default" id="YBu-Fp-4Vj"/>
                             <constraint firstItem="4PM-DJ-qpU" firstAttribute="baseline" secondItem="qPf-Kk-2jo" secondAttribute="baseline" type="default" id="YrX-1A-W5o"/>
                             <constraint firstItem="WiI-IA-532" firstAttribute="top" secondItem="3" secondAttribute="top" constant="3" id="Yyv-tw-Abu"/>
-                            <constraint firstItem="sZX-q5-jub" firstAttribute="leading" secondItem="dyF-D0-zWv" secondAttribute="leading" type="default" id="bZj-Dt-0vA"/>
                             <constraint firstItem="U3n-qk-3lG" firstAttribute="trailing" secondItem="sZX-q5-jub" secondAttribute="trailing" type="default" id="bnC-1N-qFT"/>
                             <constraint firstItem="SWb-3I-po4" firstAttribute="baseline" secondItem="VNC-uC-eM6" secondAttribute="baseline" type="default" id="bwN-ab-TFD"/>
                             <constraint firstItem="SWb-3I-po4" firstAttribute="baseline" secondItem="U3n-qk-3lG" secondAttribute="baseline" type="default" id="dXc-BH-VyT"/>
-                            <constraint firstItem="4y2-Z9-SHG" firstAttribute="top" secondItem="dyF-D0-zWv" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gCj-iU-CAr"/>
                             <constraint firstItem="U3n-qk-3lG" firstAttribute="top" secondItem="sZX-q5-jub" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gZe-BR-vTP"/>
                             <constraint firstItem="U3n-qk-3lG" firstAttribute="leading" secondItem="sZX-q5-jub" secondAttribute="leading" type="default" id="gag-rG-L94"/>
+                            <constraint firstAttribute="bottom" secondItem="U3n-qk-3lG" secondAttribute="bottom" constant="54" id="kw1-EP-fi2"/>
                             <constraint firstItem="WiI-IA-532" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="lFB-VK-7cT"/>
-                            <constraint firstItem="VNC-uC-eM6" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="qfR-95-V9S"/>
+                            <constraint firstItem="bib-Zp-VLX" firstAttribute="top" secondItem="dC7-r4-YV2" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="qx8-OL-HuC"/>
                             <constraint firstItem="bib-Zp-VLX" firstAttribute="bottom" secondItem="4y2-Z9-SHG" secondAttribute="bottom" type="default" id="rfR-ay-A4X"/>
-                            <constraint firstItem="bib-Zp-VLX" firstAttribute="top" secondItem="dyF-D0-zWv" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="sG5-Ge-Sro"/>
+                            <constraint firstItem="sZX-q5-jub" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="10" id="srU-RN-4Aq"/>
                             <constraint firstItem="VNC-uC-eM6" firstAttribute="leading" secondItem="4y2-Z9-SHG" secondAttribute="leading" type="default" id="wa7-1y-aaN"/>
+                            <constraint firstItem="sZX-q5-jub" firstAttribute="top" secondItem="dC7-r4-YV2" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="x1P-Yg-sp9"/>
                             <constraint firstItem="SWb-3I-po4" firstAttribute="leading" secondItem="bib-Zp-VLX" secondAttribute="leading" type="default" id="x5J-yp-4w8"/>
+                            <constraint firstItem="dC7-r4-YV2" firstAttribute="top" secondItem="WiI-IA-532" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="z4m-0p-yC2"/>
                             <constraint firstItem="VNC-uC-eM6" firstAttribute="trailing" secondItem="4y2-Z9-SHG" secondAttribute="trailing" type="default" id="zmc-4H-gnL"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="238" y="105"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="250px-Cornflakes_in_bowl.jpg" width="250" height="167"/>
-    </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="screetchView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/screetchView.h"/>
+        </class>
+        <class className="screetchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/screetchViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

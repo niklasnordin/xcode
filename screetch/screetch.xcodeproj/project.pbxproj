@@ -20,6 +20,7 @@
 		610DB64E16371544004153AC /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 610DB64C16371544004153AC /* MainStoryboard_iPad.storyboard */; };
 		610DB65116371544004153AC /* screetchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DB65016371544004153AC /* screetchViewController.m */; };
 		610DB65816372019004153AC /* 250px-Cornflakes_in_bowl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 610DB65716372019004153AC /* 250px-Cornflakes_in_bowl.jpg */; };
+		61460C4B1641971900A1D1EE /* screetchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61460C4A1641971900A1D1EE /* screetchView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		610DB64F16371544004153AC /* screetchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = screetchViewController.h; sourceTree = "<group>"; };
 		610DB65016371544004153AC /* screetchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = screetchViewController.m; sourceTree = "<group>"; };
 		610DB65716372019004153AC /* 250px-Cornflakes_in_bowl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "250px-Cornflakes_in_bowl.jpg"; sourceTree = "<group>"; };
+		61460C491641971900A1D1EE /* screetchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = screetchView.h; sourceTree = "<group>"; };
+		61460C4A1641971900A1D1EE /* screetchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = screetchView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				610DB64C16371544004153AC /* MainStoryboard_iPad.storyboard */,
 				610DB64F16371544004153AC /* screetchViewController.h */,
 				610DB65016371544004153AC /* screetchViewController.m */,
+				61460C491641971900A1D1EE /* screetchView.h */,
+				61460C4A1641971900A1D1EE /* screetchView.m */,
 				610DB63816371544004153AC /* Supporting Files */,
 			);
 			path = screetch;
@@ -185,6 +190,7 @@
 				610DB63E16371544004153AC /* main.m in Sources */,
 				610DB64216371544004153AC /* screetchAppDelegate.m in Sources */,
 				610DB65116371544004153AC /* screetchViewController.m in Sources */,
+				61460C4B1641971900A1D1EE /* screetchView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +317,7 @@
 				610DB65616371544004153AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
