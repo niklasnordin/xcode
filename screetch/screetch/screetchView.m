@@ -11,7 +11,7 @@
 @interface screetchView ()
 
 @property unsigned char   *myBitmap;
-@property CGContextRef    myDrawingContext;
+//@property CGContextRef    myDrawingContext;
 @property CGRect          myBitmapRect;
 
 @end
@@ -45,37 +45,39 @@
     {
         // clear bitmap to white
         memset(_myBitmap, 0xff, myBitmapSize);
-        
+        /*
         _myDrawingContext = CGBitmapContextCreate(_myBitmap,
                                                  w, h, bitsPerPixel, rowBytes,
                                                  colorspace,
                                                  kCGImageAlphaPremultipliedFirst );
+         */
         _myBitmapRect = r;
     }
     CGColorSpaceRelease(colorspace);
 }
 
 
-- (void)drawRedDotInMyContextAtPoint:(CGPoint)pt
+- (void)drawRedDotAtPoint:(CGPoint)pt inContext:(CGContextRef)context
 {
     float x = pt.x;
     float y = pt.y;
-    float dotSize = 1.0;
+    float dotSize = 5.0;
     
     CGRect r1 = CGRectMake(x,y, dotSize,dotSize);
-    CGContextSetRGBFillColor(_myDrawingContext, 1.0, 0, 0, 1.0);
+    CGContextSetRGBFillColor(context, 1.0, 0, 0, 1.0);
     // draw a red dot in this context
-    CGContextFillRect(_myDrawingContext, r1);
+    CGContextFillRect(context, r1);
 }
 
 // call this from drawRect with the drawRect's current context
 - (void)drawMyBitmap:(CGContextRef)context
 {
-    CGImageRef myImage = CGBitmapContextCreateImage(_myDrawingContext);
+    //CGImageRef myImage = CGBitmapContextCreateImage(_myDrawingContext);
+    CGImageRef myImage = CGBitmapContextCreateImage(context);
     CGContextDrawImage(context, _myBitmapRect, myImage  );
     CGImageRelease(myImage);
 }
-
+/*
 - (void)useMyBitmapContextAsViewLayer
 {
     CGImageRef myImage = CGBitmapContextCreateImage(_myDrawingContext);
@@ -90,7 +92,7 @@
     //  notify OS that a drawing layer has changed
     //  [ CATransaction flush ];
 }
-
+*/
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -98,6 +100,10 @@
 {
     // Drawing code
     CGContextRef currentContext = UIGraphicsGetCurrentContext();
+    CGPoint p;
+    p.x = 10.0;
+    p.y = 10.0;
+    [self drawRedDotAtPoint:p inContext:currentContext];
     [self drawMyBitmap:currentContext];
 }
 
