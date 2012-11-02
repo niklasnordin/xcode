@@ -8,10 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+static float windowWidth = 300.0;
+static float windowHeight = 300.0;
+static int widthDivisions = 30;
+static int heightDivisions = 30;
+
 @interface screetchView : UIView
 
 @property (weak, nonatomic) id delegate;
+@property (nonatomic) bool *pixelMatrix;
 
 -(void)pan:(UIPanGestureRecognizer *)gesture;
+-(int)score;
 
 @end

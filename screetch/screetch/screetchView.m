@@ -19,6 +19,55 @@
 
 @implementation screetchView
 
+-(id)init
+{
+    NSLog(@"init:");
+    self = [super init];
+    [self initMatrix];
+    return self;
+}
+
+-(void)initMatrix
+{
+    int matrixSize = heightDivisions*widthDivisions;
+    _pixelMatrix = malloc(matrixSize*sizeof(bool));
+    for (int i=0; i<widthDivisions; i++)
+    {
+        for (int j=0; j<heightDivisions; j++)
+        {
+            int index = i + j*heightDivisions;
+            _pixelMatrix[index] = false;
+        }
+    }
+}
+
+- (id)initWithFrame:(CGRect)frame
+{
+    NSLog(@"hello");
+
+    self = [super initWithFrame:frame];
+    if (self)
+    {
+        // Initialization code
+        [self makeMyBitMapContextWithRect:frame];
+        [self initMatrix];
+    }
+    return self;
+}
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    NSLog(@"initWithCoder");
+    self = [super initWithCoder:aDecoder];
+    [self initMatrix];
+    return self;
+}
+
+-(void)dealloc
+{
+    free(_pixelMatrix);
+}
+
+
 -(void)pan:(UIPanGestureRecognizer *)gesture
 {
     CGPoint pan;
@@ -32,28 +81,42 @@
          (gesture.state == UIGestureRecognizerStateEnded)
          )
     {
-        //pan = [gesture translationInView:self];
         pan = [gesture locationInView:self];
         NSString *text = [[NSString alloc] initWithFormat:@"%g, %g",pan.x, pan.y];
-        //UILabel *display = ((screetchViewController *)_delegate).display;
-        //[display setText:text];
         [_delegate setDisplayWithText:text];
-        [self drawRedDotAtPoint:pan inContext:_myDrawingContext];
+        int nx = widthDivisions*pan.x/self.frame.size.width;
+        int ny = heightDivisions*pan.y/self.frame.size.height;
+        if ( (nx >= 0) && (nx < widthDivisions))
+        {
+            if ( (ny >= 0) && (ny < heightDivisions))
+            {
+                int n = nx + ny*heightDivisions;
+                _pixelMatrix[n] = true;
+            }
+        }
+            
+        
         [self setNeedsDisplay];
         [gesture setTranslation:zero inView:self];
-
+        
     }
 }
 
-- (id)initWithFrame:(CGRect)frame
+-(int)score
 {
-    self = [super initWithFrame:frame];
-    if (self)
+    int sum = heightDivisions*widthDivisions;
+    for (int i=0; i<widthDivisions; i++)
     {
-        // Initialization code
-        [self makeMyBitMapContextWithRect:frame];
+        for (int j=0; j<heightDivisions; j++)
+        {
+            int n = i + j*heightDivisions;
+            if (_pixelMatrix[n])
+            {
+                sum--;
+            }
+        }
     }
-    return self;
+    return sum;
 }
 
 - (void)makeMyBitMapContextWithRect:(CGRect)r
@@ -84,13 +147,12 @@
 }
 
 
-- (void)drawRedDotAtPoint:(CGPoint)pt inContext:(CGContextRef)context
+- (void)drawRedDotAtPoint:(CGPoint)pt inContext:(CGContextRef)context withX:(float)sizeX andY:(float)sizeY
 {
     float x = pt.x;
     float y = pt.y;
-    float dotSize = 5.0;
     
-    CGRect r1 = CGRectMake(x,y, dotSize,dotSize);
+    CGRect r1 = CGRectMake(x,y, sizeX, sizeY);
     CGContextSetRGBFillColor(context, 1.0, 0, 0, 1.0);
     // draw a red dot in this context
     CGContextFillRect(context, r1);
@@ -128,9 +190,23 @@
     // Drawing code
     _myDrawingContext = UIGraphicsGetCurrentContext();
     CGPoint p;
-    p.x = 10.0;
-    p.y = 10.0;
-    [self drawRedDotAtPoint:p inContext:_myDrawingContext];
+    float sizeX = self.frame.size.width/widthDivisions;
+    float sizeY = self.frame.size.height/heightDivisions;
+    
+    for (int i=0; i<widthDivisions; i++)
+    {
+        for (int j=0; j<heightDivisions; j++)
+        {
+            int n = i + j*heightDivisions;
+            if (_pixelMatrix[n])
+            {
+                p.x = i*self.frame.size.width/widthDivisions;
+                p.y = j*self.frame.size.height/heightDivisions;
+                //NSLog(@"x=%g, y=%g",p.x,p.y);
+                [self drawRedDotAtPoint:p inContext:_myDrawingContext withX:sizeX andY:sizeY];
+            }
+        }
+    }
     [self drawMyBitmap:_myDrawingContext];
 }
 
