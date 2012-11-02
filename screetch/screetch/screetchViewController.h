@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "screetchView.h"
 
 @interface screetchViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet screetchView *pictureView;
+@property (weak, nonatomic) IBOutlet UILabel *display;
+
+-(void)setDisplayWithText:(NSString *)text;
 
 @end

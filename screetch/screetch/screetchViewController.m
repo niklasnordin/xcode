@@ -18,12 +18,22 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    _pictureView.delegate = self;
+    [_pictureView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:_pictureView action:@selector(pan:)]];
+    //[_pictureView addGestureRecognizer:[[UIPan
+
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)setDisplayWithText:(NSString *)text
+{
+    _display.text = text;
 }
 
 @end

@@ -10,4 +10,8 @@
 
 @interface screetchView : UIView
 
+@property (weak, nonatomic) id delegate;
+
+-(void)pan:(UIPanGestureRecognizer *)gesture;
+
 @end

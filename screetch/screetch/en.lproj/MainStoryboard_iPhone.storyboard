@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
         <!--Screetch View Controller-->
@@ -115,42 +115,54 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dC7-r4-YV2" customClass="screetchView">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifp-Zu-a3b">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4y2-Z9-SHG" firstAttribute="top" secondItem="dC7-r4-YV2" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="4t5-GC-acq"/>
                             <constraint firstItem="SWb-3I-po4" firstAttribute="trailing" secondItem="bib-Zp-VLX" secondAttribute="trailing" type="default" id="5JS-PD-OUP"/>
+                            <constraint firstItem="dC7-r4-YV2" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="10" id="7FU-4l-jme"/>
+                            <constraint firstItem="dC7-r4-YV2" firstAttribute="trailing" secondItem="bib-Zp-VLX" secondAttribute="trailing" type="default" id="8Zm-ec-aZL"/>
                             <constraint firstItem="4y2-Z9-SHG" firstAttribute="trailing" secondItem="qPf-Kk-2jo" secondAttribute="trailing" type="default" id="9pS-tJ-BJs"/>
                             <constraint firstItem="VNC-uC-eM6" firstAttribute="bottom" secondItem="SWb-3I-po4" secondAttribute="bottom" type="default" id="BIa-6X-lGG"/>
                             <constraint firstItem="VNC-uC-eM6" firstAttribute="top" secondItem="SWb-3I-po4" secondAttribute="top" type="default" id="BgT-Wd-dOy"/>
                             <constraint firstItem="qPf-Kk-2jo" firstAttribute="baseline" secondItem="WiI-IA-532" secondAttribute="baseline" type="default" id="Ctv-LN-Alk"/>
-                            <constraint firstItem="dC7-r4-YV2" firstAttribute="centerX" secondItem="qPf-Kk-2jo" secondAttribute="centerX" type="default" id="DOY-TI-LQV"/>
-                            <constraint firstItem="dC7-r4-YV2" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="IDC-g7-qr1"/>
-                            <constraint firstAttribute="trailing" secondItem="bib-Zp-VLX" secondAttribute="trailing" constant="10" id="JQJ-JN-pXp"/>
                             <constraint firstItem="4y2-Z9-SHG" firstAttribute="bottom" secondItem="sZX-q5-jub" secondAttribute="bottom" type="default" id="P31-UF-QNa"/>
-                            <constraint firstItem="dC7-r4-YV2" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="QFM-uf-t9S"/>
                             <constraint firstAttribute="bottom" secondItem="VNC-uC-eM6" secondAttribute="bottom" constant="53" id="UN8-ky-wT7"/>
                             <constraint firstItem="4y2-Z9-SHG" firstAttribute="leading" secondItem="qPf-Kk-2jo" secondAttribute="leading" type="default" id="Vcq-co-Cxb"/>
                             <constraint firstAttribute="trailing" secondItem="4PM-DJ-qpU" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Vfn-fV-k5j"/>
+                            <constraint firstItem="ifp-Zu-a3b" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="YUl-CX-zYh"/>
                             <constraint firstItem="4PM-DJ-qpU" firstAttribute="baseline" secondItem="qPf-Kk-2jo" secondAttribute="baseline" type="default" id="YrX-1A-W5o"/>
                             <constraint firstItem="WiI-IA-532" firstAttribute="top" secondItem="3" secondAttribute="top" constant="3" id="Yyv-tw-Abu"/>
                             <constraint firstItem="U3n-qk-3lG" firstAttribute="trailing" secondItem="sZX-q5-jub" secondAttribute="trailing" type="default" id="bnC-1N-qFT"/>
                             <constraint firstItem="SWb-3I-po4" firstAttribute="baseline" secondItem="VNC-uC-eM6" secondAttribute="baseline" type="default" id="bwN-ab-TFD"/>
                             <constraint firstItem="SWb-3I-po4" firstAttribute="baseline" secondItem="U3n-qk-3lG" secondAttribute="baseline" type="default" id="dXc-BH-VyT"/>
+                            <constraint firstAttribute="bottom" secondItem="ifp-Zu-a3b" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="gOQ-g6-csS"/>
                             <constraint firstItem="U3n-qk-3lG" firstAttribute="top" secondItem="sZX-q5-jub" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gZe-BR-vTP"/>
                             <constraint firstItem="U3n-qk-3lG" firstAttribute="leading" secondItem="sZX-q5-jub" secondAttribute="leading" type="default" id="gag-rG-L94"/>
                             <constraint firstAttribute="bottom" secondItem="U3n-qk-3lG" secondAttribute="bottom" constant="54" id="kw1-EP-fi2"/>
                             <constraint firstItem="WiI-IA-532" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="lFB-VK-7cT"/>
+                            <constraint firstItem="VNC-uC-eM6" firstAttribute="centerX" secondItem="ifp-Zu-a3b" secondAttribute="centerX" type="default" id="lja-0d-l9p"/>
+                            <constraint firstAttribute="trailing" secondItem="ifp-Zu-a3b" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="nQg-J3-70J"/>
                             <constraint firstItem="bib-Zp-VLX" firstAttribute="top" secondItem="dC7-r4-YV2" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="qx8-OL-HuC"/>
                             <constraint firstItem="bib-Zp-VLX" firstAttribute="bottom" secondItem="4y2-Z9-SHG" secondAttribute="bottom" type="default" id="rfR-ay-A4X"/>
-                            <constraint firstItem="sZX-q5-jub" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="10" id="srU-RN-4Aq"/>
+                            <constraint firstItem="dC7-r4-YV2" firstAttribute="centerX" secondItem="qPf-Kk-2jo" secondAttribute="centerX" type="default" id="vUI-uJ-ARR"/>
                             <constraint firstItem="VNC-uC-eM6" firstAttribute="leading" secondItem="4y2-Z9-SHG" secondAttribute="leading" type="default" id="wa7-1y-aaN"/>
                             <constraint firstItem="sZX-q5-jub" firstAttribute="top" secondItem="dC7-r4-YV2" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="x1P-Yg-sp9"/>
                             <constraint firstItem="SWb-3I-po4" firstAttribute="leading" secondItem="bib-Zp-VLX" secondAttribute="leading" type="default" id="x5J-yp-4w8"/>
+                            <constraint firstItem="dC7-r4-YV2" firstAttribute="leading" secondItem="sZX-q5-jub" secondAttribute="leading" type="default" id="yaH-X7-sQs"/>
                             <constraint firstItem="dC7-r4-YV2" firstAttribute="top" secondItem="WiI-IA-532" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="z4m-0p-yC2"/>
                             <constraint firstItem="VNC-uC-eM6" firstAttribute="trailing" secondItem="4y2-Z9-SHG" secondAttribute="trailing" type="default" id="zmc-4H-gnL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="display" destination="ifp-Zu-a3b" id="xLL-wo-r4P"/>
+                        <outlet property="pictureView" destination="dC7-r4-YV2" id="32O-Ak-sqa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
@@ -166,6 +178,10 @@
         </class>
         <class className="screetchViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/screetchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="display" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pictureView" candidateClass="screetchView"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
