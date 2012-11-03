@@ -13,6 +13,8 @@
 
 @property unsigned char   *myBitmap;
 @property CGContextRef    myDrawingContext;
+@property CGImageRef      maskedMapImage;
+@property CGImageRef      bgImageRef;
 @property CGRect          myBitmapRect;
 
 @end
@@ -59,6 +61,17 @@
     NSLog(@"initWithCoder");
     self = [super initWithCoder:aDecoder];
     [self initMatrix];
+    //_bgImage = [UIImage imageNamed:@"250px-Cornflakes_in_bowl.jpg"];
+    _bgImage = [UIImage imageNamed:@"pig_300.jpg"];
+
+    //_bgView = [[UIImageView alloc] initWithImage:_bgImage];
+    _bgView = [[UIImageView alloc] initWithFrame:self.frame];
+    [_bgView setImage:_bgImage];
+    _bgView.contentMode = UIViewContentModeScaleToFill;
+    [self addSubview:_bgView];
+    [self sendSubviewToBack:_bgView];
+
+    _bgImageRef = _bgImage.CGImage;
     return self;
 }
 
@@ -91,12 +104,14 @@
             if ( (ny >= 0) && (ny < heightDivisions))
             {
                 int n = nx + ny*heightDivisions;
-                _pixelMatrix[n] = true;
+                if (!_pixelMatrix[n])
+                {
+                    _pixelMatrix[n] = true;
+                    [self setNeedsDisplay];
+                }
             }
         }
-            
         
-        [self setNeedsDisplay];
         [gesture setTranslation:zero inView:self];
         
     }
@@ -161,9 +176,16 @@
 // call this from drawRect with the drawRect's current context
 - (void)drawMyBitmap:(CGContextRef)context
 {
-    //CGImageRef myImage = CGBitmapContextCreateImage(_myDrawingContext);
+    int     h = self.frame.size.height;
+    int     w = self.frame.size.width;
+    int     bitsPerPixel = 2;
+    int bitsPerComponent = 2;
+    int     rowBytes = 4 * w;       // for 32-bit ARGB format
+
+    //CGImageRef maskImage = CGImageMaskCreate(w, h, bitsPerComponent, bitsPerPixel, rowBytes, nil, nil, NO);
+    
     CGImageRef myImage = CGBitmapContextCreateImage(context);
-    CGContextDrawImage(context, _myBitmapRect, myImage  );
+    CGContextDrawImage(context, _myBitmapRect, myImage);
     CGImageRelease(myImage);
 }
 /*

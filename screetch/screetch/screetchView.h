@@ -17,6 +17,8 @@ static int heightDivisions = 30;
 
 @property (weak, nonatomic) id delegate;
 @property (nonatomic) bool *pixelMatrix;
+@property (strong, nonatomic) UIImage *bgImage;
+@property (strong, nonatomic) UIImageView *bgView;
 
 -(void)pan:(UIPanGestureRecognizer *)gesture;
 -(int)score;

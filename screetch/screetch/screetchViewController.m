@@ -20,8 +20,8 @@
 	// Do any additional setup after loading the view, typically from a nib.
     _pictureView.delegate = self;
     [_pictureView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:_pictureView action:@selector(pan:)]];
-    //[_pictureView addGestureRecognizer:[[UIPan
-
+    //[_pictureView set
+ 
     
 }
 
