@@ -56,22 +56,21 @@
     }
     return self;
 }
+
+-(void)awakeFromNib
+{
+    [super awakeFromNib];
+    NSLog(@"awakeFromNib w=%f",self.frame.size.width);
+}
+
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
-    NSLog(@"initWithCoder");
-    self = [super initWithCoder:aDecoder];
-    [self initMatrix];
-    //_bgImage = [UIImage imageNamed:@"250px-Cornflakes_in_bowl.jpg"];
-    _bgImage = [UIImage imageNamed:@"pig_300.jpg"];
-
-    //_bgView = [[UIImageView alloc] initWithImage:_bgImage];
-    _bgView = [[UIImageView alloc] initWithFrame:self.frame];
-    [_bgView setImage:_bgImage];
-    _bgView.contentMode = UIViewContentModeScaleToFill;
-    [self addSubview:_bgView];
-    [self sendSubviewToBack:_bgView];
-
-    _bgImageRef = _bgImage.CGImage;
+    NSLog(@"initWithCoder = %@",[aDecoder decodeObjectForKey:@"NSFrame"]);
+    if (self = [super initWithCoder:aDecoder])
+    {
+        [self initMatrix];
+    }
     return self;
 }
 
@@ -79,7 +78,6 @@
 {
     free(_pixelMatrix);
 }
-
 
 -(void)pan:(UIPanGestureRecognizer *)gesture
 {
@@ -209,6 +207,8 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
+    //NSLog(@"frame=%f, %f",self.frame.size.height,self.frame.size.width);
+
     // Drawing code
     _myDrawingContext = UIGraphicsGetCurrentContext();
     CGPoint p;
