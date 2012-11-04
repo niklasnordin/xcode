@@ -20,24 +20,21 @@
 	// Do any additional setup after loading the view, typically from a nib.
     _pictureView.delegate = self;
     [_pictureView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:_pictureView action:@selector(pan:)]];
-    NSLog(@"pictureView.frame = %g",_pictureView.frame.size.height);
- 
+    //NSLog(@"pictureView.frame = w=%g, h=%g",_pictureView.frame.size.width,_pictureView.frame.size.height);
+    //NSLog(@"pictureView.or x=%g, y=%g",_pictureView.frame.origin.x, _pictureView.frame.origin.y);
     
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    //NSLog(@"viewDidAppear, w = %f",_pictureView.frame.size.width);
-    //_bgImage = [UIImage imageNamed:@"250px-Cornflakes_in_bowl.jpg"];
-    _pictureView.bgImage = [UIImage imageNamed:@"pig_300.jpg"];
-    _pictureView.bgView = [[UIImageView alloc] initWithFrame:_pictureView.frame];
-    [_pictureView.bgView setImage:_pictureView.bgImage];
-    //_pictureView.bgView.contentMode = UIViewContentModeScaleToFill;
-    //_bgView.contentMode = UIViewContentModeTopLeft;
+    NSLog(@"viewDidAppear, w = %f",_pictureView.frame.size.width);
+    /*
+    _pictureView.bgView = [[UIImageView alloc] initWithImage:_pictureView.bgImage];
+    _pictureView.bgView.contentMode = UIViewContentModeScaleToFill;
     [_pictureView addSubview:_pictureView.bgView];
     [_pictureView sendSubviewToBack:_pictureView.bgView];
-    
-    //_bgImageRef = _bgImage.CGImage;
+    _pictureView.bgImageRef = _pictureView.bgImage.CGImage;
+     */
 
 }
 
