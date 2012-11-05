@@ -35,4 +35,9 @@
     _display.text = text;
 }
 
+-(void)setScoreWithInt:(int)score
+{
+    _scoreField.text = [[NSString alloc] initWithFormat:@"%d",score];
+}
+
 @end

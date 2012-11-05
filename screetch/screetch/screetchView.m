@@ -60,7 +60,6 @@
         [self initMatrix];
         _bgImage = [UIImage imageNamed:@"pig_300.jpg"];
         _bgImageRef = _bgImage.CGImage;
-        
     }
     return self;
 }
@@ -68,6 +67,12 @@
 -(void)dealloc
 {
     free(_pixelMatrix);
+}
+
+-(void)update
+{
+    [_delegate setScoreWithInt:[self score]];
+    [self setNeedsDisplay];  
 }
 
 -(void)pan:(UIPanGestureRecognizer *)gesture
@@ -96,7 +101,7 @@
                 if (!_pixelMatrix[n])
                 {
                     _pixelMatrix[n] = true;
-                    [self setNeedsDisplay];
+                    [self update];
                 }
             }
         }
@@ -108,7 +113,7 @@
 
 -(int)score
 {
-    int sum = heightDivisions*widthDivisions;
+    int sum = heightDivisions*widthDivisions/2;
     for (int i=0; i<widthDivisions; i++)
     {
         for (int j=0; j<heightDivisions; j++)
@@ -129,7 +134,6 @@
     int height = self.frame.size.height;
     int width = self.frame.size.width;
     CGRect rect = CGRectMake(0.0, 0.0, width, height);
-	//CGColorSpaceRef space = CGColorSpaceCreateDeviceGray();
 
     CGContextSetFillColorWithColor(_myDrawingContext, [UIColor blackColor].CGColor);
     CGContextBeginPath(_myDrawingContext);
@@ -140,8 +144,8 @@
     CGContextBeginPath(_myDrawingContext);
 
     CGPoint p;
-    float sizeX = self.frame.size.width/widthDivisions;
-    float sizeY = self.frame.size.height/heightDivisions;
+    float sizeX = width/widthDivisions;
+    float sizeY = height/heightDivisions;
     
     for (int i=0; i<widthDivisions; i++)
     {
@@ -150,8 +154,9 @@
             int n = i + j*heightDivisions;
             if (_pixelMatrix[n])
             {
-                p.x = i*self.frame.size.width/widthDivisions;
-                p.y = j*self.frame.size.height/heightDivisions;
+                //p.x = (widthDivisions - 1 - i)*width/widthDivisions;
+                p.x = i*width/widthDivisions;
+                p.y = (heightDivisions - 1 - j)*height/heightDivisions;
                 CGRect r1 = CGRectMake(p.x, p.y, sizeX, sizeY);
                 CGContextAddRect(_myDrawingContext, r1);
                 CGContextDrawPath(_myDrawingContext, kCGPathFill);
@@ -159,12 +164,18 @@
         }
     }
 
+    //CGContextTranslateCTM(_myDrawingContext, width, 0);
+    //CGContextScaleCTM(_myDrawingContext, -1.0, 1.0);
     CGImageRef mask = CGBitmapContextCreateImage(_myDrawingContext);
-    CGImageRef maskedImage = CGImageCreateWithMask(_bgImage.CGImage, mask);
+    CGImageRef maskedImage = CGImageCreateWithMask(_bgImageRef, mask);
+    
+    UIImage *image = [UIImage imageWithCGImage:maskedImage scale:1.0 orientation:UIImageOrientationUp];
+    [self setBgImage:image];
+    //CGContextDrawImage(context, rect, maskedImage);
+    [image drawInRect:rect];
+    //CGContextTranslateCTM(_myDrawingContext, width, 0);
+    //CGContextScaleCTM(_myDrawingContext, -1.0, 1.0);
 
-    //CGContextTranslateCTM(context, 0, height);
-    //CGContextScaleCTM(context, 1.0, -1.0);
-    CGContextDrawImage(context, rect, maskedImage);
     CGImageRelease(mask);
     CGImageRelease(maskedImage);
 
@@ -185,6 +196,7 @@
                                                   height,
                                                   8, 0, space,
                                                   kCGImageAlphaNone);
+        [self update];
 
         CGColorSpaceRelease(space);
 

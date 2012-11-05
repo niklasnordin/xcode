@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		61031D021645C4DB0018D46C /* pig_300.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61031D011645C4DB0018D46C /* pig_300.jpg */; };
+		61031D10164841880018D46C /* pig.png in Resources */ = {isa = PBXBuildFile; fileRef = 61031D0F164841880018D46C /* pig.png */; };
 		610DB63216371544004153AC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610DB63116371544004153AC /* UIKit.framework */; };
 		610DB63416371544004153AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610DB63316371544004153AC /* Foundation.framework */; };
 		610DB63616371544004153AC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610DB63516371544004153AC /* CoreGraphics.framework */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		61031D011645C4DB0018D46C /* pig_300.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pig_300.jpg; sourceTree = "<group>"; };
+		61031D0F164841880018D46C /* pig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pig.png; sourceTree = "<group>"; };
 		610DB62D16371544004153AC /* screetch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = screetch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		610DB63116371544004153AC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		610DB63316371544004153AC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				61031D011645C4DB0018D46C /* pig_300.jpg */,
+				61031D0F164841880018D46C /* pig.png */,
 				610DB65716372019004153AC /* 250px-Cornflakes_in_bowl.jpg */,
 			);
 			name = Pictures;
@@ -189,6 +192,7 @@
 				610DB64E16371544004153AC /* MainStoryboard_iPad.storyboard in Resources */,
 				610DB65816372019004153AC /* 250px-Cornflakes_in_bowl.jpg in Resources */,
 				61031D021645C4DB0018D46C /* pig_300.jpg in Resources */,
+				61031D10164841880018D46C /* pig.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
