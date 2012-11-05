@@ -10,21 +10,13 @@
 #import "screetchViewController.h"
 
 @interface screetchView ()
-
-@property unsigned char   *myBitmap;
 @property CGContextRef    myDrawingContext;
-@property CGImageRef      maskedMapImage;
-@property CGRect          myBitmapRect;
-
-@property CGRect          plotRect;
-
 @end
 
 @implementation screetchView
 
 -(id)init
 {
-    NSLog(@"init:");
     self = [super init];
     [self initMatrix];
     return self;
@@ -46,8 +38,6 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-    NSLog(@"hello");
-
     self = [super initWithFrame:frame];
     if (self)
     {
@@ -60,17 +50,17 @@
 -(void)awakeFromNib
 {
     [super awakeFromNib];
-    NSLog(@"awakeFromNib w=%f",self.frame.size.width);
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
-    NSLog(@"initWithCoder = %@",[aDecoder decodeObjectForKey:@"NSFrame"]);
+
     if (self = [super initWithCoder:aDecoder])
     {
         [self initMatrix];
         _bgImage = [UIImage imageNamed:@"pig_300.jpg"];
         _bgImageRef = _bgImage.CGImage;
+        
     }
     return self;
 }
@@ -106,16 +96,7 @@
                 if (!_pixelMatrix[n])
                 {
                     _pixelMatrix[n] = true;
-                    //[self setNeedsDisplay];
-                    CGPoint p;
-                    p.x = nx*self.frame.size.width/widthDivisions;
-                    p.y = ny*self.frame.size.height/heightDivisions;
-                    float sizeX = self.frame.size.width/widthDivisions;
-                    float sizeY = self.frame.size.height/heightDivisions;
-                    _plotRect = CGRectMake(p.x, p.y, sizeX, sizeY);
-                    //NSLog(@"x=%g, y=%g",p.x,p.y);
-                    //[self drawRedDotAtPoint:p inContext:_myDrawingContext withX:sizeX andY:sizeY];
-                    [self setNeedsDisplayInRect:_plotRect];
+                    [self setNeedsDisplay];
                 }
             }
         }
@@ -142,78 +123,22 @@
     return sum;
 }
 
-- (void)drawRedDotAtPoint:(CGPoint)pt inContext:(CGContextRef)context withX:(float)sizeX andY:(float)sizeY
-{
-    float x = pt.x;
-    float y = pt.y;
-    
-    CGRect r1 = CGRectMake(x,y, sizeX, sizeY);
-    CGContextSetRGBFillColor(context, 1.0, 1.0, 1.0, 1.0);
-    // draw a red dot in this context
-    CGContextFillRect(context, r1);
-}
-
 // call this from drawRect with the drawRect's current context
 - (void)drawMyBitmap:(CGContextRef)context
 {
+    int height = self.frame.size.height;
+    int width = self.frame.size.width;
+    CGRect rect = CGRectMake(0.0, 0.0, width, height);
+	//CGColorSpaceRef space = CGColorSpaceCreateDeviceGray();
 
-    CGImageRef maskImage = CGImageMaskCreate(
-                                             CGImageGetWidth(_bgImageRef),
-                                             CGImageGetHeight(_bgImageRef),
-                                             CGImageGetBitsPerComponent(_bgImageRef),
-                                             CGImageGetBitsPerPixel(_bgImageRef),
-                                             CGImageGetBytesPerRow(_bgImageRef),
-                                             CGImageGetDataProvider(_bgImageRef),
-                                             nil,
-                                             NO
-                                             );
-    
-    CGRect rect = CGRectMake(0.0, 0.0, self.frame.size.width, self.frame.size.height);
+    CGContextSetFillColorWithColor(_myDrawingContext, [UIColor blackColor].CGColor);
+    CGContextBeginPath(_myDrawingContext);
+    CGContextAddRect(_myDrawingContext, rect);
+    CGContextDrawPath(_myDrawingContext, kCGPathFill);
 
-    /*
-    CGImageRef myImage = CGBitmapContextCreateImage(context);
-    CGContextTranslateCTM(context, 0, _bgImage.size.height);
-    CGContextScaleCTM(context, 1.0, -1.0);
-    CGContextDrawImage(context, rect, _bgImageRef);
-    CGImageRelease(myImage);
-     */
+    CGContextSetFillColorWithColor(_myDrawingContext, [UIColor whiteColor].CGColor);
+    CGContextBeginPath(_myDrawingContext);
 
-    CGImageRef masked = CGImageCreateWithMask(_bgImageRef, maskImage);
-    CGContextTranslateCTM(context, 0, _bgImage.size.height);
-    CGContextScaleCTM(context, 1.0, -1.0);
-    CGContextDrawImage(context, rect, masked);
-    CGImageRelease(masked);
-
-}
-
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    if (!_myDrawingContext)
-    {
-        //NSLog(@"frame: w=%g, h=%g",self.frame.size.width,self.frame.size.height);
-        //NSLog(@"frame:  x=%g, y=%g",self.frame.origin.x, self.frame.origin.y);
-        CGColorSpaceRef space = CGColorSpaceCreateDeviceGray();
-        _myDrawingContext = CGBitmapContextCreate(NULL, _bgView.frame.size.width, _bgView.frame.size.height, 8, 0, space, kCGImageAlphaNone);
-        
-        CGImageRef bgRef = _bgImage.CGImage;
-        _maskedMapImage = CGImageMaskCreate(
-                                                 CGImageGetWidth(bgRef),
-                                                 CGImageGetHeight(bgRef),
-                                                 CGImageGetBitsPerComponent(bgRef),
-                                                 CGImageGetBitsPerPixel(bgRef),
-                                                 CGImageGetBytesPerRow(bgRef),
-                                                 CGImageGetDataProvider(bgRef),
-                                                 nil,
-                                                 NO
-                                            );
-        CGColorSpaceRelease(space);
-    }
-
-    // Drawing code
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
     CGPoint p;
     float sizeX = self.frame.size.width/widthDivisions;
     float sizeY = self.frame.size.height/heightDivisions;
@@ -227,20 +152,45 @@
             {
                 p.x = i*self.frame.size.width/widthDivisions;
                 p.y = j*self.frame.size.height/heightDivisions;
-                //NSLog(@"x=%g, y=%g",p.x,p.y);
-                [self drawRedDotAtPoint:p inContext:_myDrawingContext withX:sizeX andY:sizeY];
+                CGRect r1 = CGRectMake(p.x, p.y, sizeX, sizeY);
+                CGContextAddRect(_myDrawingContext, r1);
+                CGContextDrawPath(_myDrawingContext, kCGPathFill);
             }
         }
     }
-    /*
-    CGPoint p;
-    p.x = _plotRect.origin.x;
-    p.y = _plotRect.origin.y;
-    float sizeX = _plotRect.size.width;
-    float sizeY = _plotRect.size.height;
-    
-    [self drawRedDotAtPoint:p inContext:_myDrawingContext withX:sizeX andY:sizeY];
-*/
+
+    CGImageRef mask = CGBitmapContextCreateImage(_myDrawingContext);
+    CGImageRef maskedImage = CGImageCreateWithMask(_bgImage.CGImage, mask);
+
+    //CGContextTranslateCTM(context, 0, height);
+    //CGContextScaleCTM(context, 1.0, -1.0);
+    CGContextDrawImage(context, rect, maskedImage);
+    CGImageRelease(mask);
+    CGImageRelease(maskedImage);
+
+}
+
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect
+{
+    if (!_myDrawingContext)
+    {
+
+        CGColorSpaceRef space = CGColorSpaceCreateDeviceGray();
+        int height = self.frame.size.height;
+        int width = self.frame.size.width;
+
+        _myDrawingContext = CGBitmapContextCreate(NULL, width,
+                                                  height,
+                                                  8, 0, space,
+                                                  kCGImageAlphaNone);
+
+        CGColorSpaceRelease(space);
+
+    }
+
+    CGContextRef context = UIGraphicsGetCurrentContext();
     [self drawMyBitmap:context];
 }
 
