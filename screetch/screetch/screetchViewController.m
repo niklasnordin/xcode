@@ -20,6 +20,11 @@
     [super viewDidLoad];
     _pictureView.delegate = self;
     [_pictureView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:_pictureView action:@selector(pan:)]];
+
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:_pictureView action:@selector(tap:)];
+    tapRecognizer.numberOfTapsRequired = 1;
+    [_pictureView addGestureRecognizer:tapRecognizer];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated

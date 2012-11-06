@@ -110,6 +110,24 @@
     return updateNeeded;
 }
 
+-(void)tap:(UIPanGestureRecognizer *)gesture
+{
+
+    if  (gesture.state == UIGestureRecognizerStateEnded)
+    {
+        CGPoint tap = [gesture locationInView:self];
+        NSString *text = [[NSString alloc] initWithFormat:@"%g, %g",tap.x, tap.y];
+        [_delegate setDisplayWithText:text];
+        int nx = widthDivisions*tap.x/self.frame.size.width;
+        int ny = heightDivisions*tap.y/self.frame.size.height;
+        if ([self clearPixelMatrixAtX:nx andY:ny])
+        {
+            [self update];
+        }
+
+    }
+
+}
 -(void)pan:(UIPanGestureRecognizer *)gesture
 {
     CGPoint pan;

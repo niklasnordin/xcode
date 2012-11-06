@@ -10,8 +10,8 @@
 
 static float windowWidth = 300.0;
 static float windowHeight = 300.0;
-static int widthDivisions = 100;
-static int heightDivisions = 100;
+static int widthDivisions = 60;
+static int heightDivisions = 60;
 
 @interface screetchView : UIView
 
@@ -22,6 +22,8 @@ static int heightDivisions = 100;
 @property CGImageRef      bgImageRef;
 
 -(void)pan:(UIPanGestureRecognizer *)gesture;
+-(void)tap:(UIPanGestureRecognizer *)gesture;
+
 -(int)score;
 
 @end
