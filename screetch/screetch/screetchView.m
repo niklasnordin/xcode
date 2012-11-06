@@ -17,6 +17,7 @@
 
 -(id)init
 {
+    NSLog(@"init screetchView");
     self = [super init];
     [self initMatrix];
     return self;
@@ -24,6 +25,7 @@
 
 -(void)initMatrix
 {
+    NSLog(@"initMatrix");
     int matrixSize = heightDivisions*widthDivisions;
     _pixelMatrix = malloc(matrixSize*sizeof(bool));
     for (int i=0; i<widthDivisions; i++)
@@ -38,6 +40,7 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
+    NSLog(@"init with frame");
     self = [super initWithFrame:frame];
     if (self)
     {
@@ -50,10 +53,12 @@
 -(void)awakeFromNib
 {
     [super awakeFromNib];
+    NSLog(@"awake from NIB");
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
+    NSLog(@"init with coder");
 
     if (self = [super initWithCoder:aDecoder])
     {
@@ -66,6 +71,7 @@
 
 -(void)dealloc
 {
+    NSLog(@"dealloc: free pixelMatrix");
     free(_pixelMatrix);
 }
 
@@ -73,6 +79,35 @@
 {
     [_delegate setScoreWithInt:[self score]];
     [self setNeedsDisplay];  
+}
+
+-(bool)clearPixelMatrixAtX:(int)nx andY:(int)ny
+{
+    bool updateNeeded = false;
+    int rad = 5;
+    for (int i=nx-rad; i<nx+rad+1; i++)
+    {
+        for (int j=ny-rad; j<ny+rad+1; j++)
+        {
+            int dist2 = (i-nx)*(i-nx) + (j-ny)*(j-ny);
+            if (dist2 < rad*rad)
+            {
+                if ( (i >= 0) && (i < widthDivisions) )
+                {
+                    if ( (j >= 0) && (j < heightDivisions))
+                    {
+                        int n = i + j*heightDivisions;
+                        if (!_pixelMatrix[n])
+                        {
+                            _pixelMatrix[n] = true;
+                            updateNeeded = true;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return updateNeeded;
 }
 
 -(void)pan:(UIPanGestureRecognizer *)gesture
@@ -93,17 +128,9 @@
         [_delegate setDisplayWithText:text];
         int nx = widthDivisions*pan.x/self.frame.size.width;
         int ny = heightDivisions*pan.y/self.frame.size.height;
-        if ( (nx >= 0) && (nx < widthDivisions))
+        if ([self clearPixelMatrixAtX:nx andY:ny])
         {
-            if ( (ny >= 0) && (ny < heightDivisions))
-            {
-                int n = nx + ny*heightDivisions;
-                if (!_pixelMatrix[n])
-                {
-                    _pixelMatrix[n] = true;
-                    [self update];
-                }
-            }
+            [self update];
         }
         
         [gesture setTranslation:zero inView:self];
@@ -164,8 +191,6 @@
         }
     }
 
-    //CGContextTranslateCTM(_myDrawingContext, width, 0);
-    //CGContextScaleCTM(_myDrawingContext, -1.0, 1.0);
     CGImageRef mask = CGBitmapContextCreateImage(_myDrawingContext);
     CGImageRef maskedImage = CGImageCreateWithMask(_bgImageRef, mask);
     
@@ -173,8 +198,6 @@
     [self setBgImage:image];
     //CGContextDrawImage(context, rect, maskedImage);
     [image drawInRect:rect];
-    //CGContextTranslateCTM(_myDrawingContext, width, 0);
-    //CGContextScaleCTM(_myDrawingContext, -1.0, 1.0);
 
     CGImageRelease(mask);
     CGImageRelease(maskedImage);

@@ -16,13 +16,17 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"view did load");
     [super viewDidLoad];
     _pictureView.delegate = self;
     [_pictureView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:_pictureView action:@selector(pan:)]];
 }
 
 - (void)viewDidAppear:(BOOL)animated
-{}
+{
+    [super viewDidAppear:animated];
+    NSLog(@"view did appear");
+}
 
 - (void)didReceiveMemoryWarning
 {

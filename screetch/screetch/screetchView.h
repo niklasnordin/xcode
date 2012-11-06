@@ -10,8 +10,8 @@
 
 static float windowWidth = 300.0;
 static float windowHeight = 300.0;
-static int widthDivisions = 25;
-static int heightDivisions = 25;
+static int widthDivisions = 100;
+static int heightDivisions = 100;
 
 @interface screetchView : UIView
 
