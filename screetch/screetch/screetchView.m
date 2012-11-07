@@ -84,7 +84,7 @@
 -(bool)clearPixelMatrixAtX:(int)nx andY:(int)ny
 {
     bool updateNeeded = false;
-    int rad = 5;
+    int rad = 4;
     for (int i=nx-rad; i<nx+rad+1; i++)
     {
         for (int j=ny-rad; j<ny+rad+1; j++)
@@ -267,7 +267,6 @@
 
 - (void)clearPicture
 {
-    NSLog(@"clear picture");
     int pixelsLeft = [self pixelsLeft];
     while (pixelsLeft > 0)
     {
@@ -283,8 +282,10 @@
                     if (counter == remove)
                     {
                         _pixelMatrix[n] = true;
+
                         [self setNeedsDisplay];
-                        usleep(100);
+
+                        usleep(1);
                         i=widthDivisions;
                         j=heightDivisions;
                     }
@@ -292,6 +293,7 @@
                 }
             }
         }
+
         pixelsLeft = [self pixelsLeft];
         //NSLog(@"rem=%d, total=%d",remove,pixelsLeft);
     }
