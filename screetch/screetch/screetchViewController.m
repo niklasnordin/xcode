@@ -39,6 +39,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)choiceButtonPressed:(UIButton *)sender
+{
+    NSLog(@"choiceButtonPressed");
+    NSLog(@"tag = %d, %@",sender.tag,sender.restorationIdentifier);
+
+}
+
 -(void)setDisplayWithText:(NSString *)text
 {
     _display.text = text;

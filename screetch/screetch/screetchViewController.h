@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet screetchView *pictureView;
 @property (weak, nonatomic) IBOutlet UILabel *display;
 @property (weak, nonatomic) IBOutlet UILabel *scoreField;
+- (IBAction)choiceButtonPressed:(UIButton *)sender;
 
 -(void)setDisplayWithText:(NSString *)text;
 -(void)setScoreWithInt:(int)score;
