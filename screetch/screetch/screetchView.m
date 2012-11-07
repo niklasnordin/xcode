@@ -156,7 +156,7 @@
     }
 }
 
--(int)score
+- (int)score
 {
     int sum = heightDivisions*widthDivisions/2;
     for (int i=0; i<widthDivisions; i++)
@@ -171,6 +171,24 @@
         }
     }
     return sum;
+}
+
+- (int)pixelsLeft
+{
+    int sum = 0;
+    for (int i=0; i<widthDivisions; i++)
+    {
+        for (int j=0; j<heightDivisions; j++)
+        {
+            int n = i + j*heightDivisions;
+            if (!_pixelMatrix[n])
+            {
+                sum++;
+            }
+        }
+    }
+    return sum;
+ 
 }
 
 // call this from drawRect with the drawRect's current context
@@ -247,4 +265,35 @@
     [self drawMyBitmap:context];
 }
 
+- (void)clearPicture
+{
+    NSLog(@"clear picture");
+    int pixelsLeft = [self pixelsLeft];
+    while (pixelsLeft > 0)
+    {
+        int remove = random()%pixelsLeft;
+        int counter = 0;
+        for (int i=0; i<widthDivisions; i++)
+        {
+            for (int j=0; j<heightDivisions; j++)
+            {
+                int n = i + j*heightDivisions;
+                if (!_pixelMatrix[n])
+                {
+                    if (counter == remove)
+                    {
+                        _pixelMatrix[n] = true;
+                        [self setNeedsDisplay];
+                        usleep(100);
+                        i=widthDivisions;
+                        j=heightDivisions;
+                    }
+                    counter++;
+                }
+            }
+        }
+        pixelsLeft = [self pixelsLeft];
+        //NSLog(@"rem=%d, total=%d",remove,pixelsLeft);
+    }
+}
 @end

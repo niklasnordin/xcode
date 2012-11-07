@@ -11,6 +11,7 @@
 
 @interface screetchViewController : UIViewController
 
+@property (strong, nonatomic) NSArray *pictures;
 @property (weak, nonatomic) IBOutlet screetchView *pictureView;
 @property (weak, nonatomic) IBOutlet UILabel *display;
 @property (weak, nonatomic) IBOutlet UILabel *scoreField;

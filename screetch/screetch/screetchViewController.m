@@ -43,6 +43,7 @@
 {
     NSLog(@"choiceButtonPressed");
     NSLog(@"tag = %d, %@",sender.tag,sender.restorationIdentifier);
+    [_pictureView clearPicture];
 
 }
 

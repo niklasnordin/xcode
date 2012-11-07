@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		61031D021645C4DB0018D46C /* pig_300.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61031D011645C4DB0018D46C /* pig_300.jpg */; };
 		61031D10164841880018D46C /* pig.png in Resources */ = {isa = PBXBuildFile; fileRef = 61031D0F164841880018D46C /* pig.png */; };
+		61031D13164AD0650018D46C /* pictureInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 61031D12164AD0650018D46C /* pictureInfo.m */; };
 		610DB63216371544004153AC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610DB63116371544004153AC /* UIKit.framework */; };
 		610DB63416371544004153AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610DB63316371544004153AC /* Foundation.framework */; };
 		610DB63616371544004153AC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610DB63516371544004153AC /* CoreGraphics.framework */; };
@@ -28,6 +29,8 @@
 /* Begin PBXFileReference section */
 		61031D011645C4DB0018D46C /* pig_300.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pig_300.jpg; sourceTree = "<group>"; };
 		61031D0F164841880018D46C /* pig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pig.png; sourceTree = "<group>"; };
+		61031D11164AD0650018D46C /* pictureInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pictureInfo.h; sourceTree = "<group>"; };
+		61031D12164AD0650018D46C /* pictureInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pictureInfo.m; sourceTree = "<group>"; };
 		610DB62D16371544004153AC /* screetch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = screetch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		610DB63116371544004153AC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		610DB63316371544004153AC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -113,6 +116,8 @@
 				610DB65016371544004153AC /* screetchViewController.m */,
 				61460C491641971900A1D1EE /* screetchView.h */,
 				61460C4A1641971900A1D1EE /* screetchView.m */,
+				61031D11164AD0650018D46C /* pictureInfo.h */,
+				61031D12164AD0650018D46C /* pictureInfo.m */,
 				610DB63816371544004153AC /* Supporting Files */,
 			);
 			path = screetch;
@@ -207,6 +212,7 @@
 				610DB64216371544004153AC /* screetchAppDelegate.m in Sources */,
 				610DB65116371544004153AC /* screetchViewController.m in Sources */,
 				61460C4B1641971900A1D1EE /* screetchView.m in Sources */,
+				61031D13164AD0650018D46C /* pictureInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
