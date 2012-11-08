@@ -21,8 +21,8 @@ static int heightDivisions = 60;
 @property (strong, nonatomic) UIImageView *bgView;
 @property CGImageRef      bgImageRef;
 
-- (void)pan:(UIPanGestureRecognizer *)gesture;
-- (void)tap:(UIPanGestureRecognizer *)gesture;
+//- (void)pan:(UIPanGestureRecognizer *)gesture;
+//- (void)tap:(UIPanGestureRecognizer *)gesture;
 
 - (int)score;
 - (int)pixelsLeft;
