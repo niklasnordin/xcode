@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-static float windowWidth = 300.0;
-static float windowHeight = 300.0;
-static int widthDivisions = 60;
-static int heightDivisions = 60;
-
 @interface screetchView : UIView
 
 @property (weak, nonatomic) id delegate;

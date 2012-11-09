@@ -9,6 +9,11 @@
 #import "screetchView.h"
 #import "screetchViewController.h"
 
+static float windowWidth = 300.0;
+static float windowHeight = 300.0;
+static int widthDivisions = 60;
+static int heightDivisions = 60;
+
 @interface screetchView ()
 @property CGContextRef    myDrawingContext;
 @end
@@ -17,7 +22,6 @@
 
 -(id)init
 {
-    NSLog(@"init screetchView");
     self = [super init];
     [self initMatrix];
     return self;
@@ -25,7 +29,6 @@
 
 -(void)initMatrix
 {
-    NSLog(@"initMatrix");
     int matrixSize = heightDivisions*widthDivisions;
     _pixelMatrix = malloc(matrixSize*sizeof(bool));
     for (int i=0; i<widthDivisions; i++)
@@ -40,7 +43,6 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-    NSLog(@"init with frame");
     self = [super initWithFrame:frame];
     if (self)
     {
@@ -53,12 +55,10 @@
 -(void)awakeFromNib
 {
     [super awakeFromNib];
-    NSLog(@"awake from NIB");
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
-    NSLog(@"init with coder");
 
     if (self = [super initWithCoder:aDecoder])
     {
@@ -71,7 +71,6 @@
 
 -(void)dealloc
 {
-    NSLog(@"dealloc: free pixelMatrix");
     free(_pixelMatrix);
 }
 
@@ -140,53 +139,6 @@
     }
 }
 
-/*
--(void)tap:(UIPanGestureRecognizer *)gesture
-{
-
-    if  (gesture.state == UIGestureRecognizerStateEnded)
-    {
-        CGPoint tap = [gesture locationInView:self];
-        NSString *text = [[NSString alloc] initWithFormat:@"%g, %g",tap.x, tap.y];
-        [_delegate setDisplayWithText:text];
-        int nx = widthDivisions*tap.x/self.frame.size.width;
-        int ny = heightDivisions*tap.y/self.frame.size.height;
-        if ([self clearPixelMatrixAtX:nx andY:ny])
-        {
-            [self update];
-        }
-
-    }
-
-}
--(void)pan:(UIPanGestureRecognizer *)gesture
-{
-    CGPoint pan;
-    CGPoint zero;
-    zero.x = 0.0;
-    zero.y = 0.0;
-    
-    if
-        (   (gesture.state == UIGestureRecognizerStateChanged)
-         ||
-         (gesture.state == UIGestureRecognizerStateEnded)
-         )
-    {
-        pan = [gesture locationInView:self];
-        NSString *text = [[NSString alloc] initWithFormat:@"%g, %g",pan.x, pan.y];
-        [_delegate setDisplayWithText:text];
-        int nx = widthDivisions*pan.x/self.frame.size.width;
-        int ny = heightDivisions*pan.y/self.frame.size.height;
-        if ([self clearPixelMatrixAtX:nx andY:ny])
-        {
-            [self update];
-        }
-        
-        [gesture setTranslation:zero inView:self];
-        
-    }
-}
-*/
 - (int)score
 {
     int sum = heightDivisions*widthDivisions/2;
@@ -268,15 +220,9 @@
 // call this from drawRect with the drawRect's current context
 - (void)drawMyBitmap:(CGContextRef)context
 {
-    
-    int height = self.frame.size.height;
-    int width = self.frame.size.width;
-    CGRect rect = CGRectMake(0.0, 0.0, width, height);
-    
+    CGRect rect = self.bounds;
     UIImage *image = [self calculateImage:rect];
-    //[self setBgImage:image];
     [image drawInRect:rect];
-
 }
 
 // Only override drawRect: if you perform custom drawing.
@@ -307,10 +253,7 @@
 - (void)clearAndAnimatePicture
 {
     int frames = 6;
-    int height = self.frame.size.height;
-    int width = self.frame.size.width;
-    CGRect rect = CGRectMake(0.0, 0.0, width, height);
-
+    CGRect frame = self.bounds;
     int pixelsLeft = [self pixelsLeft];
     int countPerFrame = pixelsLeft/frames;
     NSMutableArray *animationImages = [[NSMutableArray alloc] init];
@@ -340,17 +283,13 @@
         }
         if (cpt > countPerFrame)
         {
-            [animationImages addObject:[self calculateImage:rect]];
+            [animationImages addObject:[self calculateImage:frame]];
             cpt = 0;
         }
         pixelsLeft = [self pixelsLeft];
-        //NSLog(@"rem=%d, total=%d",remove,pixelsLeft);
-    }
-    [self setBgImage:_bgImage];
-    //[self setNeedsDisplay];
-    NSLog(@"animationImages count = %d",[animationImages count]);
-    CGRect frame = CGRectMake(0.0, 0.0, self.frame.size.width, self.frame.size.height);
 
+    }
+    
     _bgView = [[UIImageView alloc] initWithFrame:frame];
     _bgView.animationImages = animationImages;
     _bgView.animationRepeatCount = 1;
@@ -359,7 +298,7 @@
     [self addSubview:_bgView];
     //[self sendSubviewToBack:_bgView];
     [_bgView startAnimating];
-    //[_bgView setImage:_bgImage];
+
 }
 
 @end
