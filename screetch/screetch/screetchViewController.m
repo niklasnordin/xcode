@@ -42,10 +42,9 @@
 
 - (IBAction)choiceButtonPressed:(UIButton *)sender
 {
-    NSLog(@"choiceButtonPressed");
-    NSLog(@"tag = %d, %@",sender.tag,sender.restorationIdentifier);
-    [_pictureView clearPicture];
-
+    //NSLog(@"choiceButtonPressed");
+    //NSLog(@"tag = %d, %@",sender.tag,sender.restorationIdentifier);
+    [_pictureView clearAndAnimatePicture];
 }
 
 -(void)setDisplayWithText:(NSString *)text

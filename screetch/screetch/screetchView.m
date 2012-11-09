@@ -84,13 +84,13 @@
 -(bool)clearPixelMatrixAtX:(int)nx andY:(int)ny
 {
     bool updateNeeded = false;
-    int rad = 4;
+    int rad = 3;
     for (int i=nx-rad; i<nx+rad+1; i++)
     {
         for (int j=ny-rad; j<ny+rad+1; j++)
         {
             int dist2 = (i-nx)*(i-nx) + (j-ny)*(j-ny);
-            if (dist2 < rad*rad)
+            if (dist2 < (rad-0.5)*(rad-0.5))
             {
                 if ( (i >= 0) && (i < widthDivisions) )
                 {
@@ -222,24 +222,20 @@
  
 }
 
-// call this from drawRect with the drawRect's current context
-- (void)drawMyBitmap:(CGContextRef)context
+-(UIImage *)calculateImage:(CGRect)rect
 {
-    int height = self.frame.size.height;
-    int width = self.frame.size.width;
-    CGRect rect = CGRectMake(0.0, 0.0, width, height);
 
     CGContextSetFillColorWithColor(_myDrawingContext, [UIColor blackColor].CGColor);
     CGContextBeginPath(_myDrawingContext);
     CGContextAddRect(_myDrawingContext, rect);
     CGContextDrawPath(_myDrawingContext, kCGPathFill);
-
+    
     CGContextSetFillColorWithColor(_myDrawingContext, [UIColor whiteColor].CGColor);
     CGContextBeginPath(_myDrawingContext);
-
+    
     CGPoint p;
-    float sizeX = width/widthDivisions;
-    float sizeY = height/heightDivisions;
+    float sizeX = rect.size.width/widthDivisions;
+    float sizeY = rect.size.height/heightDivisions;
     
     for (int i=0; i<widthDivisions; i++)
     {
@@ -249,25 +245,37 @@
             if (_pixelMatrix[n])
             {
                 //p.x = (widthDivisions - 1 - i)*width/widthDivisions;
-                p.x = i*width/widthDivisions;
-                p.y = (heightDivisions - 1 - j)*height/heightDivisions;
+                p.x = i*rect.size.width/widthDivisions;
+                p.y = (heightDivisions - 1 - j)*rect.size.height/heightDivisions;
                 CGRect r1 = CGRectMake(p.x, p.y, sizeX, sizeY);
                 CGContextAddRect(_myDrawingContext, r1);
                 CGContextDrawPath(_myDrawingContext, kCGPathFill);
             }
         }
     }
-
+    
     CGImageRef mask = CGBitmapContextCreateImage(_myDrawingContext);
     CGImageRef maskedImage = CGImageCreateWithMask(_bgImageRef, mask);
-    
-    UIImage *image = [UIImage imageWithCGImage:maskedImage scale:1.0 orientation:UIImageOrientationUp];
-    [self setBgImage:image];
-    //CGContextDrawImage(context, rect, maskedImage);
-    [image drawInRect:rect];
 
+    UIImage *image = [UIImage imageWithCGImage:maskedImage scale:1.0 orientation:UIImageOrientationUp];
+    
     CGImageRelease(mask);
     CGImageRelease(maskedImage);
+
+    return image;
+}
+
+// call this from drawRect with the drawRect's current context
+- (void)drawMyBitmap:(CGContextRef)context
+{
+    
+    int height = self.frame.size.height;
+    int width = self.frame.size.width;
+    CGRect rect = CGRectMake(0.0, 0.0, width, height);
+    
+    UIImage *image = [self calculateImage:rect];
+    //[self setBgImage:image];
+    [image drawInRect:rect];
 
 }
 
@@ -296,13 +304,22 @@
     [self drawMyBitmap:context];
 }
 
-- (void)clearPicture
+- (void)clearAndAnimatePicture
 {
+    int frames = 6;
+    int height = self.frame.size.height;
+    int width = self.frame.size.width;
+    CGRect rect = CGRectMake(0.0, 0.0, width, height);
+
     int pixelsLeft = [self pixelsLeft];
+    int countPerFrame = pixelsLeft/frames;
+    NSMutableArray *animationImages = [[NSMutableArray alloc] init];
+    int cpt = 0;
     while (pixelsLeft > 0)
     {
         int remove = random()%pixelsLeft;
         int counter = 0;
+        cpt++;
         for (int i=0; i<widthDivisions; i++)
         {
             for (int j=0; j<heightDivisions; j++)
@@ -314,9 +331,6 @@
                     {
                         _pixelMatrix[n] = true;
 
-                        [self setNeedsDisplay];
-
-                        usleep(1);
                         i=widthDivisions;
                         j=heightDivisions;
                     }
@@ -324,9 +338,28 @@
                 }
             }
         }
-
+        if (cpt > countPerFrame)
+        {
+            [animationImages addObject:[self calculateImage:rect]];
+            cpt = 0;
+        }
         pixelsLeft = [self pixelsLeft];
         //NSLog(@"rem=%d, total=%d",remove,pixelsLeft);
     }
+    [self setBgImage:_bgImage];
+    //[self setNeedsDisplay];
+    NSLog(@"animationImages count = %d",[animationImages count]);
+    CGRect frame = CGRectMake(0.0, 0.0, self.frame.size.width, self.frame.size.height);
+
+    _bgView = [[UIImageView alloc] initWithFrame:frame];
+    _bgView.animationImages = animationImages;
+    _bgView.animationRepeatCount = 1;
+    _bgView.animationDuration = 0.5;
+    [_bgView setImage:_bgImage];
+    [self addSubview:_bgView];
+    //[self sendSubviewToBack:_bgView];
+    [_bgView startAnimating];
+    //[_bgView setImage:_bgImage];
 }
+
 @end

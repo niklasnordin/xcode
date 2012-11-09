@@ -26,6 +26,6 @@ static int heightDivisions = 60;
 
 - (int)score;
 - (int)pixelsLeft;
-- (void)clearPicture;
+- (void)clearAndAnimatePicture;
 
 @end
