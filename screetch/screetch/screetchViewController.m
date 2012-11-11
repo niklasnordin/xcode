@@ -34,6 +34,21 @@
 - (IBAction)choiceButtonPressed:(UIButton *)sender
 {
     [_pictureView clearAndAnimatePicture];
+    usleep(5000);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You selected R" message:@"correct?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
+    
+    alert.delegate = self;
+    [alert setAlertViewStyle:UIAlertViewStyleDefault];
+    //[alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    /*
+    UITextField *tf = [alert textFieldAtIndex:0];
+    tf.delegate = self;
+    [tf setClearButtonMode:UITextFieldViewModeWhileEditing];
+    [tf setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
+    //tf.text = [[NSString alloc] initWithFormat:@"%@", num];
+    */
+    [alert show];
+    
 }
 
 -(void)setDisplayWithText:(NSString *)text
