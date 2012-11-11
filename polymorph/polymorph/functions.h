@@ -24,6 +24,7 @@
 #import "pengRobinson.h"
 #import "pengRobinsonLiquid.h"
 #import "pengRobinsonVapour.h"
+#include "soaveRedlichKwong.h"
 
 #import "ancillary_1.h"
 #import "ancillary_2.h"

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		610A85D9164FFFF300A0618B /* soaveRedlichKwong.m in Sources */ = {isa = PBXBuildFile; fileRef = 610A85D8164FFFF300A0618B /* soaveRedlichKwong.m */; };
+		610A85DC165006BB00A0618B /* soaveRedlichKwong.png in Resources */ = {isa = PBXBuildFile; fileRef = 610A85DB165006BB00A0618B /* soaveRedlichKwong.png */; };
+		610A85DE165006CD00A0618B /* soaveRedlichKwong.tex in Resources */ = {isa = PBXBuildFile; fileRef = 610A85DD165006CD00A0618B /* soaveRedlichKwong.tex */; };
 		610F3A9D160E4FD100D44418 /* FJ_Cv.m in Sources */ = {isa = PBXBuildFile; fileRef = 610F3A9C160E4FD100D44418 /* FJ_Cv.m */; };
 		610F3AA0160EE97500D44418 /* ancillary_4.m in Sources */ = {isa = PBXBuildFile; fileRef = 610F3A9F160EE97500D44418 /* ancillary_4.m */; };
 		6117FFC5161F4466005E074A /* sutherland.m in Sources */ = {isa = PBXBuildFile; fileRef = 6117FFC4161F4465005E074A /* sutherland.m */; };
@@ -161,6 +164,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		610A85D7164FFFF300A0618B /* soaveRedlichKwong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soaveRedlichKwong.h; sourceTree = "<group>"; };
+		610A85D8164FFFF300A0618B /* soaveRedlichKwong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = soaveRedlichKwong.m; sourceTree = "<group>"; };
+		610A85DB165006BB00A0618B /* soaveRedlichKwong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soaveRedlichKwong.png; sourceTree = "<group>"; };
+		610A85DD165006CD00A0618B /* soaveRedlichKwong.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = soaveRedlichKwong.tex; sourceTree = "<group>"; };
 		610F3A9B160E4FD100D44418 /* FJ_Cv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJ_Cv.h; sourceTree = "<group>"; };
 		610F3A9C160E4FD100D44418 /* FJ_Cv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJ_Cv.m; sourceTree = "<group>"; };
 		610F3A9E160EE97400D44418 /* ancillary_4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ancillary_4.h; sourceTree = "<group>"; };
@@ -412,6 +419,8 @@
 			children = (
 				61BA3AE315DFACCC00928715 /* idealGasLaw.h */,
 				61BA3AE415DFACCC00928715 /* idealGasLaw.m */,
+				610A85D7164FFFF300A0618B /* soaveRedlichKwong.h */,
+				610A85D8164FFFF300A0618B /* soaveRedlichKwong.m */,
 				61EB3D6015E0CD0B009826F2 /* pengRobinson.h */,
 				61EB3D6115E0CD0B009826F2 /* pengRobinson.m */,
 				61EB3D7015E1064D009826F2 /* pengRobinsonLiquid.h */,
@@ -604,6 +613,7 @@
 				6193950515ED347E0003EF01 /* nsrds_4.tex */,
 				617C7CCC15E987A400B11073 /* nsrds_5.tex */,
 				617C7CCE15E987AE00B11073 /* nsrds_6.tex */,
+				610A85DD165006CD00A0618B /* soaveRedlichKwong.tex */,
 				6139E6AF1629F5A600954BCF /* pengRobinson.tex */,
 				6139E6B11629F5B100954BCF /* pengRobinsonLiquid.tex */,
 				6139E6B31629F5BA00954BCF /* pengRobinsonVapour.tex */,
@@ -651,6 +661,7 @@
 				6193950315ED346F0003EF01 /* nsrds_4.png */,
 				617C7CBF15E9805000B11073 /* nsrds_5.png */,
 				617C7CB915E97A8000B11073 /* nsrds_6.png */,
+				610A85DB165006BB00A0618B /* soaveRedlichKwong.png */,
 				6139E6A91629F57000954BCF /* pengRobinson.png */,
 				6139E6AB1629F57F00954BCF /* pengRobinsonLiquid.png */,
 				6139E6AD1629F58800954BCF /* pengRobinsonVapour.png */,
@@ -849,6 +860,8 @@
 				61460C3F163EF7F000A1D1EE /* iapws97_s.tex in Resources */,
 				61460C41163EF82200A1D1EE /* iapws97_w.tex in Resources */,
 				61460C43163EF82C00A1D1EE /* iapws97_w.png in Resources */,
+				610A85DC165006BB00A0618B /* soaveRedlichKwong.png in Resources */,
+				610A85DE165006CD00A0618B /* soaveRedlichKwong.tex in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -921,6 +934,7 @@
 				61460C25163C7C7800A1D1EE /* iapws97_cp.m in Sources */,
 				61460C28163C7CB700A1D1EE /* iapws97_cv.m in Sources */,
 				61460C2B163C7CD100A1D1EE /* iapws97_w.m in Sources */,
+				610A85D9164FFFF300A0618B /* soaveRedlichKwong.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

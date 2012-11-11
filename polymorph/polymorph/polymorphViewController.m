@@ -47,6 +47,7 @@
     [_functionNames addObject:[janaf_s name]];
     
     [_functionNames addObject:[idealGasLaw name]];
+    [_functionNames addObject:[soaveRedlichKwong name]];
     [_functionNames addObject:[pengRobinson name]];
     [_functionNames addObject:[pengRobinsonLiquid name]];
     [_functionNames addObject:[pengRobinsonVapour name]];
