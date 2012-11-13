@@ -18,6 +18,8 @@
 {
     [super viewDidLoad];
     _pictureView.delegate = self;
+    
+    _categories = @[ @"people", @"places", @"animals", @"things" ];
 }
 
 - (void)viewDidAppear:(BOOL)animated
