@@ -20,6 +20,7 @@
 		616593D21657834A00791F7B /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 616593D01657834A00791F7B /* MainStoryboard_iPad.storyboard */; };
 		616593D51657834A00791F7B /* myFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616593D41657834A00791F7B /* myFlowViewController.m */; };
 		616593DD1657839C00791F7B /* myFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 616593DC1657839C00791F7B /* myFlowView.m */; };
+		617E96741657AF9500931C6A /* database.m in Sources */ = {isa = PBXBuildFile; fileRef = 617E96731657AF9500931C6A /* database.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,8 @@
 		616593D41657834A00791F7B /* myFlowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myFlowViewController.m; sourceTree = "<group>"; };
 		616593DB1657839C00791F7B /* myFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myFlowView.h; sourceTree = "<group>"; };
 		616593DC1657839C00791F7B /* myFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myFlowView.m; sourceTree = "<group>"; };
+		617E96721657AF9500931C6A /* database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = database.h; sourceTree = "<group>"; };
+		617E96731657AF9500931C6A /* database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = database.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				616593C51657834A00791F7B /* myFlowAppDelegate.m */,
 				616593CD1657834A00791F7B /* MainStoryboard_iPhone.storyboard */,
 				616593D01657834A00791F7B /* MainStoryboard_iPad.storyboard */,
+				617E96721657AF9500931C6A /* database.h */,
+				617E96731657AF9500931C6A /* database.m */,
 				616593DB1657839C00791F7B /* myFlowView.h */,
 				616593DC1657839C00791F7B /* myFlowView.m */,
 				616593D31657834A00791F7B /* myFlowViewController.h */,
@@ -187,6 +192,7 @@
 				616593C61657834A00791F7B /* myFlowAppDelegate.m in Sources */,
 				616593D51657834A00791F7B /* myFlowViewController.m in Sources */,
 				616593DD1657839C00791F7B /* myFlowView.m in Sources */,
+				617E96741657AF9500931C6A /* database.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +319,7 @@
 				616593DA1657834B00791F7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
