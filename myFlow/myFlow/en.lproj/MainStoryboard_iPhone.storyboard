@@ -22,16 +22,19 @@
             </objects>
             <point key="canvasLocation" x="-7" y="638"/>
         </scene>
-        <!--View Controller - Setup-->
+        <!--Setup View Controller - Setup-->
         <scene sceneID="woU-dh-4K7">
             <objects>
-                <viewController id="WeI-i5-GCs" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7Zo-md-OLY">
+                <viewController id="WeI-i5-GCs" customClass="setupViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Zo-md-OLY" customClass="setupView">
                         <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Setup" id="3mZ-UV-pLG"/>
+                    <connections>
+                        <outlet property="setupView" destination="7Zo-md-OLY" id="Fxc-bC-oHC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHJ-QG-V8d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -81,6 +84,15 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/myFlowViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="flowView" candidateClass="myFlowView"/>
+            </relationships>
+        </class>
+        <class className="setupView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/setupView.h"/>
+        </class>
+        <class className="setupViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/setupViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="setupView" candidateClass="setupView"/>
             </relationships>
         </class>
     </classes>

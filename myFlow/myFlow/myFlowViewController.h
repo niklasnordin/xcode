@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "myFlowView.h"
+#import "setupView.h"
 #import "database.h"
 
 @interface myFlowViewController : UIViewController

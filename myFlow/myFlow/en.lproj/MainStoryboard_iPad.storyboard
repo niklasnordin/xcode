@@ -22,16 +22,19 @@
             </objects>
             <point key="canvasLocation" x="-951" y="-207"/>
         </scene>
-        <!--View Controller - Setup-->
+        <!--Setup View Controller - Setup-->
         <scene sceneID="vhg-Du-XnJ">
             <objects>
-                <viewController id="2lC-wi-UoB" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="KBn-pH-BJe">
+                <viewController id="2lC-wi-UoB" customClass="setupViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KBn-pH-BJe" customClass="setupView">
                         <rect key="frame" x="0.0" y="20" width="768" height="955"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Setup" id="muw-8H-Tc4"/>
+                    <connections>
+                        <outlet property="setupView" destination="KBn-pH-BJe" id="hoK-b4-mvJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQU-ml-clW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -73,17 +76,6 @@
             <point key="canvasLocation" x="27" y="-1571"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="myFlowView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/myFlowView.h"/>
-        </class>
-        <class className="myFlowViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/myFlowViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="flowView" candidateClass="myFlowView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
