@@ -20,6 +20,14 @@
     _pictureView.delegate = self;
     
     _categories = @[ @"people", @"places", @"animals", @"things" ];
+    _animals = @[ @"cat", @"dog", @"pig" ];
+    
+    NSFileManager *manager = [NSFileManager defaultManager];
+    
+    NSArray *files = [manager contentsOfDirectoryAtPath:@"." error:nil];
+    NSArray *dirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSLog(@"[dirs count] = %d", [dirs count]);
+    NSLog(@"dirs = %@",dirs);
 }
 
 - (void)viewDidAppear:(BOOL)animated
