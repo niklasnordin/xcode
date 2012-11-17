@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "myFlowView.h"
+#import "database.h"
+
 @interface myFlowViewController : UIViewController
+
+@property (strong, nonatomic) database *db;
 
 @property (weak, nonatomic) IBOutlet myFlowView *flowView;
 

@@ -18,6 +18,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    _db = [[database alloc] initWithBounds:_flowView.bounds];
+    NSLog(@"init database");
 }
 
 - (void)didReceiveMemoryWarning

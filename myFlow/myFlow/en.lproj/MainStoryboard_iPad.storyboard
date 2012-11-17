@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
-        <!--My Flow View Controller - flow-->
+        <!--My Flow View Controller - Flow-->
         <scene sceneID="4">
             <objects>
                 <viewController id="2" customClass="myFlowViewController" sceneMemberID="viewController">
@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="flow" id="s06-Sw-l6D"/>
+                    <tabBarItem key="tabBarItem" title="Flow" id="s06-Sw-l6D"/>
                     <connections>
                         <outlet property="flowView" destination="5" id="i3s-1r-Mm5"/>
                     </connections>
@@ -73,6 +73,17 @@
             <point key="canvasLocation" x="27" y="-1571"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="myFlowView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/myFlowView.h"/>
+        </class>
+        <class className="myFlowViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/myFlowViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="flowView" candidateClass="myFlowView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

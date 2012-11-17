@@ -19,6 +19,9 @@
 @property (nonatomic) double *v;
 @property (nonatomic) double *p;
 @property (nonatomic) double *rho;
-@property (nonatomic) double *t;
+@property (nonatomic) double *T;
+
+-(database *)initWithBounds:(CGRect)bounds;
+-(void)dealloc;
 
 @end
