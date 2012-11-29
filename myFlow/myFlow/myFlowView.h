@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "database.h"
 
 @interface myFlowView : UIView
+
+@property (weak, nonatomic) database *db;
 
 @end

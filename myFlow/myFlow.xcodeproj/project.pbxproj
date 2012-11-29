@@ -23,6 +23,7 @@
 		617E96741657AF9500931C6A /* database.m in Sources */ = {isa = PBXBuildFile; fileRef = 617E96731657AF9500931C6A /* database.m */; };
 		617E96781657B9B500931C6A /* setupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 617E96771657B9B500931C6A /* setupView.m */; };
 		617E967B1657BB5A00931C6A /* setupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 617E967A1657BB5A00931C6A /* setupViewController.m */; };
+		617E967D165CBBEE00931C6A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617E967C165CBBEE00931C6A /* Accelerate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		617E96771657B9B500931C6A /* setupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setupView.m; sourceTree = "<group>"; };
 		617E96791657BB5A00931C6A /* setupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setupViewController.h; sourceTree = "<group>"; };
 		617E967A1657BB5A00931C6A /* setupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setupViewController.m; sourceTree = "<group>"; };
+		617E967C165CBBEE00931C6A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				617E967D165CBBEE00931C6A /* Accelerate.framework in Frameworks */,
 				616593B61657834A00791F7B /* UIKit.framework in Frameworks */,
 				616593B81657834A00791F7B /* Foundation.framework in Frameworks */,
 				616593BA1657834A00791F7B /* CoreGraphics.framework in Frameworks */,
@@ -87,6 +90,7 @@
 		616593B41657834A00791F7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				617E967C165CBBEE00931C6A /* Accelerate.framework */,
 				616593B51657834A00791F7B /* UIKit.framework */,
 				616593B71657834A00791F7B /* Foundation.framework */,
 				616593B91657834A00791F7B /* CoreGraphics.framework */,

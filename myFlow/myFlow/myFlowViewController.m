@@ -19,6 +19,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     _db = [[database alloc] initWithBounds:_flowView.bounds];
+    _flowView.db = _db;
+    
     NSLog(@"init database");
 }
 
