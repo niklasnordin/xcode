@@ -22,12 +22,8 @@
     _categories = @[ @"people", @"places", @"animals", @"things" ];
     _animals = @[ @"cat", @"dog", @"pig" ];
     
-    NSFileManager *manager = [NSFileManager defaultManager];
-    
-    NSArray *files = [manager contentsOfDirectoryAtPath:@"." error:nil];
-    NSArray *dirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSLog(@"[dirs count] = %d", [dirs count]);
-    NSLog(@"dirs = %@",dirs);
+    NSString *http = @"http://www.nequam.se/screetch";
+    [self loadRandomPictureFromURL:http];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -71,4 +67,12 @@
     _scoreField.text = [[NSString alloc] initWithFormat:@"%d",score];
 }
 
+-(void)loadRandomPictureFromURL:(NSString *)name
+{
+    NSString *http = @"/Users/niklasnordin";
+    NSURL *url = [NSURL URLWithString:http];
+
+    NSArray *categories = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:name error:NULL];
+    NSLog(@"categories = %@",categories);
+}
 @end
