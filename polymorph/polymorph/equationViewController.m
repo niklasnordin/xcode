@@ -113,6 +113,7 @@
     [_image setImage:im];
     [UIView commitAnimations];
     [self setTitle:name];
+    //free(im);
     im = nil;
 }
 
