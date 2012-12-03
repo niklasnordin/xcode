@@ -19,7 +19,7 @@
     [super viewDidLoad];
     _pictureView.delegate = self;
     
-    _baseURL = @"http://www.nequam.se/screetch/";
+    _baseURL = @"http://www.nequam.se/screetch";
     NSString *http = @"categories.php";
     [self loadRandomPictureFromURL:http];
 }
