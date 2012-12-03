@@ -9,7 +9,7 @@
 #import "screetchViewController.h"
 
 @interface screetchViewController ()
-
+@property (strong, nonatomic) NSString *baseURL;
 @end
 
 @implementation screetchViewController
@@ -19,10 +19,8 @@
     [super viewDidLoad];
     _pictureView.delegate = self;
     
-    _categories = @[ @"people", @"places", @"animals", @"things" ];
-    _animals = @[ @"cat", @"dog", @"pig" ];
-    
-    NSString *http = @"http://www.nequam.se/screetch";
+    _baseURL = @"http://www.nequam.se/screetch/";
+    NSString *http = @"categories.php";
     [self loadRandomPictureFromURL:http];
 }
 
@@ -69,10 +67,13 @@
 
 -(void)loadRandomPictureFromURL:(NSString *)name
 {
-    NSString *http = @"/Users/niklasnordin";
+    NSString *http = [NSString stringWithFormat:@"%@/%@",_baseURL,name];
     NSURL *url = [NSURL URLWithString:http];
 
-    NSArray *categories = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:name error:NULL];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    NSLog(@"url = %@",url);
+    NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSArray *categories = [str componentsSeparatedByString:@" "];
     NSLog(@"categories = %@",categories);
 }
 @end

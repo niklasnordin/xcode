@@ -48,13 +48,14 @@
 		610DB64316371544004153AC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		610DB64516371544004153AC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		610DB64716371544004153AC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		610DB64A16371544004153AC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		610DB64D16371544004153AC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		610DB64F16371544004153AC /* screetchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = screetchViewController.h; sourceTree = "<group>"; };
 		610DB65016371544004153AC /* screetchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = screetchViewController.m; sourceTree = "<group>"; };
 		610DB65716372019004153AC /* 250px-Cornflakes_in_bowl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "250px-Cornflakes_in_bowl.jpg"; sourceTree = "<group>"; };
 		61460C491641971900A1D1EE /* screetchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = screetchView.h; sourceTree = "<group>"; };
 		61460C4A1641971900A1D1EE /* screetchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = screetchView.m; sourceTree = "<group>"; };
+		61657F08166B81A1000370FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		61657F09166B81A1000370FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		61657F0B166B81CA000370FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard_iPhone.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +219,7 @@
 			knownRegions = (
 				en,
 				sv,
+				Base,
 			);
 			mainGroup = 610DB62216371544004153AC;
 			productRefGroup = 610DB62E16371544004153AC /* Products */;
@@ -285,8 +287,9 @@
 		610DB64916371544004153AC /* MainStoryboard_iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				610DB64A16371544004153AC /* en */,
 				610A85E71652D22900A0618B /* sv */,
+				61657F08166B81A1000370FF /* Base */,
+				61657F0B166B81CA000370FF /* en */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
@@ -294,8 +297,8 @@
 		610DB64C16371544004153AC /* MainStoryboard_iPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				610DB64D16371544004153AC /* en */,
 				610A85E81652D22900A0618B /* sv */,
+				61657F09166B81A1000370FF /* Base */,
 			);
 			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";

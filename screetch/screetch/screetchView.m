@@ -177,12 +177,12 @@ static int heightDivisions = 60;
 -(UIImage *)calculateImage:(CGRect)rect
 {
 
-    CGContextSetFillColorWithColor(_myDrawingContext, [UIColor blackColor].CGColor);
+    CGContextSetFillColorWithColor(_myDrawingContext, [[UIColor blackColor] CGColor]);
     CGContextBeginPath(_myDrawingContext);
     CGContextAddRect(_myDrawingContext, rect);
     CGContextDrawPath(_myDrawingContext, kCGPathFill);
     
-    CGContextSetFillColorWithColor(_myDrawingContext, [UIColor whiteColor].CGColor);
+    CGContextSetFillColorWithColor(_myDrawingContext, [[UIColor whiteColor] CGColor]);
     CGContextBeginPath(_myDrawingContext);
     
     CGPoint p;
