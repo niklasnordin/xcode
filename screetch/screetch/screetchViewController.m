@@ -67,13 +67,56 @@
 
 -(void)loadRandomPictureFromURL:(NSString *)name
 {
+    // structure of the pictures
+    // toplevel
+    // -- screetch/
+    // ---- categories/
+    // ------ selections/
+    // -------- version/
+    // ---------- picture.png
+    // ---------- picture.info
+    
     NSString *http = [NSString stringWithFormat:@"%@/%@",_baseURL,name];
     NSURL *url = [NSURL URLWithString:http];
 
     NSData *data = [NSData dataWithContentsOfURL:url];
-    NSLog(@"url = %@",url);
     NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSArray *categories = [str componentsSeparatedByString:@" "];
-    NSLog(@"categories = %@",categories);
+    NSArray *categories = [str componentsSeparatedByString:@":"];
+    
+    int categoryi = arc4random() % [categories count];
+    categoryi = 1;
+    NSString *categoryName = [categories objectAtIndex:categoryi];
+    NSLog(@"category = %@",categoryName);
+    
+    NSString *catHttp = [NSString stringWithFormat:@"%@/%@/files.php",_baseURL,categoryName];
+    NSURL *catURL = [NSURL URLWithString:catHttp];
+    NSData *catData = [NSData dataWithContentsOfURL:catURL];
+    NSString *stringForSelectedCategory = [[NSString alloc] initWithData:catData encoding:NSUTF8StringEncoding];
+    NSArray *selections= [stringForSelectedCategory componentsSeparatedByString:@":"];
+
+
+    int selectioni = arc4random() % [selections count];
+    selectioni = 2;
+    NSString *selectedName = [selections objectAtIndex:selectioni];
+    NSLog(@"selected = %@",selectedName);
+    
+    NSString *selectedHttp = [NSString stringWithFormat:@"%@/%@/%@/files.php",_baseURL,categoryName,selectedName];
+
+    NSURL *selectedURL = [NSURL URLWithString:selectedHttp];
+    NSData *selectedData = [NSData dataWithContentsOfURL:selectedURL];
+    NSString *stringSelected = [[NSString alloc] initWithData:selectedData encoding:NSUTF8StringEncoding];
+    NSArray *selectedArray = [stringSelected componentsSeparatedByString:@":"];
+    NSLog(@"selectedArray =%@",selectedArray);
+    int selseli = arc4random() % [selectedArray count];
+    NSString *version = [selectedArray objectAtIndex:selseli];
+    NSLog(@"version = %@",version);
+    
+    // in the selected category
+    
+    // the name of the picture is picture.png
+    
+    // the geometry info for the picture is in the file picture.info
+    
+
 }
 @end
