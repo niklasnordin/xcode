@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface scratchPictureViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIView *mainView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

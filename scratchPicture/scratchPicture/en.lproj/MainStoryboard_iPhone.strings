@@ -3,10 +3,10 @@
 "Jxh-nQ-4fs.text" = "Label";
 
 /* Class = "IBUIButton"; normalTitle = "Rules"; ObjectID = "Q6s-s0-Ff4"; */
-"Q6s-s0-Ff4.normalTitle" = "Regler";
+"Q6s-s0-Ff4.normalTitle" = "Rules";
 
 /* Class = "IBUIButton"; normalTitle = "Play"; ObjectID = "cdP-ec-Bsu"; */
-"cdP-ec-Bsu.normalTitle" = "Spela själv";
+"cdP-ec-Bsu.normalTitle" = "Play alone";
 
 /* Class = "IBUINavigationItem"; title = "screetch"; ObjectID = "gQl-C8-yV2"; */
 "gQl-C8-yV2.title" = "screetch";

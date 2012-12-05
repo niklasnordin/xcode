@@ -20,6 +20,8 @@
 		612EA1D4166FD6E400E722AE /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612EA1D2166FD6E400E722AE /* MainStoryboard_iPad.storyboard */; };
 		612EA1D7166FD6E400E722AE /* scratchPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 612EA1D6166FD6E400E722AE /* scratchPictureViewController.m */; };
 		612EA1E4166FD71800E722AE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 612EA1E6166FD71800E722AE /* Localizable.strings */; };
+		612EA1EA166FD91D00E722AE /* menuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 612EA1E9166FD91D00E722AE /* menuViewController.m */; };
+		612EA1ED166FD9F600E722AE /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 612EA1EC166FD9F600E722AE /* Settings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,11 @@
 		612EA1E1166FD6FD00E722AE /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		612EA1E5166FD71800E722AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		612EA1E7166FD71C00E722AE /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		612EA1E8166FD91D00E722AE /* menuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menuViewController.h; sourceTree = "<group>"; };
+		612EA1E9166FD91D00E722AE /* menuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = menuViewController.m; sourceTree = "<group>"; };
+		612EA1EB166FD9F600E722AE /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		612EA1EC166FD9F600E722AE /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		612EA1F4166FDEB200E722AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard_iPhone.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +102,10 @@
 				612EA1C7166FD6E400E722AE /* scratchPictureAppDelegate.m */,
 				612EA1CF166FD6E400E722AE /* MainStoryboard_iPhone.storyboard */,
 				612EA1D2166FD6E400E722AE /* MainStoryboard_iPad.storyboard */,
+				612EA1EB166FD9F600E722AE /* Settings.h */,
+				612EA1EC166FD9F600E722AE /* Settings.m */,
+				612EA1E8166FD91D00E722AE /* menuViewController.h */,
+				612EA1E9166FD91D00E722AE /* menuViewController.m */,
 				612EA1D5166FD6E400E722AE /* scratchPictureViewController.h */,
 				612EA1D6166FD6E400E722AE /* scratchPictureViewController.m */,
 				612EA1BE166FD6E400E722AE /* Supporting Files */,
@@ -105,6 +116,7 @@
 		612EA1BE166FD6E400E722AE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				612EA1E6166FD71800E722AE /* Localizable.strings */,
 				612EA1BF166FD6E400E722AE /* scratchPicture-Info.plist */,
 				612EA1C0166FD6E400E722AE /* InfoPlist.strings */,
 				612EA1C3166FD6E400E722AE /* main.m */,
@@ -112,7 +124,6 @@
 				612EA1C9166FD6E400E722AE /* Default.png */,
 				612EA1CB166FD6E400E722AE /* Default@2x.png */,
 				612EA1CD166FD6E400E722AE /* Default-568h@2x.png */,
-				612EA1E6166FD71800E722AE /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -191,6 +202,8 @@
 				612EA1C4166FD6E400E722AE /* main.m in Sources */,
 				612EA1C8166FD6E400E722AE /* scratchPictureAppDelegate.m in Sources */,
 				612EA1D7166FD6E400E722AE /* scratchPictureViewController.m in Sources */,
+				612EA1EA166FD91D00E722AE /* menuViewController.m in Sources */,
+				612EA1ED166FD9F600E722AE /* Settings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +224,7 @@
 			children = (
 				612EA1DD166FD6F300E722AE /* Base */,
 				612EA1DF166FD6FD00E722AE /* sv */,
+				612EA1F4166FDEB200E722AE /* en */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
