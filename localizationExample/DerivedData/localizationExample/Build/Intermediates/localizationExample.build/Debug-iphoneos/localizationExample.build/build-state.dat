@@ -1,0 +1,549 @@
+TlocalizationExample
+v5
+r1
+cCheck dependencies
+cCpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/ResourceRules.plist DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/ResourceRules.plist
+cProcessInfoPlistFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Info.plist localizationExample/localizationExample-Info.plist
+cProcessPCH /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/PrecompiledHeaders/localizationExample-Prefix-gypvugticphniyafmkycnfdilktp/localizationExample-Prefix.pch.pth localizationExample/localizationExample-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/localizationExampleAppDelegate.o /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExampleAppDelegate.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/localizationExampleViewController.o /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExampleViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/main.o /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/main.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/localizationExample normal armv7
+cGenerateDSYMFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app.dSYM /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/localizationExample
+cCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj/InfoPlist.strings localizationExample/en.lproj/InfoPlist.strings
+cCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/InfoPlist.strings localizationExample/sv.lproj/InfoPlist.strings
+cCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default.png localizationExample/Default.png
+cCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default@2x.png localizationExample/Default@2x.png
+cCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default-568h@2x.png localizationExample/Default-568h@2x.png
+cCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Base.lproj/MainStoryboard_iPhone.storyboard
+cCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/MainStoryboard_iPhone.strings localizationExample/sv.lproj/MainStoryboard_iPhone.strings
+cCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj/MainStoryboard_iPhone.strings localizationExample/en.lproj/MainStoryboard_iPhone.strings
+cCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Base.lproj/MainStoryboard_iPad.storyboard
+cCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/MainStoryboard_iPad.strings localizationExample/sv.lproj/MainStoryboard_iPad.strings
+cCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj/Localizable.strings localizationExample/en.lproj/Localizable.strings
+cCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/Localizable.strings localizationExample/sv.lproj/Localizable.strings
+cProcessProductPackaging "/Users/niklasnordin/Library/MobileDevice/Provisioning Profiles/746F1C6F-28E8-4479-88C8-2BC779EF82C8.mobileprovision" /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/embedded.mobileprovision
+cProcessProductPackaging "/Users/niklasnordin/Library/MobileDevice/Provisioning Profiles/746F1C6F-28E8-4479-88C8-2BC779EF82C8.mobileprovision" /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/embedded.mobileprovision
+cTouch /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app
+cProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/Entitlements.plist /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample.xcent
+cCodeSign /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk
+c000000005092D0210000000000000132
+t1351798817
+s306
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/Entitlements.plist
+c00000000505A2E5C0000000000000094
+t1348087388
+s148
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/ResourceRules.plist
+c00000000505A2E5C0000000000000096
+t1348087388
+s150
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c00000000505A2E5F0000000000322740
+t1348087391
+s3286848
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c00000000505A2E600000000000629C80
+t1348087392
+s6462592
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c00000000505A2E5F00000000000015F7
+t1348087391
+s5623
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c00000000505A2E620000000000000E8D
+t1348087394
+s3725
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c00000000505A2E6400000000011BA850
+t1348087396
+s18589776
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/usr/include/Availability.h
+c00000000505A2E6A0000000000001B54
+t1348087402
+s6996
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/PrecompiledHeaders/localizationExample-Prefix-gypvugticphniyafmkycnfdilktp/localizationExample-Prefix.pch.pth
+t1354732548
+s4774588
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/localizationExample.LinkFileList
+c0000000050BF940400000000000002B9
+t1354732548
+s697
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/localizationExampleAppDelegate.o
+t1354732548
+s86480
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/localizationExampleViewController.o
+t1354733066
+s77504
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/main.o
+t1354732548
+s3412
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample.xcent
+t1354732551
+s434
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app
+t1354733161
+s476
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app.dSYM
+t1354733066
+s102
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Base.lproj/MainStoryboard_iPad.storyboardc
+t1354732550
+s170
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Base.lproj/MainStoryboard_iPhone.storyboardc
+t1354733161
+s170
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default-568h@2x.png
+t1354732549
+s7014
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default.png
+t1354732549
+s3688
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default@2x.png
+t1354732549
+s6316
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Info.plist
+t1354732548
+s1288
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/PkgInfo
+t1354732548
+s8
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/ResourceRules.plist
+t1354732548
+s150
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/embedded.mobileprovision
+t1354732551
+s7708
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj/InfoPlist.strings
+t1354732549
+s42
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj/Localizable.strings
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj/MainStoryboard_iPad.storyboardc
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj/MainStoryboard_iPhone.storyboardc
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj/MainStoryboard_iPhone.strings
+t1354733019
+s114
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/localizationExample
+t1354733161
+s36192
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/InfoPlist.strings
+t1354732549
+s42
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/Localizable.strings
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/MainStoryboard_iPad.strings
+t1354732550
+s42
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/MainStoryboard_iPhone.strings
+t1354733019
+s111
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Base.lproj/MainStoryboard_iPad.storyboard
+c0000000050BF921B0000000000000630
+t1354732059
+s1584
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Base.lproj/MainStoryboard_iPhone.storyboard
+c0000000050BF966800000000000032AD
+t1354733160
+s12973
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Default-568h@2x.png
+c0000000050262AB100000000000048A2
+t1344678577
+s18594
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Default.png
+c0000000050262AB1000000000000198C
+t1344678577
+s6540
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Default@2x.png
+c0000000050262AB10000000000003EEB
+t1344678577
+s16107
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/en.lproj/InfoPlist.strings
+c0000000050BF921B000000000000002D
+t1354732059
+s45
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/en.lproj/Localizable.strings
+c0000000050BF9BA400000000000000E9
+t1354734500
+s233
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/en.lproj/MainStoryboard_iPad.storyboard
+c0000000050BF921B0000000000000630
+t1354732059
+s1584
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/en.lproj/MainStoryboard_iPhone.storyboard
+c0000000050BF921B0000000000000616
+t1354732059
+s1558
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/en.lproj/MainStoryboard_iPhone.strings
+c0000000050BF9B9D0000000000000000
+t1354734493
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExample-Prefix.pch
+c0000000050BF921B0000000000000155
+t1354732059
+s341
+i<Availability.h>
+i<UIKit/UIKit.h>
+i<Foundation/Foundation.h>
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExampleAppDelegate.h
+c0000000050BF921B000000000000014E
+t1354732059
+s334
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExampleAppDelegate.m
+c0000000050BF921B0000000000000823
+t1354732059
+s2083
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExampleViewController.h
+c0000000050BF94040000000000000262
+t1354732548
+s610
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExampleViewController.m
+c0000000050BF96090000000000000432
+t1354733065
+s1074
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/main.m
+c0000000050BF921B0000000000000189
+t1354732059
+s393
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/sv.lproj/InfoPlist.strings
+c0000000050BF921B000000000000002D
+t1354732059
+s45
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/sv.lproj/Localizable.strings
+c0000000050BF9B9600000000000000E7
+t1354734486
+s231
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/sv.lproj/MainStoryboard_iPad.strings
+c0000000050BF92A10000000000000000
+t1354732193
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/sv.lproj/MainStoryboard_iPhone.strings
+c0000000050BF9B8D0000000000000000
+t1354734477
+s0
+
+N/Users/niklasnordin/Library/MobileDevice/Provisioning Profiles/746F1C6F-28E8-4479-88C8-2BC779EF82C8.mobileprovision
+c0000000050AC69950000000000001E1C
+t1353476501
+s7708
+
+NlocalizationExample/localizationExample-Info.plist
+c0000000050BF921B0000000000000646
+t1354732059
+s1606
+
+CBuild AST from /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExampleAppDelegate.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExampleViewController.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/main.m
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependenciesaa490826d36fb641^ebc42126d36fb641^---0#1#0#--18"Check dependencies36"B3FECD4D-0A5C-4E2B-95C6-AE9BF63A0486-
+
+CCodeSign /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app
+s376427302.260971
+e376427302.472544
+r1
+xCodeSign
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app
+o/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app: replacing existing signature
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection94"CodeSign DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app00e64226d36fb641^c5047926d36fb641^-182"/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app: replacing existing signature-0#0#0#-19%DVTDocumentLocation2@169"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/0000000000000000^1141"CodeSign DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv CODESIGN_ALLOCATE /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/codesign --force --sign 35d5751a2ba58184abd50d6d889c06c7296507ba --resource-rules=/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/ResourceRules.plist --entitlements /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample.xcent /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app36"D9E422C8-6921-4BF7-AC5D-D7123C71A521-
+
+CCompileC DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/localizationExampleAppDelegate.o /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExampleAppDelegate.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s376425348.889713
+e376425348.979586
+r1
+xCompileC
+xDerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/localizationExampleAppDelegate.o
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExampleAppDelegate.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection127"Compile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExampleAppDelegate.m2deae384cb6fb641^26c6fa84cb6fb641^---0#0#0#-19%DVTDocumentLocation2@135"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExampleAppDelegate.m0000000000000000^4748"CompileC DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/localizationExampleAppDelegate.o localizationExample/localizationExampleAppDelegate.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=6.0 -iquote /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample-generated-files.hmap -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample-own-target-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample-project-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/DerivedSources -F/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/PrecompiledHeaders/localizationExample-Prefix-gypvugticphniyafmkycnfdilktp/localizationExample-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/localizationExampleAppDelegate.d --serialize-diagnostics /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/localizationExampleAppDelegate.dia -c /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExampleAppDelegate.m -o /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/localizationExampleAppDelegate.o36"070C0F51-6DE4-4857-B4C1-C726AB5B97BB-
+
+CCompileC DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/localizationExampleViewController.o /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExampleViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s376425866.339575
+e376425866.418382
+r1
+xCompileC
+xDerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/localizationExampleViewController.o
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExampleViewController.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection130"Compile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExampleViewController.mbd1b578acd6fb641^b11a6b8acd6fb641^---0#0#0#-19%DVTDocumentLocation2@138"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExampleViewController.m0000000000000000^4766"CompileC DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/localizationExampleViewController.o localizationExample/localizationExampleViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=6.0 -iquote /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample-generated-files.hmap -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample-own-target-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample-project-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/DerivedSources -F/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/PrecompiledHeaders/localizationExample-Prefix-gypvugticphniyafmkycnfdilktp/localizationExample-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/localizationExampleViewController.d --serialize-diagnostics /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/localizationExampleViewController.dia -c /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExampleViewController.m -o /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/localizationExampleViewController.o36"7FC2082F-2F86-4237-A83D-F703207901F7-
+
+CCompileC DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/main.o /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/main.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s376425348.889229
+e376425348.923857
+r1
+xCompileC
+xDerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/main.o
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/main.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection101"Compile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/main.m64cae384cb6fb641^7094ec84cb6fb641^---0#0#0#-19%DVTDocumentLocation2@109"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/main.m0000000000000000^4592"CompileC DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/main.o localizationExample/main.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=6.0 -iquote /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample-generated-files.hmap -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample-own-target-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample-project-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/DerivedSources -F/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/PrecompiledHeaders/localizationExample-Prefix-gypvugticphniyafmkycnfdilktp/localizationExample-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/main.d --serialize-diagnostics /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/main.dia -c /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/main.m -o /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/main.o36"B8B59DE5-C2E8-42EC-BBC4-6AED843D9497-
+
+CCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Base.lproj/MainStoryboard_iPad.storyboard
+s376425349.710554
+e376425350.908935
+r1
+xCompileStoryboard
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Base.lproj/MainStoryboard_iPad.storyboard
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection79"CompileStoryboard localizationExample/Base.lproj/MainStoryboard_iPad.storyboard66fab585cb6fb641^420aea86cb6fb641^---0#0#0#-19%DVTDocumentLocation2@144"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Base.lproj/MainStoryboard_iPad.storyboard0000000000000000^1053"CompileStoryboard localizationExample/Base.lproj/MainStoryboard_iPad.storyboard    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 6.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Base.lproj/MainStoryboard_iPad.storyboardc /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Base.lproj/MainStoryboard_iPad.storyboard --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk36"1E7CE3EC-8A08-44BE-BE84-3E4DDE82A8BD-
+
+CCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Base.lproj/MainStoryboard_iPhone.storyboard
+s376425960.369101
+e376425961.370476
+r1
+xCompileStoryboard
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Base.lproj/MainStoryboard_iPhone.storyboard
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection81"CompileStoryboard localizationExample/Base.lproj/MainStoryboard_iPhone.storyboard97915ee8cd6fb641^c7d75ee9cd6fb641^---0#0#0#-19%DVTDocumentLocation2@146"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Base.lproj/MainStoryboard_iPhone.storyboard0000000000000000^1059"CompileStoryboard localizationExample/Base.lproj/MainStoryboard_iPhone.storyboard    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 6.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Base.lproj/MainStoryboard_iPhone.storyboardc /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Base.lproj/MainStoryboard_iPhone.storyboard --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk36"A1CF422B-ED7B-435F-9292-A7986C0F939F-
+
+CCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/en.lproj/MainStoryboard_iPad.storyboard
+r0
+
+CCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/en.lproj/MainStoryboard_iPhone.storyboard
+r0
+
+CCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default-568h@2x.png localizationExample/Default-568h@2x.png
+s376425349.418458
+e376425349.701138
+r1
+xCopyPNGFile
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default-568h@2x.png
+xlocalizationExample/Default-568h@2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection157"CopyPNGFile DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default-568h@2x.png localizationExample/Default-568h@2x.pngf8346b85cb6fb641^f183b385cb6fb641^---0#0#0#-19%DVTDocumentLocation2@122"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Default-568h@2x.png0000000000000000^822"CopyPNGFile "DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default-568h@2x.png" "localizationExample/Default-568h@2x.png"    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" "/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Default-568h@2x.png" "/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default-568h@2x.png"36"24DFFE65-FB15-4DD9-9891-C8CBEF4939DA-
+
+CCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default.png localizationExample/Default.png
+s376425349.270741
+e376425349.343768
+r1
+xCopyPNGFile
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default.png
+xlocalizationExample/Default.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection141"CopyPNGFile DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default.png localizationExample/Default.png12674585cb6fb641^f31f5a85cb6fb641^---0#0#0#-19%DVTDocumentLocation2@114"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Default.png0000000000000000^782"CopyPNGFile DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default.png localizationExample/Default.png    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Default.png /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default.png36"054C48DB-0F3E-4E9E-A7E0-76D1B255651C-
+
+CCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default@2x.png localizationExample/Default@2x.png
+s376425349.271039
+e376425349.448069
+r1
+xCopyPNGFile
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default@2x.png
+xlocalizationExample/Default@2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection147"CopyPNGFile DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default@2x.png localizationExample/Default@2x.png11734585cb6fb641^26367385cb6fb641^---0#0#0#-19%DVTDocumentLocation2@117"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Default@2x.png0000000000000000^802"CopyPNGFile "DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default@2x.png" "localizationExample/Default@2x.png"    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng -compress "" "/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/Default@2x.png" "/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Default@2x.png"36"A21DC500-00A8-4DDF-B343-73F92A2B43AF-
+
+CCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj/InfoPlist.strings localizationExample/en.lproj/InfoPlist.strings
+s376425349.265298
+e376425349.269481
+r1
+xCopyStringsFile
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj/InfoPlist.strings
+xlocalizationExample/en.lproj/InfoPlist.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection51"Copy localizationExample/en.lproj/InfoPlist.strings71054485cb6fb641^2e004585cb6fb641^---0#0#0#-19%DVTDocumentLocation2@129"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/en.lproj/InfoPlist.strings0000000000000000^740"CopyStringsFile DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj/InfoPlist.strings localizationExample/en.lproj/InfoPlist.strings    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj -- localizationExample/en.lproj/InfoPlist.strings36"66699108-CB5D-4F03-909E-EBA221BBB09C-
+
+CCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj/Localizable.strings localizationExample/en.lproj/Localizable.strings
+s376427302.208554
+e376427302.212181
+r1
+xCopyStringsFile
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj/Localizable.strings
+xlocalizationExample/en.lproj/Localizable.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection53"Copy localizationExample/en.lproj/Localizable.stringse6783526d36fb641^8f513626d36fb641^---0#0#0#-19%DVTDocumentLocation2@131"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/en.lproj/Localizable.strings0000000000000000^746"CopyStringsFile DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj/Localizable.strings localizationExample/en.lproj/Localizable.strings    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj -- localizationExample/en.lproj/Localizable.strings36"99412C33-4E1E-4DD8-A26C-0F056FC80AF5-
+
+CCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj/MainStoryboard_iPhone.strings localizationExample/en.lproj/MainStoryboard_iPhone.strings
+s376427302.202396
+e376427302.205857
+r1
+xCopyStringsFile
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj/MainStoryboard_iPhone.strings
+xlocalizationExample/en.lproj/MainStoryboard_iPhone.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection63"Copy localizationExample/en.lproj/MainStoryboard_iPhone.strings5ddf3326d36fb641^6fbb3426d36fb641^---0#0#0#-19%DVTDocumentLocation2@141"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/en.lproj/MainStoryboard_iPhone.strings0000000000000000^776"CopyStringsFile DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj/MainStoryboard_iPhone.strings localizationExample/en.lproj/MainStoryboard_iPhone.strings    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/en.lproj -- localizationExample/en.lproj/MainStoryboard_iPhone.strings36"58E61F80-DBC6-4CC1-B1CF-89FB2302F388-
+
+CCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/InfoPlist.strings localizationExample/sv.lproj/InfoPlist.strings
+s376425349.265903
+e376425349.269490
+r1
+xCopyStringsFile
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/InfoPlist.strings
+xlocalizationExample/sv.lproj/InfoPlist.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection51"Copy localizationExample/sv.lproj/InfoPlist.stringsa3204485cb6fb641^97034585cb6fb641^---0#0#0#-19%DVTDocumentLocation2@129"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/sv.lproj/InfoPlist.strings0000000000000000^740"CopyStringsFile DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/InfoPlist.strings localizationExample/sv.lproj/InfoPlist.strings    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj -- localizationExample/sv.lproj/InfoPlist.strings36"401D75C9-CDB9-4102-8517-D12E451E1487-
+
+CCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/Localizable.strings localizationExample/sv.lproj/Localizable.strings
+s376427302.209021
+e376427302.212773
+r1
+xCopyStringsFile
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/Localizable.strings
+xlocalizationExample/sv.lproj/Localizable.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection53"Copy localizationExample/sv.lproj/Localizable.stringsc1903526d36fb641^f2783626d36fb641^---0#0#0#-19%DVTDocumentLocation2@131"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/sv.lproj/Localizable.strings0000000000000000^746"CopyStringsFile DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/Localizable.strings localizationExample/sv.lproj/Localizable.strings    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj -- localizationExample/sv.lproj/Localizable.strings36"01C14F86-8660-492C-8886-05C0C226A9F6-
+
+CCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/MainStoryboard_iPad.strings localizationExample/sv.lproj/MainStoryboard_iPad.strings
+s376425350.910909
+e376425350.921987
+r1
+xCopyStringsFile
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/MainStoryboard_iPad.strings
+xlocalizationExample/sv.lproj/MainStoryboard_iPad.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection61"Copy localizationExample/sv.lproj/MainStoryboard_iPad.strings9146e986cb6fb641^dba6ec86cb6fb641^---0#0#0#-19%DVTDocumentLocation2@139"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/sv.lproj/MainStoryboard_iPad.strings0000000000000000^770"CopyStringsFile DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/MainStoryboard_iPad.strings localizationExample/sv.lproj/MainStoryboard_iPad.strings    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj -- localizationExample/sv.lproj/MainStoryboard_iPad.strings36"11688711-3468-4A2B-B6F9-2E833D819A81-
+
+CCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/MainStoryboard_iPhone.strings localizationExample/sv.lproj/MainStoryboard_iPhone.strings
+s376427302.202188
+e376427302.205991
+r1
+xCopyStringsFile
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/MainStoryboard_iPhone.strings
+xlocalizationExample/sv.lproj/MainStoryboard_iPhone.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection63"Copy localizationExample/sv.lproj/MainStoryboard_iPhone.stringse4d73326d36fb641^35b53426d36fb641^---0#0#0#-19%DVTDocumentLocation2@141"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/sv.lproj/MainStoryboard_iPhone.strings0000000000000000^776"CopyStringsFile DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj/MainStoryboard_iPhone.strings localizationExample/sv.lproj/MainStoryboard_iPhone.strings    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/sv.lproj -- localizationExample/sv.lproj/MainStoryboard_iPhone.strings36"F50C2F1B-A626-406F-8F94-5A88D36AD11B-
+
+CCpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/ResourceRules.plist DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/ResourceRules.plist
+s376425348.484632
+e376425348.488647
+r1
+xCpResource
+x/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/ResourceRules.plist
+xDerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/ResourceRules.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection110"Copy DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/ResourceRules.plist09347c84cb6fb641^664c7d84cb6fb641^---0#0#0#-19%DVTDocumentLocation2@188"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/ResourceRules.plist000000000080d041^888"CpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/ResourceRules.plist DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/ResourceRules.plist    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/ResourceRules.plist /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app36"8FDABE91-C67C-4E03-A32C-A029E2486F55-
+
+CGenerateDSYMFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app.dSYM /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/localizationExample
+s376427302.167533
+e376427302.190081
+r1
+xGenerateDSYMFile
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app.dSYM
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/localizationExample
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection168"Generating /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app.dSYM9cf82a26d36fb641^04a93026d36fb641^---0#0#0#-19%DVTDocumentLocation2@174"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app.dSYM/0000000000000000^910"GenerateDSYMFile DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app.dSYM DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/localizationExample    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/localizationExample -o /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app.dSYM36"8A1B7308-3890-4463-9CF2-418B353F280E-
+
+CLd /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/localizationExample normal armv7
+s376425866.424805
+e376425866.456483
+r1
+xLd
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/localizationExample
+xnormal
+xarmv7
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection177"Link /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/localizationExample45d46c8acd6fb641^83dd748acd6fb641^---0#0#0#--1468"Ld DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/localizationExample normal armv7    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv IPHONEOS_DEPLOYMENT_TARGET 6.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch armv7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk -L/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos -F/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos -filelist /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/Objects-normal/armv7/localizationExample.LinkFileList -dead_strip -fobjc-arc -fobjc-link-runtime -miphoneos-version-min=6.0 -framework UIKit -framework Foundation -framework CoreGraphics -o /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/localizationExample36"4F66EC51-987F-48DC-B84D-13E200BEFFEC-
+
+CProcessInfoPlistFile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Info.plist localizationExample/localizationExample-Info.plist
+s376425348.485411
+e376425348.493475
+r1
+xProcessInfoPlistFile
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Info.plist
+xlocalizationExample/localizationExample-Info.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection58"Process localizationExample/localizationExample-Info.plist4b577c84cb6fb641^5c557e84cb6fb641^---0#0#0#-19%DVTDocumentLocation2@133"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExample-Info.plist0000000000000000^1098"ProcessInfoPlistFile DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Info.plist localizationExample/localizationExample-Info.plist    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility localizationExample/localizationExample-Info.plist -genpkginfo /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/PkgInfo -expandbuildsettings -format binary -platform iphoneos -resourcerulesfile /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/ResourceRules.plist -o /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/Info.plist36"D48502C7-3205-4040-BBF4-13AB2DE32E1E-
+
+CProcessPCH /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/PrecompiledHeaders/localizationExample-Prefix-gypvugticphniyafmkycnfdilktp/localizationExample-Prefix.pch.pth localizationExample/localizationExample-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s376425348.501587
+e376425348.882708
+r1
+xProcessPCH
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/PrecompiledHeaders/localizationExample-Prefix-gypvugticphniyafmkycnfdilktp/localizationExample-Prefix.pch.pth
+xlocalizationExample/localizationExample-Prefix.pch
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection61"Precompile localizationExample/localizationExample-Prefix.pcha4a78084cb6fb641^9c18e284cb6fb641^---0#0#0#-19%DVTDocumentLocation2@133"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExample-Prefix.pch0000000000000000^4471"ProcessPCH DerivedData/localizationExample/Build/Intermediates/PrecompiledHeaders/localizationExample-Prefix-gypvugticphniyafmkycnfdilktp/localizationExample-Prefix.pch.pth localizationExample/localizationExample-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=6.0 -iquote /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample-generated-files.hmap -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample-own-target-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample-project-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/DerivedSources -F/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos --serialize-diagnostics /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/PrecompiledHeaders/localizationExample-Prefix-gypvugticphniyafmkycnfdilktp/localizationExample-Prefix.pch.dia -c /Users/niklasnordin/Documents/xcode-github.git/localizationExample/localizationExample/localizationExample-Prefix.pch -o /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/PrecompiledHeaders/localizationExample-Prefix-gypvugticphniyafmkycnfdilktp/localizationExample-Prefix.pch.pth -MMD -MT dependencies -MF /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/PrecompiledHeaders/localizationExample-Prefix-gypvugticphniyafmkycnfdilktp/localizationExample-Prefix.pch.d36"994957DF-53DC-4CDA-AC2D-85CCA7AFEB98-
+
+CProcessPCH /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Index/PrecompiledHeaders/localizationExample-Prefix-bbuougffioxafrfefyygskyixvam_ast/localizationExample-Prefix.pch.pth localizationExample/localizationExample-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessProductPackaging "/Users/niklasnordin/Library/MobileDevice/Provisioning Profiles/746F1C6F-28E8-4479-88C8-2BC779EF82C8.mobileprovision" /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/embedded.mobileprovision
+s376425351.262607
+e376425351.265695
+r1
+xProcessProductPackaging
+x/Users/niklasnordin/Library/MobileDevice/Provisioning Profiles/746F1C6F-28E8-4479-88C8-2BC779EF82C8.mobileprovision
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/embedded.mobileprovision
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection252"ProcessProductPackaging "/Users/niklasnordin/Library/MobileDevice/Provisioning Profiles/746F1C6F-28E8-4479-88C8-2BC779EF82C8.mobileprovision" DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/embedded.mobileprovisionf4504387cb6fb641^62104487cb6fb641^---0#0#0#-19%DVTDocumentLocation2@193"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/embedded.mobileprovision0000000000000000^850"ProcessProductPackaging "/Users/niklasnordin/Library/MobileDevice/Provisioning Profiles/746F1C6F-28E8-4479-88C8-2BC779EF82C8.mobileprovision" DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/embedded.mobileprovision    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-productPackagingUtility "/Users/niklasnordin/Library/MobileDevice/Provisioning Profiles/746F1C6F-28E8-4479-88C8-2BC779EF82C8.mobileprovision" -o /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app/embedded.mobileprovision36"C29D1AA3-8489-4BA8-965C-7144B0C7DDF9-
+
+CProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/Entitlements.plist /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample.xcent
+s376425351.295896
+e376425351.299991
+r1
+xProcessProductPackaging
+x/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/Entitlements.plist
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample.xcent
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection289"ProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/Entitlements.plist DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample.xcent9cdc4b87cb6fb641^f3e24c87cb6fb641^---0#0#0#-19%DVTDocumentLocation2@227"file://localhost/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample.xcent000000000080d041^950"ProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/Entitlements.plist DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample.xcent    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-productPackagingUtility /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/Entitlements.plist -entitlements -format xml -o /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Intermediates/localizationExample.build/Debug-iphoneos/localizationExample.build/localizationExample.xcent36"763A451A-33D0-4339-88F9-4ECC062DCD03-
+
+CTouch /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app
+s376427302.237093
+e376427302.244614
+r1
+xTouch
+x/Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection158"Touch /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app5cc73c26d36fb641^179f3e26d36fb641^---0#0#0#--529"Touch DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app    cd /Users/niklasnordin/Documents/xcode-github.git/localizationExample    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/niklasnordin/Documents/xcode-github.git/localizationExample/DerivedData/localizationExample/Build/Products/Debug-iphoneos/localizationExample.app36"E613A90F-8331-4A35-B6DB-1EC7146F659B-
+

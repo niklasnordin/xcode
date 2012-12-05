@@ -18,7 +18,7 @@
 
 //- (void)pan:(UIPanGestureRecognizer *)gesture;
 //- (void)tap:(UIPanGestureRecognizer *)gesture;
-
+// comment for commit
 - (int)score;
 - (int)pixelsLeft;
 - (void)clearAndAnimatePicture;
