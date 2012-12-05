@@ -63,8 +63,8 @@ static int heightDivisions = 60;
     if (self = [super initWithCoder:aDecoder])
     {
         [self initMatrix];
-        _bgImage = [UIImage imageNamed:@"pig_300.jpg"];
-        _bgImageRef = _bgImage.CGImage;
+        //_bgImage = [UIImage imageNamed:@"pig_300.jpg"];
+        //_bgImageRef = _bgImage.CGImage;
     }
     return self;
 }

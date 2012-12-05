@@ -11,13 +11,7 @@
 
 @interface screetchViewController : UIViewController
 
-@property (strong, nonatomic) NSArray *pictures;
-
-@property (strong, nonatomic) NSArray *categories;
-@property (strong, nonatomic) NSArray *people;
-@property (strong, nonatomic) NSArray *places;
-@property (strong, nonatomic) NSArray *animals;
-@property (strong, nonatomic) NSArray *things;
+@property (strong, nonatomic) UIImage *loadedImage;
 
 @property (weak, nonatomic) IBOutlet screetchView *pictureView;
 @property (weak, nonatomic) IBOutlet UILabel *display;

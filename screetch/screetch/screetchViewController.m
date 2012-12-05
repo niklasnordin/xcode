@@ -22,6 +22,8 @@
     _baseURL = @"http://www.nequam.se/screetch";
     NSString *http = @"categories.php";
     [self loadRandomPictureFromURL:http];
+    _pictureView.bgImage = _loadedImage;
+    _pictureView.bgImageRef = _loadedImage.CGImage;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -107,13 +109,16 @@
     NSString *stringSelected = [[NSString alloc] initWithData:selectedData encoding:NSUTF8StringEncoding];
     NSArray *selectedArray = [stringSelected componentsSeparatedByString:@":"];
     NSLog(@"selectedArray =%@",selectedArray);
-    int selseli = arc4random() % [selectedArray count];
-    NSString *version = [selectedArray objectAtIndex:selseli];
+    int versioni = arc4random() % [selectedArray count];
+    NSString *version = [selectedArray objectAtIndex:versioni];
     NSLog(@"version = %@",version);
     
-    // in the selected category
     
     // the name of the picture is picture.png
+    NSString *imageFilename = [NSString stringWithFormat:@"%@/%@/%@/%@/picture.png",_baseURL,categoryName,selectedName,version];
+    NSURL *imageURL = [NSURL URLWithString:imageFilename];
+    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+    _loadedImage = [UIImage imageWithData:imageData];
     
     // the geometry info for the picture is in the file picture.info
     
