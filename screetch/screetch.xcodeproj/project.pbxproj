@@ -8,18 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		61031D13164AD0650018D46C /* pictureInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 61031D12164AD0650018D46C /* pictureInfo.m */; };
-		610A85E21652D0EB00A0618B /* Localized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 610A85E41652D0EB00A0618B /* Localized.strings */; };
 		610DB63216371544004153AC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610DB63116371544004153AC /* UIKit.framework */; };
 		610DB63416371544004153AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610DB63316371544004153AC /* Foundation.framework */; };
 		610DB63616371544004153AC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610DB63516371544004153AC /* CoreGraphics.framework */; };
-		610DB63C16371544004153AC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 610DB63A16371544004153AC /* InfoPlist.strings */; };
 		610DB63E16371544004153AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DB63D16371544004153AC /* main.m */; };
 		610DB64216371544004153AC /* screetchAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DB64116371544004153AC /* screetchAppDelegate.m */; };
 		610DB64416371544004153AC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 610DB64316371544004153AC /* Default.png */; };
 		610DB64616371544004153AC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 610DB64516371544004153AC /* Default@2x.png */; };
 		610DB64816371544004153AC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 610DB64716371544004153AC /* Default-568h@2x.png */; };
-		610DB64B16371544004153AC /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 610DB64916371544004153AC /* MainStoryboard_iPhone.storyboard */; };
-		610DB64E16371544004153AC /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 610DB64C16371544004153AC /* MainStoryboard_iPad.storyboard */; };
 		610DB65116371544004153AC /* screetchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 610DB65016371544004153AC /* screetchViewController.m */; };
 		61460C4B1641971900A1D1EE /* screetchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61460C4A1641971900A1D1EE /* screetchView.m */; };
 /* End PBXBuildFile section */
@@ -27,17 +23,11 @@
 /* Begin PBXFileReference section */
 		61031D11164AD0650018D46C /* pictureInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pictureInfo.h; sourceTree = "<group>"; };
 		61031D12164AD0650018D46C /* pictureInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pictureInfo.m; sourceTree = "<group>"; };
-		610A85E31652D0EB00A0618B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localized.strings; sourceTree = "<group>"; };
-		610A85E71652D22900A0618B /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = sv; path = sv.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		610A85E81652D22900A0618B /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = sv; path = sv.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		610A85E91652D22900A0618B /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localized.strings; sourceTree = "<group>"; };
-		610A85EA1652D22900A0618B /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		610DB62D16371544004153AC /* screetch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = screetch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		610DB63116371544004153AC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		610DB63316371544004153AC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		610DB63516371544004153AC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		610DB63916371544004153AC /* screetch-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "screetch-Info.plist"; sourceTree = "<group>"; };
-		610DB63B16371544004153AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		610DB63D16371544004153AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		610DB63F16371544004153AC /* screetch-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "screetch-Prefix.pch"; sourceTree = "<group>"; };
 		610DB64016371544004153AC /* screetchAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = screetchAppDelegate.h; sourceTree = "<group>"; };
@@ -49,9 +39,6 @@
 		610DB65016371544004153AC /* screetchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = screetchViewController.m; sourceTree = "<group>"; };
 		61460C491641971900A1D1EE /* screetchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = screetchView.h; sourceTree = "<group>"; };
 		61460C4A1641971900A1D1EE /* screetchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = screetchView.m; sourceTree = "<group>"; };
-		61657F08166B81A1000370FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		61657F09166B81A1000370FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		61657F0B166B81CA000370FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard_iPhone.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +85,6 @@
 		610DB63716371544004153AC /* screetch */ = {
 			isa = PBXGroup;
 			children = (
-				610DB64916371544004153AC /* MainStoryboard_iPhone.storyboard */,
-				610DB64C16371544004153AC /* MainStoryboard_iPad.storyboard */,
 				610DB64016371544004153AC /* screetchAppDelegate.h */,
 				610DB64116371544004153AC /* screetchAppDelegate.m */,
 				610DB64F16371544004153AC /* screetchViewController.h */,
@@ -116,9 +101,7 @@
 		610DB63816371544004153AC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				610A85E41652D0EB00A0618B /* Localized.strings */,
 				610DB63916371544004153AC /* screetch-Info.plist */,
-				610DB63A16371544004153AC /* InfoPlist.strings */,
 				610DB63D16371544004153AC /* main.m */,
 				610DB63F16371544004153AC /* screetch-Prefix.pch */,
 				610DB64316371544004153AC /* Default.png */,
@@ -182,13 +165,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				610DB63C16371544004153AC /* InfoPlist.strings in Resources */,
 				610DB64416371544004153AC /* Default.png in Resources */,
 				610DB64616371544004153AC /* Default@2x.png in Resources */,
 				610DB64816371544004153AC /* Default-568h@2x.png in Resources */,
-				610DB64B16371544004153AC /* MainStoryboard_iPhone.storyboard in Resources */,
-				610DB64E16371544004153AC /* MainStoryboard_iPad.storyboard in Resources */,
-				610A85E21652D0EB00A0618B /* Localized.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,46 +187,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		610A85E41652D0EB00A0618B /* Localized.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				610A85E31652D0EB00A0618B /* en */,
-				610A85E91652D22900A0618B /* sv */,
-			);
-			name = Localized.strings;
-			sourceTree = "<group>";
-		};
-		610DB63A16371544004153AC /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				610DB63B16371544004153AC /* en */,
-				610A85EA1652D22900A0618B /* sv */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		610DB64916371544004153AC /* MainStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				610A85E71652D22900A0618B /* sv */,
-				61657F08166B81A1000370FF /* Base */,
-				61657F0B166B81CA000370FF /* en */,
-			);
-			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		610DB64C16371544004153AC /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				610A85E81652D22900A0618B /* sv */,
-				61657F09166B81A1000370FF /* Base */,
-			);
-			name = MainStoryboard_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		610DB65216371544004153AC /* Debug */ = {

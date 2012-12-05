@@ -14,11 +14,10 @@
                         <subviews>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" restorationIdentifier="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZX-q5-jub">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="HIF-OW-Hch"/>
                                     <constraint firstAttribute="width" constant="90" id="Y0m-DK-zhe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                <state key="normal" title="Choice1">
+                                <state key="normal" title="Val1">
                                     <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -144,7 +143,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.17413394087118128" green="0.29687774781149096" blue="0.35871731505102045" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="bib-Zp-VLX" firstAttribute="bottom" secondItem="4y2-Z9-SHG" secondAttribute="bottom" type="default" id="3ZJ-Od-9uS"/>
                             <constraint firstItem="4y2-Z9-SHG" firstAttribute="centerX" secondItem="ifp-Zu-a3b" secondAttribute="centerX" type="default" id="45b-sH-HFu"/>
                             <constraint firstItem="4y2-Z9-SHG" firstAttribute="leading" secondItem="VNC-uC-eM6" secondAttribute="leading" type="default" id="5ge-RF-fFY"/>
                             <constraint firstAttribute="bottom" secondItem="VNC-uC-eM6" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="9Gt-h5-9da"/>
@@ -154,7 +152,6 @@
                             <constraint firstItem="qPf-Kk-2jo" firstAttribute="baseline" secondItem="4PM-DJ-qpU" secondAttribute="baseline" type="default" id="DCd-UJ-jvD"/>
                             <constraint firstAttribute="trailing" secondItem="ifp-Zu-a3b" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Eql-ZV-AAb"/>
                             <constraint firstAttribute="bottom" secondItem="ifp-Zu-a3b" secondAttribute="bottom" constant="99" id="G4g-uR-Xz8"/>
-                            <constraint firstItem="4y2-Z9-SHG" firstAttribute="bottom" secondItem="sZX-q5-jub" secondAttribute="bottom" type="default" id="GGI-cP-gSB"/>
                             <constraint firstItem="U3n-qk-3lG" firstAttribute="top" secondItem="sZX-q5-jub" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Ios-mO-4Df"/>
                             <constraint firstItem="ifp-Zu-a3b" firstAttribute="top" secondItem="dC7-r4-YV2" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Jc9-oY-4aP"/>
                             <constraint firstItem="bib-Zp-VLX" firstAttribute="trailing" secondItem="dC7-r4-YV2" secondAttribute="trailing" type="default" id="Knz-cU-Ze9"/>
@@ -162,6 +159,8 @@
                             <constraint firstItem="4y2-Z9-SHG" firstAttribute="leading" secondItem="qPf-Kk-2jo" secondAttribute="leading" type="default" id="Wph-wn-06K"/>
                             <constraint firstItem="dC7-r4-YV2" firstAttribute="centerX" secondItem="qPf-Kk-2jo" secondAttribute="centerX" type="default" id="arG-ZK-KyW"/>
                             <constraint firstAttribute="bottom" secondItem="U3n-qk-3lG" secondAttribute="bottom" constant="21" id="cKh-pw-Vmq"/>
+                            <constraint firstItem="4y2-Z9-SHG" firstAttribute="baseline" secondItem="sZX-q5-jub" secondAttribute="baseline" type="default" id="e7u-ay-Fej"/>
+                            <constraint firstItem="bib-Zp-VLX" firstAttribute="baseline" secondItem="sZX-q5-jub" secondAttribute="baseline" type="default" id="eKL-FW-NEA"/>
                             <constraint firstItem="SWb-3I-po4" firstAttribute="top" secondItem="VNC-uC-eM6" secondAttribute="top" type="default" id="ezZ-RV-si1"/>
                             <constraint firstItem="sZX-q5-jub" firstAttribute="top" secondItem="4y2-Z9-SHG" secondAttribute="top" type="default" id="f5g-YQ-qUM"/>
                             <constraint firstItem="bib-Zp-VLX" firstAttribute="trailing" secondItem="SWb-3I-po4" secondAttribute="trailing" type="default" id="iHZ-oJ-Gyj"/>
@@ -175,6 +174,7 @@
                             <constraint firstItem="dC7-r4-YV2" firstAttribute="leading" secondItem="sZX-q5-jub" secondAttribute="leading" type="default" id="qq6-Nl-Dn9"/>
                             <constraint firstItem="qPf-Kk-2jo" firstAttribute="trailing" secondItem="4y2-Z9-SHG" secondAttribute="trailing" type="default" id="rAi-z8-Ov6"/>
                             <constraint firstItem="ifp-Zu-a3b" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="uWn-du-Njh"/>
+                            <constraint firstItem="bib-Zp-VLX" firstAttribute="baseline" secondItem="4y2-Z9-SHG" secondAttribute="baseline" type="default" id="w0a-Cj-LQS"/>
                             <constraint firstItem="sZX-q5-jub" firstAttribute="trailing" secondItem="U3n-qk-3lG" secondAttribute="trailing" type="default" id="w7s-gd-B3D"/>
                         </constraints>
                     </view>
@@ -189,23 +189,6 @@
             <point key="canvasLocation" x="197" y="58"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="screetchView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/screetchView.h"/>
-        </class>
-        <class className="screetchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/screetchViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="choiceButtonPressed:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="display" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pictureView" candidateClass="screetchView"/>
-                <relationship kind="outlet" name="scoreField" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

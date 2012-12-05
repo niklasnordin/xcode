@@ -9,8 +9,6 @@
 #import "screetchView.h"
 #import "screetchViewController.h"
 
-static float windowWidth = 300.0;
-static float windowHeight = 300.0;
 static int widthDivisions = 60;
 static int heightDivisions = 60;
 
@@ -19,6 +17,7 @@ static int heightDivisions = 60;
 @end
 
 @implementation screetchView
+
 
 -(id)init
 {

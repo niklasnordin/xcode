@@ -179,6 +179,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="button1" destination="sZX-q5-jub" id="0g4-oz-bdr"/>
+                        <outlet property="button2" destination="4y2-Z9-SHG" id="zsz-hd-9Gw"/>
+                        <outlet property="button3" destination="bib-Zp-VLX" id="Hva-MC-n4x"/>
+                        <outlet property="button4" destination="U3n-qk-3lG" id="Bd0-d0-R5o"/>
+                        <outlet property="button5" destination="VNC-uC-eM6" id="ltJ-er-K27"/>
+                        <outlet property="button6" destination="SWb-3I-po4" id="RD1-VW-l9v"/>
                         <outlet property="display" destination="ifp-Zu-a3b" id="xLL-wo-r4P"/>
                         <outlet property="pictureView" destination="dC7-r4-YV2" id="32O-Ak-sqa"/>
                         <outlet property="scoreField" destination="WiI-IA-532" id="XEC-ZF-O1I"/>
