@@ -21,6 +21,8 @@
 		61247A5115C845C9004DB05F /* dbTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61247A5015C845C8004DB05F /* dbTableViewController.m */; };
 		61247A5415C9B9DB004DB05F /* propertyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61247A5315C9B9DA004DB05F /* propertyTableViewController.m */; };
 		61247A5715CA6A0D004DB05F /* functionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61247A5615CA6A0D004DB05F /* functionView.m */; };
+		612EA20416726FB000E722AE /* myGrayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 612EA20316726FB000E722AE /* myGrayButton.png */; };
+		612EA209167272C500E722AE /* myLightGrayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 612EA208167272C500E722AE /* myLightGrayButton.png */; };
 		612EF27D160A286200D951E9 /* boilingTemperature.m in Sources */ = {isa = PBXBuildFile; fileRef = 612EF27C160A286200D951E9 /* boilingTemperature.m */; };
 		6139E68016285F4C00954BCF /* iapws97_4.m in Sources */ = {isa = PBXBuildFile; fileRef = 6139E67F16285F4C00954BCF /* iapws97_4.m */; };
 		6139E6831628609C00954BCF /* iapws97_5.m in Sources */ = {isa = PBXBuildFile; fileRef = 6139E6821628609C00954BCF /* iapws97_5.m */; };
@@ -188,6 +190,8 @@
 		61247A5315C9B9DA004DB05F /* propertyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = propertyTableViewController.m; sourceTree = "<group>"; };
 		61247A5515CA6A0C004DB05F /* functionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = functionView.h; sourceTree = "<group>"; };
 		61247A5615CA6A0D004DB05F /* functionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = functionView.m; sourceTree = "<group>"; };
+		612EA20316726FB000E722AE /* myGrayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myGrayButton.png; sourceTree = "<group>"; };
+		612EA208167272C500E722AE /* myLightGrayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myLightGrayButton.png; sourceTree = "<group>"; };
 		612EF27B160A286200D951E9 /* boilingTemperature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boilingTemperature.h; sourceTree = "<group>"; };
 		612EF27C160A286200D951E9 /* boilingTemperature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = boilingTemperature.m; sourceTree = "<group>"; };
 		6139E67E16285F4C00954BCF /* iapws97_4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iapws97_4.h; sourceTree = "<group>"; };
@@ -524,6 +528,8 @@
 		6164629015B7F705006B703D /* polymorph */ = {
 			isa = PBXGroup;
 			children = (
+				612EA20316726FB000E722AE /* myGrayButton.png */,
+				612EA208167272C500E722AE /* myLightGrayButton.png */,
 				6164629C15B7F706006B703D /* MainStoryboard.storyboard */,
 				61A5CE8315C2D6DA00937EA8 /* database.h */,
 				61A5CE8415C2D6DA00937EA8 /* database.m */,
@@ -862,6 +868,8 @@
 				61460C43163EF82C00A1D1EE /* iapws97_w.png in Resources */,
 				610A85DC165006BB00A0618B /* soaveRedlichKwong.png in Resources */,
 				610A85DE165006CD00A0618B /* soaveRedlichKwong.tex in Resources */,
+				612EA20416726FB000E722AE /* myGrayButton.png in Resources */,
+				612EA209167272C500E722AE /* myLightGrayButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
