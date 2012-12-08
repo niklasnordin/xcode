@@ -363,7 +363,7 @@
                     <navigationItem key="navigationItem" title="Information" id="XvO-vc-TOM">
                         <barButtonItem key="backBarButtonItem" title="Function" id="4Aj-4J-Ty7"/>
                         <barButtonItem key="rightBarButtonItem" title="Set" id="dNl-NT-1yw">
-                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="setEquationPressed:" destination="Izc-Gv-bjG" id="2sF-fc-fo2"/>
                             </connections>
@@ -389,7 +389,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="94" id="vE2-lt-egf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="41"/>
                                 <state key="normal" title="Plot" backgroundImage="plotButton.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -450,7 +450,6 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Property" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jRM-8o-Pz5">
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="cgK-Jo-C3B"/>
                                 </constraints>
@@ -561,7 +560,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="myPlot" id="Xxh-Xi-BQY">
                         <barButtonItem key="rightBarButtonItem" title="Help" id="fNe-tb-qbr">
-                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="PbO-2N-ooA" kind="push" id="7g2-FW-TR4"/>
                             </connections>
@@ -592,7 +591,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="If you want a function added or if you think of any way to improve the application please mail me at niklas.nordin@nequam.se" translatesAutoresizingMaskIntoConstraints="NO" id="Bzk-c4-gET">
-                                <color key="backgroundColor" red="0.13118007309999999" green="0.2340372352" blue="0.4311423788" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -621,7 +620,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIW-H5-mlQ">
-                                <color key="backgroundColor" red="0.13118007309999999" green="0.2340372352" blue="0.4311423788" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.53725490196078429" green="0.61960784313725492" blue="0.51764705882352935" alpha="1" colorSpace="deviceRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" staticText="YES"/>
                                 </accessibility>
@@ -654,7 +653,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lP8-5c-sWj">
-                                <color key="backgroundColor" red="0.13118007309999999" green="0.2340372352" blue="0.4311423788" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" staticText="YES"/>
                                 </accessibility>
@@ -687,7 +686,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmZ-LC-4TS">
-                                <color key="backgroundColor" red="0.13118007309999999" green="0.2340372352" blue="0.4311423788" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">With this application you can plot a selection of functions commonly used to describe thermodynamic properties for gases and liquids. The function is chosen from the database, where you also set its coefficients and valid temperature and/or pressure range. If the function is independent of either temperature or pressure you can ignore that range.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -853,7 +852,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Database" id="B1s-qH-9a4">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="GVS-Nk-kz7">
-                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="lWQ-dn-KjL" kind="push" identifier="editDatabaseSegue" id="Xpz-4l-3gN"/>
                             </connections>
@@ -947,7 +946,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="drawView" id="Wo1-jb-nNq">
                         <barButtonItem key="rightBarButtonItem" title="Export Table" id="BRa-Fn-skW">
-                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="generateTable:" destination="i3I-7s-BDr" id="4oF-DF-A0Y"/>
                             </connections>

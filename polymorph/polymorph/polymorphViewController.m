@@ -517,7 +517,7 @@
     [super viewDidLoad];
     UIImage *bgImage = [UIImage imageNamed:@"backGroundGradient.png"];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:bgImage]];
-    [self.navigationController.navigationBar setTintColor:[UIColor lightGrayColor]];
+    [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
     _temperatureMin.delegate = self;
     _temperatureMax.delegate = self;
     _pressureField.delegate = self;
