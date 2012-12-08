@@ -85,6 +85,9 @@
     [self.picker selectRow:selectedFunction inComponent:0 animated:YES];
     self.currentRow = selectedFunction;
     
+    UIImage *bgImage = [UIImage imageNamed:@"backGroundGradient.png"];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:bgImage]];
+
 }
 
 - (void)viewDidUnload

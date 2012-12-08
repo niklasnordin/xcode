@@ -32,7 +32,7 @@
                                                                                target:self
                                                                                action:@selector(addSpecie)];
     self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:self.editButtonItem, addButton, nil ];
-
+    
 }
 
 -(void)addSpecie
