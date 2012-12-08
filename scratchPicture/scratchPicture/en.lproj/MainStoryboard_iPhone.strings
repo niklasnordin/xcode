@@ -5,7 +5,10 @@
 /* Class = "IBUIButton"; normalTitle = "Rules"; ObjectID = "Q6s-s0-Ff4"; */
 "Q6s-s0-Ff4.normalTitle" = "Rules";
 
-/* Class = "IBUIButton"; normalTitle = "Play"; ObjectID = "cdP-ec-Bsu"; */
+/* Class = "IBUIButton"; normalTitle = "Button after localization"; ObjectID = "azG-UW-ZOE"; */
+"azG-UW-ZOE.normalTitle" = "Button after localization";
+
+/* Class = "IBUIButton"; normalTitle = "Play alone"; ObjectID = "cdP-ec-Bsu"; */
 "cdP-ec-Bsu.normalTitle" = "Play alone";
 
 /* Class = "IBUINavigationItem"; title = "screetch"; ObjectID = "gQl-C8-yV2"; */

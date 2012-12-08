@@ -28,6 +28,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     NSLog(@"viewDidLoad");
+    /*
     [_allButtons setBackgroundColor:[Settings buttonColor]];
     NSArray *subViews = _allButtons.subviews;
     UIView *sub = [subViews objectAtIndex:0];
@@ -41,6 +42,11 @@
     NSLog(@"subviews count =%d",[subViews count]);
     
     [_topNavigationBarItem.titleView setBackgroundColor:[UIColor redColor]];
+    
+    UIImage *imageBG = [UIImage imageNamed:@"GreenColour.jpg"];
+    UIImage *stretchImageBG = [imageBG stretchableImageWithLeftCapWidth:33 topCapHeight:0];
+    [_playButton setBackgroundImage:stretchImageBG forState:UIControlStateNormal];
+     */
 }
 
 - (void)didReceiveMemoryWarning

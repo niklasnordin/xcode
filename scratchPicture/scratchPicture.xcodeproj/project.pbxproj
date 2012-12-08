@@ -22,6 +22,12 @@
 		612EA1E4166FD71800E722AE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 612EA1E6166FD71800E722AE /* Localizable.strings */; };
 		612EA1EA166FD91D00E722AE /* menuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 612EA1E9166FD91D00E722AE /* menuViewController.m */; };
 		612EA1ED166FD9F600E722AE /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 612EA1EC166FD9F600E722AE /* Settings.m */; };
+		612EA1F816710FBB00E722AE /* greenFelt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 612EA1F716710FBB00E722AE /* greenFelt.jpg */; };
+		612EA1FA1671278600E722AE /* GreenColour.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 612EA1F91671278600E722AE /* GreenColour.jpg */; };
+		612EA1FC1672648B00E722AE /* myButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 612EA1FB1672648B00E722AE /* myButton.png */; };
+		612EA1FE167268ED00E722AE /* myBlueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 612EA1FD167268ED00E722AE /* myBlueButton.png */; };
+		612EA20216726E5500E722AE /* myGrayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 612EA20116726E5500E722AE /* myGrayButton.png */; };
+		612EA2071672724900E722AE /* myLightGrayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 612EA2061672724900E722AE /* myLightGrayButton.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +57,13 @@
 		612EA1E9166FD91D00E722AE /* menuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = menuViewController.m; sourceTree = "<group>"; };
 		612EA1EB166FD9F600E722AE /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		612EA1EC166FD9F600E722AE /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
-		612EA1F4166FDEB200E722AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard_iPhone.strings; sourceTree = "<group>"; };
+		612EA1F61670FF1700E722AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard_iPhone.strings; sourceTree = "<group>"; };
+		612EA1F716710FBB00E722AE /* greenFelt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = greenFelt.jpg; sourceTree = "<group>"; };
+		612EA1F91671278600E722AE /* GreenColour.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GreenColour.jpg; sourceTree = "<group>"; };
+		612EA1FB1672648B00E722AE /* myButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myButton.png; sourceTree = "<group>"; };
+		612EA1FD167268ED00E722AE /* myBlueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myBlueButton.png; sourceTree = "<group>"; };
+		612EA20116726E5500E722AE /* myGrayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myGrayButton.png; sourceTree = "<group>"; };
+		612EA2061672724900E722AE /* myLightGrayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myLightGrayButton.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +110,12 @@
 		612EA1BD166FD6E400E722AE /* scratchPicture */ = {
 			isa = PBXGroup;
 			children = (
+				612EA2061672724900E722AE /* myLightGrayButton.png */,
+				612EA1FD167268ED00E722AE /* myBlueButton.png */,
+				612EA20116726E5500E722AE /* myGrayButton.png */,
+				612EA1F91671278600E722AE /* GreenColour.jpg */,
+				612EA1FB1672648B00E722AE /* myButton.png */,
+				612EA1F716710FBB00E722AE /* greenFelt.jpg */,
 				612EA1C6166FD6E400E722AE /* scratchPictureAppDelegate.h */,
 				612EA1C7166FD6E400E722AE /* scratchPictureAppDelegate.m */,
 				612EA1CF166FD6E400E722AE /* MainStoryboard_iPhone.storyboard */,
@@ -189,6 +207,12 @@
 				612EA1D1166FD6E400E722AE /* MainStoryboard_iPhone.storyboard in Resources */,
 				612EA1D4166FD6E400E722AE /* MainStoryboard_iPad.storyboard in Resources */,
 				612EA1E4166FD71800E722AE /* Localizable.strings in Resources */,
+				612EA1F816710FBB00E722AE /* greenFelt.jpg in Resources */,
+				612EA1FA1671278600E722AE /* GreenColour.jpg in Resources */,
+				612EA1FC1672648B00E722AE /* myButton.png in Resources */,
+				612EA1FE167268ED00E722AE /* myBlueButton.png in Resources */,
+				612EA20216726E5500E722AE /* myGrayButton.png in Resources */,
+				612EA2071672724900E722AE /* myLightGrayButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,7 +248,7 @@
 			children = (
 				612EA1DD166FD6F300E722AE /* Base */,
 				612EA1DF166FD6FD00E722AE /* sv */,
-				612EA1F4166FDEB200E722AE /* en */,
+				612EA1F61670FF1700E722AE /* en */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";

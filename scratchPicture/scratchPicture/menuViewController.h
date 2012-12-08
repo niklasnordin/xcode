@@ -12,5 +12,8 @@
 @interface menuViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UINavigationItem *topNavigationBarItem;
 @property (weak, nonatomic) IBOutlet UIButton *allButtons;
+@property (weak, nonatomic) IBOutlet UIButton *topButton;
+@property (weak, nonatomic) IBOutlet UIButton *middleButton;
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
 
 @end

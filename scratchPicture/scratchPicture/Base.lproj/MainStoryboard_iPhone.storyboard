@@ -8,15 +8,18 @@
         <scene sceneID="NdC-qh-2be">
             <objects>
                 <viewController id="fdm-Sn-Vqg" customClass="menuViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="MgC-cW-QDK">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="MgC-cW-QDK">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdP-ec-Bsu">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2kK-mF-Du5"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Play alone">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Play alone" backgroundImage="myGrayButton.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -25,42 +28,42 @@
                                     <segue destination="2" kind="modal" id="q97-iZ-jTt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6s-s0-Ff4">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Rules">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azG-UW-ZOE">
-                                <color key="backgroundColor" red="0.1515019945610793" green="0.19448707321825648" blue="0.55283402420000005" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6s-s0-Ff4">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="eDT-Oq-3eJ"/>
+                                    <constraint firstAttribute="height" constant="40" id="9tI-GT-8tl"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <color key="tintColor" red="0.47244476149999998" green="0.64907771999999997" blue="0.72532684950000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button after localization">
-                                    <color key="titleColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Rules" backgroundImage="myLightGrayButton.png">
+                                    <color key="titleColor" red="0.1515019946" green="0.1944870732" blue="0.55283402420000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azG-UW-ZOE">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="9Hg-4M-hDB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Button after localization" backgroundImage="myButton.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.38937255539999999" green="0.55283402420000005" blue="0.45173108099999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Q6s-s0-Ff4" firstAttribute="leading" secondItem="MgC-cW-QDK" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="2kO-DB-qn4"/>
+                            <constraint firstItem="Q6s-s0-Ff4" firstAttribute="top" secondItem="MgC-cW-QDK" secondAttribute="top" constant="147" id="5vg-ba-oEb"/>
                             <constraint firstAttribute="trailing" secondItem="cdP-ec-Bsu" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="91e-Jn-zF2"/>
-                            <constraint firstAttribute="trailing" secondItem="azG-UW-ZOE" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Kay-z0-NPr"/>
-                            <constraint firstAttribute="bottom" secondItem="Q6s-s0-Ff4" secondAttribute="bottom" constant="191" type="user" id="Msm-lu-kDW"/>
-                            <constraint firstAttribute="bottom" secondItem="cdP-ec-Bsu" secondAttribute="bottom" constant="104" id="Nff-Zp-obI"/>
+                            <constraint firstItem="cdP-ec-Bsu" firstAttribute="top" secondItem="MgC-cW-QDK" secondAttribute="top" constant="243" id="EJ5-tU-XRx"/>
                             <constraint firstItem="azG-UW-ZOE" firstAttribute="top" secondItem="MgC-cW-QDK" secondAttribute="top" priority="81" constant="160" type="user" id="Nkb-Qi-Z0T"/>
+                            <constraint firstItem="azG-UW-ZOE" firstAttribute="top" secondItem="MgC-cW-QDK" secondAttribute="top" constant="70" id="Orm-Ad-JDf"/>
                             <constraint firstAttribute="trailing" secondItem="Q6s-s0-Ff4" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="dGF-dB-1QL"/>
-                            <constraint firstItem="Q6s-s0-Ff4" firstAttribute="top" secondItem="azG-UW-ZOE" secondAttribute="bottom" constant="71" type="user" id="gSk-Ok-yoM"/>
                             <constraint firstItem="cdP-ec-Bsu" firstAttribute="leading" secondItem="MgC-cW-QDK" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="n8f-D2-yYB"/>
                             <constraint firstItem="azG-UW-ZOE" firstAttribute="leading" secondItem="MgC-cW-QDK" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="qtR-gD-QPV"/>
                         </constraints>
@@ -68,6 +71,9 @@
                     <navigationItem key="navigationItem" title="screetch" id="gQl-C8-yV2"/>
                     <connections>
                         <outlet property="allButtons" destination="cdP-ec-Bsu" id="Vq6-Ti-kj4"/>
+                        <outlet property="middleButton" destination="Q6s-s0-Ff4" id="8nv-ul-BiZ"/>
+                        <outlet property="playButton" destination="cdP-ec-Bsu" id="yxK-FV-djH"/>
+                        <outlet property="topButton" destination="azG-UW-ZOE" id="Pdx-gq-Vto"/>
                         <outlet property="topNavigationBarItem" destination="gQl-C8-yV2" id="scx-tq-3iW"/>
                     </connections>
                 </viewController>
@@ -80,7 +86,7 @@
             <objects>
                 <viewController id="2" customClass="scratchPictureViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTw-0l-FgP">
@@ -131,6 +137,11 @@
             <point key="canvasLocation" x="-153" y="93"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="myButton.png" width="280" height="40"/>
+        <image name="myGrayButton.png" width="280" height="40"/>
+        <image name="myLightGrayButton.png" width="280" height="40"/>
+    </resources>
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -139,6 +150,9 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/menuViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="allButtons" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="middleButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="topButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="topNavigationBarItem" candidateClass="UINavigationItem"/>
             </relationships>
         </class>
@@ -153,6 +167,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>
