@@ -515,6 +515,9 @@
 {
 
     [super viewDidLoad];
+    UIImage *bgImage = [UIImage imageNamed:@"backGroundGradient.png"];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:bgImage]];
+    
     _temperatureMin.delegate = self;
     _temperatureMax.delegate = self;
     _pressureField.delegate = self;
