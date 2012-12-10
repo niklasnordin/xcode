@@ -997,7 +997,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Dp1-zj-rI1" firstAttribute="leading" secondItem="qyO-8r-T3T" secondAttribute="leading" type="default" id="WI2-Cz-mPF"/>
                             <constraint firstItem="Dp1-zj-rI1" firstAttribute="top" secondItem="qyO-8r-T3T" secondAttribute="top" type="default" id="cwF-Ay-vaN"/>
