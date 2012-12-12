@@ -51,6 +51,7 @@
     [_functionNames addObject:[pengRobinson name]];
     [_functionNames addObject:[pengRobinsonLiquid name]];
     [_functionNames addObject:[pengRobinsonVapour name]];
+    [_functionNames addObject:[pengRobinsonStryjekVera name]];
     
     [_functionNames addObject:[ancillary_1 name]];
     [_functionNames addObject:[ancillary_2 name]];

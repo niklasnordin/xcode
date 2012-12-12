@@ -29,6 +29,7 @@
 		612EA23B16779E4100E722AE /* plotButtonSeeThru.png in Resources */ = {isa = PBXBuildFile; fileRef = 612EA23A16779E4100E722AE /* plotButtonSeeThru.png */; };
 		612EA23D16779E5B00E722AE /* seeThru_35.png in Resources */ = {isa = PBXBuildFile; fileRef = 612EA23C16779E5A00E722AE /* seeThru_35.png */; };
 		612EA23F16779F3E00E722AE /* backGroundGradient7.png in Resources */ = {isa = PBXBuildFile; fileRef = 612EA23E16779F3E00E722AE /* backGroundGradient7.png */; };
+		612EA2421678DD1A00E722AE /* pengRobinsonStryjekVera.m in Sources */ = {isa = PBXBuildFile; fileRef = 612EA2411678DD1A00E722AE /* pengRobinsonStryjekVera.m */; };
 		612EF27D160A286200D951E9 /* boilingTemperature.m in Sources */ = {isa = PBXBuildFile; fileRef = 612EF27C160A286200D951E9 /* boilingTemperature.m */; };
 		6139E68016285F4C00954BCF /* iapws97_4.m in Sources */ = {isa = PBXBuildFile; fileRef = 6139E67F16285F4C00954BCF /* iapws97_4.m */; };
 		6139E6831628609C00954BCF /* iapws97_5.m in Sources */ = {isa = PBXBuildFile; fileRef = 6139E6821628609C00954BCF /* iapws97_5.m */; };
@@ -204,6 +205,8 @@
 		612EA23A16779E4100E722AE /* plotButtonSeeThru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plotButtonSeeThru.png; sourceTree = "<group>"; };
 		612EA23C16779E5A00E722AE /* seeThru_35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seeThru_35.png; sourceTree = "<group>"; };
 		612EA23E16779F3E00E722AE /* backGroundGradient7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backGroundGradient7.png; sourceTree = "<group>"; };
+		612EA2401678DD1A00E722AE /* pengRobinsonStryjekVera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pengRobinsonStryjekVera.h; sourceTree = "<group>"; };
+		612EA2411678DD1A00E722AE /* pengRobinsonStryjekVera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pengRobinsonStryjekVera.m; sourceTree = "<group>"; };
 		612EF27B160A286200D951E9 /* boilingTemperature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boilingTemperature.h; sourceTree = "<group>"; };
 		612EF27C160A286200D951E9 /* boilingTemperature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = boilingTemperature.m; sourceTree = "<group>"; };
 		6139E67E16285F4C00954BCF /* iapws97_4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iapws97_4.h; sourceTree = "<group>"; };
@@ -443,6 +446,8 @@
 				61EB3D7115E1064D009826F2 /* pengRobinsonLiquid.m */,
 				6139E6871629905500954BCF /* pengRobinsonVapour.h */,
 				6139E6881629905500954BCF /* pengRobinsonVapour.m */,
+				612EA2401678DD1A00E722AE /* pengRobinsonStryjekVera.h */,
+				612EA2411678DD1A00E722AE /* pengRobinsonStryjekVera.m */,
 			);
 			name = eos;
 			sourceTree = "<group>";
@@ -967,6 +972,7 @@
 				61460C28163C7CB700A1D1EE /* iapws97_cv.m in Sources */,
 				61460C2B163C7CD100A1D1EE /* iapws97_w.m in Sources */,
 				610A85D9164FFFF300A0618B /* soaveRedlichKwong.m in Sources */,
+				612EA2421678DD1A00E722AE /* pengRobinsonStryjekVera.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
