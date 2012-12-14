@@ -28,7 +28,6 @@
 		612EA23916779D8D00E722AE /* menu_35.png in Resources */ = {isa = PBXBuildFile; fileRef = 612EA23816779D8D00E722AE /* menu_35.png */; };
 		612EA23B16779E4100E722AE /* plotButtonSeeThru.png in Resources */ = {isa = PBXBuildFile; fileRef = 612EA23A16779E4100E722AE /* plotButtonSeeThru.png */; };
 		612EA23D16779E5B00E722AE /* seeThru_35.png in Resources */ = {isa = PBXBuildFile; fileRef = 612EA23C16779E5A00E722AE /* seeThru_35.png */; };
-		612EA23F16779F3E00E722AE /* backGroundGradient7.png in Resources */ = {isa = PBXBuildFile; fileRef = 612EA23E16779F3E00E722AE /* backGroundGradient7.png */; };
 		612EA2421678DD1A00E722AE /* pengRobinsonStryjekVera.m in Sources */ = {isa = PBXBuildFile; fileRef = 612EA2411678DD1A00E722AE /* pengRobinsonStryjekVera.m */; };
 		612EF27D160A286200D951E9 /* boilingTemperature.m in Sources */ = {isa = PBXBuildFile; fileRef = 612EF27C160A286200D951E9 /* boilingTemperature.m */; };
 		6139E68016285F4C00954BCF /* iapws97_4.m in Sources */ = {isa = PBXBuildFile; fileRef = 6139E67F16285F4C00954BCF /* iapws97_4.m */; };
@@ -45,6 +44,7 @@
 		6139E6B21629F5B100954BCF /* pengRobinsonLiquid.tex in Resources */ = {isa = PBXBuildFile; fileRef = 6139E6B11629F5B100954BCF /* pengRobinsonLiquid.tex */; };
 		6139E6B41629F5BA00954BCF /* pengRobinsonVapour.tex in Resources */ = {isa = PBXBuildFile; fileRef = 6139E6B31629F5BA00954BCF /* pengRobinsonVapour.tex */; };
 		6139E6B7162B200600954BCF /* iapws97_rho.m in Sources */ = {isa = PBXBuildFile; fileRef = 6139E6B6162B200500954BCF /* iapws97_rho.m */; };
+		614532D8167B7B77008E9727 /* backGroundGradient7.png in Resources */ = {isa = PBXBuildFile; fileRef = 614532D7167B7B77008E9727 /* backGroundGradient7.png */; };
 		61460BFE163AEFAF00A1D1EE /* iapws97_1.tex in Resources */ = {isa = PBXBuildFile; fileRef = 61460BFD163AEFAF00A1D1EE /* iapws97_1.tex */; };
 		61460C01163AEFC700A1D1EE /* iapws97_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 61460C00163AEFC700A1D1EE /* iapws97_1.png */; };
 		61460C03163AFC5300A1D1EE /* iapws97_2.tex in Resources */ = {isa = PBXBuildFile; fileRef = 61460C02163AFC5300A1D1EE /* iapws97_2.tex */; };
@@ -204,7 +204,6 @@
 		612EA23816779D8D00E722AE /* menu_35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_35.png; sourceTree = "<group>"; };
 		612EA23A16779E4100E722AE /* plotButtonSeeThru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plotButtonSeeThru.png; sourceTree = "<group>"; };
 		612EA23C16779E5A00E722AE /* seeThru_35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seeThru_35.png; sourceTree = "<group>"; };
-		612EA23E16779F3E00E722AE /* backGroundGradient7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backGroundGradient7.png; sourceTree = "<group>"; };
 		612EA2401678DD1A00E722AE /* pengRobinsonStryjekVera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pengRobinsonStryjekVera.h; sourceTree = "<group>"; };
 		612EA2411678DD1A00E722AE /* pengRobinsonStryjekVera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pengRobinsonStryjekVera.m; sourceTree = "<group>"; };
 		612EF27B160A286200D951E9 /* boilingTemperature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boilingTemperature.h; sourceTree = "<group>"; };
@@ -229,6 +228,7 @@
 		6139E6B31629F5BA00954BCF /* pengRobinsonVapour.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pengRobinsonVapour.tex; sourceTree = "<group>"; };
 		6139E6B5162B200500954BCF /* iapws97_rho.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iapws97_rho.h; sourceTree = "<group>"; };
 		6139E6B6162B200500954BCF /* iapws97_rho.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iapws97_rho.m; sourceTree = "<group>"; };
+		614532D7167B7B77008E9727 /* backGroundGradient7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backGroundGradient7.png; sourceTree = "<group>"; };
 		61460BFD163AEFAF00A1D1EE /* iapws97_1.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iapws97_1.tex; sourceTree = "<group>"; };
 		61460C00163AEFC700A1D1EE /* iapws97_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iapws97_1.png; sourceTree = "<group>"; };
 		61460C02163AFC5300A1D1EE /* iapws97_2.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iapws97_2.tex; sourceTree = "<group>"; };
@@ -545,7 +545,7 @@
 		6164629015B7F705006B703D /* polymorph */ = {
 			isa = PBXGroup;
 			children = (
-				612EA23E16779F3E00E722AE /* backGroundGradient7.png */,
+				614532D7167B7B77008E9727 /* backGroundGradient7.png */,
 				612EA23A16779E4100E722AE /* plotButtonSeeThru.png */,
 				612EA23C16779E5A00E722AE /* seeThru_35.png */,
 				612EA23816779D8D00E722AE /* menu_35.png */,
@@ -898,7 +898,7 @@
 				612EA23916779D8D00E722AE /* menu_35.png in Resources */,
 				612EA23B16779E4100E722AE /* plotButtonSeeThru.png in Resources */,
 				612EA23D16779E5B00E722AE /* seeThru_35.png in Resources */,
-				612EA23F16779F3E00E722AE /* backGroundGradient7.png in Resources */,
+				614532D8167B7B77008E9727 /* backGroundGradient7.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

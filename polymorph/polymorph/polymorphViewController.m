@@ -518,6 +518,7 @@
     [super viewDidLoad];
     UIImage *bgImage = [UIImage imageNamed:@"backGroundGradient7.png"];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:bgImage]];
+    
     [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
     _temperatureMin.delegate = self;
     _temperatureMax.delegate = self;

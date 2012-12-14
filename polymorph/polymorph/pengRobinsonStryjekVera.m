@@ -43,7 +43,7 @@ static NSString *name = @"pengRobinsonStryjekVera";
     _mw = [[A3dict objectForKey:@"Mw"] doubleValue];
     
     NSDictionary *A4dict = [array objectAtIndex:4];
-    _mw = [[A4dict objectForKey:@"kappa_1"] doubleValue];
+    _kappa1 = [[A4dict objectForKey:@"kappa_1"] doubleValue];
     
     return self;
 }
@@ -65,8 +65,9 @@ static NSString *name = @"pengRobinsonStryjekVera";
     double w3 = w2*_omega;
     double k0 = 0.378893 + 1.4897153*_omega - 0.17131848*w2 + 0.0196554*w3;
     double k1 = _kappa1*(1.0 + sqrt(Tr))*(0.7 - Tr);
-    double alpha = k0 + k1;
-    
+    double kappa = k0 + k1;
+    double alpha = pow(1.0 + kappa*(1.0-sqrt(Tr)), 2.0);
+
     double capA = aPR*alpha*p/(Rgas*Rgas*T*T);
     double capB = bPR*p/(Rgas*T);
     

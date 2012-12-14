@@ -167,6 +167,16 @@
     //NSString *msg = [NSString stringWithFormat:@"A%d",indexPath.row];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter coefficient value for" message:name delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
     
+    //NSArray *subviews = [alert subviews];
+    //NSLog(@"[subviews count] = %d",[subviews count]);
+    //UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:1.0];
+    //[[[alert subviews] objectAtIndex:0] setBackgroundColor:[UIColor darkGrayColor]];
+    //[[[alert subviews] objectAtIndex:1] setBackgroundColor:[UIColor darkGrayColor]];
+    //[[[alert subviews] objectAtIndex:2] setBackgroundColor:darkRed];
+    //[[[alert subviews] objectAtIndex:3] setBackgroundColor:[UIColor darkGrayColor]];
+    //[alert setBackgroundColor:[UIColor darkGrayColor]];
+    //[[alert viewForBaselineLayout] setBackgroundColor:[UIColor darkGrayColor]];
+
     alert.delegate = self;
     [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
     UITextField *tf = [alert textFieldAtIndex:0];
