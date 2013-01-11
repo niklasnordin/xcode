@@ -917,7 +917,6 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.99999999999999989" contentMode="left" text="l" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Gvm-1K-qSQ">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="170" id="HlH-xE-fOR"/>
-                                    <constraint firstAttribute="height" constant="21" id="unN-Ek-4oU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -953,18 +952,19 @@
                         <color key="backgroundColor" red="0.53725490196078429" green="0.61960784313725492" blue="0.51764705882352935" alpha="1" colorSpace="deviceRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="NUq-EG-QGo" firstAttribute="baseline" secondItem="mRB-zz-V6O" secondAttribute="baseline" type="default" id="BRh-5m-0zk"/>
-                            <constraint firstItem="mRB-zz-V6O" firstAttribute="trailing" secondItem="7Ae-Ja-O6L" secondAttribute="trailing" type="default" id="I4x-Xf-HL4"/>
+                            <constraint firstItem="NUq-EG-QGo" firstAttribute="leading" secondItem="7Ae-Ja-O6L" secondAttribute="leading" constant="1" id="BRf-fx-ssy"/>
+                            <constraint firstItem="mRB-zz-V6O" firstAttribute="top" secondItem="Gvm-1K-qSQ" secondAttribute="top" type="default" id="IjE-04-aqK"/>
                             <constraint firstItem="Zrm-bP-Zfy" firstAttribute="leading" secondItem="kDb-K1-PU4" secondAttribute="leading" type="default" id="LO6-ag-GUI"/>
+                            <constraint firstAttribute="centerY" secondItem="NUq-EG-QGo" secondAttribute="centerY" type="user" id="O5p-bY-xEp"/>
+                            <constraint firstAttribute="trailing" secondItem="mRB-zz-V6O" secondAttribute="trailing" constant="1" id="XOm-Z0-G3f"/>
                             <constraint firstItem="kDb-K1-PU4" firstAttribute="top" secondItem="7Ae-Ja-O6L" secondAttribute="top" type="default" id="a1v-sj-eRk"/>
-                            <constraint firstItem="NUq-EG-QGo" firstAttribute="top" secondItem="7Ae-Ja-O6L" secondAttribute="top" constant="241" id="bFX-3t-COB"/>
-                            <constraint firstItem="Gvm-1K-qSQ" firstAttribute="top" secondItem="7Ae-Ja-O6L" secondAttribute="top" constant="197" id="hz1-Sw-JaL"/>
+                            <constraint firstItem="NUq-EG-QGo" firstAttribute="bottom" secondItem="Gvm-1K-qSQ" secondAttribute="bottom" type="default" id="jIt-R4-w61"/>
                             <constraint firstItem="kDb-K1-PU4" firstAttribute="trailing" secondItem="Zrm-bP-Zfy" secondAttribute="trailing" type="default" id="kQD-TZ-xHv"/>
-                            <constraint firstItem="NUq-EG-QGo" firstAttribute="leading" secondItem="7Ae-Ja-O6L" secondAttribute="leading" type="default" id="kUk-dB-PRg"/>
+                            <constraint firstItem="NUq-EG-QGo" firstAttribute="top" secondItem="Gvm-1K-qSQ" secondAttribute="top" type="default" id="lJT-EM-Oln"/>
                             <constraint firstItem="Zrm-bP-Zfy" firstAttribute="bottom" secondItem="7Ae-Ja-O6L" secondAttribute="bottom" type="default" id="nxq-Ml-PRs"/>
+                            <constraint firstItem="mRB-zz-V6O" firstAttribute="baseline" secondItem="NUq-EG-QGo" secondAttribute="baseline" type="default" id="olR-A5-xJw"/>
                             <constraint firstItem="kDb-K1-PU4" firstAttribute="centerX" secondItem="Gvm-1K-qSQ" secondAttribute="centerX" type="default" id="sCr-qQ-ex0"/>
-                            <constraint firstItem="mRB-zz-V6O" firstAttribute="top" secondItem="NUq-EG-QGo" secondAttribute="top" type="default" id="t4O-qm-DfC"/>
-                            <constraint firstItem="Zrm-bP-Zfy" firstAttribute="centerX" secondItem="7Ae-Ja-O6L" secondAttribute="centerX" type="default" id="xQA-Tk-oej"/>
+                            <constraint firstItem="Gvm-1K-qSQ" firstAttribute="centerX" secondItem="7Ae-Ja-O6L" secondAttribute="centerX" type="default" id="w49-76-lQ9"/>
                         </constraints>
                         <connections>
                             <outlet property="xMaxLabel" destination="mRB-zz-V6O" id="eSZ-1Y-UFY"/>
