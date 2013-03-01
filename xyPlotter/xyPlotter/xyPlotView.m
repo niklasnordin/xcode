@@ -10,11 +10,17 @@
 
 @implementation xyPlotView
 
+- (void)setup
+{
+    // Do the setup
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        [self setup];
     }
     return self;
 }

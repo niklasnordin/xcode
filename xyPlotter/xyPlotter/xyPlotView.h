@@ -13,4 +13,9 @@
 
 @property id <xyPlotDataSource> dataSource;
 
+-(void)setup;
+-(void)pan:(UIPanGestureRecognizer *)gesture;
+-(void)pinch:(UIPinchGestureRecognizer *)gesture;
+-(void)tap:(UITapGestureRecognizer *)gesture;
+
 @end
