@@ -14,10 +14,20 @@
 
 @implementation xyPlotterViewController
 
+-(void)setup
+{
+    NSLog(@"controller setup");
+    _function = [[dummyFunction alloc] init];
+    _plotView.delegate = _function;
+    _plotView.dataSource = _function;
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [self setup];
 }
 
 - (void)didReceiveMemoryWarning

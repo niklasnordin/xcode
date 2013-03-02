@@ -20,6 +20,7 @@
 		611F547D16E1129C00BA97FB /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 611F547B16E1129C00BA97FB /* MainStoryboard_iPad.storyboard */; };
 		611F548016E1129C00BA97FB /* xyPlotterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 611F547F16E1129C00BA97FB /* xyPlotterViewController.m */; };
 		611F548916E1150B00BA97FB /* xyPlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 611F548816E1150B00BA97FB /* xyPlotView.m */; };
+		616D522B16E221620070DD01 /* dummyFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 616D522A16E221620070DD01 /* dummyFunction.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		611F548716E1150B00BA97FB /* xyPlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xyPlotView.h; sourceTree = "<group>"; };
 		611F548816E1150B00BA97FB /* xyPlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xyPlotView.m; sourceTree = "<group>"; };
 		616D522816E1EEC20070DD01 /* xyPlotDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xyPlotDelegate.h; sourceTree = "<group>"; };
+		616D522916E221620070DD01 /* dummyFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dummyFunction.h; sourceTree = "<group>"; };
+		616D522A16E221620070DD01 /* dummyFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dummyFunction.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +100,11 @@
 				616D522816E1EEC20070DD01 /* xyPlotDelegate.h */,
 				611F547B16E1129C00BA97FB /* MainStoryboard_iPad.storyboard */,
 				611F547E16E1129C00BA97FB /* xyPlotterViewController.h */,
+				611F547F16E1129C00BA97FB /* xyPlotterViewController.m */,
 				611F548716E1150B00BA97FB /* xyPlotView.h */,
 				611F548816E1150B00BA97FB /* xyPlotView.m */,
-				611F547F16E1129C00BA97FB /* xyPlotterViewController.m */,
+				616D522916E221620070DD01 /* dummyFunction.h */,
+				616D522A16E221620070DD01 /* dummyFunction.m */,
 				611F546716E1129C00BA97FB /* Supporting Files */,
 			);
 			path = xyPlotter;
@@ -191,6 +196,7 @@
 				611F547116E1129C00BA97FB /* xyPlotterAppDelegate.m in Sources */,
 				611F548016E1129C00BA97FB /* xyPlotterViewController.m in Sources */,
 				611F548916E1150B00BA97FB /* xyPlotView.m in Sources */,
+				616D522B16E221620070DD01 /* dummyFunction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

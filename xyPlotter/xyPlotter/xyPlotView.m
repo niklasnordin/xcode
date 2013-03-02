@@ -121,15 +121,15 @@
     double yTickSpace = pow(10.0, jlog);
     int jStart = yMin/yTickSpace;
     int jEnd = yMax/yTickSpace + 1;
-    xi = 0.0;
+    p.x = 0.0;
     for (int j=jStart; j<jEnd; j++)
     {
-        yi = j*yTickSpace;
-        /*
-        CGPoint p0 = [diagramView mapPoint:self X:xi Y:yi];
-        CGContextMoveToPoint(context, yAxisStart.x - tickWidth.x, p0.y);
-        CGContextAddLineToPoint(context, yAxisStart.x + tickWidth.x, p0.y);
-         */
+        p.y = j*yTickSpace;
+        
+        CGPoint p0 = [self mapPointToView:p];
+        CGContextMoveToPoint(context, yAxisStart.x - TICKWIDTH, p0.y);
+        CGContextAddLineToPoint(context, yAxisStart.x + TICKWIDTH, p0.y);
+        
     }
     
     CGContextStrokePath(context);
@@ -245,6 +245,9 @@
     // Drawing code
     CGContextRef context = UIGraphicsGetCurrentContext();
     [self drawCoordinateSystem:context];
+    CGFloat xMin = [self.delegate xMin];
+    CGFloat y = [self.dataSource yForX:xMin];
+    NSLog(@"x=%g, y=%g",xMin,y);
 }
 
 @end

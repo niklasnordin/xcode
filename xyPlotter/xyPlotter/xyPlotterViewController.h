@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "xyPlotView.h"
+#import "dummyFunction.h"
 
 @interface xyPlotterViewController : UIViewController
 
+@property (strong, nonatomic) dummyFunction *function;
 @property (weak, nonatomic) IBOutlet xyPlotView *plotView;
+
+-(void)setup;
 
 @end
