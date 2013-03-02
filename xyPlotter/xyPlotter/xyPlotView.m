@@ -13,6 +13,13 @@
 - (void)setup
 {
     // Do the setup
+    [self addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)]];
+    [self addGestureRecognizer:[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinch:)]];
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+    tapRecognizer.numberOfTapsRequired = 2;
+    [self addGestureRecognizer:tapRecognizer];
+
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -23,6 +30,21 @@
         [self setup];
     }
     return self;
+}
+
+-(void)pan:(UIPanGestureRecognizer *)gesture;
+{
+    
+}
+
+-(void)pinch:(UIPinchGestureRecognizer *)gesture
+{
+    
+}
+
+-(void)tap:(UITapGestureRecognizer *)gesture
+{
+    
 }
 
 /*
