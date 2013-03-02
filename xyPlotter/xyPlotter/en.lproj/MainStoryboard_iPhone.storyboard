@@ -8,34 +8,17 @@
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="xyPlotterViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3">
+                    <view key="view" contentMode="scaleToFill" id="3" customClass="xyPlotView">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1Q-TC-orL" customClass="xyPlotView">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="K1Q-TC-orL" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="7gx-hq-Gye"/>
-                            <constraint firstItem="K1Q-TC-orL" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="CnM-FT-THX"/>
-                            <constraint firstItem="K1Q-TC-orL" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="Ooy-la-zBY"/>
-                            <constraint firstItem="K1Q-TC-orL" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="mPZ-5z-8HV"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="plotView" destination="K1Q-TC-orL" id="u8h-zc-wfi"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
     <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
         <class className="xyPlotView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/xyPlotView.h"/>
         </class>

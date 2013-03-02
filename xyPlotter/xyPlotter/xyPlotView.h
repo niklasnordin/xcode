@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "xyPlotDataSource.h"
+#import "xyPlotDelegate.h"
 
 @interface xyPlotView : UIView
 
 @property id <xyPlotDataSource> dataSource;
+@property id <xyPlotDelegate> delegate;
+
+-(CGPoint) mapPointToView:(CGPoint)point;
+-(CGPoint) mapViewToPoint:(CGPoint)point;
 
 -(void)setup;
 -(void)pan:(UIPanGestureRecognizer *)gesture;
