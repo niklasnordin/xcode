@@ -8,11 +8,13 @@
 
 #import "xyPlotView.h"
 
-#define NX 320 // 640
+//#define NX 320 // 640
 #define TICKWIDTH 5.0
 
 @interface xyPlotView ()
+
 -(void)drawCoordinateSystem:(CGContextRef)context;
+
 @end
 
 @implementation xyPlotView
@@ -44,6 +46,11 @@
         [self setup];
     }
     return self;
+}
+
+-(int)Nx
+{
+    return self.bounds.size.width;
 }
 
 -(void)pan:(UIPanGestureRecognizer *)gesture;

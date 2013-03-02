@@ -15,6 +15,8 @@
 @property id <xyPlotDataSource> dataSource;
 @property id <xyPlotDelegate> delegate;
 
+-(int)Nx;
+
 -(CGPoint) mapPointToView:(CGPoint)point;
 -(CGPoint) mapViewToPoint:(CGPoint)point;
 
