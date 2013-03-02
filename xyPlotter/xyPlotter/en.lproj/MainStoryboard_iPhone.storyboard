@@ -24,11 +24,28 @@
                             <constraint firstItem="K1Q-TC-orL" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="mPZ-5z-8HV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="plotView" destination="K1Q-TC-orL" id="u8h-zc-wfi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="xyPlotView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/xyPlotView.h"/>
+        </class>
+        <class className="xyPlotterViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/xyPlotterViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="plotView" candidateClass="xyPlotView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

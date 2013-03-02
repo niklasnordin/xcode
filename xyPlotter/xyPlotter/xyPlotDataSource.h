@@ -10,6 +10,6 @@
 
 @protocol xyPlotDataSource <NSObject>
 
-- double (nonatomic) yForX:(double)x;
+-(double) yForX:(double)x;
 
 @end

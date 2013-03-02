@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "xyPlotView.h"
 
 @interface xyPlotterViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet xyPlotView *plotView;
 
 @end

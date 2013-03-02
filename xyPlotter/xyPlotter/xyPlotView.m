@@ -13,6 +13,8 @@
 - (void)setup
 {
     // Do the setup
+    self.contentMode = UIViewContentModeRedraw;
+
     [self addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)]];
     [self addGestureRecognizer:[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinch:)]];
     
@@ -20,6 +22,11 @@
     tapRecognizer.numberOfTapsRequired = 2;
     [self addGestureRecognizer:tapRecognizer];
 
+}
+
+-(void)awakeFromNib
+{
+    [self setup];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -34,17 +41,17 @@
 
 -(void)pan:(UIPanGestureRecognizer *)gesture;
 {
-    
+    //NSLog(@"pan");
 }
 
 -(void)pinch:(UIPinchGestureRecognizer *)gesture
 {
-    
+    //NSLog(@"pinch");
 }
 
 -(void)tap:(UITapGestureRecognizer *)gesture
 {
-    
+    //NSLog(@"tap");
 }
 
 /*
