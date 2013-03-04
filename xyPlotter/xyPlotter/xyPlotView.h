@@ -16,9 +16,7 @@
 @property id <xyPlotDelegate> delegate;
 
 -(int)Nx;
-
--(CGPoint) mapPointToView:(CGPoint)point;
--(CGPoint) mapViewToPoint:(CGPoint)point;
+@property (strong,nonatomic) NSMutableArray *xArray;
 
 -(void)setup;
 -(void)pan:(UIPanGestureRecognizer *)gesture;

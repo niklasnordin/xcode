@@ -16,7 +16,7 @@
 
 -(void)setup
 {
-    NSLog(@"controller setup");
+    //NSLog(@"controller setup");
     _function = [[dummyFunction alloc] init];
     _plotView.delegate = _function;
     _plotView.dataSource = _function;

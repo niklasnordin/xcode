@@ -12,8 +12,19 @@
 #define TICKWIDTH 5.0
 
 @interface xyPlotView ()
-
+-(void)startCalculation;
+-(void)calculateValues;
 -(void)drawCoordinateSystem:(CGContextRef)context;
+
+-(CGFloat) mapXToView:(CGFloat)x;
+-(CGFloat) mapYToView:(CGFloat)y;
+
+-(CGPoint) mapPointToView:(CGPoint)point;
+-(CGPoint) mapViewToPoint:(CGPoint)point;
+
+@property (nonatomic) int nPlottedValues;
+@property (strong,nonatomic) NSMutableArray *yArray;
+@property (strong,nonatomic) NSMutableArray *valueNeedsUpdate;
 
 @end
 
@@ -30,6 +41,15 @@
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
     tapRecognizer.numberOfTapsRequired = 2;
     [self addGestureRecognizer:tapRecognizer];
+
+    self.nPlottedValues = 0;
+    _xArray = [[NSMutableArray alloc] init];
+    _yArray = [[NSMutableArray alloc] init];
+    _valueNeedsUpdate = [[NSMutableArray alloc] init];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didRotate:)
+                                                 name:UIDeviceOrientationDidChangeNotification
+                                               object:nil];
 
 }
 
@@ -53,21 +73,97 @@
     return self.bounds.size.width;
 }
 
+-(void)setNPlottedValues:(int)nPlottedValues
+{
+    //NSLog(@"setNeedsDisplay");
+    _nPlottedValues = nPlottedValues;
+    [self setNeedsDisplay];
+}
+
 -(void)pan:(UIPanGestureRecognizer *)gesture;
 {
-    //NSLog(@"pan");
+    NSLog(@"pan");
 }
 
 -(void)pinch:(UIPinchGestureRecognizer *)gesture
 {
-    //NSLog(@"pinch");
+    NSLog(@"pinch");
 }
 
 -(void)tap:(UITapGestureRecognizer *)gesture
 {
-    //NSLog(@"tap");
+    NSLog(@"tap");
 }
 
+-(void)startCalculation
+{
+    if (self.nPlottedValues == 0)
+    {
+        CGFloat xMin = [self.delegate xMin];
+        CGFloat yFloat = [self.dataSource yForX:xMin];
+        
+        NSNumber *x = [[NSNumber alloc] initWithFloat:xMin];
+        NSNumber *y = [[NSNumber alloc] initWithFloat:yFloat];
+        NSNumber *c = [[NSNumber alloc] initWithBool:NO];
+        
+        if ([self.xArray count] > 0)
+        {
+            [self.xArray replaceObjectAtIndex:0 withObject:x];
+            [self.yArray replaceObjectAtIndex:0 withObject:y];
+            [self.valueNeedsUpdate replaceObjectAtIndex:0 withObject:c];
+            
+        }
+        else
+        {
+            [self.xArray addObject:x];
+            [self.yArray addObject:y];
+            [self.valueNeedsUpdate addObject:c];
+        }
+        self.nPlottedValues++;
+    }
+}
+
+-(void)calculateValues
+{
+    
+    int nx = [self Nx];
+    int np = self.nPlottedValues;
+    
+    //NSLog(@"np = %d, nx= %d",np, nx);
+    
+    if (np == 0)
+    {
+        [self startCalculation];
+    }
+    
+    if (np < nx)
+    {
+
+        CGFloat dx = [self.delegate xMax] - [self.delegate xMin];
+        CGFloat xv = [self.delegate xMin] + np*dx/(nx-1);
+        CGFloat yFloat = [self.dataSource yForX:xv];
+        
+        NSNumber *x = [[NSNumber alloc] initWithFloat:xv];
+        NSNumber *y = [[NSNumber alloc] initWithFloat:yFloat];
+        NSNumber *c = [[NSNumber alloc] initWithBool:NO];
+
+        //NSLog(@"1. np = %d, count=%d",np, [self.xArray count]);
+        if ([self.xArray count] > np)
+        {
+            [self.xArray replaceObjectAtIndex:np withObject:x];
+            [self.yArray replaceObjectAtIndex:np withObject:y];
+            [self.valueNeedsUpdate replaceObjectAtIndex:np withObject:c];
+        }
+        else
+        {
+            [self.xArray addObject:x];
+            [self.yArray addObject:y];
+            [self.valueNeedsUpdate addObject:c];
+        }
+        //NSLog(@"2. np = %d, count=%d",np, [self.xArray count]);
+        self.nPlottedValues = np+1;
+    }
+}
 
 -(void)drawCoordinateSystem:(CGContextRef)context
 {
@@ -103,6 +199,7 @@
     CGFloat xMax = [[self delegate] xMax];
     CGFloat yMin = [[self delegate] yMin];
     CGFloat yMax = [[self delegate] yMax];
+    
     // draw x-axis ticks
     CGFloat dx = xMax - xMin;
     CGFloat logDx = log10(dx);
@@ -114,12 +211,11 @@
     p.y = 0.0;
     for(int i=iStart; i<iEnd; i++)
     {
-        p.x = i*xTickSpace;
+        CGFloat x = i*xTickSpace;
+        CGFloat px = [self mapXToView:x];
         
-        CGPoint p0 = [self mapPointToView:p];
-        
-        CGContextMoveToPoint(context, p0.x, xAxisStart.y + TICKWIDTH);
-        CGContextAddLineToPoint(context, p0.x, xAxisStart.y - TICKWIDTH);
+        CGContextMoveToPoint(context, px, xAxisStart.y + TICKWIDTH);
+        CGContextAddLineToPoint(context, px, xAxisStart.y - TICKWIDTH);
     }
     
     // draw y-axis ticks
@@ -128,14 +224,13 @@
     double yTickSpace = pow(10.0, jlog);
     int jStart = yMin/yTickSpace;
     int jEnd = yMax/yTickSpace + 1;
-    p.x = 0.0;
+
     for (int j=jStart; j<jEnd; j++)
     {
-        p.y = j*yTickSpace;
-        
-        CGPoint p0 = [self mapPointToView:p];
-        CGContextMoveToPoint(context, yAxisStart.x - TICKWIDTH, p0.y);
-        CGContextAddLineToPoint(context, yAxisStart.x + TICKWIDTH, p0.y);
+        CGFloat y = j*yTickSpace;
+        CGFloat py = [self mapYToView:y];
+        CGContextMoveToPoint(context, yAxisStart.x - TICKWIDTH, py);
+        CGContextAddLineToPoint(context, yAxisStart.x + TICKWIDTH, py);
         
     }
     
@@ -207,35 +302,45 @@
      */
 }
 
--(CGPoint)mapPointToView:(CGPoint)point
+-(CGFloat) mapXToView:(CGFloat)x
 {
-    CGPoint p;
-    
+    CGFloat xMap = 0.0;
     CGFloat xMin = [[self delegate] xMin];
     CGFloat xMax = [[self delegate] xMax];
-    CGFloat yMin = [[self delegate] yMin];
-    CGFloat yMax = [[self delegate] yMax];
     
     CGFloat dx = xMax - xMin;
-    CGFloat dy = yMax - yMin;
     
     if (dx > 0)
     {
-        p.x = (point.x - xMin)*self.bounds.size.width/dx;
+        xMap = (x - xMin)*self.bounds.size.width/dx;
     }
-    else
-    {
-        p.x = 0.0;
-    }
+    
+    return xMap;
+}
+
+- (CGFloat) mapYToView:(CGFloat)y
+{
+    CGFloat yMap = 0.0;
+    CGFloat yMin = [[self delegate] yMin];
+    CGFloat yMax = [[self delegate] yMax];
+    
+    CGFloat dy = yMax - yMin;
     
     if (dy > 0)
     {
-        p.y = self.bounds.size.height - (point.y - yMin)*self.bounds.size.height/dy;
+        yMap = self.bounds.size.height - (y - yMin)*self.bounds.size.height/dy;
     }
-    else
-    {
-        p.y = 0.0;
-    }
+    
+    return yMap;
+}
+
+-(CGPoint) mapPointToView:(CGPoint)point
+{
+    CGPoint p;
+    
+    p.x = [self mapXToView:point.x];
+    p.y = [self mapYToView:point.y];
+    
     return p;
 }
 
@@ -249,12 +354,51 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
+    
+    [self calculateValues];
+    
     // Drawing code
     CGContextRef context = UIGraphicsGetCurrentContext();
     [self drawCoordinateSystem:context];
-    CGFloat xMin = [self.delegate xMin];
-    CGFloat y = [self.dataSource yForX:xMin];
-    NSLog(@"x=%g, y=%g",xMin,y);
+    
+    for (int i=1; i<[self Nx]; i++)
+    {
+        if ([self.xArray count] < [self Nx])
+        {
+            [self calculateValues];
+        }
+        
+        CGFloat x0 = [self mapXToView:[[self.xArray objectAtIndex:i-1] floatValue]];
+        CGFloat x1 = [self mapXToView:[[self.xArray objectAtIndex:i] floatValue]];
+        CGFloat y0 = [self mapYToView:[[self.yArray objectAtIndex:i-1] floatValue]];
+        CGFloat y1 = [self mapYToView:[[self.yArray objectAtIndex:i] floatValue]];
+        CGContextMoveToPoint(context, x0, y0);
+        CGContextAddLineToPoint(context, x1, y1);
+    }
+    
+    CGContextStrokePath(context);
+
 }
+
+
+- (void) didRotate:(NSNotification *)notification
+{
+    //NSLog(@"didRotate");
+    //NSLog(@"width = %d",[self Nx]);
+    /*
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    
+    if (orientation == UIDeviceOrientationLandscapeLeft)
+    {
+        NSLog(@"Landscape Left!");
+    }*/
+    self.nPlottedValues = 0;
+    [self.xArray removeAllObjects];
+    [self.yArray removeAllObjects];
+    [self.valueNeedsUpdate removeAllObjects];
+
+}
+
+//-(void)viewDidLoad
 
 @end

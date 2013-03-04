@@ -13,28 +13,29 @@
 
 -(CGFloat) xMin
 {
-    return -3.0;
+    return -5.0;
 }
 
 -(CGFloat) xMax
 {
-    return 3.0;
+    return 5.0;
     
 }
 
 -(CGFloat) yMin
 {
-    return -1.0;
+    return -2.0;
 }
 
 -(CGFloat) yMax
 {
-    return 1.0;
+    return 2.0;
 }
 
 -(double) yForX:(double)x
 {
-    NSLog(@"calling function");
+    //NSLog(@"calling function");
+    usleep(100);
     return sin(x);
 }
 
