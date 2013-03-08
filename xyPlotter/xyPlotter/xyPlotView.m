@@ -387,14 +387,12 @@
 -(CGFloat) mapXToView:(CGFloat)x
 {
     CGFloat xMap = 0.0;
-    CGFloat xMin = [[self delegate] xMin];
-    CGFloat xMax = [[self delegate] xMax];
     
-    CGFloat dx = xMax - xMin;
+    CGFloat dx = self.xMax - self.xMin;
     
     if (dx > 0)
     {
-        xMap = (x - xMin)*self.bounds.size.width/dx;
+        xMap = (x - self.xMin)*self.bounds.size.width/dx;
     }
     
     return xMap;
@@ -403,14 +401,12 @@
 - (CGFloat) mapYToView:(CGFloat)y
 {
     CGFloat yMap = 0.0;
-    CGFloat yMin = [[self delegate] yMin];
-    CGFloat yMax = [[self delegate] yMax];
     
-    CGFloat dy = yMax - yMin;
+    CGFloat dy = self.yMax - self.yMin;
     
     if (dy > 0)
     {
-        yMap = self.bounds.size.height - (y - yMin)*self.bounds.size.height/dy;
+        yMap = self.bounds.size.height - (y - self.yMin)*self.bounds.size.height/dy;
     }
     
     return yMap;
