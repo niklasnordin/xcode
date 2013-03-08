@@ -23,6 +23,7 @@
 -(void)drawCoordinateSystem:(CGContextRef)context;
 -(void)checkRange;
 -(void)clearArrays;
+-(void)fitToView;
 
 -(CGFloat) mapXToView:(CGFloat)x;
 -(CGFloat) mapYToView:(CGFloat)y;
@@ -81,6 +82,31 @@
     [self setNeedsDisplay];
 }
 
+-(void)fitToView
+{
+    float yMin = 1.0e+10;
+    float yMax = -1.0e+10;
+    
+    for (int i=0; i<[self.yArray count]; i++)
+    {
+        float yi = [[self.yArray objectAtIndex:i] floatValue];
+        
+        if (yi < yMin) yMin = yi;
+        if (yi > yMax) yMax = yi;
+    }
+    self.yMin = yMin;
+    self.yMax = yMax;
+    
+    double diff = fabs(self.yMax - self.yMin);
+    
+    if (diff < 1.0e-15)
+    {
+        self.yMin -= 1.0e+1;
+        self.yMax += 1.0+1;
+    }   
+    
+}
+
 -(void)awakeFromNib
 {
     [self setup];
@@ -111,6 +137,7 @@
 
 -(void)checkRange
 {
+    /*
     double xLow = 0.0;
     if ([self.delegate validXMin] < self.xMin) xLow = [self.delegate validXMin];
     
@@ -134,7 +161,7 @@
         self.xMin -= delta;
         self.xMax -= delta;
     }
-
+*/
 }
 -(void)clearArrays
 {
@@ -146,7 +173,7 @@
 
 -(void)pan:(UIPanGestureRecognizer *)gesture;
 {
-    NSLog(@"pan");
+    //NSLog(@"pan");
     CGPoint pan;
     CGPoint zero;
     zero.x = 0.0;
@@ -176,12 +203,46 @@
 
 -(void)pinch:(UIPinchGestureRecognizer *)gesture
 {
-    NSLog(@"pinch");
+    //NSLog(@"pinch");
+    if
+    (
+        (gesture.state == UIGestureRecognizerStateChanged)
+      ||
+        (gesture.state == UIGestureRecognizerStateEnded)
+     )
+    {
+        CGFloat scale = gesture.scale;
+        if (scale != 1.0)
+        {
+
+            float xScale = self.xMax - self.xMin;
+            float yScale = self.yMax - self.yMin;
+            float newXmax = self.xMin + xScale/scale;
+            self.xMin = self.xMax - xScale/scale;
+            self.xMax = newXmax;
+            
+            float newYmax = self.yMin + yScale/scale;
+            self.yMin = self.yMax - yScale/scale;
+            self.yMax = newYmax;
+            
+            [self checkRange];
+            [self clearArrays];
+
+            [gesture setScale:1.0];
+        }
+    }
+    
 }
 
 -(void)tap:(UITapGestureRecognizer *)gesture
 {
-    NSLog(@"tap");
+    //NSLog(@"tap");
+    if (gesture.state == UIGestureRecognizerStateEnded)
+    {
+        [self fitToView];
+
+        [self setNeedsDisplay];
+    }
 }
 
 -(void)startCalculation
