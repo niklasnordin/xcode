@@ -10,11 +10,19 @@
 
 //#define NX 320 // 640
 #define TICKWIDTH 5.0
+#define MOVEXLABELS 10.0
 
 @interface xyPlotView ()
+
+@property (nonatomic) int nPlottedValues;
+@property (strong,nonatomic) NSMutableArray *yArray;
+@property (strong,nonatomic) NSMutableArray *valueNeedsUpdate;
+
 -(void)startCalculation;
 -(void)calculateValues;
 -(void)drawCoordinateSystem:(CGContextRef)context;
+-(void)checkRange;
+-(void)clearArrays;
 
 -(CGFloat) mapXToView:(CGFloat)x;
 -(CGFloat) mapYToView:(CGFloat)y;
@@ -22,9 +30,6 @@
 -(CGPoint) mapPointToView:(CGPoint)point;
 -(CGPoint) mapViewToPoint:(CGPoint)point;
 
-@property (nonatomic) int nPlottedValues;
-@property (strong,nonatomic) NSMutableArray *yArray;
-@property (strong,nonatomic) NSMutableArray *valueNeedsUpdate;
 
 @end
 
@@ -50,7 +55,30 @@
                                              selector:@selector(didRotate:)
                                                  name:UIDeviceOrientationDidChangeNotification
                                                object:nil];
+}
 
+-(void)setXMin:(float)xMin
+{
+    _xMin = xMin;
+    [self setNeedsDisplay];
+}
+
+-(void)setXMax:(float)xMax
+{
+    _xMax = xMax;
+    [self setNeedsDisplay];
+}
+
+-(void)setYMin:(float)yMin
+{
+    _yMin = yMin;
+    [self setNeedsDisplay];
+}
+
+-(void)setYMax:(float)yMax
+{
+    _yMax = yMax;
+    [self setNeedsDisplay];
 }
 
 -(void)awakeFromNib
@@ -80,9 +108,70 @@
     [self setNeedsDisplay];
 }
 
+
+-(void)checkRange
+{
+    double xLow = 0.0;
+    if ([self.delegate validXMin] < self.xMin) xLow = [self.delegate validXMin];
+    
+    if (self.xMin <= xLow)
+    {
+        self.xMin = xLow;
+    }
+    
+    double xm = 0.5*(self.xMin + self.xMax);
+    
+    if (xm <= ([self.delegate validXMin] + 1.0e-5))
+    {
+        double delta = [self.delegate validXMin] - xm;
+        self.xMin += delta;
+        self.xMax += delta;
+    }
+    
+    if (xm >= ([self.delegate validXMax] - 1.0e-5))
+    {
+        double delta = xm - [self.delegate validXMax];
+        self.xMin -= delta;
+        self.xMax -= delta;
+    }
+
+}
+-(void)clearArrays
+{
+    self.nPlottedValues = 0;
+    [self.xArray removeAllObjects];
+    [self.yArray removeAllObjects];
+    [self.valueNeedsUpdate removeAllObjects];
+}
+
 -(void)pan:(UIPanGestureRecognizer *)gesture;
 {
     NSLog(@"pan");
+    CGPoint pan;
+    CGPoint zero;
+    zero.x = 0.0;
+    zero.y = 0.0;
+    
+    if
+        (   (gesture.state == UIGestureRecognizerStateChanged)
+         ||
+         (gesture.state == UIGestureRecognizerStateEnded)
+         )
+    {
+        pan = [gesture translationInView:self];
+        float xScale = self.bounds.size.width/(self.xMax - self.xMin);
+        float yScale = self.bounds.size.height/(self.yMax - self.yMin);
+        
+        self.xMin -= pan.x/xScale;
+        self.xMax -= pan.x/xScale;
+        
+        self.yMin += pan.y/yScale;
+        self.yMax += pan.y/yScale;
+        
+        //[self checkRange];
+        [self clearArrays];
+        [gesture setTranslation:zero inView:self];
+    }
 }
 
 -(void)pinch:(UIPinchGestureRecognizer *)gesture
@@ -99,10 +188,10 @@
 {
     if (self.nPlottedValues == 0)
     {
-        CGFloat xMin = [self.delegate xMin];
-        CGFloat yFloat = [self.dataSource yForX:xMin];
+
+        CGFloat yFloat = [self.dataSource yForX:self.xMin];
         
-        NSNumber *x = [[NSNumber alloc] initWithFloat:xMin];
+        NSNumber *x = [[NSNumber alloc] initWithFloat:self.xMin];
         NSNumber *y = [[NSNumber alloc] initWithFloat:yFloat];
         NSNumber *c = [[NSNumber alloc] initWithBool:NO];
         
@@ -129,8 +218,6 @@
     int nx = [self Nx];
     int np = self.nPlottedValues;
     
-    //NSLog(@"np = %d, nx= %d",np, nx);
-    
     if (np == 0)
     {
         [self startCalculation];
@@ -139,15 +226,14 @@
     if (np < nx)
     {
 
-        CGFloat dx = [self.delegate xMax] - [self.delegate xMin];
-        CGFloat xv = [self.delegate xMin] + np*dx/(nx-1);
+        CGFloat dx = self.xMax - self.xMin;
+        CGFloat xv = self.xMin + np*dx/(nx-1);
         CGFloat yFloat = [self.dataSource yForX:xv];
         
         NSNumber *x = [[NSNumber alloc] initWithFloat:xv];
         NSNumber *y = [[NSNumber alloc] initWithFloat:yFloat];
         NSNumber *c = [[NSNumber alloc] initWithBool:NO];
 
-        //NSLog(@"1. np = %d, count=%d",np, [self.xArray count]);
         if ([self.xArray count] > np)
         {
             [self.xArray replaceObjectAtIndex:np withObject:x];
@@ -160,7 +246,7 @@
             [self.yArray addObject:y];
             [self.valueNeedsUpdate addObject:c];
         }
-        //NSLog(@"2. np = %d, count=%d",np, [self.xArray count]);
+ 
         self.nPlottedValues = np+1;
     }
 }
@@ -194,19 +280,13 @@
     CGContextMoveToPoint(context, xAxisStart.x, xAxisStart.y);
     CGContextAddLineToPoint(context, xAxisEnd.x, xAxisEnd.y);
     
- 
-    CGFloat xMin = [[self delegate] xMin];
-    CGFloat xMax = [[self delegate] xMax];
-    CGFloat yMin = [[self delegate] yMin];
-    CGFloat yMax = [[self delegate] yMax];
-    
     // draw x-axis ticks
-    CGFloat dx = xMax - xMin;
+    CGFloat dx = self.xMax - self.xMin;
     CGFloat logDx = log10(dx);
     int ilog = logDx - 1;
     double xTickSpace = pow(10.0, ilog);
-    int iStart = xMin/xTickSpace;
-    int iEnd = xMax/xTickSpace + 1;
+    int iStart = self.xMin/xTickSpace;
+    int iEnd = self.xMax/xTickSpace + 1;
 
     p.y = 0.0;
     for(int i=iStart; i<iEnd; i++)
@@ -219,11 +299,11 @@
     }
     
     // draw y-axis ticks
-    double dy = yMax - yMin;
+    double dy = self.yMax - self.yMin;
     int jlog = log10(dy) - 1;
     double yTickSpace = pow(10.0, jlog);
-    int jStart = yMin/yTickSpace;
-    int jEnd = yMax/yTickSpace + 1;
+    int jStart = self.yMin/yTickSpace;
+    int jEnd = self.yMax/yTickSpace + 1;
 
     for (int j=jStart; j<jEnd; j++)
     {
@@ -237,19 +317,13 @@
     CGContextStrokePath(context);
     UIGraphicsPopContext();
     
-    /*
     // set red text color if it is out of range
     self.yMinLabel.text = [NSString stringWithFormat:@"%g", self.yMin];
     self.yMaxLabel.text = [NSString stringWithFormat:@"%g", self.yMax];
     
-    double xv = self.xMin;
-    if (!_xIsT)
-    {
-        xv *= 1.0e-6;
-    }
-    self.xMinLabel.text = [NSString stringWithFormat:@"%g", xv];
+    self.xMinLabel.text = [NSString stringWithFormat:@"%g", self.xMin];
     
-    if (_xMin < _lowerRange)
+    if (self.xMin < [self.delegate validXMin])
     {
         self.xMinLabel.textColor = [UIColor redColor];
     }
@@ -258,13 +332,9 @@
         self.xMinLabel.textColor = [UIColor whiteColor];
     }
     
-    xv = self.xMax;
-    if (!_xIsT)
-    {
-        xv *= 1.0e-6;
-    }
-    self.xMaxLabel.text = [NSString stringWithFormat:@"%g", xv];
-    if (_xMax > _upperRange)
+    self.xMaxLabel.text = [NSString stringWithFormat:@"%g", self.xMax];
+    
+    if (self.xMax > [self.delegate validXMax])
     {
         self.xMaxLabel.textColor = [UIColor redColor];
     }
@@ -273,33 +343,45 @@
         self.xMaxLabel.textColor = [UIColor whiteColor];
     }
     
-    xv = self.xMid;
-    if (!_xIsT)
-    {
-        xv *= 1.0e-6;
-    }
+    CGPoint posXMin =  self.xMinLabel.center;
+    CGPoint posXMax =  self.xMaxLabel.center;
     
-    self.yMidLabel.text = [NSString stringWithFormat:@"%g, %.10e", xv, self.yMid];
+    posXMin.y = 0.5*self.bounds.size.height + MOVEXLABELS;
+    posXMax.y = 0.5*self.bounds.size.height + MOVEXLABELS;
     
-    CGPoint pos = [diagramView mapPoint:self X:self.xMid Y:self.yMid];
+    self.xMinLabel.center = posXMin;
+    self.xMaxLabel.center = posXMax;
+
+    float xMid = 0.5*(self.xMin + self.xMax);
+    float yMid = [self.dataSource yForX:xMid];
     
+    self.midLabel.text = [NSString stringWithFormat:@"%g, %.10e", xMid, yMid];
+    
+    float pos_x = [self mapXToView:xMid];
+    float pos_y = [self mapYToView:yMid];
+
     // make sure the text dont go out of view
     int pixelOffset = 25;
-    if (pos.y < pixelOffset)
+    if (pos_y < pixelOffset)
     {
-        pos.y = pixelOffset;
+        pos_y = pixelOffset;
     }
     
-    if (pos.y > yAxisStart.y - pixelOffset)
+    if (pos_y > yAxisStart.y - pixelOffset)
     {
-        pos.y = yAxisStart.y - pixelOffset;
+        pos_y = yAxisStart.y - pixelOffset;
     }
-    if(isnan(pos.y))
+    if(isnan(pos_y))
     {
-        pos.y = xAxisStart.y;
+        pos_y = xAxisStart.y;
     }
-    self.yMidLabel.center = pos;
-     */
+    CGPoint pos;
+    pos.x = pos_x;
+    pos.y = pos_y;
+    
+    self.midLabel.center = pos;
+    self.midLabel.textColor = [UIColor yellowColor];
+
 }
 
 -(CGFloat) mapXToView:(CGFloat)x
@@ -392,10 +474,8 @@
     {
         NSLog(@"Landscape Left!");
     }*/
-    self.nPlottedValues = 0;
-    [self.xArray removeAllObjects];
-    [self.yArray removeAllObjects];
-    [self.valueNeedsUpdate removeAllObjects];
+
+    [self clearArrays];
 
 }
 

@@ -15,4 +15,7 @@
 -(CGFloat) yMin;
 -(CGFloat) yMax;
 
+-(CGFloat) validXMin;
+-(CGFloat) validXMax;
+
 @end

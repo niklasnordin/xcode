@@ -32,6 +32,18 @@
     return 2.0;
 }
 
+-(CGFloat) validXMin
+{
+    return -1.0;
+}
+
+-(CGFloat) validXMax
+{
+    return 5.0;
+    
+}
+
+
 -(double) yForX:(double)x
 {
     //NSLog(@"calling function");

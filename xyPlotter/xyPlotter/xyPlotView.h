@@ -12,6 +12,16 @@
 
 @interface xyPlotView : UIView
 
+@property (nonatomic) float xMin;
+@property (nonatomic) float xMax;
+@property (nonatomic) float yMin;
+@property (nonatomic) float yMax;
+
+@property (weak, nonatomic) IBOutlet UILabel *xMinLabel;
+@property (weak, nonatomic) IBOutlet UILabel *xMaxLabel;
+@property (weak, nonatomic) IBOutlet UILabel *yMinLabel;
+@property (weak, nonatomic) IBOutlet UILabel *yMaxLabel;
+@property (weak, nonatomic) IBOutlet UILabel *midLabel;
 @property id <xyPlotDataSource> dataSource;
 @property id <xyPlotDelegate> delegate;
 

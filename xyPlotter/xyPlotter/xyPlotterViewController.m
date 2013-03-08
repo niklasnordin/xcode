@@ -20,7 +20,10 @@
     _function = [[dummyFunction alloc] init];
     _plotView.delegate = _function;
     _plotView.dataSource = _function;
-    
+    _plotView.xMin = _function.xMin;
+    _plotView.xMax = _function.xMax;
+    _plotView.yMin = _function.yMin;
+    _plotView.yMax = _function.yMax;
 }
 
 - (void)viewDidLoad
