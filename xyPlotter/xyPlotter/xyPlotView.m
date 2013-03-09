@@ -11,6 +11,7 @@
 //#define NX 320 // 640
 #define TICKWIDTH 5.0
 #define MOVEXLABELS 10.0
+#define LABELCOLOR [UIColor whiteColor]
 
 @interface xyPlotView ()
 
@@ -380,8 +381,11 @@
     
     // set red text color if it is out of range
     self.yMinLabel.text = [NSString stringWithFormat:@"%g", self.yMin];
+    self.yMinLabel.textColor = LABELCOLOR;
+
     self.yMaxLabel.text = [NSString stringWithFormat:@"%g", self.yMax];
-    
+    self.yMaxLabel.textColor = LABELCOLOR;
+
     self.xMinLabel.text = [NSString stringWithFormat:@"%g", self.xMin];
     
     if (self.xMin < [self.delegate validXMin])
@@ -390,7 +394,7 @@
     }
     else
     {
-        self.xMinLabel.textColor = [UIColor whiteColor];
+        self.xMinLabel.textColor = LABELCOLOR;
     }
     
     self.xMaxLabel.text = [NSString stringWithFormat:@"%g", self.xMax];
@@ -401,7 +405,7 @@
     }
     else
     {
-        self.xMaxLabel.textColor = [UIColor whiteColor];
+        self.xMaxLabel.textColor = LABELCOLOR;
     }
     
     CGPoint posXMin =  self.xMinLabel.center;
