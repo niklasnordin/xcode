@@ -33,4 +33,6 @@
 -(void)pinch:(UIPinchGestureRecognizer *)gesture;
 -(void)tap:(UITapGestureRecognizer *)gesture;
 
+- (void) didRotate:(NSNotification *)notification;
+
 @end

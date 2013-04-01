@@ -32,6 +32,7 @@
 -(CGPoint) mapPointToView:(CGPoint)point;
 -(CGPoint) mapViewToPoint:(CGPoint)point;
 
+-(void)draw;
 
 @end
 
@@ -57,6 +58,7 @@
                                              selector:@selector(didRotate:)
                                                  name:UIDeviceOrientationDidChangeNotification
                                                object:nil];
+    [self draw];
 }
 
 -(void)setXMin:(float)xMin
@@ -135,6 +137,13 @@
     [self setNeedsDisplay];
 }
 
+-(void)draw
+{
+    while ([self.xArray count] < [self Nx])
+    {
+        [self calculateValues];
+    }
+}
 
 -(void)checkRange
 {
@@ -308,8 +317,17 @@
             [self.yArray addObject:y];
             [self.valueNeedsUpdate addObject:c];
         }
- 
-        self.nPlottedValues = np+1;
+        np++;
+        self.nPlottedValues = np;
+        CGFloat xm = [self mapXToView:xv];
+        CGFloat ym = [self mapYToView:yFloat];
+        CGFloat xpv = [[self.xArray objectAtIndex:np-1] floatValue];
+        CGFloat ypv = [[self.yArray objectAtIndex:np-1] floatValue];
+        CGFloat xp = [self mapXToView:xpv];
+        CGFloat yp = [self mapYToView:ypv];
+        
+        CGRect rect = CGRectMake(xm, ym, xp-xm, yp-ym );
+        [self setNeedsDisplayInRect:rect];
     }
 }
 
@@ -493,10 +511,12 @@
     
     return p;
 }
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
+    //NSLog(@"rect = %g, %g, %g, %g",rect.origin.x,rect.origin.y,rect.size.width, rect.size.height);
     
     [self calculateValues];
     
@@ -504,23 +524,21 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     [self drawCoordinateSystem:context];
     
-    for (int i=1; i<[self Nx]; i++)
+    int nSize = [self.xArray count];
+    
+    for (int i=1; i<nSize; i++)
     {
-        if ([self.xArray count] < [self Nx])
-        {
-            [self calculateValues];
-        }
-        
+
         CGFloat x0 = [self mapXToView:[[self.xArray objectAtIndex:i-1] floatValue]];
         CGFloat x1 = [self mapXToView:[[self.xArray objectAtIndex:i] floatValue]];
         CGFloat y0 = [self mapYToView:[[self.yArray objectAtIndex:i-1] floatValue]];
         CGFloat y1 = [self mapYToView:[[self.yArray objectAtIndex:i] floatValue]];
         CGContextMoveToPoint(context, x0, y0);
         CGContextAddLineToPoint(context, x1, y1);
+
     }
     
     CGContextStrokePath(context);
-
 }
 
 
