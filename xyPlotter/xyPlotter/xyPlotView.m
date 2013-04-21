@@ -19,7 +19,6 @@
 @property (strong,nonatomic) NSMutableArray *yArray;
 @property (strong,nonatomic) NSMutableArray *valueNeedsUpdate;
 
--(void)startCalculation;
 -(void)calculateValues;
 -(void)drawCoordinateSystem:(CGContextRef)context;
 -(void)checkRange;
@@ -139,9 +138,11 @@
 
 -(void)draw
 {
-    while ([self.xArray count] < [self Nx])
+    if ([self.xArray count] < [self Nx])
     {
         [self calculateValues];
+        NSLog(@"draw:: xArray count = %d",[self.xArray count]);
+        [self draw];
     }
 }
 
@@ -175,6 +176,7 @@
 }
 -(void)clearArrays
 {
+    NSLog(@"clearArrays");
     self.nPlottedValues = 0;
     [self.xArray removeAllObjects];
     [self.yArray removeAllObjects];
@@ -190,10 +192,11 @@
     zero.y = 0.0;
     
     if
-        (   (gesture.state == UIGestureRecognizerStateChanged)
-         ||
-         (gesture.state == UIGestureRecognizerStateEnded)
-         )
+    (
+        (gesture.state == UIGestureRecognizerStateChanged)
+      ||
+        (gesture.state == UIGestureRecognizerStateEnded)
+     )
     {
         pan = [gesture translationInView:self];
         float xScale = self.bounds.size.width/(self.xMax - self.xMin);
@@ -206,8 +209,12 @@
         self.yMax += pan.y/yScale;
         
         //[self checkRange];
-        [self clearArrays];
         [gesture setTranslation:zero inView:self];
+    }
+    if (gesture.state == UIGestureRecognizerStateChanged)
+    {
+        NSLog(@"panGesture changed");
+        [self clearArrays];
     }
 }
 
@@ -236,10 +243,14 @@
             self.yMax = newYmax;
             
             [self checkRange];
-            [self clearArrays];
 
             [gesture setScale:1.0];
         }
+    }
+    if (gesture.state == UIGestureRecognizerStateChanged)
+    {
+        NSLog(@"pinch gesture changed");
+        [self clearArrays];
     }
     
 }
@@ -255,45 +266,12 @@
     }
 }
 
--(void)startCalculation
-{
-    if (self.nPlottedValues == 0)
-    {
-
-        CGFloat yFloat = [self.dataSource yForX:self.xMin];
-        
-        NSNumber *x = [[NSNumber alloc] initWithFloat:self.xMin];
-        NSNumber *y = [[NSNumber alloc] initWithFloat:yFloat];
-        NSNumber *c = [[NSNumber alloc] initWithBool:NO];
-        
-        if ([self.xArray count] > 0)
-        {
-            [self.xArray replaceObjectAtIndex:0 withObject:x];
-            [self.yArray replaceObjectAtIndex:0 withObject:y];
-            [self.valueNeedsUpdate replaceObjectAtIndex:0 withObject:c];
-            
-        }
-        else
-        {
-            [self.xArray addObject:x];
-            [self.yArray addObject:y];
-            [self.valueNeedsUpdate addObject:c];
-        }
-        self.nPlottedValues++;
-    }
-}
-
 -(void)calculateValues
 {
     
     int nx = [self Nx];
     int np = self.nPlottedValues;
-    
-    if (np == 0)
-    {
-        [self startCalculation];
-    }
-    
+ 
     if (np < nx)
     {
 
@@ -319,15 +297,17 @@
         }
         np++;
         self.nPlottedValues = np;
+        /*
         CGFloat xm = [self mapXToView:xv];
         CGFloat ym = [self mapYToView:yFloat];
         CGFloat xpv = [[self.xArray objectAtIndex:np-1] floatValue];
         CGFloat ypv = [[self.yArray objectAtIndex:np-1] floatValue];
         CGFloat xp = [self mapXToView:xpv];
         CGFloat yp = [self mapYToView:ypv];
-        
-        CGRect rect = CGRectMake(xm, ym, xp-xm, yp-ym );
-        [self setNeedsDisplayInRect:rect];
+        */
+        //CGRect rect = CGRectMake(xm, ym, xp-xm, yp-ym );
+        //[self setNeedsDisplayInRect:rect];
+        [self setNeedsDisplay];
     }
 }
 
@@ -516,9 +496,7 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    //NSLog(@"rect = %g, %g, %g, %g",rect.origin.x,rect.origin.y,rect.size.width, rect.size.height);
-    
-    [self calculateValues];
+    NSLog(@"drawRect: xArray count = %d",[self.xArray count]);
     
     // Drawing code
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -535,10 +513,10 @@
         CGFloat y1 = [self mapYToView:[[self.yArray objectAtIndex:i] floatValue]];
         CGContextMoveToPoint(context, x0, y0);
         CGContextAddLineToPoint(context, x1, y1);
-
     }
     
     CGContextStrokePath(context);
+    [self draw];
 }
 
 
@@ -553,7 +531,7 @@
     {
         NSLog(@"Landscape Left!");
     }*/
-
+    NSLog(@"didRotate notification");
     [self clearArrays];
 
 }
