@@ -11,6 +11,9 @@
 
 @interface checkupSchedulerViewController ()
 
+@property (strong, nonatomic) EKEventStore *store;
+@property (nonatomic) BOOL accessGranted;
+
 @end
 
 @implementation checkupSchedulerViewController
@@ -19,6 +22,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    _store = [[EKEventStore alloc] init];
+    [[self store] requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error)
+    {
+        _accessGranted = granted;
+    }
+    ];
 }
 
 - (void)didReceiveMemoryWarning
@@ -29,48 +38,40 @@
 
 - (IBAction)createEvent:(id)sender
 {
-    NSLog(@"Pushed createEvent button");
-    EKEventStore *eventDB = [[EKEventStore alloc] init];
-        
-    [eventDB requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error)
+    if ([self accessGranted])
     {
-        
-        EKEvent *myEvent  = [EKEvent eventWithEventStore:eventDB];
+        NSLog(@"Pushed createEvent button");
+        EKEvent *myEvent  = [EKEvent eventWithEventStore:self.store];
         
         myEvent.title     = @"Nikolaus den Yngre";
         myEvent.startDate = [NSDate date];
         myEvent.endDate   = [NSDate date];
         myEvent.allDay = YES;
         
-        [myEvent setCalendar:[eventDB defaultCalendarForNewEvents]];
+        [myEvent setCalendar:[self.store defaultCalendarForNewEvents]];
 
         // handle access here
         NSError *err;
-        NSLog(@"granted = %d", granted);
-        if (granted)
-        {
-            [eventDB saveEvent:myEvent span:EKSpanThisEvent error:&err];
+
+        [self.store saveEvent:myEvent span:EKSpanThisEvent error:&err];
             
-            NSLog(@"err code = %@", err);
-            if ([err code] == noErr)
-            {
-                NSLog(@"jessdf");
-                UIAlertView *alert = [[UIAlertView alloc]
+        NSLog(@"err code = %@", err);
+        if ([err code] == noErr)
+        {
+            NSLog(@"jessdf");
+            UIAlertView *alert = [[UIAlertView alloc]
                                   initWithTitle:@"Events created successfully"
-                                  message:@"Yay!?"
-                                  delegate:nil
-                                  cancelButtonTitle:@"Okay"
-                                  otherButtonTitles:nil];
-                NSLog(@"jessdf 2");
-
-                [alert show];
-                NSLog(@"jessdf 234");
-
-            }
+                                message:@"Yay!?"
+                                delegate:nil
+                                cancelButtonTitle:@"Okay"
+                                otherButtonTitles:nil];
+            NSLog(@"jessdf 2");
+            
+            [alert show];
+            NSLog(@"jessdf 234");
+            [self.store reset];
         }
     }
-    ];
-    
 
 }
 @end
