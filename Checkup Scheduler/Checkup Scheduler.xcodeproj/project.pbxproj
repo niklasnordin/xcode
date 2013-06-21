@@ -61,7 +61,6 @@
 		6189E1FE1774231600D0D181 = {
 			isa = PBXGroup;
 			children = (
-				6189E2301774242500D0D181 /* EventKit.framework */,
 				6189E2101774231600D0D181 /* Checkup Scheduler */,
 				6189E2091774231600D0D181 /* Frameworks */,
 				6189E2081774231600D0D181 /* Products */,
@@ -79,6 +78,7 @@
 		6189E2091774231600D0D181 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6189E2301774242500D0D181 /* EventKit.framework */,
 				6189E20A1774231600D0D181 /* UIKit.framework */,
 				6189E20C1774231600D0D181 /* Foundation.framework */,
 				6189E20E1774231600D0D181 /* CoreGraphics.framework */,
