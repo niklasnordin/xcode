@@ -121,7 +121,7 @@
      */
 }
 
-- (IBAction)addSchemeButton:(id)sender
+- (void)addSchemeButton:(id)sender
 {
     NSLog(@"pressed add mothafocker");
     
@@ -141,6 +141,7 @@
         NSString *name = [[alertView textFieldAtIndex:0] text];
         [self.schemeNames addObject:name];
         [self.tableView reloadData];
+        [self.schemePicker reloadAllComponents];
     }
 }
 

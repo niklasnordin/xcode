@@ -15,6 +15,8 @@
 >
 
 @property (weak,nonatomic) NSMutableArray *schemeNames;
+@property (weak,nonatomic) UIPickerView *schemePicker;
 
-- (IBAction)addSchemeButton:(id)sender;
+- (void)addSchemeButton:(id)sender;
+
 @end

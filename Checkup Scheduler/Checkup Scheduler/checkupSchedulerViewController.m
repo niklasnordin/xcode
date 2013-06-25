@@ -100,12 +100,19 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return 1;
+    return [self.schemeNames count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return @"kaller";
+    if ([self.schemeNames count])
+    {
+        return [self.schemeNames objectAtIndex:row];
+    }
+    else
+    {
+        return @"";
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -115,6 +122,7 @@
     if ([segue.identifier isEqual:@"schemeSegue"])
     {
         [segue.destinationViewController setSchemeNames:[self schemeNames]];
+        [segue.destinationViewController setSchemePicker:[self schemePicker]];
     }
 }
 
