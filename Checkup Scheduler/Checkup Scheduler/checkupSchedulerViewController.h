@@ -13,6 +13,7 @@
     UIPickerViewDataSource, UIPickerViewDelegate
 >
 
+@property (strong, nonatomic) NSMutableArray *schemeNames;
 @property (weak, nonatomic) IBOutlet UIPickerView *schemePicker;
 - (IBAction)createEvent:(id)sender;
 

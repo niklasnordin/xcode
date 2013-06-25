@@ -21,6 +21,7 @@
 		6189E22A1774231600D0D181 /* checkupSchedulerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6189E2291774231600D0D181 /* checkupSchedulerViewController.m */; };
 		6189E2311774242500D0D181 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6189E2301774242500D0D181 /* EventKit.framework */; };
 		6189E2331774B76A00D0D181 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6189E2321774B76A00D0D181 /* EventKitUI.framework */; };
+		61EDE146177A071600745F6A /* schemeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EDE145177A071600745F6A /* schemeTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,8 @@
 		6189E2291774231600D0D181 /* checkupSchedulerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = checkupSchedulerViewController.m; sourceTree = "<group>"; };
 		6189E2301774242500D0D181 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		6189E2321774B76A00D0D181 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		61EDE144177A071600745F6A /* schemeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = schemeTableViewController.h; sourceTree = "<group>"; };
+		61EDE145177A071600745F6A /* schemeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = schemeTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +67,6 @@
 		6189E1FE1774231600D0D181 = {
 			isa = PBXGroup;
 			children = (
-				6189E2321774B76A00D0D181 /* EventKitUI.framework */,
 				6189E2101774231600D0D181 /* Checkup Scheduler */,
 				6189E2091774231600D0D181 /* Frameworks */,
 				6189E2081774231600D0D181 /* Products */,
@@ -82,6 +84,7 @@
 		6189E2091774231600D0D181 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6189E2321774B76A00D0D181 /* EventKitUI.framework */,
 				6189E2301774242500D0D181 /* EventKit.framework */,
 				6189E20A1774231600D0D181 /* UIKit.framework */,
 				6189E20C1774231600D0D181 /* Foundation.framework */,
