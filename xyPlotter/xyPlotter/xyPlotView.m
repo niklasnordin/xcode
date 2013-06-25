@@ -141,7 +141,7 @@
     if ([self.xArray count] < [self Nx])
     {
         [self calculateValues];
-        NSLog(@"draw:: xArray count = %d",[self.xArray count]);
+        //NSLog(@"draw:: xArray count = %d",[self.xArray count]);
         [self draw];
     }
 }

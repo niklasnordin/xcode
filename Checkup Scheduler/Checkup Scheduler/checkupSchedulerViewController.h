@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface checkupSchedulerViewController : UIViewController
+<
+    UIPickerViewDataSource, UIPickerViewDelegate
+>
 
 @property (weak, nonatomic) IBOutlet UIPickerView *schemePicker;
 - (IBAction)createEvent:(id)sender;
