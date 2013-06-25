@@ -28,6 +28,12 @@
         _accessGranted = granted;
     }
     ];
+    
+    _schemePicker.delegate = self;
+    _schemePicker.dataSource = self;
+    
+    NSLog(@"View did load");
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,4 +80,29 @@
     }
 
 }
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return 1;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return @"kaller";
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"identifier = %@",segue.identifier);
+}
+
 @end
+
+
+
+

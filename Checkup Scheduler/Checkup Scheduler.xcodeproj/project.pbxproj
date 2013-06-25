@@ -20,6 +20,7 @@
 		6189E2271774231600D0D181 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6189E2251774231600D0D181 /* MainStoryboard_iPad.storyboard */; };
 		6189E22A1774231600D0D181 /* checkupSchedulerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6189E2291774231600D0D181 /* checkupSchedulerViewController.m */; };
 		6189E2311774242500D0D181 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6189E2301774242500D0D181 /* EventKit.framework */; };
+		61EDE146177A071600745F6A /* schemeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EDE145177A071600745F6A /* schemeTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		6189E2281774231600D0D181 /* checkupSchedulerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = checkupSchedulerViewController.h; sourceTree = "<group>"; };
 		6189E2291774231600D0D181 /* checkupSchedulerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = checkupSchedulerViewController.m; sourceTree = "<group>"; };
 		6189E2301774242500D0D181 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		61EDE144177A071600745F6A /* schemeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = schemeTableViewController.h; sourceTree = "<group>"; };
+		61EDE145177A071600745F6A /* schemeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = schemeTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				6189E2191774231600D0D181 /* checkupSchedulerAppDelegate.h */,
 				6189E21A1774231600D0D181 /* checkupSchedulerAppDelegate.m */,
 				6189E2221774231600D0D181 /* MainStoryboard_iPhone.storyboard */,
+				61EDE144177A071600745F6A /* schemeTableViewController.h */,
+				61EDE145177A071600745F6A /* schemeTableViewController.m */,
 				6189E2251774231600D0D181 /* MainStoryboard_iPad.storyboard */,
 				6189E2281774231600D0D181 /* checkupSchedulerViewController.h */,
 				6189E2291774231600D0D181 /* checkupSchedulerViewController.m */,
@@ -185,6 +190,7 @@
 				6189E2171774231600D0D181 /* main.m in Sources */,
 				6189E21B1774231600D0D181 /* checkupSchedulerAppDelegate.m in Sources */,
 				6189E22A1774231600D0D181 /* checkupSchedulerViewController.m in Sources */,
+				61EDE146177A071600745F6A /* schemeTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +323,7 @@
 				6189E22F1774231600D0D181 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
