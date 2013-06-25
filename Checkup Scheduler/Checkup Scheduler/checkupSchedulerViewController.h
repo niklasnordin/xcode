@@ -10,6 +10,7 @@
 
 @interface checkupSchedulerViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIPickerView *schemePicker;
 - (IBAction)createEvent:(id)sender;
 
 @end
