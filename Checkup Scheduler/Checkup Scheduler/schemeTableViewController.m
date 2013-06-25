@@ -10,6 +10,8 @@
 
 @interface schemeTableViewController ()
 
+//@property (strong, nonatomic) UIActionSheet *actionSheet;
+
 @end
 
 @implementation schemeTableViewController
@@ -44,16 +46,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.schemeNames count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,7 +62,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    
+    cell.textLabel.text = [self.schemeNames objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -121,5 +121,24 @@
 - (IBAction)addSchemeButton:(id)sender
 {
     NSLog(@"pressed add mothafocker");
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter name" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
+    
+    alert.delegate = self;
+    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [alert show];
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"clicked: %d",buttonIndex);
+    
+    if (buttonIndex == 1)
+    {
+        NSString *name = [[alertView textFieldAtIndex:0] text];
+        [self.schemeNames addObject:name];
+        [self.tableView reloadData];
+    }
+}
+
 @end

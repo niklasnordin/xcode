@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface schemeTableViewController : UITableViewController
+<
+    UIActionSheetDelegate,
+    UITextFieldDelegate
+>
+
+@property (weak,nonatomic) NSMutableArray *schemeNames;
 
 - (IBAction)addSchemeButton:(id)sender;
 @end

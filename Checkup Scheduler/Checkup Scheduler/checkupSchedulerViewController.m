@@ -31,6 +31,7 @@
     
     _schemePicker.delegate = self;
     _schemePicker.dataSource = self;
+    _schemeNames = [[NSMutableArray alloc] init];
     
     NSLog(@"View did load");
     
@@ -77,6 +78,17 @@
             NSLog(@"jessdf 234");
             [self.store reset];
         }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc]
+                                  initWithTitle:@"Events could not be created"
+                                  message:@"Yay!?"
+                                  delegate:nil
+                                  cancelButtonTitle:@"Okay"
+                                  otherButtonTitles:nil];
+            
+            [alert show];
+        }
     }
 
 }
@@ -99,6 +111,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"identifier = %@",segue.identifier);
+    
+    if ([segue.identifier isEqual:@"schemeSegue"])
+    {
+        [segue.destinationViewController setSchemeNames:[self schemeNames]];
+    }
 }
 
 @end
