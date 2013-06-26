@@ -32,7 +32,7 @@
     _schemePicker.delegate = self;
     _schemePicker.dataSource = self;
     _schemeNames = [[NSMutableArray alloc] init];
-    
+    _schemes = [[NSMutableArray alloc] init];
     NSLog(@"View did load");
     
 }
