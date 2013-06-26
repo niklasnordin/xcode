@@ -100,16 +100,60 @@
             </objects>
             <point key="canvasLocation" x="-76" y="312"/>
         </scene>
-        <!--View Controller-->
+        <!--Scheme View Controller - SchemeName-->
         <scene sceneID="5E5-c5-8iF">
             <objects>
-                <viewController id="fzD-2l-N8p" sceneMemberID="viewController">
+                <viewController id="fzD-2l-N8p" customClass="schemeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sjf-LD-BKa">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Number of Events: 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7t-Xp-oZ2">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="KpP-RP-Mgh">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="Rzk-9w-LJI"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="numEventsStepperPressed:" destination="fzD-2l-N8p" eventType="valueChanged" id="1Ur-Ex-ohg"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Calendar Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMS-la-yp7">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="My Working Scheduler" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7uw-hZ-fir">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h7t-Xp-oZ2" firstAttribute="centerY" secondItem="KpP-RP-Mgh" secondAttribute="centerY" type="default" id="7SS-BG-1A4"/>
+                            <constraint firstItem="ZMS-la-yp7" firstAttribute="leading" secondItem="Sjf-LD-BKa" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="CZF-1P-GkS"/>
+                            <constraint firstItem="h7t-Xp-oZ2" firstAttribute="leading" secondItem="Sjf-LD-BKa" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="LEK-uM-vt9"/>
+                            <constraint firstItem="7uw-hZ-fir" firstAttribute="top" secondItem="ZMS-la-yp7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="QSm-rh-Pvo"/>
+                            <constraint firstItem="KpP-RP-Mgh" firstAttribute="leading" secondItem="h7t-Xp-oZ2" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="VCD-6Y-zMI"/>
+                            <constraint firstAttribute="trailing" secondItem="7uw-hZ-fir" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="VYN-BU-4iX"/>
+                            <constraint firstAttribute="trailing" secondItem="KpP-RP-Mgh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="bBr-qQ-uGh"/>
+                            <constraint firstAttribute="trailing" secondItem="ZMS-la-yp7" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="eZH-pa-Ej2"/>
+                            <constraint firstItem="7uw-hZ-fir" firstAttribute="leading" secondItem="Sjf-LD-BKa" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="q5l-m3-ef4"/>
+                            <constraint firstItem="KpP-RP-Mgh" firstAttribute="top" secondItem="Sjf-LD-BKa" secondAttribute="top" constant="20" symbolic="YES" type="default" id="rhD-D5-ehU"/>
+                            <constraint firstItem="ZMS-la-yp7" firstAttribute="top" secondItem="Sjf-LD-BKa" secondAttribute="top" constant="80" id="tis-NZ-KQl"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="R2P-uo-0gl"/>
+                    <navigationItem key="navigationItem" title="SchemeName" id="R2P-uo-0gl"/>
+                    <connections>
+                        <outlet property="calendarNameTextField" destination="7uw-hZ-fir" id="9TU-fT-4Z6"/>
+                        <outlet property="numEventsLabel" destination="h7t-Xp-oZ2" id="7an-xg-UW2"/>
+                        <outlet property="numEventsStepperValue" destination="KpP-RP-Mgh" id="7l9-BT-WwZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XZd-ft-lyT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

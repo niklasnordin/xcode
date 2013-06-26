@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface schemeViewController : UITableViewController
+@interface schemeViewController : UIViewController
+<
+    UITextFieldDelegate
+>
+
+@property (weak, nonatomic) IBOutlet UILabel *numEventsLabel;
+@property (weak, nonatomic) IBOutlet UIStepper *numEventsStepperValue;
+@property (weak, nonatomic) IBOutlet UITextField *calendarNameTextField;
+- (IBAction)numEventsStepperPressed:(id)sender;
 
 @end

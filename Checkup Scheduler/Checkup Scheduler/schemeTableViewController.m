@@ -131,7 +131,6 @@
 
 - (void)addSchemeButton:(id)sender
 {
-    NSLog(@"pressed add mothafocker");
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter name" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
     
@@ -142,7 +141,6 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"clicked: %d",buttonIndex);
     
     if (buttonIndex == 1)
     {

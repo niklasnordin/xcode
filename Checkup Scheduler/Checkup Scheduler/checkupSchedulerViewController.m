@@ -33,7 +33,6 @@
     _schemePicker.dataSource = self;
     _schemeNames = [[NSMutableArray alloc] init];
     _schemes = [[NSMutableArray alloc] init];
-    NSLog(@"View did load");
     
 }
 
@@ -72,10 +71,8 @@
                                 delegate:nil
                                 cancelButtonTitle:@"Okay"
                                 otherButtonTitles:nil];
-            NSLog(@"jessdf 2");
             
             [alert show];
-            NSLog(@"jessdf 234");
             [self.store reset];
         }
         else
@@ -117,7 +114,6 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"identifier = %@",segue.identifier);
     
     if ([segue.identifier isEqual:@"schemeSegue"])
     {
