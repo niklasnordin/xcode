@@ -6,8 +6,11 @@
 //  Copyright (c) 2013 Niklas Nordin. All rights reserved.
 //
 
+#import "checkupSchedulerAppDelegate.h"
 #import "checkupSchedulerViewController.h"
 #import "EventKit/EventKit.h"
+
+#define SCHEMENAMES @"schemeNames"
 
 @interface checkupSchedulerViewController ()
 
@@ -31,8 +34,19 @@
     
     _schemePicker.delegate = self;
     _schemePicker.dataSource = self;
-    _schemeNames = [[NSMutableArray alloc] init];
     _schemes = [[NSMutableArray alloc] init];
+    
+    checkupSchedulerAppDelegate *appDelegate = (checkupSchedulerAppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.appView = self;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    _schemeNames = [defaults objectForKey:SCHEMENAMES];
+    
+    if (!_schemeNames)
+    {
+        _schemeNames = [[NSMutableArray alloc] init];
+    }
     
 }
 
@@ -119,6 +133,15 @@
         [segue.destinationViewController setSchemeNames:[self schemeNames]];
         [segue.destinationViewController setSchemePicker:[self schemePicker]];
     }
+}
+
+- (void)save
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:self.schemeNames forKey:SCHEMENAMES];
+    
+    [defaults synchronize];
 }
 
 @end

@@ -17,5 +17,6 @@
 @property (strong, nonatomic) NSMutableArray *schemes;
 @property (weak, nonatomic) IBOutlet UIPickerView *schemePicker;
 - (IBAction)createEvent:(id)sender;
+-(void)save;
 
 @end
