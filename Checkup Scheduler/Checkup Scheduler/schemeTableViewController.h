@@ -16,7 +16,10 @@
 
 @property (weak,nonatomic) NSMutableArray *schemeNames;
 @property (weak,nonatomic) UIPickerView *schemePicker;
+@property (weak, nonatomic) NSMutableDictionary *schemesDictionary;
 
 - (void)addSchemeButton:(id)sender;
+- (void)addSchemeDictionaryWithName:(NSString *)name;
+- (void)deleteSchemeDictionaryWithName:(NSString *)name;
 
 @end

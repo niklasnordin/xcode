@@ -27,7 +27,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.numEventsStepperValue.value = 10;
+    NSNumber *numEvents = [self.schemeDictionary objectForKey:@"numEvents"];
+
+    self.numEventsStepperValue.value = [numEvents intValue];
     self.numEventsLabel.text = [NSString stringWithFormat:@"Number of Events:%d",(int)self.numEventsStepperValue.value];
 
 }
@@ -41,6 +43,8 @@
 - (IBAction)numEventsStepperPressed:(UIStepper *)sender
 {
     int value = sender.value;
+    [self.schemeDictionary setObject:[NSNumber numberWithInt:value] forKey:@"numEvents"];
+    
     self.numEventsLabel.text = [NSString stringWithFormat:@"Number of Events:%d",value];
 }
 

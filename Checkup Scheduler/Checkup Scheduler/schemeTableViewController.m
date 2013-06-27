@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Niklas Nordin. All rights reserved.
 //
 
+#import "schemeViewController.h"
 #import "schemeTableViewController.h"
 
 @interface schemeTableViewController ()
@@ -148,6 +149,8 @@
         [self.schemeNames addObject:name];
         [self.tableView reloadData];
         [self.schemePicker reloadAllComponents];
+        
+        [self addSchemeDictionaryWithName:name];
     }
 }
 
@@ -158,9 +161,27 @@
     {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         NSString *name = [self.schemeNames objectAtIndex:indexPath.row];
-        [segue.destinationViewController setTitle:name];
+        
+        schemeViewController  *svc = (schemeViewController *)segue.destinationViewController;
+        
+        [svc setTitle:name];
+        [svc setSchemeDictionary:[self.schemesDictionary objectForKey:name]];
     }
 }
 
+- (void)addSchemeDictionaryWithName:(NSString *)name
+{
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    
+    
+    [dict setObject:[NSNumber numberWithInt:1] forKey:@"numEvents"];
+    [self.schemesDictionary setObject:dict forKey:name];
+    
+}
+
+- (void)deleteSchemeDictionaryWithName:(NSString *)name
+{
+    [self.schemesDictionary removeObjectForKey:name];
+}
 
 @end

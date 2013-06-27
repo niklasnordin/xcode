@@ -13,6 +13,7 @@
     UITextFieldDelegate
 >
 
+@property (weak, nonatomic) NSMutableDictionary *schemeDictionary;
 @property (weak, nonatomic) IBOutlet UILabel *numEventsLabel;
 @property (weak, nonatomic) IBOutlet UIStepper *numEventsStepperValue;
 @property (weak, nonatomic) IBOutlet UITextField *calendarNameTextField;

@@ -8,9 +8,11 @@
 
 #import "checkupSchedulerAppDelegate.h"
 #import "checkupSchedulerViewController.h"
+#import "schemeTableViewController.h"
 #import "EventKit/EventKit.h"
 
 #define SCHEMENAMES @"schemeNames"
+#define SCHEMESDICTIONARY @"schemesDictionary"
 
 @interface checkupSchedulerViewController ()
 
@@ -34,7 +36,6 @@
     
     _schemePicker.delegate = self;
     _schemePicker.dataSource = self;
-    _schemes = [[NSMutableArray alloc] init];
     
     checkupSchedulerAppDelegate *appDelegate = (checkupSchedulerAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.appView = self;
@@ -46,6 +47,13 @@
     if (!_schemeNames)
     {
         _schemeNames = [[NSMutableArray alloc] init];
+    }
+    
+    _schemesDictionary = [defaults objectForKey:SCHEMESDICTIONARY];
+    
+    if (!_schemesDictionary)
+    {
+        _schemesDictionary = [[NSMutableDictionary alloc] init];
     }
     
 }
@@ -130,8 +138,11 @@
 {
     if ([segue.identifier isEqual:@"schemeSegue"])
     {
-        [segue.destinationViewController setSchemeNames:[self schemeNames]];
-        [segue.destinationViewController setSchemePicker:[self schemePicker]];
+        schemeTableViewController *stvc = (schemeTableViewController *)segue.destinationViewController;
+        
+        [stvc setSchemeNames:[self schemeNames]];
+        [stvc setSchemePicker:[self schemePicker]];
+        [stvc setSchemesDictionary:[self schemesDictionary]];
     }
 }
 
