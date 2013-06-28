@@ -32,8 +32,23 @@
     self.numEventsStepperValue.value = [numEvents intValue];
     self.numEventsLabel.text = [NSString stringWithFormat:@"Number of Events:%d",(int)self.numEventsStepperValue.value];
     
-    self.calendarNameTextField.text = [self.schemeDictionary objectForKey:@"calendarName"];
+    if ([self.schemeDictionary objectForKey:@"calendarName"])
+    {
+        self.calendarNameTextField.text = [self.schemeDictionary objectForKey:@"calendarName"];
+    }
+    else
+    {
+        self.calendarNameTextField.text = @"My Work Calendar";
+    }
+    
+    self.calendarNameTextField.delegate = self;
 
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    // save the text field when leaving this page 
+    [self.schemeDictionary setObject:[self.calendarNameTextField text] forKey:@"calendarName"];
 }
 
 - (void)didReceiveMemoryWarning

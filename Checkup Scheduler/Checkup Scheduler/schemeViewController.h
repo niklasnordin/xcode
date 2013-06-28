@@ -18,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIStepper *numEventsStepperValue;
 @property (weak, nonatomic) IBOutlet UITextField *calendarNameTextField;
 - (IBAction)numEventsStepperPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
