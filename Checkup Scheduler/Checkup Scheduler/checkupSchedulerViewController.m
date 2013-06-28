@@ -119,12 +119,17 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
+    // prevents crash if no schemes are available
+    if (![self.schemeNames count])
+    {
+        return 1;
+    }
     return [self.schemeNames count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    if ([self.schemeNames count])
+    if ([self.schemeNames count] > 0)
     {
         return [self.schemeNames objectAtIndex:row];
     }
@@ -151,6 +156,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     [defaults setObject:self.schemeNames forKey:SCHEMENAMES];
+    [defaults setObject:self.schemesDictionary forKey:SCHEMESDICTIONARY];
     
     [defaults synchronize];
 }
