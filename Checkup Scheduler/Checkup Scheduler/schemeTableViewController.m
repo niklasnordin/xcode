@@ -175,6 +175,8 @@
     
     
     [dict setObject:[NSNumber numberWithInt:1] forKey:@"numEvents"];
+    [dict setObject:@"My Work Calendar" forKey:@"calendarName"];
+    
     [self.schemesDictionary setObject:dict forKey:name];
     
 }

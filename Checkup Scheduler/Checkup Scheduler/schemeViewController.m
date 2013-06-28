@@ -31,6 +31,8 @@
 
     self.numEventsStepperValue.value = [numEvents intValue];
     self.numEventsLabel.text = [NSString stringWithFormat:@"Number of Events:%d",(int)self.numEventsStepperValue.value];
+    
+    self.calendarNameTextField.text = [self.schemeDictionary objectForKey:@"calendarName"];
 
 }
 
@@ -50,7 +52,11 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    NSLog(@"hello, text = %@",[self.calendarNameTextField text]);
+    
+    [self.schemeDictionary setObject:[self.calendarNameTextField text] forKey:@"calendarName"];
     [textField resignFirstResponder];
+
     return YES;
 }
 @end
