@@ -8,6 +8,7 @@
 
 #import "schemeViewController.h"
 #import "schemeCollectionCell.h"
+#import "eventViewController.h"
 
 @interface schemeViewController ()
 
@@ -132,8 +133,11 @@
  
     if ([segue.identifier isEqualToString:@"eventSegue"])
     {
+        eventViewController *evc = (eventViewController *)segue.destinationViewController;
+        
         idButton *button = sender;
-        self.segueToEventNr  = [button id];        
+        self.segueToEventNr  = [button id];
+        [evc setTitle:[NSString stringWithFormat:@"Event %@", button.titleLabel.text]];
     }
 }
 
