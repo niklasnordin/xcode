@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "schemeCollectionView.h"
 
 @interface schemeViewController : UIViewController
 <
-    UITextFieldDelegate
+    UITextFieldDelegate,
+    UICollectionViewDataSource,
+    UICollectionViewDelegate
 >
 
 @property (weak, nonatomic) NSMutableDictionary *schemeDictionary;
@@ -18,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIStepper *numEventsStepperValue;
 @property (weak, nonatomic) IBOutlet UITextField *calendarNameTextField;
 - (IBAction)numEventsStepperPressed:(id)sender;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (weak, nonatomic) IBOutlet schemeCollectionView *schemeCollectionView;
+
 
 @end

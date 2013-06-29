@@ -133,25 +133,55 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMZ-cA-ddO"/>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cLt-Qh-BEk" customClass="schemeCollectionView">
+                                <color key="backgroundColor" red="0.55997363899999997" green="0.66666666669999997" blue="0.38259085240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aI7-4V-VMM">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="schemeCellID" id="L6g-r3-h6E" customClass="schemeCollectionCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKF-b9-xb1">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="sKF-b9-xb1" firstAttribute="centerX" secondItem="L6g-r3-h6E" secondAttribute="centerX" type="default" id="KDZ-23-Amm"/>
+                                            <constraint firstItem="sKF-b9-xb1" firstAttribute="top" secondItem="L6g-r3-h6E" secondAttribute="top" constant="14" id="rL7-BA-o7y"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yMZ-cA-ddO" firstAttribute="leading" secondItem="Sjf-LD-BKa" secondAttribute="leading" type="default" id="1cu-B7-EcF"/>
                             <constraint firstItem="ZMS-la-yp7" firstAttribute="top" secondItem="Sjf-LD-BKa" secondAttribute="top" type="default" id="7h9-xV-9Mv"/>
+                            <constraint firstItem="cLt-Qh-BEk" firstAttribute="leading" secondItem="Sjf-LD-BKa" secondAttribute="leading" type="default" id="Bxk-e8-b8f"/>
                             <constraint firstItem="ZMS-la-yp7" firstAttribute="leading" secondItem="Sjf-LD-BKa" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="CZF-1P-GkS"/>
-                            <constraint firstItem="KpP-RP-Mgh" firstAttribute="top" secondItem="Sjf-LD-BKa" secondAttribute="top" constant="79" id="PPl-S7-law"/>
+                            <constraint firstItem="cLt-Qh-BEk" firstAttribute="bottom" secondItem="Sjf-LD-BKa" secondAttribute="bottom" type="default" id="FRE-Fn-htb"/>
+                            <constraint firstItem="KpP-RP-Mgh" firstAttribute="centerY" secondItem="h7t-Xp-oZ2" secondAttribute="centerY" type="default" id="Rdn-1C-cpK"/>
                             <constraint firstAttribute="trailing" secondItem="7uw-hZ-fir" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="VYN-BU-4iX"/>
-                            <constraint firstAttribute="trailing" secondItem="yMZ-cA-ddO" secondAttribute="trailing" constant="-6" id="YL1-wD-zYV"/>
+                            <constraint firstItem="cLt-Qh-BEk" firstAttribute="trailing" secondItem="Sjf-LD-BKa" secondAttribute="trailing" type="default" id="XPp-dw-vAf"/>
                             <constraint firstAttribute="trailing" secondItem="KpP-RP-Mgh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="cI3-fd-iLY"/>
                             <constraint firstItem="KpP-RP-Mgh" firstAttribute="leading" secondItem="h7t-Xp-oZ2" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="eIf-Jn-PCk"/>
                             <constraint firstAttribute="trailing" secondItem="ZMS-la-yp7" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="eZH-pa-Ej2"/>
-                            <constraint firstItem="KpP-RP-Mgh" firstAttribute="centerY" secondItem="h7t-Xp-oZ2" secondAttribute="centerY" type="default" id="oUZ-jm-Xbj"/>
-                            <constraint firstItem="yMZ-cA-ddO" firstAttribute="top" secondItem="Sjf-LD-BKa" secondAttribute="top" constant="123" id="pXq-Id-y9a"/>
+                            <constraint firstItem="h7t-Xp-oZ2" firstAttribute="top" secondItem="7uw-hZ-fir" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="mY0-Up-WK0"/>
                             <constraint firstItem="7uw-hZ-fir" firstAttribute="top" secondItem="ZMS-la-yp7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="q2v-lx-gUq"/>
                             <constraint firstItem="7uw-hZ-fir" firstAttribute="leading" secondItem="Sjf-LD-BKa" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="q5l-m3-ef4"/>
-                            <constraint firstItem="yMZ-cA-ddO" firstAttribute="bottom" secondItem="Sjf-LD-BKa" secondAttribute="bottom" type="default" id="uFS-ln-qsp"/>
                             <constraint firstItem="h7t-Xp-oZ2" firstAttribute="leading" secondItem="Sjf-LD-BKa" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="uHX-x5-c7U"/>
+                            <constraint firstItem="cLt-Qh-BEk" firstAttribute="top" secondItem="KpP-RP-Mgh" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="z86-vN-ecY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SchemeName" id="R2P-uo-0gl"/>
@@ -159,12 +189,12 @@
                         <outlet property="calendarNameTextField" destination="7uw-hZ-fir" id="9TU-fT-4Z6"/>
                         <outlet property="numEventsLabel" destination="h7t-Xp-oZ2" id="7an-xg-UW2"/>
                         <outlet property="numEventsStepperValue" destination="KpP-RP-Mgh" id="7l9-BT-WwZ"/>
-                        <outlet property="scrollView" destination="yMZ-cA-ddO" id="XSJ-og-2ju"/>
+                        <outlet property="schemeCollectionView" destination="cLt-Qh-BEk" id="0dQ-Qd-Qet"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XZd-ft-lyT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="712" y="-301"/>
+            <point key="canvasLocation" x="723" y="-301"/>
         </scene>
         <!--Scheme Table View Controller - Schemes-->
         <scene sceneID="g6n-Nr-oLH">
@@ -219,31 +249,6 @@
             <point key="canvasLocation" x="-473" y="-301"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="checkupSchedulerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/checkupSchedulerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="createEvent:"/>
-                <relationship kind="outlet" name="schemePicker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="schemeTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeTableViewController.h"/>
-        </class>
-        <class className="schemeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="numEventsStepperPressed:"/>
-                <relationship kind="outlet" name="calendarNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="numEventsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numEventsStepperValue" candidateClass="UIStepper"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
