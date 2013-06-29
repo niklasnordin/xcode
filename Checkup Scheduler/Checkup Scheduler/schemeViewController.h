@@ -23,6 +23,7 @@
 - (IBAction)numEventsStepperPressed:(id)sender;
 
 @property (weak, nonatomic) IBOutlet schemeCollectionView *schemeCollectionView;
+@property (strong, nonatomic) NSMutableArray *eventIsSet;
 
 
 @end

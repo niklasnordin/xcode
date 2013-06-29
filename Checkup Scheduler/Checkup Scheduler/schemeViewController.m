@@ -32,8 +32,8 @@
 	// Do any additional setup after loading the view.
     NSNumber *numEvents = [self.schemeDictionary objectForKey:@"numEvents"];
 
-    self.numEventsStepperValue.value = [numEvents intValue];
-    self.numEventsLabel.text = [NSString stringWithFormat:@"Number of Events:%d",(int)self.numEventsStepperValue.value];
+    _numEventsStepperValue.value = [numEvents intValue];
+    _numEventsLabel.text = [NSString stringWithFormat:@"Number of Events:%d",(int)self.numEventsStepperValue.value];
     
     if ([self.schemeDictionary objectForKey:@"calendarName"])
     {
@@ -44,9 +44,9 @@
         self.calendarNameTextField.text = @"My Work Calendar";
     }
     
-    self.segueToEventNr = [[NSNumber alloc] init];
+    _segueToEventNr = [[NSNumber alloc] init];
+    
     self.calendarNameTextField.delegate = self;
-
     self.schemeCollectionView.delegate = self;
     self.schemeCollectionView.dataSource = self;
     
@@ -54,7 +54,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"and im back from %d", [self.segueToEventNr intValue] + 1);
+    //NSLog(@"and im back from %d", [self.segueToEventNr intValue] + 1);
 }
 
 
@@ -74,7 +74,6 @@
 {
     int value = sender.value;
     [self.schemeDictionary setObject:[NSNumber numberWithInt:value] forKey:@"numEvents"];
-    
     self.numEventsLabel.text = [NSString stringWithFormat:@"Number of Events:%d",value];
 }
 
