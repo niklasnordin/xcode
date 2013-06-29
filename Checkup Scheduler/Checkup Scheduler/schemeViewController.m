@@ -11,6 +11,8 @@
 
 @interface schemeViewController ()
 
+@property (strong, nonatomic) NSNumber *segueToEventNr;
+
 @end
 
 @implementation schemeViewController
@@ -42,11 +44,19 @@
         self.calendarNameTextField.text = @"My Work Calendar";
     }
     
+    self.segueToEventNr = [[NSNumber alloc] init];
     self.calendarNameTextField.delegate = self;
 
     self.schemeCollectionView.delegate = self;
     self.schemeCollectionView.dataSource = self;
+    
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"and im back from %d", [self.segueToEventNr intValue] + 1);
+}
+
 
 - (void)viewDidDisappear:(BOOL)animated
 {
@@ -70,7 +80,6 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSLog(@"hello, text = %@",[self.calendarNameTextField text]);
     
     [self.schemeDictionary setObject:[self.calendarNameTextField text] forKey:@"calendarName"];
     [textField resignFirstResponder];
@@ -81,15 +90,30 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     schemeCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"schemeCellID" forIndexPath:indexPath];
-    
+        
     NSString *id = [NSString stringWithFormat:@"%d",indexPath.item+1];
-    cell.idLabel.text = id;
+    [cell.idButton setId:[NSNumber numberWithInt:indexPath.item]];
+    
+    [cell.idButton setTitle:id forState:UIControlStateHighlighted];
+    [cell.idButton setTitle:id forState:UIControlStateNormal];
+    [cell.idButton setBackgroundColor:[UIColor redColor]];
+
     return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return 100;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+ 
+    if ([segue.identifier isEqualToString:@"eventSegue"])
+    {
+        idButton *button = sender;
+        self.segueToEventNr  = [button id];        
+    }
 }
 
 @end

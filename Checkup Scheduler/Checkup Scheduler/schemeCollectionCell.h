@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "idButton.h"
 
 @interface schemeCollectionCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UILabel *idLabel;
+@property (weak, nonatomic) IBOutlet idButton *idButton;
 
 @end
