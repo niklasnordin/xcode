@@ -142,14 +142,18 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="schemeCellID" id="L6g-r3-h6E" customClass="schemeCollectionCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="schemeCellID" reuseIdentifier="schemeCellID" id="L6g-r3-h6E" customClass="schemeCollectionCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKF-b9-xb1">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKF-b9-xb1">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="3GX-rI-aBh"/>
+                                                        <constraint firstAttribute="width" constant="40" id="bbk-dW-JlN"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -157,10 +161,14 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" red="0.3576853888" green="0.21207580279999999" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="sKF-b9-xb1" firstAttribute="centerX" secondItem="L6g-r3-h6E" secondAttribute="centerX" type="default" id="KDZ-23-Amm"/>
-                                            <constraint firstItem="sKF-b9-xb1" firstAttribute="top" secondItem="L6g-r3-h6E" secondAttribute="top" constant="14" id="rL7-BA-o7y"/>
+                                            <constraint firstItem="sKF-b9-xb1" firstAttribute="centerX" secondItem="L6g-r3-h6E" secondAttribute="centerX" type="default" id="08u-AE-y9e"/>
+                                            <constraint firstItem="sKF-b9-xb1" firstAttribute="centerY" secondItem="L6g-r3-h6E" secondAttribute="centerY" type="default" id="4QQ-gP-Lfb"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="idLabel" destination="sKF-b9-xb1" id="ddw-Sp-Poc"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

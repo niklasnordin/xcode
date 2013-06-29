@@ -7,6 +7,7 @@
 //
 
 #import "schemeViewController.h"
+#import "schemeCollectionCell.h"
 
 @interface schemeViewController ()
 
@@ -43,6 +44,8 @@
     
     self.calendarNameTextField.delegate = self;
 
+    self.schemeCollectionView.delegate = self;
+    self.schemeCollectionView.dataSource = self;
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -77,12 +80,16 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    schemeCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"schemeCellID" forIndexPath:indexPath];
     
+    NSString *id = [NSString stringWithFormat:@"%d",indexPath.item+1];
+    cell.idLabel.text = id;
+    return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 1;
+    return 100;
 }
 
 @end
