@@ -176,7 +176,8 @@
     
     [dict setObject:[NSNumber numberWithInt:1] forKey:@"numEvents"];
     [dict setObject:@"My Work Calendar" forKey:@"calendarName"];
-    
+    NSMutableArray *eventIsSet = [[NSMutableArray alloc] initWithObjects:[NSNumber numberWithBool:NO], nil];
+    [dict setObject:eventIsSet forKey:@"eventIsSet"];
     [self.schemesDictionary setObject:dict forKey:name];
     
 }

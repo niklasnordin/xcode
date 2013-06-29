@@ -34,6 +34,7 @@
 
     _numEventsStepperValue.value = [numEvents intValue];
     _numEventsLabel.text = [NSString stringWithFormat:@"Number of Events:%d",(int)self.numEventsStepperValue.value];
+    _eventIsSet = [_schemeDictionary objectForKey:@"eventIsSet"];
     
     if ([self.schemeDictionary objectForKey:@"calendarName"])
     {
@@ -44,7 +45,7 @@
         self.calendarNameTextField.text = @"My Work Calendar";
     }
     
-    _segueToEventNr = [[NSNumber alloc] init];
+    _segueToEventNr = [[NSNumber alloc] initWithInt:-1];
     
     self.calendarNameTextField.delegate = self;
     self.schemeCollectionView.delegate = self;
@@ -55,6 +56,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     //NSLog(@"and im back from %d", [self.segueToEventNr intValue] + 1);
+    if ([self.segueToEventNr intValue] >= 0)
+    {
+        [self.eventIsSet setObject:[NSNumber numberWithBool:YES] atIndexedSubscript:[self.segueToEventNr intValue]];
+    }
+    [self.schemeCollectionView reloadData];
 }
 
 
@@ -75,6 +81,16 @@
     int value = sender.value;
     [self.schemeDictionary setObject:[NSNumber numberWithInt:value] forKey:@"numEvents"];
     self.numEventsLabel.text = [NSString stringWithFormat:@"Number of Events:%d",value];
+    if (value > [self.eventIsSet count])
+    {
+        [self.eventIsSet addObject:[NSNumber numberWithBool:NO]];
+    }
+    else
+    {
+        [self.eventIsSet removeLastObject];
+    }
+    
+    [self.schemeCollectionView reloadData];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -95,14 +111,20 @@
     
     [cell.idButton setTitle:id forState:UIControlStateHighlighted];
     [cell.idButton setTitle:id forState:UIControlStateNormal];
-    [cell.idButton setBackgroundColor:[UIColor redColor]];
-
+    if ([[self.eventIsSet objectAtIndex:indexPath.item] boolValue])
+    {
+        [cell.idButton setBackgroundColor:[UIColor greenColor]];
+    }
+    else
+    {
+        [cell.idButton setBackgroundColor:[UIColor redColor]];
+    }
     return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 100;
+    return (NSInteger)[self.numEventsStepperValue value];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

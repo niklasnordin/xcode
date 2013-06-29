@@ -27,6 +27,7 @@
 		61EDE14F177EAF2500745F6A /* collectionScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EDE14E177EAF2500745F6A /* collectionScrollView.m */; };
 		61EDE152177EB0B800745F6A /* schemeCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EDE151177EB0B800745F6A /* schemeCollectionView.m */; };
 		61EDE155177EB43900745F6A /* schemeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EDE154177EB43900745F6A /* schemeCollectionCell.m */; };
+		61EDE158177F194700745F6A /* eventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EDE157177F194700745F6A /* eventViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,8 @@
 		61EDE151177EB0B800745F6A /* schemeCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = schemeCollectionView.m; sourceTree = "<group>"; };
 		61EDE153177EB43900745F6A /* schemeCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = schemeCollectionCell.h; sourceTree = "<group>"; };
 		61EDE154177EB43900745F6A /* schemeCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = schemeCollectionCell.m; sourceTree = "<group>"; };
+		61EDE156177F194700745F6A /* eventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eventViewController.h; sourceTree = "<group>"; };
+		61EDE157177F194700745F6A /* eventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eventViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,8 @@
 			children = (
 				6189E2221774231600D0D181 /* MainStoryboard_iPhone.storyboard */,
 				6189E2251774231600D0D181 /* MainStoryboard_iPad.storyboard */,
+				61EDE156177F194700745F6A /* eventViewController.h */,
+				61EDE157177F194700745F6A /* eventViewController.m */,
 				61EDE153177EB43900745F6A /* schemeCollectionCell.h */,
 				61EDE154177EB43900745F6A /* schemeCollectionCell.m */,
 				6189E2191774231600D0D181 /* checkupSchedulerAppDelegate.h */,
@@ -225,6 +230,7 @@
 				61EDE152177EB0B800745F6A /* schemeCollectionView.m in Sources */,
 				61EDE155177EB43900745F6A /* schemeCollectionCell.m in Sources */,
 				6189E236177F003900D0D181 /* idButton.m in Sources */,
+				61EDE158177F194700745F6A /* eventViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
