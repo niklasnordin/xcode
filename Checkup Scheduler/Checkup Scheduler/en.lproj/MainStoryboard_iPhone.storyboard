@@ -99,7 +99,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vuV-qB-gXP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-76" y="312"/>
+            <point key="canvasLocation" x="324" y="-907"/>
+        </scene>
+        <!--Time Setup View Controller-->
+        <scene sceneID="wyu-cN-KoK">
+            <objects>
+                <viewController id="bpq-JO-KSn" customClass="timeSetupViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Q6Z-a9-Vtu">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wP-38-OfC">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="3oJ-kc-ub7"/>
+                                </constraints>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5wP-38-OfC" firstAttribute="bottom" secondItem="Q6Z-a9-Vtu" secondAttribute="bottom" type="default" id="QVa-iY-bOF"/>
+                            <constraint firstItem="5wP-38-OfC" firstAttribute="leading" secondItem="Q6Z-a9-Vtu" secondAttribute="leading" type="default" id="c0X-TZ-Kpv"/>
+                            <constraint firstItem="5wP-38-OfC" firstAttribute="trailing" secondItem="Q6Z-a9-Vtu" secondAttribute="trailing" type="default" id="nBg-pi-iDe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="oYu-iV-OwS"/>
+                    <connections>
+                        <outlet property="timePicker" destination="5wP-38-OfC" id="nnz-s8-hA3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WDo-MT-L4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1235" y="315"/>
         </scene>
         <!--Scheme View Controller - SchemeName-->
         <scene sceneID="5E5-c5-8iF">
@@ -236,6 +266,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="bpq-JO-KSn" kind="push" id="2Hu-du-RdJ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Time after start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsw-vU-jxn">
                                 <constraints>
@@ -289,7 +322,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bKA-J8-a6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="723" y="367"/>
+            <point key="canvasLocation" x="1235" y="-301"/>
         </scene>
         <!--Scheme Table View Controller - Schemes-->
         <scene sceneID="g6n-Nr-oLH">
@@ -390,6 +423,12 @@
                 <relationship kind="outlet" name="numEventsLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="numEventsStepperValue" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="schemeCollectionView" candidateClass="schemeCollectionView"/>
+            </relationships>
+        </class>
+        <class className="timeSetupViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/timeSetupViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="timePicker" candidateClass="UIPickerView"/>
             </relationships>
         </class>
     </classes>
