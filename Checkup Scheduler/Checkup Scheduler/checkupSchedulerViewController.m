@@ -75,7 +75,8 @@
         myEvent.startDate = [NSDate date];
         myEvent.endDate   = [NSDate date];
         myEvent.allDay = YES;
-        
+        //EKAlarm *alarm
+        //myEvent.alarms
         [myEvent setCalendar:[self.store defaultCalendarForNewEvents]];
 
         // handle access here

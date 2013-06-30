@@ -35,4 +35,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"timeSegue"])
+    {
+        // hej
+    }
+}
+
+// reminder picker
+// never, 5m, 15m, 30m, 1h, 2h, 1d, 2d
 @end

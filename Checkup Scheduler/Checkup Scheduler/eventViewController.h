@@ -10,4 +10,7 @@
 
 @interface eventViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *timeAfterStartButton;
+@property (weak, nonatomic) IBOutlet UIButton *durationButton;
+
 @end

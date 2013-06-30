@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface timeSetupViewController : UIViewController
+<
+    UIPickerViewDataSource, UIPickerViewDelegate
+>
 @property (weak, nonatomic) IBOutlet UIPickerView *timePicker;
 
 @end
