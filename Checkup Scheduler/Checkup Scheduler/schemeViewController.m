@@ -145,7 +145,6 @@
         NSMutableArray *events = [self.schemeDictionary objectForKey:@"eventDictionaries"];
         NSMutableDictionary *eventDict = [events objectAtIndex:index];
         [evc setEventDict:eventDict];
-        NSLog(@"eventDict = %@",eventDict);
     }
 }
 

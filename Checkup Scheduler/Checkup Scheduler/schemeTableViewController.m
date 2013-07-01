@@ -182,9 +182,7 @@
     
     NSMutableArray *eventDictionaries = [[NSMutableArray alloc] init];
     
-    NSMutableDictionary *tasDict = [self defaultEventDictionary];
-    NSLog(@"tasDict = %@",tasDict);
-    
+    NSMutableDictionary *tasDict = [self defaultEventDictionary];    
     [eventDictionaries addObject:tasDict];
     [dict setObject:eventDictionaries forKey:@"eventDictionaries"];
     
@@ -199,7 +197,7 @@
 - (NSMutableDictionary *)defaultEventDictionary
 {
     NSMutableDictionary *tasDict = [[NSMutableDictionary alloc] init];
-    [tasDict setObject:@"tit" forKey:@"title"];
+    [tasDict setObject:@"reminder" forKey:@"title"];
     [tasDict setObject:[NSNumber numberWithInt:0] forKey: @"days"];
     [tasDict setObject:[NSNumber numberWithInt:0] forKey: @"hours"];
     [tasDict setObject:[NSNumber numberWithInt:0] forKey: @"minutes"];

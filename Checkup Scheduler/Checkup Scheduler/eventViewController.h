@@ -13,6 +13,11 @@
     UITextFieldDelegate
 >
 
+@property (strong, nonatomic) NSNumber *days;
+@property (strong, nonatomic) NSNumber *hours;
+@property (strong, nonatomic) NSNumber *minutes;
+@property (strong, nonatomic) NSNumber *duration;
+
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) NSMutableDictionary *eventDict;
 @property (weak, nonatomic) IBOutlet UIButton *timeAfterStartButton;

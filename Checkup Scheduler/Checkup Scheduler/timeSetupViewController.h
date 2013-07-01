@@ -14,6 +14,7 @@
     UIPickerViewDelegate
 >
 
+@property (weak, nonatomic) NSMutableDictionary *eventDict;
 @property (weak, nonatomic) IBOutlet UIPickerView *timePicker;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "eventViewController.h"
+#import "timeSetupViewController.h"
 
 @interface eventViewController ()
 
@@ -29,7 +30,31 @@
 	// Do any additional setup after loading the view.
     _titleTextField.delegate = self;
     _titleTextField.text = [_eventDict objectForKey:@"title"];
-    NSLog(@"title = %@",[_eventDict objectForKey:@"title"]);
+    
+    _days = [_eventDict objectForKey:@"days"];
+    _hours = [_eventDict objectForKey:@"hours"];
+    _minutes = [_eventDict objectForKey:@"minutes"];
+    _duration = [_eventDict objectForKey:@"duration"];
+    
+    NSString *buttonText = [NSString stringWithFormat:@"%dd:%dh:%dm",[_days intValue],[_hours intValue], [_minutes intValue]];
+    [_timeAfterStartButton setTitle:buttonText forState:UIControlStateNormal];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.days = [self.eventDict objectForKey:@"days"];
+    self.hours = [self.eventDict objectForKey:@"hours"];
+    self.minutes = [self.eventDict objectForKey:@"minutes"];
+    self.duration = [self.eventDict objectForKey:@"duration"];
+    
+    NSString *buttonText = [NSString stringWithFormat:@"%dd:%dh:%dm",[self.days intValue],[self.hours intValue], [self.minutes intValue]];
+    [self.timeAfterStartButton setTitle:buttonText forState:UIControlStateNormal];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    NSString *text = [self.titleTextField text];
+    [self.eventDict setObject:text forKey:@"title"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,6 +68,8 @@
     if ([segue.identifier isEqualToString:@"timeSegue"])
     {
         // hej
+        timeSetupViewController *tsvc = segue.destinationViewController;
+        [tsvc setEventDict:self.eventDict];
     }
 }
 
@@ -51,6 +78,9 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    NSString *text = [textField text];
+    [self.eventDict setObject:text forKey:@"title"];
+
     [textField resignFirstResponder];
     return YES;
 }
