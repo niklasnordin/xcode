@@ -33,6 +33,8 @@
     int hours = [[_eventDict objectForKey:@"hours"] intValue];
     int minutes = [[_eventDict objectForKey:@"minutes"] intValue];
     
+    int minutesIndex = minutes / 15;
+    
     //possible bug here
     _selected = [[NSMutableArray alloc] initWithObjects:
                  [NSNumber numberWithInt:days],
@@ -49,6 +51,10 @@
 
     _timePicker.dataSource = self;
     _timePicker.delegate = self;
+    
+    [_timePicker selectRow:minutesIndex inComponent:2 animated:NO];
+    [_timePicker selectRow:hours inComponent:1 animated:NO];
+    [_timePicker selectRow:days inComponent:0 animated:NO];
     
 }
 
@@ -90,6 +96,7 @@
         return [NSString stringWithFormat:@"%d",row];
     }
 }
+
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     NSLog(@"%d, %d",row,component);

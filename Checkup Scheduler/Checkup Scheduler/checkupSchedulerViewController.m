@@ -69,40 +69,71 @@
     if ([self accessGranted])
     {
         NSLog(@"Pushed createEvent button");
-        EKEvent *myEvent  = [EKEvent eventWithEventStore:self.store];
         
-        myEvent.title     = @"Nikolaus den Yngre";
-        myEvent.startDate = [NSDate date];
-        myEvent.endDate   = [NSDate date];
-        myEvent.allDay = YES;
-        //EKAlarm *alarm
-        //myEvent.alarms
-        [myEvent setCalendar:[self.store defaultCalendarForNewEvents]];
+        int selected = [self.schemePicker selectedRowInComponent:0];
+        NSString *scheme = [self.schemeNames objectAtIndex:selected];
+        NSMutableDictionary *schemeDict = [self.schemesDictionary objectForKey:scheme];
+        NSMutableArray *dictionaries = [schemeDict objectForKey:@"eventDictionaries"];
 
-        // handle access here
-        NSError *err;
-
-        [self.store saveEvent:myEvent span:EKSpanThisEvent error:&err];
-            
-        NSLog(@"err code = %@", err);
-        if ([err code] == noErr)
+        int nEvents = [dictionaries count];
+        
+        BOOL allEventsCreated = YES;
+        
+        for (int i=0; i<nEvents; i++)
         {
-            NSLog(@"jessdf");
+            NSMutableDictionary *dict = [dictionaries objectAtIndex:i];
+        
+            EKEvent *myEvent  = [EKEvent eventWithEventStore:self.store];
+
+            myEvent.title = [NSString stringWithFormat:@"Nicke %@",[dict objectForKey:@"title"]];
+            NSDate *initialDate = [NSDate date];
+            int minutes = [[dict objectForKey:@"minutes"] intValue];
+            int hours = [[dict objectForKey:@"hours"] intValue];
+            int days = [[dict objectForKey:@"days"] intValue];
+            
+            int seconds = 60*minutes + 3600*hours + 86400*days;
+        
+            NSDate *startDate = [NSDate dateWithTimeInterval:seconds sinceDate:initialDate];
+            myEvent.startDate = startDate;
+            myEvent.endDate   = startDate;
+            myEvent.allDay = YES;
+            //EKAlarm *alarm
+            //myEvent.alarms
+            //NSString *calendarName = [dict objectForKey:@"calendarName"];
+            //EKCalendar *cal = [self.store calendarWithIdentifier:@"nickes cal"];
+            EKCalendar *cal = [self.store defaultCalendarForNewEvents];
+        
+            [myEvent setCalendar:cal];
+
+            NSError *err;
+
+            [self.store saveEvent:myEvent span:EKSpanThisEvent error:&err];
+            
+            allEventsCreated = allEventsCreated && ([err code] == noErr);
+            
+            NSLog(@"err code = %@", err);
+            if ([err code] == noErr)
+            {
+                [self.store reset];
+            }
+        }
+        
+        if (allEventsCreated)
+        {
             UIAlertView *alert = [[UIAlertView alloc]
-                                  initWithTitle:@"Events created successfully"
-                                message:@"Yay!?"
+                                  initWithTitle:@"Success"
+                                message:@"Events created successfully"
                                 delegate:nil
                                 cancelButtonTitle:@"Okay"
                                 otherButtonTitles:nil];
             
             [alert show];
-            [self.store reset];
         }
         else
         {
             UIAlertView *alert = [[UIAlertView alloc]
-                                  initWithTitle:@"Events could not be created"
-                                  message:@"Yay!?"
+                                  initWithTitle:@"Failed"
+                                  message:@"Events could not be created."
                                   delegate:nil
                                   cancelButtonTitle:@"Okay"
                                   otherButtonTitles:nil];
@@ -139,6 +170,13 @@
         return @"";
     }
 }
+
+/*
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    NSLog(@"selected row = %d", row);
+}
+*/
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
