@@ -27,6 +27,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    _titleTextField.delegate = self;
+    _titleTextField.text = [_eventDict objectForKey:@"title"];
+    NSLog(@"title = %@",[_eventDict objectForKey:@"title"]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,4 +48,10 @@
 
 // reminder picker
 // never, 5m, 15m, 30m, 1h, 2h, 1d, 2d
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 @end

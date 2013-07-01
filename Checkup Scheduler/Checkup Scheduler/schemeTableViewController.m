@@ -166,6 +166,7 @@
         
         [svc setTitle:name];
         [svc setSchemeDictionary:[self.schemesDictionary objectForKey:name]];
+        [svc setStvc:self];
     }
 }
 
@@ -174,17 +175,39 @@
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     
     
-    [dict setObject:[NSNumber numberWithInt:1] forKey:@"numEvents"];
+    [dict setObject:[NSNumber numberWithInt:0] forKey:@"numEvents"];
     [dict setObject:@"My Work Calendar" forKey:@"calendarName"];
     NSMutableArray *eventIsSet = [[NSMutableArray alloc] initWithObjects:[NSNumber numberWithBool:NO], nil];
     [dict setObject:eventIsSet forKey:@"eventIsSet"];
-    [self.schemesDictionary setObject:dict forKey:name];
     
+    NSMutableArray *eventDictionaries = [[NSMutableArray alloc] init];
+    
+    NSMutableDictionary *tasDict = [self defaultEventDictionary];
+    NSLog(@"tasDict = %@",tasDict);
+    
+    [eventDictionaries addObject:tasDict];
+    [dict setObject:eventDictionaries forKey:@"eventDictionaries"];
+    
+    [self.schemesDictionary setObject:dict forKey:name];
 }
 
 - (void)deleteSchemeDictionaryWithName:(NSString *)name
 {
     [self.schemesDictionary removeObjectForKey:name];
+}
+
+- (NSMutableDictionary *)defaultEventDictionary
+{
+    NSMutableDictionary *tasDict = [[NSMutableDictionary alloc] init];
+    [tasDict setObject:@"tit" forKey:@"title"];
+    [tasDict setObject:[NSNumber numberWithInt:0] forKey: @"days"];
+    [tasDict setObject:[NSNumber numberWithInt:0] forKey: @"hours"];
+    [tasDict setObject:[NSNumber numberWithInt:0] forKey: @"minutes"];
+    [tasDict setObject:[NSNumber numberWithInt:0] forKey: @"duration"];
+    [tasDict setObject:[NSNumber numberWithBool:YES] forKey: @"allDayEvent"];
+    [tasDict setObject:[NSNumber numberWithBool:YES] forKey: @"reminder"];
+
+    return tasDict;
 }
 
 @end

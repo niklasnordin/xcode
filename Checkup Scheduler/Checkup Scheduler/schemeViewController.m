@@ -85,6 +85,9 @@
     if (value > [self.eventIsSet count])
     {
         [self.eventIsSet addObject:[NSNumber numberWithBool:NO]];
+        NSMutableDictionary *dict = [self.stvc defaultEventDictionary];
+        NSMutableArray *eventDictionaries = [self.schemeDictionary objectForKey:@"eventDictionaries"];
+        [eventDictionaries addObject:dict];
     }
     else
     {
@@ -137,7 +140,12 @@
         
         idButton *button = sender;
         self.segueToEventNr  = [button id];
+        int index = [[button id] intValue];
         [evc setTitle:[NSString stringWithFormat:@"Event %@", button.titleLabel.text]];
+        NSMutableArray *events = [self.schemeDictionary objectForKey:@"eventDictionaries"];
+        NSMutableDictionary *eventDict = [events objectAtIndex:index];
+        [evc setEventDict:eventDict];
+        NSLog(@"eventDict = %@",eventDict);
     }
 }
 

@@ -379,6 +379,7 @@
                     <connections>
                         <outlet property="durationButton" destination="NBQ-pC-il8" id="jbO-yv-6sD"/>
                         <outlet property="timeAfterStartButton" destination="POh-Rb-izm" id="85D-hB-ChG"/>
+                        <outlet property="titleTextField" destination="9lG-sC-CQC" id="E7d-Yc-6Bo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bKA-J8-a6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>

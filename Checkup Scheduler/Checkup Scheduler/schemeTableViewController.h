@@ -21,5 +21,6 @@
 - (void)addSchemeButton:(id)sender;
 - (void)addSchemeDictionaryWithName:(NSString *)name;
 - (void)deleteSchemeDictionaryWithName:(NSString *)name;
+- (NSMutableDictionary *)defaultEventDictionary;
 
 @end

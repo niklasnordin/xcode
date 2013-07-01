@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface eventViewController : UIViewController
+<
+    UITextFieldDelegate
+>
 
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) NSMutableDictionary *eventDict;
 @property (weak, nonatomic) IBOutlet UIButton *timeAfterStartButton;
 @property (weak, nonatomic) IBOutlet UIButton *durationButton;
 

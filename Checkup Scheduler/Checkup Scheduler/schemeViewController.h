@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "schemeCollectionView.h"
+#import "schemeTableViewController.h"
 
 @interface schemeViewController : UIViewController
 <
@@ -17,6 +18,8 @@
 >
 
 @property (weak, nonatomic) NSMutableDictionary *schemeDictionary;
+@property (weak, nonatomic) schemeTableViewController *stvc;
+
 @property (weak, nonatomic) IBOutlet UILabel *numEventsLabel;
 @property (weak, nonatomic) IBOutlet UIStepper *numEventsStepperValue;
 @property (weak, nonatomic) IBOutlet UITextField *calendarNameTextField;

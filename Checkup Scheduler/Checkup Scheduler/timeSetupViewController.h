@@ -10,8 +10,10 @@
 
 @interface timeSetupViewController : UIViewController
 <
-    UIPickerViewDataSource, UIPickerViewDelegate
+    UIPickerViewDataSource,
+    UIPickerViewDelegate
 >
+
 @property (weak, nonatomic) IBOutlet UIPickerView *timePicker;
 
 @end
