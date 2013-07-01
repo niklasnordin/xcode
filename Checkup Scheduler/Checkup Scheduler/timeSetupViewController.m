@@ -33,6 +33,7 @@
     int hours = [[_eventDict objectForKey:@"hours"] intValue];
     int minutes = [[_eventDict objectForKey:@"minutes"] intValue];
     
+    //possible bug here
     _selected = [[NSMutableArray alloc] initWithObjects:
                  [NSNumber numberWithInt:days],
                  [NSNumber numberWithInt:hours],
