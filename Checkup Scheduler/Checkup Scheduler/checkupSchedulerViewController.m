@@ -16,6 +16,9 @@
 
 @interface checkupSchedulerViewController ()
 
+@property (nonatomic) int selectedNameIndex;
+@property (strong, nonatomic) UIActionSheet *actionSheet;
+@property (strong, nonatomic) UIPickerView *schemePicker;
 @property (strong, nonatomic) EKEventStore *store;
 @property (nonatomic) BOOL accessGranted;
 
@@ -33,10 +36,7 @@
         _accessGranted = granted;
     }
     ];
-    
-    _schemePicker.delegate = self;
-    _schemePicker.dataSource = self;
-    
+        
     checkupSchedulerAppDelegate *appDelegate = (checkupSchedulerAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.appView = self;
     
@@ -56,6 +56,29 @@
         _schemesDictionary = [[NSMutableDictionary alloc] init];
     }
     
+    // setup the picker
+    CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
+    _schemePicker = [[UIPickerView alloc] initWithFrame:pickerFrame];
+    _schemePicker.showsSelectionIndicator = YES;
+    _schemePicker.delegate = self;
+    _schemePicker.dataSource = self;
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if ([self.schemeNames count] == 0)
+    {
+         // deactivate the scheme button
+        [self.schemeButton setTitle:@"No available schemes" forState:UIControlStateNormal];
+        [self.schemeButton setEnabled:NO];
+    }
+    else
+    {
+        [self.schemeButton setEnabled:YES];
+        int selected = [self.schemePicker selectedRowInComponent:0];
+        [self.schemeButton setTitle:[NSString stringWithFormat:@"Scheme: %@",[self.schemeNames objectAtIndex:selected]] forState:UIControlStateNormal];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -198,6 +221,65 @@
     [defaults setObject:self.schemesDictionary forKey:SCHEMESDICTIONARY];
     
     [defaults synchronize];
+}
+
+- (IBAction)clickedSchemeButton:(id)sender
+{
+    // remember the selected name, in case the selection is cancelled
+    self.selectedNameIndex = [self.schemePicker selectedRowInComponent:0];
+
+    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Schemes"
+                                                   delegate:nil
+                                          cancelButtonTitle:nil
+                                     destructiveButtonTitle:nil
+                                          otherButtonTitles:nil];
+    
+    [self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    [self.actionSheet setOpaque:YES];
+    [self.actionSheet addSubview:self.schemePicker];
+    
+    UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:@[@"Select"]];
+
+    closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
+    closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
+    closeButton.tintColor = [UIColor blackColor];
+    [closeButton addTarget:self
+                    action:@selector(dismissActionSheet:)
+          forControlEvents:UIControlEventValueChanged];
+    
+    [self.actionSheet addSubview:closeButton];
+    
+    UISegmentedControl *cancelButton = [[UISegmentedControl alloc] initWithItems:@[@"Cancel"]];
+    cancelButton.frame = CGRectMake(10, 7.0f, 50.0f, 30.0f);
+    cancelButton.segmentedControlStyle = UISegmentedControlStyleBar;
+    UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:0.0];
+    cancelButton.tintColor = darkRed;
+    [cancelButton addTarget:self
+                     action:@selector(cancelActionSheet:)
+           forControlEvents:UIControlEventValueChanged];
+    [self.actionSheet addSubview:cancelButton];
+    
+    [self.actionSheet showInView:self.view];
+    [self.actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
+    
+}
+
+- (void)dismissActionSheet:(id)sender
+{
+    int selected = [self.schemePicker selectedRowInComponent:0];
+    [self.schemeButton setTitle:[NSString stringWithFormat:@"Scheme: %@",[self.schemeNames objectAtIndex:selected]] forState:UIControlStateNormal];
+    
+    [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    self.actionSheet = nil;
+}
+
+
+- (void)cancelActionSheet:(id)sender
+{
+    // reset the selection of the picker
+    [self.schemePicker selectRow:self.selectedNameIndex inComponent:0 animated:YES];
+    [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    self.actionSheet = nil;
 }
 
 @end

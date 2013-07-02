@@ -25,12 +25,6 @@
                                     <action selector="createEvent:" destination="2" eventType="touchUpInside" id="r0x-2K-6wg"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qlo-Ce-fmm">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="N9m-Gs-FMr"/>
-                                </constraints>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5c-gO-D3K">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="New Person">
@@ -46,29 +40,29 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AT-Ov-PZc">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="View Calendar">
+                                <state key="normal" title="Scheme">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickedSchemeButton:" destination="2" eventType="touchUpInside" id="zlw-j6-iP9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="weW-9a-Mys" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="1OC-IG-WLG"/>
                             <constraint firstItem="r5c-gO-D3K" firstAttribute="top" secondItem="weW-9a-Mys" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="287-5i-Qdd"/>
-                            <constraint firstItem="Qlo-Ce-fmm" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="72v-pp-tNh"/>
-                            <constraint firstItem="Qlo-Ce-fmm" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="Bq3-ao-szl"/>
                             <constraint firstItem="6AT-Ov-PZc" firstAttribute="top" secondItem="r5c-gO-D3K" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="CCJ-Nd-S0z"/>
                             <constraint firstAttribute="trailing" secondItem="r5c-gO-D3K" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="QKi-lp-PAA"/>
                             <constraint firstItem="weW-9a-Mys" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="TzE-iX-Ueq"/>
-                            <constraint firstItem="Qlo-Ce-fmm" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="emc-us-9cb"/>
                             <constraint firstItem="6AT-Ov-PZc" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kg4-HU-p2X"/>
                             <constraint firstItem="r5c-gO-D3K" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="l0s-lS-4aa"/>
                             <constraint firstAttribute="trailing" secondItem="6AT-Ov-PZc" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="sDt-a2-VQJ"/>
-                            <constraint firstItem="weW-9a-Mys" firstAttribute="top" secondItem="Qlo-Ce-fmm" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="zoZ-y2-Nvl"/>
+                            <constraint firstAttribute="bottom" secondItem="6AT-Ov-PZc" secondAttribute="bottom" constant="47" id="tbw-8A-uFC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Reminder" id="dkk-Aw-P5I">
@@ -79,7 +73,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="schemePicker" destination="Qlo-Ce-fmm" id="h46-Yn-sWJ"/>
+                        <outlet property="schemeButton" destination="6AT-Ov-PZc" id="aGJ-pv-Kju"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>

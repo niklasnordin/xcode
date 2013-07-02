@@ -10,13 +10,15 @@
 
 @interface checkupSchedulerViewController : UIViewController
 <
-    UIPickerViewDataSource, UIPickerViewDelegate
+    UIPickerViewDataSource,
+    UIPickerViewDelegate
 >
 
 @property (strong, nonatomic) NSMutableArray *schemeNames;
 @property (strong, nonatomic) NSMutableDictionary *schemesDictionary;
-@property (weak, nonatomic) IBOutlet UIPickerView *schemePicker;
 - (IBAction)createEvent:(id)sender;
 -(void)save;
+@property (weak, nonatomic) IBOutlet UIButton *schemeButton;
+- (IBAction)clickedSchemeButton:(id)sender;
 
 @end
