@@ -73,6 +73,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="createEventButton" destination="weW-9a-Mys" id="l1b-h0-ibM"/>
                         <outlet property="schemeButton" destination="6AT-Ov-PZc" id="aGJ-pv-Kju"/>
                     </connections>
                 </viewController>

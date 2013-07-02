@@ -20,5 +20,6 @@
 -(void)save;
 @property (weak, nonatomic) IBOutlet UIButton *schemeButton;
 - (IBAction)clickedSchemeButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *createEventButton;
 
 @end

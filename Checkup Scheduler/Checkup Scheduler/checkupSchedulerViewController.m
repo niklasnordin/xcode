@@ -62,7 +62,7 @@
     _schemePicker.showsSelectionIndicator = YES;
     _schemePicker.delegate = self;
     _schemePicker.dataSource = self;
-    
+   
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -79,6 +79,14 @@
         int selected = [self.schemePicker selectedRowInComponent:0];
         [self.schemeButton setTitle:[NSString stringWithFormat:@"Scheme: %@",[self.schemeNames objectAtIndex:selected]] forState:UIControlStateNormal];
     }
+    
+    
+    if (!_accessGranted)
+    {
+        [self.createEventButton setTitle:@"No permission to change the calendar" forState:UIControlStateNormal];
+        [self.createEventButton setEnabled:NO];
+    }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -120,24 +128,28 @@
             myEvent.startDate = startDate;
             myEvent.endDate   = startDate;
             myEvent.allDay = YES;
-            //EKAlarm *alarm
-            //myEvent.alarms
-            //NSString *calendarName = [dict objectForKey:@"calendarName"];
-            //EKCalendar *cal = [self.store calendarWithIdentifier:@"nickes cal"];
-            EKCalendar *cal = [self.store defaultCalendarForNewEvents];
+            //EKAlarm *alarm = [[EKAlarm alloc] init];
+            //[myEvent addAlarm:alarm];
+            NSString *calendarName = [dict objectForKey:@"calendarName"];
+            EKCalendar *cal = [self.store calendarWithIdentifier:calendarName];
+            //EKCalendar *cal = [self.store defaultCalendarForNewEvents];
+
+            if (!cal)
+            {
+                NSLog(@"cal is nil");
+            }
         
             [myEvent setCalendar:cal];
 
             NSError *err;
 
-            [self.store saveEvent:myEvent span:EKSpanThisEvent error:&err];
-            
+   //         [self.store saveEvent:myEvent span:EKSpanThisEvent error:&err];
             allEventsCreated = allEventsCreated && ([err code] == noErr);
             
             NSLog(@"err code = %@", err);
             if ([err code] == noErr)
             {
-                [self.store reset];
+                //[self.store reset];
             }
         }
         
