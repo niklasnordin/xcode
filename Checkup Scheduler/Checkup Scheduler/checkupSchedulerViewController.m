@@ -79,8 +79,7 @@
         int selected = [self.schemePicker selectedRowInComponent:0];
         [self.schemeButton setTitle:[NSString stringWithFormat:@"Scheme: %@",[self.schemeNames objectAtIndex:selected]] forState:UIControlStateNormal];
     }
-    
-    
+
     if (!_accessGranted)
     {
         [self.createEventButton setTitle:@"No permission to change the calendar" forState:UIControlStateNormal];
@@ -100,7 +99,14 @@
     if ([self accessGranted])
     {
         NSLog(@"Pushed createEvent button");
+        /*
+        NSArray *calendars = [self.store calendarsForEntityType:EKEntityTypeEvent];
         
+        for (EKCalendar *calendar in calendars)
+        {
+            NSLog(@"Calendar = %@", calendar.title);
+        }
+         */
         int selected = [self.schemePicker selectedRowInComponent:0];
         NSString *scheme = [self.schemeNames objectAtIndex:selected];
         NSMutableDictionary *schemeDict = [self.schemesDictionary objectForKey:scheme];
@@ -134,14 +140,31 @@
             EKCalendar *cal = [self.store calendarWithIdentifier:calendarName];
             //EKCalendar *cal = [self.store defaultCalendarForNewEvents];
 
-            if (!cal)
+            NSError *err;
+
+            if (cal == nil)
             {
                 NSLog(@"cal is nil");
+                cal = [EKCalendar calendarForEntityType:EKEntityTypeEvent eventStore:self.store];
+                if (cal == nil)
+                {
+                    NSLog(@"created new calendar");
+                    [cal setTitle:calendarName];
+                    EKSource *source = [self.store sourceWithIdentifier:@"default"];
+                    NSLog(@"source identifier: %@",source.title);
+                    NSLog(@"new calendar: %@",cal.title);
+                    [cal setSource:source];
+                    [self.store saveCalendar:cal commit:YES error:&err];
+                    NSLog(@"err code = %d",[err code]);
+                }
+                else
+                {
+                    allEventsCreated = NO;
+                }
             }
         
             [myEvent setCalendar:cal];
 
-            NSError *err;
 
    //         [self.store saveEvent:myEvent span:EKSpanThisEvent error:&err];
             allEventsCreated = allEventsCreated && ([err code] == noErr);
