@@ -16,13 +16,14 @@
 @property (strong, nonatomic) NSNumber *days;
 @property (strong, nonatomic) NSNumber *hours;
 @property (strong, nonatomic) NSNumber *minutes;
-@property (strong, nonatomic) NSNumber *duration;
+@property (strong, nonatomic) NSNumber *durationHours;
+@property (strong, nonatomic) NSNumber *durationMinutes;
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) NSMutableDictionary *eventDict;
 @property (weak, nonatomic) IBOutlet UIButton *timeAfterStartButton;
 @property (weak, nonatomic) IBOutlet UIButton *durationButton;
-
+- (IBAction)durationClicked:(UIButton *)sender;
 - (IBAction)allDayEventClicked:(UISwitch *)sender;
 @property (weak, nonatomic) IBOutlet UISwitch *allDayEventSwitch;
 @end

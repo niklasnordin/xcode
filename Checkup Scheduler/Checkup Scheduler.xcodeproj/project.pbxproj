@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61470D2317848DF4009C9C62 /* durationPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61470D2217848DF4009C9C62 /* durationPickerView.m */; };
 		6189E20B1774231600D0D181 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6189E20A1774231600D0D181 /* UIKit.framework */; };
 		6189E20D1774231600D0D181 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6189E20C1774231600D0D181 /* Foundation.framework */; };
 		6189E20F1774231600D0D181 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6189E20E1774231600D0D181 /* CoreGraphics.framework */; };
@@ -32,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		61470D2117848DF4009C9C62 /* durationPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = durationPickerView.h; sourceTree = "<group>"; };
+		61470D2217848DF4009C9C62 /* durationPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = durationPickerView.m; sourceTree = "<group>"; };
 		6189E2071774231600D0D181 /* Checkup Scheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Checkup Scheduler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6189E20A1774231600D0D181 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6189E20C1774231600D0D181 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -123,6 +126,8 @@
 				6189E238177FFAF900D0D181 /* timeSetupViewController.m */,
 				61EDE156177F194700745F6A /* eventViewController.h */,
 				61EDE157177F194700745F6A /* eventViewController.m */,
+				61470D2117848DF4009C9C62 /* durationPickerView.h */,
+				61470D2217848DF4009C9C62 /* durationPickerView.m */,
 				61EDE153177EB43900745F6A /* schemeCollectionCell.h */,
 				61EDE154177EB43900745F6A /* schemeCollectionCell.m */,
 				6189E2191774231600D0D181 /* checkupSchedulerAppDelegate.h */,
@@ -237,6 +242,7 @@
 				6189E236177F003900D0D181 /* idButton.m in Sources */,
 				61EDE158177F194700745F6A /* eventViewController.m in Sources */,
 				6189E239177FFAF900D0D181 /* timeSetupViewController.m in Sources */,
+				61470D2317848DF4009C9C62 /* durationPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

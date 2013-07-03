@@ -161,13 +161,20 @@
             int minutes = [[dict objectForKey:@"minutes"] intValue];
             int hours = [[dict objectForKey:@"hours"] intValue];
             int days = [[dict objectForKey:@"days"] intValue];
+            int durationHours = [[dict objectForKey:@"durationHours"] intValue];
+            int durationMinutes = [[dict objectForKey:@"durationMinutes"] intValue];
+            BOOL allDayEvent = [[dict objectForKey:@"allDayEvent"] boolValue];
             
             int seconds = 60*minutes + 3600*hours + 86400*days;
-        
+            int duration = 60*durationMinutes + 3600*durationHours;
+            
             NSDate *startDate = [NSDate dateWithTimeInterval:seconds sinceDate:initialDate];
+            NSDate *endDate = [NSDate dateWithTimeInterval:duration sinceDate:startDate];
+
             myEvent.startDate = startDate;
-            myEvent.endDate   = startDate;
-            myEvent.allDay = YES;
+            myEvent.endDate   = endDate;
+            myEvent.allDay = allDayEvent;
+            
             //EKAlarm *alarm = [[EKAlarm alloc] init];
             //[myEvent addAlarm:alarm];
 
