@@ -104,12 +104,33 @@
 {
     if ([self accessGranted])
     {
+        
         NSLog(@"Pushed createEvent button");
         
         int selected = [self.schemePicker selectedRowInComponent:0];
         NSString *scheme = [self.schemeNames objectAtIndex:selected];
         NSMutableDictionary *schemeDict = [self.schemesDictionary objectForKey:scheme];
         NSMutableArray *dictionaries = [schemeDict objectForKey:@"eventDictionaries"];
+        NSString *calendarName = [schemeDict objectForKey:@"calendarName"];
+        NSArray *calendars = [self.store calendarsForEntityType:EKEntityTypeEvent];
+        
+        EKCalendar *cal = nil; //[self.store calendarWithIdentifier:calendarName];
+
+        for (EKCalendar *calendar in calendars)
+        {
+            if ([calendarName isEqualToString:calendar.title])
+            {
+                cal = calendar;
+            }
+        }
+        
+        if (!cal)
+        {
+            NSLog(@"cal is nil");
+            //cal = [EKCalendar]
+            return;
+        }
+        
 
         int nEvents = [dictionaries count];
         
@@ -135,15 +156,9 @@
             myEvent.allDay = YES;
             //EKAlarm *alarm = [[EKAlarm alloc] init];
             //[myEvent addAlarm:alarm];
-            NSString *calendarName = [dict objectForKey:@"calendarName"];
-            EKCalendar *cal = [self.store calendarWithIdentifier:calendarName];
             //EKCalendar *cal = [self.store defaultCalendarForNewEvents];
 
-            if (!cal)
-            {
-                NSLog(@"cal is nil");
-            }
-        
+
             [myEvent setCalendar:cal];
 
             NSError *err;
