@@ -348,6 +348,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="reminderButtonClicker:" destination="1Ha-Ta-qCa" eventType="touchUpInside" id="YNZ-8O-eDb"/>
+                                </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0sP-xV-4lP">
                                 <connections>
@@ -392,6 +395,7 @@
                     <connections>
                         <outlet property="allDayEventSwitch" destination="0sP-xV-4lP" id="SE6-bQ-Ueg"/>
                         <outlet property="durationButton" destination="NBQ-pC-il8" id="jbO-yv-6sD"/>
+                        <outlet property="reminderButton" destination="spL-Bp-jRP" id="PrU-KG-V4o"/>
                         <outlet property="timeAfterStartButton" destination="POh-Rb-izm" id="85D-hB-ChG"/>
                         <outlet property="titleTextField" destination="9lG-sC-CQC" id="E7d-Yc-6Bo"/>
                     </connections>

@@ -196,7 +196,7 @@
         if (allEventsCreated)
         {
             UIAlertView *alert = [[UIAlertView alloc]
-                                  initWithTitle:@"Success"
+                                initWithTitle:@"Success"
                                 message:@"Events created successfully"
                                 delegate:nil
                                 cancelButtonTitle:@"Okay"

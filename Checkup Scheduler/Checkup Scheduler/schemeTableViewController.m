@@ -205,6 +205,7 @@
     [tasDict setObject:[NSNumber numberWithInt:0] forKey: @"durationMinutes"];
     [tasDict setObject:[NSNumber numberWithBool:YES] forKey: @"allDayEvent"];
     [tasDict setObject:[NSNumber numberWithBool:YES] forKey: @"reminder"];
+    [tasDict setObject:[NSNumber numberWithInt:0] forKey:@"reminderTimer"];
 
     return tasDict;
 }

@@ -19,7 +19,6 @@
     return self;
 }
 
-
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 2;

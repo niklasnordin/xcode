@@ -99,7 +99,7 @@
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    NSLog(@"%d, %d",row,component);
+
     NSNumber *num = [NSNumber numberWithInt:row];
     [self.selected setObject:num atIndexedSubscript:component];
 

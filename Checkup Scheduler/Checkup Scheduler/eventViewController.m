@@ -9,10 +9,13 @@
 #import "eventViewController.h"
 #import "timeSetupViewController.h"
 #import "durationPickerView.h"
+#import "reminderPickerView.h"
 
 @interface eventViewController ()
 @property (strong, nonatomic) UIActionSheet *actionSheet;
 @property (strong,nonatomic) durationPickerView *durationPicker;
+@property (strong, nonatomic) reminderPickerView *reminderPicker;
+@property (nonatomic) int previousReminderIndex;
 @end
 
 @implementation eventViewController
@@ -48,6 +51,25 @@
     _durationPicker.showsSelectionIndicator = YES;
     _durationPicker.delegate = _durationPicker;
     _durationPicker.dataSource = _durationPicker;
+    
+    _reminderPicker = [[reminderPickerView alloc] initWithFrame:pickerFrame];
+    _reminderPicker.showsSelectionIndicator = YES;
+    _reminderPicker.delegate = _reminderPicker;
+    _reminderPicker.dataSource = _reminderPicker;
+    
+    _previousReminderIndex = 0;
+    NSNumber *remTimer = [_eventDict objectForKey:@"reminderTimer"];
+    for (int i=0; i < [_reminderPicker.values count]; i++)
+    {
+        if ([[_reminderPicker.values objectAtIndex:i] intValue] == [remTimer intValue])
+        {
+            _previousReminderIndex = i;
+        }
+    }
+    NSString *title = [self.reminderPicker.names objectAtIndex:_previousReminderIndex];
+    [self.reminderButton setTitle:title forState:UIControlStateNormal];
+    [_reminderPicker selectRow:_previousReminderIndex inComponent:0 animated:NO];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -100,8 +122,6 @@
     }
 }
 
-// reminder picker
-// never, 5m, 15m, 30m, 1h, 2h, 1d, 2d
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -194,6 +214,65 @@
     [self.durationPicker selectRow:minutes/15 inComponent:1 animated:YES];
 
     // reset the selection of the picker
+    [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    self.actionSheet = nil;
+}
+
+- (IBAction)reminderButtonClicker:(id)sender
+{
+    
+    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Reminder"
+                                                   delegate:nil
+                                          cancelButtonTitle:nil
+                                     destructiveButtonTitle:nil
+                                          otherButtonTitles:nil];
+    
+    [self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    [self.actionSheet setOpaque:YES];
+    [self.actionSheet addSubview:self.reminderPicker];
+    
+    UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:@[@"Select"]];
+    
+    closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
+    closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
+    closeButton.tintColor = [UIColor blackColor];
+    [closeButton addTarget:self
+                    action:@selector(dismissReminder:)
+          forControlEvents:UIControlEventValueChanged];
+    
+    [self.actionSheet addSubview:closeButton];
+    
+    UISegmentedControl *cancelButton = [[UISegmentedControl alloc] initWithItems:@[@"Cancel"]];
+    cancelButton.frame = CGRectMake(10, 7.0f, 50.0f, 30.0f);
+    cancelButton.segmentedControlStyle = UISegmentedControlStyleBar;
+    UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:0.0];
+    cancelButton.tintColor = darkRed;
+    [cancelButton addTarget:self
+                     action:@selector(cancelReminder:)
+           forControlEvents:UIControlEventValueChanged];
+    [self.actionSheet addSubview:cancelButton];
+    
+    [self.actionSheet showInView:self.view];
+    [self.actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
+    
+
+}
+
+- (void)dismissReminder:(id)sender
+{
+    self.previousReminderIndex = [self.reminderPicker selectedRowInComponent:0];
+    NSString *title = [self.reminderPicker.names objectAtIndex:self.previousReminderIndex];
+    [self.reminderButton setTitle:title forState:UIControlStateNormal];
+
+    [self.eventDict setObject:[self.reminderPicker.values objectAtIndex:self.previousReminderIndex] forKey:@"reminderTimer"];
+    [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    self.actionSheet = nil;
+}
+
+- (void)cancelReminder:(id)sender
+{
+    // reset the selection of the picker
+    [self.reminderPicker selectRow:_previousReminderIndex inComponent:0 animated:YES];
     [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
     self.actionSheet = nil;
 }

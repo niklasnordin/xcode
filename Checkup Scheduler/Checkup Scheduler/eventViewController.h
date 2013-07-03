@@ -26,4 +26,8 @@
 - (IBAction)durationClicked:(UIButton *)sender;
 - (IBAction)allDayEventClicked:(UISwitch *)sender;
 @property (weak, nonatomic) IBOutlet UISwitch *allDayEventSwitch;
+
+@property (weak, nonatomic) IBOutlet UIButton *reminderButton;
+- (IBAction)reminderButtonClicker:(id)sender;
+
 @end
