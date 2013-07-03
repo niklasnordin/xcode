@@ -31,12 +31,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     _store = [[EKEventStore alloc] init];
-    [[self store] requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error)
-    {
-        _accessGranted = granted;
-    }
-    ];
-        
+
     checkupSchedulerAppDelegate *appDelegate = (checkupSchedulerAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.appView = self;
     
@@ -63,6 +58,17 @@
     _schemePicker.delegate = self;
     _schemePicker.dataSource = self;
    
+    _eventTextField.delegate = self;
+    
+    [[self store] requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error)
+     {
+         NSLog(@"requesting access = %d",granted);
+         _accessGranted = granted;
+     }
+     ];
+
+    //_accessGranted = YES;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -80,12 +86,14 @@
         [self.schemeButton setTitle:[NSString stringWithFormat:@"Scheme: %@",[self.schemeNames objectAtIndex:selected]] forState:UIControlStateNormal];
     }
     
-    [[self store] requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error)
-     {
-         self.accessGranted = granted;
-     }
-     ];
-    
+    if (!self.accessGranted)
+    {
+        [[self store] requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error)
+         {
+             self.accessGranted = granted;
+         }
+         ];
+    }
     if (!_accessGranted)
     {
         [self.createEventButton setTitle:@"No permission to change the calendar" forState:UIControlStateNormal];
@@ -104,7 +112,21 @@
 {
     if ([self accessGranted])
     {
+        NSString *eventTitle = self.eventTextField.text;
         
+        if ([eventTitle isEqualToString:@""])
+        {
+            UIAlertView *alert = [[UIAlertView alloc]
+                                  initWithTitle:@"Failed"
+                                  message:@"You must specify an event title"
+                                  delegate:nil
+                                  cancelButtonTitle:@"Okay"
+                                  otherButtonTitles:nil];
+            
+            [alert show];
+            return;
+        }
+             
         NSLog(@"Pushed createEvent button");
 
         int selected = [self.schemePicker selectedRowInComponent:0];
@@ -122,7 +144,6 @@
             {
                 cal = calendar;
             }
-            
         }
     
         NSError *err = nil;
@@ -163,6 +184,8 @@
             int days = [[dict objectForKey:@"days"] intValue];
             int durationHours = [[dict objectForKey:@"durationHours"] intValue];
             int durationMinutes = [[dict objectForKey:@"durationMinutes"] intValue];
+            int reminderTimer = [[dict objectForKey:@"reminderTimer"] intValue];
+
             BOOL allDayEvent = [[dict objectForKey:@"allDayEvent"] boolValue];
             
             int seconds = 60*minutes + 3600*hours + 86400*days;
@@ -175,9 +198,13 @@
             myEvent.endDate   = endDate;
             myEvent.allDay = allDayEvent;
             
-            //EKAlarm *alarm = [[EKAlarm alloc] init];
-            //[myEvent addAlarm:alarm];
-
+            if (reminderTimer > 0)
+            {
+                NSTimeInterval timer = -reminderTimer;
+                EKAlarm *alarm = [EKAlarm alarmWithRelativeOffset:timer];
+                [myEvent addAlarm:alarm];
+            }
+            
             [myEvent setCalendar:cal];
             [self.store saveEvent:myEvent span:EKSpanThisEvent error:&err];
             
@@ -325,13 +352,18 @@
     self.actionSheet = nil;
 }
 
-
 - (void)cancelActionSheet:(id)sender
 {
     // reset the selection of the picker
     [self.schemePicker selectRow:self.selectedNameIndex inComponent:0 animated:YES];
     [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
     self.actionSheet = nil;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

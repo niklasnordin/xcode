@@ -11,7 +11,8 @@
 @interface checkupSchedulerViewController : UIViewController
 <
     UIPickerViewDataSource,
-    UIPickerViewDelegate
+    UIPickerViewDelegate,
+    UITextFieldDelegate
 >
 
 @property (strong, nonatomic) NSMutableArray *schemeNames;
@@ -21,5 +22,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *schemeButton;
 - (IBAction)clickedSchemeButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *createEventButton;
+@property (weak, nonatomic) IBOutlet UITextField *eventTextField;
 
 @end
