@@ -94,10 +94,15 @@
          }
          ];
     }
-    if (!_accessGranted)
+    if (!self.accessGranted)
     {
         [self.createEventButton setTitle:@"No permission to change the calendar" forState:UIControlStateNormal];
         [self.createEventButton setEnabled:NO];
+    }
+    else
+    {
+        [self.createEventButton setTitle:@"Create Events" forState:UIControlStateNormal];
+        [self.createEventButton setEnabled:YES];
     }
 
 }
