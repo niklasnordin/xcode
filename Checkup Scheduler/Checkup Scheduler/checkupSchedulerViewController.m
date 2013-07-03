@@ -79,7 +79,13 @@
         int selected = [self.schemePicker selectedRowInComponent:0];
         [self.schemeButton setTitle:[NSString stringWithFormat:@"Scheme: %@",[self.schemeNames objectAtIndex:selected]] forState:UIControlStateNormal];
     }
-
+    
+    [[self store] requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error)
+     {
+         self.accessGranted = granted;
+     }
+     ];
+    
     if (!_accessGranted)
     {
         [self.createEventButton setTitle:@"No permission to change the calendar" forState:UIControlStateNormal];
