@@ -106,14 +106,7 @@
     {
         
         NSLog(@"Pushed createEvent button");
-        /*
-        NSArray *calendars = [self.store calendarsForEntityType:EKEntityTypeEvent];
-        
-        for (EKCalendar *calendar in calendars)
-        {
-            NSLog(@"Calendar = %@", calendar.title);
-        }
-         */
+
         int selected = [self.schemePicker selectedRowInComponent:0];
         NSString *scheme = [self.schemeNames objectAtIndex:selected];
         NSMutableDictionary *schemeDict = [self.schemesDictionary objectForKey:scheme];
@@ -122,23 +115,37 @@
         NSArray *calendars = [self.store calendarsForEntityType:EKEntityTypeEvent];
         
         EKCalendar *cal = nil; //[self.store calendarWithIdentifier:calendarName];
-
+        EKCalendar *localCalendar = [self.store defaultCalendarForNewEvents]; // keep this in case we need to create a new calendar
         for (EKCalendar *calendar in calendars)
         {
             if ([calendarName isEqualToString:calendar.title])
             {
                 cal = calendar;
             }
+            
         }
-        
-        if (!cal)
+    
+        NSError *err = nil;
+
+        if (cal == nil)
         {
             NSLog(@"cal is nil");
-            //cal = [EKCalendar]
-            return;
-        }
-        
+            cal = [EKCalendar calendarForEntityType:EKEntityTypeEvent eventStore:self.store];
 
+            if (cal == nil)
+            {
+                NSLog(@"could not create calendar %@",calendarName);
+                return;
+            }
+            [cal setTitle:calendarName];
+            [cal setSource:localCalendar.source];
+            [self.store saveCalendar:cal commit:YES error:&err];
+            if ([err code] == noErr)
+            {
+                NSLog(@"saved new calendar successfully");
+            }
+        }
+    
         int nEvents = [dictionaries count];
         
         BOOL allEventsCreated = YES;
@@ -163,19 +170,19 @@
             myEvent.allDay = YES;
             //EKAlarm *alarm = [[EKAlarm alloc] init];
             //[myEvent addAlarm:alarm];
-            //EKCalendar *cal = [self.store defaultCalendarForNewEvents];
-
 
             [myEvent setCalendar:cal];
-
-
-   //         [self.store saveEvent:myEvent span:EKSpanThisEvent error:&err];
+            [self.store saveEvent:myEvent span:EKSpanThisEvent error:&err];
+            
             allEventsCreated = allEventsCreated && ([err code] == noErr);
             
-            NSLog(@"err code = %@", err);
             if ([err code] == noErr)
             {
-                //[self.store reset];
+                [self.store reset];
+            }
+            else
+            {
+                NSLog(@"err code = %@", err);  
             }
         }
         
