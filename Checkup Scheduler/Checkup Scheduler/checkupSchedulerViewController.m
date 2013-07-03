@@ -106,7 +106,14 @@
     {
         
         NSLog(@"Pushed createEvent button");
+        /*
+        NSArray *calendars = [self.store calendarsForEntityType:EKEntityTypeEvent];
         
+        for (EKCalendar *calendar in calendars)
+        {
+            NSLog(@"Calendar = %@", calendar.title);
+        }
+         */
         int selected = [self.schemePicker selectedRowInComponent:0];
         NSString *scheme = [self.schemeNames objectAtIndex:selected];
         NSMutableDictionary *schemeDict = [self.schemesDictionary objectForKey:scheme];
@@ -161,7 +168,6 @@
 
             [myEvent setCalendar:cal];
 
-            NSError *err;
 
    //         [self.store saveEvent:myEvent span:EKSpanThisEvent error:&err];
             allEventsCreated = allEventsCreated && ([err code] == noErr);
