@@ -49,6 +49,17 @@
     
     NSString *buttonText = [NSString stringWithFormat:@"%dd:%dh:%dm",[self.days intValue],[self.hours intValue], [self.minutes intValue]];
     [self.timeAfterStartButton setTitle:buttonText forState:UIControlStateNormal];
+    
+    [self.durationButton setEnabled:![self.allDayEventSwitch isOn]];
+    if ([self.allDayEventSwitch isOn])
+    {
+        [self.durationButton setTitle:@"all day" forState:UIControlStateNormal];
+    }
+    else
+    {
+        NSString *title = [NSString stringWithFormat:@"%d",[self.duration intValue]];
+        [self.durationButton setTitle:title forState:UIControlStateNormal];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -84,4 +95,19 @@
     [textField resignFirstResponder];
     return YES;
 }
+
+- (IBAction)allDayEventClicked:(UISwitch *)sender
+{
+    [self.durationButton setEnabled:![sender isOn]];
+    if ([self.allDayEventSwitch isOn])
+    {
+        [self.durationButton setTitle:@"all day" forState:UIControlStateNormal];
+    }
+    else
+    {
+        NSString *title = [NSString stringWithFormat:@"%d",[self.duration intValue]];
+        [self.durationButton setTitle:title forState:UIControlStateNormal];
+    }
+}
+
 @end

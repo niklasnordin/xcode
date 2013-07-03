@@ -23,4 +23,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *timeAfterStartButton;
 @property (weak, nonatomic) IBOutlet UIButton *durationButton;
 
+- (IBAction)allDayEventClicked:(UISwitch *)sender;
+@property (weak, nonatomic) IBOutlet UISwitch *allDayEventSwitch;
 @end
