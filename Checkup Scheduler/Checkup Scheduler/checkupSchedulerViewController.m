@@ -80,6 +80,11 @@
         [self.schemeButton setTitle:[NSString stringWithFormat:@"Scheme: %@",[self.schemeNames objectAtIndex:selected]] forState:UIControlStateNormal];
     }
     
+    [[self store] requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error)
+     {
+         self.accessGranted = granted;
+     }
+     ];
     
     if (!_accessGranted)
     {
