@@ -57,9 +57,20 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     //NSLog(@"and im back from %d", [self.segueToEventNr intValue] + 1);
-    if ([self.segueToEventNr intValue] >= 0)
+    int index = [self.segueToEventNr intValue];
+    
+    if (index >= 0)
     {
-        [self.eventIsSet setObject:[NSNumber numberWithBool:YES] atIndexedSubscript:[self.segueToEventNr intValue]];
+        //[self.eventIsSet setObject:[NSNumber numberWithBool:YES] atIndexedSubscript:index];
+        // check if all titles are set
+        NSMutableArray *events = [self.schemeDictionary objectForKey:@"eventDictionaries"];
+        NSMutableDictionary *eventDict = [events objectAtIndex:index];
+
+        NSString *title = [eventDict objectForKey:@"title"];
+
+        bool titleIsSet = ![title isEqualToString:@""];
+        [self.eventIsSet setObject:[NSNumber numberWithBool:titleIsSet] atIndexedSubscript:index];
+        
     }
     [self.schemeCollectionView reloadData];
 }
