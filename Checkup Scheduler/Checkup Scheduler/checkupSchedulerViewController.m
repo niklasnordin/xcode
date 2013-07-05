@@ -197,7 +197,7 @@
             EKEvent *myEvent  = [EKEvent eventWithEventStore:self.store];
 
             myEvent.title = [NSString stringWithFormat:@"Nicke %@",[dict objectForKey:@"title"]];
-            NSDate *initialDate = [NSDate date];
+            NSDate *initialDate = self.startDate;
             int minutes = [[dict objectForKey:@"minutes"] intValue];
             int hours = [[dict objectForKey:@"hours"] intValue];
             int days = [[dict objectForKey:@"days"] intValue];
