@@ -23,7 +23,8 @@
 @property (strong, nonatomic) UIDatePicker *datePicker;
 @property (strong, nonatomic) EKEventStore *store;
 @property (nonatomic) BOOL accessGranted;
-
+@property (strong, nonatomic) NSDate *startDate;
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @end
 
 @implementation checkupSchedulerViewController
@@ -75,6 +76,11 @@
      }
      ];
 
+    _dateFormatter = [[NSDateFormatter alloc] init];
+    [_dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [_dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    _startDate = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
+    [_datePicker setDate:_startDate];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -110,6 +116,8 @@
         [self.createEventButton setTitle:@"Create Events" forState:UIControlStateNormal];
         [self.createEventButton setEnabled:YES];
     }
+
+    [self.startDateButton setTitle:[NSString stringWithFormat:@"Start: %@", [self.dateFormatter stringFromDate:self.startDate]] forState:UIControlStateNormal];
 
 }
 
@@ -423,12 +431,16 @@
 
 - (void)dismissDateActionSheet:(id)sender
 {
+    self.startDate = [self.datePicker date];
+    [self.startDateButton setTitle:[NSString stringWithFormat:@"Start: %@", [self.dateFormatter stringFromDate:self.startDate]] forState:UIControlStateNormal];
+    
     [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
     self.actionSheet = nil;
 }
 
 - (void)cancelDateActionSheet:(id)sender
 {
+    [self.datePicker setDate:self.startDate animated:YES];
     [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
     self.actionSheet = nil;
 }
