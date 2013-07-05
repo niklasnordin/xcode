@@ -23,5 +23,7 @@
 - (IBAction)clickedSchemeButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *createEventButton;
 @property (weak, nonatomic) IBOutlet UITextField *eventTextField;
+- (IBAction)startDateButtonClicked:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *startDateButton;
 
 @end
