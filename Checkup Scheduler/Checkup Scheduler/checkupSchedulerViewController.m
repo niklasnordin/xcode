@@ -13,6 +13,7 @@
 
 #define SCHEMENAMES @"schemeNames"
 #define SCHEMESDICTIONARY @"schemesDictionary"
+#define SCHEMEPICKER @"schemePicker"
 
 @interface checkupSchedulerViewController ()
 
@@ -58,17 +59,19 @@
     _schemePicker.delegate = self;
     _schemePicker.dataSource = self;
    
+    NSNumber *pickerItemNumber = [defaults objectForKey:SCHEMEPICKER];
+    [_schemePicker selectRow:[pickerItemNumber integerValue] inComponent:0 animated:NO];
+    
     _eventTextField.delegate = self;
     
+    _accessGranted = YES;
+
     [[self store] requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error)
      {
-         NSLog(@"requesting access = %d",granted);
          _accessGranted = granted;
      }
      ];
 
-    //_accessGranted = YES;
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -303,6 +306,10 @@
     
     [defaults setObject:self.schemeNames forKey:SCHEMENAMES];
     [defaults setObject:self.schemesDictionary forKey:SCHEMESDICTIONARY];
+    
+    NSInteger pickerItem = [self.schemePicker selectedRowInComponent:0];
+    
+    [defaults setObject:[NSNumber numberWithInteger:pickerItem] forKey:SCHEMEPICKER];
     
     [defaults synchronize];
 }
