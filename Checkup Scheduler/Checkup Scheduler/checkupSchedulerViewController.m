@@ -20,6 +20,7 @@
 @property (nonatomic) int selectedNameIndex;
 @property (strong, nonatomic) UIActionSheet *actionSheet;
 @property (strong, nonatomic) UIPickerView *schemePicker;
+@property (strong, nonatomic) UIDatePicker *datePicker;
 @property (strong, nonatomic) EKEventStore *store;
 @property (nonatomic) BOOL accessGranted;
 
@@ -62,6 +63,8 @@
     NSNumber *pickerItemNumber = [defaults objectForKey:SCHEMEPICKER];
     [_schemePicker selectRow:[pickerItemNumber integerValue] inComponent:0 animated:NO];
     
+    _datePicker = [[UIDatePicker alloc] initWithFrame:pickerFrame];
+    [_datePicker setDatePickerMode:UIDatePickerModeDateAndTime];
     _eventTextField.delegate = self;
     
     _accessGranted = YES;
@@ -378,8 +381,58 @@
     return YES;
 }
 
-- (IBAction)startDateButtonClicked:(id)sender {
+- (IBAction)startDateButtonClicked:(id)sender
+{
+    // remember the selected name, in case the selection is cancelled
+    
+    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Set start date"
+                                                   delegate:nil
+                                          cancelButtonTitle:nil
+                                     destructiveButtonTitle:nil
+                                          otherButtonTitles:nil];
+    
+    [self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    [self.actionSheet setOpaque:YES];
+    [self.actionSheet addSubview:self.datePicker];
+    
+    UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:@[@"Select"]];
+    
+    closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
+    closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
+    closeButton.tintColor = [UIColor blackColor];
+    [closeButton addTarget:self
+                    action:@selector(dismissDateActionSheet:)
+          forControlEvents:UIControlEventValueChanged];
+    
+    [self.actionSheet addSubview:closeButton];
+    
+    UISegmentedControl *cancelButton = [[UISegmentedControl alloc] initWithItems:@[@"Cancel"]];
+    cancelButton.frame = CGRectMake(10, 7.0f, 50.0f, 30.0f);
+    cancelButton.segmentedControlStyle = UISegmentedControlStyleBar;
+    UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:0.0];
+    cancelButton.tintColor = darkRed;
+    [cancelButton addTarget:self
+                     action:@selector(cancelDateActionSheet:)
+           forControlEvents:UIControlEventValueChanged];
+    [self.actionSheet addSubview:cancelButton];
+    
+    [self.actionSheet showInView:self.view];
+    [self.actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
+
 }
+
+- (void)dismissDateActionSheet:(id)sender
+{
+    [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    self.actionSheet = nil;
+}
+
+- (void)cancelDateActionSheet:(id)sender
+{
+    [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    self.actionSheet = nil;
+}
+
 @end
 
 
