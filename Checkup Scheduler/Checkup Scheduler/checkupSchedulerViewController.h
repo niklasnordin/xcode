@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 
 @interface checkupSchedulerViewController : UIViewController
 <
     UIPickerViewDataSource,
     UIPickerViewDelegate,
-    UITextFieldDelegate
+    UITextFieldDelegate,
+    ADBannerViewDelegate
 >
 
 @property (strong, nonatomic) NSMutableArray *schemeNames;
@@ -25,5 +27,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *eventTextField;
 - (IBAction)startDateButtonClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *startDateButton;
+@property (weak, nonatomic) IBOutlet ADBannerView *topBannerView;
 
 @end

@@ -34,7 +34,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     _store = [[EKEventStore alloc] init];
-
+    _topBannerView.delegate = self;
     checkupSchedulerAppDelegate *appDelegate = (checkupSchedulerAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.appView = self;
     
@@ -443,6 +443,22 @@
     [self.datePicker setDate:self.startDate animated:YES];
     [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
     self.actionSheet = nil;
+}
+
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:2];
+    [banner setAlpha:1];
+    [UIView commitAnimations];
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:2];
+    [banner setAlpha:0];
+    [UIView commitAnimations];
 }
 
 @end
