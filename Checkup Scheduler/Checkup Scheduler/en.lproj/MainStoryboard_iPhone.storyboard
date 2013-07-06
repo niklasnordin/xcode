@@ -65,7 +65,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.32692046356899801" green="0.46100282910266971" blue="0.62641501913265307" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="LEH-mO-Trj" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Eld-ky-q5U"/>
                             <constraint firstItem="LEH-mO-Trj" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="H1a-te-5iz"/>
@@ -98,21 +98,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-76" y="-301"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="D3L-a4-Yav">
-            <objects>
-                <viewController id="lxa-Zc-OZh" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mwS-6f-YG9">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="oh9-yp-0nS"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vuV-qB-gXP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="324" y="-907"/>
         </scene>
         <!--Time Setup View Controller - Set Time after Start-->
         <scene sceneID="wyu-cN-KoK">
@@ -156,7 +141,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.32692046359999999" green="0.46100282910000001" blue="0.62641501909999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="HVy-X9-HaP" secondAttribute="trailing" constant="16" id="8PF-V2-lwH"/>
                             <constraint firstItem="msx-4J-RLl" firstAttribute="top" secondItem="yfn-6m-7bK" secondAttribute="top" type="default" id="LOr-hb-oU4"/>
@@ -215,6 +200,9 @@
                             </textField>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cLt-Qh-BEk" customClass="schemeCollectionView">
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="317" id="N7T-JR-wbf"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aI7-4V-VMM">
                                     <size key="itemSize" width="70" height="70"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -229,15 +217,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHd-2k-mdh" customClass="idButton">
-                                                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHd-2k-mdh" customClass="idButton">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="68" id="aDf-8U-M3x"/>
+                                                        <constraint firstAttribute="height" constant="67" id="Imc-NI-fHV"/>
                                                         <constraint firstAttribute="width" constant="68" id="wmi-wb-mg5"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                                     <state key="normal" title="-">
-                                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <state key="highlighted">
@@ -251,8 +238,8 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="yHd-2k-mdh" firstAttribute="centerX" secondItem="L6g-r3-h6E" secondAttribute="centerX" type="default" id="b5Q-EW-FKr"/>
-                                            <constraint firstItem="yHd-2k-mdh" firstAttribute="centerY" secondItem="L6g-r3-h6E" secondAttribute="centerY" type="default" id="ecU-9w-uq1"/>
+                                            <constraint firstItem="yHd-2k-mdh" firstAttribute="centerY" secondItem="L6g-r3-h6E" secondAttribute="centerY" type="default" id="PkZ-e6-gho"/>
+                                            <constraint firstItem="yHd-2k-mdh" firstAttribute="centerX" secondItem="L6g-r3-h6E" secondAttribute="centerX" type="default" id="bgI-uU-cRc"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="idButton" destination="yHd-2k-mdh" id="s7C-Zi-V7b"/>
@@ -261,20 +248,19 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.32692046359999999" green="0.46100282910000001" blue="0.62641501909999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ZMS-la-yp7" firstAttribute="top" secondItem="Sjf-LD-BKa" secondAttribute="top" type="default" id="7h9-xV-9Mv"/>
                             <constraint firstItem="cLt-Qh-BEk" firstAttribute="leading" secondItem="Sjf-LD-BKa" secondAttribute="leading" type="default" id="Bxk-e8-b8f"/>
                             <constraint firstItem="ZMS-la-yp7" firstAttribute="leading" secondItem="Sjf-LD-BKa" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="CZF-1P-GkS"/>
                             <constraint firstItem="cLt-Qh-BEk" firstAttribute="bottom" secondItem="Sjf-LD-BKa" secondAttribute="bottom" type="default" id="FRE-Fn-htb"/>
                             <constraint firstItem="KpP-RP-Mgh" firstAttribute="centerY" secondItem="h7t-Xp-oZ2" secondAttribute="centerY" type="default" id="Rdn-1C-cpK"/>
                             <constraint firstAttribute="trailing" secondItem="7uw-hZ-fir" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="VYN-BU-4iX"/>
                             <constraint firstItem="cLt-Qh-BEk" firstAttribute="trailing" secondItem="Sjf-LD-BKa" secondAttribute="trailing" type="default" id="XPp-dw-vAf"/>
+                            <constraint firstItem="ZMS-la-yp7" firstAttribute="top" secondItem="Sjf-LD-BKa" secondAttribute="top" constant="5" id="bZu-OM-xuA"/>
                             <constraint firstAttribute="trailing" secondItem="KpP-RP-Mgh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="cI3-fd-iLY"/>
                             <constraint firstItem="KpP-RP-Mgh" firstAttribute="leading" secondItem="h7t-Xp-oZ2" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="eIf-Jn-PCk"/>
                             <constraint firstAttribute="trailing" secondItem="ZMS-la-yp7" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="eZH-pa-Ej2"/>
                             <constraint firstItem="h7t-Xp-oZ2" firstAttribute="top" secondItem="7uw-hZ-fir" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="mY0-Up-WK0"/>
-                            <constraint firstItem="7uw-hZ-fir" firstAttribute="top" secondItem="ZMS-la-yp7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="q2v-lx-gUq"/>
                             <constraint firstItem="7uw-hZ-fir" firstAttribute="leading" secondItem="Sjf-LD-BKa" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="q5l-m3-ef4"/>
                             <constraint firstItem="h7t-Xp-oZ2" firstAttribute="leading" secondItem="Sjf-LD-BKa" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="uHX-x5-c7U"/>
                             <constraint firstItem="cLt-Qh-BEk" firstAttribute="top" secondItem="KpP-RP-Mgh" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="z86-vN-ecY"/>
@@ -384,7 +370,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.32692046359999999" green="0.46100282910000001" blue="0.62641501909999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="hds-D8-7Iq" secondAttribute="bottom" constant="186" id="3WC-oj-3Ft"/>
                             <constraint firstItem="9lG-sC-CQC" firstAttribute="top" secondItem="ddq-eu-D0h" secondAttribute="top" constant="20" symbolic="YES" type="default" id="3sD-Uu-0gI"/>
@@ -442,6 +428,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="fzD-2l-N8p" kind="push" identifier="cellSegue" id="yYO-E7-5ma"/>
                                 </connections>
@@ -478,6 +465,79 @@
             <point key="canvasLocation" x="-473" y="-301"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
+        <class className="checkupSchedulerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/checkupSchedulerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clickedSchemeButton:"/>
+                <relationship kind="action" name="createEvent:"/>
+                <relationship kind="action" name="startDateButtonClicked:"/>
+                <relationship kind="outlet" name="createEventButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="eventTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="schemeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="startDateButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="eventViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/eventViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="allDayEventClicked:" candidateClass="UISwitch"/>
+                <relationship kind="action" name="durationClicked:" candidateClass="UIButton"/>
+                <relationship kind="action" name="reminderButtonClicker:"/>
+                <relationship kind="outlet" name="allDayEventSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="durationButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="reminderButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timeAfterStartButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="idButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/idButton.h"/>
+        </class>
+        <class className="schemeCollectionCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeCollectionCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="idButton" candidateClass="idButton"/>
+            </relationships>
+        </class>
+        <class className="schemeCollectionView" superclassName="UICollectionView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeCollectionView.h"/>
+        </class>
+        <class className="schemeTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeTableViewController.h"/>
+        </class>
+        <class className="schemeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="numEventsStepperPressed:"/>
+                <relationship kind="outlet" name="calendarNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="numEventsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numEventsStepperValue" candidateClass="UIStepper"/>
+                <relationship kind="outlet" name="schemeCollectionView" candidateClass="schemeCollectionView"/>
+            </relationships>
+        </class>
+        <class className="timeSetupViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/timeSetupViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="timePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
