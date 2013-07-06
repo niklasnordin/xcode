@@ -173,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDo-MT-L4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1235" y="320"/>
+            <point key="canvasLocation" x="719" y="275"/>
         </scene>
         <!--Scheme View Controller - SchemeName-->
         <scene sceneID="5E5-c5-8iF">
@@ -184,7 +184,6 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Number of Events: 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7t-Xp-oZ2">
-                                <color key="backgroundColor" red="0.86145550271739135" green="0.86145550271739135" blue="0.86145550271739135" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -198,7 +197,6 @@
                                 </connections>
                             </stepper>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Calendar Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMS-la-yp7">
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -208,7 +206,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cLt-Qh-BEk" customClass="schemeCollectionView">
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.23917288490871136" green="0.34231771253440835" blue="0.46482382015306123" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="278" id="Ug2-ci-bEF"/>
                                 </constraints>
@@ -233,9 +231,8 @@
                                                         <constraint firstAttribute="width" constant="68" id="wmi-wb-mg5"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                                    <size key="titleShadowOffset" width="1" height="1"/>
                                                     <state key="normal" title="-">
-                                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <state key="highlighted">
@@ -271,7 +268,7 @@
                             <constraint firstAttribute="trailing" secondItem="KpP-RP-Mgh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="cI3-fd-iLY"/>
                             <constraint firstItem="KpP-RP-Mgh" firstAttribute="leading" secondItem="h7t-Xp-oZ2" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="eIf-Jn-PCk"/>
                             <constraint firstAttribute="trailing" secondItem="ZMS-la-yp7" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="eZH-pa-Ej2"/>
-                            <constraint firstItem="h7t-Xp-oZ2" firstAttribute="top" secondItem="7uw-hZ-fir" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="mY0-Up-WK0"/>
+                            <constraint firstItem="KpP-RP-Mgh" firstAttribute="top" secondItem="7uw-hZ-fir" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ode-b4-6o4"/>
                             <constraint firstItem="7uw-hZ-fir" firstAttribute="leading" secondItem="Sjf-LD-BKa" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="q5l-m3-ef4"/>
                             <constraint firstItem="h7t-Xp-oZ2" firstAttribute="leading" secondItem="Sjf-LD-BKa" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="uHX-x5-c7U"/>
                             <constraint firstItem="7uw-hZ-fir" firstAttribute="top" secondItem="Sjf-LD-BKa" secondAttribute="top" constant="29" id="zVg-55-ihm"/>
@@ -287,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XZd-ft-lyT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="723" y="-301"/>
+            <point key="canvasLocation" x="-76" y="275"/>
         </scene>
         <!--Event View Controller-->
         <scene sceneID="Q2h-9G-4Hc">
@@ -371,6 +368,7 @@
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0sP-xV-4lP">
+                                <color key="onTintColor" red="0.44044596819999998" green="0.64004703439999999" blue="0.3409809197" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="allDayEventClicked:" destination="1Ha-Ta-qCa" eventType="valueChanged" id="bix-dX-5tf"/>
                                 </connections>
@@ -420,7 +418,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bKA-J8-a6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1235" y="-301"/>
+            <point key="canvasLocation" x="317" y="275"/>
         </scene>
         <!--Scheme Table View Controller - Schemes-->
         <scene sceneID="g6n-Nr-oLH">
