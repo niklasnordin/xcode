@@ -85,17 +85,25 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+
     if ([self.schemeNames count] == 0)
     {
          // deactivate the scheme button
         [self.schemeButton setTitle:@"No available schemes" forState:UIControlStateNormal];
         [self.schemeButton setEnabled:NO];
+        [self.calendarInfoLabel setText:@""];
     }
     else
     {
-        [self.schemeButton setEnabled:YES];
         int selected = [self.schemePicker selectedRowInComponent:0];
+        NSString *scheme = [self.schemeNames objectAtIndex:selected];
+        NSMutableDictionary *schemeDict = [self.schemesDictionary objectForKey:scheme];
+        
+        [self.schemeButton setEnabled:YES];
         [self.schemeButton setTitle:[NSString stringWithFormat:@"Scheme: %@",[self.schemeNames objectAtIndex:selected]] forState:UIControlStateNormal];
+        NSString *calendarName = [schemeDict objectForKey:@"calendarName"];
+        [self.calendarInfoLabel setText:[NSString stringWithFormat:@"Calendar Name:%@",calendarName]];
+
     }
     
     if (!self.accessGranted)
@@ -371,6 +379,12 @@
     int selected = [self.schemePicker selectedRowInComponent:0];
     [self.schemeButton setTitle:[NSString stringWithFormat:@"Scheme: %@",[self.schemeNames objectAtIndex:selected]] forState:UIControlStateNormal];
     
+    NSString *scheme = [self.schemeNames objectAtIndex:selected];
+    NSMutableDictionary *schemeDict = [self.schemesDictionary objectForKey:scheme];
+        
+    NSString *calendarName = [schemeDict objectForKey:@"calendarName"];
+    [self.calendarInfoLabel setText:[NSString stringWithFormat:@"Calendar Name:%@",calendarName]];
+
     [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
     self.actionSheet = nil;
 }

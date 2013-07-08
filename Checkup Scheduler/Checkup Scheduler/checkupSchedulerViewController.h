@@ -28,5 +28,6 @@
 - (IBAction)startDateButtonClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *startDateButton;
 @property (weak, nonatomic) IBOutlet ADBannerView *topBannerView;
+@property (weak, nonatomic) IBOutlet UILabel *calendarInfoLabel;
 
 @end

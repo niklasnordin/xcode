@@ -28,13 +28,13 @@
                                     <action selector="createEvent:" destination="2" eventType="touchUpInside" id="r0x-2K-6wg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AT-Ov-PZc">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AT-Ov-PZc">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="wOK-ED-FTY"/>
+                                    <constraint firstAttribute="height" constant="49" id="hir-x7-svH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" title="Scheme">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -69,15 +69,25 @@
                                     <constraint firstAttribute="height" constant="50" id="jug-HK-iy0"/>
                                 </constraints>
                             </adBannerView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZu-Vp-KvZ">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="E0p-cu-lno"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.32692046356899801" green="0.46100282910266971" blue="0.62641501913265307" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="6AT-Ov-PZc" firstAttribute="top" secondItem="psL-YU-azA" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="6eX-b2-949"/>
-                            <constraint firstItem="YeR-FT-epD" firstAttribute="top" secondItem="3" secondAttribute="top" constant="12" id="CBo-Qp-BEW"/>
                             <constraint firstAttribute="trailing" secondItem="LEH-mO-Trj" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Eld-ky-q5U"/>
                             <constraint firstItem="LEH-mO-Trj" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="H1a-te-5iz"/>
                             <constraint firstItem="weW-9a-Mys" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="MaV-2m-c36"/>
+                            <constraint firstItem="YeR-FT-epD" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="Req-oc-MdX"/>
+                            <constraint firstAttribute="trailing" secondItem="mZu-Vp-KvZ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="SBI-7J-1eR"/>
                             <constraint firstItem="weW-9a-Mys" firstAttribute="top" secondItem="LEH-mO-Trj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Vhw-hP-t7y"/>
+                            <constraint firstItem="mZu-Vp-KvZ" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="W6o-UV-Sf3"/>
                             <constraint firstAttribute="bottom" secondItem="weW-9a-Mys" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="WmF-m8-usS"/>
                             <constraint firstItem="psL-YU-azA" firstAttribute="top" secondItem="3" secondAttribute="top" constant="78" id="YAU-pm-IrP"/>
                             <constraint firstItem="psL-YU-azA" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Z6E-mc-iaT"/>
@@ -87,6 +97,7 @@
                             <constraint firstItem="6AT-Ov-PZc" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kg4-HU-p2X"/>
                             <constraint firstItem="YeR-FT-epD" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="psA-Xx-nPf"/>
                             <constraint firstAttribute="trailing" secondItem="6AT-Ov-PZc" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="sDt-a2-VQJ"/>
+                            <constraint firstItem="mZu-Vp-KvZ" firstAttribute="top" secondItem="6AT-Ov-PZc" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="zkW-wZ-DmU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Reminder" id="dkk-Aw-P5I">
@@ -97,6 +108,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="calendarInfoLabel" destination="mZu-Vp-KvZ" id="qu4-d5-U8g"/>
                         <outlet property="createEventButton" destination="weW-9a-Mys" id="l1b-h0-ibM"/>
                         <outlet property="eventTextField" destination="psL-YU-azA" id="Gxv-ub-6kG"/>
                         <outlet property="schemeButton" destination="6AT-Ov-PZc" id="aGJ-pv-Kju"/>
@@ -474,80 +486,6 @@
             <point key="canvasLocation" x="-473" y="-301"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
-        <class className="checkupSchedulerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/checkupSchedulerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clickedSchemeButton:"/>
-                <relationship kind="action" name="createEvent:"/>
-                <relationship kind="action" name="startDateButtonClicked:"/>
-                <relationship kind="outlet" name="createEventButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="eventTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="schemeButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="startDateButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="topBannerView" candidateClass="ADBannerView"/>
-            </relationships>
-        </class>
-        <class className="eventViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/eventViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="allDayEventClicked:" candidateClass="UISwitch"/>
-                <relationship kind="action" name="durationClicked:" candidateClass="UIButton"/>
-                <relationship kind="action" name="reminderButtonClicker:"/>
-                <relationship kind="outlet" name="allDayEventSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="durationButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="reminderButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="timeAfterStartButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="titleTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="idButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/idButton.h"/>
-        </class>
-        <class className="schemeCollectionCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeCollectionCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="idButton" candidateClass="idButton"/>
-            </relationships>
-        </class>
-        <class className="schemeCollectionView" superclassName="UICollectionView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeCollectionView.h"/>
-        </class>
-        <class className="schemeTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeTableViewController.h"/>
-        </class>
-        <class className="schemeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="numEventsStepperPressed:"/>
-                <relationship kind="outlet" name="calendarNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="numEventsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numEventsStepperValue" candidateClass="UIStepper"/>
-                <relationship kind="outlet" name="schemeCollectionView" candidateClass="schemeCollectionView"/>
-            </relationships>
-        </class>
-        <class className="timeSetupViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/timeSetupViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="timePicker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
