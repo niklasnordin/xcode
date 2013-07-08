@@ -71,7 +71,7 @@
     [_reminderPicker selectRow:_previousReminderIndex inComponent:0 animated:NO];
     
     _allDayEventSwitch.on = [[_eventDict objectForKey:@"allDayEvent"] boolValue];
-    
+    _busySwitch.on = [[_eventDict objectForKey:@"busy"] boolValue];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -280,4 +280,8 @@
     self.actionSheet = nil;
 }
 
+- (IBAction)busySwitchClicked:(UISwitch *)sender
+{
+    [self.eventDict setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"busy"];
+}
 @end

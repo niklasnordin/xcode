@@ -30,4 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *reminderButton;
 - (IBAction)reminderButtonClicker:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UISwitch *busySwitch;
+- (IBAction)busySwitchClicked:(id)sender;
+
 @end
