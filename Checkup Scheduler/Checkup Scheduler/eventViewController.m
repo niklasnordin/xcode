@@ -70,6 +70,8 @@
     [self.reminderButton setTitle:title forState:UIControlStateNormal];
     [_reminderPicker selectRow:_previousReminderIndex inComponent:0 animated:NO];
     
+    _allDayEventSwitch.on = [[_eventDict objectForKey:@"allDayEvent"] boolValue];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -173,6 +175,7 @@
 
 - (IBAction)allDayEventClicked:(UISwitch *)sender
 {
+    [self.eventDict setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"allDayEvent"];
     [self.durationButton setEnabled:![sender isOn]];
     if ([self.allDayEventSwitch isOn])
     {

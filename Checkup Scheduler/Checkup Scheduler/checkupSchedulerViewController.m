@@ -154,8 +154,6 @@
             return;
         }
              
-        NSLog(@"Pushed createEvent button");
-
         int selected = [self.schemePicker selectedRowInComponent:0];
         NSString *scheme = [self.schemeNames objectAtIndex:selected];
         NSMutableDictionary *schemeDict = [self.schemesDictionary objectForKey:scheme];
