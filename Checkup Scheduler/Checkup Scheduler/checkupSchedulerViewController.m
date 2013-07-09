@@ -196,13 +196,14 @@
         
         BOOL allEventsCreated = YES;
         
+        NSString *prefixTitle = self.eventTextField.text;
         for (int i=0; i<nEvents; i++)
         {
             NSMutableDictionary *dict = [dictionaries objectAtIndex:i];
         
             EKEvent *myEvent  = [EKEvent eventWithEventStore:self.store];
 
-            myEvent.title = [NSString stringWithFormat:@"Nicke %@",[dict objectForKey:@"title"]];
+            myEvent.title = [NSString stringWithFormat:@"%@ %@",prefixTitle, [dict objectForKey:@"title"]];
             NSDate *initialDate = self.startDate;
             int minutes = [[dict objectForKey:@"minutes"] intValue];
             int hours = [[dict objectForKey:@"hours"] intValue];
@@ -212,6 +213,7 @@
             int reminderTimer = [[dict objectForKey:@"reminderTimer"] intValue];
 
             BOOL allDayEvent = [[dict objectForKey:@"allDayEvent"] boolValue];
+            BOOL busy = [[dict objectForKey:@"busy"] boolValue];
             
             int seconds = 60*minutes + 3600*hours + 86400*days;
             int duration = 60*durationMinutes + 3600*durationHours;
@@ -222,6 +224,7 @@
             myEvent.startDate = startDate;
             myEvent.endDate   = endDate;
             myEvent.allDay = allDayEvent;
+            myEvent.availability = !busy;
             
             if (reminderTimer > 0)
             {

@@ -91,6 +91,10 @@
 - (IBAction)numEventsStepperPressed:(UIStepper *)sender
 {
     int value = sender.value;
+    NSMutableArray *ed = [self.schemeDictionary objectForKey:@"eventDictionaries"];
+    NSLog(@"value = %d", value);
+    NSLog(@"1. num of dicts = %d", [ed count]);
+
     [self.schemeDictionary setObject:[NSNumber numberWithInt:value] forKey:@"numEvents"];
     self.numEventsLabel.text = [NSString stringWithFormat:@"Number of Events:%d",value];
     if (value > [self.eventIsSet count])
@@ -103,8 +107,12 @@
     else
     {
         [self.eventIsSet removeLastObject];
+        NSMutableArray *eventDictionaries = [self.schemeDictionary objectForKey:@"eventDictionaries"];
+        [eventDictionaries removeLastObject];
     }
-    
+    NSMutableArray *eventDictionaries = [self.schemeDictionary objectForKey:@"eventDictionaries"];
+
+    NSLog(@"2. num of dicts = %d", [eventDictionaries count]);
     [self.schemeCollectionView reloadData];
 }
 
