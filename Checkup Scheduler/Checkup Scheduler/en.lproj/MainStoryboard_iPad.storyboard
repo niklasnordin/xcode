@@ -25,7 +25,13 @@
                             <constraint firstItem="z40-y6-rol" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="3eR-0h-ZvR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="aHy-wq-FVg"/>
+                    <navigationItem key="navigationItem" id="aHy-wq-FVg">
+                        <barButtonItem key="rightBarButtonItem" title="Schemes" id="5xi-9V-6Mv">
+                            <connections>
+                                <segue destination="U6H-cl-dX7" kind="push" identifier="schemeSegue" id="Wto-qT-wEs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="topBannerView" destination="z40-y6-rol" id="fsn-sH-nFd"/>
                     </connections>
@@ -33,6 +39,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="982" y="-171"/>
+        </scene>
+        <!--Scheme Table View Controller - Schemes-->
+        <scene sceneID="igP-CB-s06">
+            <objects>
+                <tableViewController id="U6H-cl-dX7" customClass="schemeTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="irW-Eb-cVG">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="schemeCell" id="KiP-Ih-ceb">
+                                <rect key="frame" x="0.0" y="54" width="768" height="46"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="45" y="1" width="678" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="U6H-cl-dX7" id="51B-q4-vPF"/>
+                            <outlet property="delegate" destination="U6H-cl-dX7" id="hXD-CU-6Eq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Schemes" id="uro-VX-SJY"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="09C-1G-dMY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1890" y="-171"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ACi-ti-PKd">
@@ -63,12 +99,16 @@
                 <relationship kind="action" name="clickedSchemeButton:"/>
                 <relationship kind="action" name="createEvent:"/>
                 <relationship kind="action" name="startDateButtonClicked:"/>
+                <relationship kind="outlet" name="calendarInfoLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="createEventButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="eventTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="schemeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="startDateButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="topBannerView" candidateClass="ADBannerView"/>
             </relationships>
+        </class>
+        <class className="schemeTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeTableViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
