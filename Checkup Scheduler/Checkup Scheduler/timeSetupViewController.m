@@ -11,7 +11,6 @@
 @interface timeSetupViewController ()
 
 //@property (strong,nonatomic) NSMutableArray *selected;
-@property (strong, nonatomic) NSArray *minutes;
 @end
 
 @implementation timeSetupViewController
@@ -88,7 +87,7 @@
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-
+/*
     NSNumber *num = [NSNumber numberWithInt:row];
     //[self.selected setObject:num atIndexedSubscript:component];
 
@@ -105,6 +104,6 @@
     {
         [self.eventDict setObject:num forKey:@"days"];
     }
-        
+    */    
 }
 @end

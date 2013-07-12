@@ -80,7 +80,6 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"viewWillAppear");
     self.days = [self.eventDict objectForKey:@"days"];
     self.hours = [self.eventDict objectForKey:@"hours"];
     self.minutes = [self.eventDict objectForKey:@"minutes"];
@@ -129,8 +128,6 @@
         self.previousHoursTimer = [[self.eventDict objectForKey:@"hours"] intValue];
         self.previousMinutesTimer = [[self.eventDict objectForKey:@"minutes"] intValue];
         [tsvc setEventDict:self.eventDict];
-        int days = [[self.eventDict objectForKey:@"days"] intValue];
-        NSLog(@"prepare for segue: days = %d",days);
     }
 }
 
@@ -299,10 +296,14 @@
 - (IBAction)setTimer:(UIStoryboardSegue *)segue
 {
     timeSetupViewController *tvc = segue.sourceViewController;
-    
-    int days = [[tvc.eventDict objectForKey:@"days"] intValue];
-    int hours = [[tvc.eventDict objectForKey:@"hours"] intValue];
-    int minutes = [[tvc.eventDict objectForKey:@"minutes"] intValue];
+    //[self.eventDict setObject:num forKey:@"days"];
+    int days = [tvc.timePicker selectedRowInComponent:0];
+    int hours = [tvc.timePicker selectedRowInComponent:1];
+    int minutesIndex = [tvc.timePicker selectedRowInComponent:2];
+    int minutes = [[tvc.minutes objectAtIndex:minutesIndex] intValue];
+    [self.eventDict setObject:[NSNumber numberWithInt:days] forKey:@"days"];
+    [self.eventDict setObject:[NSNumber numberWithInt:hours] forKey:@"hours"];
+    [self.eventDict setObject:[NSNumber numberWithInt:minutes] forKey:@"minutes"];
 
     NSString *buttonText = [NSString stringWithFormat:@"%dd:%dh:%dm", days, hours, minutes];
     [self.timeAfterStartButton setTitle:buttonText forState:UIControlStateNormal];
