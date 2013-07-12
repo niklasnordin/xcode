@@ -78,7 +78,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.32692046356899801" green="0.46100282910266971" blue="0.62641501913265307" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.32692046359999999" green="0.46100282910000001" blue="0.62641501909999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="6AT-Ov-PZc" firstAttribute="top" secondItem="psL-YU-azA" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="6eX-b2-949"/>
                             <constraint firstAttribute="trailing" secondItem="LEH-mO-Trj" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Eld-ky-q5U"/>
@@ -136,7 +136,6 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfn-6m-7bK">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="xAY-h8-3YY"/>
-                                    <constraint firstAttribute="height" constant="20" id="zEF-9l-NWV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -144,6 +143,7 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msx-4J-RLl">
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="JBt-8y-dKW"/>
                                     <constraint firstAttribute="width" constant="90" id="uTC-W5-Auv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -170,6 +170,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="vVr-vr-1oq" kind="unwind" unwindAction="setTimer:" id="Q2B-ur-86q"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8H-zg-q76">
                                 <constraints>
@@ -183,25 +186,29 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="vVr-vr-1oq" kind="unwind" unwindAction="cancelTimer:" id="W7R-54-RfO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.32692046359999999" green="0.46100282910000001" blue="0.62641501909999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="5wP-38-OfC" firstAttribute="top" secondItem="Q6Z-a9-Vtu" secondAttribute="top" constant="180" id="BoP-ba-9he"/>
-                            <constraint firstItem="HVy-X9-HaP" firstAttribute="top" secondItem="msx-4J-RLl" secondAttribute="top" type="default" id="DOD-DA-0IP"/>
-                            <constraint firstItem="HVy-X9-HaP" firstAttribute="baseline" secondItem="msx-4J-RLl" secondAttribute="baseline" type="default" id="JM3-ZX-iW3"/>
-                            <constraint firstItem="msx-4J-RLl" firstAttribute="baseline" secondItem="yfn-6m-7bK" secondAttribute="baseline" type="default" id="MTe-cb-FA3"/>
-                            <constraint firstItem="yfn-6m-7bK" firstAttribute="top" secondItem="Q6Z-a9-Vtu" secondAttribute="top" constant="160" id="SG2-Mv-crn"/>
+                            <constraint firstItem="5wP-38-OfC" firstAttribute="top" secondItem="Q6Z-a9-Vtu" secondAttribute="top" constant="179" id="1Sb-Ij-2Bd"/>
+                            <constraint firstItem="HVy-X9-HaP" firstAttribute="baseline" secondItem="msx-4J-RLl" secondAttribute="baseline" type="default" id="4df-yK-hBV"/>
+                            <constraint firstItem="Tjh-2L-qwI" firstAttribute="top" secondItem="o8H-zg-q76" secondAttribute="top" type="default" id="Aag-HB-Dhu"/>
+                            <constraint firstItem="msx-4J-RLl" firstAttribute="top" secondItem="Q6Z-a9-Vtu" secondAttribute="top" constant="159" id="FO8-Fe-mXs"/>
+                            <constraint firstItem="HVy-X9-HaP" firstAttribute="top" secondItem="msx-4J-RLl" secondAttribute="top" type="default" id="Lej-2n-Kos"/>
                             <constraint firstItem="yfn-6m-7bK" firstAttribute="leading" secondItem="Q6Z-a9-Vtu" secondAttribute="leading" constant="16" id="VAa-Af-YvB"/>
-                            <constraint firstAttribute="bottom" secondItem="o8H-zg-q76" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="ZYN-nQ-NCU"/>
                             <constraint firstItem="5wP-38-OfC" firstAttribute="leading" secondItem="Q6Z-a9-Vtu" secondAttribute="leading" type="default" id="c0X-TZ-Kpv"/>
-                            <constraint firstAttribute="bottom" secondItem="Tjh-2L-qwI" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="cD3-TY-cP4"/>
                             <constraint firstItem="msx-4J-RLl" firstAttribute="centerX" secondItem="5wP-38-OfC" secondAttribute="centerX" type="default" id="dM1-l0-42q"/>
+                            <constraint firstItem="msx-4J-RLl" firstAttribute="top" secondItem="yfn-6m-7bK" secondAttribute="top" type="default" id="hX1-OA-88o"/>
                             <constraint firstItem="Tjh-2L-qwI" firstAttribute="leading" secondItem="o8H-zg-q76" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="hpt-XO-YvM"/>
                             <constraint firstItem="o8H-zg-q76" firstAttribute="leading" secondItem="yfn-6m-7bK" secondAttribute="leading" type="default" id="huD-bG-jdA"/>
                             <constraint firstItem="5wP-38-OfC" firstAttribute="trailing" secondItem="Q6Z-a9-Vtu" secondAttribute="trailing" type="default" id="nBg-pi-iDe"/>
                             <constraint firstItem="Tjh-2L-qwI" firstAttribute="trailing" secondItem="HVy-X9-HaP" secondAttribute="trailing" type="default" id="qgP-Qr-Ywy"/>
-                            <constraint firstItem="msx-4J-RLl" firstAttribute="top" secondItem="yfn-6m-7bK" secondAttribute="top" type="default" id="uAN-dO-8aQ"/>
+                            <constraint firstItem="Tjh-2L-qwI" firstAttribute="baseline" secondItem="o8H-zg-q76" secondAttribute="baseline" type="default" id="smE-dy-NKt"/>
+                            <constraint firstAttribute="bottom" secondItem="o8H-zg-q76" secondAttribute="bottom" constant="16" id="xTo-d5-JyA"/>
+                            <constraint firstItem="msx-4J-RLl" firstAttribute="baseline" secondItem="yfn-6m-7bK" secondAttribute="baseline" type="default" id="yuq-AE-bb1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Set Time after Start" id="oYu-iV-OwS"/>
@@ -210,6 +217,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDo-MT-L4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="vVr-vr-1oq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="721" y="275"/>
         </scene>
@@ -244,7 +252,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cLt-Qh-BEk" customClass="schemeCollectionView">
-                                <color key="backgroundColor" red="0.23917288490871136" green="0.34231771253440835" blue="0.46482382015306123" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.32692046359999999" green="0.46100282910000001" blue="0.62641501909999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="278" id="Ug2-ci-bEF"/>
                                 </constraints>
@@ -529,6 +537,85 @@
             <point key="canvasLocation" x="-473" y="-301"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+        <class className="checkupSchedulerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/checkupSchedulerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clickedSchemeButton:"/>
+                <relationship kind="action" name="createEvent:"/>
+                <relationship kind="action" name="startDateButtonClicked:"/>
+                <relationship kind="outlet" name="calendarInfoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createEventButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="eventTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="schemeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="startDateButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="topBannerView" candidateClass="ADBannerView"/>
+            </relationships>
+        </class>
+        <class className="eventViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/eventViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="allDayEventClicked:" candidateClass="UISwitch"/>
+                <relationship kind="action" name="busySwitchClicked:"/>
+                <relationship kind="action" name="cancelTimer:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="durationClicked:" candidateClass="UIButton"/>
+                <relationship kind="action" name="reminderButtonClicker:"/>
+                <relationship kind="action" name="setTimer:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="allDayEventSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="busySwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="durationButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="reminderButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timeAfterStartButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="idButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/idButton.h"/>
+        </class>
+        <class className="schemeCollectionCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeCollectionCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="idButton" candidateClass="idButton"/>
+            </relationships>
+        </class>
+        <class className="schemeCollectionView" superclassName="UICollectionView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeCollectionView.h"/>
+        </class>
+        <class className="schemeTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeTableViewController.h"/>
+        </class>
+        <class className="schemeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="numEventsStepperPressed:"/>
+                <relationship kind="outlet" name="calendarNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="numEventsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numEventsStepperValue" candidateClass="UIStepper"/>
+                <relationship kind="outlet" name="schemeCollectionView" candidateClass="schemeCollectionView"/>
+            </relationships>
+        </class>
+        <class className="timeSetupViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/timeSetupViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="timePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

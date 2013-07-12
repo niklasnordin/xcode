@@ -33,7 +33,8 @@
 @property (weak, nonatomic) IBOutlet UISwitch *busySwitch;
 - (IBAction)busySwitchClicked:(id)sender;
 
-- (IBAction)setTimer:(id)sender;
-- (IBAction)cancelTimer:(id)sender;
+- (IBAction)setTimer:(UIStoryboardSegue *)segue;
+- (IBAction)cancelTimer:(UIStoryboardSegue *)segue;
+
 
 @end

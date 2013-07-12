@@ -10,58 +10,43 @@
 
 @interface timeSetupViewController ()
 
-@property (strong,nonatomic) NSMutableArray *selected;
+//@property (strong,nonatomic) NSMutableArray *selected;
 @property (strong, nonatomic) NSArray *minutes;
 @end
 
 @implementation timeSetupViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    int days = [[_eventDict objectForKey:@"days"] intValue];
-    int hours = [[_eventDict objectForKey:@"hours"] intValue];
+    [super viewWillAppear:animated];
+    
+    int days    = [[_eventDict objectForKey:@"days"] intValue];
+    int hours   = [[_eventDict objectForKey:@"hours"] intValue];
     int minutes = [[_eventDict objectForKey:@"minutes"] intValue];
     
     int minutesIndex = minutes / 15;
-    
-    //possible bug here
+    /*
     _selected = [[NSMutableArray alloc] initWithObjects:
                  [NSNumber numberWithInt:days],
                  [NSNumber numberWithInt:hours],
                  [NSNumber numberWithInt:minutes],
                  nil];
-    
+    */
     _minutes = [[NSArray alloc] initWithObjects:
                 [NSNumber numberWithInt:0],
                 [NSNumber numberWithInt:15],
                 [NSNumber numberWithInt:30],
                 [NSNumber numberWithInt:45],
                 nil];
-
+    
     _timePicker.dataSource = self;
     _timePicker.delegate = self;
     
     [_timePicker selectRow:minutesIndex inComponent:2 animated:NO];
     [_timePicker selectRow:hours inComponent:1 animated:NO];
     [_timePicker selectRow:days inComponent:0 animated:NO];
-    
-}
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
@@ -71,18 +56,22 @@
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    if (component == 2)
-    {
-        return 4;
+    int selected = -1;
+    switch (component) {
+        case 0:
+            selected = 365;
+            break;
+        case 1:
+            selected = 24;
+            break;
+        case 2:
+            selected = 4;
+            break;
+        default:
+            break;
     }
-    else if (component == 1)
-    {
-        return 24;
-    }
-    else
-    {
-        return 365;
-    }
+
+    return selected;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
@@ -101,7 +90,7 @@
 {
 
     NSNumber *num = [NSNumber numberWithInt:row];
-    [self.selected setObject:num atIndexedSubscript:component];
+    //[self.selected setObject:num atIndexedSubscript:component];
 
     if (component == 2)
     {

@@ -16,6 +16,10 @@
 @property (strong,nonatomic) durationPickerView *durationPicker;
 @property (strong, nonatomic) reminderPickerView *reminderPicker;
 @property (nonatomic) int previousReminderIndex;
+@property (nonatomic) int previousDayTimer;
+@property (nonatomic) int previousHoursTimer;
+@property (nonatomic) int previousMinutesTimer;
+
 @end
 
 @implementation eventViewController
@@ -76,6 +80,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    NSLog(@"viewWillAppear");
     self.days = [self.eventDict objectForKey:@"days"];
     self.hours = [self.eventDict objectForKey:@"hours"];
     self.minutes = [self.eventDict objectForKey:@"minutes"];
@@ -120,7 +125,12 @@
     {
         // hej
         timeSetupViewController *tsvc = segue.destinationViewController;
+        self.previousDayTimer = [[self.eventDict objectForKey:@"days"] intValue];
+        self.previousHoursTimer = [[self.eventDict objectForKey:@"hours"] intValue];
+        self.previousMinutesTimer = [[self.eventDict objectForKey:@"minutes"] intValue];
         [tsvc setEventDict:self.eventDict];
+        int days = [[self.eventDict objectForKey:@"days"] intValue];
+        NSLog(@"prepare for segue: days = %d",days);
     }
 }
 
@@ -284,6 +294,38 @@
 {
     [self.eventDict setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"busy"];
 }
+
+
+- (IBAction)setTimer:(UIStoryboardSegue *)segue
+{
+    timeSetupViewController *tvc = segue.sourceViewController;
+    
+    int days = [[tvc.eventDict objectForKey:@"days"] intValue];
+    int hours = [[tvc.eventDict objectForKey:@"hours"] intValue];
+    int minutes = [[tvc.eventDict objectForKey:@"minutes"] intValue];
+
+    NSString *buttonText = [NSString stringWithFormat:@"%dd:%dh:%dm", days, hours, minutes];
+    [self.timeAfterStartButton setTitle:buttonText forState:UIControlStateNormal];
+     
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)cancelTimer:(UIStoryboardSegue *)segue
+{
+
+    timeSetupViewController *tvc = segue.sourceViewController;
+    [self.eventDict setObject:[NSNumber numberWithInt:self.previousDayTimer] forKey:@"days"];
+    [self.eventDict setObject:[NSNumber numberWithInt:self.previousHoursTimer] forKey:@"hours"];
+    [self.eventDict setObject:[NSNumber numberWithInt:self.previousMinutesTimer] forKey:@"minutes"];
+
+    int minutesIndex = self.previousMinutesTimer / 15;
+    [tvc.timePicker selectRow:minutesIndex inComponent:2 animated:YES];
+    [tvc.timePicker selectRow:self.previousHoursTimer inComponent:1 animated:YES];
+    [tvc.timePicker selectRow:self.previousDayTimer inComponent:0 animated:YES];
+
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+}
+
 
 
 @end
