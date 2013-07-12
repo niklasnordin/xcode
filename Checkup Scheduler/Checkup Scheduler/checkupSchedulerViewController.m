@@ -19,6 +19,7 @@
 
 @property (nonatomic) int selectedNameIndex;
 @property (strong, nonatomic) UIActionSheet *actionSheet;
+@property (strong, nonatomic) UIPopoverController *popOver;
 @property (strong, nonatomic) UIPickerView *schemePicker;
 @property (strong, nonatomic) UIDatePicker *datePicker;
 @property (strong, nonatomic) EKEventStore *store;
@@ -54,9 +55,16 @@
         _schemesDictionary = [[NSMutableDictionary alloc] init];
     }
     
+    CGFloat width = self.view.bounds.size.width;
+    CGFloat height = self.view.bounds.size.height;
+    
+    //NSLog(@"self.view.height = %f",self.view.bounds.size.height);
     // setup the picker
-    CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
+    //CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
+    CGRect pickerFrame = CGRectMake(0, 40, 0, 500);
+
     _schemePicker = [[UIPickerView alloc] initWithFrame:pickerFrame];
+    //_schemePicker = [[UIPickerView alloc] init];
     _schemePicker.showsSelectionIndicator = YES;
     _schemePicker.delegate = self;
     _schemePicker.dataSource = self;
@@ -66,6 +74,7 @@
     
     _datePicker = [[UIDatePicker alloc] initWithFrame:pickerFrame];
     [_datePicker setDatePickerMode:UIDatePickerModeDateAndTime];
+
     _eventTextField.delegate = self;
     
     _accessGranted = YES;
@@ -336,6 +345,14 @@
 
 - (IBAction)clickedSchemeButton:(id)sender
 {
+    NSString *deviceModel = [[UIDevice currentDevice] model];
+    NSLog(@"deviceModel = %@",deviceModel);
+    CGFloat width = self.view.bounds.size.width;
+    CGFloat height = self.view.bounds.size.height;
+    //self.popOver = [[UIPopoverController alloc] init];
+    /*
+    NSLog(@"view rect = w = %f, h = %f",self.view.bounds.size.width,self.view.bounds.size.height);
+
     // remember the selected name, in case the selection is cancelled
     self.selectedNameIndex = [self.schemePicker selectedRowInComponent:0];
 
@@ -344,14 +361,17 @@
                                           cancelButtonTitle:nil
                                      destructiveButtonTitle:nil
                                           otherButtonTitles:nil];
-    
+    //[self.actionSheet showInView:self.view];
+    [self.actionSheet showFromRect:CGRectMake(100.0f, 100.0f, 620.0f, 400.0f) inView:self.view animated:YES];
+
     [self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    //[self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackOpaque];
+
     [self.actionSheet setOpaque:YES];
-    [self.actionSheet addSubview:self.schemePicker];
     
     UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:@[@"Select"]];
 
-    closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
+    closeButton.frame = CGRectMake(260.0f, 7.0f, 50.0f, 30.0f);
     closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
     closeButton.tintColor = [UIColor blackColor];
     [closeButton addTarget:self
@@ -361,7 +381,7 @@
     [self.actionSheet addSubview:closeButton];
     
     UISegmentedControl *cancelButton = [[UISegmentedControl alloc] initWithItems:@[@"Cancel"]];
-    cancelButton.frame = CGRectMake(10, 7.0f, 50.0f, 30.0f);
+    cancelButton.frame = CGRectMake(10.0f, 7.0f, 50.0f, 30.0f);
     cancelButton.segmentedControlStyle = UISegmentedControlStyleBar;
     UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:0.0];
     cancelButton.tintColor = darkRed;
@@ -369,10 +389,17 @@
                      action:@selector(cancelActionSheet:)
            forControlEvents:UIControlEventValueChanged];
     [self.actionSheet addSubview:cancelButton];
-    
-    [self.actionSheet showInView:self.view];
-    [self.actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
-    
+
+    [self.actionSheet addSubview:self.schemePicker];
+
+
+    [self.actionSheet setBounds:CGRectMake(0, 0, 320, 500)];
+    //[self.actionSheet setFrame:CGRectMake(0, 0, 400, 500)];
+    //[self.actionSheet setBounds:CGRectMake(0, 0, width, height+60)];
+    //[self.actionSheet setBounds:self.schemePicker.bounds];
+    CGRect af = self.actionSheet.frame;
+    NSLog(@"x=%f, y=%f, wid=%f, height=%f",af.origin.x, af.origin.y, af.size.width, af.size.height);
+     */
 }
 
 - (void)dismissActionSheet:(id)sender
