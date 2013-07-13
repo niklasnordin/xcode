@@ -17,6 +17,13 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    float red = [self.redTextField.text floatValue];
+    float blue = [self.blueTextField.text floatValue];
+    float green = [self.greenTextField.text floatValue];
+    [self.redSlider setValue:red];
+    [self.greenSlider setValue:green];
+    [self.blueSlider setValue:blue];
+    
     [textField resignFirstResponder];
     return YES;
 }
@@ -34,6 +41,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    _redTextField.text = [NSString stringWithFormat:@"%.0f", _redSlider.value];
+    _greenTextField.text = [NSString stringWithFormat:@"%.0f", _greenSlider.value];
+    _blueTextField.text = [NSString stringWithFormat:@"%.0f", _blueSlider.value];
+    
     _redTextField.delegate = self;
     _greenTextField.delegate = self;
     _blueTextField.delegate = self;
@@ -45,12 +57,28 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)redSliderChanged:(id)sender {
+- (void)setBackgroundColor:(UIColor *)backgroundColor
+{
+    _backgroundColor = backgroundColor;
+    [self.view setBackgroundColor:backgroundColor];
+    NSLog(@"helloooo");
 }
 
-- (IBAction)greenSliderChanged:(id)sender {
+- (IBAction)redSliderChanged:(UISlider *)sender
+{
+    self.redTextField.text = [NSString stringWithFormat:@"%.0f", sender.value];
+    self.backgroundColor = [UIColor colorWithRed:self.redSlider.value green:self.greenSlider.value blue:self.blueSlider.value alpha:1.0];
 }
 
-- (IBAction)blueSliderChanged:(id)sender {
+- (IBAction)greenSliderChanged:(UISlider *)sender
+{
+    self.greenTextField.text = [NSString stringWithFormat:@"%.0f", sender.value];
+    self.backgroundColor = [UIColor colorWithRed:self.redSlider.value green:self.greenSlider.value blue:self.blueSlider.value alpha:1.0];
+}
+
+- (IBAction)blueSliderChanged:(UISlider *)sender
+{
+    self.blueTextField.text = [NSString stringWithFormat:@"%.0f", sender.value];
+    self.backgroundColor = [UIColor colorWithRed:self.redSlider.value green:self.greenSlider.value blue:self.blueSlider.value alpha:1.0];
 }
 @end

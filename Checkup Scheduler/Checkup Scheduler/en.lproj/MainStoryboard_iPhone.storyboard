@@ -78,7 +78,7 @@
                                     <constraint firstAttribute="width" constant="39" id="qzF-bJ-GNb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Green" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpY-7A-Km0">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -92,7 +92,7 @@
                             </slider>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="255" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jYR-Xn-YJ0">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Blue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w29-08-FbM">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -106,7 +106,7 @@
                             </slider>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="255" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UaM-ed-kms">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -687,6 +687,102 @@
             <point key="canvasLocation" x="-473" y="-301"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+        <class className="checkupSchedulerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/checkupSchedulerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clickedSchemeButton:"/>
+                <relationship kind="action" name="createEvent:"/>
+                <relationship kind="action" name="startDateButtonClicked:"/>
+                <relationship kind="outlet" name="calendarInfoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createEventButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="eventTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="schemeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="startDateButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="topBannerView" candidateClass="ADBannerView"/>
+            </relationships>
+        </class>
+        <class className="colorSettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/colorSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="blueSliderChanged:" candidateClass="UISlider"/>
+                <relationship kind="action" name="greenSliderChanged:" candidateClass="UISlider"/>
+                <relationship kind="action" name="redSliderChanged:" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="blueSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="blueTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="greenSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="greenTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="redSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="redTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="eventViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/eventViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="allDayEventClicked:" candidateClass="UISwitch"/>
+                <relationship kind="action" name="busySwitchClicked:"/>
+                <relationship kind="action" name="cancelTimer:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="durationClicked:" candidateClass="UIButton"/>
+                <relationship kind="action" name="reminderButtonClicker:"/>
+                <relationship kind="action" name="setTimer:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="allDayEventSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="busySwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="durationButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="reminderButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timeAfterStartButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="idButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/idButton.h"/>
+        </class>
+        <class className="schemeCollectionCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeCollectionCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="idButton" candidateClass="idButton"/>
+            </relationships>
+        </class>
+        <class className="schemeCollectionView" superclassName="UICollectionView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeCollectionView.h"/>
+        </class>
+        <class className="schemeTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeTableViewController.h"/>
+        </class>
+        <class className="schemeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="numEventsStepperPressed:"/>
+                <relationship kind="outlet" name="calendarNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="numEventsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numEventsStepperValue" candidateClass="UIStepper"/>
+                <relationship kind="outlet" name="schemeCollectionView" candidateClass="schemeCollectionView"/>
+            </relationships>
+        </class>
+        <class className="settingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/settingsViewController.h"/>
+        </class>
+        <class className="timeSetupViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/timeSetupViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="timePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

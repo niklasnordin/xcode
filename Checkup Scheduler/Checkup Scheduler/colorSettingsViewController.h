@@ -13,12 +13,14 @@
     UITextFieldDelegate
 >
 
+@property (strong,nonatomic) UIColor *backgroundColor;
+
 @property (weak, nonatomic) IBOutlet UISlider *redSlider;
 @property (weak, nonatomic) IBOutlet UISlider *greenSlider;
 @property (weak, nonatomic) IBOutlet UISlider *blueSlider;
-- (IBAction)redSliderChanged:(id)sender;
-- (IBAction)greenSliderChanged:(id)sender;
-- (IBAction)blueSliderChanged:(id)sender;
+- (IBAction)redSliderChanged:(UISlider *)sender;
+- (IBAction)greenSliderChanged:(UISlider *)sender;
+- (IBAction)blueSliderChanged:(UISlider *)sender;
 @property (weak, nonatomic) IBOutlet UITextField *redTextField;
 @property (weak, nonatomic) IBOutlet UITextField *greenTextField;
 @property (weak, nonatomic) IBOutlet UITextField *blueTextField;
