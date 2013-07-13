@@ -60,25 +60,25 @@
 - (void)setBackgroundColor:(UIColor *)backgroundColor
 {
     _backgroundColor = backgroundColor;
-    [self.view setBackgroundColor:backgroundColor];
-    NSLog(@"helloooo");
+    self.view.backgroundColor = backgroundColor;
+    NSLog(@"col = %@",backgroundColor);
 }
 
 - (IBAction)redSliderChanged:(UISlider *)sender
 {
     self.redTextField.text = [NSString stringWithFormat:@"%.0f", sender.value];
-    self.backgroundColor = [UIColor colorWithRed:self.redSlider.value green:self.greenSlider.value blue:self.blueSlider.value alpha:1.0];
+    self.backgroundColor = [UIColor colorWithRed:self.redSlider.value/255.0 green:self.greenSlider.value/255.0 blue:self.blueSlider.value/255.0 alpha:1.0];
 }
 
 - (IBAction)greenSliderChanged:(UISlider *)sender
 {
     self.greenTextField.text = [NSString stringWithFormat:@"%.0f", sender.value];
-    self.backgroundColor = [UIColor colorWithRed:self.redSlider.value green:self.greenSlider.value blue:self.blueSlider.value alpha:1.0];
+    self.backgroundColor = [UIColor colorWithRed:self.redSlider.value/255.0 green:self.greenSlider.value/255.0 blue:self.blueSlider.value/255.0 alpha:1.0];
 }
 
 - (IBAction)blueSliderChanged:(UISlider *)sender
 {
     self.blueTextField.text = [NSString stringWithFormat:@"%.0f", sender.value];
-    self.backgroundColor = [UIColor colorWithRed:self.redSlider.value green:self.greenSlider.value blue:self.blueSlider.value alpha:1.0];
+    self.backgroundColor = [UIColor colorWithRed:self.redSlider.value/255.0 green:self.greenSlider.value/255.0 blue:self.blueSlider.value/255.0 alpha:1.0];
 }
 @end
