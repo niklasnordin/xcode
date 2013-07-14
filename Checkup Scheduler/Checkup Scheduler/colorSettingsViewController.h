@@ -12,8 +12,11 @@
 <
     UITextFieldDelegate
 >
+@property (nonatomic) BOOL background;
+@property (nonatomic) BOOL text;
 
 @property (strong,nonatomic) UIColor *backgroundColor;
+@property (strong,nonatomic) UIColor *textColor;
 
 @property (weak, nonatomic) IBOutlet UISlider *redSlider;
 @property (weak, nonatomic) IBOutlet UISlider *greenSlider;

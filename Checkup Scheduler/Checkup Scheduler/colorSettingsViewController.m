@@ -28,6 +28,18 @@
     return YES;
 }
 
+- (id)init
+{
+    NSLog(@"colorSettingsViewController init");
+    self = [super init];
+    if (self)
+    {
+        _background = NO;
+        _text = NO;
+    }
+    return self;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

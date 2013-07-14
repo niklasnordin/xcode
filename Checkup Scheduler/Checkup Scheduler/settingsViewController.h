@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "settingsDB.h"
 
 @interface settingsViewController : UIViewController
+
+@property (weak, nonatomic) settingsDB *preferences;
 
 @end

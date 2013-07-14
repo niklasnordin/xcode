@@ -9,6 +9,7 @@
 #import "checkupSchedulerAppDelegate.h"
 #import "checkupSchedulerViewController.h"
 #import "schemeTableViewController.h"
+#import "settingsViewController.h"
 #import "EventKit/EventKit.h"
 
 #define SCHEMENAMES @"schemeNames"
@@ -93,7 +94,7 @@
     [_dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     _startDate = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
     [_datePicker setDate:_startDate];
-    [_view setBackgroundColor:_preferences.backgroundColor];
+    [self.view setBackgroundColor:_preferences.backgroundColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -333,7 +334,8 @@
     }
     else if ([segue.identifier isEqualToString:@"settingsSegue"])
     {
-        
+        settingsViewController *svc = (settingsViewController *)segue.destinationViewController;
+        [svc setPreferences:self.preferences];
     }
 }
 

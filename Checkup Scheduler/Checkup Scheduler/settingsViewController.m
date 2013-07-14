@@ -37,7 +37,14 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
+    if ([segue.description isEqualToString:@"backgroundColorSegue"])
+    {
+        
+    }
+    else if ([segue.description isEqualToString:@"textColorSegue"])
+    {
+        
+    }
 }
 
 @end
