@@ -34,6 +34,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    _preferences = [[settingsDB alloc] init];
     _store = [[EKEventStore alloc] init];
     _topBannerView.delegate = self;
     checkupSchedulerAppDelegate *appDelegate = (checkupSchedulerAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -41,6 +42,8 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
+    [_preferences readFromUserDefaults:defaults];
+    
     _schemeNames = [defaults objectForKey:SCHEMENAMES];
     
     if (!_schemeNames)
@@ -90,6 +93,7 @@
     [_dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     _startDate = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
     [_datePicker setDate:_startDate];
+    [_view setBackgroundColor:_preferences.backgroundColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -327,6 +331,10 @@
         [stvc setSchemePicker:[self schemePicker]];
         [stvc setSchemesDictionary:[self schemesDictionary]];
     }
+    else if ([segue.identifier isEqualToString:@"settingsSegue"])
+    {
+        
+    }
 }
 
 - (void)save
@@ -339,7 +347,7 @@
     NSInteger pickerItem = [self.schemePicker selectedRowInComponent:0];
     
     [defaults setObject:[NSNumber numberWithInteger:pickerItem] forKey:SCHEMEPICKER];
-    
+    [self.preferences saveToUserDefaults:defaults];
     [defaults synchronize];
 }
 

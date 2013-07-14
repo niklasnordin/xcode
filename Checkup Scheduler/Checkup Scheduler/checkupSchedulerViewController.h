@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <iAd/iAd.h>
+#import "settingsDB.h"
 
 @interface checkupSchedulerViewController : UIViewController
 <
@@ -17,6 +18,7 @@
     ADBannerViewDelegate
 >
 
+@property (strong,nonatomic) settingsDB *preferences;
 @property (strong, nonatomic) NSMutableArray *schemeNames;
 @property (strong, nonatomic) NSMutableDictionary *schemesDictionary;
 - (IBAction)createEvent:(id)sender;
