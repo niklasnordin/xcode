@@ -30,6 +30,7 @@
 		61B71BFC1791AB79001BD35D /* settingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B71BFB1791AB79001BD35D /* settingsViewController.m */; };
 		61B71BFF1791B86B001BD35D /* colorSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B71BFE1791B86A001BD35D /* colorSettingsViewController.m */; };
 		61B71C021792FE51001BD35D /* settingsDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B71C011792FE51001BD35D /* settingsDB.m */; };
+		61B71C041793C724001BD35D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B71C031793C724001BD35D /* QuartzCore.framework */; };
 		61C0DE121787E79800C57615 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C0DE111787E79800C57615 /* iAd.framework */; };
 		61EDE146177A071600745F6A /* schemeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EDE145177A071600745F6A /* schemeTableViewController.m */; };
 		61EDE14C177B5B5300745F6A /* schemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EDE14B177B5B5300745F6A /* schemeViewController.m */; };
@@ -75,6 +76,7 @@
 		61B71BFE1791B86A001BD35D /* colorSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = colorSettingsViewController.m; sourceTree = "<group>"; };
 		61B71C001792FE51001BD35D /* settingsDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsDB.h; sourceTree = "<group>"; };
 		61B71C011792FE51001BD35D /* settingsDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsDB.m; sourceTree = "<group>"; };
+		61B71C031793C724001BD35D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		61C0DE111787E79800C57615 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		61EDE144177A071600745F6A /* schemeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = schemeTableViewController.h; sourceTree = "<group>"; };
 		61EDE145177A071600745F6A /* schemeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = schemeTableViewController.m; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61B71C041793C724001BD35D /* QuartzCore.framework in Frameworks */,
 				61C0DE121787E79800C57615 /* iAd.framework in Frameworks */,
 				6189E2331774B76A00D0D181 /* EventKitUI.framework in Frameworks */,
 				6189E2311774242500D0D181 /* EventKit.framework in Frameworks */,
@@ -136,6 +139,7 @@
 		6189E2091774231600D0D181 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				61B71C031793C724001BD35D /* QuartzCore.framework */,
 				61C0DE111787E79800C57615 /* iAd.framework */,
 				6189E2321774B76A00D0D181 /* EventKitUI.framework */,
 				6189E2301774242500D0D181 /* EventKit.framework */,

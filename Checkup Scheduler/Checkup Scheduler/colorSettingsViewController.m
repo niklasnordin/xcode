@@ -7,6 +7,7 @@
 //
 
 #import "colorSettingsViewController.h"
+#import "QuartzCore/QuartzCore.h"
 
 @interface colorSettingsViewController ()
 
@@ -28,20 +29,20 @@
     return YES;
 }
 
+
 - (id)init
 {
     NSLog(@"colorSettingsViewController init");
     self = [super init];
     if (self)
     {
-        _background = NO;
-        _text = NO;
     }
     return self;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+    NSLog(@"colorSettingsViewController initWithNibName");
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -69,28 +70,28 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setBackgroundColor:(UIColor *)backgroundColor
+- (void)setColor:(UIColor *)color
 {
-    _backgroundColor = backgroundColor;
-    self.view.backgroundColor = backgroundColor;
-    NSLog(@"col = %@",backgroundColor);
+    _color = color;
+    self.colorView.backgroundColor = color;
 }
 
 - (IBAction)redSliderChanged:(UISlider *)sender
 {
+    
     self.redTextField.text = [NSString stringWithFormat:@"%.0f", sender.value];
-    self.backgroundColor = [UIColor colorWithRed:self.redSlider.value/255.0 green:self.greenSlider.value/255.0 blue:self.blueSlider.value/255.0 alpha:1.0];
+    self.color = [UIColor colorWithRed:self.redSlider.value/255.0 green:self.greenSlider.value/255.0 blue:self.blueSlider.value/255.0 alpha:1.0];
 }
 
 - (IBAction)greenSliderChanged:(UISlider *)sender
 {
     self.greenTextField.text = [NSString stringWithFormat:@"%.0f", sender.value];
-    self.backgroundColor = [UIColor colorWithRed:self.redSlider.value/255.0 green:self.greenSlider.value/255.0 blue:self.blueSlider.value/255.0 alpha:1.0];
+    self.color = [UIColor colorWithRed:self.redSlider.value/255.0 green:self.greenSlider.value/255.0 blue:self.blueSlider.value/255.0 alpha:1.0];
 }
 
 - (IBAction)blueSliderChanged:(UISlider *)sender
 {
     self.blueTextField.text = [NSString stringWithFormat:@"%.0f", sender.value];
-    self.backgroundColor = [UIColor colorWithRed:self.redSlider.value/255.0 green:self.greenSlider.value/255.0 blue:self.blueSlider.value/255.0 alpha:1.0];
+    self.color = [UIColor colorWithRed:self.redSlider.value/255.0 green:self.greenSlider.value/255.0 blue:self.blueSlider.value/255.0 alpha:1.0];
 }
 @end

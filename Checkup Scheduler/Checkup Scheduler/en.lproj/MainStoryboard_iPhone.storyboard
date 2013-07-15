@@ -108,18 +108,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GaW-0v-fBi">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jpY-7A-Km0" firstAttribute="leading" secondItem="Vsr-pW-UrC" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="0rq-oE-Lhv"/>
                             <constraint firstAttribute="trailing" secondItem="bPv-my-hab" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="18s-oV-Pu3"/>
+                            <constraint firstItem="jYR-Xn-YJ0" firstAttribute="leading" secondItem="jpY-7A-Km0" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="6D6-1g-JyW"/>
                             <constraint firstItem="jYR-Xn-YJ0" firstAttribute="leading" secondItem="RCz-q4-Ugi" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="92m-FW-hIe"/>
+                            <constraint firstItem="GaW-0v-fBi" firstAttribute="leading" secondItem="Vsr-pW-UrC" secondAttribute="leading" constant="80" id="DBq-zy-L0v"/>
                             <constraint firstItem="jKP-P7-GY7" firstAttribute="top" secondItem="Vsr-pW-UrC" secondAttribute="top" constant="176" id="Dj8-gb-PaH"/>
+                            <constraint firstItem="GaW-0v-fBi" firstAttribute="centerX" secondItem="Vsr-pW-UrC" secondAttribute="centerX" type="default" id="FZJ-nd-Fah"/>
+                            <constraint firstItem="UaM-ed-kms" firstAttribute="leading" secondItem="w29-08-FbM" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Jbe-XZ-v5H"/>
                             <constraint firstAttribute="trailing" secondItem="UaM-ed-kms" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Lw9-uE-IyL"/>
                             <constraint firstItem="bPv-my-hab" firstAttribute="top" secondItem="Vsr-pW-UrC" secondAttribute="top" constant="45" id="M46-3C-FBz"/>
                             <constraint firstItem="w29-08-FbM" firstAttribute="leading" secondItem="Vsr-pW-UrC" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="QHN-4L-SmU"/>
                             <constraint firstItem="bPv-my-hab" firstAttribute="centerY" secondItem="DPi-bE-b7o" secondAttribute="centerY" type="default" id="QbK-cu-6Ds"/>
                             <constraint firstItem="UaM-ed-kms" firstAttribute="leading" secondItem="jKP-P7-GY7" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Ve3-5d-Fe2"/>
+                            <constraint firstItem="GaW-0v-fBi" firstAttribute="top" secondItem="Vsr-pW-UrC" secondAttribute="top" constant="236" id="W1u-Se-PQY"/>
                             <constraint firstItem="SPZ-8u-6dZ" firstAttribute="top" secondItem="Vsr-pW-UrC" secondAttribute="top" constant="25" id="WHr-2a-ofW"/>
                             <constraint firstItem="bPv-my-hab" firstAttribute="leading" secondItem="DPi-bE-b7o" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="WVf-Vv-oAq"/>
                             <constraint firstItem="jpY-7A-Km0" firstAttribute="top" secondItem="Vsr-pW-UrC" secondAttribute="top" constant="88" id="aFQ-Po-ghA"/>
@@ -128,11 +136,13 @@
                             <constraint firstItem="RCz-q4-Ugi" firstAttribute="top" secondItem="Vsr-pW-UrC" secondAttribute="top" constant="113" id="c52-Ha-AIe"/>
                             <constraint firstItem="jKP-P7-GY7" firstAttribute="leading" secondItem="Vsr-pW-UrC" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="dQx-Ku-ACG"/>
                             <constraint firstItem="w29-08-FbM" firstAttribute="top" secondItem="Vsr-pW-UrC" secondAttribute="top" constant="151" id="esF-sS-5DU"/>
+                            <constraint firstAttribute="bottom" secondItem="GaW-0v-fBi" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="oOq-HH-qpR"/>
                             <constraint firstAttribute="trailing" secondItem="jYR-Xn-YJ0" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pok-bp-Hak"/>
                             <constraint firstItem="DPi-bE-b7o" firstAttribute="leading" secondItem="Vsr-pW-UrC" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="qwF-iF-U0y"/>
                             <constraint firstItem="UaM-ed-kms" firstAttribute="leading" secondItem="jYR-Xn-YJ0" secondAttribute="leading" type="default" id="r8g-fw-QWC"/>
                             <constraint firstItem="SPZ-8u-6dZ" firstAttribute="leading" secondItem="Vsr-pW-UrC" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="sRA-gM-Ght"/>
                             <constraint firstItem="jYR-Xn-YJ0" firstAttribute="top" secondItem="Vsr-pW-UrC" secondAttribute="top" constant="108" id="yZS-PJ-XuQ"/>
+                            <constraint firstItem="bPv-my-hab" firstAttribute="leading" secondItem="SPZ-8u-6dZ" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="ybq-EJ-Qra"/>
                             <constraint firstItem="UaM-ed-kms" firstAttribute="top" secondItem="Vsr-pW-UrC" secondAttribute="top" constant="171" id="zD9-qF-Gc3"/>
                         </constraints>
                     </view>
@@ -140,6 +150,7 @@
                     <connections>
                         <outlet property="blueSlider" destination="jKP-P7-GY7" id="FHS-jD-1h4"/>
                         <outlet property="blueTextField" destination="UaM-ed-kms" id="mDD-iD-5CT"/>
+                        <outlet property="colorView" destination="GaW-0v-fBi" id="J6Y-J1-uNN"/>
                         <outlet property="greenSlider" destination="RCz-q4-Ugi" id="KSI-FA-sHw"/>
                         <outlet property="greenTextField" destination="jYR-Xn-YJ0" id="9eC-JL-S25"/>
                         <outlet property="redSlider" destination="DPi-bE-b7o" id="62k-Op-VnN"/>
@@ -693,6 +704,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="79Z-c0-GLL"/>
+        <segue reference="Tv6-fd-XhM"/>
     </inferredMetricsTieBreakers>
 </document>
