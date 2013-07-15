@@ -25,5 +25,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *greenTextField;
 @property (weak, nonatomic) IBOutlet UITextField *blueTextField;
 @property (weak, nonatomic) IBOutlet UIView *colorView;
+@property (weak, nonatomic) IBOutlet UIView *redGradientView;
 
 @end
