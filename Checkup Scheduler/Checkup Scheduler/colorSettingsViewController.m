@@ -65,48 +65,98 @@
     _redTextField.delegate = self;
     _greenTextField.delegate = self;
     _blueTextField.delegate = self;
-        
+    
+    _redGradientLayer = [CAGradientLayer layer];
+    _greenGradientLayer = [CAGradientLayer layer];
+    _blueGradientLayer = [CAGradientLayer layer];
+
+    CGFloat red, green, blue, alpha;
+    bool couldConvert = [_color getRed:&red green:&green blue:&blue alpha:&alpha];
+    if (!couldConvert)
+    {
+        NSLog(@"could not convert color space");
+    }
+    self.redSlider.value = red*255.0;
+    self.greenSlider.value = green*255.0;
+    self.blueSlider.value = blue*255.0;
+    self.redTextField.text = [NSString stringWithFormat:@"%.0f", self.redSlider.value];
+    self.greenTextField.text = [NSString stringWithFormat:@"%.0f", self.greenSlider.value];
+    self.blueTextField.text = [NSString stringWithFormat:@"%.0f", self.blueSlider.value];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     CGPoint x0 = CGPointMake(0.0, 0.0);
     CGPoint x1 = CGPointMake(1.0, 0.0);
-    CGFloat red = _redSlider.value/255.0;
-    CGFloat green = _greenSlider.value/255.0;
-    CGFloat blue = _blueSlider.value/255.0;
+    CGFloat red = self.redSlider.value/255.0;
+    CGFloat green = self.greenSlider.value/255.0;
+    CGFloat blue = self.blueSlider.value/255.0;
     
-    self.redGradientLayer = [CAGradientLayer layer];
     CGRect redBounds = self.redGradientView.bounds;
     self.redGradientLayer.frame = redBounds;
+    CGRect greenBounds = self.greenGradientView.bounds;
+    self.greenGradientLayer.frame = greenBounds;
+    CGRect blueBounds = self.blueGradientView.bounds;
+    self.blueGradientLayer.frame = blueBounds;
+
     UIColor *redLeft = [UIColor colorWithRed:0.0 green:green blue:blue alpha:1.0];
     UIColor *redRight = [UIColor colorWithRed:1.0 green:green blue:blue alpha:1.0];
     NSArray *redColors = @[ (id)redLeft.CGColor, (id)redRight.CGColor ];
     
+    UIColor *greenLeft = [UIColor colorWithRed:red green:0.0 blue:blue alpha:1.0];
+    UIColor *greenRight = [UIColor colorWithRed:red green:1.0 blue:blue alpha:1.0];
+    NSArray *greenColors = @[ (id)greenLeft.CGColor, (id)greenRight.CGColor ];
+
+    UIColor *blueLeft = [UIColor colorWithRed:red green:green blue:0.0 alpha:1.0];
+    UIColor *blueRight = [UIColor colorWithRed:red green:green blue:1.0 alpha:1.0];
+    NSArray *blueColors = @[ (id)blueLeft.CGColor, (id)blueRight.CGColor ];
+
     self.redGradientLayer.colors = redColors;
+    self.greenGradientLayer.colors = greenColors;
+    self.blueGradientLayer.colors = blueColors;
     
     // points are normalized and then mapped to the rect so range is 0,0 -> 1,1
     self.redGradientLayer.startPoint = x0;
     self.redGradientLayer.endPoint = x1;
     [self.redGradientView.layer insertSublayer:self.redGradientLayer atIndex:0];
+
+    self.greenGradientLayer.startPoint = x0;
+    self.greenGradientLayer.endPoint = x1;
+    [self.greenGradientView.layer insertSublayer:self.greenGradientLayer atIndex:0];
+
+    self.blueGradientLayer.startPoint = x0;
+    self.blueGradientLayer.endPoint = x1;
+    [self.blueGradientView.layer insertSublayer:self.blueGradientLayer atIndex:0];
+
     self.colorView.backgroundColor = self.color;
-    
 
 }
 
 -(void)updateGradientLayers
 {
-    
+
+    CGFloat red = self.redSlider.value/255.0;
     CGFloat green = self.greenSlider.value/255.0;
     CGFloat blue = self.blueSlider.value/255.0;
     
-    UIColor *left = [UIColor colorWithRed:0.0 green:green blue:blue alpha:1.0];
-    UIColor *right = [UIColor colorWithRed:1.0 green:green blue:blue alpha:1.0];
+    UIColor *redLeft = [UIColor colorWithRed:0.0 green:green blue:blue alpha:1.0];
+    UIColor *redRight = [UIColor colorWithRed:1.0 green:green blue:blue alpha:1.0];
+    NSArray *redColors = @[ (id)redLeft.CGColor, (id)redRight.CGColor ];
+
+    UIColor *greenLeft = [UIColor colorWithRed:red green:0.0 blue:blue alpha:1.0];
+    UIColor *greenRight = [UIColor colorWithRed:red green:1.0 blue:blue alpha:1.0];
+    NSArray *greenColors = @[ (id)greenLeft.CGColor, (id)greenRight.CGColor ];
     
-    NSArray *colors = @[ (id)left.CGColor, (id)right.CGColor ];
-    self.redGradientLayer.colors = colors;
+    UIColor *blueLeft = [UIColor colorWithRed:red green:green blue:0.0 alpha:1.0];
+    UIColor *blueRight = [UIColor colorWithRed:red green:green blue:1.0 alpha:1.0];
+    NSArray *blueColors = @[ (id)blueLeft.CGColor, (id)blueRight.CGColor ];
+
+    self.redGradientLayer.colors = redColors;
+    self.greenGradientLayer.colors = greenColors;
+    self.blueGradientLayer.colors = blueColors;
     
-    [self.redGradientView setNeedsDisplay];
+    //[self.redGradientView setNeedsDisplay];
    
 }
 

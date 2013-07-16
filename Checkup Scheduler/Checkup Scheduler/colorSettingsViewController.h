@@ -13,7 +13,7 @@
     UITextFieldDelegate
 >
 
-@property (strong,nonatomic) UIColor *color;
+@property (weak, nonatomic) UIColor *color;
 
 @property (weak, nonatomic) IBOutlet UISlider *redSlider;
 @property (weak, nonatomic) IBOutlet UISlider *greenSlider;
@@ -29,5 +29,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *colorView;
 @property (weak, nonatomic) IBOutlet UIView *redGradientView;
+@property (weak, nonatomic) IBOutlet UIView *greenGradientView;
+@property (weak, nonatomic) IBOutlet UIView *blueGradientView;
 
 @end

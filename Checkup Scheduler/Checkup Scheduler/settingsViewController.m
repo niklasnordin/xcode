@@ -7,6 +7,7 @@
 //
 
 #import "settingsViewController.h"
+#import "colorSettingsViewController.h"
 
 @interface settingsViewController ()
 
@@ -37,13 +38,22 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.description isEqualToString:@"backgroundColorSegue"])
+    if ([segue.identifier isEqualToString:@"backgroundColorSegue"])
     {
-        
+
+        UIColor *color = self.preferences.backgroundColor;
+        //NSLog(@"color = %@",color);
+        colorSettingsViewController *csvc = segue.destinationViewController;
+        [csvc setColor:self.preferences.backgroundColor];
+        [csvc setTitle:@"Background Color"];
     }
-    else if ([segue.description isEqualToString:@"textColorSegue"])
+    else if ([segue.identifier isEqualToString:@"textColorSegue"])
     {
-        
+        UIColor *color = self.preferences.textColor;
+        colorSettingsViewController *csvc = segue.destinationViewController;
+        [csvc setColor:color];
+        [csvc setTitle:@"Text Color"];
+
     }
 }
 

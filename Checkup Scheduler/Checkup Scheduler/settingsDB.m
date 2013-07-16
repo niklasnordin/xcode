@@ -27,7 +27,8 @@
     }
     else
     {
-        self.backgroundColor = [UIColor whiteColor];
+        // default background color
+        self.backgroundColor = [UIColor blueColor];
     }
 
     if ([defaults objectForKey:@"textColor"])
@@ -36,6 +37,7 @@
     }
     else
     {
+        // default text color
         self.textColor = [UIColor blackColor];
     }
     
