@@ -53,7 +53,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q6p-Ex-fbp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-76" y="-904"/>
+            <point key="canvasLocation" x="-492" y="-932"/>
         </scene>
         <!--Color Settings View Controller - Color-->
         <scene sceneID="Sz9-Ec-Z4h">
@@ -169,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G6D-ed-zbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="324" y="-904"/>
+            <point key="canvasLocation" x="-8" y="-932"/>
         </scene>
         <!--Checkup Scheduler View Controller - Reminder-->
         <scene sceneID="5">
@@ -290,7 +290,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-76" y="-301"/>
+            <point key="canvasLocation" x="-492" y="-345"/>
         </scene>
         <!--Time Setup View Controller - Set Time after Start-->
         <scene sceneID="wyu-cN-KoK">
@@ -390,7 +390,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDo-MT-L4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="vVr-vr-1oq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="721" y="275"/>
+            <point key="canvasLocation" x="437" y="259"/>
         </scene>
         <!--Scheme View Controller - SchemeName-->
         <scene sceneID="5E5-c5-8iF">
@@ -501,7 +501,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XZd-ft-lyT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-76" y="275"/>
+            <point key="canvasLocation" x="-492" y="259"/>
         </scene>
         <!--Event View Controller-->
         <scene sceneID="Q2h-9G-4Hc">
@@ -652,7 +652,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bKA-J8-a6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="317" y="275"/>
+            <point key="canvasLocation" x="-8" y="259"/>
         </scene>
         <!--Scheme Table View Controller - Schemes-->
         <scene sceneID="g6n-Nr-oLH">
@@ -687,7 +687,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOr-Hz-jNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="317" y="-301"/>
+            <point key="canvasLocation" x="-8" y="-345"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KhY-UG-7A0">
@@ -705,7 +705,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AsH-mP-uTC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-473" y="-301"/>
+            <point key="canvasLocation" x="-941" y="-345"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

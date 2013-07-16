@@ -10,6 +10,9 @@
 #import "QuartzCore/QuartzCore.h"
 
 @interface colorSettingsViewController ()
+@property (strong, nonatomic) CAGradientLayer *redGradientLayer;
+@property (strong, nonatomic) CAGradientLayer *greenGradientLayer;
+@property (strong, nonatomic) CAGradientLayer *blueGradientLayer;
 
 @end
 
@@ -62,7 +65,49 @@
     _redTextField.delegate = self;
     _greenTextField.delegate = self;
     _blueTextField.delegate = self;
+        
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    CGPoint x0 = CGPointMake(0.0, 0.0);
+    CGPoint x1 = CGPointMake(1.0, 0.0);
+    CGFloat red = _redSlider.value/255.0;
+    CGFloat green = _greenSlider.value/255.0;
+    CGFloat blue = _blueSlider.value/255.0;
     
+    self.redGradientLayer = [CAGradientLayer layer];
+    CGRect redBounds = self.redGradientView.bounds;
+    self.redGradientLayer.frame = redBounds;
+    UIColor *redLeft = [UIColor colorWithRed:0.0 green:green blue:blue alpha:1.0];
+    UIColor *redRight = [UIColor colorWithRed:1.0 green:green blue:blue alpha:1.0];
+    NSArray *redColors = @[ (id)redLeft.CGColor, (id)redRight.CGColor ];
+    
+    self.redGradientLayer.colors = redColors;
+    
+    // points are normalized and then mapped to the rect so range is 0,0 -> 1,1
+    self.redGradientLayer.startPoint = x0;
+    self.redGradientLayer.endPoint = x1;
+    [self.redGradientView.layer insertSublayer:self.redGradientLayer atIndex:0];
+    self.colorView.backgroundColor = self.color;
+    
+
+}
+
+-(void)updateGradientLayers
+{
+    
+    CGFloat green = self.greenSlider.value/255.0;
+    CGFloat blue = self.blueSlider.value/255.0;
+    
+    UIColor *left = [UIColor colorWithRed:0.0 green:green blue:blue alpha:1.0];
+    UIColor *right = [UIColor colorWithRed:1.0 green:green blue:blue alpha:1.0];
+    
+    NSArray *colors = @[ (id)left.CGColor, (id)right.CGColor ];
+    self.redGradientLayer.colors = colors;
+    
+    [self.redGradientView setNeedsDisplay];
+   
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,43 +124,24 @@
 
 - (IBAction)redSliderChanged:(UISlider *)sender
 {
-    self.color = [UIColor colorWithRed:self.redSlider.value/255.0 green:self.greenSlider.value/255.0 blue:self.blueSlider.value/255.0 alpha:1.0];
-
-    CAGradientLayer *layer = [CAGradientLayer layer];
-    CGRect bounds = self.redGradientView.bounds;
-    //CGFloat width = bounds.size.width;
-    CGPoint x0 = CGPointMake(0.0, 0.0);
-    CGPoint x1 = CGPointMake(1.0, 0.0);
-    layer.frame = bounds;
-    CGFloat green = self.greenSlider.value/255.0;
-    CGFloat blue = self.blueSlider.value/255.0;
-    
-    UIColor *left = [UIColor colorWithRed:0.0 green:green blue:blue alpha:1.0];
-    UIColor *right = [UIColor colorWithRed:1.0 green:green blue:blue alpha:1.0];
-    
-    NSArray *colors = @[ (id)left.CGColor, (id)right.CGColor ];
-    layer.colors = colors;
-    // points are normalized and then mapped to the rect so range is 0,0 -> 1,1
-    layer.startPoint = x0;
-    layer.endPoint = x1; 
-    
     self.redTextField.text = [NSString stringWithFormat:@"%.0f", sender.value];
-    int nLayers = [self.redGradientView.subviews count];
-    NSLog(@"nLayers = %d",nLayers);
-
-    [self.redGradientView.layer insertSublayer:layer atIndex:0];
-
+    self.color = [UIColor colorWithRed:self.redSlider.value/255.0 green:self.greenSlider.value/255.0 blue:self.blueSlider.value/255.0 alpha:1.0];
+    [self updateGradientLayers];
 }
 
 - (IBAction)greenSliderChanged:(UISlider *)sender
 {
     self.greenTextField.text = [NSString stringWithFormat:@"%.0f", sender.value];
     self.color = [UIColor colorWithRed:self.redSlider.value/255.0 green:self.greenSlider.value/255.0 blue:self.blueSlider.value/255.0 alpha:1.0];
+    [self updateGradientLayers];
+
 }
 
 - (IBAction)blueSliderChanged:(UISlider *)sender
 {
     self.blueTextField.text = [NSString stringWithFormat:@"%.0f", sender.value];
     self.color = [UIColor colorWithRed:self.redSlider.value/255.0 green:self.greenSlider.value/255.0 blue:self.blueSlider.value/255.0 alpha:1.0];
+    [self updateGradientLayers];
+
 }
 @end

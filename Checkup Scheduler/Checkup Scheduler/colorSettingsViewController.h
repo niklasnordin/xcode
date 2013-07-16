@@ -18,12 +18,15 @@
 @property (weak, nonatomic) IBOutlet UISlider *redSlider;
 @property (weak, nonatomic) IBOutlet UISlider *greenSlider;
 @property (weak, nonatomic) IBOutlet UISlider *blueSlider;
+
 - (IBAction)redSliderChanged:(UISlider *)sender;
 - (IBAction)greenSliderChanged:(UISlider *)sender;
 - (IBAction)blueSliderChanged:(UISlider *)sender;
+
 @property (weak, nonatomic) IBOutlet UITextField *redTextField;
 @property (weak, nonatomic) IBOutlet UITextField *greenTextField;
 @property (weak, nonatomic) IBOutlet UITextField *blueTextField;
+
 @property (weak, nonatomic) IBOutlet UIView *colorView;
 @property (weak, nonatomic) IBOutlet UIView *redGradientView;
 
