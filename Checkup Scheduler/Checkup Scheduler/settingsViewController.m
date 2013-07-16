@@ -40,8 +40,7 @@
 {
     if ([segue.identifier isEqualToString:@"backgroundColorSegue"])
     {
-
-        UIColor *color = self.preferences.backgroundColor;
+        //UIColor *color = self.preferences.backgroundColor;
         //NSLog(@"color = %@",color);
         colorSettingsViewController *csvc = segue.destinationViewController;
         [csvc setColor:self.preferences.backgroundColor];

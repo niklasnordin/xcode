@@ -21,9 +21,10 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    float red = [self.redTextField.text floatValue];
-    float blue = [self.blueTextField.text floatValue];
-    float green = [self.greenTextField.text floatValue];
+    float red = [self.redTextField.text floatValue]/255.0f;
+    float blue = [self.blueTextField.text floatValue]/255.0f;
+    float green = [self.greenTextField.text floatValue]/255.0f;
+    
     [self.redSlider setValue:red];
     [self.greenSlider setValue:green];
     [self.blueSlider setValue:blue];
@@ -58,14 +59,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    _redTextField.text = [NSString stringWithFormat:@"%.0f", _redSlider.value];
-    _greenTextField.text = [NSString stringWithFormat:@"%.0f", _greenSlider.value];
-    _blueTextField.text = [NSString stringWithFormat:@"%.0f", _blueSlider.value];
-    
-    _redTextField.delegate = self;
-    _greenTextField.delegate = self;
-    _blueTextField.delegate = self;
-    
     _redGradientLayer = [CAGradientLayer layer];
     _greenGradientLayer = [CAGradientLayer layer];
     _blueGradientLayer = [CAGradientLayer layer];
@@ -76,12 +69,18 @@
     {
         NSLog(@"could not convert color space");
     }
-    self.redSlider.value = red*255.0;
-    self.greenSlider.value = green*255.0;
-    self.blueSlider.value = blue*255.0;
-    self.redTextField.text = [NSString stringWithFormat:@"%.0f", self.redSlider.value];
-    self.greenTextField.text = [NSString stringWithFormat:@"%.0f", self.greenSlider.value];
-    self.blueTextField.text = [NSString stringWithFormat:@"%.0f", self.blueSlider.value];
+    
+    _redSlider.value = red;
+    _greenSlider.value = green;
+    _blueSlider.value = blue;
+    
+    _redTextField.text = [NSString stringWithFormat:@"%.0f", _redSlider.value*255.0f];
+    _greenTextField.text = [NSString stringWithFormat:@"%.0f", _greenSlider.value*255.0f];
+    _blueTextField.text = [NSString stringWithFormat:@"%.0f", _blueSlider.value*255.0f];
+    
+    _redTextField.delegate = self;
+    _greenTextField.delegate = self;
+    _blueTextField.delegate = self;
 
 }
 
@@ -89,9 +88,9 @@
 {
     CGPoint x0 = CGPointMake(0.0, 0.0);
     CGPoint x1 = CGPointMake(1.0, 0.0);
-    CGFloat red = self.redSlider.value/255.0;
-    CGFloat green = self.greenSlider.value/255.0;
-    CGFloat blue = self.blueSlider.value/255.0;
+    CGFloat red = self.redSlider.value;
+    CGFloat green = self.greenSlider.value;
+    CGFloat blue = self.blueSlider.value;
     
     CGRect redBounds = self.redGradientView.bounds;
     self.redGradientLayer.frame = redBounds;
@@ -102,15 +101,15 @@
 
     UIColor *redLeft = [UIColor colorWithRed:0.0 green:green blue:blue alpha:1.0];
     UIColor *redRight = [UIColor colorWithRed:1.0 green:green blue:blue alpha:1.0];
-    NSArray *redColors = @[ (id)redLeft.CGColor, (id)redRight.CGColor ];
+    NSArray *redColors = @[ (id)redLeft.CGColor, (id)redRight.CGColor];
     
     UIColor *greenLeft = [UIColor colorWithRed:red green:0.0 blue:blue alpha:1.0];
     UIColor *greenRight = [UIColor colorWithRed:red green:1.0 blue:blue alpha:1.0];
-    NSArray *greenColors = @[ (id)greenLeft.CGColor, (id)greenRight.CGColor ];
+    NSArray *greenColors = @[ (id)greenLeft.CGColor, (id)greenRight.CGColor];
 
     UIColor *blueLeft = [UIColor colorWithRed:red green:green blue:0.0 alpha:1.0];
     UIColor *blueRight = [UIColor colorWithRed:red green:green blue:1.0 alpha:1.0];
-    NSArray *blueColors = @[ (id)blueLeft.CGColor, (id)blueRight.CGColor ];
+    NSArray *blueColors = @[ (id)blueLeft.CGColor, (id)blueRight.CGColor];
 
     self.redGradientLayer.colors = redColors;
     self.greenGradientLayer.colors = greenColors;
@@ -136,9 +135,9 @@
 -(void)updateGradientLayers
 {
 
-    CGFloat red = self.redSlider.value/255.0;
-    CGFloat green = self.greenSlider.value/255.0;
-    CGFloat blue = self.blueSlider.value/255.0;
+    CGFloat red = self.redSlider.value;
+    CGFloat green = self.greenSlider.value;
+    CGFloat blue = self.blueSlider.value;
     
     UIColor *redLeft = [UIColor colorWithRed:0.0 green:green blue:blue alpha:1.0];
     UIColor *redRight = [UIColor colorWithRed:1.0 green:green blue:blue alpha:1.0];
@@ -155,9 +154,7 @@
     self.redGradientLayer.colors = redColors;
     self.greenGradientLayer.colors = greenColors;
     self.blueGradientLayer.colors = blueColors;
-    
-    //[self.redGradientView setNeedsDisplay];
-   
+       
 }
 
 - (void)didReceiveMemoryWarning
@@ -174,23 +171,24 @@
 
 - (IBAction)redSliderChanged:(UISlider *)sender
 {
-    self.redTextField.text = [NSString stringWithFormat:@"%.0f", sender.value];
-    self.color = [UIColor colorWithRed:self.redSlider.value/255.0 green:self.greenSlider.value/255.0 blue:self.blueSlider.value/255.0 alpha:1.0];
+    self.redTextField.text = [NSString stringWithFormat:@"%.0f", sender.value*255.0f];
+    self.color = [UIColor colorWithRed:self.redSlider.value green:self.greenSlider.value blue:self.blueSlider.value alpha:1.0];
+
     [self updateGradientLayers];
 }
 
 - (IBAction)greenSliderChanged:(UISlider *)sender
 {
-    self.greenTextField.text = [NSString stringWithFormat:@"%.0f", sender.value];
-    self.color = [UIColor colorWithRed:self.redSlider.value/255.0 green:self.greenSlider.value/255.0 blue:self.blueSlider.value/255.0 alpha:1.0];
+    self.greenTextField.text = [NSString stringWithFormat:@"%.0f", sender.value*255.0f];
+    self.color = [UIColor colorWithRed:self.redSlider.value green:self.greenSlider.value blue:self.blueSlider.value alpha:1.0];
     [self updateGradientLayers];
 
 }
 
 - (IBAction)blueSliderChanged:(UISlider *)sender
 {
-    self.blueTextField.text = [NSString stringWithFormat:@"%.0f", sender.value];
-    self.color = [UIColor colorWithRed:self.redSlider.value/255.0 green:self.greenSlider.value/255.0 blue:self.blueSlider.value/255.0 alpha:1.0];
+    self.blueTextField.text = [NSString stringWithFormat:@"%.0f", sender.value*255.0f];
+    self.color = [UIColor colorWithRed:self.redSlider.value green:self.greenSlider.value blue:self.blueSlider.value alpha:1.0];
     [self updateGradientLayers];
 
 }
