@@ -130,6 +130,7 @@
 
     self.colorView.backgroundColor = self.color;
 
+//    self.navigationItem.backBarButtonItem
 }
 
 -(void)updateGradientLayers
@@ -192,4 +193,11 @@
     [self updateGradientLayers];
 
 }
+/*
+- (UIViewController *)viewControllerForUnwindSegueAction:(SEL)action fromViewController:(UIViewController *)fromViewController withSender:(id)sender
+{
+    NSLog(@"tjolahopp");
+    return self;
+}
+*/
 @end

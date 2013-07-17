@@ -56,4 +56,12 @@
     }
 }
 
+/*
+- (UIViewController *)viewControllerForUnwindSegueAction:(SEL)action fromViewController:(UIViewController *)fromViewController withSender:(id)sender
+{
+    NSLog(@"tjolahopp");
+    return self;
+}
+*/
+//- (void)canPerform
 @end
