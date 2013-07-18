@@ -492,10 +492,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHd-2k-mdh" customClass="idButton">
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHd-2k-mdh" customClass="idButton">
                                                     <color key="backgroundColor" red="0.55997363899999997" green="0.66666666669999997" blue="0.38259085240000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="67" id="Imc-NI-fHV"/>
+                                                        <constraint firstAttribute="height" constant="68" id="6Dq-5J-OZ1"/>
                                                         <constraint firstAttribute="width" constant="68" id="wmi-wb-mg5"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
@@ -514,8 +514,8 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="yHd-2k-mdh" firstAttribute="centerY" secondItem="L6g-r3-h6E" secondAttribute="centerY" type="default" id="PkZ-e6-gho"/>
-                                            <constraint firstItem="yHd-2k-mdh" firstAttribute="centerX" secondItem="L6g-r3-h6E" secondAttribute="centerX" type="default" id="bgI-uU-cRc"/>
+                                            <constraint firstItem="yHd-2k-mdh" firstAttribute="centerX" secondItem="L6g-r3-h6E" secondAttribute="centerX" type="default" id="SB6-zc-vDp"/>
+                                            <constraint firstItem="yHd-2k-mdh" firstAttribute="centerY" secondItem="L6g-r3-h6E" secondAttribute="centerY" type="default" id="qph-AV-1ff"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="idButton" destination="yHd-2k-mdh" id="s7C-Zi-V7b"/>

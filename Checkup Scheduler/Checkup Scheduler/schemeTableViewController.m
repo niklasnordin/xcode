@@ -40,6 +40,7 @@
                                                                                action:@selector(addSchemeButton:)];
     self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:self.editButtonItem, addButton, nil ];
 
+    [self.view setBackgroundColor:[UIColor greenColor]];
 }
 
 - (void)didReceiveMemoryWarning

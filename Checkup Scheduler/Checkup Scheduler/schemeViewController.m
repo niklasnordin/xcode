@@ -9,6 +9,7 @@
 #import "schemeViewController.h"
 #import "schemeCollectionCell.h"
 #import "eventViewController.h"
+#import "QuartzCore/QuartzCore.h"
 
 @interface schemeViewController ()
 
@@ -56,7 +57,6 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    //NSLog(@"and im back from %d", [self.segueToEventNr intValue] + 1);
     int index = [self.segueToEventNr intValue];
     
     if (index >= 0)
@@ -120,6 +120,21 @@
     return YES;
 }
 
+- (void)setupButton:(UIButton *)button withColor:(UIColor *)color
+{
+    
+    [button setBackgroundColor:color];
+    
+    [button.layer setCornerRadius:15.0f];
+    [button.layer setMasksToBounds:YES];
+    [button.layer setBorderWidth:1.0f];
+    
+    [button.layer setShadowColor:[UIColor blackColor].CGColor];
+    [button.layer setShadowOpacity:0.8];
+    [button.layer setShadowRadius:0.0f];
+    [button.layer setShadowOffset:CGSizeMake(0.0f, 0.0f)];
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     schemeCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"schemeCellID" forIndexPath:indexPath];
@@ -131,11 +146,13 @@
     [cell.idButton setTitle:id forState:UIControlStateNormal];
     if ([[self.eventIsSet objectAtIndex:indexPath.item] boolValue])
     {
-        [cell.idButton setBackgroundColor:[UIColor greenColor]];
+        //[cell.idButton setBackgroundColor:[UIColor greenColor]];
+        [self setupButton:cell.idButton withColor:[UIColor greenColor]];
     }
     else
     {
-        [cell.idButton setBackgroundColor:[UIColor redColor]];
+        [self setupButton:cell.idButton withColor:[UIColor redColor]];
+        //[cell.idButton setBackgroundColor:[UIColor redColor]];
     }
     return cell;
 }
