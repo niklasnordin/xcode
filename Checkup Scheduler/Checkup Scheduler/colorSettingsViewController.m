@@ -202,7 +202,6 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    NSLog(@"self.color=%@",self.color);
     if (self.editingBackgroundColor)
     {
         self.parent.preferences.backgroundColor = self.color;

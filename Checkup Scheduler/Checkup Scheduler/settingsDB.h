@@ -13,6 +13,9 @@
 @property (strong,nonatomic) UIColor *backgroundColor;
 @property (strong,nonatomic) UIColor *textColor;
 
+@property (strong,nonatomic) UIColor *selectedButtonColor;
+@property (strong,nonatomic) UIColor *selectedTextColor;
+
 - (BOOL)saveToUserDefaults:(NSUserDefaults *)defaults;
 - (void)readFromUserDefaults:(NSUserDefaults *)defaults;
 

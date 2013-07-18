@@ -11,6 +11,7 @@
 #import "schemeTableViewController.h"
 #import "settingsViewController.h"
 #import "EventKit/EventKit.h"
+#import "QuartzCore/QuartzCore.h"
 
 #define SCHEMENAMES @"schemeNames"
 #define SCHEMESDICTIONARY @"schemesDictionary"
@@ -108,6 +109,36 @@
     [self.view setBackgroundColor:_preferences.backgroundColor];
 }
 
+- (void)setupButton:(UIButton *)button withColor:(UIColor *)color
+{
+
+    [button setBackgroundColor:color];
+    [button setTitleColor:self.preferences.textColor forState:UIControlStateNormal];
+    [button setTitleColor:self.preferences.selectedTextColor forState:UIControlStateHighlighted];
+    
+    [button.layer setCornerRadius:15.0f];
+    [button.layer setMasksToBounds:NO];
+    [button.layer setBorderWidth:2.0f];
+    [button.layer setBorderColor:[self.preferences.selectedButtonColor CGColor]];
+    
+    [button.layer setShadowColor:[UIColor blackColor].CGColor];
+    [button.layer setShadowOpacity:0.8];
+    [button.layer setShadowRadius:2.0f];
+    [button.layer setShadowOffset:CGSizeMake(2.0f, 2.0f)];
+}
+
+- (IBAction)pressedSchemeButton:(UIButton *)sender
+{
+    NSLog(@"pressed button");
+    [self setupButton:sender withColor:self.preferences.selectedButtonColor];
+}
+
+- (IBAction)releasedSchemeButtonOutside:(UIButton *)sender
+{
+    NSLog(@"released button");
+    [self setupButton:sender withColor:self.preferences.backgroundColor];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -153,7 +184,9 @@
     [self.startDateButton setTitle:[NSString stringWithFormat:@"Start: %@", [self.dateFormatter stringFromDate:self.startDate]] forState:UIControlStateNormal];
 
     [self.view setBackgroundColor:self.preferences.backgroundColor];
-
+    
+    //[self.schemeButton setBackgroundColor:self.preferences.backgroundColor];
+    [self setupButton:self.schemeButton withColor:self.preferences.backgroundColor];
 }
 
 - (void)didReceiveMemoryWarning
@@ -368,6 +401,8 @@
 
 - (IBAction)clickedSchemeButton:(id)sender
 {
+    [self setupButton:self.schemeButton withColor:self.preferences.backgroundColor];
+
     NSString *deviceModel = [[UIDevice currentDevice] model];
     NSLog(@"deviceModel = %@",deviceModel);
     //CGFloat width = self.view.bounds.size.width;

@@ -40,6 +40,7 @@
 {
     //[super viewWillAppear:animated];
     [self.view setBackgroundColor:self.preferences.backgroundColor];
+    [self.backgroundColorButton setBackgroundColor:self.preferences.backgroundColor];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

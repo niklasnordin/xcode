@@ -12,5 +12,6 @@
 @interface settingsViewController : UIViewController
 
 @property (weak, nonatomic) settingsDB *preferences;
+@property (weak, nonatomic) IBOutlet UIButton *backgroundColorButton;
 
 @end

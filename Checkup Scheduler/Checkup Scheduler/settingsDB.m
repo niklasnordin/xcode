@@ -27,8 +27,6 @@
 
 - (void)readFromUserDefaults:(NSUserDefaults *)defaults
 {
-    NSLog(@"readFromUserDefaults");
-    NSLog(@"defaults = %@",[defaults dictionaryRepresentation]);
     if ([defaults objectForKey:@"backgroundColor"])
     {
         NSData *backgroundColorData = [defaults objectForKey:BACKGROUNDCOLOR];
@@ -38,9 +36,25 @@
     {
         // default background color
         NSLog(@"setting default background color");
-        self.backgroundColor = [UIColor blueColor];
+        self.backgroundColor = [UIColor whiteColor];
     }
-
+    
+    {
+        CGFloat red,green,blue,alpha;
+        [self.backgroundColor getRed:&red green:&green blue:&blue alpha:&alpha];
+        CGFloat newRed = 1.1*red;
+        if (newRed > 1.0) newRed = 1.0f;
+        
+        CGFloat newGreen = 1.1*green;
+        if (newGreen > 1.0) newGreen = 1.0f;
+        
+        CGFloat newBlue = 1.1*blue;
+        if (newBlue > 1.0) newBlue = 1.0f;
+        
+        self.selectedButtonColor = [UIColor colorWithRed:newRed green:newGreen blue:newBlue alpha:alpha];
+   
+    }
+    
     if ([defaults objectForKey:@"textColor"])
     {
         NSData *textColorData = [defaults objectForKey:TEXTCOLOR];
@@ -51,6 +65,21 @@
         // default text color
         self.textColor = [UIColor blackColor];
     }
+    {
+        CGFloat red,green,blue,alpha;
+        [self.textColor getRed:&red green:&green blue:&blue alpha:&alpha];
+        CGFloat newRed = 1.1*red;
+        if (newRed > 1.0) newRed = 1.0f;
+        
+        CGFloat newGreen = 1.1*green;
+        if (newGreen > 1.0) newGreen = 1.0f;
+        
+        CGFloat newBlue = 1.1*blue;
+        if (newBlue > 1.0) newBlue = 1.0f;
+        
+        self.selectedTextColor = [UIColor colorWithRed:newRed green:newGreen blue:newBlue alpha:alpha];
+    }
     
 }
+
 @end
