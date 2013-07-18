@@ -36,32 +36,35 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    //[super viewWillAppear:animated];
+    [self.view setBackgroundColor:self.preferences.backgroundColor];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"backgroundColorSegue"])
     {
-        //UIColor *color = self.preferences.backgroundColor;
-        //NSLog(@"color = %@",color);
         colorSettingsViewController *csvc = segue.destinationViewController;
         [csvc setColor:self.preferences.backgroundColor];
+        [csvc setBackgroundColor:self.preferences.backgroundColor];
+        [csvc setTextColor:self.preferences.textColor];
+        [csvc setParent:self];
+        [csvc setEditingBackgroundColor:YES];
         [csvc setTitle:@"Background Color"];
     }
     else if ([segue.identifier isEqualToString:@"textColorSegue"])
     {
-        UIColor *color = self.preferences.textColor;
         colorSettingsViewController *csvc = segue.destinationViewController;
-        [csvc setColor:color];
+        [csvc setColor:self.preferences.textColor];
+        [csvc setBackgroundColor:self.preferences.backgroundColor];
+        [csvc setTextColor:self.preferences.textColor];
+        [csvc setParent:self];
+        [csvc setEditingBackgroundColor:NO];
         [csvc setTitle:@"Text Color"];
 
     }
 }
 
-/*
-- (UIViewController *)viewControllerForUnwindSegueAction:(SEL)action fromViewController:(UIViewController *)fromViewController withSender:(id)sender
-{
-    NSLog(@"tjolahopp");
-    return self;
-}
-*/
-//- (void)canPerform
 @end

@@ -128,9 +128,8 @@
     self.blueGradientLayer.endPoint = x1;
     [self.blueGradientView.layer insertSublayer:self.blueGradientLayer atIndex:0];
 
-    self.colorView.backgroundColor = self.color;
-
-//    self.navigationItem.backBarButtonItem
+    self.colorView.backgroundColor = self.backgroundColor;
+    self.colorTextLabel.textColor = self.textColor;
 }
 
 -(void)updateGradientLayers
@@ -167,7 +166,14 @@
 - (void)setColor:(UIColor *)color
 {
     _color = color;
-    self.colorView.backgroundColor = color;
+    if (self.editingBackgroundColor)
+    {
+        self.colorView.backgroundColor = color;
+    }
+    else
+    {
+        self.colorTextLabel.textColor = color;
+    }
 }
 
 - (IBAction)redSliderChanged:(UISlider *)sender
@@ -193,11 +199,17 @@
     [self updateGradientLayers];
 
 }
-/*
-- (UIViewController *)viewControllerForUnwindSegueAction:(SEL)action fromViewController:(UIViewController *)fromViewController withSender:(id)sender
+
+- (void)viewWillDisappear:(BOOL)animated
 {
-    NSLog(@"tjolahopp");
-    return self;
+    NSLog(@"self.color=%@",self.color);
+    if (self.editingBackgroundColor)
+    {
+        self.parent.preferences.backgroundColor = self.color;
+    }
+    else
+    {
+        self.parent.preferences.textColor = self.color;
+    }
 }
-*/
 @end

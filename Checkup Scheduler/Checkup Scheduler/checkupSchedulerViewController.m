@@ -59,8 +59,19 @@
         _schemesDictionary = [[NSMutableDictionary alloc] init];
     }
     
-    CGFloat width = self.view.bounds.size.width;
-    CGFloat height = self.view.bounds.size.height;
+    NSArray *keys = [_schemesDictionary allKeys];
+    
+    // remove unused dictionaries
+    for (int i=0; i<[keys count]; i++)
+    {
+        NSString *name = [keys objectAtIndex:i];
+        if (![_schemeNames containsObject:name])
+        {
+            [_schemesDictionary removeObjectForKey:name];
+        }
+    }
+    //CGFloat width = self.view.bounds.size.width;
+    //CGFloat height = self.view.bounds.size.height;
     
     //NSLog(@"self.view.height = %f",self.view.bounds.size.height);
     // setup the picker
@@ -99,7 +110,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-
+    [super viewWillAppear:animated];
     if ([self.schemeNames count] == 0)
     {
          // deactivate the scheme button
@@ -140,6 +151,8 @@
     }
 
     [self.startDateButton setTitle:[NSString stringWithFormat:@"Start: %@", [self.dateFormatter stringFromDate:self.startDate]] forState:UIControlStateNormal];
+
+    [self.view setBackgroundColor:self.preferences.backgroundColor];
 
 }
 
@@ -357,8 +370,8 @@
 {
     NSString *deviceModel = [[UIDevice currentDevice] model];
     NSLog(@"deviceModel = %@",deviceModel);
-    CGFloat width = self.view.bounds.size.width;
-    CGFloat height = self.view.bounds.size.height;
+    //CGFloat width = self.view.bounds.size.width;
+    //CGFloat height = self.view.bounds.size.height;
     //self.popOver = [[UIPopoverController alloc] init];
     /*
     NSLog(@"view rect = w = %f, h = %f",self.view.bounds.size.width,self.view.bounds.size.height);

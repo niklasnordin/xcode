@@ -7,13 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "settingsViewController.h"
 
 @interface colorSettingsViewController : UIViewController
 <
     UITextFieldDelegate
 >
 
-@property (weak, nonatomic) UIColor *color;
+@property (weak, nonatomic) settingsViewController *parent;
+@property (strong, nonatomic) UIColor *color;
+@property (strong, nonatomic) UIColor *backgroundColor;
+@property (strong, nonatomic) UIColor *textColor;
+
+@property (nonatomic) BOOL editingBackgroundColor;
 
 @property (weak, nonatomic) IBOutlet UISlider *redSlider;
 @property (weak, nonatomic) IBOutlet UISlider *greenSlider;
@@ -32,4 +38,5 @@
 @property (weak, nonatomic) IBOutlet UIView *greenGradientView;
 @property (weak, nonatomic) IBOutlet UIView *blueGradientView;
 
+@property (weak, nonatomic) IBOutlet UILabel *colorTextLabel;
 @end
