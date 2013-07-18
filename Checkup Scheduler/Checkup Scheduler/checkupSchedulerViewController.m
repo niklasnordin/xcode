@@ -106,7 +106,9 @@
     [_dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     _startDate = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
     [_datePicker setDate:_startDate];
+    
     [self.view setBackgroundColor:_preferences.backgroundColor];
+    
 }
 
 - (void)setupButton:(UIButton *)button withColor:(UIColor *)color
@@ -129,19 +131,20 @@
 
 - (IBAction)pressedSchemeButton:(UIButton *)sender
 {
-    NSLog(@"pressed button");
+    NSLog(@"pressed button with title = %@", sender.titleLabel.text);
     [self setupButton:sender withColor:self.preferences.selectedButtonColor];
 }
 
 - (IBAction)releasedSchemeButtonOutside:(UIButton *)sender
 {
-    NSLog(@"released button");
+    //NSLog(@"released button with title = %@", sender.titleLabel.text);
     [self setupButton:sender withColor:self.preferences.backgroundColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     if ([self.schemeNames count] == 0)
     {
          // deactivate the scheme button
@@ -185,8 +188,13 @@
 
     [self.view setBackgroundColor:self.preferences.backgroundColor];
     
-    //[self.schemeButton setBackgroundColor:self.preferences.backgroundColor];
     [self setupButton:self.schemeButton withColor:self.preferences.backgroundColor];
+    [self setupButton:self.startDateButton withColor:self.preferences.backgroundColor];
+    [self setupButton:self.createEventButton withColor:self.preferences.backgroundColor];
+
+    [self.calendarInfoLabel setTextColor:self.preferences.textColor];
+    [self.eventTextField setBackgroundColor:self.preferences.selectedButtonColor];
+    [self.eventTextField setTextColor:self.preferences.textColor];
 }
 
 - (void)didReceiveMemoryWarning
@@ -197,6 +205,8 @@
 
 - (IBAction)createEvent:(id)sender
 {
+    [self setupButton:sender withColor:self.preferences.backgroundColor];
+
     if ([self accessGranted])
     {
         NSString *eventTitle = self.eventTextField.text;
@@ -491,6 +501,8 @@
 
 - (IBAction)startDateButtonClicked:(id)sender
 {
+    [self setupButton:sender withColor:self.preferences.backgroundColor];
+
     // remember the selected name, in case the selection is cancelled
     
     self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Set start date"

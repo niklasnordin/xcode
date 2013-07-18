@@ -12,7 +12,10 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPg-SZ-IEM">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPg-SZ-IEM">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="tzV-hl-qZy"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Set Background Color">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -22,10 +25,15 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="pressedButton:" destination="tbS-sV-wcY" eventType="touchDown" id="W66-zY-74g"/>
+                                    <action selector="touchCancelled:" destination="tbS-sV-wcY" eventType="touchUpOutside" id="bj9-jy-DZD"/>
                                     <segue destination="tDR-rd-nzb" kind="push" identifier="backgroundColorSegue" id="79Z-c0-GLL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHy-c9-thz">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHy-c9-thz">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="YvE-0I-ZBQ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Set Text Color">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -35,6 +43,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="pressedButton:" destination="tbS-sV-wcY" eventType="touchDown" id="YjY-BB-GoW"/>
+                                    <action selector="touchCancelled:" destination="tbS-sV-wcY" eventType="touchUpOutside" id="TiF-uG-leA"/>
                                     <segue destination="tDR-rd-nzb" kind="push" identifier="textColorSegue" id="Tv6-fd-XhM"/>
                                 </connections>
                             </button>
@@ -52,6 +62,7 @@
                     <navigationItem key="navigationItem" title="Preferences" id="HRW-q4-vUY"/>
                     <connections>
                         <outlet property="backgroundColorButton" destination="vPg-SZ-IEM" id="DHv-e8-ruz"/>
+                        <outlet property="textColorButton" destination="AHy-c9-thz" id="uBp-No-pHE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q6p-Ex-fbp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -213,9 +224,9 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weW-9a-Mys">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weW-9a-Mys">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="nHB-0v-ECq"/>
+                                    <constraint firstAttribute="height" constant="50" id="Hgy-Hw-o1d"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Create Events">
@@ -227,6 +238,8 @@
                                 </state>
                                 <connections>
                                     <action selector="createEvent:" destination="2" eventType="touchUpInside" id="r0x-2K-6wg"/>
+                                    <action selector="pressedSchemeButton:" destination="2" eventType="touchDown" id="0Y7-hL-U2E"/>
+                                    <action selector="releasedSchemeButtonOutside:" destination="2" eventType="touchUpOutside" id="mxx-pC-x4e"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AT-Ov-PZc">
@@ -251,9 +264,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEH-mO-Trj">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEH-mO-Trj">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="DOv-sR-6Iv"/>
+                                    <constraint firstAttribute="height" constant="50" id="C0h-vf-NNl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Start Date">
@@ -264,6 +277,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="pressedSchemeButton:" destination="2" eventType="touchDown" id="wfa-c8-bg8"/>
+                                    <action selector="releasedSchemeButtonOutside:" destination="2" eventType="touchUpOutside" id="I90-HU-KeS"/>
                                     <action selector="startDateButtonClicked:" destination="2" eventType="touchUpInside" id="L40-P1-v4L"/>
                                 </connections>
                             </button>
@@ -317,10 +332,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="calendarInfoLabel" destination="mZu-Vp-KvZ" id="qu4-d5-U8g"/>
-                        <outlet property="createEventButton" destination="weW-9a-Mys" id="l1b-h0-ibM"/>
+                        <outlet property="createEventButton" destination="weW-9a-Mys" id="1yK-Cu-5MM"/>
                         <outlet property="eventTextField" destination="psL-YU-azA" id="Gxv-ub-6kG"/>
                         <outlet property="schemeButton" destination="6AT-Ov-PZc" id="aGJ-pv-Kju"/>
-                        <outlet property="startDateButton" destination="LEH-mO-Trj" id="wN2-r7-bNQ"/>
+                        <outlet property="startDateButton" destination="LEH-mO-Trj" id="i53-Sc-VI9"/>
                         <outlet property="topBannerView" destination="YeR-FT-epD" id="BU2-8G-gb7"/>
                     </connections>
                 </viewController>
@@ -744,6 +759,115 @@
             <point key="canvasLocation" x="-941" y="-345"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+        <class className="checkupSchedulerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/checkupSchedulerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clickedSchemeButton:"/>
+                <relationship kind="action" name="createEvent:"/>
+                <relationship kind="action" name="pressedSchemeButton:" candidateClass="UIButton"/>
+                <relationship kind="action" name="releasedSchemeButtonOutside:" candidateClass="UIButton"/>
+                <relationship kind="action" name="startDateButtonClicked:"/>
+                <relationship kind="outlet" name="calendarInfoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createEventButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="eventTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="schemeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="startDateButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="topBannerView" candidateClass="ADBannerView"/>
+            </relationships>
+        </class>
+        <class className="colorSettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/colorSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="blueSliderChanged:" candidateClass="UISlider"/>
+                <relationship kind="action" name="greenSliderChanged:" candidateClass="UISlider"/>
+                <relationship kind="action" name="redSliderChanged:" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="blueGradientView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="blueSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="blueTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="colorTextLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="colorView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="greenGradientView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="greenSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="greenTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="redGradientView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="redSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="redTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="eventViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/eventViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="allDayEventClicked:" candidateClass="UISwitch"/>
+                <relationship kind="action" name="busySwitchClicked:"/>
+                <relationship kind="action" name="cancelTimer:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="durationClicked:" candidateClass="UIButton"/>
+                <relationship kind="action" name="reminderButtonClicker:"/>
+                <relationship kind="action" name="setTimer:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="allDayEventSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="busySwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="durationButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="reminderButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timeAfterStartButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="idButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/idButton.h"/>
+        </class>
+        <class className="schemeCollectionCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeCollectionCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="idButton" candidateClass="idButton"/>
+            </relationships>
+        </class>
+        <class className="schemeCollectionView" superclassName="UICollectionView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeCollectionView.h"/>
+        </class>
+        <class className="schemeTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeTableViewController.h"/>
+        </class>
+        <class className="schemeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="numEventsStepperPressed:"/>
+                <relationship kind="outlet" name="calendarNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="numEventsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numEventsStepperValue" candidateClass="UIStepper"/>
+                <relationship kind="outlet" name="schemeCollectionView" candidateClass="schemeCollectionView"/>
+            </relationships>
+        </class>
+        <class className="settingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/settingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="pressedButton:" candidateClass="UIButton"/>
+                <relationship kind="action" name="touchCancelled:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="backgroundColorButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="textColorButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="timeSetupViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/timeSetupViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="timePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

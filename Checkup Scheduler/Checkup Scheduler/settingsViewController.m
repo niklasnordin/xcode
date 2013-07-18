@@ -8,6 +8,7 @@
 
 #import "settingsViewController.h"
 #import "colorSettingsViewController.h"
+#import "QuartzCore/QuartzCore.h"
 
 @interface settingsViewController ()
 
@@ -36,11 +37,33 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)setupButton:(UIButton *)button withColor:(UIColor *)color
+{
+    
+    [button setBackgroundColor:color];
+    [button setTitleColor:self.preferences.textColor forState:UIControlStateNormal];
+    [button setTitleColor:self.preferences.selectedTextColor forState:UIControlStateHighlighted];
+    
+    [button.layer setCornerRadius:15.0f];
+    [button.layer setMasksToBounds:NO];
+    [button.layer setBorderWidth:2.0f];
+    [button.layer setBorderColor:[self.preferences.selectedButtonColor CGColor]];
+    
+    [button.layer setShadowColor:[UIColor blackColor].CGColor];
+    [button.layer setShadowOpacity:0.8];
+    [button.layer setShadowRadius:2.0f];
+    [button.layer setShadowOffset:CGSizeMake(2.0f, 2.0f)];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     //[super viewWillAppear:animated];
     [self.view setBackgroundColor:self.preferences.backgroundColor];
-    [self.backgroundColorButton setBackgroundColor:self.preferences.backgroundColor];
+    [self setupButton:self.backgroundColorButton withColor:self.preferences.backgroundColor];
+    [self setupButton:self.textColorButton withColor:self.preferences.backgroundColor];
+
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -66,6 +89,16 @@
         [csvc setTitle:@"Text Color"];
 
     }
+}
+
+- (IBAction)pressedButton:(UIButton *)sender
+{
+    [self setupButton:sender withColor:self.preferences.selectedButtonColor];
+}
+
+- (IBAction)touchCancelled:(UIButton *)sender
+{
+    [self setupButton:sender withColor:self.preferences.backgroundColor];
 }
 
 @end

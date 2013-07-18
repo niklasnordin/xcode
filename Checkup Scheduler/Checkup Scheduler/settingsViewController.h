@@ -13,5 +13,8 @@
 
 @property (weak, nonatomic) settingsDB *preferences;
 @property (weak, nonatomic) IBOutlet UIButton *backgroundColorButton;
+@property (weak, nonatomic) IBOutlet UIButton *textColorButton;
+- (IBAction)pressedButton:(UIButton *)sender;
+- (IBAction)touchCancelled:(UIButton *)sender;
 
 @end
