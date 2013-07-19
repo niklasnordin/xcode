@@ -168,6 +168,7 @@
         [svc setTitle:name];
         [svc setSchemeDictionary:[self.schemesDictionary objectForKey:name]];
         [svc setStvc:self];
+        [svc setPreferences:self.preferences];
     }
 }
 

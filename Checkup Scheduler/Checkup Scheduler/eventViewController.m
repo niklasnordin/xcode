@@ -128,6 +128,7 @@
         self.previousHoursTimer = [[self.eventDict objectForKey:@"hours"] intValue];
         self.previousMinutesTimer = [[self.eventDict objectForKey:@"minutes"] intValue];
         [tsvc setEventDict:self.eventDict];
+        [tsvc setPreferences:self.preferences];
     }
 }
 

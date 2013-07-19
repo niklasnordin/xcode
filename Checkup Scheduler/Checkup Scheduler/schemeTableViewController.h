@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "settingsDB.h"
 
 @interface schemeTableViewController : UITableViewController
 <
@@ -14,6 +15,7 @@
     UITextFieldDelegate
 >
 
+@property (strong,nonatomic) settingsDB *preferences;
 @property (weak,nonatomic) NSMutableArray *schemeNames;
 @property (weak,nonatomic) UIPickerView *schemePicker;
 @property (weak, nonatomic) NSMutableDictionary *schemesDictionary;

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "settingsDB.h"
 
 @interface timeSetupViewController : UIViewController
 <
@@ -14,6 +15,7 @@
     UIPickerViewDelegate
 >
 
+@property (strong,nonatomic) settingsDB *preferences;
 @property (strong, nonatomic) NSArray *minutes;
 @property (weak, nonatomic) NSMutableDictionary *eventDict;
 @property (weak, nonatomic) IBOutlet UIPickerView *timePicker;

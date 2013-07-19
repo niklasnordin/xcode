@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "settingsDB.h"
 
 @interface eventViewController : UIViewController
 <
@@ -19,6 +20,7 @@
 @property (strong, nonatomic) NSNumber *durationHours;
 @property (strong, nonatomic) NSNumber *durationMinutes;
 
+@property (strong,nonatomic) settingsDB *preferences;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) NSMutableDictionary *eventDict;
 @property (weak, nonatomic) IBOutlet UIButton *timeAfterStartButton;

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "schemeCollectionView.h"
 #import "schemeTableViewController.h"
+#import "settingsDB.h"
 
 @interface schemeViewController : UIViewController
 <
@@ -17,6 +18,7 @@
     UICollectionViewDelegate
 >
 
+@property (strong,nonatomic) settingsDB *preferences;
 @property (weak, nonatomic) NSMutableDictionary *schemeDictionary;
 @property (weak, nonatomic) schemeTableViewController *stvc;
 

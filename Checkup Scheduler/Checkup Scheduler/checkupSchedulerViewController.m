@@ -387,6 +387,7 @@
         [stvc setSchemeNames:[self schemeNames]];
         [stvc setSchemePicker:[self schemePicker]];
         [stvc setSchemesDictionary:[self schemesDictionary]];
+        [stvc setPreferences:self.preferences];
     }
     else if ([segue.identifier isEqualToString:@"settingsSegue"])
     {
