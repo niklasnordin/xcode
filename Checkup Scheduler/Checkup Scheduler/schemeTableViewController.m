@@ -149,13 +149,19 @@
         NSString *name = [[alertView textFieldAtIndex:0] text];
         // check if name is valid
         BOOL validName = YES;
+        NSString *errorMessageTitle;
+        NSString *errorMessage;
         if ([name isEqualToString:@""])
         {
             validName = NO;
+            errorMessageTitle = @"Error: Invalid name!";
+            errorMessage = @"Name must not be empty";
         }
         if ([self.schemeNames containsObject:name])
         {
             validName = NO;
+            errorMessageTitle = @"Error: Duplicate name!";
+            errorMessage = @"Choose another one";
         }
 
         if (validName)
@@ -167,7 +173,12 @@
         }
         else
         {
-            NSLog(@"name is not valid or exist");
+            //NSLog(@"name is not valid or exist");
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:errorMessageTitle message:errorMessage delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            
+            alert.delegate = self;
+            [alert setAlertViewStyle:UIAlertViewStyleDefault];
+            [alert show];
         }
     }
 }
