@@ -147,11 +147,28 @@
     if (buttonIndex == 1)
     {
         NSString *name = [[alertView textFieldAtIndex:0] text];
-        [self.schemeNames addObject:name];
-        [self.tableView reloadData];
-        [self.schemePicker reloadAllComponents];
-        
-        [self addSchemeDictionaryWithName:name];
+        // check if name is valid
+        BOOL validName = YES;
+        if ([name isEqualToString:@""])
+        {
+            validName = NO;
+        }
+        if ([self.schemeNames containsObject:name])
+        {
+            validName = NO;
+        }
+
+        if (validName)
+        {
+            [self.schemeNames addObject:name];
+            [self.tableView reloadData];
+            [self.schemePicker reloadAllComponents];
+            [self addSchemeDictionaryWithName:name];
+        }
+        else
+        {
+            NSLog(@"name is not valid or exist");
+        }
     }
 }
 
