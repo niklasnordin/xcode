@@ -68,6 +68,10 @@
     if (!couldConvert)
     {
         NSLog(@"could not convert color space");
+        const CGFloat* components = CGColorGetComponents(_color.CGColor);
+        red = components[0];
+        green = components[1];
+        blue = components[2];
     }
     
     _redSlider.value = red;

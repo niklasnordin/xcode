@@ -37,7 +37,7 @@
     {
         // default background color
         NSLog(@"setting default background color");
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     }
     
     if ([defaults objectForKey:@"textColor"])
@@ -48,7 +48,7 @@
     else
     {
         // default text color
-        self.textColor = [UIColor blackColor];
+        self.textColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0];
     }
     
 }
