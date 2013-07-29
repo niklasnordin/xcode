@@ -53,6 +53,8 @@
     self.schemeCollectionView.delegate = self;
     self.schemeCollectionView.dataSource = self;
     
+    [self.view setBackgroundColor:self.preferences.backgroundColor];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
