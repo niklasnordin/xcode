@@ -70,6 +70,8 @@
     
     // Configure the cell...
     cell.textLabel.text = [self.schemeNames objectAtIndex:indexPath.row];
+    [cell setBackgroundColor:[self.preferences backgroundColor]];
+    [cell.textLabel setTextColor:[self.preferences textColor]];
     return cell;
 }
 
