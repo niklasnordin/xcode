@@ -63,6 +63,8 @@
     [self.calendarNameTextField setTextColor:self.preferences.textColor];
     [self.calendarNameTextField setBackgroundColor:self.preferences.backgroundColor];
 
+    [self.numEventsStepperValue setTintColor:self.preferences.backgroundColor];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated

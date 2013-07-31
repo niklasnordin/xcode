@@ -109,7 +109,21 @@
     
     [self.view setBackgroundColor:_preferences.backgroundColor];
     [self.navigationController.navigationBar setBackgroundColor:self.preferences.backgroundColor];
+    
+    UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeDown:)];
+    [swipeDown setNumberOfTouchesRequired:1];
+    [swipeDown setDirection:UISwipeGestureRecognizerDirectionDown];
+    [self.view addGestureRecognizer:swipeDown];
+    
+}
 
+-(void)swipeDown:(UISwipeGestureRecognizer *)gesture
+{
+    if (gesture.state == UIGestureRecognizerStateEnded)
+    {
+        NSLog(@"Swipe Down");
+        [self save];
+    }
 }
 
 - (void)setupButton:(UIButton *)button withColor:(UIColor *)color
@@ -198,8 +212,8 @@
     [self.eventTextField setTextColor:self.preferences.textColor];
     //[[UINavigationBar appearance] setBackgroundColor:self.preferences.backgroundColor];
     //[[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
-    [[UINavigationBar appearance] setTintColor:self.preferences.backgroundColor];
-    [self.navigationController.navigationBar setBackgroundColor:self.preferences.backgroundColor];
+    //[[UINavigationBar appearance] setTintColor:[UIColor redColor]];
+    //[self.navigationController.navigationBar setBackgroundColor:self.preferences.backgroundColor];
 
 }
 
