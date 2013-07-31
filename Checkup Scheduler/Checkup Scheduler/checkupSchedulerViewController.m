@@ -108,8 +108,7 @@
     [_datePicker setDate:_startDate];
     
     [self.view setBackgroundColor:_preferences.backgroundColor];
-    [self.navigationController.navigationBar setBackgroundColor:self.preferences.backgroundColor];
-    
+
     UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeDown:)];
     [swipeDown setNumberOfTouchesRequired:1];
     [swipeDown setDirection:UISwipeGestureRecognizerDirectionDown];
@@ -121,7 +120,7 @@
 {
     if (gesture.state == UIGestureRecognizerStateEnded)
     {
-        NSLog(@"Swipe Down");
+        //NSLog(@"Swipe Down");
         [self save];
     }
 }
@@ -214,6 +213,9 @@
     //[[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     //[[UINavigationBar appearance] setTintColor:[UIColor redColor]];
     //[self.navigationController.navigationBar setBackgroundColor:self.preferences.backgroundColor];
+    //[self.navigationController.navigationBar setBackgroundColor:self.preferences.backgroundColor];
+    self.navigationController.navigationBar.tintColor = self.preferences.backgroundColor;
+    NSLog(@"navigationbar = %@",self.navigationController.navigationBar.backgroundColor);
 
 }
 

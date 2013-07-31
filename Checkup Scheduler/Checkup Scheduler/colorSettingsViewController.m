@@ -21,14 +21,16 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    float red = [self.redTextField.text floatValue]/255.0f;
-    float blue = [self.blueTextField.text floatValue]/255.0f;
-    float green = [self.greenTextField.text floatValue]/255.0f;
+    CGFloat red = [self.redTextField.text floatValue]/255.0f;
+    CGFloat blue = [self.blueTextField.text floatValue]/255.0f;
+    CGFloat green = [self.greenTextField.text floatValue]/255.0f;
     
     [self.redSlider setValue:red];
     [self.greenSlider setValue:green];
     [self.blueSlider setValue:blue];
     
+    self.color = [UIColor colorWithRed:self.redSlider.value green:self.greenSlider.value blue:self.blueSlider.value alpha:1.0];
+
     [textField resignFirstResponder];
     return YES;
 }
@@ -173,6 +175,7 @@
     if (self.editingBackgroundColor)
     {
         self.colorView.backgroundColor = color;
+        self.navigationController.navigationBar.tintColor = color;
     }
     else
     {
