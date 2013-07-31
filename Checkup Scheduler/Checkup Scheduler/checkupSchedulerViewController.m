@@ -108,7 +108,8 @@
     [_datePicker setDate:_startDate];
     
     [self.view setBackgroundColor:_preferences.backgroundColor];
-    
+    [self.navigationController.navigationBar setBackgroundColor:self.preferences.backgroundColor];
+
 }
 
 - (void)setupButton:(UIButton *)button withColor:(UIColor *)color
@@ -195,6 +196,10 @@
     [self.calendarInfoLabel setTextColor:self.preferences.textColor];
     [self.eventTextField setBackgroundColor:self.preferences.selectedButtonColor];
     [self.eventTextField setTextColor:self.preferences.textColor];
+    //[[UINavigationBar appearance] setBackgroundColor:self.preferences.backgroundColor];
+    //[[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
+    [[UINavigationBar appearance] setTintColor:self.preferences.backgroundColor];
+    [self.navigationController.navigationBar setBackgroundColor:self.preferences.backgroundColor];
 
 }
 

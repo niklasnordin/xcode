@@ -54,7 +54,7 @@
     self.schemeCollectionView.dataSource = self;
     
     [self.view setBackgroundColor:self.preferences.backgroundColor];
-    [self.schemeCollectionView setBackgroundColor:self.preferences.backgroundColor];
+    [self.schemeCollectionView setBackgroundColor:self.preferences.darkerBackgroundColor];
     
     [self.titleLabel setTextColor:self.preferences.textColor];
     [self.numEventsLabel setTextColor:self.preferences.textColor];

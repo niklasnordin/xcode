@@ -11,6 +11,7 @@
 #define BACKGROUNDCOLOR @"backgroundColor"
 #define TEXTCOLOR @"textColor"
 #define MULTIPLIER 1.2
+#define DARKER 0.92
 
 @implementation settingsDB
 
@@ -53,6 +54,20 @@
     
 }
 
+- (UIColor *)darkerBackgroundColor
+{
+    CGFloat red,green,blue,alpha;
+    [self.backgroundColor getRed:&red green:&green blue:&blue alpha:&alpha];
+    CGFloat newRed = DARKER*red;    
+    CGFloat newGreen = DARKER*green;    
+    CGFloat newBlue = DARKER*blue;
+    
+    _darkerBackgroundColor = [UIColor colorWithRed:newRed green:newGreen blue:newBlue alpha:alpha];
+    
+    return _darkerBackgroundColor;
+}
+
+
 - (UIColor *)selectedButtonColor
 {
     CGFloat red,green,blue,alpha;
@@ -89,4 +104,5 @@
     return _selectedTextColor;
    
 }
+
 @end

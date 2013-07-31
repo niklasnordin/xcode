@@ -11,6 +11,7 @@
 @interface settingsDB : NSObject
 
 @property (strong,nonatomic) UIColor *backgroundColor;
+@property (strong,nonatomic) UIColor *darkerBackgroundColor;
 @property (strong,nonatomic) UIColor *textColor;
 
 @property (strong,nonatomic) UIColor *selectedButtonColor;
