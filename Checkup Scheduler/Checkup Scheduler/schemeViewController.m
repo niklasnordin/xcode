@@ -54,7 +54,15 @@
     self.schemeCollectionView.dataSource = self;
     
     [self.view setBackgroundColor:self.preferences.backgroundColor];
+    [self.schemeCollectionView setBackgroundColor:self.preferences.backgroundColor];
     
+    [self.titleLabel setTextColor:self.preferences.textColor];
+    [self.numEventsLabel setTextColor:self.preferences.textColor];
+    [self.numEventsLabel setBackgroundColor:self.preferences.backgroundColor];
+    
+    [self.calendarNameTextField setTextColor:self.preferences.textColor];
+    [self.calendarNameTextField setBackgroundColor:self.preferences.backgroundColor];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -10,7 +10,6 @@
 		61470D2317848DF4009C9C62 /* durationPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61470D2217848DF4009C9C62 /* durationPickerView.m */; };
 		61821DF71784B1EB00CE1063 /* reminderPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61821DF61784B1EB00CE1063 /* reminderPickerView.m */; };
 		61821DFD17872E0300CE1063 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = 61821DFC17872E0300CE1063 /* icon57.png */; };
-		61821DFF17872E0700CE1063 /* Icon 114.png in Resources */ = {isa = PBXBuildFile; fileRef = 61821DFE17872E0700CE1063 /* Icon 114.png */; };
 		6189E20B1774231600D0D181 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6189E20A1774231600D0D181 /* UIKit.framework */; };
 		6189E20D1774231600D0D181 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6189E20C1774231600D0D181 /* Foundation.framework */; };
 		6189E20F1774231600D0D181 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6189E20E1774231600D0D181 /* CoreGraphics.framework */; };
@@ -47,7 +46,6 @@
 		61821DF51784B1EB00CE1063 /* reminderPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reminderPickerView.h; sourceTree = "<group>"; };
 		61821DF61784B1EB00CE1063 /* reminderPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reminderPickerView.m; sourceTree = "<group>"; };
 		61821DFC17872E0300CE1063 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = ../icon57.png; sourceTree = "<group>"; };
-		61821DFE17872E0700CE1063 /* Icon 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon 114.png"; path = "../Icon 114.png"; sourceTree = "<group>"; };
 		6189E2071774231600D0D181 /* Checkup Scheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Checkup Scheduler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6189E20A1774231600D0D181 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6189E20C1774231600D0D181 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -71,7 +69,7 @@
 		6189E235177F003900D0D181 /* idButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = idButton.m; sourceTree = "<group>"; };
 		6189E237177FFAF900D0D181 /* timeSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timeSetupViewController.h; sourceTree = "<group>"; };
 		6189E238177FFAF900D0D181 /* timeSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = timeSetupViewController.m; sourceTree = "<group>"; };
-		61A79F8E17A70B5700233DA8 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
+		61A79F8E17A70B5700233DA8 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = ../icon114.png; sourceTree = "<group>"; };
 		61B71BFA1791AB79001BD35D /* settingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsViewController.h; sourceTree = "<group>"; };
 		61B71BFB1791AB79001BD35D /* settingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsViewController.m; sourceTree = "<group>"; };
 		61B71BFD1791B86A001BD35D /* colorSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colorSettingsViewController.h; sourceTree = "<group>"; };
@@ -115,8 +113,8 @@
 		61821E0017872E2000CE1063 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				61A79F8E17A70B5700233DA8 /* icon114.png */,
 				61821DFC17872E0300CE1063 /* icon57.png */,
-				61821DFE17872E0700CE1063 /* Icon 114.png */,
 			);
 			name = Pictures;
 			sourceTree = "<group>";
@@ -124,7 +122,6 @@
 		6189E1FE1774231600D0D181 = {
 			isa = PBXGroup;
 			children = (
-				61A79F8E17A70B5700233DA8 /* icon114.png */,
 				6189E2101774231600D0D181 /* Checkup Scheduler */,
 				6189E2091774231600D0D181 /* Frameworks */,
 				6189E2081774231600D0D181 /* Products */,
@@ -267,7 +264,6 @@
 				6189E2241774231600D0D181 /* MainStoryboard_iPhone.storyboard in Resources */,
 				6189E2271774231600D0D181 /* MainStoryboard_iPad.storyboard in Resources */,
 				61821DFD17872E0300CE1063 /* icon57.png in Resources */,
-				61821DFF17872E0700CE1063 /* Icon 114.png in Resources */,
 				61A79F8F17A70B5700233DA8 /* icon114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

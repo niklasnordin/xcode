@@ -131,7 +131,7 @@
 
 - (IBAction)pressedSchemeButton:(UIButton *)sender
 {
-    NSLog(@"pressed button with title = %@", sender.titleLabel.text);
+    //NSLog(@"pressed button with title = %@", sender.titleLabel.text);
     [self setupButton:sender withColor:self.preferences.selectedButtonColor];
 }
 
@@ -195,6 +195,7 @@
     [self.calendarInfoLabel setTextColor:self.preferences.textColor];
     [self.eventTextField setBackgroundColor:self.preferences.selectedButtonColor];
     [self.eventTextField setTextColor:self.preferences.textColor];
+
 }
 
 - (void)didReceiveMemoryWarning
