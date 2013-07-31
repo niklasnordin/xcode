@@ -105,4 +105,25 @@
    
 }
 
+- (void)setNavigationColors:(UIViewController *)view
+{
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:self.textColor, UITextAttributeTextColor,
+                          [UIColor clearColor], UITextAttributeTextShadowColor, nil];
+    
+    [view.navigationController.navigationBar setTitleTextAttributes:dict];
+    
+    NSArray *leftItems = view.navigationItem.leftBarButtonItems;
+    NSArray *rightItems = view.navigationItem.rightBarButtonItems;
+    
+    for (UIBarButtonItem *item in leftItems)
+    {
+        [item setTitleTextAttributes:dict forState:UIControlStateNormal];
+    }
+    for (UIBarButtonItem *item in rightItems)
+    {
+        [item setTitleTextAttributes:dict forState:UIControlStateNormal];
+    }
+
+    //[view.navigationController.navigationBar.backItem setTi]
+}
 @end

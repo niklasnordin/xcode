@@ -113,6 +113,7 @@
     [swipeDown setNumberOfTouchesRequired:1];
     [swipeDown setDirection:UISwipeGestureRecognizerDirectionDown];
     [self.view addGestureRecognizer:swipeDown];
+
     
 }
 
@@ -215,8 +216,27 @@
     //[self.navigationController.navigationBar setBackgroundColor:self.preferences.backgroundColor];
     //[self.navigationController.navigationBar setBackgroundColor:self.preferences.backgroundColor];
     self.navigationController.navigationBar.tintColor = self.preferences.backgroundColor;
-    NSLog(@"navigationbar = %@",self.navigationController.navigationBar.backgroundColor);
+    //NSLog(@"navigationbar = %@",self.navigationController.navigationBar.backgroundColor);
 
+    /*
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:self.preferences.textColor, UITextAttributeTextColor,
+                          [UIColor clearColor], UITextAttributeTextShadowColor, nil];
+
+    [self.navigationController.navigationBar setTitleTextAttributes:dict];
+
+    NSArray *leftItems = self.navigationItem.leftBarButtonItems;
+    NSArray *rightItems = self.navigationItem.rightBarButtonItems;
+
+    for (UIBarButtonItem *item in leftItems)
+    {
+        [item setTitleTextAttributes:dict forState:UIControlStateNormal];
+    }
+    for (UIBarButtonItem *item in rightItems)
+    {
+        [item setTitleTextAttributes:dict forState:UIControlStateNormal];
+    }
+*/
+    [self.preferences setNavigationColors:self];
 }
 
 - (void)didReceiveMemoryWarning

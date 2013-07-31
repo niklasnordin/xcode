@@ -88,6 +88,8 @@
     _greenTextField.delegate = self;
     _blueTextField.delegate = self;
 
+    [self.parent.preferences setNavigationColors:self];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -180,6 +182,10 @@
     else
     {
         self.colorTextLabel.textColor = color;
+        NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:color, UITextAttributeTextColor,
+                                [UIColor clearColor], UITextAttributeTextShadowColor, nil];
+        self.navigationController.navigationBar.titleTextAttributes = dict;
+        //NSLog(@"titleDict = %@",titleDict);
     }
 }
 
