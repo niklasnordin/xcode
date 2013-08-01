@@ -21,5 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *timePicker;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIButton *setButton;
+- (IBAction)clickedButton:(UIButton *)sender;
+- (IBAction)draggedOutside:(UIButton *)sender;
+- (IBAction)touchupInside:(UIButton *)sender;
 
 @end

@@ -394,6 +394,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="clickedButton:" destination="bpq-JO-KSn" eventType="touchDown" id="IZq-cG-KE7"/>
+                                    <action selector="draggedOutside:" destination="bpq-JO-KSn" eventType="touchDragOutside" id="Ed2-Jx-Llc"/>
+                                    <action selector="touchupInside:" destination="bpq-JO-KSn" eventType="touchUpInside" id="GGn-SI-EEi"/>
                                     <segue destination="vVr-vr-1oq" kind="unwind" unwindAction="setTimer:" id="Q2B-ur-86q"/>
                                 </connections>
                             </button>
@@ -411,6 +414,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="clickedButton:" destination="bpq-JO-KSn" eventType="touchDown" id="z5F-ME-7zP"/>
+                                    <action selector="draggedOutside:" destination="bpq-JO-KSn" eventType="touchDragOutside" id="3WQ-fZ-zU2"/>
+                                    <action selector="touchupInside:" destination="bpq-JO-KSn" eventType="touchUpInside" id="3NL-yo-6kn"/>
                                     <segue destination="vVr-vr-1oq" kind="unwind" unwindAction="cancelTimer:" id="W7R-54-RfO"/>
                                 </connections>
                             </button>
@@ -789,9 +795,6 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
         <class className="UIStoryboardSegue" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
         </class>
@@ -893,6 +896,9 @@
         <class className="timeSetupViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/timeSetupViewController.h"/>
             <relationships>
+                <relationship kind="action" name="clickedButton:" candidateClass="UIButton"/>
+                <relationship kind="action" name="draggedOutside:" candidateClass="UIButton"/>
+                <relationship kind="action" name="touchupInside:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="setButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="timePicker" candidateClass="UIPickerView"/>

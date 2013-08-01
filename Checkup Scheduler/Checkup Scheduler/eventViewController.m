@@ -355,7 +355,6 @@
 
 - (IBAction)touchUpInside:(id)sender
 {
-    NSLog(@"touchup inside");
     [self.preferences setupButton:sender withColor:self.preferences.backgroundColor];
 }
 @end

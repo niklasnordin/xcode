@@ -135,17 +135,18 @@
         [item setTitleTextAttributes:dict forState:UIControlStateNormal];
     }
 
-    [view.navigationController.navigationBar setTitleTextAttributes:dict];
-    [view.navigationController.navigationBar.topItem.backBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
-
-    [view.navigationController.navigationBar.backItem.backBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
-    [view.navigationController.navigationItem.backBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
-    [view.navigationItem.backBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
+    //[view.navigationController.navigationBar setTitleTextAttributes:dict];
     
-    [view.navigationItem.leftBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
-    [view.navigationItem.rightBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
-    
+    //[view.navigationController.navigationBar.topItem.backBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
 
+    //[view.navigationController.navigationBar.backItem.backBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
+    //[view.navigationController.navigationItem.backBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
+    //[view.navigationItem.backBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
+    
+    //[view.navigationItem.leftBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
+    //[view.navigationItem.rightBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:dict forState:UIControlStateNormal];
+    [[UINavigationBar appearance] setTitleTextAttributes:dict];
 }
 
 - (void)setupButton:(UIButton *)button withColor:(UIColor *)color

@@ -35,20 +35,26 @@
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain
                                                                                target:self
                                                                                action:@selector(addSchemeButton:)];
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:self.preferences.textColor, UITextAttributeTextColor,
                           [UIColor clearColor], UITextAttributeTextShadowColor, nil];
     [addButton setTitleTextAttributes:dict forState:UIControlStateNormal];
-    
+
     self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:self.editButtonItem, addButton, nil ];
 
-    [self.view setBackgroundColor:[UIColor greenColor]];
+    //[self.view setBackgroundColor:[UIColor greenColor]];
     [self.preferences setNavigationColors:self];
 
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.preferences setNavigationColors:self];
+
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -140,10 +146,8 @@
 }
 
 - (void)addSchemeButton:(id)sender
-{
-    
+{    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter name" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
-    
     alert.delegate = self;
     [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
     [alert show];

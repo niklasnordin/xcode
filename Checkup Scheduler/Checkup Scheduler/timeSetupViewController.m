@@ -110,4 +110,18 @@
     }
     */    
 }
+- (IBAction)clickedButton:(UIButton *)sender
+{
+    [self.preferences setupButton:sender withColor:self.preferences.selectedButtonColor];
+}
+
+- (IBAction)draggedOutside:(UIButton *)sender
+{
+    [self.preferences setupButton:sender withColor:self.preferences.backgroundColor];
+}
+
+- (IBAction)touchupInside:(UIButton *)sender
+{
+    [self.preferences setupButton:sender withColor:self.preferences.backgroundColor];
+}
 @end

@@ -190,14 +190,18 @@
     [self.eventTextField setBackgroundColor:self.preferences.selectedButtonColor];
     [self.eventTextField setTextColor:self.preferences.textColor];
     
-    //[[UINavigationBar appearance] setBackgroundColor:self.preferences.backgroundColor];
-    //[[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
-    //[[UINavigationBar appearance] setTintColor:[UIColor redColor]];
-    //[self.navigationController.navigationBar setBackgroundColor:self.preferences.backgroundColor];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:self.preferences.textColor, UITextAttributeTextColor,
+                          [UIColor clearColor], UITextAttributeTextShadowColor, nil];
+
+    [[UINavigationBar appearance] setTitleTextAttributes:dict];
+    [[UINavigationBar appearance] setBackgroundColor:self.preferences.backgroundColor];
+    [[UINavigationBar appearance] setTintColor:self.preferences.backgroundColor];
+
+     //[self.navigationController.navigationBar setBackgroundColor:self.preferences.backgroundColor];
     //[self.navigationController.navigationBar setBackgroundColor:self.preferences.backgroundColor];
     
-    self.navigationController.navigationBar.tintColor = self.preferences.backgroundColor;
-
+    [self.navigationController.navigationBar setTintColor:self.preferences.backgroundColor];
+    [self.navigationController.navigationBar setTitleTextAttributes:dict];
     [self.preferences setNavigationColors:self];
 }
 
