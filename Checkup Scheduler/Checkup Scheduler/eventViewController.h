@@ -38,5 +38,13 @@
 - (IBAction)setTimer:(UIStoryboardSegue *)segue;
 - (IBAction)cancelTimer:(UIStoryboardSegue *)segue;
 
+@property (weak, nonatomic) IBOutlet UILabel *timeAfterStartLabel;
+@property (weak, nonatomic) IBOutlet UILabel *durationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *allDayEventLabel;
+@property (weak, nonatomic) IBOutlet UILabel *reminderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *busyLabel;
+- (IBAction)clickedButton:(UIButton *)sender;
+- (IBAction)draggedOutside:(UIButton *)sender;
+- (IBAction)touchUpInside:(id)sender;
 
 @end

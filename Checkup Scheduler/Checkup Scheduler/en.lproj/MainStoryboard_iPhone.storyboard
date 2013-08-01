@@ -381,7 +381,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tjh-2L-qwI">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tjh-2L-qwI">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="7sS-wG-DJh"/>
                                 </constraints>
@@ -397,8 +397,9 @@
                                     <segue destination="vVr-vr-1oq" kind="unwind" unwindAction="setTimer:" id="Q2B-ur-86q"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8H-zg-q76">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8H-zg-q76">
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="bUK-Qs-fUr"/>
                                     <constraint firstAttribute="width" constant="140" id="m7b-lF-42e"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -416,12 +417,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.32692046359999999" green="0.46100282910000001" blue="0.62641501909999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Tjh-2L-qwI" firstAttribute="top" secondItem="o8H-zg-q76" secondAttribute="top" type="default" id="07n-qu-taj"/>
                             <constraint firstItem="msx-4J-RLl" firstAttribute="baseline" secondItem="HVy-X9-HaP" secondAttribute="baseline" type="default" id="9fR-mx-ZX1"/>
                             <constraint firstItem="o8H-zg-q76" firstAttribute="leading" secondItem="Q6Z-a9-Vtu" secondAttribute="leading" constant="16" id="Ajl-zp-56z"/>
                             <constraint firstItem="yfn-6m-7bK" firstAttribute="baseline" secondItem="msx-4J-RLl" secondAttribute="baseline" type="default" id="HDj-jB-yxm"/>
                             <constraint firstAttribute="trailing" secondItem="HVy-X9-HaP" secondAttribute="trailing" constant="11" id="MhJ-jT-zS9"/>
                             <constraint firstItem="msx-4J-RLl" firstAttribute="leading" secondItem="Q6Z-a9-Vtu" secondAttribute="leading" constant="129" id="Nty-gy-aWD"/>
                             <constraint firstItem="HVy-X9-HaP" firstAttribute="centerY" secondItem="5wP-38-OfC" secondAttribute="centerY" type="default" id="SGb-zt-euf"/>
+                            <constraint firstItem="Tjh-2L-qwI" firstAttribute="bottom" secondItem="o8H-zg-q76" secondAttribute="bottom" type="default" id="T7b-Kb-hL5"/>
                             <constraint firstItem="yfn-6m-7bK" firstAttribute="top" secondItem="msx-4J-RLl" secondAttribute="top" type="default" id="TMW-CB-aGn"/>
                             <constraint firstItem="5wP-38-OfC" firstAttribute="leading" secondItem="Q6Z-a9-Vtu" secondAttribute="leading" type="default" id="c0X-TZ-Kpv"/>
                             <constraint firstItem="msx-4J-RLl" firstAttribute="top" secondItem="HVy-X9-HaP" secondAttribute="top" type="default" id="c9F-7I-Z8M"/>
@@ -429,12 +432,13 @@
                             <constraint firstAttribute="bottom" secondItem="yfn-6m-7bK" secondAttribute="bottom" constant="163" id="lGq-kX-iED"/>
                             <constraint firstItem="5wP-38-OfC" firstAttribute="trailing" secondItem="Q6Z-a9-Vtu" secondAttribute="trailing" type="default" id="nBg-pi-iDe"/>
                             <constraint firstItem="yfn-6m-7bK" firstAttribute="leading" secondItem="Q6Z-a9-Vtu" secondAttribute="leading" constant="34" id="rSa-T9-lba"/>
-                            <constraint firstItem="Tjh-2L-qwI" firstAttribute="baseline" secondItem="o8H-zg-q76" secondAttribute="baseline" type="default" id="smE-dy-NKt"/>
                             <constraint firstAttribute="bottom" secondItem="o8H-zg-q76" secondAttribute="bottom" constant="16" id="xTo-d5-JyA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Set Time after Start" id="oYu-iV-OwS"/>
                     <connections>
+                        <outlet property="cancelButton" destination="o8H-zg-q76" id="n8v-I6-nhS"/>
+                        <outlet property="setButton" destination="Tjh-2L-qwI" id="5KQ-Gi-dUI"/>
                         <outlet property="timePicker" destination="5wP-38-OfC" id="nnz-s8-hA3"/>
                     </connections>
                 </viewController>
@@ -567,9 +571,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POh-Rb-izm">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POh-Rb-izm">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="dX6-ur-NCb"/>
+                                    <constraint firstAttribute="height" constant="40" id="Ug2-Ss-PPw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="1d:6h:5m">
@@ -580,6 +584,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="clickedButton:" destination="1Ha-Ta-qCa" eventType="touchDown" id="455-f4-bie"/>
+                                    <action selector="draggedOutside:" destination="1Ha-Ta-qCa" eventType="touchDragOutside" id="JtO-Nc-8u9"/>
+                                    <action selector="touchUpInside:" destination="1Ha-Ta-qCa" eventType="touchUpInside" id="KQa-cn-TE2"/>
                                     <segue destination="bpq-JO-KSn" kind="modal" identifier="timeSegue" modalTransitionStyle="partialCurl" id="2Hu-du-RdJ"/>
                                 </connections>
                             </button>
@@ -591,9 +598,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBQ-pC-il8">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBQ-pC-il8">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="bNu-pQ-J5s"/>
+                                    <constraint firstAttribute="height" constant="40" id="QE4-tQ-Mli"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="1s">
@@ -604,6 +611,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="clickedButton:" destination="1Ha-Ta-qCa" eventType="touchDown" id="rhH-qK-Ged"/>
+                                    <action selector="draggedOutside:" destination="1Ha-Ta-qCa" eventType="touchDragOutside" id="Mau-x3-HCw"/>
                                     <action selector="durationClicked:" destination="1Ha-Ta-qCa" eventType="touchUpInside" id="9a8-Wc-zth"/>
                                 </connections>
                             </button>
@@ -620,9 +629,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spL-Bp-jRP">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spL-Bp-jRP">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="bcH-yw-cGv"/>
+                                    <constraint firstAttribute="height" constant="40" id="rz0-8W-W28"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Never">
@@ -633,6 +642,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="clickedButton:" destination="1Ha-Ta-qCa" eventType="touchDown" id="s02-De-1ik"/>
+                                    <action selector="draggedOutside:" destination="1Ha-Ta-qCa" eventType="touchDragOutside" id="Akj-hj-aHw"/>
                                     <action selector="reminderButtonClicker:" destination="1Ha-Ta-qCa" eventType="touchUpInside" id="YNZ-8O-eDb"/>
                                 </connections>
                             </button>
@@ -666,7 +677,6 @@
                             <constraint firstItem="yQf-yw-c2x" firstAttribute="trailing" secondItem="FMJ-5R-KZR" secondAttribute="trailing" type="default" id="9Ph-pN-ahl"/>
                             <constraint firstItem="NBQ-pC-il8" firstAttribute="top" secondItem="POh-Rb-izm" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="9wA-lt-SbZ"/>
                             <constraint firstItem="POh-Rb-izm" firstAttribute="leading" secondItem="dsw-vU-jxn" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Djo-cf-Eai"/>
-                            <constraint firstItem="0sP-xV-4lP" firstAttribute="centerX" secondItem="NBQ-pC-il8" secondAttribute="centerX" type="default" id="Eg9-jY-Lzd"/>
                             <constraint firstItem="NBQ-pC-il8" firstAttribute="baseline" secondItem="6oZ-FQ-HNV" secondAttribute="baseline" type="default" id="HIM-VE-SIJ"/>
                             <constraint firstAttribute="trailing" secondItem="9lG-sC-CQC" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Hym-sh-6fM"/>
                             <constraint firstAttribute="trailing" secondItem="spL-Bp-jRP" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ITQ-t1-k79"/>
@@ -675,7 +685,6 @@
                             <constraint firstItem="dsw-vU-jxn" firstAttribute="leading" secondItem="ddq-eu-D0h" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="MrY-eS-mgC"/>
                             <constraint firstItem="6oZ-FQ-HNV" firstAttribute="centerY" secondItem="NBQ-pC-il8" secondAttribute="centerY" type="default" id="TmP-jn-GdR"/>
                             <constraint firstItem="FMJ-5R-KZR" firstAttribute="centerY" secondItem="xG1-ub-Wyx" secondAttribute="centerY" type="default" id="VLX-Kz-ywz"/>
-                            <constraint firstItem="hds-D8-7Iq" firstAttribute="top" secondItem="ddq-eu-D0h" secondAttribute="top" constant="197" id="VQI-eo-LQe"/>
                             <constraint firstItem="6oZ-FQ-HNV" firstAttribute="leading" secondItem="ddq-eu-D0h" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="VYX-ME-ZT4"/>
                             <constraint firstItem="spL-Bp-jRP" firstAttribute="leading" secondItem="NBQ-pC-il8" secondAttribute="leading" type="default" id="WcD-q5-H7s"/>
                             <constraint firstItem="FMJ-5R-KZR" firstAttribute="leading" secondItem="ddq-eu-D0h" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="WjR-p4-X7V"/>
@@ -690,15 +699,22 @@
                             <constraint firstItem="xG1-ub-Wyx" firstAttribute="leading" secondItem="0sP-xV-4lP" secondAttribute="leading" type="default" id="neB-6u-zII"/>
                             <constraint firstItem="0sP-xV-4lP" firstAttribute="top" secondItem="NBQ-pC-il8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="pAh-ZK-zeO"/>
                             <constraint firstItem="9lG-sC-CQC" firstAttribute="leading" secondItem="ddq-eu-D0h" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="pma-oe-AMN"/>
+                            <constraint firstItem="0sP-xV-4lP" firstAttribute="centerX" secondItem="spL-Bp-jRP" secondAttribute="centerX" type="default" id="qbH-YA-V0A"/>
+                            <constraint firstItem="spL-Bp-jRP" firstAttribute="centerY" secondItem="hds-D8-7Iq" secondAttribute="centerY" type="default" id="t5Y-8Y-2rT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ykZ-T6-y1z"/>
                     <connections>
+                        <outlet property="allDayEventLabel" destination="yQf-yw-c2x" id="ZDw-Lu-taP"/>
                         <outlet property="allDayEventSwitch" destination="0sP-xV-4lP" id="SE6-bQ-Ueg"/>
+                        <outlet property="busyLabel" destination="FMJ-5R-KZR" id="8Zp-Tt-lQi"/>
                         <outlet property="busySwitch" destination="xG1-ub-Wyx" id="64w-Xv-qRk"/>
                         <outlet property="durationButton" destination="NBQ-pC-il8" id="jbO-yv-6sD"/>
+                        <outlet property="durationLabel" destination="6oZ-FQ-HNV" id="sU4-RN-fuq"/>
                         <outlet property="reminderButton" destination="spL-Bp-jRP" id="PrU-KG-V4o"/>
+                        <outlet property="reminderLabel" destination="hds-D8-7Iq" id="blt-T8-a39"/>
                         <outlet property="timeAfterStartButton" destination="POh-Rb-izm" id="85D-hB-ChG"/>
+                        <outlet property="timeAfterStartLabel" destination="dsw-vU-jxn" id="wsV-eK-if6"/>
                         <outlet property="titleTextField" destination="9lG-sC-CQC" id="E7d-Yc-6Bo"/>
                     </connections>
                 </viewController>
@@ -760,6 +776,129 @@
             <point key="canvasLocation" x="-941" y="-345"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+        <class className="checkupSchedulerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/checkupSchedulerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clickedSchemeButton:"/>
+                <relationship kind="action" name="createEvent:"/>
+                <relationship kind="action" name="pressedSchemeButton:" candidateClass="UIButton"/>
+                <relationship kind="action" name="releasedSchemeButtonOutside:" candidateClass="UIButton"/>
+                <relationship kind="action" name="startDateButtonClicked:"/>
+                <relationship kind="outlet" name="calendarInfoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createEventButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="eventTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="schemeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="startDateButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="topBannerView" candidateClass="ADBannerView"/>
+            </relationships>
+        </class>
+        <class className="colorSettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/colorSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="blueSliderChanged:" candidateClass="UISlider"/>
+                <relationship kind="action" name="greenSliderChanged:" candidateClass="UISlider"/>
+                <relationship kind="action" name="redSliderChanged:" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="blueGradientView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="blueSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="blueTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="colorTextLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="colorView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="greenGradientView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="greenSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="greenTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="redGradientView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="redSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="redTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="eventViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/eventViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="allDayEventClicked:" candidateClass="UISwitch"/>
+                <relationship kind="action" name="busySwitchClicked:"/>
+                <relationship kind="action" name="cancelTimer:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="clickedButton:" candidateClass="UIButton"/>
+                <relationship kind="action" name="draggedOutside:" candidateClass="UIButton"/>
+                <relationship kind="action" name="durationClicked:" candidateClass="UIButton"/>
+                <relationship kind="action" name="reminderButtonClicker:"/>
+                <relationship kind="action" name="setTimer:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="touchUpInside:"/>
+                <relationship kind="outlet" name="allDayEventLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="allDayEventSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="busyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="busySwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="durationButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="durationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="reminderButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="reminderLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeAfterStartButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timeAfterStartLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="idButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/idButton.h"/>
+        </class>
+        <class className="schemeCollectionCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeCollectionCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="idButton" candidateClass="idButton"/>
+            </relationships>
+        </class>
+        <class className="schemeCollectionView" superclassName="UICollectionView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeCollectionView.h"/>
+        </class>
+        <class className="schemeTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeTableViewController.h"/>
+        </class>
+        <class className="schemeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/schemeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="numEventsStepperPressed:"/>
+                <relationship kind="outlet" name="calendarNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="numEventsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numEventsStepperValue" candidateClass="UIStepper"/>
+                <relationship kind="outlet" name="schemeCollectionView" candidateClass="schemeCollectionView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="settingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/settingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="pressedButton:" candidateClass="UIButton"/>
+                <relationship kind="action" name="touchCancelled:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="backgroundColorButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="textColorButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="timeSetupViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/timeSetupViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="setButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

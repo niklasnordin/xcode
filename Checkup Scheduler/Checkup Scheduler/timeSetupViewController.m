@@ -45,7 +45,11 @@
     [_timePicker selectRow:minutesIndex inComponent:2 animated:NO];
     [_timePicker selectRow:hours inComponent:1 animated:NO];
     [_timePicker selectRow:days inComponent:0 animated:NO];
-
+    
+    // color setup
+    [self.view setBackgroundColor:self.preferences.backgroundColor];
+    [self.preferences setupButton:self.cancelButton withColor:self.preferences.backgroundColor];
+    [self.preferences setupButton:self.setButton withColor:self.preferences.backgroundColor];
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView

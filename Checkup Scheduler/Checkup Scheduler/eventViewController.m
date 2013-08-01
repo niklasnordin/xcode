@@ -104,6 +104,17 @@
     [self.durationPicker selectRow:hours inComponent:0 animated:NO];
     [self.durationPicker selectRow:minutes/15 inComponent:1 animated:NO];
     
+    // setup colors
+    [self.view setBackgroundColor:self.preferences.backgroundColor];
+    [self.titleTextField setTextColor:self.preferences.textColor];
+    [self.titleTextField setBackgroundColor:self.preferences.backgroundColor];
+    
+    [self.preferences setupButton:self.timeAfterStartButton withColor:self.preferences.backgroundColor];
+    [self.preferences setupButton:self.durationButton withColor:self.preferences.backgroundColor];
+    [self.preferences setupButton:self.reminderButton withColor:self.preferences.backgroundColor];
+    
+    [self.allDayEventSwitch setTintColor:self.preferences.backgroundColor];
+    [self.busySwitch setTintColor:self.preferences.backgroundColor];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -122,7 +133,6 @@
 {
     if ([segue.identifier isEqualToString:@"timeSegue"])
     {
-        // hej
         timeSetupViewController *tsvc = segue.destinationViewController;
         self.previousDayTimer = [[self.eventDict objectForKey:@"days"] intValue];
         self.previousHoursTimer = [[self.eventDict objectForKey:@"hours"] intValue];
@@ -144,7 +154,8 @@
 
 - (IBAction)durationClicked:(UIButton *)sender
 {
-    
+    [self.preferences setupButton:sender withColor:self.preferences.backgroundColor];
+
     self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"duration (hours, mins)"
                                                    delegate:nil
                                           cancelButtonTitle:nil
@@ -183,6 +194,7 @@
 
 - (IBAction)allDayEventClicked:(UISwitch *)sender
 {
+
     [self.eventDict setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"allDayEvent"];
     [self.durationButton setEnabled:![sender isOn]];
     if ([self.allDayEventSwitch isOn])
@@ -231,7 +243,8 @@
 
 - (IBAction)reminderButtonClicker:(id)sender
 {
-    
+    [self.preferences setupButton:sender withColor:self.preferences.backgroundColor];
+
     self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Reminder"
                                                    delegate:nil
                                           cancelButtonTitle:nil
@@ -330,4 +343,19 @@
 
 
 
+- (IBAction)clickedButton:(UIButton *)sender
+{
+    [self.preferences setupButton:sender withColor:self.preferences.selectedButtonColor];
+}
+
+- (IBAction)draggedOutside:(UIButton *)sender
+{
+    [self.preferences setupButton:sender withColor:self.preferences.backgroundColor];
+}
+
+- (IBAction)touchUpInside:(id)sender
+{
+    NSLog(@"touchup inside");
+    [self.preferences setupButton:sender withColor:self.preferences.backgroundColor];
+}
 @end

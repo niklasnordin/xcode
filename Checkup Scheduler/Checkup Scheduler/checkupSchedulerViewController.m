@@ -71,10 +71,7 @@
             [_schemesDictionary removeObjectForKey:name];
         }
     }
-    //CGFloat width = self.view.bounds.size.width;
-    //CGFloat height = self.view.bounds.size.height;
-    
-    //NSLog(@"self.view.height = %f",self.view.bounds.size.height);
+
     // setup the picker
     //CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
     CGRect pickerFrame = CGRectMake(0, 40, 0, 500);
@@ -125,25 +122,6 @@
         [self save];
     }
 }
-/*
-- (void)setupButton:(UIButton *)button withColor:(UIColor *)color
-{
-
-    [button setBackgroundColor:color];
-    [button setTitleColor:self.preferences.textColor forState:UIControlStateNormal];
-    [button setTitleColor:self.preferences.selectedTextColor forState:UIControlStateHighlighted];
-    
-    [button.layer setCornerRadius:15.0f];
-    [button.layer setMasksToBounds:NO];
-    [button.layer setBorderWidth:2.0f];
-    [button.layer setBorderColor:[self.preferences.selectedButtonColor CGColor]];
-    
-    [button.layer setShadowColor:[UIColor blackColor].CGColor];
-    [button.layer setShadowOpacity:0.8];
-    [button.layer setShadowRadius:2.0f];
-    [button.layer setShadowOffset:CGSizeMake(2.0f, 2.0f)];
-}
-*/
 
 - (IBAction)pressedSchemeButton:(UIButton *)sender
 {
@@ -217,27 +195,9 @@
     //[[UINavigationBar appearance] setTintColor:[UIColor redColor]];
     //[self.navigationController.navigationBar setBackgroundColor:self.preferences.backgroundColor];
     //[self.navigationController.navigationBar setBackgroundColor:self.preferences.backgroundColor];
+    
     self.navigationController.navigationBar.tintColor = self.preferences.backgroundColor;
-    //NSLog(@"navigationbar = %@",self.navigationController.navigationBar.backgroundColor);
 
-    /*
-    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:self.preferences.textColor, UITextAttributeTextColor,
-                          [UIColor clearColor], UITextAttributeTextShadowColor, nil];
-
-    [self.navigationController.navigationBar setTitleTextAttributes:dict];
-
-    NSArray *leftItems = self.navigationItem.leftBarButtonItems;
-    NSArray *rightItems = self.navigationItem.rightBarButtonItems;
-
-    for (UIBarButtonItem *item in leftItems)
-    {
-        [item setTitleTextAttributes:dict forState:UIControlStateNormal];
-    }
-    for (UIBarButtonItem *item in rightItems)
-    {
-        [item setTitleTextAttributes:dict forState:UIControlStateNormal];
-    }
-*/
     [self.preferences setNavigationColors:self];
 }
 
