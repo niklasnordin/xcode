@@ -7,10 +7,11 @@
 //
 
 #import "settingsDB.h"
+#import "QuartzCore/QuartzCore.h"
 
 #define BACKGROUNDCOLOR @"backgroundColor"
 #define TEXTCOLOR @"textColor"
-#define MULTIPLIER 1.2
+#define MULTIPLIER 1.05
 #define DARKER 0.92
 
 @implementation settingsDB
@@ -126,4 +127,24 @@
 
     //[view.navigationController.navigationBar.backItem setTi]
 }
+
+- (void)setupButton:(UIButton *)button withColor:(UIColor *)color
+{
+    
+    [button setBackgroundColor:color];
+    [button setTitleColor:self.textColor forState:UIControlStateNormal];
+    [button setTitleColor:self.selectedTextColor forState:UIControlStateHighlighted];
+        
+    [button.layer setCornerRadius:15.0f];
+    [button.layer setMasksToBounds:NO];
+    [button.layer setBorderWidth:2.0f];
+    [button.layer setBorderColor:[self.selectedButtonColor CGColor]];
+        
+    [button.layer setShadowColor:[UIColor blackColor].CGColor];
+    [button.layer setShadowOpacity:0.8];
+    [button.layer setShadowRadius:2.0f];
+    [button.layer setShadowOffset:CGSizeMake(2.0f, 2.0f)];
+
+}
+
 @end

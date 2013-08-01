@@ -125,7 +125,7 @@
         [self save];
     }
 }
-
+/*
 - (void)setupButton:(UIButton *)button withColor:(UIColor *)color
 {
 
@@ -143,17 +143,18 @@
     [button.layer setShadowRadius:2.0f];
     [button.layer setShadowOffset:CGSizeMake(2.0f, 2.0f)];
 }
+*/
 
 - (IBAction)pressedSchemeButton:(UIButton *)sender
 {
     //NSLog(@"pressed button with title = %@", sender.titleLabel.text);
-    [self setupButton:sender withColor:self.preferences.selectedButtonColor];
+    [self.preferences setupButton:sender withColor:self.preferences.selectedButtonColor];
 }
 
 - (IBAction)releasedSchemeButtonOutside:(UIButton *)sender
 {
     //NSLog(@"released button with title = %@", sender.titleLabel.text);
-    [self setupButton:sender withColor:self.preferences.backgroundColor];
+    [self.preferences setupButton:sender withColor:self.preferences.backgroundColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -203,13 +204,14 @@
 
     [self.view setBackgroundColor:self.preferences.backgroundColor];
     
-    [self setupButton:self.schemeButton withColor:self.preferences.backgroundColor];
-    [self setupButton:self.startDateButton withColor:self.preferences.backgroundColor];
-    [self setupButton:self.createEventButton withColor:self.preferences.backgroundColor];
+    [self.preferences setupButton:self.schemeButton withColor:self.preferences.backgroundColor];
+    [self.preferences setupButton:self.startDateButton withColor:self.preferences.backgroundColor];
+    [self.preferences setupButton:self.createEventButton withColor:self.preferences.backgroundColor];
 
     [self.calendarInfoLabel setTextColor:self.preferences.textColor];
     [self.eventTextField setBackgroundColor:self.preferences.selectedButtonColor];
     [self.eventTextField setTextColor:self.preferences.textColor];
+    
     //[[UINavigationBar appearance] setBackgroundColor:self.preferences.backgroundColor];
     //[[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     //[[UINavigationBar appearance] setTintColor:[UIColor redColor]];
@@ -247,7 +249,7 @@
 
 - (IBAction)createEvent:(id)sender
 {
-    [self setupButton:sender withColor:self.preferences.backgroundColor];
+    [self.preferences setupButton:sender withColor:self.preferences.backgroundColor];
 
     if ([self accessGranted])
     {
@@ -454,7 +456,7 @@
 
 - (IBAction)clickedSchemeButton:(id)sender
 {
-    [self setupButton:self.schemeButton withColor:self.preferences.backgroundColor];
+    [self.preferences setupButton:self.schemeButton withColor:self.preferences.backgroundColor];
 
     NSString *deviceModel = [[UIDevice currentDevice] model];
     NSLog(@"deviceModel = %@",deviceModel);
@@ -544,7 +546,7 @@
 
 - (IBAction)startDateButtonClicked:(id)sender
 {
-    [self setupButton:sender withColor:self.preferences.backgroundColor];
+    [self.preferences setupButton:sender withColor:self.preferences.backgroundColor];
 
     // remember the selected name, in case the selection is cancelled
     

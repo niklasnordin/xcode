@@ -32,7 +32,7 @@
 @property (weak, nonatomic) IBOutlet ADBannerView *topBannerView;
 @property (weak, nonatomic) IBOutlet UILabel *calendarInfoLabel;
 
-- (void)setupButton:(UIButton *)button withColor:(UIColor *)color;
+//- (void)setupButton:(UIButton *)button withColor:(UIColor *)color;
 
 - (IBAction)pressedSchemeButton:(UIButton *)sender;
 - (IBAction)releasedSchemeButtonOutside:(UIButton *)sender;

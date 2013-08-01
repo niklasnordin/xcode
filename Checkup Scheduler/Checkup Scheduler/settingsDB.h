@@ -20,4 +20,6 @@
 - (BOOL)saveToUserDefaults:(NSUserDefaults *)defaults;
 - (void)readFromUserDefaults:(NSUserDefaults *)defaults;
 - (void)setNavigationColors:(UIViewController *)view;
+- (void)setupButton:(UIButton *)button withColor:(UIColor *)color;
+
 @end

@@ -62,7 +62,7 @@
     [self.view setBackgroundColor:self.preferences.backgroundColor];
     [self setupButton:self.backgroundColorButton withColor:self.preferences.backgroundColor];
     [self setupButton:self.textColorButton withColor:self.preferences.backgroundColor];
-    //self.navigationController.navigationBar.tintColor = self.preferences.backgroundColor;
+    
     [self.preferences setNavigationColors:self];
 
 }
