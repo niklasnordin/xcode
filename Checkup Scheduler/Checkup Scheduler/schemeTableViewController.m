@@ -46,6 +46,8 @@
 
     //[self.view setBackgroundColor:[UIColor greenColor]];
     [self.preferences setNavigationColors:self];
+    self.myTable.backgroundView = nil;
+    [self.myTable setBackgroundColor:self.preferences.darkerBackgroundColor];
 
 }
 

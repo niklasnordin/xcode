@@ -24,5 +24,6 @@
 - (void)addSchemeDictionaryWithName:(NSString *)name;
 - (void)deleteSchemeDictionaryWithName:(NSString *)name;
 - (NSMutableDictionary *)defaultEventDictionary;
+@property (strong, nonatomic) IBOutlet UITableView *myTable;
 
 @end

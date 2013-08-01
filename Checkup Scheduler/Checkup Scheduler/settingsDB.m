@@ -110,7 +110,7 @@
 {
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:self.textColor, UITextAttributeTextColor,
                           [UIColor clearColor], UITextAttributeTextShadowColor, nil];
-        
+        /*
     NSArray *leftItems = view.navigationItem.leftBarButtonItems;
     NSArray *rightItems = view.navigationItem.rightBarButtonItems;
     
@@ -135,16 +135,7 @@
         [item setTitleTextAttributes:dict forState:UIControlStateNormal];
     }
 
-    //[view.navigationController.navigationBar setTitleTextAttributes:dict];
-    
-    //[view.navigationController.navigationBar.topItem.backBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
-
-    //[view.navigationController.navigationBar.backItem.backBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
-    //[view.navigationController.navigationItem.backBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
-    //[view.navigationItem.backBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
-    
-    //[view.navigationItem.leftBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
-    //[view.navigationItem.rightBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
+*/
     [[UIBarButtonItem appearance] setTitleTextAttributes:dict forState:UIControlStateNormal];
     [[UINavigationBar appearance] setTitleTextAttributes:dict];
 }
