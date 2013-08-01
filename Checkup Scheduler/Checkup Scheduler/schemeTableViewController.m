@@ -38,9 +38,14 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                target:self
                                                                                action:@selector(addSchemeButton:)];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:self.preferences.textColor, UITextAttributeTextColor,
+                          [UIColor clearColor], UITextAttributeTextShadowColor, nil];
+    [addButton setTitleTextAttributes:dict forState:UIControlStateNormal];
+    
     self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:self.editButtonItem, addButton, nil ];
 
     [self.view setBackgroundColor:[UIColor greenColor]];
+    [self.preferences setNavigationColors:self];
 
 }
 

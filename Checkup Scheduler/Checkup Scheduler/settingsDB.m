@@ -111,7 +111,7 @@
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:self.textColor, UITextAttributeTextColor,
                           [UIColor clearColor], UITextAttributeTextShadowColor, nil];
     
-    [view.navigationController.navigationBar setTitleTextAttributes:dict];
+    //[view.navigationController.navigationBar setTitleTextAttributes:dict];
     
     NSArray *leftItems = view.navigationItem.leftBarButtonItems;
     NSArray *rightItems = view.navigationItem.rightBarButtonItems;
@@ -125,7 +125,25 @@
         [item setTitleTextAttributes:dict forState:UIControlStateNormal];
     }
 
-    //[view.navigationController.navigationBar.backItem setTi]
+    NSArray *l1 = view.navigationController.navigationItem.leftBarButtonItems;
+    for (UIBarButtonItem *item in l1)
+    {
+        [item setTitleTextAttributes:dict forState:UIControlStateNormal];
+    }
+    
+    NSArray *r1 = view.navigationController.navigationItem.rightBarButtonItems;
+    for (UIBarButtonItem *item in r1)
+    {
+        [item setTitleTextAttributes:dict forState:UIControlStateNormal];
+    }
+
+    [view.navigationController.navigationBar.backItem.backBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
+    [view.navigationController.navigationItem.backBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
+    [view.navigationItem.backBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
+    [view.navigationItem.leftBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
+    [view.navigationItem.rightBarButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
+    
+
 }
 
 - (void)setupButton:(UIButton *)button withColor:(UIColor *)color
