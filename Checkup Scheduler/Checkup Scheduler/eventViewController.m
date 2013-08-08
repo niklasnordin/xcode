@@ -76,6 +76,17 @@
     
     _allDayEventSwitch.on = [[_eventDict objectForKey:@"allDayEvent"] boolValue];
     _busySwitch.on = [[_eventDict objectForKey:@"busy"] boolValue];
+    
+    //[_busySwitch setOnImage:<#(UIImage *)#>
+    [_busySwitch setOffImage:[UIImage imageNamed:@"UISwitch-No"]];
+    
+    /*
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"6.0"))
+    {
+        [mySwitch setOnImage: [UIImage imageNamed:@"UISwitch-Yes"]];
+        [mySwitch setOffImage:[UIImage imageNamed:@"UISwitch-No"]];
+    }
+     */
 }
 
 -(void)viewWillAppear:(BOOL)animated

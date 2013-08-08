@@ -193,15 +193,14 @@
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:self.preferences.textColor, UITextAttributeTextColor,
                           [UIColor clearColor], UITextAttributeTextShadowColor, nil];
 
-    [[UINavigationBar appearance] setTitleTextAttributes:dict];
-    [[UINavigationBar appearance] setBackgroundColor:self.preferences.backgroundColor];
-    [[UINavigationBar appearance] setTintColor:self.preferences.backgroundColor];
-
-     //[self.navigationController.navigationBar setBackgroundColor:self.preferences.backgroundColor];
-    //[self.navigationController.navigationBar setBackgroundColor:self.preferences.backgroundColor];
+    //[[UINavigationBar appearance] setTitleTextAttributes:dict];
+    //[[UINavigationBar appearance] setBackgroundColor:self.preferences.backgroundColor];
+    //[[UINavigationBar appearance] setTintColor:self.preferences.backgroundColor];
     
     [self.navigationController.navigationBar setTintColor:self.preferences.backgroundColor];
     [self.navigationController.navigationBar setTitleTextAttributes:dict];
+    //[self.navigationController.navigationBar setNeedsDisplay];
+
     [self.preferences setNavigationColors:self];
 }
 
@@ -427,8 +426,8 @@
     //CGFloat width = self.view.bounds.size.width;
     //CGFloat height = self.view.bounds.size.height;
     //self.popOver = [[UIPopoverController alloc] init];
-    /*
-    NSLog(@"view rect = w = %f, h = %f",self.view.bounds.size.width,self.view.bounds.size.height);
+    
+    //NSLog(@"view rect = w = %f, h = %f",self.view.bounds.size.width,self.view.bounds.size.height);
 
     // remember the selected name, in case the selection is cancelled
     self.selectedNameIndex = [self.schemePicker selectedRowInComponent:0];
@@ -474,9 +473,9 @@
     //[self.actionSheet setFrame:CGRectMake(0, 0, 400, 500)];
     //[self.actionSheet setBounds:CGRectMake(0, 0, width, height+60)];
     //[self.actionSheet setBounds:self.schemePicker.bounds];
-    CGRect af = self.actionSheet.frame;
-    NSLog(@"x=%f, y=%f, wid=%f, height=%f",af.origin.x, af.origin.y, af.size.width, af.size.height);
-     */
+    //CGRect af = self.actionSheet.frame;
+    //NSLog(@"x=%f, y=%f, wid=%f, height=%f",af.origin.x, af.origin.y, af.size.width, af.size.height);
+    
 }
 
 - (void)dismissActionSheet:(id)sender

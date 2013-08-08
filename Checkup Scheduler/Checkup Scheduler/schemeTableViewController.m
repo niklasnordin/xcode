@@ -241,7 +241,7 @@
 - (NSMutableDictionary *)defaultEventDictionary
 {
     NSMutableDictionary *tasDict = [[NSMutableDictionary alloc] init];
-    [tasDict setObject:@"reminder" forKey:@"title"];
+    [tasDict setObject:@"" forKey:@"title"];
     [tasDict setObject:[NSNumber numberWithInt:0] forKey: @"days"];
     [tasDict setObject:[NSNumber numberWithInt:0] forKey: @"hours"];
     [tasDict setObject:[NSNumber numberWithInt:0] forKey: @"minutes"];
