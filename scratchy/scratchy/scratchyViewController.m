@@ -18,6 +18,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSLog(@"initial view controller, viewDidLoad");
+    
+    [_picture setImage:[UIImage imageNamed:@"seven.png"]];
+    [_blocking setImage:[UIImage imageNamed:@"recycle.jpg"]];
+    [_blocking setOpaque:YES];
+    [_blocking setAlpha:0.5];
 }
 
 - (void)didReceiveMemoryWarning
