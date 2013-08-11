@@ -19,6 +19,7 @@
 		61B73F1E17B7CEC200857459 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61B73F1C17B7CEC200857459 /* MainStoryboard.storyboard */; };
 		61B73F2117B7CEC200857459 /* scratchyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B73F2017B7CEC200857459 /* scratchyViewController.m */; };
 		61B73F2917B7CFE600857459 /* pictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B73F2817B7CFE600857459 /* pictureView.m */; };
+		61B73F2C17B7D28300857459 /* blockingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B73F2B17B7D28300857459 /* blockingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		61B73F2017B7CEC200857459 /* scratchyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = scratchyViewController.m; sourceTree = "<group>"; };
 		61B73F2717B7CFE600857459 /* pictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pictureView.h; sourceTree = "<group>"; };
 		61B73F2817B7CFE600857459 /* pictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pictureView.m; sourceTree = "<group>"; };
+		61B73F2A17B7D28300857459 /* blockingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blockingView.h; sourceTree = "<group>"; };
+		61B73F2B17B7D28300857459 /* blockingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = blockingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,8 @@
 				61B73F2017B7CEC200857459 /* scratchyViewController.m */,
 				61B73F2717B7CFE600857459 /* pictureView.h */,
 				61B73F2817B7CFE600857459 /* pictureView.m */,
+				61B73F2A17B7D28300857459 /* blockingView.h */,
+				61B73F2B17B7D28300857459 /* blockingView.m */,
 				61B73F0B17B7CEC200857459 /* Supporting Files */,
 			);
 			path = scratchy;
@@ -183,6 +188,7 @@
 				61B73F1517B7CEC200857459 /* scratchyAppDelegate.m in Sources */,
 				61B73F2117B7CEC200857459 /* scratchyViewController.m in Sources */,
 				61B73F2917B7CFE600857459 /* pictureView.m in Sources */,
+				61B73F2C17B7D28300857459 /* blockingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

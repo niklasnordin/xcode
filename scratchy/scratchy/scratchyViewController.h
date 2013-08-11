@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "pictureView.h"
+#import "blockingView.h"
 
 @interface scratchyViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet pictureView *picture;
+@property (weak, nonatomic) IBOutlet blockingView *blocking;
 
 @end
