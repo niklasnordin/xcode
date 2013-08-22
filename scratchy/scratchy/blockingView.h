@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface blockingView : UIImageView
+@interface blockingView : UIView
+
+@property (nonatomic) bool *visible;
 
 @end

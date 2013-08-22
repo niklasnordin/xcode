@@ -12,27 +12,29 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ASs-LO-ZdI" customClass="pictureView"/>
-                            <imageView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U1Q-1y-LBM" customClass="blockingView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ASs-LO-ZdI" customClass="pictureView">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="L88-Vr-WXe"/>
-                                    <constraint firstAttribute="width" constant="250" id="nKc-Bs-Hl7"/>
+                                    <constraint firstAttribute="height" constant="250" id="51J-AX-l5p"/>
+                                    <constraint firstAttribute="width" constant="250" id="A1W-6A-Flr"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K7q-7a-kZM" customClass="blockingView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="U1Q-1y-LBM" firstAttribute="trailing" secondItem="ASs-LO-ZdI" secondAttribute="trailing" type="default" id="ST3-cl-XKJ"/>
-                            <constraint firstItem="U1Q-1y-LBM" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="fxt-Yw-MMD"/>
-                            <constraint firstItem="U1Q-1y-LBM" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="j0l-xa-ftq"/>
-                            <constraint firstItem="ASs-LO-ZdI" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="jAM-YW-JAX"/>
-                            <constraint firstItem="U1Q-1y-LBM" firstAttribute="leading" secondItem="ASs-LO-ZdI" secondAttribute="leading" type="default" id="s9q-7h-QLf"/>
-                            <constraint firstItem="U1Q-1y-LBM" firstAttribute="bottom" secondItem="ASs-LO-ZdI" secondAttribute="bottom" type="default" id="xem-CI-U1e"/>
+                            <constraint firstItem="K7q-7a-kZM" firstAttribute="leading" secondItem="ASs-LO-ZdI" secondAttribute="leading" type="default" id="7bp-Cv-nTq"/>
+                            <constraint firstItem="K7q-7a-kZM" firstAttribute="trailing" secondItem="ASs-LO-ZdI" secondAttribute="trailing" type="default" id="dv6-8B-5Pp"/>
+                            <constraint firstItem="ASs-LO-ZdI" firstAttribute="top" secondItem="3" secondAttribute="top" constant="58" id="ehs-KL-g76"/>
+                            <constraint firstAttribute="bottom" secondItem="K7q-7a-kZM" secondAttribute="bottom" constant="146" id="hPB-XZ-cU2"/>
+                            <constraint firstItem="ASs-LO-ZdI" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="mTg-CB-hZC"/>
+                            <constraint firstItem="K7q-7a-kZM" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="zdK-Ys-GpL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="INN-nh-JH0"/>
                     <connections>
-                        <outlet property="blocking" destination="U1Q-1y-LBM" id="MZK-XP-WZx"/>
+                        <outlet property="blocking" destination="K7q-7a-kZM" id="GGe-f8-WPg"/>
                         <outlet property="picture" destination="ASs-LO-ZdI" id="jAm-8z-2By"/>
                     </connections>
                 </viewController>
@@ -63,7 +65,7 @@
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
-        <class className="blockingView" superclassName="UIImageView">
+        <class className="blockingView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/blockingView.h"/>
         </class>
         <class className="pictureView" superclassName="UIImageView">

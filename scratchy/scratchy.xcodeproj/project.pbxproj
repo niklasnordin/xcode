@@ -327,6 +327,7 @@
 				61B73F2617B7CEC200857459 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

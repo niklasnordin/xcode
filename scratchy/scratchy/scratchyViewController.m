@@ -23,7 +23,7 @@
     [_picture setImage:[UIImage imageNamed:@"seven.png"]];
     [_blocking setBackgroundColor:[UIColor blackColor]];
     [_blocking setOpaque:YES];
-    [_blocking setAlpha:0.9];
+    [_blocking setAlpha:0.5];
 }
 
 - (void)didReceiveMemoryWarning
