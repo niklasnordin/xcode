@@ -20,14 +20,17 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K7q-7a-kZM" customClass="blockingView">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" updatesFrequently="YES"/>
+                                </accessibility>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="K7q-7a-kZM" firstAttribute="leading" secondItem="ASs-LO-ZdI" secondAttribute="leading" type="default" id="7bp-Cv-nTq"/>
+                            <constraint firstItem="ASs-LO-ZdI" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="8aQ-g2-xkg"/>
+                            <constraint firstItem="ASs-LO-ZdI" firstAttribute="bottom" secondItem="K7q-7a-kZM" secondAttribute="bottom" type="default" id="VKr-OH-srW"/>
                             <constraint firstItem="K7q-7a-kZM" firstAttribute="trailing" secondItem="ASs-LO-ZdI" secondAttribute="trailing" type="default" id="dv6-8B-5Pp"/>
-                            <constraint firstItem="ASs-LO-ZdI" firstAttribute="top" secondItem="3" secondAttribute="top" constant="58" id="ehs-KL-g76"/>
-                            <constraint firstAttribute="bottom" secondItem="K7q-7a-kZM" secondAttribute="bottom" constant="146" id="hPB-XZ-cU2"/>
                             <constraint firstItem="ASs-LO-ZdI" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="mTg-CB-hZC"/>
                             <constraint firstItem="K7q-7a-kZM" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="zdK-Ys-GpL"/>
                         </constraints>

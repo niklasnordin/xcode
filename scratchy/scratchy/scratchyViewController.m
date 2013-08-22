@@ -21,9 +21,9 @@
     NSLog(@"initial view controller, viewDidLoad");
     
     [_picture setImage:[UIImage imageNamed:@"seven.png"]];
-    [_blocking setBackgroundColor:[UIColor blackColor]];
+    [_blocking setBackgroundColor:[UIColor clearColor]];
     [_blocking setOpaque:YES];
-    [_blocking setAlpha:0.5];
+    //[_blocking setAlpha:0.5];
 }
 
 - (void)didReceiveMemoryWarning

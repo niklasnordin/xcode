@@ -8,15 +8,21 @@
 
 #import "blockingView.h"
 
-static int widthDivisions = 20;
-static int heightDivisions = 20;
+static int widthDivisions = 100;
+static int heightDivisions = 100;
+
+
+@interface blockingView ()
+@property (nonatomic) BOOL firstDraw;
+@end
 
 @implementation blockingView
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {
+    if (self)
+    {
         // Initialization code
         NSLog(@"blockingView::initWithFrame");
     }
@@ -48,6 +54,7 @@ static int heightDivisions = 20;
         NSLog(@"init with coder");
         _visible = malloc(widthDivisions*heightDivisions*sizeof(bool));
         [self resetVisibleMatrix];
+        _firstDraw = YES;
     }
     
     return self;
@@ -90,15 +97,16 @@ static int heightDivisions = 20;
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"blockingView::touchesBegan");
+    //NSLog(@"blockingView::touchesBegan");
     UITouch *touch = [[event allTouches] anyObject];
     CGPoint tapPoint = [touch locationInView:self];
     int nx = [self Nx:tapPoint];
     int ny = [self Ny:tapPoint];
-    self.visible[[self matrixIndexfromI:nx andJ:ny]] = NO;
-    //NSLog(@"nx=%d, ny=%d", nx, ny);
-    [self setNeedsDisplay];
-
+    if (self.visible[[self matrixIndexfromI:nx andJ:ny]])
+    {
+        self.visible[[self matrixIndexfromI:nx andJ:ny]] = NO;
+        [self setNeedsDisplay];
+    }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -110,10 +118,11 @@ static int heightDivisions = 20;
     //NSLog(@"%@",text);
     int nx = [self Nx:tapPoint];
     int ny = [self Ny:tapPoint];
-    self.visible[[self matrixIndexfromI:nx andJ:ny]] = NO;
-    //NSLog(@"nx=%d, ny=%d", nx, ny);
-    [self setNeedsDisplay];
-
+    if (self.visible[[self matrixIndexfromI:nx andJ:ny]])
+    {
+        self.visible[[self matrixIndexfromI:nx andJ:ny]] = NO;
+        [self setNeedsDisplay];
+    }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -127,28 +136,36 @@ static int heightDivisions = 20;
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextBeginPath(context);
-    CGContextSetRGBFillColor(context, 0.0, 1.0, 0.0, 0.8);
-    CGContextSetRGBStrokeColor(context, 0.0, 1.0, 0.0, 0.8);
-    // Drawing code
-    //NSLog(@"drawRect for blockingView");
-    CGFloat dx = self.bounds.size.width/widthDivisions;
-    CGFloat dy = self.bounds.size.height/heightDivisions;
-    
-    for (int i=0; i<widthDivisions; i++)
+    if (self.firstDraw)
     {
-        for (int j=0; j<heightDivisions; j++)
+        self.firstDraw = NO;
+        //CGContextBeginPath(context);
+        CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0);
+        CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, 1.0);
+        CGContextFillRect(context, self.bounds);
+    }
+    else
+    {
+        //CGContextBeginPath(context);
+
+        CGFloat dx = (self.bounds.size.width)/widthDivisions + 0.6;
+        CGFloat dy = (self.bounds.size.height)/heightDivisions + 0.6;
+    
+        for (int i=0; i<widthDivisions; i++)
         {
-            if (!self.visible[[self matrixIndexfromI:i andJ:j]])
+            for (int j=0; j<heightDivisions; j++)
             {
-                //NSLog(@"drawRect i=%d, j=%d",i,j);
                 CGFloat x0 = (i*self.bounds.size.width)/widthDivisions;
                 CGFloat y0 = (j*self.bounds.size.height)/heightDivisions;
                 CGRect myrect = CGRectMake(x0, y0, dx, dy);
+                CGFloat alpha = 1.0;
+                if (!self.visible[[self matrixIndexfromI:i andJ:j]])
+                {
+                    alpha = 0.0;
+                }
+                CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, alpha);
+                CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, alpha);
                 CGContextFillRect(context, myrect);
-                //CGContextMoveToPoint(context, x0, x0);
-                //CGContextAddLineToPoint(context, x0+dx, y0+dy);
-                //NSLog(@"x0=%f, y0=%f",x0,y0);
             }
         }
     }
