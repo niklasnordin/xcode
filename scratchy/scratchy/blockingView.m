@@ -14,6 +14,8 @@ static int heightDivisions = 100;
 
 @interface blockingView ()
 @property (nonatomic) BOOL firstDraw;
+@property (nonatomic) CGFloat dx, dy;
+
 @end
 
 @implementation blockingView
@@ -55,9 +57,17 @@ static int heightDivisions = 100;
         _visible = malloc(widthDivisions*heightDivisions*sizeof(bool));
         [self resetVisibleMatrix];
         _firstDraw = YES;
+
     }
     
     return self;
+}
+
+// must be called from superview when view has appeared
+- (void)setup
+{
+    self.dx = (self.bounds.size.width)/widthDivisions + 0.6;
+    self.dy = (self.bounds.size.height)/heightDivisions + 0.6;
 }
 
 - (void)dealloc
@@ -95,6 +105,15 @@ static int heightDivisions = 100;
     return ny;
 }
 
+- (CGRect)getRectFromI:(int)i andJ:(int)j
+{
+    CGFloat x0 = (i*self.bounds.size.width)/widthDivisions;
+    CGFloat y0 = (j*self.bounds.size.height)/heightDivisions;
+    CGRect myrect = CGRectMake(x0, y0, self.dx, self.dy);
+    
+    return myrect;
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     //NSLog(@"blockingView::touchesBegan");
@@ -105,7 +124,8 @@ static int heightDivisions = 100;
     if (self.visible[[self matrixIndexfromI:nx andJ:ny]])
     {
         self.visible[[self matrixIndexfromI:nx andJ:ny]] = NO;
-        [self setNeedsDisplay];
+
+        [self setNeedsDisplayInRect:[self getRectFromI:nx andJ:ny]];
     }
 }
 
@@ -121,13 +141,14 @@ static int heightDivisions = 100;
     if (self.visible[[self matrixIndexfromI:nx andJ:ny]])
     {
         self.visible[[self matrixIndexfromI:nx andJ:ny]] = NO;
-        [self setNeedsDisplay];
+        //[self setNeedsDisplay];
+        [self setNeedsDisplayInRect:[self getRectFromI:nx andJ:ny]];
+
     }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    //NSLog(@"blockingView::touchesEnded");
 }
 
 
@@ -135,19 +156,21 @@ static int heightDivisions = 100;
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
+    //NSLog(@"%w=%f, h=%f",rect.size.width,rect.size.height);
     CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextBeginPath(context);
+
     if (self.firstDraw)
     {
         self.firstDraw = NO;
         //CGContextBeginPath(context);
         CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0);
         CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, 1.0);
-        CGContextFillRect(context, self.bounds);
+        CGContextFillRect(context, rect);
     }
     else
     {
-        //CGContextBeginPath(context);
-
+/*
         CGFloat dx = (self.bounds.size.width)/widthDivisions + 0.6;
         CGFloat dy = (self.bounds.size.height)/heightDivisions + 0.6;
     
@@ -168,6 +191,12 @@ static int heightDivisions = 100;
                 CGContextFillRect(context, myrect);
             }
         }
+ */
+        CGFloat alpha = 0.0;
+
+        CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, alpha);
+        CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, alpha);
+        CGContextFillRect(context, rect);
     }
     CGContextStrokePath(context);
 

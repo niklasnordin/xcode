@@ -12,4 +12,6 @@
 
 @property (nonatomic) bool *visible;
 
+- (void)setup;
+
 @end

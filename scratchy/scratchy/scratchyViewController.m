@@ -26,6 +26,10 @@
     //[_blocking setAlpha:0.5];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.blocking setup];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
