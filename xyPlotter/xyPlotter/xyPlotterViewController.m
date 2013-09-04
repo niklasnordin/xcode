@@ -24,6 +24,7 @@
     _plotView.xMax = _function.xMax;
     _plotView.yMin = _function.yMin;
     _plotView.yMax = _function.yMax;
+    [_plotView setup];
 }
 
 - (void)viewDidLoad

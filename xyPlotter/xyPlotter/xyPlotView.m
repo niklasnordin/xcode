@@ -8,7 +8,7 @@
 
 #import "xyPlotView.h"
 
-//#define NX 320 // 640
+#define NX 320 // 640
 #define TICKWIDTH 5.0
 #define MOVEXLABELS 10.0
 #define LABELCOLOR [UIColor whiteColor]
@@ -16,8 +16,9 @@
 @interface xyPlotView ()
 
 @property (nonatomic) int nPlottedValues;
+@property (strong,nonatomic) NSMutableArray *xArray;
 @property (strong,nonatomic) NSMutableArray *yArray;
-@property (strong,nonatomic) NSMutableArray *valueNeedsUpdate;
+//@property (strong,nonatomic) NSMutableArray *valueNeedsUpdate;
 
 -(void)calculateValues;
 -(void)drawCoordinateSystem:(CGContextRef)context;
@@ -29,7 +30,6 @@
 -(CGFloat) mapYToView:(CGFloat)y;
 
 -(CGPoint) mapPointToView:(CGPoint)point;
--(CGPoint) mapViewToPoint:(CGPoint)point;
 
 -(void)draw;
 
@@ -52,11 +52,13 @@
     self.nPlottedValues = 0;
     _xArray = [[NSMutableArray alloc] init];
     _yArray = [[NSMutableArray alloc] init];
-    _valueNeedsUpdate = [[NSMutableArray alloc] init];
+
+    /*
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didRotate:)
                                                  name:UIDeviceOrientationDidChangeNotification
                                                object:nil];
+     */
     [self draw];
 }
 
@@ -109,9 +111,13 @@
     
 }
 
+
+// setup must be performed from the controller view after the function delegate
+// have been added
+
 -(void)awakeFromNib
 {
-    [self setup];
+    //[self setup];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -119,14 +125,15 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        [self setup];
+        //[self setup];
     }
     return self;
 }
 
 -(int)Nx
 {
-    return self.bounds.size.width;
+    //return self.bounds.size.width;
+    return NX;
 }
 
 -(void)setNPlottedValues:(int)nPlottedValues
@@ -138,12 +145,9 @@
 
 -(void)draw
 {
-    if ([self.xArray count] < [self Nx])
-    {
-        [self calculateValues];
-        //NSLog(@"draw:: xArray count = %d",[self.xArray count]);
-        [self draw];
-    }
+    [self clearArrays];
+    [self calculateValues];
+    [self setNeedsDisplay];
 }
 
 -(void)checkRange
@@ -176,11 +180,10 @@
 }
 -(void)clearArrays
 {
-    NSLog(@"clearArrays");
+    //NSLog(@"clearArrays");
     self.nPlottedValues = 0;
     [self.xArray removeAllObjects];
     [self.yArray removeAllObjects];
-    [self.valueNeedsUpdate removeAllObjects];
 }
 
 -(void)pan:(UIPanGestureRecognizer *)gesture;
@@ -213,9 +216,10 @@
     }
     if (gesture.state == UIGestureRecognizerStateChanged)
     {
-        NSLog(@"panGesture changed");
-        [self clearArrays];
+        //NSLog(@"panGesture changed");
     }
+    [self draw];
+
 }
 
 -(void)pinch:(UIPinchGestureRecognizer *)gesture
@@ -249,10 +253,10 @@
     }
     if (gesture.state == UIGestureRecognizerStateChanged)
     {
-        NSLog(@"pinch gesture changed");
-        [self clearArrays];
+        //NSLog(@"pinch gesture changed");
     }
-    
+    [self draw];
+
 }
 
 -(void)tap:(UITapGestureRecognizer *)gesture
@@ -268,46 +272,23 @@
 
 -(void)calculateValues
 {
+    NSLog(@"calculate values:: bounds.width=%f",self.bounds.size.width);
+    NSLog(@"xMin=%f, xMax=%f",self.xMin,self.xMax);
     
     int nx = [self Nx];
-    int np = self.nPlottedValues;
- 
-    if (np < nx)
-    {
 
-        CGFloat dx = self.xMax - self.xMin;
-        CGFloat xv = self.xMin + np*dx/(nx-1);
+    CGFloat dx = self.xMax - self.xMin;
+
+    for (int i=0; i<nx; i++)
+    {
+        CGFloat xv = self.xMin + i*dx/(nx-1);
         CGFloat yFloat = [self.dataSource yForX:xv];
         
         NSNumber *x = [[NSNumber alloc] initWithFloat:xv];
         NSNumber *y = [[NSNumber alloc] initWithFloat:yFloat];
-        NSNumber *c = [[NSNumber alloc] initWithBool:NO];
 
-        if ([self.xArray count] > np)
-        {
-            [self.xArray replaceObjectAtIndex:np withObject:x];
-            [self.yArray replaceObjectAtIndex:np withObject:y];
-            [self.valueNeedsUpdate replaceObjectAtIndex:np withObject:c];
-        }
-        else
-        {
-            [self.xArray addObject:x];
-            [self.yArray addObject:y];
-            [self.valueNeedsUpdate addObject:c];
-        }
-        np++;
-        self.nPlottedValues = np;
-        /*
-        CGFloat xm = [self mapXToView:xv];
-        CGFloat ym = [self mapYToView:yFloat];
-        CGFloat xpv = [[self.xArray objectAtIndex:np-1] floatValue];
-        CGFloat ypv = [[self.yArray objectAtIndex:np-1] floatValue];
-        CGFloat xp = [self mapXToView:xpv];
-        CGFloat yp = [self mapYToView:ypv];
-        */
-        //CGRect rect = CGRectMake(xm, ym, xp-xm, yp-ym );
-        //[self setNeedsDisplayInRect:rect];
-        [self setNeedsDisplay];
+        [self.xArray addObject:x];
+        [self.yArray addObject:y];
     }
 }
 
@@ -485,38 +466,32 @@
     return p;
 }
 
--(CGPoint)mapViewToPoint:(CGPoint)point
-{
-    CGPoint p;
-    
-    return p;
-}
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
     NSLog(@"drawRect: xArray count = %d",[self.xArray count]);
+    NSLog(@"drawRect: yArray count = %d",[self.yArray count]);
+    NSLog(@"drawRect::width=%f", rect.size.width);
     
     // Drawing code
     CGContextRef context = UIGraphicsGetCurrentContext();
     [self drawCoordinateSystem:context];
     
-    int nSize = [self.xArray count];
-    
-    for (int i=1; i<nSize; i++)
+    for (int i=1; i<[self.xArray count]; i++)
     {
-
         CGFloat x0 = [self mapXToView:[[self.xArray objectAtIndex:i-1] floatValue]];
         CGFloat x1 = [self mapXToView:[[self.xArray objectAtIndex:i] floatValue]];
         CGFloat y0 = [self mapYToView:[[self.yArray objectAtIndex:i-1] floatValue]];
         CGFloat y1 = [self mapYToView:[[self.yArray objectAtIndex:i] floatValue]];
+        //NSLog(@"i=%d, x=%f, y=%f", i, x1, y1);
         CGContextMoveToPoint(context, x0, y0);
         CGContextAddLineToPoint(context, x1, y1);
     }
     
     CGContextStrokePath(context);
-    [self draw];
+
 }
 
 
@@ -532,7 +507,7 @@
         NSLog(@"Landscape Left!");
     }*/
     NSLog(@"didRotate notification");
-    [self clearArrays];
+    //[self clearArrays];
 
 }
 

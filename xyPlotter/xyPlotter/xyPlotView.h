@@ -26,7 +26,6 @@
 @property id <xyPlotDelegate> delegate;
 
 -(int)Nx;
-@property (strong,nonatomic) NSMutableArray *xArray;
 
 -(void)setup;
 -(void)pan:(UIPanGestureRecognizer *)gesture;
