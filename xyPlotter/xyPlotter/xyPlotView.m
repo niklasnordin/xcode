@@ -15,10 +15,9 @@
 
 @interface xyPlotView ()
 
-@property (nonatomic) int nPlottedValues;
 @property (nonatomic) float *xArray;
 @property (nonatomic) float *yArray;
-//@property (strong,nonatomic) NSMutableArray *valueNeedsUpdate;
+@property (nonatomic) int backgroundCalculation;
 
 -(void)calculateValues;
 -(void)drawCoordinateSystem:(CGContextRef)context;
@@ -48,7 +47,6 @@
     tapRecognizer.numberOfTapsRequired = 2;
     [self addGestureRecognizer:tapRecognizer];
 
-    self.nPlottedValues = 0;
     _xArray = malloc(NX*sizeof(float));
     _yArray = malloc(NX*sizeof(float));
 
@@ -77,7 +75,8 @@
             self.yMax = y;
         }
     }
-
+    _backgroundCalculation = 0;
+    
     //NSLog(@"setup::yMin=%f, yMax=%f",self.yMin, self.yMax);
 }
 
@@ -155,13 +154,6 @@
     return NX;
 }
 
--(void)setNPlottedValues:(int)nPlottedValues
-{
-    //NSLog(@"setNeedsDisplay");
-    _nPlottedValues = nPlottedValues;
-    [self setNeedsDisplay];
-}
-
 -(void)draw
 {
     [NSThread detachNewThreadSelector:@selector(calculateValues) toTarget:self withObject:nil];
@@ -230,8 +222,10 @@
     if (gesture.state == UIGestureRecognizerStateChanged)
     {
         //NSLog(@"panGesture changed");
+        [self draw];
+
     }
-    [self draw];
+    //[self draw];
 
 }
 
@@ -267,8 +261,9 @@
     if (gesture.state == UIGestureRecognizerStateChanged)
     {
         //NSLog(@"pinch gesture changed");
+        [self draw];
     }
-    [self draw];
+    //[self draw];
 
 }
 
@@ -288,16 +283,25 @@
     //NSLog(@"xMin=%f, xMax=%f",self.xMin,self.xMax);
     //NSLog(@"yMin=%f, yMax=%f",self.yMin,self.yMax);
 
+    int nCalc = self.backgroundCalculation+1;
+    self.backgroundCalculation = nCalc;
+    
     CGFloat dx = self.xMax - self.xMin;
 
     for (int i=0; i<NX; i++)
     {
+        if (self.backgroundCalculation != nCalc)
+        {
+            //NSLog(@"break");
+            break;
+        }
         CGFloat xv = self.xMin + i*dx/(NX-1);
         CGFloat yFloat = [self.dataSource yForX:xv];
         
         self.xArray[i] = xv;
         self.yArray[i] = yFloat;
     }
+
     [self setNeedsDisplay];
 }
 
