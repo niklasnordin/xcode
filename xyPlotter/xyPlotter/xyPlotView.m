@@ -16,14 +16,13 @@
 @interface xyPlotView ()
 
 @property (nonatomic) int nPlottedValues;
-@property (strong,nonatomic) NSMutableArray *xArray;
-@property (strong,nonatomic) NSMutableArray *yArray;
+@property (nonatomic) float *xArray;
+@property (nonatomic) float *yArray;
 //@property (strong,nonatomic) NSMutableArray *valueNeedsUpdate;
 
 -(void)calculateValues;
 -(void)drawCoordinateSystem:(CGContextRef)context;
 -(void)checkRange;
--(void)clearArrays;
 -(void)fitToView;
 
 -(CGFloat) mapXToView:(CGFloat)x;
@@ -50,8 +49,8 @@
     [self addGestureRecognizer:tapRecognizer];
 
     self.nPlottedValues = 0;
-    _xArray = [[NSMutableArray alloc] init];
-    _yArray = [[NSMutableArray alloc] init];
+    _xArray = malloc(NX*sizeof(float));
+    _yArray = malloc(NX*sizeof(float));
 
     /*
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -59,7 +58,27 @@
                                                  name:UIDeviceOrientationDidChangeNotification
                                                object:nil];
      */
-    [self draw];
+
+    //[NSThread detachNewThreadSelector:@selector(calculateValues) toTarget:self withObject:nil];
+    [self calculateValues];
+    
+    _yMin = _yArray[0];
+    _yMax = _yArray[0];
+    
+    for (int i=1; i<NX; i++)
+    {
+        float y = _yArray[i];
+        if (y < [self yMin])
+        {
+            self.yMin = y;
+        }
+        if (y > [self yMax])
+        {
+            self.yMax = y;
+        }
+    }
+
+    //NSLog(@"setup::yMin=%f, yMax=%f",self.yMin, self.yMax);
 }
 
 -(void)setXMin:(float)xMin
@@ -91,9 +110,9 @@
     float yMin = 1.0e+10;
     float yMax = -1.0e+10;
     
-    for (int i=0; i<[self.yArray count]; i++)
+    for (int i=0; i<NX; i++)
     {
-        float yi = [[self.yArray objectAtIndex:i] floatValue];
+        float yi = self.yArray[i];
         
         if (yi < yMin) yMin = yi;
         if (yi > yMax) yMax = yi;
@@ -145,9 +164,10 @@
 
 -(void)draw
 {
-    [self clearArrays];
-    [self calculateValues];
-    [self setNeedsDisplay];
+    [NSThread detachNewThreadSelector:@selector(calculateValues) toTarget:self withObject:nil];
+
+    //[self calculateValues];
+    //[self setNeedsDisplay];
 }
 
 -(void)checkRange
@@ -177,13 +197,6 @@
         self.xMax -= delta;
     }
 */
-}
--(void)clearArrays
-{
-    //NSLog(@"clearArrays");
-    self.nPlottedValues = 0;
-    [self.xArray removeAllObjects];
-    [self.yArray removeAllObjects];
 }
 
 -(void)pan:(UIPanGestureRecognizer *)gesture;
@@ -265,31 +278,27 @@
     if (gesture.state == UIGestureRecognizerStateEnded)
     {
         [self fitToView];
-
         [self setNeedsDisplay];
     }
 }
 
 -(void)calculateValues
 {
-    NSLog(@"calculate values:: bounds.width=%f",self.bounds.size.width);
-    NSLog(@"xMin=%f, xMax=%f",self.xMin,self.xMax);
-    
-    int nx = [self Nx];
+    //NSLog(@"calculate values:: bounds.width=%f",self.bounds.size.width);
+    //NSLog(@"xMin=%f, xMax=%f",self.xMin,self.xMax);
+    //NSLog(@"yMin=%f, yMax=%f",self.yMin,self.yMax);
 
     CGFloat dx = self.xMax - self.xMin;
 
-    for (int i=0; i<nx; i++)
+    for (int i=0; i<NX; i++)
     {
-        CGFloat xv = self.xMin + i*dx/(nx-1);
+        CGFloat xv = self.xMin + i*dx/(NX-1);
         CGFloat yFloat = [self.dataSource yForX:xv];
         
-        NSNumber *x = [[NSNumber alloc] initWithFloat:xv];
-        NSNumber *y = [[NSNumber alloc] initWithFloat:yFloat];
-
-        [self.xArray addObject:x];
-        [self.yArray addObject:y];
+        self.xArray[i] = xv;
+        self.yArray[i] = yFloat;
     }
+    [self setNeedsDisplay];
 }
 
 -(void)drawCoordinateSystem:(CGContextRef)context
@@ -471,20 +480,20 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    NSLog(@"drawRect: xArray count = %d",[self.xArray count]);
-    NSLog(@"drawRect: yArray count = %d",[self.yArray count]);
-    NSLog(@"drawRect::width=%f", rect.size.width);
+    //NSLog(@"drawRect: xArray count = %d",[self.xArray count]);
+    //NSLog(@"drawRect: yArray count = %d",[self.yArray count]);
+    //NSLog(@"drawRect::width=%f", rect.size.width);
     
     // Drawing code
     CGContextRef context = UIGraphicsGetCurrentContext();
     [self drawCoordinateSystem:context];
     
-    for (int i=1; i<[self.xArray count]; i++)
+    for (int i=1; i<NX; i++)
     {
-        CGFloat x0 = [self mapXToView:[[self.xArray objectAtIndex:i-1] floatValue]];
-        CGFloat x1 = [self mapXToView:[[self.xArray objectAtIndex:i] floatValue]];
-        CGFloat y0 = [self mapYToView:[[self.yArray objectAtIndex:i-1] floatValue]];
-        CGFloat y1 = [self mapYToView:[[self.yArray objectAtIndex:i] floatValue]];
+        CGFloat x0 = [self mapXToView:self.xArray[i-1]];
+        CGFloat x1 = [self mapXToView:self.xArray[i]];
+        CGFloat y0 = [self mapYToView:self.yArray[i-1]];
+        CGFloat y1 = [self mapYToView:self.yArray[i]];
         //NSLog(@"i=%d, x=%f, y=%f", i, x1, y1);
         CGContextMoveToPoint(context, x0, y0);
         CGContextAddLineToPoint(context, x1, y1);

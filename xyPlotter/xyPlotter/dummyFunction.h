@@ -10,6 +10,10 @@
 #import "xyPlotDataSource.h"
 #import "xyPlotDelegate.h"
 
-@interface dummyFunction : NSObject <xyPlotDelegate, xyPlotDataSource>
+@interface dummyFunction : NSObject
+<
+    xyPlotDelegate,
+    xyPlotDataSource
+>
 
 @end
