@@ -18,6 +18,7 @@
 @property (nonatomic) float *xArray;
 @property (nonatomic) float *yArray;
 @property (nonatomic) int backgroundCalculation;
+@property (nonatomic) int nCalculatedValues;
 
 -(void)calculateValues;
 -(void)drawCoordinateSystem:(CGContextRef)context;
@@ -58,6 +59,8 @@
      */
 
     //[NSThread detachNewThreadSelector:@selector(calculateValues) toTarget:self withObject:nil];
+    _nCalculatedValues = 0;
+
     [self calculateValues];
     
     _yMin = _yArray[0];
@@ -76,7 +79,6 @@
         }
     }
     _backgroundCalculation = 0;
-    
     //NSLog(@"setup::yMin=%f, yMax=%f",self.yMin, self.yMax);
 }
 
@@ -106,10 +108,10 @@
 
 -(void)fitToView
 {
-    float yMin = 1.0e+10;
-    float yMax = -1.0e+10;
+    float yMin = self.yArray[0];
+    float yMax = self.yArray[0];
     
-    for (int i=0; i<NX; i++)
+    for (int i=1; i<NX; i++)
     {
         float yi = self.yArray[i];
         
@@ -279,15 +281,13 @@
 
 -(void)calculateValues
 {
-    //NSLog(@"calculate values:: bounds.width=%f",self.bounds.size.width);
-    //NSLog(@"xMin=%f, xMax=%f",self.xMin,self.xMax);
-    //NSLog(@"yMin=%f, yMax=%f",self.yMin,self.yMax);
 
     int nCalc = self.backgroundCalculation+1;
     self.backgroundCalculation = nCalc;
     
     CGFloat dx = self.xMax - self.xMin;
 
+    self.nCalculatedValues = 0;
     for (int i=0; i<NX; i++)
     {
         if (self.backgroundCalculation != nCalc)
@@ -300,9 +300,15 @@
         
         self.xArray[i] = xv;
         self.yArray[i] = yFloat;
+        self.nCalculatedValues = i+1;
+        [self setNeedsDisplay];
     }
-
-    [self setNeedsDisplay];
+    
+    if (self.backgroundCalculation == nCalc)
+    {
+        //NSLog(@"break");
+        //[self setNeedsDisplay];
+    }
 }
 
 -(void)drawCoordinateSystem:(CGContextRef)context

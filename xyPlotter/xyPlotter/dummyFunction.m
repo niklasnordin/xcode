@@ -37,7 +37,7 @@
 -(double) yForX:(double)x
 {
     //NSLog(@"calling function");
-    usleep(5000);
+    usleep(500);
     return sin(x);
 }
 
