@@ -284,31 +284,38 @@
 
     int nCalc = self.backgroundCalculation+1;
     self.backgroundCalculation = nCalc;
-    
-    CGFloat dx = self.xMax - self.xMin;
 
-    self.nCalculatedValues = 0;
+    // get the values as local reference, as they may change during the loop
+    CGFloat xMin = self.xMin;
+    CGFloat xMax = self.xMax;
+    CGFloat dx = xMax - xMin;
+
+    //self.nCalculatedValues = 0;
     for (int i=0; i<NX; i++)
     {
+        /*
         if (self.backgroundCalculation != nCalc)
         {
             //NSLog(@"break");
-            break;
+            //break;
         }
-        CGFloat xv = self.xMin + i*dx/(NX-1);
+         */
+        
+        CGFloat xv = xMin + i*dx/(NX-1);
         CGFloat yFloat = [self.dataSource yForX:xv];
         
         self.xArray[i] = xv;
         self.yArray[i] = yFloat;
-        self.nCalculatedValues = i+1;
+        //self.nCalculatedValues = i+1;
         [self setNeedsDisplay];
     }
-    
+    /*
     if (self.backgroundCalculation == nCalc)
     {
         //NSLog(@"break");
         //[self setNeedsDisplay];
     }
+     */
 }
 
 -(void)drawCoordinateSystem:(CGContextRef)context
