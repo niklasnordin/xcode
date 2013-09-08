@@ -282,8 +282,8 @@
 -(void)calculateValues
 {
 
-    int nCalc = self.backgroundCalculation+1;
-    self.backgroundCalculation = nCalc;
+    //int nCalc = self.backgroundCalculation+1;
+    //self.backgroundCalculation = nCalc;
 
     // get the values as local reference, as they may change during the loop
     CGFloat xMin = self.xMin;
@@ -293,13 +293,13 @@
     //self.nCalculatedValues = 0;
     for (int i=0; i<NX; i++)
     {
-        /*
+    /*
         if (self.backgroundCalculation != nCalc)
         {
             //NSLog(@"break");
-            //break;
+            break;
         }
-         */
+        */
         
         CGFloat xv = xMin + i*dx/(NX-1);
         CGFloat yFloat = [self.dataSource yForX:xv];
