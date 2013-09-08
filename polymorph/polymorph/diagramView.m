@@ -9,62 +9,65 @@
 #import "diagramView.h"
 #import "functions.h"
 
-static NSUInteger nx = 320;//640;
+static NSUInteger nx = 640;//640;
+#define LABELCOLOR [UIColor whiteColor]
+#define WARNINGCOLOR [UIColor redColor]
 
 @interface diagramView ()
 @property (nonatomic) int nBackgroundCalculation;
+@property (nonatomic) BOOL initDraw;
 @end
 
 @implementation diagramView
 
--(void)setXMin:(double)xMin
+-(void)setXMin:(float)xMin
 {
     _xMin = xMin;
     if (_xMin > _xMax)
     {
-        double temp = _xMax;
+        float temp = _xMax;
         _xMax = _xMin;
         _xMin = temp;
     }
-    [self setNeedsDisplay];
+    //[self setNeedsDisplay];
 }
 
--(void)setXMax:(double)xMax
+-(void)setXMax:(float)xMax
 {
     _xMax = xMax;
     if (_xMin > _xMax)
     {
-        double temp = _xMax;
+        float temp = _xMax;
         _xMax = _xMin;
         _xMin = temp;
     }
-    [self setNeedsDisplay];
+    //[self setNeedsDisplay];
 }
 
 
--(void)setYMin:(double)y
+-(void)setYMin:(float)y
 {
     _yMin = y;
-    [self setNeedsDisplay];
+    //[self setNeedsDisplay];
 }
 
 
--(void)setYMax:(double)y
+-(void)setYMax:(float)y
 {
     _yMax = y;
-    [self setNeedsDisplay];
+    //[self setNeedsDisplay];
 }
 
--(void)setXMid:(double)x
+-(void)setXMid:(float)x
 {
     _xMid = x;
-    [self setNeedsDisplay];
+    //[self setNeedsDisplay];
 }
 
--(void)setYMid:(double)y
+-(void)setYMid:(float)y
 {
     _yMid = y;
-    [self setNeedsDisplay];
+    //[self setNeedsDisplay];
 }
 
 -(void)fitToView:(diagramView *)view
@@ -75,34 +78,34 @@ static NSUInteger nx = 320;//640;
         return;
     }
     
-    _yMin = 1.0e+50;
-    _yMax = -1.0e+50;
+    self.yMin = self.yValues[0];
+    self.yMax = self.yValues[0];
     
-    for (int i=0; i<nx; i++) 
+    for (int i=1; i<nx; i++)
     {
-        double yi = self.yValues[i];
+        float yi = self.yValues[i];
         
-        if (yi < _yMin) _yMin = yi;
-        if (yi > _yMax) _yMax = yi;
+        if (yi < self.yMin) self.yMin = yi;
+        if (yi > self.yMax) self.yMax = yi;
     }
 
-    double diff = fabs(_yMax - _yMin);
+    float diff = fabs(self.yMax - self.yMin);
 
     if (diff < 1.0e-15)
     {
-        _yMin -= 1.0e+1;
-        _yMax += 1.0+1;
+        self.yMin -= 1.0e+1;
+        self.yMax += 1.0+1;
     }   
 
 }
 
--(void)setup:(double)xmin max:(double)xmax
+-(void)setup:(float)xmin max:(float)xmax
 {
     self.contentMode = UIViewContentModeRedraw;
     _xMin = xmin;
     _xMax = xmax;
-    _yValues = malloc(nx*sizeof(double));
-    _xValues = malloc(nx*sizeof(double));
+    _yValues = malloc(nx*sizeof(float));
+    _xValues = malloc(nx*sizeof(float));
     _nBackgroundCalculation = 0;
     
     if (_xIsT)
@@ -110,19 +113,21 @@ static NSUInteger nx = 320;//640;
         NSDictionary *rangeDict = [self.dict objectForKey:@"temperatureRange"];
         NSNumber *lr = [rangeDict objectForKey:@"min"];
         NSNumber *ur = [rangeDict objectForKey:@"max"];
-        _lowerRange = [lr doubleValue];
-        _upperRange = [ur doubleValue];
+        _lowerRange = [lr floatValue];
+        _upperRange = [ur floatValue];
     }
     else
     {
         NSDictionary *rangeDict = [self.dict objectForKey:@"pressureRange"];
         NSNumber *lr = [rangeDict objectForKey:@"min"];
         NSNumber *ur = [rangeDict objectForKey:@"max"];
-        _lowerRange = [lr doubleValue];
-        _upperRange = [ur doubleValue];
+        _lowerRange = [lr floatValue];
+        _upperRange = [ur floatValue];
     }
     [self calculateValues];
+    //[self updateLabelTexts];
     [self fitToView:self];
+    _initDraw = YES;
 }
 
 - (void)dealloc
@@ -150,42 +155,43 @@ static NSUInteger nx = 320;//640;
 
 -(void)checkRange
 {
-    double xLow = 0.0;
-    if (_lowerRange < xLow) xLow = _lowerRange;
+    float xLow = 0.0;
+    if (self.lowerRange < xLow) xLow = self.lowerRange;
     
     if (self.xMin <= xLow)
     {
         self.xMin = xLow;
     }
     
-    double xm = 0.5*(self.xMin + self.xMax);
+    float xm = 0.5*(self.xMin + self.xMax);
     
-    if (xm <= (_lowerRange + 1.0e-5))
+    if (xm <= (self.lowerRange + 1.0e-5))
     {
-        double delta = _lowerRange - xm;
+        float delta = self.lowerRange - xm;
         self.xMin += delta;
         self.xMax += delta;
     }
     
-    if (xm >= (_upperRange - 1.0e-5))
+    if (xm >= (self.upperRange - 1.0e-5))
     {
-        double delta = xm - _upperRange;
+        float delta = xm - self.upperRange;
         self.xMin -= delta;
         self.xMax -= delta;
     }
 
 }
 
-
 -(CGFloat) mapXToView:(CGFloat)x
 {
     CGFloat xMap = 0.0;
     
-    CGFloat dx = self.xMax - self.xMin;
+    float xMin = self.xMin;
+    float xMax = self.xMax;
+    CGFloat dx = xMax - xMin;
     
     if (dx > 0)
     {
-        xMap = (x - self.xMin)*self.bounds.size.width/dx;
+        xMap = (x - xMin)*self.bounds.size.width/dx;
     }
     
     return xMap;
@@ -194,29 +200,29 @@ static NSUInteger nx = 320;//640;
 - (CGFloat) mapYToView:(CGFloat)y
 {
     CGFloat yMap = 0.0;
-    
-    CGFloat dy = self.yMax - self.yMin;
+    float yMin = self.yMin;
+    float yMax = self.yMax;
+    CGFloat dy = yMax - yMin;
     
     if (dy > 0)
     {
-        yMap = self.bounds.size.height - (y - self.yMin)*self.bounds.size.height/dy;
+        yMap = self.bounds.size.height - (y - yMin)*self.bounds.size.height/dy;
     }
     
     return yMap;
 }
 
-+(CGPoint) mapPoint:(diagramView *)view X:(double)x Y:(double)y
+-(CGPoint) mapPoint:(CGPoint)point
 {
     CGPoint p;
-    p.x = view.bounds.origin.x
-        + (x - view.xMin)*(view.bounds.size.width - view.bounds.origin.x)/(view.xMax - view.xMin);
-    p.y = view.bounds.size.height
-        - (y - view.yMin)*(view.bounds.size.height - view.bounds.origin.y)/(view.yMax - view.yMin);
+
+    p.x = [self mapXToView:point.x];
+    p.y = [self mapYToView:point.y];
     
     return p;
 }
 
--(void)pan:(UIPanGestureRecognizer *)gesture;
+- (void)pan:(UIPanGestureRecognizer *)gesture;
 {
     CGPoint pan;
     CGPoint zero;
@@ -242,6 +248,7 @@ static NSUInteger nx = 320;//640;
         [self checkRange];
         [gesture setTranslation:zero inView:self];
         [self draw];
+        [self updateLabelTexts];
     }
 }
 
@@ -254,22 +261,28 @@ static NSUInteger nx = 320;//640;
     )
     {
         CGFloat scale = gesture.scale;
+        
         if (scale != 1.0)
         {
-            float xScale = self.xMax - self.xMin;
-            float yScale = self.yMax - self.yMin;
-            float newXmax = self.xMin + xScale/scale;
-            self.xMin = self.xMax - xScale/scale;
+            float xMin = self.xMin;
+            float xMax = self.xMax;
+            float yMin = self.yMin;
+            float yMax = self.yMax;
+            float xScale = xMax - xMin;
+            float yScale = yMax - yMin;
+            float newXmax = xMin + xScale/scale;
+            self.xMin = xMax - xScale/scale;
             self.xMax = newXmax;
          
-            float newYmax = self.yMin + yScale/scale;
-            self.yMin = self.yMax - yScale/scale;
+            float newYmax = yMin + yScale/scale;
+            self.yMin = yMax - yScale/scale;
             self.yMax = newYmax;
         
             [self checkRange];
 
             [gesture setScale:1.0];
-            [self draw]; 
+            [self draw];
+            [self updateLabelTexts];
         }
     }
     
@@ -280,6 +293,7 @@ static NSUInteger nx = 320;//640;
     if (gesture.state == UIGestureRecognizerStateEnded)
     {
         [self fitToView:self];
+        [self updateLabelTexts];
         [self setNeedsDisplay];
     }
 }
@@ -287,7 +301,7 @@ static NSUInteger nx = 320;//640;
 -(void)drawCoordinateSystem:(CGContextRef)context
 {
     
-    double xi,yi;
+    float xi,yi;
     CGPoint tickWidth;
     tickWidth.x = 5.0;
     tickWidth.y = 5.0;
@@ -316,147 +330,172 @@ static NSUInteger nx = 320;//640;
     CGContextMoveToPoint(context, xAxisStart.x, xAxisStart.y);
     CGContextAddLineToPoint(context, xAxisEnd.x, xAxisEnd.y);
     
-    
     // draw x-axis ticks
-    double dx = _xMax - _xMin;
-    double logDx = log10(dx);
+    float xMin = self.xMin;
+    float xMax = self.xMax;
+    //float xMid = 0.5*(xMin + xMax);
+    float yMin = self.yMin;
+    float yMax = self.yMax;
+    //float yMid = self.yMid;
+    
+    float dx = fabs(xMax - xMin);
+    float logDx = log10(dx);
     int ilog = logDx - 1;
-    double xTickSpace = pow(10.0, ilog);
-    int iStart = _xMin/xTickSpace;
-    int iEnd = _xMax/xTickSpace + 1;
+    float xTickSpace = pow(10.0, ilog);
+    int iStart = xMin/xTickSpace;
+    int iEnd = xMax/xTickSpace + 1;
     yi = 0.0;
     for(int i=iStart; i<iEnd; i++)
     {
         xi = i*xTickSpace;
-        CGPoint p0 = [diagramView mapPoint:self X:xi Y:yi];
+        CGPoint p0;
+        p0.x = [self mapXToView:xi];
         CGContextMoveToPoint(context, p0.x, xAxisStart.y + tickWidth.y);
         CGContextAddLineToPoint(context, p0.x, xAxisStart.y - tickWidth.y);
     }
-    
+
     // draw y-axis ticks
-    double dy = _yMax - _yMin;
+    float dy = fabs(yMax - yMin);
     int jlog = log10(dy) - 1;
-    double yTickSpace = pow(10.0, jlog);
-    int jStart = _yMin/yTickSpace;
-    int jEnd = _yMax/yTickSpace + 1;
+    float yTickSpace = pow(10.0, jlog);
+    int jStart = yMin/yTickSpace;
+    int jEnd = yMax/yTickSpace + 1;
     xi = 0.0;
-    for (int j=jStart; j<jEnd; j++) {
+    for (int j=jStart; j<jEnd; j++)
+    {
         yi = j*yTickSpace;
-        CGPoint p0 = [diagramView mapPoint:self X:xi Y:yi];
+        CGPoint p0;
+        p0.y = [self mapYToView:yi];
         CGContextMoveToPoint(context, yAxisStart.x - tickWidth.x, p0.y);
         CGContextAddLineToPoint(context, yAxisStart.x + tickWidth.x, p0.y);
     }
-    
+
     CGContextStrokePath(context);
     UIGraphicsPopContext();
     
+}
+
+- (void)updateLabelTexts
+{
+    
+    float xMin = self.xMin;
+    float xMax = self.xMax;
+    float xMid = 0.5*(xMin + xMax);
+    float yMin = self.yMin;
+    float yMax = self.yMax;
+    float yMid = self.yMid;
+    
     // set red text color if it is out of range
-    self.yMinLabel.text = [NSString stringWithFormat:@"%g", self.yMin];
-    self.yMaxLabel.text = [NSString stringWithFormat:@"%g", self.yMax];
-    
-    double xv = self.xMin;
-    if (!_xIsT)
+    if (xMin < self.lowerRange)
     {
-        xv *= 1.0e-6;
-    }
-    self.xMinLabel.text = [NSString stringWithFormat:@"%g", xv];
-    
-    if (_xMin < _lowerRange)
-    {
-        self.xMinLabel.textColor = [UIColor redColor];
+        self.xMinLabel.textColor = WARNINGCOLOR;
     }
     else
     {
-        self.xMinLabel.textColor = [UIColor whiteColor];
+        self.xMinLabel.textColor = LABELCOLOR;
     }
     
-    xv = self.xMax;
-    if (!_xIsT)
+    if (xMax > self.upperRange)
     {
-        xv *= 1.0e-6;
-    }
-    self.xMaxLabel.text = [NSString stringWithFormat:@"%g", xv];
-    if (_xMax > _upperRange)
-    {
-        self.xMaxLabel.textColor = [UIColor redColor];
+        self.xMaxLabel.textColor = WARNINGCOLOR;
     }
     else
     {
-        self.xMaxLabel.textColor = [UIColor whiteColor];
+        self.xMaxLabel.textColor = LABELCOLOR;
     }
-    
-    xv = self.xMid;
-    if (!_xIsT)
+     
+    if (!self.xIsT)
     {
-        xv *= 1.0e-6;
+        xMin *= 1.0e-6;
+        xMax *= 1.0e-6;
+        xMid *= 1.0e-6;
     }
     
-    self.yMidLabel.text = [NSString stringWithFormat:@"%g, %.10e", xv, self.yMid];
+    self.yMinLabel.text = [NSString stringWithFormat:@"%g", yMin];
+    //[self.yMinLabel setText:[NSString stringWithFormat:@"%g", yMin]];
     
-    CGPoint pos = [diagramView mapPoint:self X:self.xMid Y:self.yMid];
+    
+     self.yMaxLabel.text = [NSString stringWithFormat:@"%g", yMax];
+     
+     self.xMinLabel.text = [NSString stringWithFormat:@"%g", xMin];
+     self.xMaxLabel.text = [NSString stringWithFormat:@"%g", xMax];
+     
+     self.yMidLabel.text = [NSString stringWithFormat:@"%g, %.10e", xMid, yMid];
 
-    // make sure the text dont go out of view
-    int pixelOffset = 25;
-    if (pos.y < pixelOffset)
-    {
-        pos.y = pixelOffset;
-    }
-
-    if (pos.y > yAxisStart.y - pixelOffset)
-    {
-        pos.y = yAxisStart.y - pixelOffset;
-    }
-    if(isnan(pos.y))
-    {
-        pos.y = xAxisStart.y;
-    }
-    self.yMidLabel.center = pos;
 }
 
 -(void) calculateValues
 {
-    double xMin = self.xMin;
-    double xMax = self.xMax;
-    double dx = xMax - xMin;
+    float xMin = self.xMin;
+    float xMax = self.xMax;
+    float dx = xMax - xMin;
     
     int nCalc = self.nBackgroundCalculation + 1;
     self.nBackgroundCalculation = nCalc;
     
     for (int i=0; i<nx; i++)
     {
+        
         if (nCalc != self.nBackgroundCalculation)
         {
             break;
         }
         
-        double xi = xMin + i*dx/(nx-1);
+        float xi = xMin + i*dx/(nx-1);
         self.xValues[i] = xi;
         
+        float yi;
         if (self.xIsT)
         {
-            self.yValues[i] = [self.function valueForT:xi andP:self.cpv];
+            yi = [self.function valueForT:xi andP:self.cpv];
         }
         else
         {
-            self.yValues[i] = [self.function valueForT:self.cpv andP:xi];
+            yi = [self.function valueForT:self.cpv andP:xi];
         }
+        self.yValues[i] = yi;
+        //[self performSelectorOnMainThread:<#(SEL)#> withObject:<#(id)#> waitUntilDone:<#(BOOL)#>
+        [self setNeedsDisplay];
+    }
+    
+    if (nCalc == self.nBackgroundCalculation)
+    {
+        self.xMid = 0.5*(xMin + xMax);
+        float yMid;
+    
+        if (self.xIsT)
+        {
+            yMid = [self.function valueForT:self.xMid andP:self.cpv];
+        }
+        else
+        {
+            yMid = [self.function valueForT:self.cpv andP:self.xMid];
+        }
+        self.yMid = yMid;
         [self setNeedsDisplay];
     }
 }
 
 - (void) draw
 {
-    [NSThread detachNewThreadSelector:@selector(calculateValues) toTarget:self withObject:nil];
+    //[NSThread detachNewThreadSelector:@selector(calculateValues) toTarget:self withObject:nil];
+    [self performSelectorInBackground:@selector(calculateValues) withObject:nil];
 }
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    
+    if (self.initDraw)
+    {
+        self.initDraw = NO;
+        [self updateLabelTexts];
+    }
     // Drawing code
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextBeginPath(context);
+    //CGContextBeginPath(context);
+
+    [self drawCoordinateSystem:context];
 
     for (int i=1; i<nx; i++)
     {
@@ -468,23 +507,34 @@ static NSUInteger nx = 320;//640;
 
         CGContextMoveToPoint(context, x0, y0);
         CGContextAddLineToPoint(context, x1, y1);
-
-    }
-    
-    self.xMid = 0.5*(self.xMin + self.xMax);
-    if (self.xIsT)
-    {
-        self.yMid = [self.function valueForT:self.xMid andP:self.cpv];
-    }
-    else
-    {
-        self.yMid = [self.function valueForT:self.cpv andP:self.xMid];
+        
     }
     
     CGContextStrokePath(context);
     
-    [self drawCoordinateSystem:context];
     
+    CGPoint pos;
+    pos.x = self.bounds.origin.x + 0.5*self.bounds.size.width;
+    pos.y = [self mapYToView:self.yMid];
+    // make sure the text dont go out of view
+    int pixelOffset = 25;
+    if (pos.y < pixelOffset)
+    {
+        pos.y = pixelOffset;
+    }
+    
+    CGFloat yAxisStart_y = self.bounds.origin.y + self.bounds.size.height;
+    if (pos.y > yAxisStart_y - pixelOffset)
+    {
+        pos.y = yAxisStart_y - pixelOffset;
+    }
+    if(isnan(pos.y))
+    {
+        pos.y = self.bounds.origin.y + 0.5*self.bounds.size.height;
+        NSLog(@"pos.y isnan");
+    }
+    self.yMidLabel.center = pos;
+
 }
 
 

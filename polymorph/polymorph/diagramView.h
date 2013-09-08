@@ -11,19 +11,20 @@
 
 @interface diagramView : UIView
 
-@property (nonatomic) double xMin, xMax, yMin, yMax, xMid, yMid;
-@property (nonatomic) double lowerRange, upperRange;
-@property (nonatomic) double cpv;
+@property (nonatomic) float xMin, xMax, yMin, yMax, xMid, yMid;
+@property (nonatomic) float lowerRange, upperRange;
+@property (nonatomic) float cpv;
 @property (weak, nonatomic) id <functionValue> function;
 @property (weak, nonatomic) NSDictionary *dict;
 @property (nonatomic) BOOL xIsT;
 
-@property (nonatomic) double *xValues;
-@property (nonatomic) double *yValues;
+@property (nonatomic) float *xValues;
+@property (nonatomic) float *yValues;
 
 -(void)checkRange;
 -(void)fitToView:(diagramView *)view;
--(void)setup:(double)xmin max:(double)xmax;
+-(void)setup:(float)xmin max:(float)xmax;
+
 @property (weak, nonatomic) IBOutlet UILabel *yMaxLabel;
 @property (weak, nonatomic) IBOutlet UILabel *yMinLabel;
 @property (weak, nonatomic) IBOutlet UILabel *xMinLabel;
@@ -36,7 +37,6 @@
 -(void)pinch:(UIPinchGestureRecognizer *)gesture;
 -(void)tap:(UITapGestureRecognizer *)gesture;
 
-+(CGPoint) mapPoint:(diagramView *)view X:(double)x Y:(double)y;
-
+-(CGPoint) mapPoint:(CGPoint)point;
 
 @end

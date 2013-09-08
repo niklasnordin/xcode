@@ -511,9 +511,15 @@
         CGFloat x1 = [self mapXToView:self.xArray[i]];
         CGFloat y0 = [self mapYToView:self.yArray[i-1]];
         CGFloat y1 = [self mapYToView:self.yArray[i]];
-        //NSLog(@"i=%d, x=%f, y=%f", i, x1, y1);
-        CGContextMoveToPoint(context, x0, y0);
-        CGContextAddLineToPoint(context, x1, y1);
+        CGPoint p0 = CGPointMake(x0, y0);
+        CGPoint p1 = CGPointMake(x1, y1);
+        BOOL inside0 = [self pointInside:p0 withEvent:nil];
+        BOOL inside1 = [self pointInside:p1 withEvent:nil];
+        if (inside0 && inside1)
+        {
+            CGContextMoveToPoint(context, x0, y0);
+            CGContextAddLineToPoint(context, x1, y1);
+        }
     }
     
     CGContextStrokePath(context);
