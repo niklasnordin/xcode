@@ -12,7 +12,7 @@
 static NSUInteger nx = 320;//640;
 
 @interface diagramView ()
-@property (nonatomic) BOOL needToUpdateValues;
+@property (nonatomic) int nBackgroundCalculation;
 @end
 
 @implementation diagramView
@@ -77,11 +77,10 @@ static NSUInteger nx = 320;//640;
     
     _yMin = 1.0e+50;
     _yMax = -1.0e+50;
-
-    double *values = [self functionValues];
+    
     for (int i=0; i<nx; i++) 
     {
-        double yi = values[i];
+        double yi = self.yValues[i];
         
         if (yi < _yMin) _yMin = yi;
         if (yi > _yMax) _yMax = yi;
@@ -103,6 +102,8 @@ static NSUInteger nx = 320;//640;
     _xMin = xmin;
     _xMax = xmax;
     _yValues = malloc(nx*sizeof(double));
+    _xValues = malloc(nx*sizeof(double));
+    _nBackgroundCalculation = 0;
     
     if (_xIsT)
     {
@@ -120,13 +121,14 @@ static NSUInteger nx = 320;//640;
         _lowerRange = [lr doubleValue];
         _upperRange = [ur doubleValue];
     }
-    _needToUpdateValues = YES;
+    [self calculateValues];
     [self fitToView:self];
 }
 
 - (void)dealloc
 {
     free(_yValues);
+    free(_xValues);
 }
 
 -(void)awakeFromNib
@@ -174,6 +176,35 @@ static NSUInteger nx = 320;//640;
 
 }
 
+
+-(CGFloat) mapXToView:(CGFloat)x
+{
+    CGFloat xMap = 0.0;
+    
+    CGFloat dx = self.xMax - self.xMin;
+    
+    if (dx > 0)
+    {
+        xMap = (x - self.xMin)*self.bounds.size.width/dx;
+    }
+    
+    return xMap;
+}
+
+- (CGFloat) mapYToView:(CGFloat)y
+{
+    CGFloat yMap = 0.0;
+    
+    CGFloat dy = self.yMax - self.yMin;
+    
+    if (dy > 0)
+    {
+        yMap = self.bounds.size.height - (y - self.yMin)*self.bounds.size.height/dy;
+    }
+    
+    return yMap;
+}
+
 +(CGPoint) mapPoint:(diagramView *)view X:(double)x Y:(double)y
 {
     CGPoint p;
@@ -198,7 +229,6 @@ static NSUInteger nx = 320;//640;
         (gesture.state == UIGestureRecognizerStateEnded)
     )
     {
-        _needToUpdateValues = YES;
         pan = [gesture translationInView:self];
         float xScale = self.bounds.size.width/(self.xMax - self.xMin);
         float yScale = self.bounds.size.height/(self.yMax - self.yMin);
@@ -211,6 +241,7 @@ static NSUInteger nx = 320;//640;
         
         [self checkRange];
         [gesture setTranslation:zero inView:self];
+        [self draw];
     }
 }
 
@@ -225,7 +256,6 @@ static NSUInteger nx = 320;//640;
         CGFloat scale = gesture.scale;
         if (scale != 1.0)
         {
-            _needToUpdateValues = YES;
             float xScale = self.xMax - self.xMin;
             float yScale = self.yMax - self.yMin;
             float newXmax = self.xMin + xScale/scale;
@@ -239,6 +269,7 @@ static NSUInteger nx = 320;//640;
             [self checkRange];
 
             [gesture setScale:1.0];
+            [self draw]; 
         }
     }
     
@@ -248,7 +279,6 @@ static NSUInteger nx = 320;//640;
 {
     if (gesture.state == UIGestureRecognizerStateEnded)
     {
-        _needToUpdateValues = YES;
         [self fitToView:self];
         [self setNeedsDisplay];
     }
@@ -383,27 +413,40 @@ static NSUInteger nx = 320;//640;
     self.yMidLabel.center = pos;
 }
 
--(double *)functionValues
+-(void) calculateValues
 {
-    if (_needToUpdateValues)
-    {
-        for (int i=0; i<nx; i++)
-        {
-            double xi = _xMin + i*(_xMax - _xMin)/(nx-1);
-        
-            if (_xIsT)
-            {
-                _yValues[i] = [_function valueForT:xi andP:_cpv];
-            }
-            else
-            {
-                _yValues[i] = [_function valueForT:_cpv andP:xi];
-            }
-        }
-        _needToUpdateValues = NO;
-    }
+    double xMin = self.xMin;
+    double xMax = self.xMax;
+    double dx = xMax - xMin;
     
-    return _yValues;
+    int nCalc = self.nBackgroundCalculation + 1;
+    self.nBackgroundCalculation = nCalc;
+    
+    for (int i=0; i<nx; i++)
+    {
+        if (nCalc != self.nBackgroundCalculation)
+        {
+            break;
+        }
+        
+        double xi = xMin + i*dx/(nx-1);
+        self.xValues[i] = xi;
+        
+        if (self.xIsT)
+        {
+            self.yValues[i] = [self.function valueForT:xi andP:self.cpv];
+        }
+        else
+        {
+            self.yValues[i] = [self.function valueForT:self.cpv andP:xi];
+        }
+        [self setNeedsDisplay];
+    }
+}
+
+- (void) draw
+{
+    [NSThread detachNewThreadSelector:@selector(calculateValues) toTarget:self withObject:nil];
 }
 
 // Only override drawRect: if you perform custom drawing.
@@ -415,35 +458,27 @@ static NSUInteger nx = 320;//640;
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextBeginPath(context);
 
-    NSMutableArray *pp = [[NSMutableArray alloc] init];
-
-    double *values = [self functionValues];
-    for (int i=0; i<nx; i++)
-    {
-        double xi = _xMin + i*(_xMax - _xMin)/(nx-1);
-        double yi = values[i];
-        CGPoint p0 = [diagramView mapPoint:self X:xi Y:yi];
-        [pp addObject:[NSValue valueWithCGPoint:p0]];
-    }
-    
     for (int i=1; i<nx; i++)
     {
-        CGPoint p0 = [[pp objectAtIndex:i-1] CGPointValue];
-        CGPoint p1 = [[pp objectAtIndex:i] CGPointValue];
         
-        CGContextMoveToPoint(context, p0.x, p0.y);
-        CGContextAddLineToPoint(context, p1.x, p1.y);
+        CGFloat x0 = [self mapXToView:self.xValues[i-1]];
+        CGFloat x1 = [self mapXToView:self.xValues[i]];
+        CGFloat y0 = [self mapYToView:self.yValues[i-1]];
+        CGFloat y1 = [self mapYToView:self.yValues[i]];
+
+        CGContextMoveToPoint(context, x0, y0);
+        CGContextAddLineToPoint(context, x1, y1);
+
     }
     
-    
-    _xMid = 0.5*(_xMin + _xMax);
-    if (_xIsT)
+    self.xMid = 0.5*(self.xMin + self.xMax);
+    if (self.xIsT)
     {
-        _yMid = [_function valueForT:_xMid andP:_cpv];
+        self.yMid = [self.function valueForT:self.xMid andP:self.cpv];
     }
     else
     {
-        _yMid = [_function valueForT:_cpv andP:_xMid];
+        self.yMid = [self.function valueForT:self.cpv andP:self.xMid];
     }
     
     CGContextStrokePath(context);

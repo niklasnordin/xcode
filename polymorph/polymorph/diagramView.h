@@ -18,6 +18,7 @@
 @property (weak, nonatomic) NSDictionary *dict;
 @property (nonatomic) BOOL xIsT;
 
+@property (nonatomic) double *xValues;
 @property (nonatomic) double *yValues;
 
 -(void)checkRange;
