@@ -93,7 +93,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fci-8E-pKj">
-                                <rect key="frame" x="20" y="426" width="280" height="31"/>
+                                <rect key="frame" x="25" y="430" width="270" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
@@ -635,17 +635,10 @@
     </scenes>
     <resources>
         <image name="CO2.png" width="39" height="39"/>
-        <image name="CO2.png" width="39" height="39"/>
-        <image name="H2O.png" width="39" height="39"/>
         <image name="H2O.png" width="39" height="39"/>
         <image name="N2.png" width="39" height="39"/>
-        <image name="N2.png" width="39" height="39"/>
-        <image name="N2.png" width="39" height="39"/>
-        <image name="O2.png" width="39" height="39"/>
-        <image name="O2.png" width="39" height="39"/>
         <image name="O2.png" width="39" height="39"/>
         <image name="ReactionText.png" width="320" height="54"/>
-        <image name="lambda.png" width="39" height="39"/>
         <image name="lambda.png" width="39" height="39"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
