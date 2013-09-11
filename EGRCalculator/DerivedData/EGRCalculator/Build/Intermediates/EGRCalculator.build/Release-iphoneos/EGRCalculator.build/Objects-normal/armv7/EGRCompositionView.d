@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/niklasnordin/Documents/dropbox.git/EGRCalculator/EGRCalculator/EGRCompositionView.m \
-  /Users/niklasnordin/Documents/dropbox.git/EGRCalculator/EGRCalculator/EGRCompositionView.h
+  /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCompositionView.m \
+  /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCompositionView.h

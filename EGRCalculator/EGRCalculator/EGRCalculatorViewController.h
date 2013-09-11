@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
+
 #import "EGRCalculator.h"
 
 @interface EGRCalculatorViewController : UIViewController
+<
+    ADBannerViewDelegate
+>
 
 @property (nonatomic, strong) EGRCalculator *egrCalc;
 
@@ -21,5 +26,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *o2Text;
 @property (weak, nonatomic) IBOutlet UITextField *n2Text;
 - (IBAction)calculateButton:(id)sender;
+@property (weak, nonatomic) IBOutlet ADBannerView *bannerView;
 
 @end

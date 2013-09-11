@@ -9,7 +9,7 @@
 #import "EGRCalculatorViewController.h"
 #import "EGRCompositionVC.h"
 
-#define offset 2.0
+#define offset 1.1
 
 @interface EGRCalculatorViewController()
 @property (nonatomic) NSInteger textFieldY;
@@ -56,7 +56,7 @@
     
     // Get the size of the keyboard.
     NSDictionary* info = [notif userInfo];
-    NSValue *aValue = [info objectForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSValue *aValue = info[UIKeyboardFrameBeginUserInfoKey];
     CGSize keyboardSize = [aValue CGRectValue].size;
     self.keyboardHeight = keyboardSize.height;
     
@@ -190,4 +190,19 @@
     self.egrCalc = [[EGRCalculator alloc] initWithLambda:self.lambaText.text egr:self.egrText.text cn:self.cnText.text cm:self.cmText.text cr:self.crText.text oxygen:self.o2Text.text nitro:self.n2Text.text];
 }
 
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:2];
+    [banner setAlpha:1];
+    [UIView commitAnimations];
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:2];
+    [banner setAlpha:0];
+    [UIView commitAnimations];
+}
 @end

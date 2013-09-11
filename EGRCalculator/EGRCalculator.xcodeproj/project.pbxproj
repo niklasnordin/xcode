@@ -27,6 +27,7 @@
 		61938F5B148AD42900F40395 /* O2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61938F5A148AD42900F40395 /* O2.jpg */; };
 		61938F5D148AD42F00F40395 /* H2O.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61938F5C148AD42F00F40395 /* H2O.jpg */; };
 		61938F63148B547500F40395 /* CO2.png in Resources */ = {isa = PBXBuildFile; fileRef = 61938F62148B547500F40395 /* CO2.png */; };
+		61ACA7A517E0AC6D00BD49E6 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61ACA7A417E0AC6D00BD49E6 /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		61938F5A148AD42900F40395 /* O2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = O2.jpg; sourceTree = "<group>"; };
 		61938F5C148AD42F00F40395 /* H2O.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = H2O.jpg; sourceTree = "<group>"; };
 		61938F62148B547500F40395 /* CO2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CO2.png; sourceTree = "<group>"; };
+		61ACA7A417E0AC6D00BD49E6 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		61E91282148BD9AB0098F7E5 /* EGRCalculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = EGRCalculator.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61ACA7A517E0AC6D00BD49E6 /* iAd.framework in Frameworks */,
 				61938F14148A03EB00F40395 /* UIKit.framework in Frameworks */,
 				61938F16148A03EB00F40395 /* Foundation.framework in Frameworks */,
 				61938F18148A03EB00F40395 /* CoreGraphics.framework in Frameworks */,
@@ -96,6 +99,7 @@
 		61938F12148A03EB00F40395 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				61ACA7A417E0AC6D00BD49E6 /* iAd.framework */,
 				61938F13148A03EB00F40395 /* UIKit.framework */,
 				61938F15148A03EB00F40395 /* Foundation.framework */,
 				61938F17148A03EB00F40395 /* CoreGraphics.framework */,
@@ -106,10 +110,10 @@
 		61938F19148A03EB00F40395 /* EGRCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				61938F25148A03EB00F40395 /* MainStoryboard.storyboard */,
 				61E91282148BD9AB0098F7E5 /* EGRCalculator.entitlements */,
 				61938F22148A03EB00F40395 /* EGRCalculatorAppDelegate.h */,
 				61938F23148A03EB00F40395 /* EGRCalculatorAppDelegate.m */,
-				61938F25148A03EB00F40395 /* MainStoryboard.storyboard */,
 				61938F49148A529A00F40395 /* EGRCalculator.h */,
 				61938F4A148A529A00F40395 /* EGRCalculator.m */,
 				61938F46148A4E1400F40395 /* EGRCompositionView.h */,

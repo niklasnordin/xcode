@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/niklasnordin/Documents/dropbox.git/EGRCalculator/EGRCalculator/EGRCompositionVC.m \
-  /Users/niklasnordin/Documents/dropbox.git/EGRCalculator/EGRCalculator/EGRCompositionVC.h \
-  /Users/niklasnordin/Documents/dropbox.git/EGRCalculator/EGRCalculator/EGRCalculator.h
+  /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCompositionVC.m \
+  /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCompositionVC.h \
+  /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator.h
