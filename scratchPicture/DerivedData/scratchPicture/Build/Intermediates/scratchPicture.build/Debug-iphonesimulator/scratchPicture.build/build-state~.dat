@@ -1,0 +1,499 @@
+TscratchPicture
+v5
+r1
+cCheck dependencies
+cProcessInfoPlistFile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Info.plist scratchPicture/scratchPicture-Info.plist
+cProcessPCH /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/PrecompiledHeaders/scratchPicture-Prefix-dzmpceykjdysxvfcvlfxdpyeihkz/scratchPicture-Prefix.pch.pth scratchPicture/scratchPicture-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/scratchPictureAppDelegate.o /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPictureAppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/menuViewController.o /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/menuViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/main.o /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/scratchPictureViewController.o /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPictureViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/Settings.o /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Settings.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/scratchPicture normal i386
+cGenerateDSYMFile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app.dSYM /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/scratchPicture
+cCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/en.lproj/InfoPlist.strings scratchPicture/en.lproj/InfoPlist.strings
+cCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/InfoPlist.strings scratchPicture/sv.lproj/InfoPlist.strings
+cCpResource scratchPicture/Default.png DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default.png
+cCpResource scratchPicture/Default@2x.png DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default@2x.png
+cCpResource scratchPicture/Default-568h@2x.png DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default-568h@2x.png
+cCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Base.lproj/MainStoryboard_iPhone.storyboard
+cCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/MainStoryboard_iPhone.strings scratchPicture/sv.lproj/MainStoryboard_iPhone.strings
+cCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/en.lproj/MainStoryboard_iPhone.strings scratchPicture/en.lproj/MainStoryboard_iPhone.strings
+cCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Base.lproj/MainStoryboard_iPad.storyboard
+cCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/MainStoryboard_iPad.strings scratchPicture/sv.lproj/MainStoryboard_iPad.strings
+cCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/en.lproj/Localizable.strings scratchPicture/en.lproj/Localizable.strings
+cCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/Localizable.strings scratchPicture/sv.lproj/Localizable.strings
+cTouch /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk
+c000000005092D0550000000000000110
+t1351798869
+s272
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c00000000505A2E800000000000228FD0
+t1348087424
+s2265040
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c00000000505A2E8200000000003DCEF0
+t1348087426
+s4050672
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c00000000505A2E8100000000000015F7
+t1348087425
+s5623
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c00000000505A2E860000000000000E8D
+t1348087430
+s3725
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c00000000505A2E880000000000AB3D60
+t1348087432
+s11222368
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/usr/include/Availability.h
+c00000000505A2E9A0000000000001B54
+t1348087450
+s6996
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/PrecompiledHeaders/scratchPicture-Prefix-dzmpceykjdysxvfcvlfxdpyeihkz/scratchPicture-Prefix.pch.pth
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/Settings.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/main.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/menuViewController.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/scratchPicture.LinkFileList
+c0000000050BFA4B00000000000000427
+t1354736816
+s1063
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/scratchPictureAppDelegate.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/scratchPictureViewController.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app.dSYM
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Base.lproj/MainStoryboard_iPad.storyboardc
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Base.lproj/MainStoryboard_iPhone.storyboardc
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default-568h@2x.png
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default.png
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default@2x.png
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Info.plist
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/PkgInfo
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/en.lproj/InfoPlist.strings
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/en.lproj/Localizable.strings
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/en.lproj/MainStoryboard_iPhone.strings
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/scratchPicture
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/InfoPlist.strings
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/Localizable.strings
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/MainStoryboard_iPad.strings
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/MainStoryboard_iPhone.strings
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Base.lproj/MainStoryboard_iPad.storyboard
+c0000000050BF9F64000000000000062B
+t1354735460
+s1579
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Base.lproj/MainStoryboard_iPhone.storyboard
+c0000000050BFA4B00000000000002F8B
+t1354736816
+s12171
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Default-568h@2x.png
+c0000000050262AB100000000000048A2
+t1344678577
+s18594
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Default.png
+c0000000050262AB1000000000000198C
+t1344678577
+s6540
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Default@2x.png
+c0000000050262AB10000000000003EEB
+t1344678577
+s16107
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Settings.m
+c0000000050BFA35B00000000000000C8
+t1354736475
+s200
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/en.lproj/InfoPlist.strings
+c0000000050BF9F64000000000000002D
+t1354735460
+s45
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/en.lproj/Localizable.strings
+c0000000050BF9F910000000000000092
+t1354735505
+s146
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/en.lproj/MainStoryboard_iPhone.strings
+c0000000050BFA41100000000000001BB
+t1354736657
+s443
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/main.m
+c0000000050BF9F64000000000000017A
+t1354735460
+s378
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/menuViewController.m
+c0000000050BFA19C00000000000002DA
+t1354736028
+s730
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPicture-Prefix.pch
+c0000000050BF9F64000000000000014B
+t1354735460
+s331
+i<Availability.h>
+i<UIKit/UIKit.h>
+i<Foundation/Foundation.h>
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPictureAppDelegate.m
+c0000000050BF9F64000000000000080F
+t1354735460
+s2063
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPictureViewController.m
+c0000000050BF9F640000000000000233
+t1354735460
+s563
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/sv.lproj/InfoPlist.strings
+c0000000050BF9F64000000000000002D
+t1354735460
+s45
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/sv.lproj/Localizable.strings
+c0000000050BF9F910000000000000092
+t1354735505
+s146
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/sv.lproj/MainStoryboard_iPad.strings
+c0000000050BF9F7C0000000000000000
+t1354735484
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/sv.lproj/MainStoryboard_iPhone.strings
+c0000000050BFA40300000000000001BE
+t1354736643
+s446
+
+NscratchPicture/scratchPicture-Info.plist
+c0000000050BF9F640000000000000646
+t1354735460
+s1606
+
+CBuild AST from /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Settings.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/main.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/menuViewController.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPictureAppDelegate.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPictureViewController.m
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies9c6bc430dc6fb641^de3ddc30dc6fb641^---0#1#0#--18"Check dependencies36"20ADC2EA-8B3C-4BE6-86DD-28547244CD43-
+
+CCompileC DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/Settings.o /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Settings.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s376429617.426382
+e376429617.461024
+r1
+xCompileC
+xDerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/Settings.o
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Settings.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection95"Compile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Settings.mf6466d31dc6fb641^f60b7631dc6fb641^---0#0#0#-19%DVTDocumentLocation2@103"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Settings.m0000000000000000^4514"CompileC DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/Settings.o scratchPicture/Settings.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -mios-simulator-version-min=6.0 -iquote /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-generated-files.hmap -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-own-target-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-project-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/DerivedSources/i386 -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/DerivedSources -F/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator -include /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/PrecompiledHeaders/scratchPicture-Prefix-dzmpceykjdysxvfcvlfxdpyeihkz/scratchPicture-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/Settings.d --serialize-diagnostics /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/Settings.dia -c /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Settings.m -o /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/Settings.o36"6CF01331-BA2E-419D-89E3-E511832D4516-
+
+CCompileC DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/main.o /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s376429617.387536
+e376429617.425036
+r1
+xCompileC
+xDerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/main.o
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection91"Compile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/main.m4a966331dc6fb641^5bcf6c31dc6fb641^---0#0#0#-19%DVTDocumentLocation2@99"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/main.m0000000000000000^4490"CompileC DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/main.o scratchPicture/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -mios-simulator-version-min=6.0 -iquote /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-generated-files.hmap -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-own-target-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-project-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/DerivedSources/i386 -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/DerivedSources -F/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator -include /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/PrecompiledHeaders/scratchPicture-Prefix-dzmpceykjdysxvfcvlfxdpyeihkz/scratchPicture-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/main.d --serialize-diagnostics /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/main.dia -c /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/main.m -o /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/main.o36"AFDAA151-270A-4F4D-B48A-741C4F36DF82-
+
+CCompileC DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/menuViewController.o /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/menuViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s376429617.309911
+e376429617.386253
+r1
+xCompileC
+xDerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/menuViewController.o
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/menuViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection105"Compile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/menuViewController.m548c4f31dc6fb641^9ce16231dc6fb641^---0#0#0#-19%DVTDocumentLocation2@113"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/menuViewController.m0000000000000000^4574"CompileC DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/menuViewController.o scratchPicture/menuViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -mios-simulator-version-min=6.0 -iquote /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-generated-files.hmap -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-own-target-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-project-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/DerivedSources/i386 -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/DerivedSources -F/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator -include /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/PrecompiledHeaders/scratchPicture-Prefix-dzmpceykjdysxvfcvlfxdpyeihkz/scratchPicture-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/menuViewController.d --serialize-diagnostics /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/menuViewController.dia -c /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/menuViewController.m -o /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/menuViewController.o36"9F184C9C-2964-4F2B-800B-995EF43734C8-
+
+CCompileC DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/scratchPictureAppDelegate.o /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPictureAppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s376429617.309051
+e376429617.396871
+r1
+xCompileC
+xDerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/scratchPictureAppDelegate.o
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPictureAppDelegate.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection112"Compile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPictureAppDelegate.mee5d4f31dc6fb641^a1a36531dc6fb641^---0#0#0#-19%DVTDocumentLocation2@120"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPictureAppDelegate.m0000000000000000^4616"CompileC DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/scratchPictureAppDelegate.o scratchPicture/scratchPictureAppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -mios-simulator-version-min=6.0 -iquote /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-generated-files.hmap -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-own-target-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-project-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/DerivedSources/i386 -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/DerivedSources -F/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator -include /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/PrecompiledHeaders/scratchPicture-Prefix-dzmpceykjdysxvfcvlfxdpyeihkz/scratchPicture-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/scratchPictureAppDelegate.d --serialize-diagnostics /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/scratchPictureAppDelegate.dia -c /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPictureAppDelegate.m -o /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/scratchPictureAppDelegate.o36"D30ED613-7C76-461E-9A8E-086863D3B676-
+
+CCompileC DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/scratchPictureViewController.o /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPictureViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s376429617.398150
+e376429617.503074
+r1
+xCompileC
+xDerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/scratchPictureViewController.o
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPictureViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection115"Compile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPictureViewController.m350d6631dc6fb641^4fca8031dc6fb641^---0#0#0#-19%DVTDocumentLocation2@123"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPictureViewController.m0000000000000000^4634"CompileC DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/scratchPictureViewController.o scratchPicture/scratchPictureViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -mios-simulator-version-min=6.0 -iquote /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-generated-files.hmap -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-own-target-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-project-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/DerivedSources/i386 -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/DerivedSources -F/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator -include /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/PrecompiledHeaders/scratchPicture-Prefix-dzmpceykjdysxvfcvlfxdpyeihkz/scratchPicture-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/scratchPictureViewController.d --serialize-diagnostics /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/scratchPictureViewController.dia -c /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPictureViewController.m -o /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/scratchPictureViewController.o36"0FA0E067-F5C3-4FF3-A899-4F17123F24D2-
+
+CCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Base.lproj/MainStoryboard_iPad.storyboard
+s376429617.606298
+e376429618.550046
+r1
+xCompileStoryboard
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Base.lproj/MainStoryboard_iPad.storyboard
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection74"CompileStoryboard scratchPicture/Base.lproj/MainStoryboard_iPad.storyboard9d499b31dc6fb641^23dc8c32dc6fb641^---0#0#0#-19%DVTDocumentLocation2@134"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Base.lproj/MainStoryboard_iPad.storyboard0000000000000000^1091"CompileStoryboard scratchPicture/Base.lproj/MainStoryboard_iPad.storyboard    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 6.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Base.lproj/MainStoryboard_iPad.storyboardc /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Base.lproj/MainStoryboard_iPad.storyboard --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk36"5E518297-17E6-4F0A-93A3-D1170F7CA0A4-
+
+CCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Base.lproj/MainStoryboard_iPhone.storyboard
+s376429617.594363
+e376429618.851861
+r1
+xCompileStoryboard
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Base.lproj/MainStoryboard_iPhone.storyboard
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection76"CompileStoryboard scratchPicture/Base.lproj/MainStoryboard_iPhone.storyboard3b389831dc6fb641^0514da32dc6fb641^---0#0#0#-19%DVTDocumentLocation2@136"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Base.lproj/MainStoryboard_iPhone.storyboard0000000000000000^1097"CompileStoryboard scratchPicture/Base.lproj/MainStoryboard_iPhone.storyboard    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 6.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Base.lproj/MainStoryboard_iPhone.storyboardc /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Base.lproj/MainStoryboard_iPhone.storyboard --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk36"085E91C5-8AC9-4CD3-9E43-B2564F6C1CDC-
+
+CCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/en.lproj/InfoPlist.strings scratchPicture/en.lproj/InfoPlist.strings
+s376429617.585993
+e376429617.589053
+r1
+xCopyStringsFile
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/en.lproj/InfoPlist.strings
+xscratchPicture/en.lproj/InfoPlist.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection46"Copy scratchPicture/en.lproj/InfoPlist.strings6d1b9631dc6fb641^28d59631dc6fb641^---0#0#0#-19%DVTDocumentLocation2@119"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/en.lproj/InfoPlist.strings0000000000000000^721"CopyStringsFile DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/en.lproj/InfoPlist.strings scratchPicture/en.lproj/InfoPlist.strings    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/en.lproj -- scratchPicture/en.lproj/InfoPlist.strings36"186194FE-F0A0-4737-A72C-8DDE88875EA0-
+
+CCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/en.lproj/Localizable.strings scratchPicture/en.lproj/Localizable.strings
+s376429618.555494
+e376429618.558344
+r1
+xCopyStringsFile
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/en.lproj/Localizable.strings
+xscratchPicture/en.lproj/Localizable.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection48"Copy scratchPicture/en.lproj/Localizable.stringsed478e32dc6fb641^48f88e32dc6fb641^---0#0#0#-19%DVTDocumentLocation2@121"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/en.lproj/Localizable.strings0000000000000000^727"CopyStringsFile DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/en.lproj/Localizable.strings scratchPicture/en.lproj/Localizable.strings    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/en.lproj -- scratchPicture/en.lproj/Localizable.strings36"E27123E9-B0F6-4B39-B9E4-B71BE27ACD8E-
+
+CCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/en.lproj/MainStoryboard_iPhone.strings scratchPicture/en.lproj/MainStoryboard_iPhone.strings
+s376429617.602356
+e376429617.605038
+r1
+xCopyStringsFile
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/en.lproj/MainStoryboard_iPhone.strings
+xscratchPicture/en.lproj/MainStoryboard_iPhone.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection58"Copy scratchPicture/en.lproj/MainStoryboard_iPhone.stringsa6449a31dc6fb641^b4e39a31dc6fb641^---0#0#0#-19%DVTDocumentLocation2@131"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/en.lproj/MainStoryboard_iPhone.strings0000000000000000^757"CopyStringsFile DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/en.lproj/MainStoryboard_iPhone.strings scratchPicture/en.lproj/MainStoryboard_iPhone.strings    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/en.lproj -- scratchPicture/en.lproj/MainStoryboard_iPhone.strings36"E1BDF544-F6B0-41F6-BFF8-3B3D746079F3-
+
+CCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/InfoPlist.strings scratchPicture/sv.lproj/InfoPlist.strings
+s376429617.586166
+e376429617.590612
+r1
+xCopyStringsFile
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/InfoPlist.strings
+xscratchPicture/sv.lproj/InfoPlist.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection46"Copy scratchPicture/sv.lproj/InfoPlist.stringsda1d9631dc6fb641^e7389731dc6fb641^---0#0#0#-19%DVTDocumentLocation2@119"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/sv.lproj/InfoPlist.strings0000000000000000^721"CopyStringsFile DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/InfoPlist.strings scratchPicture/sv.lproj/InfoPlist.strings    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj -- scratchPicture/sv.lproj/InfoPlist.strings36"596ED8C8-A8D8-4BF3-AFCC-885B11AB47AD-
+
+CCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/Localizable.strings scratchPicture/sv.lproj/Localizable.strings
+s376429618.559590
+e376429618.563419
+r1
+xCopyStringsFile
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/Localizable.strings
+xscratchPicture/sv.lproj/Localizable.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection48"Copy scratchPicture/sv.lproj/Localizable.strings7e548f32dc6fb641^bf449032dc6fb641^---0#0#0#-19%DVTDocumentLocation2@121"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/sv.lproj/Localizable.strings0000000000000000^727"CopyStringsFile DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/Localizable.strings scratchPicture/sv.lproj/Localizable.strings    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj -- scratchPicture/sv.lproj/Localizable.strings36"4B888816-8FEF-4044-BAB5-4383C3CC7B47-
+
+CCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/MainStoryboard_iPad.strings scratchPicture/sv.lproj/MainStoryboard_iPad.strings
+s376429618.551293
+e376429618.554262
+r1
+xCopyStringsFile
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/MainStoryboard_iPad.strings
+xscratchPicture/sv.lproj/MainStoryboard_iPad.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection56"Copy scratchPicture/sv.lproj/MainStoryboard_iPad.strings6a348d32dc6fb641^28f18d32dc6fb641^---0#0#0#-19%DVTDocumentLocation2@129"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/sv.lproj/MainStoryboard_iPad.strings0000000000000000^751"CopyStringsFile DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/MainStoryboard_iPad.strings scratchPicture/sv.lproj/MainStoryboard_iPad.strings    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj -- scratchPicture/sv.lproj/MainStoryboard_iPad.strings36"BFF8F756-FA3F-4806-A8D2-1A534B689F43-
+
+CCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/MainStoryboard_iPhone.strings scratchPicture/sv.lproj/MainStoryboard_iPhone.strings
+s376429617.598339
+e376429617.601138
+r1
+xCopyStringsFile
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/MainStoryboard_iPhone.strings
+xscratchPicture/sv.lproj/MainStoryboard_iPhone.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection58"Copy scratchPicture/sv.lproj/MainStoryboard_iPhone.strings813e9931dc6fb641^31eb9931dc6fb641^---0#0#0#-19%DVTDocumentLocation2@131"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/sv.lproj/MainStoryboard_iPhone.strings0000000000000000^757"CopyStringsFile DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj/MainStoryboard_iPhone.strings scratchPicture/sv.lproj/MainStoryboard_iPhone.strings    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/sv.lproj -- scratchPicture/sv.lproj/MainStoryboard_iPhone.strings36"F1AC508A-4ABE-406A-B56F-524D204BEC4A-
+
+CCpResource scratchPicture/Default-568h@2x.png DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default-568h@2x.png
+s376429617.594000
+e376429617.597220
+r1
+xCpResource
+xscratchPicture/Default-568h@2x.png
+xDerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default-568h@2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection107"Copy DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default-568h@2x.png751f9831dc6fb641^bde39831dc6fb641^---0#0#0#-19%DVTDocumentLocation2@180"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default-568h@2x.png000000000080d041^773"CpResource "scratchPicture/Default-568h@2x.png" "DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default-568h@2x.png"    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Default-568h@2x.png" /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app36"F6690102-D49C-444A-B141-46D5409520D8-
+
+CCpResource scratchPicture/Default.png DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default.png
+s376429617.590272
+e376429617.592901
+r1
+xCpResource
+xscratchPicture/Default.png
+xDerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection99"Copy DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default.png54379731dc6fb641^bccd9731dc6fb641^---0#0#0#-19%DVTDocumentLocation2@172"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default.png000000000080d041^743"CpResource scratchPicture/Default.png DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default.png    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Default.png /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app36"104DECB9-E0AB-4148-B2B4-BB90185BF555-
+
+CCpResource scratchPicture/Default@2x.png DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default@2x.png
+s376429617.591743
+e376429617.593797
+r1
+xCpResource
+xscratchPicture/Default@2x.png
+xDerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default@2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection102"Copy DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default@2x.pnge38a9731dc6fb641^68039831dc6fb641^---0#0#0#-19%DVTDocumentLocation2@175"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default@2x.png000000000080d041^758"CpResource "scratchPicture/Default@2x.png" "DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Default@2x.png"    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/Default@2x.png" /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app36"5B5E4609-3A09-4BDB-90E7-7EC35CD7138E-
+
+CGenerateDSYMFile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app.dSYM /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/scratchPicture
+s376429617.551866
+e376429617.577857
+r1
+xGenerateDSYMFile
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app.dSYM
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/scratchPicture
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection160"Generating /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app.dSYM465b8d31dc6fb641^17ef9331dc6fb641^---0#0#0#-19%DVTDocumentLocation2@165"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app.dSYM000000000080d041^880"GenerateDSYMFile DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app.dSYM DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/scratchPicture    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/scratchPicture -o /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app.dSYM36"2A6D94AD-A12F-4C9B-AEA0-47D03E1D9ADD-
+
+CLd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/scratchPicture normal i386
+s376429617.509862
+e376429617.545393
+r1
+xLd
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/scratchPicture
+xnormal
+xi386
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection164"Link /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/scratchPicturee09f8231dc6fb641^999f8b31dc6fb641^---0#0#0#--1496"Ld DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/scratchPicture normal i386    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv IPHONEOS_DEPLOYMENT_TARGET 6.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk -L/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator -F/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator -filelist /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/Objects-normal/i386/scratchPicture.LinkFileList -Xlinker -objc_abi_version -Xlinker 2 -fobjc-arc -fobjc-link-runtime -Xlinker -no_implicit_dylibs -mios-simulator-version-min=6.0 -framework UIKit -framework Foundation -framework CoreGraphics -o /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/scratchPicture36"ADC32CCB-744C-4D53-9B65-0D8726D82ACC-
+
+CProcessInfoPlistFile /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Info.plist scratchPicture/scratchPicture-Info.plist
+s376429616.865380
+e376429616.873515
+r1
+xProcessInfoPlistFile
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Info.plist
+xscratchPicture/scratchPicture-Info.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection48"Process scratchPicture/scratchPicture-Info.plist959add30dc6fb641^43abdf30dc6fb641^---0#0#0#-19%DVTDocumentLocation2@118"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPicture-Info.plist0000000000000000^876"ProcessInfoPlistFile DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Info.plist scratchPicture/scratchPicture-Info.plist    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility scratchPicture/scratchPicture-Info.plist -genpkginfo /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app/Info.plist36"F7080A82-41E2-4321-9CC8-420448825BC8-
+
+CProcessPCH /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/PrecompiledHeaders/scratchPicture-Prefix-dzmpceykjdysxvfcvlfxdpyeihkz/scratchPicture-Prefix.pch.pth scratchPicture/scratchPicture-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s376429616.902858
+e376429617.302141
+r1
+xProcessPCH
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/PrecompiledHeaders/scratchPicture-Prefix-dzmpceykjdysxvfcvlfxdpyeihkz/scratchPicture-Prefix.pch.pth
+xscratchPicture/scratchPicture-Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection51"Precompile scratchPicture/scratchPicture-Prefix.pch5a45e730dc6fb641^1d594d31dc6fb641^---0#0#0#-19%DVTDocumentLocation2@118"file://localhost/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPicture-Prefix.pch0000000000000000^4355"ProcessPCH DerivedData/scratchPicture/Build/Intermediates/PrecompiledHeaders/scratchPicture-Prefix-dzmpceykjdysxvfcvlfxdpyeihkz/scratchPicture-Prefix.pch.pth scratchPicture/scratchPicture-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch i386 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -mios-simulator-version-min=6.0 -iquote /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-generated-files.hmap -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-own-target-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/scratchPicture-project-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/DerivedSources/i386 -I/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/scratchPicture.build/Debug-iphonesimulator/scratchPicture.build/DerivedSources -F/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator --serialize-diagnostics /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/PrecompiledHeaders/scratchPicture-Prefix-dzmpceykjdysxvfcvlfxdpyeihkz/scratchPicture-Prefix.pch.dia -c /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/scratchPicture/scratchPicture-Prefix.pch -o /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/PrecompiledHeaders/scratchPicture-Prefix-dzmpceykjdysxvfcvlfxdpyeihkz/scratchPicture-Prefix.pch.pth -MMD -MT dependencies -MF /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Intermediates/PrecompiledHeaders/scratchPicture-Prefix-dzmpceykjdysxvfcvlfxdpyeihkz/scratchPicture-Prefix.pch.d36"FC53DF2D-E335-44A5-9901-1C0F8376C670-
+
+CProcessPCH /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Index/PrecompiledHeaders/scratchPicture-Prefix-fzemfedczwukzlbcfocqlotrdzyj_ast/scratchPicture-Prefix.pch.pth scratchPicture/scratchPicture-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CTouch /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app
+s376429618.860143
+e376429618.868048
+r1
+xTouch
+x/Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection150"Touch /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.appaa45dc32dc6fb641^bf46de32dc6fb641^---0#0#0#--520"Touch DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app    cd /Users/niklasnordin/Documents/xcode-github.git/scratchPicture    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/niklasnordin/Documents/xcode-github.git/scratchPicture/DerivedData/scratchPicture/Build/Products/Debug-iphonesimulator/scratchPicture.app36"68FC175B-ACD3-4E16-A886-5D2C47A67012-
+
