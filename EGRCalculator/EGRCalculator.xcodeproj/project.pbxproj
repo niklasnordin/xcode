@@ -28,6 +28,9 @@
 		61938F5D148AD42F00F40395 /* H2O.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61938F5C148AD42F00F40395 /* H2O.jpg */; };
 		61938F63148B547500F40395 /* CO2.png in Resources */ = {isa = PBXBuildFile; fileRef = 61938F62148B547500F40395 /* CO2.png */; };
 		61ACA7A517E0AC6D00BD49E6 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61ACA7A417E0AC6D00BD49E6 /* iAd.framework */; };
+		61ACA7A717E0B1FD00BD49E6 /* ReactionText.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ACA7A617E0B1FD00BD49E6 /* ReactionText.png */; };
+		61ACA7A917E0B42E00BD49E6 /* ReactionText.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61ACA7A817E0B42E00BD49E6 /* ReactionText.jpg */; };
+		61ACA7AF17E0B95700BD49E6 /* lambda.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ACA7AE17E0B95700BD49E6 /* lambda.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +64,9 @@
 		61938F5C148AD42F00F40395 /* H2O.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = H2O.jpg; sourceTree = "<group>"; };
 		61938F62148B547500F40395 /* CO2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CO2.png; sourceTree = "<group>"; };
 		61ACA7A417E0AC6D00BD49E6 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		61ACA7A617E0B1FD00BD49E6 /* ReactionText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ReactionText.png; sourceTree = "<group>"; };
+		61ACA7A817E0B42E00BD49E6 /* ReactionText.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ReactionText.jpg; sourceTree = "<group>"; };
+		61ACA7AE17E0B95700BD49E6 /* lambda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lambda.png; sourceTree = "<group>"; };
 		61E91282148BD9AB0098F7E5 /* EGRCalculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = EGRCalculator.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,10 +136,13 @@
 		61938F1A148A03EB00F40395 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				61ACA7A617E0B1FD00BD49E6 /* ReactionText.png */,
+				61ACA7A817E0B42E00BD49E6 /* ReactionText.jpg */,
 				614779E114FA28AC005CA4E5 /* Icon.png */,
 				614779E314FA28B3005CA4E5 /* Icon@2x.png */,
 				61833981148BB9EC00B78EE3 /* Default@2x.png */,
 				61938F52148AD12D00F40395 /* lambda.jpg */,
+				61ACA7AE17E0B95700BD49E6 /* lambda.png */,
 				61938F5C148AD42F00F40395 /* H2O.jpg */,
 				61938F62148B547500F40395 /* CO2.png */,
 				61938F5A148AD42900F40395 /* O2.jpg */,
@@ -205,7 +214,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				61938F1E148A03EB00F40395 /* InfoPlist.strings in Resources */,
+				61ACA7A717E0B1FD00BD49E6 /* ReactionText.png in Resources */,
 				61938F27148A03EB00F40395 /* MainStoryboard.storyboard in Resources */,
+				61ACA7A917E0B42E00BD49E6 /* ReactionText.jpg in Resources */,
+				61ACA7AF17E0B95700BD49E6 /* lambda.png in Resources */,
 				61938F35148A15DD00F40395 /* EGRCalculatorText.jpg in Resources */,
 				61938F53148AD12E00F40395 /* lambda.jpg in Resources */,
 				61938F57148AD41700F40395 /* CO2.jpg in Resources */,
