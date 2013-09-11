@@ -208,7 +208,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Phc-G5-iDj">
-                                <rect key="frame" x="45" y="232" width="80" height="30"/>
+                                <rect key="frame" x="45" y="231.99999999999997" width="80" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
@@ -226,7 +226,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="mole" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="b06-ey-bvO">
-                                <rect key="frame" x="133" y="231" width="44" height="31"/>
+                                <rect key="frame" x="133" y="230.99999999999997" width="44" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -551,39 +551,39 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="CO2.png" translatesAutoresizingMaskIntoConstraints="NO" id="li2-pw-f6C">
-                                <rect key="frame" x="53" y="280" width="39" height="39"/>
+                                <rect key="frame" x="52" y="280" width="39" height="39"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="CO2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Y6e-nZ-AYp">
-                                <rect key="frame" x="53" y="121" width="39" height="39"/>
+                                <rect key="frame" x="52" y="121" width="39" height="39"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="O2.png" translatesAutoresizingMaskIntoConstraints="NO" id="xZa-oN-tuH">
-                                <rect key="frame" x="55" y="179" width="39" height="39"/>
+                                <rect key="frame" x="54" y="179" width="39" height="39"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="O2.png" translatesAutoresizingMaskIntoConstraints="NO" id="ieA-oK-vTs">
-                                <rect key="frame" x="55" y="338" width="39" height="39"/>
+                                <rect key="frame" x="54" y="338" width="39" height="39"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="lambda.png" translatesAutoresizingMaskIntoConstraints="NO" id="PfD-1V-B9Q">
-                                <rect key="frame" x="55" y="396" width="39" height="39"/>
+                                <rect key="frame" x="54" y="396" width="39" height="39"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="N2.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Bv-tF-tqd">
-                                <rect key="frame" x="55" y="367" width="39" height="39"/>
+                                <rect key="frame" x="54" y="367" width="39" height="39"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="N2.png" translatesAutoresizingMaskIntoConstraints="NO" id="cNM-dc-XsK">
-                                <rect key="frame" x="55" y="208" width="39" height="39"/>
+                                <rect key="frame" x="54" y="208" width="39" height="39"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="H2O.png" translatesAutoresizingMaskIntoConstraints="NO" id="pfZ-Je-ava">
-                                <rect key="frame" x="53" y="150" width="39" height="39"/>
+                                <rect key="frame" x="52" y="150" width="39" height="39"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="H2O.png" translatesAutoresizingMaskIntoConstraints="NO" id="kCF-Di-T0Q">
-                                <rect key="frame" x="53" y="309" width="39" height="39"/>
+                                <rect key="frame" x="52" y="309" width="39" height="39"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                         </subviews>
