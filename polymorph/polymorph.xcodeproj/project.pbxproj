@@ -774,6 +774,15 @@
 				CLASSPREFIX = polymorph;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = nequam;
+				TargetAttributes = {
+					6164628515B7F705006B703D = {
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = 6164628015B7F705006B703D /* Build configuration list for PBXProject "polymorph" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1045,7 +1054,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_ENTITLEMENTS = myPlot.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Niklas Nordin (9646L7PG8M)";
 				COMPRESS_PNG_FILES = YES;
 				CURRENT_PROJECT_VERSION = 1.0;
@@ -1063,7 +1071,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_ENTITLEMENTS = myPlot.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Niklas Nordin (9646L7PG8M)";
 				COMPRESS_PNG_FILES = YES;
 				CURRENT_PROJECT_VERSION = 1.0;

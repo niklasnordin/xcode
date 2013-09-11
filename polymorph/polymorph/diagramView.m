@@ -442,7 +442,6 @@ static NSUInteger nx = 640;//640;
         }
         
         float xi = xMin + i*dx/(nx-1);
-        self.xValues[i] = xi;
         
         float yi;
         if (self.xIsT)
@@ -453,8 +452,11 @@ static NSUInteger nx = 640;//640;
         {
             yi = [self.function valueForT:self.cpv andP:xi];
         }
-        self.yValues[i] = yi;
-        //[self performSelectorOnMainThread:<#(SEL)#> withObject:<#(id)#> waitUntilDone:<#(BOOL)#>
+        if (!isnan(yi))
+        {
+            self.xValues[i] = xi;
+            self.yValues[i] = yi;
+        }
         [self setNeedsDisplay];
     }
     
