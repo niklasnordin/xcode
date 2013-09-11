@@ -107,14 +107,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" misplaced="YES" text="n" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="ur7-iA-hXZ">
-                                <rect key="frame" x="45" y="164" width="20" height="31"/>
+                                <rect key="frame" x="14" y="193" width="20" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="13" borderStyle="roundedRect" placeholder="n" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Cwj-3i-eyJ">
-                                <rect key="frame" x="20" y="194" width="70" height="30"/>
+                                <rect key="frame" x="32" y="194" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
@@ -123,14 +123,14 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" misplaced="YES" text="m" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="gav-3H-Iox">
-                                <rect key="frame" x="148" y="164" width="25" height="31"/>
+                                <rect key="frame" x="124" y="192" width="25" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="23" borderStyle="roundedRect" placeholder="m" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CUv-Z0-EpX">
-                                <rect key="frame" x="125" y="194" width="70" height="30"/>
+                                <rect key="frame" x="148" y="194" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
@@ -139,7 +139,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" misplaced="YES" text="r" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="sXz-cE-2uJ">
-                                <rect key="frame" x="257" y="164" width="17" height="31"/>
+                                <rect key="frame" x="239" y="193" width="17" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="17" id="DPx-Lz-pnM"/>
@@ -149,7 +149,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" placeholder="r" minimumFontSize="11" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qbu-m7-0nb">
-                                <rect key="frame" x="230" y="194" width="70" height="30"/>
+                                <rect key="frame" x="249" y="194" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
@@ -233,18 +233,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" placeholderIntrinsicWidth="48" placeholderIntrinsicHeight="31" image="O2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ei1-Pe-Z9J">
-                                <rect key="frame" x="0.0" y="231" width="48" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="D36-08-xjy"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" placeholderIntrinsicWidth="48" placeholderIntrinsicHeight="31" image="N2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pAn-GZ-qw7">
-                                <rect key="frame" x="0.0" y="268" width="48" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Air composition" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZIy-ml-NAd">
                                 <rect key="frame" x="-319" y="622" width="0.0" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -268,6 +256,14 @@
                                 <rect key="frame" x="9" y="121" width="39" height="39"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="N2.png" translatesAutoresizingMaskIntoConstraints="NO" id="8pJ-bP-6Rj">
+                                <rect key="frame" x="5" y="264" width="39" height="39"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="O2.png" translatesAutoresizingMaskIntoConstraints="NO" id="rfB-k0-Qbo">
+                                <rect key="frame" x="1" y="227" width="39" height="39"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.95000000000000007" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -275,7 +271,6 @@
                             <constraint firstItem="7IM-AN-O4J" firstAttribute="baseline" secondItem="C5h-yi-yfa" secondAttribute="baseline" id="0MA-z3-J9L"/>
                             <constraint firstItem="qbu-m7-0nb" firstAttribute="centerX" secondItem="sXz-cE-2uJ" secondAttribute="centerX" id="1cZ-Tl-giz"/>
                             <constraint firstItem="CUv-Z0-EpX" firstAttribute="centerX" secondItem="gav-3H-Iox" secondAttribute="centerX" id="1ma-T4-qdH"/>
-                            <constraint firstItem="q7s-1c-dop" firstAttribute="top" secondItem="pAn-GZ-qw7" secondAttribute="top" id="2Mq-eV-um0"/>
                             <constraint firstItem="qbu-m7-0nb" firstAttribute="leading" secondItem="CUv-Z0-EpX" secondAttribute="trailing" constant="35" id="40R-L9-Zn0"/>
                             <constraint firstItem="Phc-G5-iDj" firstAttribute="top" secondItem="Cwj-3i-eyJ" secondAttribute="bottom" constant="8" symbolic="YES" id="4Fn-H2-vRv"/>
                             <constraint firstItem="Fci-8E-pKj" firstAttribute="leading" secondItem="Cwj-3i-eyJ" secondAttribute="leading" id="5H9-55-ctq"/>
@@ -295,26 +290,19 @@
                             <constraint firstItem="7IM-AN-O4J" firstAttribute="bottom" secondItem="InI-xA-8P1" secondAttribute="bottom" id="GNa-JB-QMM"/>
                             <constraint firstItem="eHa-QV-vbn" firstAttribute="top" secondItem="Fci-8E-pKj" secondAttribute="bottom" constant="23" id="LJH-ZP-Sm0"/>
                             <constraint firstItem="Phc-G5-iDj" firstAttribute="trailing" secondItem="gSQ-Ww-7Mx" secondAttribute="trailing" id="Qtb-7g-Yxw"/>
-                            <constraint firstItem="pAn-GZ-qw7" firstAttribute="top" secondItem="ei1-Pe-Z9J" secondAttribute="bottom" constant="6" id="Tus-Rk-IVf"/>
                             <constraint firstItem="b06-ey-bvO" firstAttribute="leading" secondItem="Phc-G5-iDj" secondAttribute="trailing" constant="10" id="UQ5-r7-vaF"/>
                             <constraint firstItem="gav-3H-Iox" firstAttribute="top" secondItem="aSv-R9-uHn" secondAttribute="bottom" constant="8" symbolic="YES" id="US8-8p-vdI"/>
                             <constraint firstItem="ur7-iA-hXZ" firstAttribute="top" secondItem="C5h-yi-yfa" secondAttribute="bottom" constant="8" symbolic="YES" id="Wy3-Nd-nvy"/>
                             <constraint firstItem="gav-3H-Iox" firstAttribute="leading" secondItem="ur7-iA-hXZ" secondAttribute="trailing" constant="83" id="YN4-ri-SIq"/>
                             <constraint firstItem="Cwj-3i-eyJ" firstAttribute="baseline" secondItem="CUv-Z0-EpX" secondAttribute="baseline" id="Zn7-tf-Aip"/>
                             <constraint firstItem="ZIy-ml-NAd" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="-319" id="aFz-OY-shM"/>
-                            <constraint firstItem="pAn-GZ-qw7" firstAttribute="bottom" secondItem="gSQ-Ww-7Mx" secondAttribute="bottom" id="bZT-Yg-jTY"/>
                             <constraint firstItem="aSv-R9-uHn" firstAttribute="top" secondItem="InI-xA-8P1" secondAttribute="top" id="baw-NM-gwb"/>
-                            <constraint firstItem="ei1-Pe-Z9J" firstAttribute="top" secondItem="Cwj-3i-eyJ" secondAttribute="bottom" constant="7" id="d4N-WU-8A9"/>
                             <constraint firstItem="q7s-1c-dop" firstAttribute="leading" secondItem="b06-ey-bvO" secondAttribute="leading" id="dOS-s1-VjE"/>
                             <constraint firstItem="aSv-R9-uHn" firstAttribute="leading" secondItem="C5h-yi-yfa" secondAttribute="trailing" constant="26" id="fW6-vY-OZv"/>
                             <constraint firstItem="q7s-1c-dop" firstAttribute="trailing" secondItem="b06-ey-bvO" secondAttribute="trailing" id="iol-iY-w0j"/>
                             <constraint firstItem="b06-ey-bvO" firstAttribute="centerX" secondItem="CUv-Z0-EpX" secondAttribute="centerX" id="lZF-IO-Hm6"/>
-                            <constraint firstItem="pAn-GZ-qw7" firstAttribute="leading" secondItem="ei1-Pe-Z9J" secondAttribute="leading" id="nFJ-Gm-X4s"/>
-                            <constraint firstItem="Phc-G5-iDj" firstAttribute="leading" secondItem="ei1-Pe-Z9J" secondAttribute="trailing" id="qVa-ad-Ygd"/>
-                            <constraint firstItem="ei1-Pe-Z9J" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="rMk-od-qCb"/>
                             <constraint firstItem="sXz-cE-2uJ" firstAttribute="baseline" secondItem="gav-3H-Iox" secondAttribute="baseline" id="sL6-j3-mqC"/>
                             <constraint firstItem="InI-xA-8P1" firstAttribute="leading" secondItem="7IM-AN-O4J" secondAttribute="trailing" constant="8" symbolic="YES" id="sgE-ce-6qc"/>
-                            <constraint firstItem="b06-ey-bvO" firstAttribute="top" secondItem="ei1-Pe-Z9J" secondAttribute="top" id="vCS-oO-gF0"/>
                             <constraint firstItem="CUv-Z0-EpX" firstAttribute="baseline" secondItem="qbu-m7-0nb" secondAttribute="baseline" id="vzw-UZ-CCw"/>
                             <constraint firstItem="ur7-iA-hXZ" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="45" id="wlk-GF-8JY"/>
                             <constraint firstItem="sXz-cE-2uJ" firstAttribute="top" secondItem="gav-3H-Iox" secondAttribute="top" id="xzB-Jp-qvy"/>
@@ -446,7 +434,6 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="(in cylinder)" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4ao-vy-37K">
                                 <rect key="frame" x="93" y="405" width="98" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -539,41 +526,41 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="O2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="I7F-xU-Na6">
-                                <rect key="frame" x="44" y="342" width="48" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="CO2.png" translatesAutoresizingMaskIntoConstraints="NO" id="li2-pw-f6C">
+                                <rect key="frame" x="53" y="280" width="39" height="39"/>
+                                <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="N2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Zry-fW-0sm">
-                                <rect key="frame" x="44" y="371" width="48" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="CO2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Y6e-nZ-AYp">
+                                <rect key="frame" x="53" y="121" width="39" height="39"/>
+                                <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="O2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="NAA-y1-VvX">
-                                <rect key="frame" x="44" y="183" width="48" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="O2.png" translatesAutoresizingMaskIntoConstraints="NO" id="xZa-oN-tuH">
+                                <rect key="frame" x="55" y="179" width="39" height="39"/>
+                                <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="H2O.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="YSs-z8-YvG">
-                                <rect key="frame" x="31" y="154" width="48" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="O2.png" translatesAutoresizingMaskIntoConstraints="NO" id="ieA-oK-vTs">
+                                <rect key="frame" x="55" y="338" width="39" height="39"/>
+                                <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="CO2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="3sN-ek-IXn">
-                                <rect key="frame" x="31" y="125" width="48" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="lambda.png" translatesAutoresizingMaskIntoConstraints="NO" id="PfD-1V-B9Q">
+                                <rect key="frame" x="55" y="396" width="39" height="39"/>
+                                <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="N2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="D8Q-KX-jVu">
-                                <rect key="frame" x="44" y="212" width="48" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="N2.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Bv-tF-tqd">
+                                <rect key="frame" x="55" y="367" width="39" height="39"/>
+                                <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="H2O.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pTh-fJ-Lb5">
-                                <rect key="frame" x="31" y="313" width="48" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="N2.png" translatesAutoresizingMaskIntoConstraints="NO" id="cNM-dc-XsK">
+                                <rect key="frame" x="55" y="208" width="39" height="39"/>
+                                <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="CO2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="k2K-WZ-bRy">
-                                <rect key="frame" x="31" y="284" width="48" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="H2O.png" translatesAutoresizingMaskIntoConstraints="NO" id="pfZ-Je-ava">
+                                <rect key="frame" x="53" y="150" width="39" height="39"/>
+                                <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="lambda.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="cvl-RE-ke7">
-                                <rect key="frame" x="52" y="401" width="42" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="H2O.png" translatesAutoresizingMaskIntoConstraints="NO" id="kCF-Di-T0Q">
+                                <rect key="frame" x="53" y="309" width="39" height="39"/>
+                                <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.95000000000000007" alpha="1" colorSpace="calibratedWhite"/>
@@ -623,18 +610,18 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CO2.jpg" width="42" height="31"/>
-        <image name="CO2.jpg" width="42" height="31"/>
-        <image name="H2O.jpg" width="42" height="31"/>
-        <image name="H2O.jpg" width="42" height="31"/>
-        <image name="N2.jpg" width="42" height="31"/>
-        <image name="N2.jpg" width="42" height="31"/>
-        <image name="N2.jpg" width="42" height="31"/>
-        <image name="O2.jpg" width="42" height="31"/>
-        <image name="O2.jpg" width="42" height="31"/>
-        <image name="O2.jpg" width="42" height="31"/>
+        <image name="CO2.png" width="39" height="39"/>
+        <image name="CO2.png" width="39" height="39"/>
+        <image name="H2O.png" width="39" height="39"/>
+        <image name="H2O.png" width="39" height="39"/>
+        <image name="N2.png" width="39" height="39"/>
+        <image name="N2.png" width="39" height="39"/>
+        <image name="N2.png" width="39" height="39"/>
+        <image name="O2.png" width="39" height="39"/>
+        <image name="O2.png" width="39" height="39"/>
+        <image name="O2.png" width="39" height="39"/>
         <image name="ReactionText.png" width="320" height="54"/>
-        <image name="lambda.jpg" width="42" height="31"/>
+        <image name="lambda.png" width="39" height="39"/>
         <image name="lambda.png" width="39" height="39"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

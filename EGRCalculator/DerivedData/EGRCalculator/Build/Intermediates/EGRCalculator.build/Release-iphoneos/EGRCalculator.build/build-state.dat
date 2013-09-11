@@ -16,17 +16,20 @@ cGenerateDSYMFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/D
 cCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/en.lproj/InfoPlist.strings EGRCalculator/en.lproj/InfoPlist.strings
 cCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/ReactionText.png EGRCalculator/ReactionText.png
 cCpResource EGRCalculator/ReactionText.jpg DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/ReactionText.jpg
+cCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/CO2.png EGRCalculator/CO2.png
+cCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard
+cCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/lambda.png EGRCalculator/lambda.png
+cCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/N2.png EGRCalculator/N2.png
 cCpResource EGRCalculatorText.jpg DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/EGRCalculatorText.jpg
 cCpResource lambda.jpg DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/lambda.jpg
 cCpResource EGRCalculator/CO2.jpg DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/CO2.jpg
+cCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/H2O.png EGRCalculator/H2O.png
 cCpResource EGRCalculator/N2.jpg DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/N2.jpg
 cCpResource EGRCalculator/O2.jpg DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/O2.jpg
 cCpResource EGRCalculator/H2O.jpg DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/H2O.jpg
-cCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/CO2.png EGRCalculator/CO2.png
 cCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/Icon.png Icon.png
-cCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard
 cCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/Icon@2x.png Icon@2x.png
-cCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/lambda.png EGRCalculator/lambda.png
+cCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/O2.png EGRCalculator/O2.png
 cProcessProductPackaging /Users/niklasnordin/Library/MobileDevice/Provisioning\ Profiles/1A45BD65-7D66-4AC7-92A4-D9DC0F4390EF.mobileprovision /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/embedded.mobileprovision
 cTouch /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app
 cProcessProductPackaging /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator.entitlements /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphoneos/EGRCalculator.build/EGRCalculator.xcent
@@ -519,11 +522,11 @@ t1378906029
 s5279868
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app
-t1378910701
-s714
+t1378912176
+s816
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app.dSYM
-t1378910450
+t1378911445
 s102
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/CO2.jpg
@@ -531,11 +534,11 @@ t1378908040
 s12534
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/CO2.png
-t1378908040
-s3346
+t1378912171
+s3172
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/EGRCalculator
-t1378910456
+t1378911452
 s113840
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/EGRCalculatorText.jpg
@@ -545,6 +548,10 @@ s28517
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/H2O.jpg
 t1378908040
 s12503
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/H2O.png
+t1378912171
+s3178
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/Icon.png
 t1378908040
@@ -562,9 +569,17 @@ N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCal
 t1378908040
 s12006
 
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/N2.png
+t1378912171
+s3058
+
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/O2.jpg
 t1378908040
 s11961
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/O2.png
+t1378912171
+s3087
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/PkgInfo
 t1378908040
@@ -591,7 +606,7 @@ t1378908040
 s42
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/en.lproj/MainStoryboard.storyboardc
-t1378910701
+t1378912176
 s374
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/lambda.jpg
@@ -608,9 +623,9 @@ t1330280026
 s12534
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/CO2.png
-c000000004F4A765A0000000000000D12
-t1330280026
-s3346
+c00000000523085CD0000000000000C64
+t1378911693
+s3172
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator-Info.plist
 c000000004F4A765A00000000000005CF
@@ -682,15 +697,30 @@ c000000004F4A765A00000000000030D7
 t1330280026
 s12503
 
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/H2O.png
+c00000000523087810000000000000C6A
+t1378912129
+s3178
+
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/N2.jpg
 c000000004F4A765A0000000000002EE6
 t1330280026
 s12006
 
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/N2.png
+c000000005230860C0000000000000BF2
+t1378911756
+s3058
+
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/O2.jpg
 c000000004F4A765A0000000000002EB9
 t1330280026
 s11961
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/O2.png
+c00000000523085F60000000000000C0F
+t1378911734
+s3087
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/ReactionText.jpg
 c0000000052307C9C0000000000005891
@@ -708,9 +738,9 @@ t1330280026
 s45
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard
-c00000000523081E70000000000010137
-t1378910695
-s65847
+c00000000523087AA000000000000FA31
+t1378912170
+s64049
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/lambda.png
 c00000000523081A80000000000000BC9
@@ -790,7 +820,7 @@ r0
 
 CCheck dependencies
 r0
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies6b658e67b9e0b741^bccd9b67b9e0b741^---0#1#1#--18"Check dependencies36"17A6CC7A-8AAD-4638-84E9-C1F612BB2EE0-
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies78d2122bbfe0b741^1bd5212bbfe0b741^---0#1#1#--18"Check dependencies36"CF8486DC-3ED0-44D5-8513-2B2B73F34054-
 
 CCodeSign /Users/niklasnordin/Documents/dropbox.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app
 s400591984.705522
@@ -803,14 +833,14 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection84"CodeSig
 bDF9E79BE-A5B9-41EE-AE08-DF34FCD08DC2
 
 CCodeSign /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app
-s400603501.199654
-e400603501.452242
+s400604976.809752
+e400604977.055657
 r1
 xCodeSign
 x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app
 o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app: replacing existing signature
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection84"CodeSign DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app84"CodeSign DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app323b336db9e0b741^1fda736db9e0b741^-167"/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app: replacing existing signature-0#0#1#-19%DVTDocumentLocation2@153"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/0000000000000000^1232"CodeSign DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv CODESIGN_ALLOCATE /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    Using code signing identity "iPhone Developer: Niklas Nordin (9646L7PG8M)" and provisioning profile "iOS Team Provisioning Profile: *" (1A45BD65-7D66-4AC7-92A4-D9DC0F4390EF)    codesign --force --sign 35D5751A2BA58184ABD50D6D889C06C7296507BA --resource-rules=/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/ResourceRules.plist --entitlements /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphoneos/EGRCalculator.build/EGRCalculator.xcent /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app36"3EFD7F09-C584-4735-8115-8876212A6C05-
-b1A3BE340-9DD6-45CB-94C1-15D847F7F683
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection84"CodeSign DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app84"CodeSign DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app8e73cf30bfe0b741^be840e31bfe0b741^-167"/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app: replacing existing signature-0#0#1#-19%DVTDocumentLocation2@153"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/0000000000000000^1232"CodeSign DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv CODESIGN_ALLOCATE /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    Using code signing identity "iPhone Developer: Niklas Nordin (9646L7PG8M)" and provisioning profile "iOS Team Provisioning Profile: *" (1A45BD65-7D66-4AC7-92A4-D9DC0F4390EF)    codesign --force --sign 35D5751A2BA58184ABD50D6D889C06C7296507BA --resource-rules=/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/ResourceRules.plist --entitlements /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphoneos/EGRCalculator.build/EGRCalculator.xcent /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app36"73F3D1C9-0784-4257-94C4-6775E8BCD944-
+bE8AEE74F-FF87-4EB2-874C-C851DAB77E25
 
 CCompileC DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphoneos/EGRCalculator.build/Objects-normal/armv7/EGRCalculator.o /Users/niklasnordin/Documents/dropbox.git/EGRCalculator/EGRCalculator/EGRCalculator.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 s400591361.232228
@@ -1020,26 +1050,28 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection66"Compile
 bDF9E79BE-A5B9-41EE-AE08-DF34FCD08DC2
 
 CCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard
-s400603495.664359
-e400603501.168685
+s400604971.182176
+e400604976.782119
 r1
 xCompileStoryboard
 x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard
 o/* com.apple.ibtool.document.warnings */
-o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:CUv-Z0-EpX: warning: Frame for "Round Style Text Field - 23" will be different at run time. [16]
-o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:sXz-cE-2uJ: warning: Frame for "Label - r" will be different at run time. [16]
-o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:ur7-iA-hXZ: warning: 16 views are vertically ambiguous. [17]
+o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:q7s-1c-dop: warning: 2 views are vertically ambiguous. [17]
+o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:q7s-1c-dop: warning: Frame for "Label - mole" will be different at run time. [16]
+o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:C5h-yi-yfa: warning: 2 views are vertically ambiguous. [17]
 o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:ur7-iA-hXZ: warning: Frame for "Label - n" will be different at run time. [16]
 o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:b06-ey-bvO: warning: Frame for "Label - mole" will be different at run time. [16]
-o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:Phc-G5-iDj: warning: Frame for "Round Style Text Field - 1" will be different at run time. [16]
 o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:Cwj-3i-eyJ: warning: Frame for "Round Style Text Field - 13" will be different at run time. [16]
-o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:Fci-8E-pKj: warning: Frame for "Button - Calculate" will be different at run time. [16]
+o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:Phc-G5-iDj: warning: Frame for "Round Style Text Field - 1" will be different at run time. [16]
+o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:sXz-cE-2uJ: warning: Frame for "Label - r" will be different at run time. [16]
+o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:CUv-Z0-EpX: warning: Frame for "Round Style Text Field - 23" will be different at run time. [16]
+o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:7IM-AN-O4J: warning: 11 views are vertically ambiguous. [17]
 o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:gav-3H-Iox: warning: Frame for "Label - m" will be different at run time. [16]
 o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:gSQ-Ww-7Mx: warning: Frame for "Round Style Text Field - 3.773" will be different at run time. [16]
+o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:Fci-8E-pKj: warning: Frame for "Button - Calculate" will be different at run time. [16]
 o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:qbu-m7-0nb: warning: Frame for "Round Style Text Field - 0" will be different at run time. [16]
-o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:q7s-1c-dop: warning: Frame for "Label - mole" will be different at run time. [16]
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection66"CompileStoryboard EGRCalculator/en.lproj/MainStoryboard.storyboard66"CompileStoryboard EGRCalculator/en.lproj/MainStoryboard.storyboard003caa67b9e0b741^342f2b6db9e0b741^-2337"/* com.apple.ibtool.document.warnings *//Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:CUv-Z0-EpX: warning: Frame for "Round Style Text Field - 23" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:sXz-cE-2uJ: warning: Frame for "Label - r" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:ur7-iA-hXZ: warning: 16 views are vertically ambiguous./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:ur7-iA-hXZ: warning: Frame for "Label - n" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:b06-ey-bvO: warning: Frame for "Label - mole" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:Phc-G5-iDj: warning: Frame for "Round Style Text Field - 1" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:Cwj-3i-eyJ: warning: Frame for "Round Style Text Field - 13" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:Fci-8E-pKj: warning: Frame for "Button - Calculate" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:gav-3H-Iox: warning: Frame for "Label - m" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:gSQ-Ww-7Mx: warning: Frame for "Round Style Text Field - 3.773" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:qbu-m7-0nb: warning: Frame for "Round Style Text Field - 0" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:q7s-1c-dop: warning: Frame for "Label - mole" will be different at run time.12(21%IDEActivityLogMessage2@70"Frame for "Round Style Text Field - 23" will be different at run time.-400603501#18446744073709551615#0#-1#-23%DVTTextDocumentLocation3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@52"Frame for "Label - r" will be different at run time.-400603501#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@34"16 views are vertically ambiguous.-400603501#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#16"Ambiguous Layout--2@52"Frame for "Label - n" will be different at run time.-400603501#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@55"Frame for "Label - mole" will be different at run time.-400603501#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@69"Frame for "Round Style Text Field - 1" will be different at run time.-400603501#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@70"Frame for "Round Style Text Field - 13" will be different at run time.-400603501#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@61"Frame for "Button - Calculate" will be different at run time.-400603501#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@52"Frame for "Label - m" will be different at run time.-400603501#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@73"Frame for "Round Style Text Field - 3.773" will be different at run time.-400603501#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@69"Frame for "Round Style Text Field - 0" will be different at run time.-400603501#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@55"Frame for "Label - mole" will be different at run time.-400603501#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--0#0#1#-19%DVTDocumentLocation4@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^916"CompileStoryboard EGRCalculator/en.lproj/MainStoryboard.storyboard    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 5.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --minimum-deployment-target 5.0 --output-format human-readable-text --compile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/en.lproj/MainStoryboard.storyboardc /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard36"D09E56BC-2A67-460A-82E7-DC127625BA77-
-b1A3BE340-9DD6-45CB-94C1-15D847F7F683
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection66"CompileStoryboard EGRCalculator/en.lproj/MainStoryboard.storyboard66"CompileStoryboard EGRCalculator/en.lproj/MainStoryboard.storyboard70b12e2bbfe0b741^1151c830bfe0b741^-2667"/* com.apple.ibtool.document.warnings *//Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:q7s-1c-dop: warning: 2 views are vertically ambiguous./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:q7s-1c-dop: warning: Frame for "Label - mole" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:C5h-yi-yfa: warning: 2 views are vertically ambiguous./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:ur7-iA-hXZ: warning: Frame for "Label - n" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:b06-ey-bvO: warning: Frame for "Label - mole" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:Cwj-3i-eyJ: warning: Frame for "Round Style Text Field - 13" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:Phc-G5-iDj: warning: Frame for "Round Style Text Field - 1" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:sXz-cE-2uJ: warning: Frame for "Label - r" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:CUv-Z0-EpX: warning: Frame for "Round Style Text Field - 23" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:7IM-AN-O4J: warning: 11 views are vertically ambiguous./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:gav-3H-Iox: warning: Frame for "Label - m" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:gSQ-Ww-7Mx: warning: Frame for "Round Style Text Field - 3.773" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:Fci-8E-pKj: warning: Frame for "Button - Calculate" will be different at run time./Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:qbu-m7-0nb: warning: Frame for "Round Style Text Field - 0" will be different at run time.14(21%IDEActivityLogMessage2@33"2 views are vertically ambiguous.-400604976#18446744073709551615#0#-1#-23%DVTTextDocumentLocation3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#16"Ambiguous Layout--2@55"Frame for "Label - mole" will be different at run time.-400604976#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@33"2 views are vertically ambiguous.-400604976#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#16"Ambiguous Layout--2@52"Frame for "Label - n" will be different at run time.-400604976#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@55"Frame for "Label - mole" will be different at run time.-400604976#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@70"Frame for "Round Style Text Field - 13" will be different at run time.-400604976#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@69"Frame for "Round Style Text Field - 1" will be different at run time.-400604976#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@52"Frame for "Label - r" will be different at run time.-400604976#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@70"Frame for "Round Style Text Field - 23" will be different at run time.-400604976#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@34"11 views are vertically ambiguous.-400604976#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^6#18446744073709551615#6#18446744073709551615#18446744073709551615#0#16"Ambiguous Layout--2@52"Frame for "Label - m" will be different at run time.-400604976#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@73"Frame for "Round Style Text Field - 3.773" will be different at run time.-400604976#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@61"Frame for "Button - Calculate" will be different at run time.-400604976#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--2@69"Frame for "Round Style Text Field - 0" will be different at run time.-400604976#18446744073709551615#0#-1#-3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--0#0#1#-19%DVTDocumentLocation4@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^916"CompileStoryboard EGRCalculator/en.lproj/MainStoryboard.storyboard    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 5.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --minimum-deployment-target 5.0 --output-format human-readable-text --compile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/en.lproj/MainStoryboard.storyboardc /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard36"573D4A5A-934D-4FF1-A205-1E5E8CEE4508-
+bE8AEE74F-FF87-4EB2-874C-C851DAB77E25
 
 CCopyPNGFile /Users/niklasnordin/Documents/dropbox.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/CO2.png EGRCalculator/CO2.png
 s400591361.543486
@@ -1072,14 +1104,24 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection111"CopyPN
 b42D4A92B-5C92-4AB8-AD23-3697BB95AD15
 
 CCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/CO2.png EGRCalculator/CO2.png
-s400600840.422823
-e400600840.536636
+s400604971.181671
+e400604971.215331
 r1
 xCopyPNGFile
 x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/CO2.png
 xEGRCalculator/CO2.png
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection117"CopyPNGFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/CO2.png EGRCalculator/CO2.png117"CopyPNGFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/CO2.png EGRCalculator/CO2.pnga8e06c08afe0b741^ff768908afe0b741^---0#0#1#-19%DVTDocumentLocation2@98"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/CO2.png0000000000000000^703"CopyPNGFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/CO2.png EGRCalculator/CO2.png    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/CO2.png /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/CO2.png36"40744B86-1250-4162-AECF-491E171C2E41-
-b8DD0C360-1B22-4FBB-8962-808590DE6647
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection117"CopyPNGFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/CO2.png EGRCalculator/CO2.png117"CopyPNGFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/CO2.png EGRCalculator/CO2.pngfb952e2bbfe0b741^9240372bbfe0b741^---0#0#1#-19%DVTDocumentLocation2@98"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/CO2.png0000000000000000^703"CopyPNGFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/CO2.png EGRCalculator/CO2.png    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/CO2.png /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/CO2.png36"7BD9E203-009B-4B20-8180-AC072846503D-
+bE8AEE74F-FF87-4EB2-874C-C851DAB77E25
+
+CCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/H2O.png EGRCalculator/H2O.png
+s400604971.252387
+e400604971.316511
+r1
+xCopyPNGFile
+x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/H2O.png
+xEGRCalculator/H2O.png
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection117"CopyPNGFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/H2O.png EGRCalculator/H2O.png117"CopyPNGFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/H2O.png EGRCalculator/H2O.png2daf402bbfe0b741^70975d2bbfe0b741^---0#0#1#-19%DVTDocumentLocation2@98"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/H2O.png0000000000000000^703"CopyPNGFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/H2O.png EGRCalculator/H2O.png    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/H2O.png /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/H2O.png36"EF3A16DE-D398-43E5-92F6-C9FA009B681D-
+bE8AEE74F-FF87-4EB2-874C-C851DAB77E25
 
 CCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/Icon.png Icon.png
 s400600840.539131
@@ -1100,6 +1142,26 @@ x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCal
 xIcon@2x.png
 lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection111"CopyPNGFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/Icon@2x.png Icon@2x.png111"CopyPNGFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/Icon@2x.png Icon@2x.pngb2da9008afe0b741^508d9708afe0b741^---0#0#1#-19%DVTDocumentLocation2@88"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/Icon@2x.png0000000000000000^691"CopyPNGFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/Icon@2x.png Icon@2x.png    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/Icon@2x.png /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/Icon@2x.png36"3E9999F5-CC6A-471A-BBA9-13DFC5F3A09B-
 b8DD0C360-1B22-4FBB-8962-808590DE6647
+
+CCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/N2.png EGRCalculator/N2.png
+s400604971.216589
+e400604971.251165
+r1
+xCopyPNGFile
+x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/N2.png
+xEGRCalculator/N2.png
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection115"CopyPNGFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/N2.png EGRCalculator/N2.png115"CopyPNGFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/N2.png EGRCalculator/N2.png8884372bbfe0b741^d07e402bbfe0b741^---0#0#1#-19%DVTDocumentLocation2@97"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/N2.png0000000000000000^699"CopyPNGFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/N2.png EGRCalculator/N2.png    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/N2.png /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/N2.png36"2CD26DAA-A6B5-47A7-ABA3-3463E31E4AF4-
+bE8AEE74F-FF87-4EB2-874C-C851DAB77E25
+
+CCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/O2.png EGRCalculator/O2.png
+s400604971.317733
+e400604971.373241
+r1
+xCopyPNGFile
+x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/O2.png
+xEGRCalculator/O2.png
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection115"CopyPNGFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/O2.png EGRCalculator/O2.png115"CopyPNGFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/O2.png EGRCalculator/O2.png096c522bbfe0b741^10945f2bbfe0b741^---0#0#1#-19%DVTDocumentLocation2@97"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/O2.png0000000000000000^699"CopyPNGFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/O2.png EGRCalculator/O2.png    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/copypng /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/O2.png /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/O2.png36"F437E338-546C-4789-BCB2-EEF2BE8C0CDA-
+bE8AEE74F-FF87-4EB2-874C-C851DAB77E25
 
 CCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/ReactionText.png EGRCalculator/ReactionText.png
 s400602375.380860
@@ -1232,14 +1294,14 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection145"Genera
 bDF9E79BE-A5B9-41EE-AE08-DF34FCD08DC2
 
 CGenerateDSYMFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app.dSYM /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/EGRCalculator
-s400603495.619532
-e400603495.656032
+s400604971.143368
+e400604971.173173
 r1
 xGenerateDSYMFile
 x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app.dSYM
 x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/EGRCalculator
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection150"Generate /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app.dSYM187"GenerateDSYMFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app.dSYM DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/EGRCalculator8eae9e67b9e0b741^f8f9a767b9e0b741^---0#0#1#-19%DVTDocumentLocation2@158"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app.dSYM/0000000000000000^840"GenerateDSYMFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app.dSYM DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/EGRCalculator    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/EGRCalculator -o /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app.dSYM36"F90FA35C-7B2F-4611-BF84-C63D8907152D-
-b1A3BE340-9DD6-45CB-94C1-15D847F7F683
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection150"Generate /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app.dSYM187"GenerateDSYMFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app.dSYM DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/EGRCalculator00c9242bbfe0b741^43552c2bbfe0b741^---0#0#1#-19%DVTDocumentLocation2@158"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app.dSYM/0000000000000000^840"GenerateDSYMFile DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app.dSYM DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/EGRCalculator    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/EGRCalculator -o /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app.dSYM36"F0F52DB2-A431-4345-8F66-A3F305112A9E-
+bE8AEE74F-FF87-4EB2-874C-C851DAB77E25
 
 CLd /Users/niklasnordin/Documents/dropbox.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app/EGRCalculator normal armv7
 s400591361.373577
@@ -1460,11 +1522,11 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection137"Touch 
 bDF9E79BE-A5B9-41EE-AE08-DF34FCD08DC2
 
 CTouch /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app
-s400603501.179416
-e400603501.189812
+s400604976.792712
+e400604976.800196
 r1
 xTouch
 x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection142"Touch /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app81"Touch DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app9e082e6db9e0b741^9697306db9e0b741^---0#0#1#--497"Touch DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app36"607B2483-404D-4B69-8FCE-C3EBEC8140A1-
-b1A3BE340-9DD6-45CB-94C1-15D847F7F683
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection142"Touch /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app81"Touch DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app8601cb30bfe0b741^05dbcc30bfe0b741^---0#0#1#--497"Touch DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphoneos/EGRCalculator.app36"AA9344B0-DD91-42C2-AB26-334F03139B25-
+bE8AEE74F-FF87-4EB2-874C-C851DAB77E25
 
