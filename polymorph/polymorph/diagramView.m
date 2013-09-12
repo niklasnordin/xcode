@@ -10,7 +10,7 @@
 #import "functions.h"
 
 static NSUInteger nx = 640;//640;
-#define LABELCOLOR [UIColor whiteColor]
+#define LABELCOLOR [UIColor blackColor]
 #define WARNINGCOLOR [UIColor redColor]
 
 @interface diagramView ()
@@ -124,10 +124,12 @@ static NSUInteger nx = 640;//640;
         _lowerRange = [lr floatValue];
         _upperRange = [ur floatValue];
     }
+
     [self calculateValues];
     //[self updateLabelTexts];
     [self fitToView:self];
     _initDraw = YES;
+
 }
 
 - (void)dealloc
@@ -321,7 +323,7 @@ static NSUInteger nx = 640;//640;
     
     UIGraphicsPushContext(context);
     CGContextBeginPath(context);
-    
+    CGContextSetRGBStrokeColor(context, 0.5, 0.5, 0.5, 0.5);
     // draw y-axis
     CGContextMoveToPoint(context, yAxisStart.x, yAxisStart.y);
     CGContextAddLineToPoint(context, yAxisEnd.x, yAxisEnd.y);
@@ -420,8 +422,7 @@ static NSUInteger nx = 640;//640;
      self.xMinLabel.text = [NSString stringWithFormat:@"%g", xMin];
      self.xMaxLabel.text = [NSString stringWithFormat:@"%g", xMax];
      
-     self.yMidLabel.text = [NSString stringWithFormat:@"%g, %.10e", xMid, yMid];
-
+     self.yMidLabel.text = [NSString stringWithFormat:@"%g, %.8e", xMid, yMid];
 }
 
 -(void) calculateValues
@@ -442,7 +443,6 @@ static NSUInteger nx = 640;//640;
         }
         
         float xi = xMin + i*dx/(nx-1);
-        self.xValues[i] = xi;
         
         float yi;
         if (self.xIsT)
@@ -453,8 +453,11 @@ static NSUInteger nx = 640;//640;
         {
             yi = [self.function valueForT:self.cpv andP:xi];
         }
-        self.yValues[i] = yi;
-        //[self performSelectorOnMainThread:<#(SEL)#> withObject:<#(id)#> waitUntilDone:<#(BOOL)#>
+        if (!isnan(yi))
+        {
+            self.xValues[i] = xi;
+            self.yValues[i] = yi;
+        }
         [self setNeedsDisplay];
     }
     
@@ -496,6 +499,8 @@ static NSUInteger nx = 640;//640;
     //CGContextBeginPath(context);
 
     [self drawCoordinateSystem:context];
+    
+    CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, 1.0);
 
     for (int i=1; i<nx; i++)
     {
@@ -511,7 +516,6 @@ static NSUInteger nx = 640;//640;
     }
     
     CGContextStrokePath(context);
-    
     
     CGPoint pos;
     pos.x = self.bounds.origin.x + 0.5*self.bounds.size.width;

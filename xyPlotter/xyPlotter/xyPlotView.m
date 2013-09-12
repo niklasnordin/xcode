@@ -19,6 +19,7 @@
 @property (nonatomic) float *yArray;
 @property (nonatomic) int backgroundCalculation;
 @property (nonatomic) int nCalculatedValues;
+@property (nonatomic) BOOL firstDraw;
 
 -(void)calculateValues;
 -(void)drawCoordinateSystem:(CGContextRef)context;
@@ -50,7 +51,8 @@
 
     _xArray = malloc(NX*sizeof(float));
     _yArray = malloc(NX*sizeof(float));
-
+    _firstDraw = TRUE;
+    
     /*
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didRotate:)
@@ -220,14 +222,11 @@
         
         //[self checkRange];
         [gesture setTranslation:zero inView:self];
-    }
-    if (gesture.state == UIGestureRecognizerStateChanged)
-    {
-        //NSLog(@"panGesture changed");
         [self draw];
 
+        [self writeLabelValues];
+
     }
-    //[self draw];
 
 }
 
@@ -258,14 +257,12 @@
             [self checkRange];
 
             [gesture setScale:1.0];
+            [self draw];
+
+            [self writeLabelValues];
+
         }
     }
-    if (gesture.state == UIGestureRecognizerStateChanged)
-    {
-        //NSLog(@"pinch gesture changed");
-        [self draw];
-    }
-    //[self draw];
 
 }
 
@@ -276,49 +273,127 @@
     {
         [self fitToView];
         [self setNeedsDisplay];
+        [self writeLabelValues];
     }
 }
 
 -(void)calculateValues
 {
 
-    //int nCalc = self.backgroundCalculation+1;
-    //self.backgroundCalculation = nCalc;
+    int nCalc = self.backgroundCalculation+1;
+    self.backgroundCalculation = nCalc;
 
     // get the values as local reference, as they may change during the loop
     CGFloat xMin = self.xMin;
     CGFloat xMax = self.xMax;
     CGFloat dx = xMax - xMin;
 
-    //self.nCalculatedValues = 0;
+    self.nCalculatedValues = 0;
     for (int i=0; i<NX; i++)
     {
-    /*
+    
         if (self.backgroundCalculation != nCalc)
         {
             //NSLog(@"break");
             break;
         }
-        */
-        
+    
         CGFloat xv = xMin + i*dx/(NX-1);
         CGFloat yFloat = [self.dataSource yForX:xv];
         
         self.xArray[i] = xv;
         self.yArray[i] = yFloat;
-        //self.nCalculatedValues = i+1;
         [self setNeedsDisplay];
     }
-    /*
-    if (self.backgroundCalculation == nCalc)
-    {
-        //NSLog(@"break");
-        //[self setNeedsDisplay];
-    }
-     */
+
 }
 
--(void)drawCoordinateSystem:(CGContextRef)context
+- (void) writeLabelValues
+{
+    CGPoint yAxisStart, yAxisEnd, xAxisStart, xAxisEnd;
+    yAxisStart.x = self.bounds.origin.x + self.bounds.size.width/2.0;
+    yAxisStart.y = self.bounds.origin.y + self.bounds.size.height;
+    
+    yAxisEnd.x = yAxisStart.x;
+    yAxisEnd.y = self.bounds.origin.y;
+    
+    xAxisStart.x = self.bounds.origin.x;
+    xAxisStart.y = self.bounds.origin.y + self.bounds.size.height / 2.0;
+    
+    xAxisEnd.x = self.bounds.origin.x + self.bounds.size.width;
+    xAxisEnd.y = xAxisStart.y;
+    
+    // set red text color if it is out of range
+    self.yMinLabel.text = [NSString stringWithFormat:@"%g", self.yMin];
+    self.yMinLabel.textColor = LABELCOLOR;
+    
+    self.yMaxLabel.text = [NSString stringWithFormat:@"%g", self.yMax];
+    self.yMaxLabel.textColor = LABELCOLOR;
+    
+    self.xMinLabel.text = [NSString stringWithFormat:@"%g", self.xMin];
+    
+    if (self.xMin < [self.delegate validXMin])
+    {
+        self.xMinLabel.textColor = [UIColor redColor];
+    }
+    else
+    {
+        self.xMinLabel.textColor = LABELCOLOR;
+    }
+    
+    self.xMaxLabel.text = [NSString stringWithFormat:@"%g", self.xMax];
+    
+    if (self.xMax > [self.delegate validXMax])
+    {
+        self.xMaxLabel.textColor = [UIColor redColor];
+    }
+    else
+    {
+        self.xMaxLabel.textColor = LABELCOLOR;
+    }
+    
+    CGPoint posXMin =  self.xMinLabel.center;
+    CGPoint posXMax =  self.xMaxLabel.center;
+    
+    posXMin.y = 0.5*self.bounds.size.height + MOVEXLABELS;
+    posXMax.y = 0.5*self.bounds.size.height + MOVEXLABELS;
+    
+    self.xMinLabel.center = posXMin;
+    self.xMaxLabel.center = posXMax;
+    
+    float xMid = 0.5*(self.xMin + self.xMax);
+    float yMid = [self.dataSource yForX:xMid];
+    
+    self.midLabel.text = [NSString stringWithFormat:@"%g, %.10e", xMid, yMid];
+    
+    float pos_x = [self mapXToView:xMid];
+    float pos_y = [self mapYToView:yMid];
+    
+    // make sure the text dont go out of view
+    int pixelOffset = 25;
+    if (pos_y < pixelOffset)
+    {
+        pos_y = pixelOffset;
+    }
+    
+    if (pos_y > yAxisStart.y - pixelOffset)
+    {
+        pos_y = yAxisStart.y - pixelOffset;
+    }
+    if(isnan(pos_y))
+    {
+        pos_y = xAxisStart.y;
+    }
+    CGPoint pos;
+    pos.x = pos_x;
+    pos.y = pos_y;
+    
+    self.midLabel.center = pos;
+    self.midLabel.textColor = [UIColor yellowColor];
+    
+}
+
+- (void)drawCoordinateSystem:(CGContextRef)context
 {
     
     CGPoint p;
@@ -383,75 +458,6 @@
     
     CGContextStrokePath(context);
     UIGraphicsPopContext();
-    
-    // set red text color if it is out of range
-    self.yMinLabel.text = [NSString stringWithFormat:@"%g", self.yMin];
-    self.yMinLabel.textColor = LABELCOLOR;
-
-    self.yMaxLabel.text = [NSString stringWithFormat:@"%g", self.yMax];
-    self.yMaxLabel.textColor = LABELCOLOR;
-
-    self.xMinLabel.text = [NSString stringWithFormat:@"%g", self.xMin];
-    
-    if (self.xMin < [self.delegate validXMin])
-    {
-        self.xMinLabel.textColor = [UIColor redColor];
-    }
-    else
-    {
-        self.xMinLabel.textColor = LABELCOLOR;
-    }
-    
-    self.xMaxLabel.text = [NSString stringWithFormat:@"%g", self.xMax];
-    
-    if (self.xMax > [self.delegate validXMax])
-    {
-        self.xMaxLabel.textColor = [UIColor redColor];
-    }
-    else
-    {
-        self.xMaxLabel.textColor = LABELCOLOR;
-    }
-    
-    CGPoint posXMin =  self.xMinLabel.center;
-    CGPoint posXMax =  self.xMaxLabel.center;
-    
-    posXMin.y = 0.5*self.bounds.size.height + MOVEXLABELS;
-    posXMax.y = 0.5*self.bounds.size.height + MOVEXLABELS;
-    
-    self.xMinLabel.center = posXMin;
-    self.xMaxLabel.center = posXMax;
-
-    float xMid = 0.5*(self.xMin + self.xMax);
-    float yMid = [self.dataSource yForX:xMid];
-    
-    self.midLabel.text = [NSString stringWithFormat:@"%g, %.10e", xMid, yMid];
-    
-    float pos_x = [self mapXToView:xMid];
-    float pos_y = [self mapYToView:yMid];
-
-    // make sure the text dont go out of view
-    int pixelOffset = 25;
-    if (pos_y < pixelOffset)
-    {
-        pos_y = pixelOffset;
-    }
-    
-    if (pos_y > yAxisStart.y - pixelOffset)
-    {
-        pos_y = yAxisStart.y - pixelOffset;
-    }
-    if(isnan(pos_y))
-    {
-        pos_y = xAxisStart.y;
-    }
-    CGPoint pos;
-    pos.x = pos_x;
-    pos.y = pos_y;
-    
-    self.midLabel.center = pos;
-    self.midLabel.textColor = [UIColor yellowColor];
-
 }
 
 -(CGFloat) mapXToView:(CGFloat)x
@@ -497,9 +503,12 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    //NSLog(@"drawRect: xArray count = %d",[self.xArray count]);
-    //NSLog(@"drawRect: yArray count = %d",[self.yArray count]);
-    //NSLog(@"drawRect::width=%f", rect.size.width);
+
+    if (self.firstDraw)
+    {
+        self.firstDraw = NO;
+        [self writeLabelValues];
+    }
     
     // Drawing code
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -511,15 +520,10 @@
         CGFloat x1 = [self mapXToView:self.xArray[i]];
         CGFloat y0 = [self mapYToView:self.yArray[i-1]];
         CGFloat y1 = [self mapYToView:self.yArray[i]];
-        CGPoint p0 = CGPointMake(x0, y0);
-        CGPoint p1 = CGPointMake(x1, y1);
-        BOOL inside0 = [self pointInside:p0 withEvent:nil];
-        BOOL inside1 = [self pointInside:p1 withEvent:nil];
-        if (inside0 && inside1)
-        {
-            CGContextMoveToPoint(context, x0, y0);
-            CGContextAddLineToPoint(context, x1, y1);
-        }
+
+        CGContextMoveToPoint(context, x0, y0);
+        CGContextAddLineToPoint(context, x1, y1);
+
     }
     
     CGContextStrokePath(context);

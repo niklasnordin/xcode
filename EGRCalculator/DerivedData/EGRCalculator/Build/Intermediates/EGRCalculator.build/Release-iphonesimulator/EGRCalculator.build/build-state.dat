@@ -1,0 +1,668 @@
+TEGRCalculator
+v6
+r1
+cCheck dependencies
+cProcessInfoPlistFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Info.plist /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator-Info.plist
+cProcessProductPackaging /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator.entitlements /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/EGRCalculator.xcent
+cProcessPCH /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/PrecompiledHeaders/EGRCalculator-Prefix-gkzorhmoljxvntbdfueedrnulfii/EGRCalculator-Prefix.pch.pch EGRCalculator/EGRCalculator-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/main.o /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculatorAppDelegate.o /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculatorAppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCompositionVC.o /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCompositionVC.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCompositionView.o /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCompositionView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculator.o /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculatorViewController.o /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculatorViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculator normal i386
+cGenerateDSYMFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app.dSYM /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculator
+cCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/en.lproj/InfoPlist.strings EGRCalculator/en.lproj/InfoPlist.strings
+cCpResource EGRCalculator/ReactionText.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/ReactionText.png
+cCpResource EGRCalculator/CO2.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/CO2.png
+cCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard
+cCpResource EGRCalculator/ReactionText.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/ReactionText.jpg
+cCpResource EGRCalculator/N2.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/N2.png
+cCpResource EGRCalculator/lambda.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/lambda.png
+cCpResource EGRCalculator/H2O.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/H2O.png
+cCpResource EGRCalculatorText.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculatorText.jpg
+cCpResource lambda.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/lambda.jpg
+cCpResource EGRCalculator/CO2.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/CO2.jpg
+cCpResource EGRCalculator/O2.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/O2.png
+cCpResource EGRCalculator/N2.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/N2.jpg
+cCpResource EGRCalculator/O2.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/O2.jpg
+cCpResource EGRCalculator/H2O.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/H2O.jpg
+cCpResource Icon.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon.png
+cCpResource Icon@2x.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon@2x.png
+cTouch /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk
+c00000000521BCCE50000000000000176
+t1377553637
+s374
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/SDKSettings.plist
+c00000000522ACC8F00000000000003B5
+t1378536591
+s949
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/CoreServices/SystemVersion.plist
+c00000000522ACCD2000000000000019E
+t1378536658
+s414
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c00000000522ACCEE0000000000445830
+t1378536686
+s4479024
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c00000000522ACCFA000000000088B570
+t1378536698
+s8959344
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c00000000522ACD200000000001DB1C90
+t1378536736
+s31136912
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/iAd.framework/iAd
+c00000000522ACD2400000000000CB2C0
+t1378536740
+s832192
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/EGRCalculator.xcent
+t1378913526
+s673
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculator.LinkFileList
+c0000000052308CF600000000000004F2
+t1378913526
+s1266
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculator.o
+t1378904806
+s49664
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculatorAppDelegate.o
+t1378904806
+s64240
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculatorViewController.o
+t1378913526
+s82796
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCompositionVC.o
+t1378904806
+s69132
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCompositionView.o
+t1378904806
+s40268
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/main.o
+t1378904806
+s3300
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/PrecompiledHeaders/EGRCalculator-Prefix-gkzorhmoljxvntbdfueedrnulfii/EGRCalculator-Prefix.pch.pch
+t1378904089
+s5342708
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app
+t1378913527
+s714
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app.dSYM
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/CO2.jpg
+t1378913527
+s12534
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/CO2.png
+t1378913527
+s3172
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculator
+t1378913527
+s86580
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculatorText.jpg
+t1378913527
+s28517
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/H2O.jpg
+t1378913527
+s12503
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/H2O.png
+t1378913527
+s3178
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon.png
+t1378913527
+s6199
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon@2x.png
+t1378913527
+s13883
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Info.plist
+t1378913526
+s916
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/N2.jpg
+t1378913527
+s12006
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/N2.png
+t1378913527
+s3058
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/O2.jpg
+t1378913527
+s11961
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/O2.png
+t1378913527
+s3087
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/PkgInfo
+t1378913526
+s8
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/ReactionText.jpg
+t1378913527
+s22673
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/ReactionText.png
+t1378913527
+s4389
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/en.lproj/InfoPlist.strings
+t1378913527
+s42
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/en.lproj/MainStoryboard.storyboardc
+t1378913533
+s374
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/lambda.jpg
+t1378913527
+s11622
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/lambda.png
+t1378913527
+s3017
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/CO2.jpg
+c000000004F4A765A00000000000030F6
+t1330280026
+s12534
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/CO2.png
+c00000000523085CD0000000000000C64
+t1378911693
+s3172
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator-Info.plist
+c000000004F4A765A00000000000005CF
+t1330280026
+s1487
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator-Prefix.pch
+c000000004F4A765A0000000000000149
+t1330280026
+s329
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator.entitlements
+c000000004F4A765A0000000000000247
+t1330280026
+s583
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator.m
+c00000000500F8F090000000000001BE1
+t1343196937
+s7137
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculatorAppDelegate.m
+c000000004F4A765A000000000000086A
+t1330280026
+s2154
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculatorViewController.m
+c000000005230759D00000000000018C7
+t1378907549
+s6343
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCompositionVC.m
+c000000004F4A765A000000000000082A
+t1330280026
+s2090
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCompositionView.m
+c000000004F4A765A0000000000000235
+t1330280026
+s565
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/H2O.jpg
+c000000004F4A765A00000000000030D7
+t1330280026
+s12503
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/H2O.png
+c00000000523087810000000000000C6A
+t1378912129
+s3178
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/N2.jpg
+c000000004F4A765A0000000000002EE6
+t1330280026
+s12006
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/N2.png
+c000000005230860C0000000000000BF2
+t1378911756
+s3058
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/O2.jpg
+c000000004F4A765A0000000000002EB9
+t1330280026
+s11961
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/O2.png
+c00000000523085F60000000000000C0F
+t1378911734
+s3087
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/ReactionText.jpg
+c0000000052307C9C0000000000005891
+t1378909340
+s22673
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/ReactionText.png
+c0000000052307A450000000000001125
+t1378908741
+s4389
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/InfoPlist.strings
+c000000004F4A765A000000000000002D
+t1330280026
+s45
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard
+c0000000052308CF60000000000010422
+t1378913526
+s66594
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/lambda.png
+c00000000523081A80000000000000BC9
+t1378910632
+s3017
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/main.m
+c000000004F4A765A0000000000000170
+t1330280026
+s368
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculatorText.jpg
+c000000004F4A765A0000000000006F65
+t1330280026
+s28517
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/Icon.png
+c000000004F4A765A0000000000001837
+t1330280026
+s6199
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/Icon@2x.png
+c000000004F4A765A000000000000363B
+t1330280026
+s13883
+
+N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/lambda.jpg
+c000000004F4A765A0000000000002D66
+t1330280026
+s11622
+
+CBuild AST from /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculatorAppDelegate.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculatorViewController.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCompositionVC.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCompositionView.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/main.m
+r0
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciesfa41b976c4e0b741^7f16c776c4e0b741^---0#1#1#--18"Check dependencies36"084C7B23-0F8C-4199-B1FD-21084339D945-
+
+CCompileC DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculator.o /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculatorAppDelegate.o /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculatorAppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculatorViewController.o /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculatorViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s400606326.808866
+e400606326.958819
+r1
+xCompileC
+xDerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculatorViewController.o
+x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculatorViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculatorViewController.m
+d/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculatorViewController.h
+d/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator.h
+d/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCompositionVC.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection112"Compile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculatorViewController.m280"CompileC DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculatorViewController.o EGRCalculator/EGRCalculatorViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler793acf76c4e0b741^d5e7fa76c4e0b741^---0#0#1#-19%DVTDocumentLocation2@120"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculatorViewController.m0000000000000000^4436"CompileC DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculatorViewController.o EGRCalculator/EGRCalculatorViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wmissing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=5.0 -iquote /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/EGRCalculator-generated-files.hmap -I/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/EGRCalculator-own-target-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/EGRCalculator-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/EGRCalculator-project-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/DerivedSources/i386 -I/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/DerivedSources -F/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator -DNS_BLOCK_ASSERTIONS=1 -include /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/PrecompiledHeaders/EGRCalculator-Prefix-gkzorhmoljxvntbdfueedrnulfii/EGRCalculator-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculatorViewController.d --serialize-diagnostics /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculatorViewController.dia -c /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculatorViewController.m -o /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculatorViewController.o36"1EF5CABC-056A-4FF6-9D13-4AA59E214549-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CCompileC DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCompositionVC.o /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCompositionVC.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCompositionView.o /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCompositionView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/main.o /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard
+s400606327.084273
+e400606333.460725
+r1
+xCompileStoryboard
+x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard
+o/* com.apple.ibtool.document.warnings */
+o/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:Fci-8E-pKj: warning: Frame for "Button - Calculate" will be different at run time. [16]
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection66"CompileStoryboard EGRCalculator/en.lproj/MainStoryboard.storyboard66"CompileStoryboard EGRCalculator/en.lproj/MainStoryboard.storyboard1fa21577c4e0b741^e1f1757dc4e0b741^-234"/* com.apple.ibtool.document.warnings *//Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard:Fci-8E-pKj: warning: Frame for "Button - Calculate" will be different at run time.1(21%IDEActivityLogMessage2@61"Frame for "Button - Calculate" will be different at run time.-400606333#18446744073709551615#0#-1#-23%DVTTextDocumentLocation3@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#14"Misplaced View--0#0#1#-19%DVTDocumentLocation4@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^975"CompileStoryboard EGRCalculator/en.lproj/MainStoryboard.storyboard    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 5.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/ibtool --errors --warnings --notices --minimum-deployment-target 5.0 --output-format human-readable-text --compile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/en.lproj/MainStoryboard.storyboardc /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard36"B141DDDF-CAB7-416E-9C32-B56797CECA37-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/en.lproj/InfoPlist.strings EGRCalculator/en.lproj/InfoPlist.strings
+s400606327.078367
+e400606327.082572
+r1
+xCopyStringsFile
+x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/en.lproj/InfoPlist.strings
+xEGRCalculator/en.lproj/InfoPlist.strings
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection45"Copy EGRCalculator/en.lproj/InfoPlist.strings166"CopyStringsFile DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/en.lproj/InfoPlist.strings EGRCalculator/en.lproj/InfoPlist.strings4e281477c4e0b741^48341577c4e0b741^---0#0#1#-19%DVTDocumentLocation2@117"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/InfoPlist.strings0000000000000000^717"CopyStringsFile DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/en.lproj/InfoPlist.strings EGRCalculator/en.lproj/InfoPlist.strings    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/en.lproj -- EGRCalculator/en.lproj/InfoPlist.strings36"9E21E99C-19BF-45DE-8461-2D91C7AD2A3D-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CCpResource EGRCalculator/CO2.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/CO2.jpg
+s400606327.119315
+e400606327.121807
+r1
+xCpResource
+xEGRCalculator/CO2.jpg
+xDerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/CO2.jpg
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection95"Copy DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/CO2.jpg123"CpResource EGRCalculator/CO2.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/CO2.jpg20991e77c4e0b741^3d481f77c4e0b741^---0#0#1#-19%DVTDocumentLocation2@167"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/CO2.jpg00387059deffdf42^726"CpResource EGRCalculator/CO2.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/CO2.jpg    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/CO2.jpg /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app36"C6504729-5EEC-45E2-BBF9-65D93260B8A3-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CCpResource EGRCalculator/CO2.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/CO2.png
+s400606327.083863
+e400606327.088297
+r1
+xCpResource
+xEGRCalculator/CO2.png
+xDerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/CO2.png
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection95"Copy DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/CO2.png123"CpResource EGRCalculator/CO2.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/CO2.png2b881577c4e0b741^41b81677c4e0b741^---0#0#1#-19%DVTDocumentLocation2@167"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/CO2.png00387059deffdf42^726"CpResource EGRCalculator/CO2.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/CO2.png    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/CO2.png /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app36"9E67FEE4-DB6A-4C78-82F8-721E78E387E1-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CCpResource EGRCalculator/H2O.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/H2O.jpg
+s400606327.136543
+e400606327.139065
+r1
+xCpResource
+xEGRCalculator/H2O.jpg
+xDerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/H2O.jpg
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection95"Copy DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/H2O.jpg123"CpResource EGRCalculator/H2O.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/H2O.jpgb0032377c4e0b741^2cb82377c4e0b741^---0#0#1#-19%DVTDocumentLocation2@167"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/H2O.jpg00387059deffdf42^726"CpResource EGRCalculator/H2O.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/H2O.jpg    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/H2O.jpg /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app36"41FF6FFC-F77D-4167-8D7A-83C3A7F071DC-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CCpResource EGRCalculator/H2O.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/H2O.png
+s400606327.104380
+e400606327.107516
+r1
+xCpResource
+xEGRCalculator/H2O.png
+xDerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/H2O.png
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection95"Copy DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/H2O.png123"CpResource EGRCalculator/H2O.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/H2O.pngffca1a77c4e0b741^e3c41b77c4e0b741^---0#0#1#-19%DVTDocumentLocation2@167"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/H2O.png00387059deffdf42^726"CpResource EGRCalculator/H2O.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/H2O.png    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/H2O.png /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app36"F8D5B02B-3FA7-4606-A117-C8EEDA6D0540-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CCpResource EGRCalculator/N2.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/N2.jpg
+s400606327.126772
+e400606327.129487
+r1
+xCpResource
+xEGRCalculator/N2.jpg
+xDerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/N2.jpg
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection94"Copy DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/N2.jpg121"CpResource EGRCalculator/N2.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/N2.jpg3d812077c4e0b741^28432177c4e0b741^---0#0#1#-19%DVTDocumentLocation2@166"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/N2.jpg00387059deffdf42^723"CpResource EGRCalculator/N2.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/N2.jpg    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/N2.jpg /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app36"4C210CF0-BA09-430D-B043-B49B0A1D13BB-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CCpResource EGRCalculator/N2.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/N2.png
+s400606327.093883
+e400606327.098764
+r1
+xCpResource
+xEGRCalculator/N2.png
+xDerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/N2.png
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection94"Copy DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/N2.png121"CpResource EGRCalculator/N2.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/N2.png3f1c1877c4e0b741^4e801977c4e0b741^---0#0#1#-19%DVTDocumentLocation2@166"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/N2.png00387059deffdf42^723"CpResource EGRCalculator/N2.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/N2.png    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/N2.png /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app36"D868B196-08D0-4D75-AF2A-4ECA06095F0F-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CCpResource EGRCalculator/O2.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/O2.jpg
+s400606327.132556
+e400606327.135292
+r1
+xCpResource
+xEGRCalculator/O2.jpg
+xDerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/O2.jpg
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection94"Copy DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/O2.jpg121"CpResource EGRCalculator/O2.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/O2.jpg64022277c4e0b741^dbbf2277c4e0b741^---0#0#1#-19%DVTDocumentLocation2@166"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/O2.jpg00387059deffdf42^723"CpResource EGRCalculator/O2.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/O2.jpg    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/O2.jpg /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app36"51D1B7A4-2440-405D-83F7-EF6BA12D3BB9-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CCpResource EGRCalculator/O2.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/O2.png
+s400606327.123037
+e400606327.125555
+r1
+xCpResource
+xEGRCalculator/O2.png
+xDerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/O2.png
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection94"Copy DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/O2.png121"CpResource EGRCalculator/O2.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/O2.pngbd8f1f77c4e0b741^793d2077c4e0b741^---0#0#1#-19%DVTDocumentLocation2@166"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/O2.png00387059deffdf42^723"CpResource EGRCalculator/O2.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/O2.png    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/O2.png /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app36"FDDB45C4-E67E-47CB-87BE-044E89B29D63-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CCpResource EGRCalculator/ReactionText.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/ReactionText.jpg
+s400606327.089527
+e400606327.092616
+r1
+xCpResource
+xEGRCalculator/ReactionText.jpg
+xDerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/ReactionText.jpg
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection104"Copy DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/ReactionText.jpg141"CpResource EGRCalculator/ReactionText.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/ReactionText.jpg5cff1677c4e0b741^aed41777c4e0b741^---0#0#1#-19%DVTDocumentLocation2@176"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/ReactionText.jpg00387059deffdf42^753"CpResource EGRCalculator/ReactionText.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/ReactionText.jpg    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/ReactionText.jpg /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app36"5C430E2D-4F07-4424-9C84-845CA804BA8D-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CCpResource EGRCalculator/ReactionText.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/ReactionText.png
+s400606327.078902
+e400606327.082569
+r1
+xCpResource
+xEGRCalculator/ReactionText.png
+xDerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/ReactionText.png
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection104"Copy DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/ReactionText.png141"CpResource EGRCalculator/ReactionText.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/ReactionText.png52461477c4e0b741^a9311577c4e0b741^---0#0#1#-19%DVTDocumentLocation2@176"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/ReactionText.png00387059deffdf42^753"CpResource EGRCalculator/ReactionText.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/ReactionText.png    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/ReactionText.png /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app36"1AA4A1A0-E6DB-44A8-97E8-30F28FA4A6E3-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CCpResource EGRCalculator/lambda.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/lambda.png
+s400606327.099964
+e400606327.103081
+r1
+xCpResource
+xEGRCalculator/lambda.png
+xDerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/lambda.png
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection98"Copy DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/lambda.png129"CpResource EGRCalculator/lambda.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/lambda.png37a81977c4e0b741^9f741a77c4e0b741^---0#0#1#-19%DVTDocumentLocation2@170"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/lambda.png00387059deffdf42^735"CpResource EGRCalculator/lambda.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/lambda.png    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/lambda.png /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app36"73F4D4CC-F28A-4BA7-B53B-198C0B1B10AB-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CCpResource EGRCalculatorText.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculatorText.jpg
+s400606327.108824
+e400606327.113116
+r1
+xCpResource
+xEGRCalculatorText.jpg
+xDerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculatorText.jpg
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection109"Copy DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculatorText.jpg137"CpResource EGRCalculatorText.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculatorText.jpg4aef1b77c4e0b741^111e1d77c4e0b741^---0#0#1#-19%DVTDocumentLocation2@181"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculatorText.jpg00387059deffdf42^740"CpResource EGRCalculatorText.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculatorText.jpg    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculatorText.jpg /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app36"97373F53-8CE3-4E95-ACCF-BF70369316EA-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CCpResource Icon.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon.png
+s400606327.140398
+e400606327.142948
+r1
+xCpResource
+xIcon.png
+xDerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon.png
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection96"Copy DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon.png111"CpResource Icon.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon.png97002477c4e0b741^4ca82477c4e0b741^---0#0#1#-19%DVTDocumentLocation2@168"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon.png00387059deffdf42^701"CpResource Icon.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon.png    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/Icon.png /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app36"59971FDF-B510-4E9C-85DB-B421F1974DCA-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CCpResource Icon@2x.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon@2x.png
+s400606327.144154
+e400606327.146736
+r1
+xCpResource
+xIcon@2x.png
+xDerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon@2x.png
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection99"Copy DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon@2x.png117"CpResource Icon@2x.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon@2x.pngcbf72477c4e0b741^f6b22577c4e0b741^---0#0#1#-19%DVTDocumentLocation2@171"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon@2x.png00387059deffdf42^710"CpResource Icon@2x.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon@2x.png    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/Icon@2x.png /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app36"6ECE0CDC-CBF0-4D81-B86C-BF8E16B285E1-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CCpResource lambda.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/lambda.jpg
+s400606327.115370
+e400606327.118066
+r1
+xCpResource
+xlambda.jpg
+xDerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/lambda.jpg
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection98"Copy DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/lambda.jpg115"CpResource lambda.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/lambda.jpgd49b1d77c4e0b741^d6581e77c4e0b741^---0#0#1#-19%DVTDocumentLocation2@170"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/lambda.jpg00387059deffdf42^707"CpResource lambda.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/lambda.jpg    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/lambda.jpg /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app36"444A5450-B444-42C6-9211-8EE428B5A9A2-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CGenerateDSYMFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app.dSYM /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculator
+s400606327.035234
+e400606327.070090
+r1
+xGenerateDSYMFile
+x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app.dSYM
+x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculator
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection157"Generate /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app.dSYM201"GenerateDSYMFile DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app.dSYM DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculatorbd190977c4e0b741^e1f11177c4e0b741^---0#0#1#-19%DVTDocumentLocation2@164"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app.dSYM00387059deffdf42^875"GenerateDSYMFile DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app.dSYM DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculator    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculator -o /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app.dSYM36"7A105129-F6C1-4902-A873-4BD138BA2F10-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CLd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculator normal i386
+s400606326.967686
+e400606327.026643
+r1
+xLd
+x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculator
+xnormal
+xi386
+d/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculator.LinkFileList
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/crt1.o
+d/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/main.o
+d/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculatorAppDelegate.o
+d/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculatorViewController.o
+d/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCompositionVC.o
+d/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCompositionView.o
+d/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculator.o
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/iAd.framework/iAd
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/arc/libarclite_iphonesimulator.a
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/libobjc.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/libSystem.dylib
+d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.0/lib/darwin/libclang_rt.ios.a
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libsystem_override.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libcache_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libcommonCrypto_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libcompiler_rt_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libcopyfile_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libdispatch.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libdyld_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libmacho_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libnotify_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libremovefile_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libsystem_sim_blocks.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libsystem_sim_c.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libsystem_sim_dnssd.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libsystem_sim_info.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libsystem_sim_m.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libsystem_network.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libunwind_sim.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libxpc.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libsystem_sim_configuration.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/libsystem_sim_asl.dylib
+d/usr/lib/libSystem.B.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
+d/usr/lib/system/libcache.dylib
+d/usr/lib/system/libcommonCrypto.dylib
+d/usr/lib/system/libcompiler_rt.dylib
+d/usr/lib/system/libcopyfile.dylib
+d/usr/lib/system/libdnsinfo.dylib
+d/usr/lib/system/libdyld.dylib
+d/usr/lib/system/libkeymgr.dylib
+d/usr/lib/system/liblaunch.dylib
+d/usr/lib/system/libmacho.dylib
+d/usr/lib/system/libquarantine.dylib
+d/usr/lib/system/libremovefile.dylib
+d/usr/lib/system/libsystem_blocks.dylib
+d/usr/lib/system/libsystem_c.dylib
+d/usr/lib/system/libsystem_dnssd.dylib
+d/usr/lib/system/libsystem_info.dylib
+d/usr/lib/system/libsystem_kernel.dylib
+d/usr/lib/system/libsystem_m.dylib
+d/usr/lib/system/libsystem_notify.dylib
+d/usr/lib/system/libsystem_sandbox.dylib
+d/usr/lib/system/libunc.dylib
+d/usr/lib/system/libunwind.dylib
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/usr/lib/system/host/libdyld.dylib
+d/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/EGRCalculator.xcent
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection162"Link /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculator111"Ld DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculator normal i386d8d2f776c4e0b741^ec140777c4e0b741^---0#0#1#--2025"Ld DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculator normal i386    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv IPHONEOS_DEPLOYMENT_TARGET 5.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -L/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator -F/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator -filelist /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculator.LinkFileList -Xlinker -objc_abi_version -Xlinker 2 -fobjc-arc -fobjc-link-runtime -Xlinker -no_implicit_dylibs -mios-simulator-version-min=5.0 -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/EGRCalculator.xcent -framework iAd -framework UIKit -framework Foundation -framework CoreGraphics -Xlinker -dependency_info -Xlinker /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/Objects-normal/i386/EGRCalculator_dependency_info.dat -o /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculator36"F9DB244E-E01A-4579-ABC0-C6A03AC92C71-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CProcessInfoPlistFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Info.plist /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator-Info.plist
+s400606326.782116
+e400606326.786269
+r1
+xProcessInfoPlistFile
+x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Info.plist
+x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator-Info.plist
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection107"Process /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator-Info.plist153"ProcessInfoPlistFile DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Info.plist EGRCalculator/EGRCalculator-Info.plist7a54c876c4e0b741^4149c976c4e0b741^---0#0#1#-19%DVTDocumentLocation2@115"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator-Info.plist0000000000000000^930"ProcessInfoPlistFile DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Info.plist EGRCalculator/EGRCalculator-Info.plist    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator-Info.plist -genpkginfo /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Info.plist36"E16C66BD-F195-4F2C-8239-F1A013EE3CB3-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CProcessPCH /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/PrecompiledHeaders/EGRCalculator-Prefix-gkzorhmoljxvntbdfueedrnulfii/EGRCalculator-Prefix.pch.pch EGRCalculator/EGRCalculator-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CProcessPCH /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Index/PrecompiledHeaders/EGRCalculator-Prefix-fdjnrxowyhporkakpkzbtqoybgim_ast/EGRCalculator-Prefix.pch.pch EGRCalculator/EGRCalculator-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessProductPackaging /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator.entitlements /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/EGRCalculator.xcent
+s400606326.794276
+e400606326.798090
+r1
+xProcessProductPackaging
+x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator.entitlements
+x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/EGRCalculator.xcent
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection194"ProcessProductPackaging EGRCalculator/EGRCalculator.entitlements DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/EGRCalculator.xcent194"ProcessProductPackaging EGRCalculator/EGRCalculator.entitlements DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/EGRCalculator.xcent4c6bcb76c4e0b741^9c50cc76c4e0b741^---0#0#1#-19%DVTDocumentLocation2@206"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/EGRCalculator.xcent0000000000000000^816"ProcessProductPackaging EGRCalculator/EGRCalculator.entitlements DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/EGRCalculator.xcent    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-productPackagingUtility /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/EGRCalculator.entitlements -entitlements -format xml -o /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Intermediates/EGRCalculator.build/Release-iphonesimulator/EGRCalculator.build/EGRCalculator.xcent36"8F06A7E3-08CE-4216-8D6D-3927B29018FF-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+
+CTouch /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app
+s400606333.469923
+e400606333.477196
+r1
+xTouch
+x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection149"Touch /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app88"Touch DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app1c5e787dc4e0b741^d8297a7dc4e0b741^---0#0#1#--518"Touch DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app36"4CACD4FE-D8F1-4F65-8AF0-AE90FBCF1F8C-
+bEE9FB8DF-9593-4479-8052-84A615481F1B
+

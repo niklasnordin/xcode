@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		614779E214FA28AC005CA4E5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 614779E114FA28AC005CA4E5 /* Icon.png */; };
+		614779E414FA28B3005CA4E5 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 614779E314FA28B3005CA4E5 /* Icon@2x.png */; };
+		61938F14148A03EB00F40395 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61938F13148A03EB00F40395 /* UIKit.framework */; };
+		61938F16148A03EB00F40395 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61938F15148A03EB00F40395 /* Foundation.framework */; };
+		61938F18148A03EB00F40395 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61938F17148A03EB00F40395 /* CoreGraphics.framework */; };
+		61938F1E148A03EB00F40395 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61938F1C148A03EB00F40395 /* InfoPlist.strings */; };
+		61938F20148A03EB00F40395 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61938F1F148A03EB00F40395 /* main.m */; };
+		61938F24148A03EB00F40395 /* EGRCalculatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61938F23148A03EB00F40395 /* EGRCalculatorAppDelegate.m */; };
+		61938F27148A03EB00F40395 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61938F25148A03EB00F40395 /* MainStoryboard.storyboard */; };
+		61938F2A148A03EB00F40395 /* EGRCalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61938F29148A03EB00F40395 /* EGRCalculatorViewController.m */; };
+		61938F35148A15DD00F40395 /* EGRCalculatorText.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61938F34148A15DD00F40395 /* EGRCalculatorText.jpg */; };
+		61938F3E148A470D00F40395 /* EGRCompositionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 61938F3D148A470D00F40395 /* EGRCompositionVC.m */; };
+		61938F48148A4E1400F40395 /* EGRCompositionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61938F47148A4E1400F40395 /* EGRCompositionView.m */; };
+		61938F4B148A529A00F40395 /* EGRCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 61938F4A148A529A00F40395 /* EGRCalculator.m */; };
+		61938F53148AD12E00F40395 /* lambda.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61938F52148AD12D00F40395 /* lambda.jpg */; };
+		61938F57148AD41700F40395 /* CO2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61938F56148AD41700F40395 /* CO2.jpg */; };
+		61938F59148AD41E00F40395 /* N2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61938F58148AD41E00F40395 /* N2.jpg */; };
+		61938F5B148AD42900F40395 /* O2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61938F5A148AD42900F40395 /* O2.jpg */; };
+		61938F5D148AD42F00F40395 /* H2O.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61938F5C148AD42F00F40395 /* H2O.jpg */; };
+		61ACA7A517E0AC6D00BD49E6 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61ACA7A417E0AC6D00BD49E6 /* iAd.framework */; };
+		61ACA7A717E0B1FD00BD49E6 /* ReactionText.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ACA7A617E0B1FD00BD49E6 /* ReactionText.png */; };
+		61ACA7A917E0B42E00BD49E6 /* ReactionText.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61ACA7A817E0B42E00BD49E6 /* ReactionText.jpg */; };
+		61ACA7AF17E0B95700BD49E6 /* lambda.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ACA7AE17E0B95700BD49E6 /* lambda.png */; };
+		61ACA7B117E0BDD300BD49E6 /* CO2.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ACA7B017E0BDD300BD49E6 /* CO2.png */; };
+		61ACA7B317E0BDDC00BD49E6 /* N2.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ACA7B217E0BDDC00BD49E6 /* N2.png */; };
+		61ACA7B517E0BDE500BD49E6 /* O2.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ACA7B417E0BDE500BD49E6 /* O2.png */; };
+		61ACA7B717E0BF1000BD49E6 /* H2O.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ACA7B617E0BF1000BD49E6 /* H2O.png */; };
+		61B1C59E17E0D32C007EE28A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61B1C59D17E0D32C007EE28A /* Images.xcassets */; };
+		61B1C5A417E0D669007EE28A /* Icon_29_spot.png in Resources */ = {isa = PBXBuildFile; fileRef = 61B1C59F17E0D669007EE28A /* Icon_29_spot.png */; };
+		61B1C5A517E0D669007EE28A /* Icon_29x2_spot.png in Resources */ = {isa = PBXBuildFile; fileRef = 61B1C5A017E0D669007EE28A /* Icon_29x2_spot.png */; };
+		61B1C5A617E0D669007EE28A /* Icon_40_spot.png in Resources */ = {isa = PBXBuildFile; fileRef = 61B1C5A117E0D669007EE28A /* Icon_40_spot.png */; };
+		61B1C5A717E0D669007EE28A /* Icon_40x2_spot.png in Resources */ = {isa = PBXBuildFile; fileRef = 61B1C5A217E0D669007EE28A /* Icon_40x2_spot.png */; };
+		61B1C5A817E0D669007EE28A /* Icon_60x2_spot.png in Resources */ = {isa = PBXBuildFile; fileRef = 61B1C5A317E0D669007EE28A /* Icon_60x2_spot.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		614779E114FA28AC005CA4E5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
+		614779E314FA28B3005CA4E5 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
+		61833981148BB9EC00B78EE3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		61938F0F148A03EB00F40395 /* EGRCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EGRCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		61938F13148A03EB00F40395 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		61938F15148A03EB00F40395 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		61938F17148A03EB00F40395 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		61938F1B148A03EB00F40395 /* EGRCalculator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EGRCalculator-Info.plist"; sourceTree = "<group>"; };
+		61938F1D148A03EB00F40395 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		61938F1F148A03EB00F40395 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		61938F21148A03EB00F40395 /* EGRCalculator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EGRCalculator-Prefix.pch"; sourceTree = "<group>"; };
+		61938F22148A03EB00F40395 /* EGRCalculatorAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EGRCalculatorAppDelegate.h; sourceTree = "<group>"; };
+		61938F23148A03EB00F40395 /* EGRCalculatorAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EGRCalculatorAppDelegate.m; sourceTree = "<group>"; };
+		61938F26148A03EB00F40395 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		61938F28148A03EB00F40395 /* EGRCalculatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EGRCalculatorViewController.h; sourceTree = "<group>"; };
+		61938F29148A03EB00F40395 /* EGRCalculatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EGRCalculatorViewController.m; sourceTree = "<group>"; };
+		61938F34148A15DD00F40395 /* EGRCalculatorText.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EGRCalculatorText.jpg; sourceTree = SOURCE_ROOT; };
+		61938F3C148A470D00F40395 /* EGRCompositionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGRCompositionVC.h; sourceTree = "<group>"; };
+		61938F3D148A470D00F40395 /* EGRCompositionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGRCompositionVC.m; sourceTree = "<group>"; };
+		61938F46148A4E1400F40395 /* EGRCompositionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGRCompositionView.h; sourceTree = "<group>"; };
+		61938F47148A4E1400F40395 /* EGRCompositionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGRCompositionView.m; sourceTree = "<group>"; };
+		61938F49148A529A00F40395 /* EGRCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGRCalculator.h; sourceTree = "<group>"; };
+		61938F4A148A529A00F40395 /* EGRCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGRCalculator.m; sourceTree = "<group>"; };
+		61938F52148AD12D00F40395 /* lambda.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lambda.jpg; path = ../lambda.jpg; sourceTree = "<group>"; };
+		61938F56148AD41700F40395 /* CO2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CO2.jpg; sourceTree = "<group>"; };
+		61938F58148AD41E00F40395 /* N2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = N2.jpg; sourceTree = "<group>"; };
+		61938F5A148AD42900F40395 /* O2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = O2.jpg; sourceTree = "<group>"; };
+		61938F5C148AD42F00F40395 /* H2O.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = H2O.jpg; sourceTree = "<group>"; };
+		61ACA7A417E0AC6D00BD49E6 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		61ACA7A617E0B1FD00BD49E6 /* ReactionText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ReactionText.png; sourceTree = "<group>"; };
+		61ACA7A817E0B42E00BD49E6 /* ReactionText.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ReactionText.jpg; sourceTree = "<group>"; };
+		61ACA7AE17E0B95700BD49E6 /* lambda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lambda.png; sourceTree = "<group>"; };
+		61ACA7B017E0BDD300BD49E6 /* CO2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CO2.png; sourceTree = "<group>"; };
+		61ACA7B217E0BDDC00BD49E6 /* N2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = N2.png; sourceTree = "<group>"; };
+		61ACA7B417E0BDE500BD49E6 /* O2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = O2.png; sourceTree = "<group>"; };
+		61ACA7B617E0BF1000BD49E6 /* H2O.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = H2O.png; sourceTree = "<group>"; };
+		61B1C59D17E0D32C007EE28A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		61B1C59F17E0D669007EE28A /* Icon_29_spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_29_spot.png; sourceTree = "<group>"; };
+		61B1C5A017E0D669007EE28A /* Icon_29x2_spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_29x2_spot.png; sourceTree = "<group>"; };
+		61B1C5A117E0D669007EE28A /* Icon_40_spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_40_spot.png; sourceTree = "<group>"; };
+		61B1C5A217E0D669007EE28A /* Icon_40x2_spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_40x2_spot.png; sourceTree = "<group>"; };
+		61B1C5A317E0D669007EE28A /* Icon_60x2_spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_60x2_spot.png; sourceTree = "<group>"; };
+		61E91282148BD9AB0098F7E5 /* EGRCalculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = EGRCalculator.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		61938F0C148A03EB00F40395 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61ACA7A517E0AC6D00BD49E6 /* iAd.framework in Frameworks */,
+				61938F14148A03EB00F40395 /* UIKit.framework in Frameworks */,
+				61938F16148A03EB00F40395 /* Foundation.framework in Frameworks */,
+				61938F18148A03EB00F40395 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		61938F04148A03EB00F40395 = {
+			isa = PBXGroup;
+			children = (
+				61938F19148A03EB00F40395 /* EGRCalculator */,
+				61938F12148A03EB00F40395 /* Frameworks */,
+				61938F10148A03EB00F40395 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		61938F10148A03EB00F40395 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				61938F0F148A03EB00F40395 /* EGRCalculator.app */,
+			);
+			name = Products;
+			sourceTree = SOURCE_ROOT;
+		};
+		61938F12148A03EB00F40395 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				61ACA7A417E0AC6D00BD49E6 /* iAd.framework */,
+				61938F13148A03EB00F40395 /* UIKit.framework */,
+				61938F15148A03EB00F40395 /* Foundation.framework */,
+				61938F17148A03EB00F40395 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		61938F19148A03EB00F40395 /* EGRCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				61938F25148A03EB00F40395 /* MainStoryboard.storyboard */,
+				61E91282148BD9AB0098F7E5 /* EGRCalculator.entitlements */,
+				61938F22148A03EB00F40395 /* EGRCalculatorAppDelegate.h */,
+				61938F23148A03EB00F40395 /* EGRCalculatorAppDelegate.m */,
+				61938F49148A529A00F40395 /* EGRCalculator.h */,
+				61938F4A148A529A00F40395 /* EGRCalculator.m */,
+				61938F46148A4E1400F40395 /* EGRCompositionView.h */,
+				61938F47148A4E1400F40395 /* EGRCompositionView.m */,
+				61938F28148A03EB00F40395 /* EGRCalculatorViewController.h */,
+				61938F29148A03EB00F40395 /* EGRCalculatorViewController.m */,
+				61938F3C148A470D00F40395 /* EGRCompositionVC.h */,
+				61938F3D148A470D00F40395 /* EGRCompositionVC.m */,
+				61B1C59D17E0D32C007EE28A /* Images.xcassets */,
+				61938F1A148A03EB00F40395 /* Supporting Files */,
+			);
+			path = EGRCalculator;
+			sourceTree = "<group>";
+		};
+		61938F1A148A03EB00F40395 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				61B1C59F17E0D669007EE28A /* Icon_29_spot.png */,
+				61B1C5A017E0D669007EE28A /* Icon_29x2_spot.png */,
+				61B1C5A117E0D669007EE28A /* Icon_40_spot.png */,
+				61B1C5A217E0D669007EE28A /* Icon_40x2_spot.png */,
+				61B1C5A317E0D669007EE28A /* Icon_60x2_spot.png */,
+				61ACA7A617E0B1FD00BD49E6 /* ReactionText.png */,
+				61ACA7A817E0B42E00BD49E6 /* ReactionText.jpg */,
+				614779E114FA28AC005CA4E5 /* Icon.png */,
+				614779E314FA28B3005CA4E5 /* Icon@2x.png */,
+				61833981148BB9EC00B78EE3 /* Default@2x.png */,
+				61938F52148AD12D00F40395 /* lambda.jpg */,
+				61ACA7AE17E0B95700BD49E6 /* lambda.png */,
+				61ACA7B017E0BDD300BD49E6 /* CO2.png */,
+				61938F5C148AD42F00F40395 /* H2O.jpg */,
+				61ACA7B617E0BF1000BD49E6 /* H2O.png */,
+				61938F5A148AD42900F40395 /* O2.jpg */,
+				61ACA7B417E0BDE500BD49E6 /* O2.png */,
+				61938F58148AD41E00F40395 /* N2.jpg */,
+				61ACA7B217E0BDDC00BD49E6 /* N2.png */,
+				61938F56148AD41700F40395 /* CO2.jpg */,
+				61938F34148A15DD00F40395 /* EGRCalculatorText.jpg */,
+				61938F1B148A03EB00F40395 /* EGRCalculator-Info.plist */,
+				61938F1C148A03EB00F40395 /* InfoPlist.strings */,
+				61938F1F148A03EB00F40395 /* main.m */,
+				61938F21148A03EB00F40395 /* EGRCalculator-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		61938F0E148A03EB00F40395 /* EGRCalculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61938F2D148A03EB00F40395 /* Build configuration list for PBXNativeTarget "EGRCalculator" */;
+			buildPhases = (
+				61938F0B148A03EB00F40395 /* Sources */,
+				61938F0C148A03EB00F40395 /* Frameworks */,
+				61938F0D148A03EB00F40395 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EGRCalculator;
+			productName = EGRCalculator;
+			productReference = 61938F0F148A03EB00F40395 /* EGRCalculator.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		61938F06148A03EB00F40395 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = nequam;
+				TargetAttributes = {
+					61938F0E148A03EB00F40395 = {
+						DevelopmentTeam = QUP84UZ9KG;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 61938F09148A03EB00F40395 /* Build configuration list for PBXProject "EGRCalculator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 61938F04148A03EB00F40395;
+			productRefGroup = 61938F10148A03EB00F40395 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				61938F0E148A03EB00F40395 /* EGRCalculator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		61938F0D148A03EB00F40395 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61938F1E148A03EB00F40395 /* InfoPlist.strings in Resources */,
+				61ACA7A717E0B1FD00BD49E6 /* ReactionText.png in Resources */,
+				61ACA7B117E0BDD300BD49E6 /* CO2.png in Resources */,
+				61B1C5A817E0D669007EE28A /* Icon_60x2_spot.png in Resources */,
+				61938F27148A03EB00F40395 /* MainStoryboard.storyboard in Resources */,
+				61ACA7A917E0B42E00BD49E6 /* ReactionText.jpg in Resources */,
+				61ACA7B317E0BDDC00BD49E6 /* N2.png in Resources */,
+				61ACA7AF17E0B95700BD49E6 /* lambda.png in Resources */,
+				61B1C5A517E0D669007EE28A /* Icon_29x2_spot.png in Resources */,
+				61ACA7B717E0BF1000BD49E6 /* H2O.png in Resources */,
+				61938F35148A15DD00F40395 /* EGRCalculatorText.jpg in Resources */,
+				61B1C5A717E0D669007EE28A /* Icon_40x2_spot.png in Resources */,
+				61B1C59E17E0D32C007EE28A /* Images.xcassets in Resources */,
+				61B1C5A617E0D669007EE28A /* Icon_40_spot.png in Resources */,
+				61938F53148AD12E00F40395 /* lambda.jpg in Resources */,
+				61938F57148AD41700F40395 /* CO2.jpg in Resources */,
+				61ACA7B517E0BDE500BD49E6 /* O2.png in Resources */,
+				61938F59148AD41E00F40395 /* N2.jpg in Resources */,
+				61938F5B148AD42900F40395 /* O2.jpg in Resources */,
+				61938F5D148AD42F00F40395 /* H2O.jpg in Resources */,
+				61B1C5A417E0D669007EE28A /* Icon_29_spot.png in Resources */,
+				614779E214FA28AC005CA4E5 /* Icon.png in Resources */,
+				614779E414FA28B3005CA4E5 /* Icon@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		61938F0B148A03EB00F40395 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61938F20148A03EB00F40395 /* main.m in Sources */,
+				61938F24148A03EB00F40395 /* EGRCalculatorAppDelegate.m in Sources */,
+				61938F2A148A03EB00F40395 /* EGRCalculatorViewController.m in Sources */,
+				61938F3E148A470D00F40395 /* EGRCompositionVC.m in Sources */,
+				61938F48148A4E1400F40395 /* EGRCompositionView.m in Sources */,
+				61938F4B148A529A00F40395 /* EGRCalculator.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		61938F1C148A03EB00F40395 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61938F1D148A03EB00F40395 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		61938F25148A03EB00F40395 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61938F26148A03EB00F40395 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		61938F2B148A03EB00F40395 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = /Users/niklasnordin/Developer/Applications/EGRCalculator;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = NO;
+				VERSIONING_SYSTEM = "";
+			};
+			name = Debug;
+		};
+		61938F2C148A03EB00F40395 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = /Users/niklasnordin/Developer/Applications/EGRCalculator;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "";
+			};
+			name = Release;
+		};
+		61938F2E148A03EB00F40395 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COMPRESS_PNG_FILES = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EGRCalculator/EGRCalculator-Prefix.pch";
+				INFOPLIST_FILE = "EGRCalculator/EGRCalculator-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = NO;
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		61938F2F148A03EB00F40395 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COMPRESS_PNG_FILES = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EGRCalculator/EGRCalculator-Prefix.pch";
+				INFOPLIST_FILE = "EGRCalculator/EGRCalculator-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = NO;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = NO;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		61938F09148A03EB00F40395 /* Build configuration list for PBXProject "EGRCalculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61938F2B148A03EB00F40395 /* Debug */,
+				61938F2C148A03EB00F40395 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		61938F2D148A03EB00F40395 /* Build configuration list for PBXNativeTarget "EGRCalculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61938F2E148A03EB00F40395 /* Debug */,
+				61938F2F148A03EB00F40395 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 61938F06148A03EB00F40395 /* Project object */;
+}

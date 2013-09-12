@@ -93,9 +93,9 @@
 		611F546616E1129C00BA97FB /* xyPlotter */ = {
 			isa = PBXGroup;
 			children = (
+				611F547816E1129C00BA97FB /* MainStoryboard_iPhone.storyboard */,
 				611F546F16E1129C00BA97FB /* xyPlotterAppDelegate.h */,
 				611F547016E1129C00BA97FB /* xyPlotterAppDelegate.m */,
-				611F547816E1129C00BA97FB /* MainStoryboard_iPhone.storyboard */,
 				611F548616E112F800BA97FB /* xyPlotDataSource.h */,
 				616D522816E1EEC20070DD01 /* xyPlotDelegate.h */,
 				611F547B16E1129C00BA97FB /* MainStoryboard_iPad.storyboard */,
