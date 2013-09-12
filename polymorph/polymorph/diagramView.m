@@ -422,7 +422,7 @@ static NSUInteger nx = 640;//640;
      self.xMinLabel.text = [NSString stringWithFormat:@"%g", xMin];
      self.xMaxLabel.text = [NSString stringWithFormat:@"%g", xMax];
      
-     self.yMidLabel.text = [NSString stringWithFormat:@"%g, %.8e", xMid, yMid];
+     self.yMidLabel.text = [NSString stringWithFormat:@"%g, %.8 e", xMid, yMid];
 }
 
 -(void) calculateValues
