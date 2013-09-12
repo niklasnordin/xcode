@@ -81,6 +81,7 @@
     [_dview setCpv:_cpv];
     [_dview setXIsT:_xIsT];
     [_dview setup:self.xMin max:self.xMax];
+
 }
 
 - (void)viewDidLoad

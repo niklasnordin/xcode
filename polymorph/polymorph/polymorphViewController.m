@@ -735,11 +735,12 @@
     // This is the place to setup the view before displaying it
     if ([segue.identifier isEqualToString:@"drawViewSegue"])
     {
+
         double tMin = [self.temperatureMin.text doubleValue];
         double tMax = [self.temperatureMax.text doubleValue];
         double pMin = 1.0e+6*[self.minPressureField.text doubleValue];
         double pMax = 1.0e+6*[self.pressureField.text doubleValue];
-
+        
         NSDictionary *propertiesDict = [self.db.json objectForKey:_currentSpeciesName];
         NSDictionary *propDict = [propertiesDict objectForKey:_currentPropertyName];
 
