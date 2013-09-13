@@ -38,5 +38,6 @@
 -(void)tap:(UITapGestureRecognizer *)gesture;
 
 -(CGPoint) mapPoint:(CGPoint)point;
+-(void)setCenterLabelPosition;
 
 @end

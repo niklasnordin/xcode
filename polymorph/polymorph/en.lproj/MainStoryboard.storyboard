@@ -315,7 +315,7 @@
                     <navigationItem key="navigationItem" title="Information" id="XvO-vc-TOM">
                         <barButtonItem key="backBarButtonItem" title="Function" id="4Aj-4J-Ty7"/>
                         <barButtonItem key="rightBarButtonItem" title="Set" id="dNl-NT-1yw">
-                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="setEquationPressed:" destination="Izc-Gv-bjG" id="2sF-fc-fo2"/>
                             </connections>
@@ -388,7 +388,7 @@
                                         <rect key="frame" x="20" y="8" width="280" height="35"/>
                                         <size key="titleShadowOffset" width="0.0" height="1"/>
                                         <state key="normal" title="Database" backgroundImage="seeThru_35.png">
-                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -462,7 +462,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="myPlot" id="Xxh-Xi-BQY">
                         <barButtonItem key="rightBarButtonItem" title="Help" id="fNe-tb-qbr">
-                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="PbO-2N-ooA" kind="push" id="7g2-FW-TR4"/>
                             </connections>
@@ -710,7 +710,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Database" id="B1s-qH-9a4">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="GVS-Nk-kz7">
-                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="lWQ-dn-KjL" kind="push" identifier="editDatabaseSegue" id="Xpz-4l-3gN"/>
                             </connections>
@@ -770,10 +770,10 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.99999999999999989" contentMode="left" misplaced="YES" text="center" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Gvm-1K-qSQ">
-                                        <rect key="frame" x="85" y="233" width="150" height="18"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.99999999999999989" contentMode="left" fixedFrame="YES" text="center" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Gvm-1K-qSQ">
+                                        <rect key="frame" x="85" y="46" width="150" height="18"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                        <color key="textColor" red="0.024388180272339615" green="0.065818766396638737" blue="0.64490991709183676" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
@@ -786,15 +786,12 @@
                                     <constraint firstItem="Zrm-bP-Zfy" firstAttribute="centerX" secondItem="Xom-Lt-sH4" secondAttribute="centerX" id="2ev-qw-9jq"/>
                                     <constraint firstItem="mRB-zz-V6O" firstAttribute="baseline" secondItem="NUq-EG-QGo" secondAttribute="baseline" id="2xI-PE-oAP"/>
                                     <constraint firstItem="kDb-K1-PU4" firstAttribute="trailing" secondItem="Zrm-bP-Zfy" secondAttribute="trailing" id="6os-yL-l52"/>
-                                    <constraint firstItem="Gvm-1K-qSQ" firstAttribute="top" secondItem="NUq-EG-QGo" secondAttribute="bottom" constant="18" id="Kb7-oF-5hF"/>
                                     <constraint firstItem="kDb-K1-PU4" firstAttribute="leading" secondItem="Zrm-bP-Zfy" secondAttribute="leading" id="LZF-my-jhH"/>
                                     <constraint firstAttribute="bottom" secondItem="Zrm-bP-Zfy" secondAttribute="bottom" constant="1" id="MEh-Zv-zVL"/>
                                     <constraint firstAttribute="trailing" secondItem="mRB-zz-V6O" secondAttribute="trailing" constant="1" id="S1u-FO-PiG"/>
-                                    <constraint firstItem="Gvm-1K-qSQ" firstAttribute="centerX" secondItem="Zrm-bP-Zfy" secondAttribute="centerX" id="eDV-Ga-JRQ"/>
                                     <constraint firstItem="NUq-EG-QGo" firstAttribute="leading" secondItem="Xom-Lt-sH4" secondAttribute="leading" constant="1" id="fum-Zt-0JU"/>
                                     <constraint firstItem="kDb-K1-PU4" firstAttribute="top" secondItem="Xom-Lt-sH4" secondAttribute="top" constant="1" id="kB2-aq-3Yu"/>
                                     <constraint firstItem="mRB-zz-V6O" firstAttribute="centerY" secondItem="Xom-Lt-sH4" secondAttribute="centerY" id="o9G-vJ-OcW"/>
-                                    <constraint firstItem="Gvm-1K-qSQ" firstAttribute="leading" secondItem="Xom-Lt-sH4" secondAttribute="leading" constant="85" id="whK-od-eYv"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="xMaxLabel" destination="mRB-zz-V6O" id="yuv-nF-vlb"/>
@@ -816,7 +813,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="drawView" id="Wo1-jb-nNq">
                         <barButtonItem key="rightBarButtonItem" title="Export Table" id="BRa-Fn-skW">
-                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="generateTable:" destination="i3I-7s-BDr" id="4oF-DF-A0Y"/>
                             </connections>
