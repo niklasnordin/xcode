@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hLJ-LK-bvy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hLJ-LK-bvy">
     <dependencies>
         <deployment version="1536" defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -95,8 +95,8 @@
             <objects>
                 <viewController id="zFj-dP-f3u" customClass="setPropertyViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DLt-fJ-ZEj"/>
-                        <viewControllerLayoutGuide type="bottom" id="zue-OE-Dnj"/>
+                        <viewControllerLayoutGuide type="top" id="MRM-Ts-CX9"/>
+                        <viewControllerLayoutGuide type="bottom" id="5jU-XU-zoM"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="cDJ-dn-A7h" customClass="functionView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -298,8 +298,8 @@
             <objects>
                 <viewController id="Izc-Gv-bjG" customClass="equationViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="A4F-gd-hPj"/>
-                        <viewControllerLayoutGuide type="bottom" id="09Z-11-kkE"/>
+                        <viewControllerLayoutGuide type="top" id="lDW-qP-1mx"/>
+                        <viewControllerLayoutGuide type="bottom" id="OYE-8x-zpr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="No7-V3-S7M">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -334,8 +334,8 @@
             <objects>
                 <viewController id="2" customClass="polymorphViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="nWg-LE-ot1"/>
-                        <viewControllerLayoutGuide type="bottom" id="u0G-Pn-l6h"/>
+                        <viewControllerLayoutGuide type="top" id="vlO-hf-Zyn"/>
+                        <viewControllerLayoutGuide type="bottom" id="GCa-yt-d8A"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -452,12 +452,12 @@
                                 <color key="backgroundColor" white="0.95000000000000007" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.54509803921568623" green="0.63137254901960782" blue="0.72156862745098038" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="YpR-mT-pQn" secondAttribute="bottom" constant="-5" id="8Fq-iz-4Rb"/>
-                            <constraint firstItem="YpR-mT-pQn" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="XRQ-RE-Tpl"/>
-                            <constraint firstAttribute="trailing" secondItem="YpR-mT-pQn" secondAttribute="trailing" id="fbn-eN-lkO"/>
-                            <constraint firstItem="YpR-mT-pQn" firstAttribute="top" secondItem="nWg-LE-ot1" secondAttribute="bottom" id="wye-T5-3fT"/>
+                            <constraint firstAttribute="trailing" secondItem="YpR-mT-pQn" secondAttribute="trailing" id="8e8-n0-Aff"/>
+                            <constraint firstAttribute="bottom" secondItem="YpR-mT-pQn" secondAttribute="bottom" constant="-5" id="DUS-L8-NQT"/>
+                            <constraint firstItem="YpR-mT-pQn" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="cXs-hz-u0D"/>
+                            <constraint firstItem="YpR-mT-pQn" firstAttribute="top" secondItem="vlO-hf-Zyn" secondAttribute="bottom" id="jLG-x4-ch9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="myPlot" id="Xxh-Xi-BQY">
@@ -489,8 +489,8 @@
             <objects>
                 <viewController id="Arw-pk-c2k" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="w88-GE-f2v"/>
-                        <viewControllerLayoutGuide type="bottom" id="YxT-S0-zfg"/>
+                        <viewControllerLayoutGuide type="top" id="ZLL-dM-o5A"/>
+                        <viewControllerLayoutGuide type="bottom" id="U9B-m4-LDc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Z4X-hp-S4E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -517,8 +517,8 @@
             <objects>
                 <viewController storyboardIdentifier="Feedback" title="Feedback" id="Vj9-Xr-PFG" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="T6o-FX-pph"/>
-                        <viewControllerLayoutGuide type="bottom" id="Eqh-UA-l0C"/>
+                        <viewControllerLayoutGuide type="top" id="0T6-X7-F6u"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qao-bP-Jfl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="npi-92-89S">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -549,8 +549,8 @@
             <objects>
                 <viewController id="mq1-f6-63N" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mg6-qJ-sbh"/>
-                        <viewControllerLayoutGuide type="bottom" id="ZdB-0b-6R8"/>
+                        <viewControllerLayoutGuide type="top" id="RSW-Qi-8M5"/>
+                        <viewControllerLayoutGuide type="bottom" id="hK5-tG-mjK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8AM-vI-G3X">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -581,8 +581,8 @@
             <objects>
                 <viewController title="View" id="bhq-mr-edp" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="17f-I7-L00"/>
-                        <viewControllerLayoutGuide type="bottom" id="AzD-xZ-6gn"/>
+                        <viewControllerLayoutGuide type="top" id="YhI-m1-zSV"/>
+                        <viewControllerLayoutGuide type="bottom" id="cgK-4M-Fi5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Rbb-iV-0hD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -632,8 +632,8 @@
             <objects>
                 <viewController id="NEa-8V-GzM" customClass="loadDatabaseViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5UD-nO-5Ha"/>
-                        <viewControllerLayoutGuide type="bottom" id="OzO-bw-bb2"/>
+                        <viewControllerLayoutGuide type="top" id="N4u-Yy-2cE"/>
+                        <viewControllerLayoutGuide type="bottom" id="f57-UJ-02q"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="g2k-ic-8KM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -730,47 +730,38 @@
             <objects>
                 <viewController id="i3I-7s-BDr" customClass="diagramViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Qyg-F6-sVk"/>
-                        <viewControllerLayoutGuide type="bottom" id="pjg-Ur-ssd"/>
+                        <viewControllerLayoutGuide type="top" id="07e-Mu-Gea"/>
+                        <viewControllerLayoutGuide type="bottom" id="RE9-ci-Ikf"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="7Ae-Ja-O6L">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xom-Lt-sH4" customClass="diagramView">
+                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xom-Lt-sH4" customClass="diagramView">
                                 <rect key="frame" x="0.0" y="65" width="320" height="415"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ymax" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDb-K1-PU4">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="ymax" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDb-K1-PU4">
                                         <rect key="frame" x="110" y="1" width="100" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="LV4-rT-Fqn"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ymin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zrm-bP-Zfy">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="ymin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zrm-bP-Zfy">
                                         <rect key="frame" x="110" y="399" width="100" height="15"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.99999999999999989" contentMode="left" text="xmin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUq-EG-QGo">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.99999999999999989" contentMode="left" fixedFrame="YES" text="xmin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUq-EG-QGo">
                                         <rect key="frame" x="1" y="200" width="100" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="ZKt-rx-PhJ"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.99999999999999989" contentMode="left" text="xmax" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRB-zz-V6O">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.99999999999999989" contentMode="left" fixedFrame="YES" text="xmax" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRB-zz-V6O">
                                         <rect key="frame" x="219" y="200" width="100" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="6iH-8G-m8d"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.99999999999999989" contentMode="left" fixedFrame="YES" text="center" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Gvm-1K-qSQ">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.99999999999999989" contentMode="left" fixedFrame="YES" placeholderIntrinsicWidth="150" placeholderIntrinsicHeight="18" text="center" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Gvm-1K-qSQ">
                                         <rect key="frame" x="85" y="46" width="150" height="18"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -782,17 +773,6 @@
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" updatesFrequently="YES"/>
                                 </accessibility>
-                                <constraints>
-                                    <constraint firstItem="Zrm-bP-Zfy" firstAttribute="centerX" secondItem="Xom-Lt-sH4" secondAttribute="centerX" id="2ev-qw-9jq"/>
-                                    <constraint firstItem="mRB-zz-V6O" firstAttribute="baseline" secondItem="NUq-EG-QGo" secondAttribute="baseline" id="2xI-PE-oAP"/>
-                                    <constraint firstItem="kDb-K1-PU4" firstAttribute="trailing" secondItem="Zrm-bP-Zfy" secondAttribute="trailing" id="6os-yL-l52"/>
-                                    <constraint firstItem="kDb-K1-PU4" firstAttribute="leading" secondItem="Zrm-bP-Zfy" secondAttribute="leading" id="LZF-my-jhH"/>
-                                    <constraint firstAttribute="bottom" secondItem="Zrm-bP-Zfy" secondAttribute="bottom" constant="1" id="MEh-Zv-zVL"/>
-                                    <constraint firstAttribute="trailing" secondItem="mRB-zz-V6O" secondAttribute="trailing" constant="1" id="S1u-FO-PiG"/>
-                                    <constraint firstItem="NUq-EG-QGo" firstAttribute="leading" secondItem="Xom-Lt-sH4" secondAttribute="leading" constant="1" id="fum-Zt-0JU"/>
-                                    <constraint firstItem="kDb-K1-PU4" firstAttribute="top" secondItem="Xom-Lt-sH4" secondAttribute="top" constant="1" id="kB2-aq-3Yu"/>
-                                    <constraint firstItem="mRB-zz-V6O" firstAttribute="centerY" secondItem="Xom-Lt-sH4" secondAttribute="centerY" id="o9G-vJ-OcW"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="xMaxLabel" destination="mRB-zz-V6O" id="yuv-nF-vlb"/>
                                     <outlet property="xMinLabel" destination="NUq-EG-QGo" id="LjI-wb-E0f"/>
@@ -804,12 +784,6 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Xom-Lt-sH4" secondAttribute="trailing" id="0sN-Zq-c5O"/>
-                            <constraint firstAttribute="bottom" secondItem="Xom-Lt-sH4" secondAttribute="bottom" id="XLI-kX-hVj"/>
-                            <constraint firstItem="Xom-Lt-sH4" firstAttribute="leading" secondItem="7Ae-Ja-O6L" secondAttribute="leading" id="aSG-be-FPf"/>
-                            <constraint firstItem="Xom-Lt-sH4" firstAttribute="top" secondItem="Qyg-F6-sVk" secondAttribute="bottom" constant="1" id="jbv-gW-Slb"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="drawView" id="Wo1-jb-nNq">
                         <barButtonItem key="rightBarButtonItem" title="Export Table" id="BRa-Fn-skW">
@@ -832,8 +806,8 @@
             <objects>
                 <viewController id="F4s-rQ-Iva" customClass="commentVC" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Pp1-tF-3Z1"/>
-                        <viewControllerLayoutGuide type="bottom" id="CGh-G8-wNh"/>
+                        <viewControllerLayoutGuide type="top" id="gAJ-2Y-LMz"/>
+                        <viewControllerLayoutGuide type="bottom" id="ii6-wC-nDF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qyO-8r-T3T">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -879,7 +853,14 @@
     </scenes>
     <resources>
         <image name="menu_35.png" width="280" height="35"/>
+        <image name="menu_35.png" width="280" height="35"/>
         <image name="plotButtonSeeThru.png" width="280" height="94"/>
+        <image name="seeThru_35.png" width="280" height="35"/>
+        <image name="seeThru_35.png" width="280" height="35"/>
+        <image name="seeThru_35.png" width="280" height="35"/>
+        <image name="seeThru_35.png" width="280" height="35"/>
+        <image name="seeThru_35.png" width="280" height="35"/>
+        <image name="seeThru_35.png" width="280" height="35"/>
         <image name="seeThru_35.png" width="280" height="35"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -9,7 +9,7 @@
 #import "diagramView.h"
 #import "functions.h"
 
-static NSUInteger nx = 640;//640;
+static NSUInteger nx = 320;//640;
 #define LABELCOLOR [UIColor blackColor]
 #define WARNINGCOLOR [UIColor redColor]
 
@@ -440,6 +440,7 @@ static NSUInteger nx = 640;//640;
     {
         
         if (nCalc != self.nBackgroundCalculation)
+        //if (abs(nCalc-self.nBackgroundCalculation) > 2)
         {
             break;
         }
