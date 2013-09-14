@@ -33,8 +33,8 @@
         _linkTextField.text = _link;
     }
 	// Do any additional setup after loading the view.
-    UIImage *bgImage = [UIImage imageNamed:@"backGroundGradient7.png"];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:bgImage]];
+    //UIImage *bgImage = [UIImage imageNamed:@"backGroundGradient7.png"];
+    //[self.view setBackgroundColor:[UIColor colorWithPatternImage:bgImage]];
 
 }
 
