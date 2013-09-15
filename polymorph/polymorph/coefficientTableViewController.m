@@ -109,7 +109,7 @@
 {
     if (indexPath.row % 2)
     {
-        UIColor *bgc = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1];
+        UIColor *bgc = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
         cell.backgroundColor = bgc;
     }
 }
@@ -117,8 +117,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     int n = 0;
-    if ([_coefficientNames count]) {
-        n = [_coefficientNames count];
+    if ([self.coefficientNames count])
+    {
+        n = [self.coefficientNames count];
     }
     return n;
 }
