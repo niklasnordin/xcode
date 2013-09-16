@@ -73,11 +73,9 @@
     }
 
     // setup the picker
-    //CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
-    CGRect pickerFrame = CGRectMake(0, 40, 0, 500);
+    CGRect pickerFrame = CGRectMake(8, 52, 304, 0);
 
     _schemePicker = [[UIPickerView alloc] initWithFrame:pickerFrame];
-    //_schemePicker = [[UIPickerView alloc] init];
     _schemePicker.showsSelectionIndicator = YES;
     _schemePicker.delegate = self;
     _schemePicker.dataSource = self;
@@ -199,8 +197,9 @@
     
     [self.navigationController.navigationBar setTintColor:self.preferences.backgroundColor];
     [self.navigationController.navigationBar setTitleTextAttributes:dict];
-    //[self.navigationController.navigationBar setNeedsDisplay];
-
+    self.schemesButton.tintColor = self.preferences.textColor;
+    self.preferencesButton.tintColor = self.preferences.textColor;
+    
     [self.preferences setNavigationColors:self];
 }
 
@@ -437,19 +436,20 @@
                                           cancelButtonTitle:nil
                                      destructiveButtonTitle:nil
                                           otherButtonTitles:nil];
-    //[self.actionSheet showInView:self.view];
-    [self.actionSheet showFromRect:CGRectMake(100.0f, 100.0f, 620.0f, 400.0f) inView:self.view animated:YES];
+    [self.actionSheet showInView:self.view];
+    //[self.actionSheet showFromRect:CGRectMake(100.0f, 100.0f, 620.0f, 400.0f) inView:self.view animated:YES];
 
-    [self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    //[self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
     //[self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackOpaque];
-
-    [self.actionSheet setOpaque:YES];
+    //[self.actionSheet setOpaque:YES];
     
     UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:@[@"Select"]];
 
-    closeButton.frame = CGRectMake(260.0f, 7.0f, 50.0f, 30.0f);
-    closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
-    closeButton.tintColor = [UIColor blackColor];
+    //closeButton.frame = CGRectMake(260.0f, 7.0f, 50.0f, 30.0f);
+    closeButton.frame = CGRectMake(258.0f, 9.0f, 50.0f, 30.0f);
+
+    //closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
+    //closeButton.tintColor = [UIColor blackColor];
     [closeButton addTarget:self
                     action:@selector(dismissActionSheet:)
           forControlEvents:UIControlEventValueChanged];
@@ -457,9 +457,11 @@
     [self.actionSheet addSubview:closeButton];
     
     UISegmentedControl *cancelButton = [[UISegmentedControl alloc] initWithItems:@[@"Cancel"]];
-    cancelButton.frame = CGRectMake(10.0f, 7.0f, 50.0f, 30.0f);
-    cancelButton.segmentedControlStyle = UISegmentedControlStyleBar;
-    UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:0.0];
+    //cancelButton.frame = CGRectMake(10.0f, 7.0f, 50.0f, 30.0f);
+    cancelButton.frame = CGRectMake(12.0f, 9.0f, 50.0f, 30.0f);
+
+    //cancelButton.segmentedControlStyle = UISegmentedControlStyleBar;
+    UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:1.0];
     cancelButton.tintColor = darkRed;
     [cancelButton addTarget:self
                      action:@selector(cancelActionSheet:)
@@ -467,14 +469,7 @@
     [self.actionSheet addSubview:cancelButton];
 
     [self.actionSheet addSubview:self.schemePicker];
-
-
     [self.actionSheet setBounds:CGRectMake(0, 0, 320, 500)];
-    //[self.actionSheet setFrame:CGRectMake(0, 0, 400, 500)];
-    //[self.actionSheet setBounds:CGRectMake(0, 0, width, height+60)];
-    //[self.actionSheet setBounds:self.schemePicker.bounds];
-    //CGRect af = self.actionSheet.frame;
-    //NSLog(@"x=%f, y=%f, wid=%f, height=%f",af.origin.x, af.origin.y, af.size.width, af.size.height);
     
 }
 
@@ -519,15 +514,14 @@
                                      destructiveButtonTitle:nil
                                           otherButtonTitles:nil];
     
-    [self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-    [self.actionSheet setOpaque:YES];
+    //[self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    //[self.actionSheet setOpaque:YES];
     [self.actionSheet addSubview:self.datePicker];
     
     UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:@[@"Select"]];
     
-    closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
-    closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
-    closeButton.tintColor = [UIColor blackColor];
+    closeButton.frame = CGRectMake(258.0f, 9.0f, 50.0f, 30.0f);
+    //closeButton.tintColor = [UIColor blackColor];
     [closeButton addTarget:self
                     action:@selector(dismissDateActionSheet:)
           forControlEvents:UIControlEventValueChanged];
@@ -535,9 +529,9 @@
     [self.actionSheet addSubview:closeButton];
     
     UISegmentedControl *cancelButton = [[UISegmentedControl alloc] initWithItems:@[@"Cancel"]];
-    cancelButton.frame = CGRectMake(10, 7.0f, 50.0f, 30.0f);
-    cancelButton.segmentedControlStyle = UISegmentedControlStyleBar;
-    UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:0.0];
+
+    cancelButton.frame = CGRectMake(12.0f, 9.0f, 50.0f, 30.0f);
+    UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:1.0];
     cancelButton.tintColor = darkRed;
     [cancelButton addTarget:self
                      action:@selector(cancelDateActionSheet:)
@@ -545,7 +539,7 @@
     [self.actionSheet addSubview:cancelButton];
     
     [self.actionSheet showInView:self.view];
-    [self.actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
+    [self.actionSheet setBounds:CGRectMake(0.0f, 0.0f, 320.0f, 485.0f)];
 
 }
 

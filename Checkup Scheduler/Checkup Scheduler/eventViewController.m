@@ -50,7 +50,8 @@
     [_timeAfterStartButton setTitle:buttonText forState:UIControlStateNormal];
     
     // setup the picker
-    CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
+    CGRect pickerFrame = CGRectMake(8, 52, 304, 0);
+
     _durationPicker = [[durationPickerView alloc] initWithFrame:pickerFrame];
     _durationPicker.showsSelectionIndicator = YES;
     _durationPicker.delegate = _durationPicker;
@@ -173,15 +174,14 @@
                                      destructiveButtonTitle:nil
                                           otherButtonTitles:nil];
     
-    [self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-    [self.actionSheet setOpaque:YES];
+    //[self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    //[self.actionSheet setOpaque:YES];
     [self.actionSheet addSubview:self.durationPicker];
     
     UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:@[@"Select"]];
     
-    closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
-    closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
-    closeButton.tintColor = [UIColor blackColor];
+    closeButton.frame = CGRectMake(258.0f, 7.0f, 50.0f, 30.0f);
+    //closeButton.tintColor = [UIColor blackColor];
     [closeButton addTarget:self
                     action:@selector(dismissActionSheet:)
           forControlEvents:UIControlEventValueChanged];
@@ -189,9 +189,8 @@
     [self.actionSheet addSubview:closeButton];
     
     UISegmentedControl *cancelButton = [[UISegmentedControl alloc] initWithItems:@[@"Cancel"]];
-    cancelButton.frame = CGRectMake(10, 7.0f, 50.0f, 30.0f);
-    cancelButton.segmentedControlStyle = UISegmentedControlStyleBar;
-    UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:0.0];
+    cancelButton.frame = CGRectMake(12.0f, 7.0f, 50.0f, 30.0f);
+    UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:1.0];
     cancelButton.tintColor = darkRed;
     [cancelButton addTarget:self
                      action:@selector(cancelActionSheet:)
@@ -199,7 +198,7 @@
     [self.actionSheet addSubview:cancelButton];
     
     [self.actionSheet showInView:self.view];
-    [self.actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
+    [self.actionSheet setBounds:CGRectMake(0.0f, 0.0f, 320.0f, 485.0f)];
 
 }
 
@@ -262,15 +261,14 @@
                                      destructiveButtonTitle:nil
                                           otherButtonTitles:nil];
     
-    [self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-    [self.actionSheet setOpaque:YES];
+    //[self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    //[self.actionSheet setOpaque:YES];
     [self.actionSheet addSubview:self.reminderPicker];
     
     UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:@[@"Select"]];
     
-    closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
-    closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
-    closeButton.tintColor = [UIColor blackColor];
+    closeButton.frame = CGRectMake(258.0f, 7.0f, 50.0f, 30.0f);
+    //closeButton.tintColor = [UIColor blackColor];
     [closeButton addTarget:self
                     action:@selector(dismissReminder:)
           forControlEvents:UIControlEventValueChanged];
@@ -278,9 +276,8 @@
     [self.actionSheet addSubview:closeButton];
     
     UISegmentedControl *cancelButton = [[UISegmentedControl alloc] initWithItems:@[@"Cancel"]];
-    cancelButton.frame = CGRectMake(10, 7.0f, 50.0f, 30.0f);
-    cancelButton.segmentedControlStyle = UISegmentedControlStyleBar;
-    UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:0.0];
+    cancelButton.frame = CGRectMake(12.0f, 7.0f, 50.0f, 30.0f);
+    UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:1.0];
     cancelButton.tintColor = darkRed;
     [cancelButton addTarget:self
                      action:@selector(cancelReminder:)
@@ -288,7 +285,7 @@
     [self.actionSheet addSubview:cancelButton];
     
     [self.actionSheet showInView:self.view];
-    [self.actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
+    [self.actionSheet setBounds:CGRectMake(0.0f, 0.0f, 320.0f, 485.0f)];
     
 
 }

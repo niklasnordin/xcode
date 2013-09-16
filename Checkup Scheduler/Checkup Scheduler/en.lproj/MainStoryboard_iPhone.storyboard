@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fN2-nF-YWV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fN2-nF-YWV">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -299,7 +299,9 @@
                         <outlet property="calendarInfoLabel" destination="mZu-Vp-KvZ" id="qu4-d5-U8g"/>
                         <outlet property="createEventButton" destination="weW-9a-Mys" id="1yK-Cu-5MM"/>
                         <outlet property="eventTextField" destination="psL-YU-azA" id="Gxv-ub-6kG"/>
+                        <outlet property="preferencesButton" destination="BTn-Pg-4Bc" id="wld-sw-Rh4"/>
                         <outlet property="schemeButton" destination="6AT-Ov-PZc" id="aGJ-pv-Kju"/>
+                        <outlet property="schemesButton" destination="Qya-oN-Odd" id="HPo-Gx-2ub"/>
                         <outlet property="startDateButton" destination="LEH-mO-Trj" id="i53-Sc-VI9"/>
                         <outlet property="topBannerView" destination="YeR-FT-epD" id="BU2-8G-gb7"/>
                     </connections>
@@ -452,7 +454,7 @@
                                 <attributedString key="userComments">
                                     <fragment content="sdfsdf">
                                         <attributes>
-                                            <font key="NSFont" metaFont="smallSystem"/>
+                                            <font key="NSFont" metaFont="toolTip"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>

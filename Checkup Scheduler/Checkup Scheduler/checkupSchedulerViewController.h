@@ -36,5 +36,7 @@
 
 - (IBAction)pressedSchemeButton:(UIButton *)sender;
 - (IBAction)releasedSchemeButtonOutside:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *schemesButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *preferencesButton;
 
 @end
