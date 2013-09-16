@@ -569,8 +569,8 @@
                                 <connections>
                                     <action selector="clickedButton:" destination="1Ha-Ta-qCa" eventType="touchDown" id="455-f4-bie"/>
                                     <action selector="draggedOutside:" destination="1Ha-Ta-qCa" eventType="touchDragOutside" id="JtO-Nc-8u9"/>
+                                    <action selector="timeAfterStartButtonClicked:" destination="1Ha-Ta-qCa" eventType="touchUpInside" id="wgN-Qz-yX7"/>
                                     <action selector="touchUpInside:" destination="1Ha-Ta-qCa" eventType="touchUpInside" id="KQa-cn-TE2"/>
-                                    <segue destination="bpq-JO-KSn" kind="modal" identifier="timeSegue" modalTransitionStyle="partialCurl" id="2Hu-du-RdJ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Time after start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsw-vU-jxn">

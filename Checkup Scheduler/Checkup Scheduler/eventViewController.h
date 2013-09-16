@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) NSMutableDictionary *eventDict;
 @property (weak, nonatomic) IBOutlet UIButton *timeAfterStartButton;
+- (IBAction)timeAfterStartButtonClicked:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UIButton *durationButton;
 - (IBAction)durationClicked:(UIButton *)sender;
 - (IBAction)allDayEventClicked:(UISwitch *)sender;
@@ -35,8 +37,8 @@
 @property (weak, nonatomic) IBOutlet UISwitch *busySwitch;
 - (IBAction)busySwitchClicked:(id)sender;
 
-- (IBAction)setTimer:(UIStoryboardSegue *)segue;
-- (IBAction)cancelTimer:(UIStoryboardSegue *)segue;
+//- (IBAction)setTimer:(UIStoryboardSegue *)segue;
+//- (IBAction)cancelTimer:(UIStoryboardSegue *)segue;
 
 @property (weak, nonatomic) IBOutlet UILabel *timeAfterStartLabel;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;

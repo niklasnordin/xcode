@@ -26,6 +26,7 @@
 		6189E2331774B76A00D0D181 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6189E2321774B76A00D0D181 /* EventKitUI.framework */; };
 		6189E236177F003900D0D181 /* idButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6189E235177F003900D0D181 /* idButton.m */; };
 		6189E239177FFAF900D0D181 /* timeSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6189E238177FFAF900D0D181 /* timeSetupViewController.m */; };
+		618E25F917E77633003002F5 /* tasPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 618E25F817E77633003002F5 /* tasPickerView.m */; };
 		61A79F8F17A70B5700233DA8 /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A79F8E17A70B5700233DA8 /* icon114.png */; };
 		61B71BFC1791AB79001BD35D /* settingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B71BFB1791AB79001BD35D /* settingsViewController.m */; };
 		61B71BFF1791B86B001BD35D /* colorSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B71BFE1791B86A001BD35D /* colorSettingsViewController.m */; };
@@ -69,6 +70,8 @@
 		6189E235177F003900D0D181 /* idButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = idButton.m; sourceTree = "<group>"; };
 		6189E237177FFAF900D0D181 /* timeSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timeSetupViewController.h; sourceTree = "<group>"; };
 		6189E238177FFAF900D0D181 /* timeSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = timeSetupViewController.m; sourceTree = "<group>"; };
+		618E25F717E77633003002F5 /* tasPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tasPickerView.h; sourceTree = "<group>"; };
+		618E25F817E77633003002F5 /* tasPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tasPickerView.m; sourceTree = "<group>"; };
 		61A79F8E17A70B5700233DA8 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = ../icon114.png; sourceTree = "<group>"; };
 		61B71BFA1791AB79001BD35D /* settingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsViewController.h; sourceTree = "<group>"; };
 		61B71BFB1791AB79001BD35D /* settingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsViewController.m; sourceTree = "<group>"; };
@@ -165,6 +168,8 @@
 				61EDE14B177B5B5300745F6A /* schemeViewController.m */,
 				61EDE156177F194700745F6A /* eventViewController.h */,
 				61EDE157177F194700745F6A /* eventViewController.m */,
+				618E25F717E77633003002F5 /* tasPickerView.h */,
+				618E25F817E77633003002F5 /* tasPickerView.m */,
 				6189E237177FFAF900D0D181 /* timeSetupViewController.h */,
 				6189E238177FFAF900D0D181 /* timeSetupViewController.m */,
 				61470D2117848DF4009C9C62 /* durationPickerView.h */,
@@ -282,6 +287,7 @@
 				61EDE14C177B5B5300745F6A /* schemeViewController.m in Sources */,
 				61EDE14F177EAF2500745F6A /* collectionScrollView.m in Sources */,
 				61EDE152177EB0B800745F6A /* schemeCollectionView.m in Sources */,
+				618E25F917E77633003002F5 /* tasPickerView.m in Sources */,
 				61EDE155177EB43900745F6A /* schemeCollectionCell.m in Sources */,
 				6189E236177F003900D0D181 /* idButton.m in Sources */,
 				61EDE158177F194700745F6A /* eventViewController.m in Sources */,

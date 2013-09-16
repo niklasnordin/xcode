@@ -10,10 +10,12 @@
 #import "timeSetupViewController.h"
 #import "durationPickerView.h"
 #import "reminderPickerView.h"
+#import "tasPickerView.h"
 
 @interface eventViewController ()
 @property (strong, nonatomic) UIActionSheet *actionSheet;
-@property (strong,nonatomic) durationPickerView *durationPicker;
+@property (strong, nonatomic) tasPickerView *tasPicker;
+@property (strong, nonatomic) durationPickerView *durationPicker;
 @property (strong, nonatomic) reminderPickerView *reminderPicker;
 @property (nonatomic) int previousReminderIndex;
 @property (nonatomic) int previousDayTimer;
@@ -61,6 +63,11 @@
     _reminderPicker.showsSelectionIndicator = YES;
     _reminderPicker.delegate = _reminderPicker;
     _reminderPicker.dataSource = _reminderPicker;
+    
+    _tasPicker = [[tasPickerView alloc] initWithFrame:pickerFrame];
+    _tasPicker.showsSelectionIndicator = YES;
+    _tasPicker.delegate = _tasPicker;
+    _tasPicker.dataSource = _tasPicker;
     
     _previousReminderIndex = 0;
     NSNumber *remTimer = [_eventDict objectForKey:@"reminderTimer"];
@@ -314,7 +321,7 @@
     [self.eventDict setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"busy"];
 }
 
-
+/*
 - (IBAction)setTimer:(UIStoryboardSegue *)segue
 {
     timeSetupViewController *tvc = segue.sourceViewController;
@@ -348,7 +355,7 @@
 
     [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
 }
-
+*/
 
 
 - (IBAction)clickedButton:(UIButton *)sender
@@ -364,5 +371,10 @@
 - (IBAction)touchUpInside:(id)sender
 {
     [self.preferences setupButton:sender withColor:self.preferences.backgroundColor];
+}
+
+- (IBAction)timeAfterStartButtonClicked:(id)sender
+{
+    NSLog(@"tas clicked");
 }
 @end
