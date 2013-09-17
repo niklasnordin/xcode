@@ -375,6 +375,52 @@
 
 - (IBAction)timeAfterStartButtonClicked:(id)sender
 {
-    NSLog(@"tas clicked");
+
+    [self.preferences setupButton:sender withColor:self.preferences.backgroundColor];
+    
+    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Set Time After Start"
+                                                   delegate:nil
+                                          cancelButtonTitle:nil
+                                     destructiveButtonTitle:nil
+                                          otherButtonTitles:nil];
+    
+
+    [self.actionSheet addSubview:self.tasPicker];
+    
+    UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:@[@"Select"]];
+    
+    closeButton.frame = CGRectMake(258.0f, 7.0f, 50.0f, 30.0f);
+    
+    [closeButton addTarget:self
+                    action:@selector(dismissTAS:)
+          forControlEvents:UIControlEventValueChanged];
+    
+    [self.actionSheet addSubview:closeButton];
+    
+    UISegmentedControl *cancelButton = [[UISegmentedControl alloc] initWithItems:@[@"Cancel"]];
+    cancelButton.frame = CGRectMake(12.0f, 7.0f, 50.0f, 30.0f);
+    UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:1.0];
+    cancelButton.tintColor = darkRed;
+    [cancelButton addTarget:self
+                     action:@selector(cancelTAS:)
+           forControlEvents:UIControlEventValueChanged];
+    [self.actionSheet addSubview:cancelButton];
+    
+    [self.actionSheet showInView:self.view];
+    [self.actionSheet setBounds:CGRectMake(0.0f, 0.0f, 320.0f, 485.0f)];
+    
 }
+
+- (void)dismissTAS:(id)sender
+{
+    [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    self.actionSheet = nil;
+}
+
+- (void)cancelTAS:(id)sender
+{
+    [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    self.actionSheet = nil;
+}
+
 @end
