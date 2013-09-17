@@ -17,4 +17,5 @@ profile
 *.o
 *.xcuserstate
 DerivedData/*
+DerivedData
 
