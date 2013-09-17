@@ -296,12 +296,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OnJ-1l-ga7">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OnJ-1l-ga7">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <gestureRecognizers/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="OnJ-1l-ga7" secondAttribute="trailing" id="7KT-Oq-I37"/>
+                            <constraint firstItem="OnJ-1l-ga7" firstAttribute="leading" secondItem="No7-V3-S7M" secondAttribute="leading" id="aRF-xr-WQp"/>
+                            <constraint firstItem="OnJ-1l-ga7" firstAttribute="top" secondItem="lDW-qP-1mx" secondAttribute="bottom" id="sdQ-Ft-Qc5"/>
+                            <constraint firstAttribute="bottom" secondItem="OnJ-1l-ga7" secondAttribute="bottom" id="xhQ-Kn-bwG"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Information" id="XvO-vc-TOM">
                         <barButtonItem key="backBarButtonItem" title="Function" id="4Aj-4J-Ty7"/>
