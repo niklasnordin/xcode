@@ -1,0 +1,31 @@
+\documentclass[10pt]{article}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+%\usepackage{palatino}
+
+% 1655 x ?
+% ? = 1655 * 416 / 320 = 2151
+% 100 pt = 885 pt in final
+% divide by 8.85
+\newcommand{\cfbox}[2]{%
+    \colorlet{currentcolor}{.}%
+    {\color{#1}\fbox{\begin{minipage}{180pt}\color{currentcolor}#2\end{minipage}}}%
+}
+
+\pagestyle{empty}
+\begin{document}
+
+\cfbox{white}{
+\[
+c_v = - R \tau^2 \left[ \left( \frac{\partial^2 \alpha^0}{\partial \tau^2 } \right)_\delta +  \left( \frac{\partial^2 \bar{\alpha}}{\partial \tau^2 } \right)_\delta\right]
+\]
+where $\bar \alpha$ is the residual dimensionless Helmholtz energy (see function FJ\_Rho for more info) and
+\begin{eqnarray*}
+\alpha^0(\delta, \tau) &=& \frac{h_0^0\tau}{RT_c} - \frac{s_0}{R} - 1 + \ln \frac{\tau_0 \delta}{\delta_0 \tau} \\
+&+& \frac{\tau}{R}\int_{\tau_0}^{\tau}\frac{c_p^0}{\tau^2} d\tau + \frac{1}{R}\int_{\tau_0}^{\tau} \frac{c_p^0}{\tau} d\tau
+\end{eqnarray*}\\
+\small{Depends on functions: rho and cp0}
+\vspace{58pt}\\
+}
+\end{document}

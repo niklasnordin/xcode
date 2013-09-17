@@ -217,6 +217,17 @@
                                     <segue destination="F4s-rQ-Iva" kind="push" identifier="commentSegue" id="U76-Fg-Kxj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdV-qg-wb8">
+                                <rect key="frame" x="28" y="249" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="2ty-JY-zlE" kind="push" identifier="equationSegue2" id="NvH-zP-7ZR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.95000000000000007" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -325,6 +336,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8eN-yf-bzb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2526" y="-2"/>
+        </scene>
+        <!--Equation ScrollVC-->
+        <scene sceneID="wPa-ZP-y06">
+            <objects>
+                <viewController id="2ty-JY-zlE" customClass="equationScrollVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="B1N-a9-o8a"/>
+                        <viewControllerLayoutGuide type="bottom" id="H5r-4x-McR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ec9-d9-XUc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwJ-65-7m7">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="BRQ-HF-ANg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0KM-CO-JgH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2922" y="-344"/>
         </scene>
         <!--Polymorph View Controller - myPlot-->
         <scene sceneID="5">

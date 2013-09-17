@@ -106,6 +106,7 @@
 		617C7CCF15E987AE00B11073 /* nsrds_6.tex in Resources */ = {isa = PBXBuildFile; fileRef = 617C7CCE15E987AE00B11073 /* nsrds_6.tex */; };
 		61807D7815D42BF7008E012C /* setPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D7715D42BF7008E012C /* setPropertyViewController.m */; };
 		61807D8315D54D16008E012C /* coefficientTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61807D8215D54D16008E012C /* coefficientTableViewController.m */; };
+		618E25FC17E8E1E1003002F5 /* equationScrollVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 618E25FB17E8E1E1003002F5 /* equationScrollVC.m */; };
 		618FFDA415DD705900008703 /* RollerUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 618FFDA315DD705900008703 /* RollerUIButton.m */; };
 		619394E115EA98130003EF01 /* ancillary_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 619394E015EA98120003EF01 /* ancillary_1.m */; };
 		619394E915EBD0AD0003EF01 /* ancillary_2.m in Sources */ = {isa = PBXBuildFile; fileRef = 619394E815EBD0AD0003EF01 /* ancillary_2.m */; };
@@ -311,6 +312,8 @@
 		61807D7715D42BF7008E012C /* setPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setPropertyViewController.m; sourceTree = "<group>"; };
 		61807D8115D54D16008E012C /* coefficientTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coefficientTableViewController.h; sourceTree = "<group>"; };
 		61807D8215D54D16008E012C /* coefficientTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = coefficientTableViewController.m; sourceTree = "<group>"; };
+		618E25FA17E8E1E1003002F5 /* equationScrollVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = equationScrollVC.h; sourceTree = "<group>"; };
+		618E25FB17E8E1E1003002F5 /* equationScrollVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = equationScrollVC.m; sourceTree = "<group>"; };
 		618FFDA215DD705800008703 /* RollerUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RollerUIButton.h; sourceTree = "<group>"; };
 		618FFDA315DD705900008703 /* RollerUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RollerUIButton.m; sourceTree = "<group>"; };
 		619394DF15EA98120003EF01 /* ancillary_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ancillary_1.h; sourceTree = "<group>"; };
@@ -572,6 +575,8 @@
 				616622F315CFF295008FB530 /* loadDatabaseViewController.m */,
 				618FFDA215DD705800008703 /* RollerUIButton.h */,
 				618FFDA315DD705900008703 /* RollerUIButton.m */,
+				618E25FA17E8E1E1003002F5 /* equationScrollVC.h */,
+				618E25FB17E8E1E1003002F5 /* equationScrollVC.m */,
 				61A5CE8915C2E88A00937EA8 /* Pictures */,
 				617C7CC515E9876500B11073 /* Latex */,
 				6164629115B7F705006B703D /* Supporting Files */,
@@ -972,6 +977,7 @@
 				61460C2B163C7CD100A1D1EE /* iapws97_w.m in Sources */,
 				610A85D9164FFFF300A0618B /* soaveRedlichKwong.m in Sources */,
 				612EA2421678DD1A00E722AE /* pengRobinsonStryjekVera.m in Sources */,
+				618E25FC17E8E1E1003002F5 /* equationScrollVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
