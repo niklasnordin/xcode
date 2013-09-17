@@ -439,8 +439,7 @@ static NSUInteger nx = 320;//640;
     for (int i=0; i<nx; i++)
     {
         
-        if (nCalc != self.nBackgroundCalculation)
-        //if (abs(nCalc-self.nBackgroundCalculation) > 2)
+        if (self.nBackgroundCalculation != nCalc)
         {
             break;
         }
@@ -464,7 +463,7 @@ static NSUInteger nx = 320;//640;
         [self setNeedsDisplay];
     }
     
-    if (nCalc == self.nBackgroundCalculation)
+    //if (nCalc == self.nBackgroundCalculation)
     {
         self.xMid = 0.5*(xMin + xMax);
         float yMid;
@@ -480,6 +479,7 @@ static NSUInteger nx = 320;//640;
         self.yMid = yMid;
         [self setNeedsDisplay];
     }
+
 }
 
 - (void)setCenterLabelPosition
@@ -532,7 +532,7 @@ static NSUInteger nx = 320;//640;
 
     [self drawCoordinateSystem:context];
     
-    CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, 1.0);
+    CGContextSetRGBStrokeColor(context, 0.1, 0.1, 0.1, 0.8);
 
     for (int i=1; i<nx; i++)
     {
