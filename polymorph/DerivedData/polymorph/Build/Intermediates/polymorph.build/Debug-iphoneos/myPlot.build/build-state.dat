@@ -70,6 +70,7 @@ cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphone
 cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/iapws97_w.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_w.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/soaveRedlichKwong.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/soaveRedlichKwong.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/pengRobinsonStryjekVera.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/pengRobinsonStryjekVera.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/equationScrollVC.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationScrollVC.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/main.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/main.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/polymorphAppDelegate.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/polymorphAppDelegate.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/polymorphViewController.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/polymorphViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
@@ -134,6 +135,7 @@ cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphone
 cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/iapws97_w.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_w.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/soaveRedlichKwong.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/soaveRedlichKwong.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/pengRobinsonStryjekVera.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/pengRobinsonStryjekVera.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/equationScrollVC.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationScrollVC.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cLd /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/myPlot normal armv7
 cLd /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/myPlot normal armv7s
 cCreateUniversalBinary /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot normal armv7\ armv7s
@@ -149,6 +151,7 @@ cCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedDat
 cCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/nsrds_5.png polymorph/nsrds_5.png
 cCpResource polymorph/texToPng DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/texToPng
 cCpResource polymorph/nsrds_0.tex DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/nsrds_0.tex
+cCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/en.lproj/MainStoryboard.storyboard
 cCpResource polymorph/nsrds_1.tex DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/nsrds_1.tex
 cCpResource polymorph/nsrds_5.tex DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/nsrds_5.tex
 cCpResource polymorph/nsrds_6.tex DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/nsrds_6.tex
@@ -203,7 +206,6 @@ cCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedDat
 cCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/iapws97_2b.png polymorph/iapws97_2b.png
 cCpResource polymorph/iapws97_2b.tex DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/iapws97_2b.tex
 cCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/iapws97_3.png polymorph/iapws97_3.png
-cCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/en.lproj/MainStoryboard.storyboard
 cCpResource polymorph/iapws97_3.tex DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/iapws97_3.tex
 cCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/iapws97_4.png polymorph/iapws97_4.png
 cCpResource polymorph/iapws97_4.tex DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/iapws97_4.tex
@@ -556,6 +558,10 @@ N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/
 t1379079205
 s82208
 
+N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/equationScrollVC.o
+t1379448400
+s63024
+
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/equationViewController.o
 t1379079206
 s75456
@@ -665,13 +671,13 @@ t1379079205
 s3436
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/myPlot
-t1379435014
-s785836
+t1379448400
+s788792
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/myPlot.LinkFileList
-c00000000523169B70000000000002CC5
-t1378970039
-s11461
+c000000005238AAE00000000000002D7C
+t1379445472
+s11644
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/nsrds_0.o
 t1379079205
@@ -730,8 +736,8 @@ t1379165115
 s97336
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/setPropertyViewController.o
-t1379262816
-s134632
+t1379446749
+s136444
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/soaveRedlichKwong.o
 t1379079208
@@ -820,6 +826,10 @@ s103224
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/diagramViewController.o
 t1379079208
 s82208
+
+N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/equationScrollVC.o
+t1379448400
+s63024
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/equationViewController.o
 t1379079210
@@ -930,13 +940,13 @@ t1379079208
 s3436
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/myPlot
-t1379435014
-s785852
+t1379448400
+s788812
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/myPlot.LinkFileList
-c00000000523169B70000000000002D05
-t1378970039
-s11525
+c000000005238AAE00000000000002DBD
+t1379445472
+s11709
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/nsrds_0.o
 t1379079208
@@ -995,8 +1005,8 @@ t1379165115
 s97336
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/setPropertyViewController.o
-t1379262816
-s134632
+t1379446749
+s136444
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/soaveRedlichKwong.o
 t1379079211
@@ -1011,11 +1021,11 @@ t1379079215
 s408
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app
-t1379439503
+t1379448641
 s3366
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app.dSYM
-t1379435014
+t1379448576
 s102
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/Default-568h@2x.png
@@ -1139,8 +1149,8 @@ t1378970046
 s42
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/en.lproj/MainStoryboard.storyboardc
-t1379439503
-s918
+t1379448641
+s986
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/iapws97_1.png
 t1378970052
@@ -1283,8 +1293,8 @@ t1378970055
 s8701
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot
-t1379435014
-s1618704
+t1379448584
+s1621696
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/ni-banding-free-gradient.jpg
 t1378970046
@@ -1732,9 +1742,19 @@ t1344973287
 s45
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/en.lproj/MainStoryboard.storyboard
-c00000000523893880000000000013BA7
-t1379439496
-s80807
+c000000005238B73A0000000000014BBE
+t1379448634
+s84926
+
+N/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationScrollVC.h
+c000000005238AFDC000000000000020A
+t1379446748
+s522
+
+N/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationScrollVC.m
+c000000005238B65000000000000005E5
+t1379448400
+s1509
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationViewController.h
 c000000005052188A00000000000002AE
@@ -2462,9 +2482,9 @@ t1347994921
 s1596
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/setPropertyViewController.m
-c000000005235E1600000000000003C73
-t1379262816
-s15475
+c000000005238AFDC0000000000003E3B
+t1379446748
+s15931
 
 N/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/soaveRedlichKwong.h
 c00000000509FC9200000000000000193
@@ -2574,6 +2594,9 @@ CBuild AST from /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymor
 r0
 
 CBuild AST from /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/diagramViewController.m
+r0
+
+CBuild AST from /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationScrollVC.m
 r0
 
 CBuild AST from /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationViewController.m
@@ -2710,17 +2733,17 @@ r0
 
 CCheck dependencies
 r0
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciescb2c2e08cbe8b741^6bf32f08cbe8b741^---0#1#1#--18"Check dependencies36"C52C56CF-8A40-45A9-AD5F-C1EA4BBCA5F7-
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies1af849baeee8b741^3f7257baeee8b741^---0#1#1#--18"Check dependencies36"E0B4CD61-09AA-4F1C-A77B-2F7B048229C2-
 
 CCodeSign /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app
-s401132303.356203
-e401132303.835576
+s401141441.924532
+e401141442.231381
 r1
 xCodeSign
 x/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app
 o/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app: replacing existing signature
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"CodeSign DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app71"CodeSign DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app635e5b0fcbe8b741^71e8d50fcbe8b741^-150"/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app: replacing existing signature-0#0#1#-19%DVTDocumentLocation2@136"file://localhost/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/0000000000000000^1141"CodeSign DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv CODESIGN_ALLOCATE /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    Using code signing identity "iPhone Developer: Niklas Nordin (9646L7PG8M)" and provisioning profile "ProvisionProfile2013" (CF26EFB9-56C8-4298-B57B-B31A7E88D866)    codesign --force --sign 35D5751A2BA58184ABD50D6D889C06C7296507BA --resource-rules=/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/ResourceRules.plist --entitlements /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot.xcent /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app36"209A754A-1E0E-4B5F-B6F3-A0D5386405C6-
-b11D227A5-5623-4E8A-83D0-E2D4664E9FCA
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"CodeSign DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app71"CodeSign DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app10c9ecc1eee8b741^0c3c3bc2eee8b741^-150"/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app: replacing existing signature-0#0#1#-19%DVTDocumentLocation2@136"file://localhost/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/0000000000000000^1141"CodeSign DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv CODESIGN_ALLOCATE /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    Using code signing identity "iPhone Developer: Niklas Nordin (9646L7PG8M)" and provisioning profile "ProvisionProfile2013" (CF26EFB9-56C8-4298-B57B-B31A7E88D866)    codesign --force --sign 35D5751A2BA58184ABD50D6D889C06C7296507BA --resource-rules=/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/ResourceRules.plist --entitlements /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot.xcent /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app36"7776836E-2D78-4228-9209-023A2079F2AB-
+b924281E5-853D-4C83-931E-AF28E66C30AE
 
 CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/Complex.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/Complex.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 s400772006.462380
@@ -3298,6 +3321,72 @@ d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_w.h
 d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/diagramView.h
 lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection98"Compile /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/diagramViewController.m242"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/diagramViewController.o polymorph/diagramViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler73a255a54be3b741^860090a54be3b741^---0#0#1#-19%DVTDocumentLocation2@106"file://localhost/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/diagramViewController.m0000000000000000^3923"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/diagramViewController.o polymorph/diagramViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wno-bool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-generated-files.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-own-target-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-project-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/DerivedSources -F/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-buqnsjdrjuwurlgwkhzlmdrebato/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/diagramViewController.d --serialize-diagnostics /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/diagramViewController.dia -c /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/diagramViewController.m -o /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/diagramViewController.o36"AA38EDC5-DA88-40F6-815E-8198FA5A9424-
 b9AA630F5-AB04-4A73-8887-715004F1D4E5
+
+CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/equationScrollVC.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationScrollVC.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401141200.227445
+e401141200.332354
+r1
+xCompileC
+xDerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/equationScrollVC.o
+x/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationScrollVC.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationScrollVC.m
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationScrollVC.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/setPropertyViewController.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/database.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/polymorphViewController.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/functions.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/function_0001.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/functionValue.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/function_0002.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/nsrds_0.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/nsrds_1.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/nsrds_2.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/nsrds_3.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/nsrds_4.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/nsrds_5.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/nsrds_6.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/janaf_cp.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/janaf_h.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/janaf_s.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/idealGasLaw.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/pengRobinson.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/pengRobinsonLiquid.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/pengRobinsonVapour.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/soaveRedlichKwong.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/pengRobinsonStryjekVera.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/ancillary_1.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/ancillary_2.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/ancillary_3.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/ancillary_4.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/FJ_Rho.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/fundamentalJacobsen.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/FJ_Cv.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/FJ_Cp.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/FJ_SoundSpeed.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/boilingTemperature.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/sutherland.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/antoine.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_1.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_2.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_2b.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_3.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_4.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_5.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_rho.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_u.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_h.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_s.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_cp.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_cv.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_w.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/RollerUIButton.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection93"Compile /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationScrollVC.m232"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/equationScrollVC.o polymorph/equationScrollVC.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compilera1643ad0ede8b741^331655d0ede8b741^---0#0#1#-19%DVTDocumentLocation2@101"file://localhost/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationScrollVC.m0000000000000000^3893"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/equationScrollVC.o polymorph/equationScrollVC.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wno-bool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-generated-files.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-own-target-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-project-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/DerivedSources -F/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-buqnsjdrjuwurlgwkhzlmdrebato/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/equationScrollVC.d --serialize-diagnostics /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/equationScrollVC.dia -c /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationScrollVC.m -o /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/equationScrollVC.o36"9EDCF6C4-ACF5-41D8-A427-C8DAF707F3B6-
+b2D4D7E23-DCD3-485A-964A-48BEDD1CE3BA
 
 CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/equationViewController.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 s400772006.635074
@@ -4393,8 +4482,8 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection104"Compil
 bE5B9F454-48FA-489A-BB3A-CA9B9192D942
 
 CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/setPropertyViewController.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/setPropertyViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s400955616.679280
-e400955616.857056
+s401139549.059437
+e401139549.518308
 r1
 xCompileC
 xDerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/setPropertyViewController.o
@@ -4457,8 +4546,8 @@ d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/RollerUIButt
 d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/coefficientTableViewController.h
 d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationViewController.h
 d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/commentVC.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection102"Compile /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/setPropertyViewController.m250"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/setPropertyViewController.o polymorph/setPropertyViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler0e31aee018e6b741^946adbe018e6b741^---0#0#1#-19%DVTDocumentLocation2@110"file://localhost/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/setPropertyViewController.m0000000000000000^3947"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/setPropertyViewController.o polymorph/setPropertyViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wno-bool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-generated-files.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-own-target-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-project-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/DerivedSources -F/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-buqnsjdrjuwurlgwkhzlmdrebato/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/setPropertyViewController.d --serialize-diagnostics /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/setPropertyViewController.dia -c /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/setPropertyViewController.m -o /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/setPropertyViewController.o36"D5DBE465-B0DF-4627-A41F-1E15D0A58856-
-bB4117A3A-CB97-4912-90DC-95174EF6C246
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection102"Compile /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/setPropertyViewController.m250"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/setPropertyViewController.o polymorph/setPropertyViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compilerf25c0f5de7e8b741^2b4d8a5de7e8b741^---0#0#1#-19%DVTDocumentLocation2@110"file://localhost/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/setPropertyViewController.m0000000000000000^3947"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/setPropertyViewController.o polymorph/setPropertyViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wno-bool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-generated-files.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-own-target-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-project-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/DerivedSources/armv7 -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/DerivedSources -F/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-buqnsjdrjuwurlgwkhzlmdrebato/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/setPropertyViewController.d --serialize-diagnostics /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/setPropertyViewController.dia -c /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/setPropertyViewController.m -o /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/setPropertyViewController.o36"8D2941C9-C2EC-4D88-A31D-5331FDB61FB3-
+bCA8E5B3F-4A66-4208-B1F6-7E7B6C8CF700
 
 CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/soaveRedlichKwong.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/soaveRedlichKwong.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 s400772008.045738
@@ -5072,6 +5161,72 @@ d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_w.h
 d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/diagramView.h
 lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection98"Compile /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/diagramViewController.m244"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/diagramViewController.o polymorph/diagramViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compilerec17a8a84be3b741^8e3c00a94be3b741^---0#0#1#-19%DVTDocumentLocation2@106"file://localhost/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/diagramViewController.m0000000000000000^3930"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/diagramViewController.o polymorph/diagramViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wno-bool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-generated-files.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-own-target-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-project-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/DerivedSources/armv7s -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/DerivedSources -F/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-cunzzrtgztcnyucpxtpwnyffkgcp/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/diagramViewController.d --serialize-diagnostics /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/diagramViewController.dia -c /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/diagramViewController.m -o /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/diagramViewController.o36"65BB22FB-930E-4A06-814D-D58837E2FCA7-
 b9AA630F5-AB04-4A73-8887-715004F1D4E5
+
+CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/equationScrollVC.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationScrollVC.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s401141200.232563
+e401141200.329710
+r1
+xCompileC
+xDerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/equationScrollVC.o
+x/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationScrollVC.m
+xnormal
+xarmv7s
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationScrollVC.m
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationScrollVC.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/setPropertyViewController.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/database.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/polymorphViewController.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/functions.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/function_0001.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/functionValue.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/function_0002.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/nsrds_0.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/nsrds_1.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/nsrds_2.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/nsrds_3.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/nsrds_4.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/nsrds_5.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/nsrds_6.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/janaf_cp.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/janaf_h.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/janaf_s.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/idealGasLaw.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/pengRobinson.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/pengRobinsonLiquid.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/pengRobinsonVapour.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/soaveRedlichKwong.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/pengRobinsonStryjekVera.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/ancillary_1.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/ancillary_2.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/ancillary_3.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/ancillary_4.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/FJ_Rho.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/fundamentalJacobsen.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/FJ_Cv.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/FJ_Cp.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/FJ_SoundSpeed.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/boilingTemperature.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/sutherland.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/antoine.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_1.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_2.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_2b.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_3.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_4.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_5.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_rho.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_u.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_h.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_s.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_cp.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_cv.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/iapws97_w.h
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/RollerUIButton.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection93"Compile /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationScrollVC.m234"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/equationScrollVC.o polymorph/equationScrollVC.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler65a73bd0ede8b741^0f8054d0ede8b741^---0#0#1#-19%DVTDocumentLocation2@101"file://localhost/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationScrollVC.m0000000000000000^3900"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/equationScrollVC.o polymorph/equationScrollVC.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wno-bool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-generated-files.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-own-target-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-project-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/DerivedSources/armv7s -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/DerivedSources -F/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-cunzzrtgztcnyucpxtpwnyffkgcp/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/equationScrollVC.d --serialize-diagnostics /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/equationScrollVC.dia -c /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationScrollVC.m -o /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/equationScrollVC.o36"432BB652-4811-4D59-BB77-6C2D49F88D68-
+b2D4D7E23-DCD3-485A-964A-48BEDD1CE3BA
 
 CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/equationViewController.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
 s400772009.881631
@@ -6167,8 +6322,8 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection104"Compil
 bE5B9F454-48FA-489A-BB3A-CA9B9192D942
 
 CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/setPropertyViewController.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/setPropertyViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s400955616.686813
-e400955616.879861
+s401139549.441986
+e401139549.711206
 r1
 xCompileC
 xDerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/setPropertyViewController.o
@@ -6231,8 +6386,8 @@ d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/RollerUIButt
 d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/coefficientTableViewController.h
 d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/equationViewController.h
 d/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/commentVC.h
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection102"Compile /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/setPropertyViewController.m252"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/setPropertyViewController.o polymorph/setPropertyViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler4aefafe018e6b741^a25de1e018e6b741^---0#0#1#-19%DVTDocumentLocation2@110"file://localhost/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/setPropertyViewController.m0000000000000000^3954"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/setPropertyViewController.o polymorph/setPropertyViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wno-bool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-generated-files.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-own-target-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-project-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/DerivedSources/armv7s -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/DerivedSources -F/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-cunzzrtgztcnyucpxtpwnyffkgcp/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/setPropertyViewController.d --serialize-diagnostics /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/setPropertyViewController.dia -c /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/setPropertyViewController.m -o /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/setPropertyViewController.o36"77CF1AB3-533A-45B2-92EB-CCBE3E403174-
-bB4117A3A-CB97-4912-90DC-95174EF6C246
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection102"Compile /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/setPropertyViewController.m252"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/setPropertyViewController.o polymorph/setPropertyViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler88bc715de7e8b741^139ac45de7e8b741^---0#0#1#-19%DVTDocumentLocation2@110"file://localhost/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/setPropertyViewController.m0000000000000000^3954"CompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/setPropertyViewController.o polymorph/setPropertyViewController.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wno-bool-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.1 -iquote /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-generated-files.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-own-target-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-all-target-headers.hmap -iquote /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/myPlot-project-headers.hmap -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/DerivedSources/armv7s -I/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/DerivedSources -F/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -include /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/PrecompiledHeaders/polymorph-Prefix-cunzzrtgztcnyucpxtpwnyffkgcp/polymorph-Prefix.pch -MMD -MT dependencies -MF /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/setPropertyViewController.d --serialize-diagnostics /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/setPropertyViewController.dia -c /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/setPropertyViewController.m -o /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/setPropertyViewController.o36"D2C9DE93-CA55-440A-8CE0-AD0B40B74DDE-
+bCA8E5B3F-4A66-4208-B1F6-7E7B6C8CF700
 
 CCompileC DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/soaveRedlichKwong.o /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/soaveRedlichKwong.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
 s400772011.288169
@@ -6271,13 +6426,13 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection87"Compile
 b9AA630F5-AB04-4A73-8887-715004F1D4E5
 
 CCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/en.lproj/MainStoryboard.storyboard
-s401132296.233507
-e401132303.317769
+s401141434.555130
+e401141441.894273
 r1
 xCompileStoryboard
 x/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/en.lproj/MainStoryboard.storyboard
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection62"CompileStoryboard polymorph/en.lproj/MainStoryboard.storyboard62"CompileStoryboard polymorph/en.lproj/MainStoryboard.storyboard05dc3b08cbe8b741^9259510fcbe8b741^---0#0#1#-19%DVTDocumentLocation2@117"file://localhost/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/en.lproj/MainStoryboard.storyboard0000000000000000^883"CompileStoryboard polymorph/en.lproj/MainStoryboard.storyboard    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 5.1    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --minimum-deployment-target 5.1 --output-format human-readable-text --compile /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/en.lproj/MainStoryboard.storyboardc /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/en.lproj/MainStoryboard.storyboard36"B5E787CB-94CA-4F35-9F02-6F3B96F75C6A-
-b11D227A5-5623-4E8A-83D0-E2D4664E9FCA
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection62"CompileStoryboard polymorph/en.lproj/MainStoryboard.storyboard62"CompileStoryboard polymorph/en.lproj/MainStoryboard.storyboardf12f8ebaeee8b741^8104e5c1eee8b741^---0#0#1#-19%DVTDocumentLocation2@117"file://localhost/Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/en.lproj/MainStoryboard.storyboard0000000000000000^883"CompileStoryboard polymorph/en.lproj/MainStoryboard.storyboard    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 5.1    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --minimum-deployment-target 5.1 --output-format human-readable-text --compile /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/en.lproj/MainStoryboard.storyboardc /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/en.lproj/MainStoryboard.storyboard36"7244B38E-227B-4E5B-AC87-1CDB73D78790-
+b924281E5-853D-4C83-931E-AF28E66C30AE
 
 CCopyPNGFile /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/Default-568h@2x.png Default-568h@2x.png
 s400662847.385889
@@ -7200,29 +7355,29 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection76"Copy De
 bC31E9684-93F4-4E92-979F-04FD0B069F41
 
 CCreateUniversalBinary /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot normal armv7\ armv7s
-s401127814.144717
-e401127814.170361
+s401141200.519633
+e401141200.548105
 r1
 xCreateUniversalBinary
 x/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot
 xnormal
 xarmv7 armv7s
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection150"Create universal binary /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot112"CreateUniversalBinary DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot normal armv7\ armv7s5b242586b9e8b741^179e2b86b9e8b741^---0#0#1#-19%DVTDocumentLocation2@142"file://localhost/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot0000000000000000^860"CreateUniversalBinary DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot normal armv7\ armv7s    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    lipo -create /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/myPlot /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/myPlot -output /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot36"86DA58C6-8961-42F5-8904-4ED88D5EA063-
-b3145C790-74DC-4E85-B75F-FABAD31C29D4
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection150"Create universal binary /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot112"CreateUniversalBinary DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot normal armv7\ armv7se61f85d0ede8b741^ee5c8cd0ede8b741^---0#0#1#-19%DVTDocumentLocation2@142"file://localhost/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot0000000000000000^860"CreateUniversalBinary DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot normal armv7\ armv7s    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    lipo -create /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/myPlot /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/myPlot -output /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot36"816AF683-52D6-40E9-B9BF-48B1EA6995CB-
+b2D4D7E23-DCD3-485A-964A-48BEDD1CE3BA
 
 CGenerateDSYMFile /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app.dSYM /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot
-s401127814.178910
-e401127814.348714
+s401141434.349754
+e401141434.546376
 r1
 xGenerateDSYMFile
 x/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app.dSYM
 x/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection133"Generate /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app.dSYM154"GenerateDSYMFile DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app.dSYM DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlotcadf2d86b9e8b741^0b465986b9e8b741^---0#0#1#-19%DVTDocumentLocation2@141"file://localhost/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app.dSYM/0000000000000000^762"GenerateDSYMFile DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app.dSYM DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot -o /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app.dSYM36"A0820F57-8D10-4CFD-9E81-E71D5799FC3E-
-b3145C790-74DC-4E85-B75F-FABAD31C29D4
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection133"Generate /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app.dSYM154"GenerateDSYMFile DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app.dSYM DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot569d59baeee8b741^1c259bbaeee8b741^---0#0#1#-19%DVTDocumentLocation2@141"file://localhost/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app.dSYM/0000000000000000^762"GenerateDSYMFile DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app.dSYM DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/myPlot -o /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app.dSYM36"12C04BEC-7DDF-47F5-8B30-2B5D94B7FD46-
+b924281E5-853D-4C83-931E-AF28E66C30AE
 
 CLd /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/myPlot normal armv7
-s401127813.991829
-e401127814.109416
+s401141200.343818
+e401141200.509668
 r1
 xLd
 x/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/myPlot
@@ -7294,6 +7449,7 @@ d/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/
 d/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/iapws97_w.o
 d/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/soaveRedlichKwong.o
 d/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/pengRobinsonStryjekVera.o
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/equationScrollVC.o
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/MessageUI.framework/MessageUI
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
@@ -7302,6 +7458,7 @@ d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/libobjc.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/libSystem.dylib
 d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.0/lib/darwin/libclang_rt.ios.a
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libcache.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libcommonCrypto.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libcompiler_rt.dylib
@@ -7330,14 +7487,13 @@ d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Develope
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_stats.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libunwind.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libxpc.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection175"Link /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/myPlot129"Ld DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/myPlot normal armv78f00fe85b9e8b741^ce1a1c86b9e8b741^---0#0#1#--1615"Ld DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/myPlot normal armv7    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv IPHONEOS_DEPLOYMENT_TARGET 5.1    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch armv7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -L/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -F/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -filelist /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/myPlot.LinkFileList -dead_strip -fobjc-arc -fobjc-link-runtime -miphoneos-version-min=5.1 -framework MessageUI -framework UIKit -framework Foundation -framework CoreGraphics -Xlinker -dependency_info -Xlinker /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/myPlot_dependency_info.dat -o /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/myPlot36"322CAC57-4DA6-4079-8A1A-8BBECA9212AA-
-b3145C790-74DC-4E85-B75F-FABAD31C29D4
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection175"Link /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/myPlot129"Ld DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/myPlot normal armv7ca1b58d0ede8b741^9ace82d0ede8b741^---0#0#1#--1615"Ld DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/myPlot normal armv7    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv IPHONEOS_DEPLOYMENT_TARGET 5.1    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch armv7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -L/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -F/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -filelist /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/myPlot.LinkFileList -dead_strip -fobjc-arc -fobjc-link-runtime -miphoneos-version-min=5.1 -framework MessageUI -framework UIKit -framework Foundation -framework CoreGraphics -Xlinker -dependency_info -Xlinker /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/myPlot_dependency_info.dat -o /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7/myPlot36"A003B92B-CBB1-4160-9564-AFD97277490F-
+b2D4D7E23-DCD3-485A-964A-48BEDD1CE3BA
 
 CLd /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/myPlot normal armv7s
-s401127813.992575
-e401127814.135517
+s401141200.345891
+e401141200.503491
 r1
 xLd
 x/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/myPlot
@@ -7409,6 +7565,7 @@ d/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/
 d/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/iapws97_w.o
 d/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/soaveRedlichKwong.o
 d/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/pengRobinsonStryjekVera.o
+d/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/equationScrollVC.o
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/MessageUI.framework/MessageUI
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
@@ -7417,7 +7574,6 @@ d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/libobjc.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/libSystem.dylib
 d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.0/lib/darwin/libclang_rt.ios.a
-d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libcache.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libcommonCrypto.dylib
@@ -7447,8 +7603,9 @@ d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Develope
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libsystem_stats.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libunwind.dylib
 d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/system/libxpc.dylib
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection176"Link /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/myPlot131"Ld DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/myPlot normal armv7s912afe85b9e8b741^28f02286b9e8b741^---0#0#1#--1621"Ld DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/myPlot normal armv7s    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv IPHONEOS_DEPLOYMENT_TARGET 5.1    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch armv7s -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -L/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -F/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -filelist /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/myPlot.LinkFileList -dead_strip -fobjc-arc -fobjc-link-runtime -miphoneos-version-min=5.1 -framework MessageUI -framework UIKit -framework Foundation -framework CoreGraphics -Xlinker -dependency_info -Xlinker /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/myPlot_dependency_info.dat -o /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/myPlot36"74825308-ABBB-4262-B828-7D047F22004E-
-b3145C790-74DC-4E85-B75F-FABAD31C29D4
+d/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection176"Link /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/myPlot131"Ld DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/myPlot normal armv7s349e58d0ede8b741^532281d0ede8b741^---0#0#1#--1621"Ld DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/myPlot normal armv7s    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv IPHONEOS_DEPLOYMENT_TARGET 5.1    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch armv7s -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -L/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -F/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos -filelist /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/myPlot.LinkFileList -dead_strip -fobjc-arc -fobjc-link-runtime -miphoneos-version-min=5.1 -framework MessageUI -framework UIKit -framework Foundation -framework CoreGraphics -Xlinker -dependency_info -Xlinker /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/myPlot_dependency_info.dat -o /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Intermediates/polymorph.build/Debug-iphoneos/myPlot.build/Objects-normal/armv7s/myPlot36"F942256B-826A-4DDB-ABD1-87D139881CCE-
+b2D4D7E23-DCD3-485A-964A-48BEDD1CE3BA
 
 CProcessInfoPlistFile /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app/Info.plist /Users/niklasnordin/Documents/xcode-github.git/polymorph/polymorph/polymorph-Info.plist
 s400772004.309079
@@ -7553,11 +7710,11 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection228"Proces
 bC31E9684-93F4-4E92-979F-04FD0B069F41
 
 CTouch /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app
-s401132303.330313
-e401132303.346346
+s401141441.906555
+e401141441.914938
 r1
 xTouch
 x/Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection125"Touch /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app68"Touch DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.appa9a2540fcbe8b741^adc0580fcbe8b741^---0#0#1#--463"Touch DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app36"40FB5FE2-21C0-4A16-8EE9-05E2114027A7-
-b11D227A5-5623-4E8A-83D0-E2D4664E9FCA
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection125"Touch /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app68"Touch DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.appe125e8c1eee8b741^7e3aeac1eee8b741^---0#0#1#--463"Touch DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app    cd /Users/niklasnordin/Documents/xcode-github.git/polymorph    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/niklasnordin/Documents/xcode-github.git/polymorph/DerivedData/polymorph/Build/Products/Debug-iphoneos/myPlot.app36"480308CB-4EEE-4C11-8A0F-EF89CE695CEA-
+b924281E5-853D-4C83-931E-AF28E66C30AE
 

@@ -25,8 +25,25 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"viewDidLoad");
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    int nImages = 4;
+    CGRect imageRect = _scrollView.bounds;
+    CGSize allImageSize = CGSizeMake(nImages*imageRect.size.width, imageRect.size.height);
+    _scrollView.contentSize = allImageSize;
+
+    for (int i=0; i<nImages; i++)
+    {
+        NSString *name = _functionNames[i];
+        UIImageView *image = [[UIImageView alloc] initWithFrame:imageRect];
+        [image setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png",name]]];
+        [image setContentMode:UIViewContentModeScaleAspectFit];
+        [image sizeThatFits:_scrollView.bounds.size];
+        [_scrollView addSubview:image];
+        imageRect = CGRectOffset(imageRect, _scrollView.bounds.size.width, 0);
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +52,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)setBarButtonPressed:(id)sender
+{
+    NSLog(@"set Pressed");
+}
 @end

@@ -389,6 +389,16 @@
         [segue.destinationViewController setSpVC:self];
         [segue.destinationViewController setTitle:name];
     }
+    
+    if ([segue.identifier isEqualToString:@"equationSegue2"])
+    {
+        NSString *name = [propertyDict objectForKey:@"function"];
+        int index = [_functionNames indexOfObject:name];
+        [segue.destinationViewController setFunctionIndex:index];
+        [segue.destinationViewController setFunctionNames:_functionNames];
+        [segue.destinationViewController setSpVC:self];
+        [segue.destinationViewController setTitle:name];
+    }
 }
 
 - (IBAction)unitEnter:(UITextField *)sender

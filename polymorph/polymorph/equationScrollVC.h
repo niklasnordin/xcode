@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "setPropertyViewController.h"
 
 @interface equationScrollVC : UIViewController
+
+@property (nonatomic) int functionIndex;
+@property (weak, nonatomic) NSArray *functionNames;
+@property (weak, nonatomic) setPropertyViewController *spVC;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+- (IBAction)setBarButtonPressed:(id)sender;
 
 @end
