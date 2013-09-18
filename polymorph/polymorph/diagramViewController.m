@@ -51,7 +51,7 @@
 
 }
 
--(void)setup:(id <functionValue>)f
+- (void)setup:(id <functionValue>)f
         dict:(NSDictionary *)dict
          min:(double)Tmin
          max:(double)Tmax
@@ -64,7 +64,7 @@
     _cpv = cpv;
 }
 
--(void) setDview:(diagramView *)dview
+- (void)setDview:(diagramView *)dview
 {
     // this is used before viewDidLoad
     
@@ -83,7 +83,7 @@
     [_dview setup:self.xMin max:self.xMax];
 
 }
-
+/*
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -92,7 +92,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
 }
 
 - (void)viewDidUnload
@@ -103,6 +102,11 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+*/
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -113,7 +117,7 @@
         int nPoints = [[[alertView textFieldAtIndex:0] text] intValue];
         for (int i=0; i<nPoints; i++)
         {
-            double x = _dview.xMin + (_dview.xMax -_dview.xMin)*i/(nPoints-1.0);
+            double x = self.dview.xMin + (self.dview.xMax -self.dview.xMin)*i/(nPoints-1.0);
             double y = 0.0;
             if (_xIsT)
             {

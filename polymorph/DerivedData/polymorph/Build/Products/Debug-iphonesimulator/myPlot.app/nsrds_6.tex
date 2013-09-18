@@ -1,0 +1,25 @@
+\documentclass[12pt]{article}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+%\usepackage{palatino}
+% 1655 x ?
+% ? = 1655 * 416 / 320 = 2151
+% 100 pt = 885 pt in final
+\newcommand{\cfbox}[2]{%
+    \colorlet{currentcolor}{.}%
+    {\color{#1}\fbox{\begin{minipage}{180pt}%
+     \color{currentcolor}#2\end{minipage}}}%
+}
+
+\pagestyle{empty}
+\begin{document}
+\cfbox{white}{
+$
+y=A_0 (1-T_r)^{A_1 + A_2 T_r + A_3 T_r^2 + A_4 T_r^3}
+$
+\vspace{10pt}\\
+where :\\
+$T_r = T / A_5$\vspace{171pt}\\
+}
+\end{document}

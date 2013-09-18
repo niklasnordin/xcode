@@ -1,0 +1,713 @@
+TCheckup Scheduler
+v5
+r1
+cCheck dependencies
+cCpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/ResourceRules.plist "DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/ResourceRules.plist"
+cProcessInfoPlistFile "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Info.plist" "Checkup Scheduler/Checkup Scheduler-Info.plist"
+cProcessPCH "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch.pth" "Checkup Scheduler/Checkup Scheduler-Prefix.pch" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/main.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/main.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/checkupSchedulerAppDelegate.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/checkupSchedulerAppDelegate.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/checkupSchedulerViewController.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/checkupSchedulerViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeTableViewController.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeTableViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeViewController.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/collectionScrollView.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/collectionScrollView.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeCollectionView.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeCollectionView.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeCollectionCell.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeCollectionCell.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/idButton.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/idButton.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/eventViewController.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/eventViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/timeSetupViewController.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/timeSetupViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/durationPickerView.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/durationPickerView.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/reminderPickerView.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/reminderPickerView.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/settingsViewController.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/settingsViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/colorSettingsViewController.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/colorSettingsViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/settingsDB.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/settingsDB.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Checkup Scheduler" normal armv7
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk
+c0000000051BB4DBC0000000000000110
+t1371229628
+s272
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/Entitlements.plist
+c0000000051082B0900000000000001A7
+t1359489801
+s423
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/ResourceRules.plist
+c0000000051082B0900000000000001E5
+t1359489801
+s485
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c0000000051082B0C0000000000322700
+t1359489804
+s3286784
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/EventKit.framework/EventKit
+c0000000051082B0D0000000000278AD0
+t1359489805
+s2591440
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/EventKitUI.framework/EventKitUI
+c0000000051082B0D00000000002AE520
+t1359489805
+s2811168
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c0000000051082B0E000000000062AD10
+t1359489806
+s6466832
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c0000000051082B0D00000000000015F7
+t1359489805
+s5623
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+c0000000051082B0F00000000003596B0
+t1359489807
+s3511984
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c0000000051082B0F0000000000000E8D
+t1359489807
+s3725
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c0000000051082B1300000000011BCDF0
+t1359489811
+s18599408
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/iAd.framework/iAd
+c0000000051082B0D000000000005E840
+t1359489805
+s387136
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/Availability.h
+c0000000051082B170000000000001B73
+t1359489815
+s7027
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/../icon114.png
+c0000000051F6D3490000000000003B7A
+t1375130441
+s15226
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/../icon57.png
+c0000000051F6D38E0000000000001AF4
+t1375130510
+s6900
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/Checkup Scheduler-Prefix.pch
+c0000000051C3EB960000000000000151
+t1371794326
+s337
+i<Availability.h>
+i<UIKit/UIKit.h>
+i<Foundation/Foundation.h>
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/Default-568h@2x.png
+c0000000050262AB100000000000048A2
+t1344678577
+s18594
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/Default.png
+c0000000050262AB1000000000000198C
+t1344678577
+s6540
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/Default@2x.png
+c0000000050262AB10000000000003EEB
+t1344678577
+s16107
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/checkupSchedulerAppDelegate.m
+c0000000051F8F11A00000000000008FF
+t1375269146
+s2303
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/checkupSchedulerViewController.m
+c0000000051F8F54B0000000000005773
+t1375270219
+s22387
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/collectionScrollView.m
+c0000000051CE93DB0000000000000243
+t1372492763
+s579
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/colorSettingsViewController.m
+c0000000051F60CB50000000000001C0D
+t1375079605
+s7181
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/durationPickerView.m
+c0000000051D47C450000000000000510
+t1372879941
+s1296
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/en.lproj/InfoPlist.strings
+c0000000051C3EB96000000000000002D
+t1371794326
+s45
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/en.lproj/MainStoryboard_iPad.storyboard
+c0000000051E03AB4000000000000823D
+t1373649588
+s33341
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/en.lproj/MainStoryboard_iPhone.storyboard
+c0000000051F8C5B40000000000013871
+t1375258036
+s79985
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/eventViewController.m
+c0000000051E94A6800000000000032D7
+t1374243432
+s13015
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/idButton.m
+c0000000051CEC937000000000000024D
+t1372506423
+s589
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/main.m
+c0000000051C3EB960000000000000181
+t1371794326
+s385
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/reminderPickerView.m
+c0000000051D481B6000000000000071B
+t1372881334
+s1819
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeCollectionCell.m
+c0000000051CE93DB0000000000000243
+t1372492763
+s579
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeCollectionView.m
+c0000000051CE93DB0000000000000243
+t1372492763
+s579
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeTableViewController.m
+c0000000051F8F00F00000000000021A8
+t1375268879
+s8616
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeViewController.m
+c0000000051F8C4A3000000000000198C
+t1375257763
+s6540
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/settingsDB.m
+c0000000051F8AFA10000000000000C16
+t1375252385
+s3094
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/settingsViewController.m
+c0000000051E843660000000000000C28
+t1374176102
+s3112
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/timeSetupViewController.m
+c0000000051E0351E0000000000000AFB
+t1373648158
+s2811
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler.xcent
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/Checkup Scheduler.LinkFileList
+c0000000051F8F5990000000000000DD7
+t1375270297
+s3543
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/checkupSchedulerAppDelegate.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/checkupSchedulerViewController.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/collectionScrollView.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/colorSettingsViewController.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/durationPickerView.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/eventViewController.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/idButton.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/main.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/reminderPickerView.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeCollectionCell.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeCollectionView.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeTableViewController.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeViewController.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/settingsDB.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/settingsViewController.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/timeSetupViewController.o
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch.pth
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app.dSYM
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Checkup Scheduler
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Default-568h@2x.png
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Default.png
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Default@2x.png
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Info.plist
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/PkgInfo
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/ResourceRules.plist
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/embedded.mobileprovision
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/en.lproj/InfoPlist.strings
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/en.lproj/MainStoryboard_iPad.storyboardc
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/en.lproj/MainStoryboard_iPhone.storyboardc
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/icon114.png
+t2
+s0
+
+N/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/icon57.png
+t2
+s0
+
+N/Users/niklasnordin/Library/MobileDevice/Provisioning Profiles/746F1C6F-28E8-4479-88C8-2BC779EF82C8.mobileprovision
+c0000000050AC69950000000000001E1C
+t1353476501
+s7708
+
+NCheckup Scheduler/Checkup Scheduler-Info.plist
+c0000000051F6D3D700000000000006AE
+t1375130583
+s1710
+
+CBuild AST from "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/checkupSchedulerAppDelegate.m"
+r0
+
+CBuild AST from "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/checkupSchedulerViewController.m"
+r0
+
+CBuild AST from "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/collectionScrollView.m"
+r0
+
+CBuild AST from "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/colorSettingsViewController.m"
+r0
+
+CBuild AST from "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/durationPickerView.m"
+r0
+
+CBuild AST from "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/eventViewController.m"
+r0
+
+CBuild AST from "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/idButton.m"
+r0
+
+CBuild AST from "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/main.m"
+r0
+
+CBuild AST from "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/reminderPickerView.m"
+r0
+
+CBuild AST from "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeCollectionCell.m"
+r0
+
+CBuild AST from "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeCollectionView.m"
+r0
+
+CBuild AST from "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeTableViewController.m"
+r0
+
+CBuild AST from "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeViewController.m"
+r0
+
+CBuild AST from "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/settingsDB.m"
+r0
+
+CBuild AST from "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/settingsViewController.m"
+r0
+
+CBuild AST from "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/timeSetupViewController.m"
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies9d9b4e192da9b741^0b998b192da9b741^---0#1#0#--18"Check dependencies36"6E79110A-DD41-4CA7-BC93-885DC4848AE2-
+
+CCodeSign "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app"
+r0
+
+CCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/checkupSchedulerAppDelegate.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/checkupSchedulerAppDelegate.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396963099.396699
+e396963099.977911
+r1
+xCompileC
+xDerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/checkupSchedulerAppDelegate.o
+x/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/checkupSchedulerAppDelegate.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection120"Compile /Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/checkupSchedulerAppDelegate.m80ba651b2da9b741^5f60fa1b2da9b741^---0#0#0#-19%DVTDocumentLocation2@132"file://localhost/Users/niklasnordin/Documents/xcode-github.git/Checkup%20Scheduler/Checkup%20Scheduler/checkupSchedulerAppDelegate.m0000000000000000^4564"CompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/checkupSchedulerAppDelegate.o" "Checkup Scheduler/checkupSchedulerAppDelegate.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.1 -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-generated-files.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-own-target-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-all-target-headers.hmap" -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-project-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources/armv7" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources" "-F/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos" -include "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch" -MMD -MT dependencies -MF "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/checkupSchedulerAppDelegate.d" --serialize-diagnostics "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/checkupSchedulerAppDelegate.dia" -c "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/checkupSchedulerAppDelegate.m" -o "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/checkupSchedulerAppDelegate.o"36"989D3FB0-03CB-4419-923A-EC2C1A4E383F-
+
+CCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/checkupSchedulerViewController.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/checkupSchedulerViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396963099.552631
+e396963100.693788
+r1
+xCompileC
+xDerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/checkupSchedulerViewController.o
+x/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/checkupSchedulerViewController.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection123"Compile /Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/checkupSchedulerViewController.ma9a18d1b2da9b741^0caeb11c2da9b741^---0#0#0#-19%DVTDocumentLocation2@135"file://localhost/Users/niklasnordin/Documents/xcode-github.git/Checkup%20Scheduler/Checkup%20Scheduler/checkupSchedulerViewController.m0000000000000000^4582"CompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/checkupSchedulerViewController.o" "Checkup Scheduler/checkupSchedulerViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.1 -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-generated-files.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-own-target-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-all-target-headers.hmap" -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-project-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources/armv7" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources" "-F/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos" -include "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch" -MMD -MT dependencies -MF "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/checkupSchedulerViewController.d" --serialize-diagnostics "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/checkupSchedulerViewController.dia" -c "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/checkupSchedulerViewController.m" -o "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/checkupSchedulerViewController.o"36"F2FCDE1B-99EF-4575-B461-2911B9A393F6-
+
+CCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/collectionScrollView.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/collectionScrollView.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396963100.696624
+e396963100.927753
+r1
+xCompileC
+xDerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/collectionScrollView.o
+x/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/collectionScrollView.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection113"Compile /Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/collectionScrollView.me882b21c2da9b741^cb86ed1c2da9b741^---0#0#0#-19%DVTDocumentLocation2@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/Checkup%20Scheduler/Checkup%20Scheduler/collectionScrollView.m0000000000000000^4522"CompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/collectionScrollView.o" "Checkup Scheduler/collectionScrollView.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.1 -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-generated-files.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-own-target-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-all-target-headers.hmap" -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-project-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources/armv7" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources" "-F/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos" -include "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch" -MMD -MT dependencies -MF "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/collectionScrollView.d" --serialize-diagnostics "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/collectionScrollView.dia" -c "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/collectionScrollView.m" -o "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/collectionScrollView.o"36"92B9BC91-B7A4-4D72-B115-C1413633BA84-
+
+CCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/colorSettingsViewController.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/colorSettingsViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396963102.780404
+e396963103.224425
+r1
+xCompileC
+xDerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/colorSettingsViewController.o
+x/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/colorSettingsViewController.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection120"Compile /Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/colorSettingsViewController.m3df2c71e2da9b741^1077391f2da9b741^---0#0#0#-19%DVTDocumentLocation2@132"file://localhost/Users/niklasnordin/Documents/xcode-github.git/Checkup%20Scheduler/Checkup%20Scheduler/colorSettingsViewController.m0000000000000000^4564"CompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/colorSettingsViewController.o" "Checkup Scheduler/colorSettingsViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.1 -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-generated-files.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-own-target-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-all-target-headers.hmap" -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-project-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources/armv7" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources" "-F/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos" -include "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch" -MMD -MT dependencies -MF "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/colorSettingsViewController.d" --serialize-diagnostics "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/colorSettingsViewController.dia" -c "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/colorSettingsViewController.m" -o "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/colorSettingsViewController.o"36"2138B9BA-7E04-4122-B0A5-62F1C90CCA97-
+
+CCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/durationPickerView.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/durationPickerView.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396963102.167731
+e396963102.545338
+r1
+xCompileC
+xDerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/durationPickerView.o
+x/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/durationPickerView.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection111"Compile /Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/durationPickerView.m263a2b1e2da9b741^48a68b1e2da9b741^---0#0#0#-19%DVTDocumentLocation2@123"file://localhost/Users/niklasnordin/Documents/xcode-github.git/Checkup%20Scheduler/Checkup%20Scheduler/durationPickerView.m0000000000000000^4510"CompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/durationPickerView.o" "Checkup Scheduler/durationPickerView.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.1 -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-generated-files.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-own-target-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-all-target-headers.hmap" -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-project-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources/armv7" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources" "-F/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos" -include "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch" -MMD -MT dependencies -MF "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/durationPickerView.d" --serialize-diagnostics "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/durationPickerView.dia" -c "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/durationPickerView.m" -o "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/durationPickerView.o"36"9E8DCD6A-73F4-4AFC-8D37-259C3879BBC9-
+
+CCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/eventViewController.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/eventViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396963101.314831
+e396963102.386133
+r1
+xCompileC
+xDerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/eventViewController.o
+x/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/eventViewController.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection112"Compile /Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/eventViewController.mc8d1501d2da9b741^84d7621e2da9b741^---0#0#0#-19%DVTDocumentLocation2@124"file://localhost/Users/niklasnordin/Documents/xcode-github.git/Checkup%20Scheduler/Checkup%20Scheduler/eventViewController.m0000000000000000^4516"CompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/eventViewController.o" "Checkup Scheduler/eventViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.1 -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-generated-files.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-own-target-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-all-target-headers.hmap" -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-project-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources/armv7" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources" "-F/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos" -include "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch" -MMD -MT dependencies -MF "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/eventViewController.d" --serialize-diagnostics "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/eventViewController.dia" -c "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/eventViewController.m" -o "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/eventViewController.o"36"5BFADD37-1E16-41D5-928A-9E70BA275CFA-
+
+CCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/idButton.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/idButton.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396963101.272706
+e396963101.619484
+r1
+xCompileC
+xDerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/idButton.o
+x/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/idButton.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection101"Compile /Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/idButton.ma4ff451d2da9b741^ee949e1d2da9b741^---0#0#0#-19%DVTDocumentLocation2@113"file://localhost/Users/niklasnordin/Documents/xcode-github.git/Checkup%20Scheduler/Checkup%20Scheduler/idButton.m0000000000000000^4450"CompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/idButton.o" "Checkup Scheduler/idButton.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.1 -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-generated-files.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-own-target-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-all-target-headers.hmap" -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-project-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources/armv7" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources" "-F/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos" -include "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch" -MMD -MT dependencies -MF "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/idButton.d" --serialize-diagnostics "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/idButton.dia" -c "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/idButton.m" -o "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/idButton.o"36"3EAB754F-92E3-4F3D-A561-C97EDE908D5C-
+
+CCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/main.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/main.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396963099.396077
+e396963099.551301
+r1
+xCompileC
+xDerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/main.o
+x/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/main.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection97"Compile /Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/main.mb29b651b2da9b741^3d2b8d1b2da9b741^---0#0#0#-19%DVTDocumentLocation2@109"file://localhost/Users/niklasnordin/Documents/xcode-github.git/Checkup%20Scheduler/Checkup%20Scheduler/main.m0000000000000000^4426"CompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/main.o" "Checkup Scheduler/main.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.1 -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-generated-files.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-own-target-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-all-target-headers.hmap" -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-project-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources/armv7" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources" "-F/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos" -include "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch" -MMD -MT dependencies -MF "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/main.d" --serialize-diagnostics "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/main.dia" -c "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/main.m" -o "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/main.o"36"B8631F4C-F68A-4964-92F7-AF6967B846EA-
+
+CCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/reminderPickerView.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/reminderPickerView.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396963102.389219
+e396963102.779060
+r1
+xCompileC
+xDerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/reminderPickerView.o
+x/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/reminderPickerView.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection111"Compile /Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/reminderPickerView.m32ca631e2da9b741^d66ec71e2da9b741^---0#0#0#-19%DVTDocumentLocation2@123"file://localhost/Users/niklasnordin/Documents/xcode-github.git/Checkup%20Scheduler/Checkup%20Scheduler/reminderPickerView.m0000000000000000^4510"CompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/reminderPickerView.o" "Checkup Scheduler/reminderPickerView.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.1 -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-generated-files.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-own-target-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-all-target-headers.hmap" -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-project-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources/armv7" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources" "-F/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos" -include "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch" -MMD -MT dependencies -MF "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/reminderPickerView.d" --serialize-diagnostics "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/reminderPickerView.dia" -c "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/reminderPickerView.m" -o "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/reminderPickerView.o"36"418058E2-9DF7-47AC-8503-7F5A82AEFB83-
+
+CCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeCollectionCell.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeCollectionCell.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396963101.041821
+e396963101.313278
+r1
+xCompileC
+xDerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeCollectionCell.o
+x/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeCollectionCell.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection113"Compile /Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeCollectionCell.m01da0a1d2da9b741^0f61501d2da9b741^---0#0#0#-19%DVTDocumentLocation2@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/Checkup%20Scheduler/Checkup%20Scheduler/schemeCollectionCell.m0000000000000000^4522"CompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeCollectionCell.o" "Checkup Scheduler/schemeCollectionCell.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.1 -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-generated-files.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-own-target-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-all-target-headers.hmap" -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-project-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources/armv7" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources" "-F/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos" -include "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch" -MMD -MT dependencies -MF "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeCollectionCell.d" --serialize-diagnostics "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeCollectionCell.dia" -c "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeCollectionCell.m" -o "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeCollectionCell.o"36"B81F473A-4AF9-4C76-AD9F-A10A0282A564-
+
+CCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeCollectionView.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeCollectionView.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396963100.930728
+e396963101.271367
+r1
+xCompileC
+xDerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeCollectionView.o
+x/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeCollectionView.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection113"Compile /Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeCollectionView.mba6aee1c2da9b741^9b76451d2da9b741^---0#0#0#-19%DVTDocumentLocation2@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/Checkup%20Scheduler/Checkup%20Scheduler/schemeCollectionView.m0000000000000000^4522"CompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeCollectionView.o" "Checkup Scheduler/schemeCollectionView.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.1 -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-generated-files.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-own-target-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-all-target-headers.hmap" -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-project-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources/armv7" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources" "-F/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos" -include "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch" -MMD -MT dependencies -MF "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeCollectionView.d" --serialize-diagnostics "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeCollectionView.dia" -c "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeCollectionView.m" -o "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeCollectionView.o"36"D5E334C8-782F-4E3A-9EF8-4733FFFA063A-
+
+CCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeTableViewController.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeTableViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396963099.979262
+e396963100.372137
+r1
+xCompileC
+xDerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeTableViewController.o
+x/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeTableViewController.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection118"Compile /Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeTableViewController.m0ddffa1b2da9b741^09505f1c2da9b741^---0#0#0#-19%DVTDocumentLocation2@130"file://localhost/Users/niklasnordin/Documents/xcode-github.git/Checkup%20Scheduler/Checkup%20Scheduler/schemeTableViewController.m0000000000000000^4552"CompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeTableViewController.o" "Checkup Scheduler/schemeTableViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.1 -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-generated-files.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-own-target-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-all-target-headers.hmap" -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-project-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources/armv7" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources" "-F/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos" -include "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch" -MMD -MT dependencies -MF "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeTableViewController.d" --serialize-diagnostics "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeTableViewController.dia" -c "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeTableViewController.m" -o "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeTableViewController.o"36"C3481A3A-78DF-4687-9ADB-6FFE6B71E3D4-
+
+CCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeViewController.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396963100.373454
+e396963101.040544
+r1
+xCompileC
+xDerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeViewController.o
+x/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeViewController.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection113"Compile /Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeViewController.m77be5f1c2da9b741^406b0a1d2da9b741^---0#0#0#-19%DVTDocumentLocation2@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/Checkup%20Scheduler/Checkup%20Scheduler/schemeViewController.m0000000000000000^4522"CompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeViewController.o" "Checkup Scheduler/schemeViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.1 -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-generated-files.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-own-target-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-all-target-headers.hmap" -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-project-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources/armv7" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources" "-F/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos" -include "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch" -MMD -MT dependencies -MF "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeViewController.d" --serialize-diagnostics "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeViewController.dia" -c "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/schemeViewController.m" -o "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/schemeViewController.o"36"30A6751B-BD57-40E8-804A-473F98BAF1DD-
+
+CCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/settingsDB.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/settingsDB.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396963102.994562
+e396963103.156782
+r1
+xCompileC
+xDerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/settingsDB.o
+x/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/settingsDB.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection103"Compile /Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/settingsDB.madbefe1e2da9b741^9d2d281f2da9b741^---0#0#0#-19%DVTDocumentLocation2@115"file://localhost/Users/niklasnordin/Documents/xcode-github.git/Checkup%20Scheduler/Checkup%20Scheduler/settingsDB.m0000000000000000^4462"CompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/settingsDB.o" "Checkup Scheduler/settingsDB.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.1 -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-generated-files.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-own-target-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-all-target-headers.hmap" -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-project-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources/armv7" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources" "-F/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos" -include "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch" -MMD -MT dependencies -MF "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/settingsDB.d" --serialize-diagnostics "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/settingsDB.dia" -c "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/settingsDB.m" -o "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/settingsDB.o"36"A91E18AF-A583-41F6-9903-5A64342B4B31-
+
+CCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/settingsViewController.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/settingsViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396963102.546557
+e396963102.993269
+r1
+xCompileC
+xDerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/settingsViewController.o
+x/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/settingsViewController.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection115"Compile /Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/settingsViewController.m020f8c1e2da9b741^3d45fe1e2da9b741^---0#0#0#-19%DVTDocumentLocation2@127"file://localhost/Users/niklasnordin/Documents/xcode-github.git/Checkup%20Scheduler/Checkup%20Scheduler/settingsViewController.m0000000000000000^4534"CompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/settingsViewController.o" "Checkup Scheduler/settingsViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.1 -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-generated-files.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-own-target-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-all-target-headers.hmap" -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-project-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources/armv7" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources" "-F/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos" -include "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch" -MMD -MT dependencies -MF "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/settingsViewController.d" --serialize-diagnostics "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/settingsViewController.dia" -c "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/settingsViewController.m" -o "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/settingsViewController.o"36"5D04E3CD-4084-4364-98D4-6B6048D49442-
+
+CCompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/timeSetupViewController.o" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/timeSetupViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396963101.658037
+e396963102.163742
+r1
+xCompileC
+xDerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/timeSetupViewController.o
+x/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/timeSetupViewController.m
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection116"Compile /Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/timeSetupViewController.mb5f9c71d2da9b741^dcf6291e2da9b741^---0#0#0#-19%DVTDocumentLocation2@128"file://localhost/Users/niklasnordin/Documents/xcode-github.git/Checkup%20Scheduler/Checkup%20Scheduler/timeSetupViewController.m0000000000000000^4540"CompileC "DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/timeSetupViewController.o" "Checkup Scheduler/timeSetupViewController.m" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.1 -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-generated-files.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-own-target-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-all-target-headers.hmap" -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-project-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources/armv7" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources" "-F/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos" -include "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch" -MMD -MT dependencies -MF "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/timeSetupViewController.d" --serialize-diagnostics "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/timeSetupViewController.dia" -c "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/timeSetupViewController.m" -o "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/timeSetupViewController.o"36"AF6FF338-37BD-4327-A422-974CEA3D3840-
+
+CCompileStoryboard "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/en.lproj/MainStoryboard_iPad.storyboard"
+r0
+
+CCompileStoryboard "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/en.lproj/MainStoryboard_iPhone.storyboard"
+r0
+
+CCopyPNGFile "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Default-568h@2x.png" "Checkup Scheduler/Default-568h@2x.png"
+r0
+
+CCopyPNGFile "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Default.png" "Checkup Scheduler/Default.png"
+r0
+
+CCopyPNGFile "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Default@2x.png" "Checkup Scheduler/Default@2x.png"
+r0
+
+CCopyPNGFile "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/icon114.png" "Checkup Scheduler/../icon114.png"
+r0
+
+CCopyPNGFile "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/icon57.png" "Checkup Scheduler/../icon57.png"
+r0
+
+CCopyStringsFile "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/en.lproj/InfoPlist.strings" "Checkup Scheduler/en.lproj/InfoPlist.strings"
+r0
+
+CCpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/ResourceRules.plist "DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/ResourceRules.plist"
+s396963097.552654
+e396963097.564625
+r1
+xCpResource
+x/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/ResourceRules.plist
+xDerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/ResourceRules.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection106"Copy DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/ResourceRules.plist10928d192da9b741^a39490192da9b741^---0#0#0#-19%DVTDocumentLocation2@188"file://localhost/Users/niklasnordin/Documents/xcode-github.git/Checkup%20Scheduler/DerivedData/Checkup%20Scheduler/Build/Products/Debug-iphoneos/Checkup%20Scheduler.app/ResourceRules.plist000000000080d041^882"CpResource /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/ResourceRules.plist "DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/ResourceRules.plist"    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/ResourceRules.plist "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app"36"97F0E57C-FD9D-4CC4-A4D0-8760D5DD92B9-
+
+CGenerateDSYMFile "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app.dSYM" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Checkup Scheduler"
+r0
+
+CLd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Checkup Scheduler" normal armv7
+s396963103.230658
+e396963103.346719
+r0
+xLd
+x/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Checkup Scheduler
+xnormal
+xarmv7
+oUndefined symbols for architecture armv7:
+o  "_OBJC_IVAR_$_UIViewController._view", referenced from:
+o      -[checkupSchedulerViewController setView:] in checkupSchedulerViewController.o
+old: symbol(s) not found for architecture armv7
+oclang: error: linker command failed with exit code 1 (use -v to see invocation)
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection169"Link /Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Checkup Scheduleraf263b1f2da9b741^c6be581f2da9b741^-312"Undefined symbols for architecture armv7:  "_OBJC_IVAR_$_UIViewController._view", referenced from:      -[checkupSchedulerViewController setView:] in checkupSchedulerViewController.old: symbol(s) not found for architecture armv7clang: error: linker command failed with exit code 1 (use -v to see invocation)4(21%IDEActivityLogMessage2@55""_OBJC_IVAR_$_UIViewController._view", referenced from:-396963103#42#58#-2#-23%DVTTextDocumentLocation3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#25"Apple Mach-O Linker Error--2@78"-[checkupSchedulerViewController setView:] in checkupSchedulerViewController.o-396963103#100#85#-0#-3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#26"Apple Mach-O Linker Notice--2@42"Symbol(s) not found for architecture armv7-396963103#185#47#-0#-3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#26"Apple Mach-O Linker Notice--2@65"Linker command failed with exit code 1 (use -v to see invocation)-396963103#232#80#-2#-3@-0000000000000000^18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#18446744073709551615#0#25"Apple Mach-O Linker Error--0#0#0#--1525"Ld "DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Checkup Scheduler" normal armv7    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv IPHONEOS_DEPLOYMENT_TARGET 6.1    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch armv7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk "-L/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos" "-F/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos" -filelist "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Objects-normal/armv7/Checkup Scheduler.LinkFileList" -dead_strip -fobjc-arc -fobjc-link-runtime -miphoneos-version-min=6.1 -framework QuartzCore -framework iAd -framework EventKitUI -framework EventKit -framework UIKit -framework Foundation -framework CoreGraphics -o "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Checkup Scheduler"36"64C2B3A4-5278-419C-82D4-287F637B5330-
+
+CProcessInfoPlistFile "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Info.plist" "Checkup Scheduler/Checkup Scheduler-Info.plist"
+s396963097.552800
+e396963097.565086
+r1
+xProcessInfoPlistFile
+x/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Info.plist
+xCheckup Scheduler/Checkup Scheduler-Info.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection54"Process Checkup Scheduler/Checkup Scheduler-Info.plista69a8d192da9b741^ebe090192da9b741^---0#0#0#-19%DVTDocumentLocation2@133"file://localhost/Users/niklasnordin/Documents/xcode-github.git/Checkup%20Scheduler/Checkup%20Scheduler/Checkup%20Scheduler-Info.plist0000000000000000^1080"ProcessInfoPlistFile "DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Info.plist" "Checkup Scheduler/Checkup Scheduler-Info.plist"    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility "Checkup Scheduler/Checkup Scheduler-Info.plist" -genpkginfo "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/PkgInfo" -expandbuildsettings -format binary -platform iphoneos -resourcerulesfile "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/ResourceRules.plist" -o "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/Info.plist"36"50EFF8EC-7B82-4D11-8EC7-649193199F52-
+
+CProcessPCH "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch.pth" "Checkup Scheduler/Checkup Scheduler-Prefix.pch" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396963097.575702
+e396963099.388687
+r1
+xProcessPCH
+x/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch.pth
+xCheckup Scheduler/Checkup Scheduler-Prefix.pch
+xnormal
+xarmv7
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection57"Precompile Checkup Scheduler/Checkup Scheduler-Prefix.pchd7a093192da9b741^9291631b2da9b741^---0#0#0#-19%DVTDocumentLocation2@133"file://localhost/Users/niklasnordin/Documents/xcode-github.git/Checkup%20Scheduler/Checkup%20Scheduler/Checkup%20Scheduler-Prefix.pch0000000000000000^4307"ProcessPCH "DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch.pth" "Checkup Scheduler/Checkup Scheduler-Prefix.pch" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler"    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch armv7 -fmessage-length=0 -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=6.1 -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-generated-files.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-own-target-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-all-target-headers.hmap" -iquote "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler-project-headers.hmap" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/include" -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources/armv7" "-I/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/DerivedSources" "-F/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos" --serialize-diagnostics "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch.dia" -c "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/Checkup Scheduler/Checkup Scheduler-Prefix.pch" -o "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch.pth" -MMD -MT dependencies -MF "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/PrecompiledHeaders/Checkup Scheduler-Prefix-gklxevydmpbauccnnsojffjiioax/Checkup Scheduler-Prefix.pch.d"36"A8523145-1A82-4E7A-8718-E031E6A2EAFE-
+
+CProcessPCH "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Index/PrecompiledHeaders/Checkup Scheduler-Prefix-gynsdqqvyubawshclkoyfxgpsqdq_ast/Checkup Scheduler-Prefix.pch.pth" "Checkup Scheduler/Checkup Scheduler-Prefix.pch" normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessProductPackaging "/Users/niklasnordin/Library/MobileDevice/Provisioning Profiles/746F1C6F-28E8-4479-88C8-2BC779EF82C8.mobileprovision" "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app/embedded.mobileprovision"
+r0
+
+CProcessProductPackaging /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/Entitlements.plist "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Intermediates/Checkup Scheduler.build/Debug-iphoneos/Checkup Scheduler.build/Checkup Scheduler.xcent"
+r0
+
+CTouch "/Users/niklasnordin/Documents/xcode-github.git/Checkup Scheduler/DerivedData/Checkup Scheduler/Build/Products/Debug-iphoneos/Checkup Scheduler.app"
+r0
+

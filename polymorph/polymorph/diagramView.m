@@ -9,7 +9,7 @@
 #import "diagramView.h"
 #import "functions.h"
 
-static NSUInteger nx = 640;//640;
+static NSUInteger nx = 320;//640;
 #define LABELCOLOR [UIColor blackColor]
 #define WARNINGCOLOR [UIColor redColor]
 
@@ -422,7 +422,9 @@ static NSUInteger nx = 640;//640;
      self.xMinLabel.text = [NSString stringWithFormat:@"%g", xMin];
      self.xMaxLabel.text = [NSString stringWithFormat:@"%g", xMax];
      
-     self.yMidLabel.text = [NSString stringWithFormat:@"%g, %.8 e", xMid, yMid];
+     self.yMidLabel.text = [NSString stringWithFormat:@"%g, %.8e", xMid, yMid];
+    
+    [self setCenterLabelPosition];
 }
 
 -(void) calculateValues
@@ -437,7 +439,7 @@ static NSUInteger nx = 640;//640;
     for (int i=0; i<nx; i++)
     {
         
-        if (nCalc != self.nBackgroundCalculation)
+        if (self.nBackgroundCalculation != nCalc)
         {
             break;
         }
@@ -461,7 +463,7 @@ static NSUInteger nx = 640;//640;
         [self setNeedsDisplay];
     }
     
-    if (nCalc == self.nBackgroundCalculation)
+    //if (nCalc == self.nBackgroundCalculation)
     {
         self.xMid = 0.5*(xMin + xMax);
         float yMid;
@@ -477,6 +479,36 @@ static NSUInteger nx = 640;//640;
         self.yMid = yMid;
         [self setNeedsDisplay];
     }
+
+}
+
+- (void)setCenterLabelPosition
+{
+    
+    CGPoint pos;
+    pos.x = self.bounds.origin.x + 0.5*self.bounds.size.width;
+    pos.y = [self mapYToView:self.yMid];
+    
+    // make sure the text dont go out of view
+    int pixelOffset = 25;
+    if (pos.y < pixelOffset)
+    {
+        pos.y = pixelOffset;
+    }
+    
+    CGFloat yAxisStart_y = self.bounds.origin.y + self.bounds.size.height;
+    if (pos.y > yAxisStart_y - pixelOffset)
+    {
+        pos.y = yAxisStart_y - pixelOffset;
+    }
+    if(isnan(pos.y))
+    {
+        pos.y = self.bounds.origin.y + 0.5*self.bounds.size.height;
+        NSLog(@"pos.y isnan");
+    }
+    
+    self.yMidLabel.center = pos;
+
 }
 
 - (void) draw
@@ -500,7 +532,7 @@ static NSUInteger nx = 640;//640;
 
     [self drawCoordinateSystem:context];
     
-    CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, 1.0);
+    CGContextSetRGBStrokeColor(context, 0.1, 0.1, 0.1, 0.8);
 
     for (int i=1; i<nx; i++)
     {
@@ -517,28 +549,8 @@ static NSUInteger nx = 640;//640;
     
     CGContextStrokePath(context);
     
-    CGPoint pos;
-    pos.x = self.bounds.origin.x + 0.5*self.bounds.size.width;
-    pos.y = [self mapYToView:self.yMid];
-    // make sure the text dont go out of view
-    int pixelOffset = 25;
-    if (pos.y < pixelOffset)
-    {
-        pos.y = pixelOffset;
-    }
-    
-    CGFloat yAxisStart_y = self.bounds.origin.y + self.bounds.size.height;
-    if (pos.y > yAxisStart_y - pixelOffset)
-    {
-        pos.y = yAxisStart_y - pixelOffset;
-    }
-    if(isnan(pos.y))
-    {
-        pos.y = self.bounds.origin.y + 0.5*self.bounds.size.height;
-        NSLog(@"pos.y isnan");
-    }
-    self.yMidLabel.center = pos;
-
+    [self setCenterLabelPosition];
+ 
 }
 
 

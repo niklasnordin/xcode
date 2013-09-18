@@ -1,0 +1,28 @@
+\documentclass[10pt]{article}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+%\usepackage{palatino}
+
+% 1655 x ?
+% ? = 1655 * 416 / 320 = 2151
+% 100 pt = 885 pt in final
+% divide by 8.85
+\newcommand{\cfbox}[2]{%
+    \colorlet{currentcolor}{.}%
+    {\color{#1}\fbox{\begin{minipage}{180pt}\color{currentcolor}#2\end{minipage}}}%
+}
+
+\pagestyle{empty}
+\begin{document}
+\cfbox{white}
+{
+Returns $c_v$ for the water/steam using the functions by
+International Association for the Properties of Water and Steam.\\
+Coefficients are for the pressure-temperature relation B23, defining the region
+between 2 and 3.\\
+For more information please visit http://www.iapws.org.\vspace{10pt}\\
+\small{Depends on the functions iapws97\_1, iapws97\_2, iapws97\_2b, iapws97\_3, iapws97\_4 and iapws97\_5}
+\vspace{86pt}\\
+}
+\end{document}

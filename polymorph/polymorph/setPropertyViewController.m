@@ -69,7 +69,9 @@
     
     [_unitField setText:[propertyDict objectForKey:@"unit"]];
     
-    CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
+    //CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
+    CGRect pickerFrame = CGRectMake(8, 52, 304, 0);
+
     self.picker = [[UIPickerView alloc] initWithFrame:pickerFrame];
     self.picker.showsSelectionIndicator = YES;
     self.picker.dataSource = self;
@@ -85,8 +87,8 @@
     [self.picker selectRow:selectedFunction inComponent:0 animated:YES];
     self.currentRow = selectedFunction;
     
-    UIImage *bgImage = [UIImage imageNamed:@"backGroundGradient7.png"];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:bgImage]];
+    //UIImage *bgImage = [UIImage imageNamed:@"backGroundGradient7.png"];
+    //[self.view setBackgroundColor:[UIColor colorWithPatternImage:bgImage]];
 
 }
 
@@ -118,24 +120,28 @@
                                      destructiveButtonTitle:nil
                                           otherButtonTitles:nil];
     
-    [self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-    [self.actionSheet setOpaque:YES];
+    //[self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    //[self.actionSheet setOpaque:YES];
     [self.actionSheet addSubview:self.picker];
     
     UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:@[@"Select"]];
-    closeButton.momentary = YES;
-    closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
-    closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
-    closeButton.tintColor = [UIColor blackColor];
+    //closeButton.momentary = YES;
+    //closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
+    closeButton.frame = CGRectMake(258.0f, 9.0f, 50.0f, 30.0f);
+
+    //closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
+    //closeButton.tintColor = [UIColor blackColor];
     [closeButton addTarget:self action:@selector(dismissActionSheet:) forControlEvents:UIControlEventValueChanged];
     
     [self.actionSheet addSubview:closeButton];
     
     UISegmentedControl *cancelButton = [[UISegmentedControl alloc] initWithItems:@[@"Cancel"]];
-    cancelButton.momentary = YES;
-    cancelButton.frame = CGRectMake(10, 7.0f, 50.0f, 30.0f);
-    cancelButton.segmentedControlStyle = UISegmentedControlStyleBar;
-    UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:0.0];
+    //cancelButton.momentary = YES;
+    //cancelButton.frame = CGRectMake(10, 7.0f, 50.0f, 30.0f);
+    cancelButton.frame = CGRectMake(12.0f, 9.0f, 50.0f, 30.0f);
+
+    //cancelButton.segmentedControlStyle = UISegmentedControlStyleBar;
+    UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:1.0];
     cancelButton.tintColor = darkRed;    
     [cancelButton addTarget:self action:@selector(cancelActionSheet:) forControlEvents:UIControlEventValueChanged];
     
@@ -143,7 +149,7 @@
     
     //[actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
     [self.actionSheet showInView:self.view];
-    [self.actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
+    [self.actionSheet setBounds:CGRectMake(0.0f, 0.0f, 320.0f, 485.0f)];
 
 }
 
@@ -276,15 +282,15 @@
 
 - (void)dismissActionSheet:(id)sender
 {
-    //self.currentRow = [pickerView selectedRowInComponent:0];
-    self.currentRow = [_picker selectedRowInComponent:0];
+
+    self.currentRow = [self.picker selectedRowInComponent:0];
     [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
     
-    NSString *functionName = [_functionNames objectAtIndex:self.currentRow];
-    [_functionButton setTitle:functionName forState:UIControlStateNormal];
+    NSString *functionName = [self.functionNames objectAtIndex:self.currentRow];
+    [self.functionButton setTitle:functionName forState:UIControlStateNormal];
     
-    NSMutableDictionary *speciesDict = [_db.json objectForKey:_specie];
-    NSMutableDictionary *propertyDict = [speciesDict objectForKey:_property];
+    NSMutableDictionary *speciesDict = [self.db.json objectForKey:self.specie];
+    NSMutableDictionary *propertyDict = [speciesDict objectForKey:self.property];
     NSString *propFuncName = [propertyDict objectForKey:@"function"];
     
     if (![functionName isEqualToString:propFuncName])
@@ -296,20 +302,22 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     //NSLog(@"alert");
-    NSDictionary *speciesDict = [_db.json objectForKey:_specie];
-    NSDictionary *propertyDict = [speciesDict objectForKey:_property];
+    NSDictionary *speciesDict = [self.db.json objectForKey:self.specie];
+    NSDictionary *propertyDict = [speciesDict objectForKey:self.property];
     NSString *functionName = [propertyDict objectForKey:@"function"];
     
     int selectedFunction = 0;
-    for (int i=0; i<[_functionNames count]; i++) {
-        if ([[_functionNames objectAtIndex:i] isEqualToString:functionName]) {
+    for (int i=0; i<[self.functionNames count]; i++)
+    {
+        if ([[self.functionNames objectAtIndex:i] isEqualToString:functionName])
+        {
             selectedFunction = i;
         }
     }
     self.currentRow = selectedFunction;
     [self.picker selectRow:selectedFunction inComponent:0 animated:YES];
     NSString *fName = [_functionNames objectAtIndex:self.currentRow];
-    [_functionButton setTitle:fName forState:UIControlStateNormal];
+    [self.functionButton setTitle:fName forState:UIControlStateNormal];
     
 }
 
@@ -373,6 +381,16 @@
     }
     
     if ([segue.identifier isEqualToString:@"equationSegue"])
+    {
+        NSString *name = [propertyDict objectForKey:@"function"];
+        int index = [_functionNames indexOfObject:name];
+        [segue.destinationViewController setFunctionIndex:index];
+        [segue.destinationViewController setFunctionNames:_functionNames];
+        [segue.destinationViewController setSpVC:self];
+        [segue.destinationViewController setTitle:name];
+    }
+    
+    if ([segue.identifier isEqualToString:@"equationSegue2"])
     {
         NSString *name = [propertyDict objectForKey:@"function"];
         int index = [_functionNames indexOfObject:name];

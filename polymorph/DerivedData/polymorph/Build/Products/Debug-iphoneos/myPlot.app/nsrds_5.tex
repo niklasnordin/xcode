@@ -1,0 +1,24 @@
+\documentclass[12pt]{article}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+%\usepackage{palatino}
+
+% 1655 x ?
+% ? = 1655 * 416 / 320 = 2151
+% 100 pt = 885 pt in final
+% divide by 8.85
+\newcommand{\cfbox}[2]{%
+    \colorlet{currentcolor}{.}%
+    {\color{#1}\fbox{\begin{minipage}{180pt}\color{currentcolor}#2\end{minipage}}}%
+}
+
+\pagestyle{empty}
+\begin{document}
+
+\cfbox{white}{
+\[ y = \frac{A_0}{ A_1^{1 + (1-T/A_2)^{A_3}} }
+\]
+\vspace{180pt}\\
+}
+\end{document}

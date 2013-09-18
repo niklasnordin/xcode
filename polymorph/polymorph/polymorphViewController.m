@@ -264,33 +264,38 @@
                                      destructiveButtonTitle:nil
                                           otherButtonTitles:nil];
     
-    [self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-    [self.actionSheet setOpaque:YES];
+    //[self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    //[self.actionSheet setOpaque:YES];
     [self.actionSheet addSubview:self.picker];
     
     UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:@[@"Select"]];
     //closeButton.momentary = YES;
-    closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
-    closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
-    closeButton.tintColor = [UIColor blackColor];
+    closeButton.frame = CGRectMake(258.0f, 9.0f, 50.0f, 30.0f);
+    // deprecated in iOS7
+    //closeButton.segmentedControlStyle = UISegmentedControlStyleBordered;
+    //closeButton.tintColor = [UIColor blackColor];
     [closeButton addTarget:self
                     action:@selector(dismissActionSheet:)
           forControlEvents:UIControlEventValueChanged];
     [self.actionSheet addSubview:closeButton];
     
     UISegmentedControl *cancelButton = [[UISegmentedControl alloc] initWithItems:@[@"Cancel"]];
+    //UIBarButtonItem *cancelButton1 = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self.actionSheet action:@selector(cancelActionSheet:)];
+    
     //cancelButton.momentary = YES;
-    cancelButton.frame = CGRectMake(10, 7.0f, 50.0f, 30.0f);
-    cancelButton.segmentedControlStyle = UISegmentedControlStyleBar;
-    UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:0.0];
+    cancelButton.frame = CGRectMake(12.0f, 9.0f, 50.0f, 30.0f);
+    // deprecated in iOS7
+    //cancelButton.segmentedControlStyle = UISegmentedControlStyleBezeled;
+    UIColor *darkRed = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:1.0];
     cancelButton.tintColor = darkRed;
     [cancelButton addTarget:self
                      action:@selector(cancelActionSheet:)
            forControlEvents:UIControlEventValueChanged];
-    [self.actionSheet addSubview:cancelButton];
     
+    [self.actionSheet addSubview:cancelButton];
+
     [self.actionSheet showInView:self.view];
-    [self.actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
+    [self.actionSheet setBounds:CGRectMake(0.0f, 0.0f, 320.0f, 485.0f)];
     
 }
 
@@ -516,10 +521,10 @@
 {
 
     [super viewDidLoad];
-    UIImage *bgImage = [UIImage imageNamed:@"backGroundGradient7.png"];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:bgImage]];
+    //UIImage *bgImage = [UIImage imageNamed:@"backGroundGradient7.png"];
+    //[self.view setBackgroundColor:[UIColor colorWithPatternImage:bgImage]];
     
-    [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
+    //[self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
     _temperatureMin.delegate = self;
     _temperatureMax.delegate = self;
     _pressureField.delegate = self;
@@ -551,12 +556,14 @@
     
     [self loadFunctions];
     
-    CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
+    //CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
+    CGRect pickerFrame = CGRectMake(8, 52, 304, 0);
+
     _picker = [[UIPickerView alloc] initWithFrame:pickerFrame];
     _picker.showsSelectionIndicator = YES;
     _picker.dataSource = self;
     _picker.delegate = self;
-    
+    //_picker.backgroundColor = [UIColor lightGrayColor];
     // uisegmentcontrol config
     _selectedConstantProperty = 0;
     [_ptSegmentControl setSelectedSegmentIndex:_selectedConstantProperty];

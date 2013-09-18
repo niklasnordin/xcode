@@ -94,8 +94,8 @@
 {
     if (indexPath.row % 2)
     {
-        //UIColor *bgc = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
-        UIColor *bgc = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1];
+        UIColor *bgc = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
+        //UIColor *bgc = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1];
         cell.backgroundColor = bgc;
     }
 }

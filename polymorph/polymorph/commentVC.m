@@ -29,15 +29,17 @@
     [super viewDidLoad];
     _commentTextView.delegate = self;
     [_commentTextView becomeFirstResponder];
-    _commentTextView.text = _comment;
+    self.commentTextView.text = self.comment;
 	// Do any additional setup after loading the view.
 }
 
-- (void)viewDidUnload
+- (void)viewWillDisappear:(BOOL)animated
 {
-    [self setCommentTextView:nil];
-    [super viewDidUnload];
+    [super viewWillDisappear:animated];
     // Release any retained subviews of the main view.
+    //NSLog(@"comment text view %@",[self.commentTextView text]);
+    [self.dict setObject:[self.commentTextView text] forKey:@"comment"];
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -47,9 +49,6 @@
 
 -(BOOL) textViewShouldEndEditing:(UITextView *)textView
 {
-    _comment = [textView text];
-    [_dict setObject:_comment forKey:@"comment"];
-
     return YES;
 }
 

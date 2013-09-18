@@ -1,0 +1,38 @@
+\documentclass[10pt]{article}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+%\usepackage{palatino}
+
+% 1655 x ?
+% ? = 1655 * 416 / 320 = 2151
+% 100 pt = 885 pt in final
+% divide by 8.85
+\newcommand{\cfbox}[2]{%
+    \colorlet{currentcolor}{.}%
+    {\color{#1}\fbox{\begin{minipage}{180pt}\color{currentcolor}#2\end{minipage}}}%
+}
+
+\pagestyle{empty}
+\begin{document}
+
+\cfbox{white}{
+Solves for $\rho$ in
+\[
+p = \rho \frac{R_{u}}{M_w} T \left[ 1 + \delta \left( \frac{\partial \bar{\alpha}}{\partial \delta}\right)_\tau \right]
+\]
+where $\bar \alpha$ is the residual dimensionless Helmholtz energy given by
+\[
+\bar{\alpha}(\delta,\tau) = \sum_{k=0}^{22} N_k \delta^{i_k} \tau^{j_k} \exp ( -\gamma\delta^{l_k} )
+\]
+and 
+\[
+\delta = \rho/\rho_c,\tau = T_c/T
+\]
+where $\gamma=1$ if $l_k \neq 0$
+and $\gamma=0$ otherwise.\vspace{10pt}\\
+\small{Depends on the functions for $P_v$, $\rho_{l,sat}$, $\rho_{v,sat}$ for 
+making the initial guess for $\rho$.}
+\vspace{17pt}\\
+}
+\end{document}
