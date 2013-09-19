@@ -10,8 +10,8 @@
             <objects>
                 <viewController id="tbS-sV-wcY" customClass="settingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dW2-fT-1hE"/>
-                        <viewControllerLayoutGuide type="bottom" id="Xio-gQ-jnm"/>
+                        <viewControllerLayoutGuide type="top" id="nV0-ry-Ffv"/>
+                        <viewControllerLayoutGuide type="bottom" id="8dj-wn-zZ3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FJb-Pl-cGf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -67,8 +67,8 @@
             <objects>
                 <viewController id="tDR-rd-nzb" customClass="colorSettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="IN3-xm-s9K"/>
-                        <viewControllerLayoutGuide type="bottom" id="vTQ-FO-eji"/>
+                        <viewControllerLayoutGuide type="top" id="elG-55-V5L"/>
+                        <viewControllerLayoutGuide type="bottom" id="3eg-3b-ohW"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="Vsr-pW-UrC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -176,8 +176,8 @@
             <objects>
                 <viewController id="2" customClass="checkupSchedulerViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="LOd-k6-JcU"/>
-                        <viewControllerLayoutGuide type="bottom" id="xyL-y9-weU"/>
+                        <viewControllerLayoutGuide type="top" id="9jV-B8-iHZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="tWA-EA-qnr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -202,8 +202,8 @@
                                     <action selector="releasedSchemeButtonOutside:" destination="2" eventType="touchUpOutside" id="mxx-pC-x4e"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AT-Ov-PZc">
-                                <rect key="frame" x="20" y="181" width="280" height="50"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AT-Ov-PZc">
+                                <rect key="frame" x="20" y="116" width="280" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Yge-iS-hjE"/>
                                 </constraints>
@@ -221,8 +221,8 @@
                                     <action selector="releasedSchemeButtonOutside:" destination="2" eventType="touchUpOutside" id="MKE-Ue-fIl"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event title" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="psL-YU-azA">
-                                <rect key="frame" x="20" y="143" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event title" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="psL-YU-azA">
+                                <rect key="frame" x="20" y="78" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -245,14 +245,14 @@
                                     <action selector="startDateButtonClicked:" destination="2" eventType="touchUpInside" id="L40-P1-v4L"/>
                                 </connections>
                             </button>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YeR-FT-epD">
-                                <rect key="frame" x="0.0" y="65" width="320" height="50"/>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="YeR-FT-epD">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="jug-HK-iy0"/>
                                 </constraints>
                             </adBannerView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZu-Vp-KvZ">
-                                <rect key="frame" x="20" y="239" width="280" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZu-Vp-KvZ">
+                                <rect key="frame" x="20" y="174" width="280" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="E0p-cu-lno"/>
                                 </constraints>
@@ -315,8 +315,8 @@
             <objects>
                 <viewController id="bpq-JO-KSn" customClass="timeSetupViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="QYF-dO-SwP"/>
-                        <viewControllerLayoutGuide type="bottom" id="Cps-XT-Xeg"/>
+                        <viewControllerLayoutGuide type="top" id="K8L-hR-ze1"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vdf-tz-t15"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Q6Z-a9-Vtu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -435,8 +435,8 @@
             <objects>
                 <viewController id="fzD-2l-N8p" customClass="schemeViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NC4-MR-2af"/>
-                        <viewControllerLayoutGuide type="bottom" id="Flc-36-a4G"/>
+                        <viewControllerLayoutGuide type="top" id="WCy-XD-1rt"/>
+                        <viewControllerLayoutGuide type="bottom" id="1sx-hG-nYV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Sjf-LD-BKa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -544,8 +544,8 @@
             <objects>
                 <viewController id="1Ha-Ta-qCa" customClass="eventViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="yqI-d2-chX"/>
-                        <viewControllerLayoutGuide type="bottom" id="YKs-xE-hHr"/>
+                        <viewControllerLayoutGuide type="top" id="g1x-Am-JDm"/>
+                        <viewControllerLayoutGuide type="bottom" id="PJ1-NO-Gf7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ddq-eu-D0h">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -683,7 +683,7 @@
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="schemeCell" id="5tJ-xZ-pua">
                                 <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5tJ-xZ-pua" id="qau-N9-zdn">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5tJ-xZ-pua" id="wRC-9T-duj">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
