@@ -783,7 +783,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xom-Lt-sH4" customClass="diagramView">
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xom-Lt-sH4" customClass="diagramView">
                                 <rect key="frame" x="0.0" y="65" width="320" height="415"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -830,6 +830,12 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Xom-Lt-sH4" firstAttribute="leading" secondItem="7Ae-Ja-O6L" secondAttribute="leading" id="VE7-Qa-umO"/>
+                            <constraint firstAttribute="bottom" secondItem="Xom-Lt-sH4" secondAttribute="bottom" id="ZLt-lC-U68"/>
+                            <constraint firstAttribute="trailing" secondItem="Xom-Lt-sH4" secondAttribute="trailing" id="n1z-WT-TKz"/>
+                            <constraint firstItem="Xom-Lt-sH4" firstAttribute="top" secondItem="07e-Mu-Gea" secondAttribute="bottom" constant="1" id="qER-rV-qc7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="drawView" id="Wo1-jb-nNq">
                         <barButtonItem key="rightBarButtonItem" title="Export Table" id="BRa-Fn-skW">
