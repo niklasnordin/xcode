@@ -134,6 +134,19 @@
     
     [self.allDayEventSwitch setTintColor:self.preferences.backgroundColor];
     [self.busySwitch setTintColor:self.preferences.backgroundColor];
+    
+    
+    int TASdays    = [[self.eventDict objectForKey:@"days"] intValue];
+    int TAShours   = [[self.eventDict objectForKey:@"hours"] intValue];
+    int TASminutes = [[self.eventDict objectForKey:@"minutes"] intValue];
+    
+    int minutesIndex = TASminutes / 15;
+
+    [self.tasPicker selectRow:minutesIndex inComponent:2 animated:NO];
+    [self.tasPicker selectRow:TAShours inComponent:1 animated:NO];
+    [self.tasPicker selectRow:TASdays inComponent:0 animated:NO];
+    
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -376,6 +389,14 @@
 - (IBAction)timeAfterStartButtonClicked:(id)sender
 {
 
+    int days = [[self.eventDict objectForKey:@"days"] intValue];
+    int hours = [[self.eventDict objectForKey:@"hours"] intValue];
+    int minutes = [[self.eventDict objectForKey:@"minutes"] intValue];
+    
+    self.previousMinutesTimer = minutes;
+    self.previousHoursTimer = hours;
+    self.previousDayTimer = days;
+    
     [self.preferences setupButton:sender withColor:self.preferences.backgroundColor];
     
     self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Set Time After Start"
@@ -413,12 +434,37 @@
 
 - (void)dismissTAS:(id)sender
 {
+
+    int days = [self.tasPicker selectedRowInComponent:0];
+    int hours = [self.tasPicker selectedRowInComponent:1];
+    int minutesIndex = [self.tasPicker selectedRowInComponent:2];
+    int minutes = [[self.tasPicker.minutes objectAtIndex:minutesIndex] intValue];
+    
+    [self.eventDict setObject:[NSNumber numberWithInt:days] forKey:@"days"];
+    [self.eventDict setObject:[NSNumber numberWithInt:hours] forKey:@"hours"];
+    [self.eventDict setObject:[NSNumber numberWithInt:minutes] forKey:@"minutes"];
+    
+    NSString *buttonText = [NSString stringWithFormat:@"%dd:%dh:%dm", days, hours, minutes];
+    [self.timeAfterStartButton setTitle:buttonText forState:UIControlStateNormal];
+    
     [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
     self.actionSheet = nil;
 }
 
 - (void)cancelTAS:(id)sender
 {
+
+    [self.eventDict setObject:[NSNumber numberWithInt:self.previousDayTimer] forKey:@"days"];
+    [self.eventDict setObject:[NSNumber numberWithInt:self.previousHoursTimer] forKey:@"hours"];
+    [self.eventDict setObject:[NSNumber numberWithInt:self.previousMinutesTimer] forKey:@"minutes"];
+    
+    int minutesIndex = self.previousMinutesTimer / 15;
+    [self.tasPicker selectRow:minutesIndex inComponent:2 animated:YES];
+    [self.tasPicker selectRow:self.previousHoursTimer inComponent:1 animated:YES];
+    [self.tasPicker selectRow:self.previousDayTimer inComponent:0 animated:YES];
+    
+    //[self.tasPicker.navigationController dismissViewControllerAnimated:YES completion:NULL];
+
     [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
     self.actionSheet = nil;
 }

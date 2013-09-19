@@ -420,14 +420,8 @@
 {
     [self.preferences setupButton:self.schemeButton withColor:self.preferences.backgroundColor];
 
-    NSString *deviceModel = [[UIDevice currentDevice] model];
-    NSLog(@"deviceModel = %@",deviceModel);
-    //CGFloat width = self.view.bounds.size.width;
-    //CGFloat height = self.view.bounds.size.height;
-    //self.popOver = [[UIPopoverController alloc] init];
-    
-    //NSLog(@"view rect = w = %f, h = %f",self.view.bounds.size.width,self.view.bounds.size.height);
-
+    //NSString *deviceModel = [[UIDevice currentDevice] model];
+    //NSLog(@"deviceModel = %@",deviceModel);
     // remember the selected name, in case the selection is cancelled
     self.selectedNameIndex = [self.schemePicker selectedRowInComponent:0];
 
@@ -438,10 +432,6 @@
                                           otherButtonTitles:nil];
     [self.actionSheet showInView:self.view];
     //[self.actionSheet showFromRect:CGRectMake(100.0f, 100.0f, 620.0f, 400.0f) inView:self.view animated:YES];
-
-    //[self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-    //[self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackOpaque];
-    //[self.actionSheet setOpaque:YES];
     
     UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:@[@"Select"]];
 
