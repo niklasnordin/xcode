@@ -20,7 +20,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="A simple utility to calculate the composition of the species for a global reaction by specifying the EGR and lambda values." lineBreakMode="tailTruncation" numberOfLines="11" minimumFontSize="10" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="zM4-tt-CCK">
                                 <rect key="frame" x="19" y="70" width="280" height="84"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -28,7 +28,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="The lambda value corresponds to zero EGR and the EGR is the amount (in percent) taken from the exhaust and fed into the intake." lineBreakMode="tailTruncation" numberOfLines="11" minimumFontSize="10" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="aOo-AI-XUx">
                                 <rect key="frame" x="19" y="162" width="280" height="84"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -36,7 +36,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="11" minimumFontSize="10" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="tnI-fL-crR">
                                 <rect key="frame" x="20" y="254" width="280" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <string key="text">The exhaust composition is what comes out in the tail pipe and the in-cylinder composition is the EGR amount of exhausts mixed with the air, which yields the true lambda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -66,7 +66,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Send feedback to: niklas.nordin@nequam.se" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="8oe-zH-tj6">
                                 <rect key="frame" x="20" y="83" width="280" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -92,12 +92,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fci-8E-pKj">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fci-8E-pKj">
                                 <rect key="frame" x="25" y="430" width="270" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Zr2-jk-ZWG"/>
+                                    <constraint firstAttribute="height" constant="30" id="Zin-yV-f6M"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
                                 <state key="normal" title="Calculate"/>
@@ -208,7 +208,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Phc-G5-iDj">
-                                <rect key="frame" x="45" y="231.99999999999997" width="80" height="30"/>
+                                <rect key="frame" x="45" y="232" width="80" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
@@ -226,7 +226,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="mole" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="b06-ey-bvO">
-                                <rect key="frame" x="133" y="230.99999999999997" width="44" height="31"/>
+                                <rect key="frame" x="133" y="231" width="44" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -253,6 +253,9 @@
                             <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="R5x-fJ-nKb">
                                 <rect key="frame" x="1" y="311" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Oh0-fS-fbI"/>
+                                </constraints>
                             </adBannerView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="ReactionText.png" translatesAutoresizingMaskIntoConstraints="NO" id="gce-AV-MBA">
                                 <rect key="frame" x="0.0" y="64" width="320" height="54"/>
@@ -293,7 +296,6 @@
                             <constraint firstItem="rfB-k0-Qbo" firstAttribute="leading" secondItem="R5x-fJ-nKb" secondAttribute="leading" id="NV1-xc-HG8"/>
                             <constraint firstItem="ur7-iA-hXZ" firstAttribute="bottom" secondItem="gav-3H-Iox" secondAttribute="bottom" id="PO5-TN-n7a"/>
                             <constraint firstItem="gce-AV-MBA" firstAttribute="top" secondItem="Dx6-L8-hSh" secondAttribute="bottom" id="PYT-Kz-j0n"/>
-                            <constraint firstItem="gce-AV-MBA" firstAttribute="centerX" secondItem="Fci-8E-pKj" secondAttribute="centerX" id="Qxw-mB-kbm"/>
                             <constraint firstItem="ur7-iA-hXZ" firstAttribute="top" secondItem="5kS-8m-GBu" secondAttribute="bottom" constant="25" id="T2W-j9-R5r"/>
                             <constraint firstItem="q7s-1c-dop" firstAttribute="leading" secondItem="gSQ-Ww-7Mx" secondAttribute="trailing" constant="8" symbolic="YES" id="Vev-jk-NX8"/>
                             <constraint firstItem="Fci-8E-pKj" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="25" id="Vk3-6l-cPq"/>
@@ -305,13 +307,14 @@
                             <constraint firstItem="b06-ey-bvO" firstAttribute="leading" secondItem="q7s-1c-dop" secondAttribute="leading" id="am2-5g-zMF"/>
                             <constraint firstItem="gce-AV-MBA" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="b81-tG-Rfp"/>
                             <constraint firstItem="sXz-cE-2uJ" firstAttribute="top" secondItem="7IM-AN-O4J" secondAttribute="bottom" constant="30" id="bLw-JQ-tle"/>
-                            <constraint firstAttribute="bottom" secondItem="Fci-8E-pKj" secondAttribute="bottom" constant="20" symbolic="YES" id="bbU-2E-rg7"/>
                             <constraint firstItem="5kS-8m-GBu" firstAttribute="centerY" secondItem="aSv-R9-uHn" secondAttribute="centerY" id="cna-BW-eQ4"/>
                             <constraint firstItem="rfB-k0-Qbo" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="1" id="dPg-Nf-atl"/>
                             <constraint firstItem="sXz-cE-2uJ" firstAttribute="leading" secondItem="CUv-Z0-EpX" secondAttribute="trailing" constant="18" id="duv-YR-HQ0"/>
                             <constraint firstAttribute="trailing" secondItem="sXz-cE-2uJ" secondAttribute="trailing" constant="67" id="dxY-T8-Ujr"/>
                             <constraint firstItem="b06-ey-bvO" firstAttribute="leading" secondItem="Phc-G5-iDj" secondAttribute="trailing" constant="8" symbolic="YES" id="e09-tw-Whj"/>
                             <constraint firstAttribute="trailing" secondItem="R5x-fJ-nKb" secondAttribute="trailing" constant="-1" id="epA-HX-dt0"/>
+                            <constraint firstAttribute="trailing" secondItem="Fci-8E-pKj" secondAttribute="trailing" constant="25" id="fMf-LM-TdT"/>
+                            <constraint firstItem="eHa-QV-vbn" firstAttribute="top" secondItem="Fci-8E-pKj" secondAttribute="bottom" constant="20" id="fuF-KW-pfg"/>
                             <constraint firstItem="Phc-G5-iDj" firstAttribute="leading" secondItem="rfB-k0-Qbo" secondAttribute="trailing" constant="5" id="gkV-qz-zUO"/>
                             <constraint firstItem="aSv-R9-uHn" firstAttribute="leading" secondItem="C5h-yi-yfa" secondAttribute="trailing" constant="27" id="gsw-jW-6cR"/>
                             <constraint firstItem="7IM-AN-O4J" firstAttribute="leading" secondItem="aSv-R9-uHn" secondAttribute="trailing" constant="7" id="hq7-wx-1qh"/>
@@ -322,7 +325,6 @@
                             <constraint firstItem="b06-ey-bvO" firstAttribute="centerY" secondItem="rfB-k0-Qbo" secondAttribute="centerY" id="maV-Tp-O2l"/>
                             <constraint firstItem="ur7-iA-hXZ" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="12" id="mqZ-Fe-Ma9"/>
                             <constraint firstItem="aSv-R9-uHn" firstAttribute="baseline" secondItem="InI-xA-8P1" secondAttribute="baseline" id="nXp-I2-480"/>
-                            <constraint firstItem="Fci-8E-pKj" firstAttribute="top" secondItem="R5x-fJ-nKb" secondAttribute="bottom" constant="69" id="nfH-ar-w35"/>
                             <constraint firstItem="Cwj-3i-eyJ" firstAttribute="top" secondItem="5kS-8m-GBu" secondAttribute="bottom" constant="27" id="q5Y-3a-coj"/>
                             <constraint firstItem="gSQ-Ww-7Mx" firstAttribute="top" secondItem="Phc-G5-iDj" secondAttribute="bottom" constant="7" id="qK7-y5-XPq"/>
                             <constraint firstAttribute="trailing" secondItem="InI-xA-8P1" secondAttribute="trailing" constant="-11" id="s5C-Tz-zqg"/>
