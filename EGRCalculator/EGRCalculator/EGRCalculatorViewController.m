@@ -152,16 +152,19 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];    
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector (keyboardDidShow:)
                                                  name: UIKeyboardDidShowNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self 
+    [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector (keyboardDidHide:)
                                                  name: UIKeyboardDidHideNotification object:nil];
-    [super viewDidLoad];    
-}
 
+    _bannerView.delegate = self;
+}
+/*
 - (void)viewDidUnload 
 {
     [self setCnText:nil];
@@ -173,7 +176,7 @@
     [self setN2Text:nil];
     [super viewDidUnload];
 }
-
+*/
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -190,19 +193,33 @@
     self.egrCalc = [[EGRCalculator alloc] initWithLambda:self.lambaText.text egr:self.egrText.text cn:self.cnText.text cm:self.cmText.text cr:self.crText.text oxygen:self.o2Text.text nitro:self.n2Text.text];
 }
 
+- (void)bannerViewWillLoadAd:(ADBannerView *)banner
+{
+    NSLog(@"bannerViewWillLoadAd");
+}
+
+- (void)bannerViewActionDidFinish:(ADBannerView *)banner
+{
+    NSLog(@"bannerViewActionDidFinish");
+}
+
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
+    NSLog(@"bannerViewDidLoadAd");
     [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:2];
+    [UIView setAnimationDuration:0.2];
     [banner setAlpha:1];
     [UIView commitAnimations];
 }
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
 {
+    NSLog(@"bannerView:: didFail: error = %@",error);
+    
     [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:2];
-    [banner setAlpha:0];
+    [UIView setAnimationDuration:0.2];
+    [banner setAlpha:1];
     [UIView commitAnimations];
 }
+
 @end
