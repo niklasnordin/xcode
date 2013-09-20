@@ -202,8 +202,8 @@
                                     <action selector="releasedSchemeButtonOutside:" destination="2" eventType="touchUpOutside" id="mxx-pC-x4e"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AT-Ov-PZc">
-                                <rect key="frame" x="20" y="116" width="280" height="50"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AT-Ov-PZc">
+                                <rect key="frame" x="20" y="180" width="280" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Yge-iS-hjE"/>
                                 </constraints>
@@ -221,8 +221,8 @@
                                     <action selector="releasedSchemeButtonOutside:" destination="2" eventType="touchUpOutside" id="MKE-Ue-fIl"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event title" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="psL-YU-azA">
-                                <rect key="frame" x="20" y="78" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event title" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="psL-YU-azA">
+                                <rect key="frame" x="20" y="142" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -246,13 +246,13 @@
                                 </connections>
                             </button>
                             <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="YeR-FT-epD">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="jug-HK-iy0"/>
                                 </constraints>
                             </adBannerView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZu-Vp-KvZ">
-                                <rect key="frame" x="20" y="174" width="280" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZu-Vp-KvZ">
+                                <rect key="frame" x="20" y="238" width="280" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="E0p-cu-lno"/>
                                 </constraints>
@@ -267,7 +267,7 @@
                             <constraint firstAttribute="trailing" secondItem="LEH-mO-Trj" secondAttribute="trailing" constant="20" symbolic="YES" id="Eld-ky-q5U"/>
                             <constraint firstItem="LEH-mO-Trj" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="H1a-te-5iz"/>
                             <constraint firstItem="weW-9a-Mys" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="MaV-2m-c36"/>
-                            <constraint firstItem="YeR-FT-epD" firstAttribute="top" secondItem="3" secondAttribute="top" id="Req-oc-MdX"/>
+                            <constraint firstItem="YeR-FT-epD" firstAttribute="top" secondItem="3" secondAttribute="top" constant="64" id="Req-oc-MdX"/>
                             <constraint firstAttribute="trailing" secondItem="mZu-Vp-KvZ" secondAttribute="trailing" constant="20" symbolic="YES" id="SBI-7J-1eR"/>
                             <constraint firstItem="weW-9a-Mys" firstAttribute="top" secondItem="LEH-mO-Trj" secondAttribute="bottom" constant="8" symbolic="YES" id="Vhw-hP-t7y"/>
                             <constraint firstItem="mZu-Vp-KvZ" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="W6o-UV-Sf3"/>
