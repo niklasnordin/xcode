@@ -183,11 +183,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weW-9a-Mys">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weW-9a-Mys">
                                 <rect key="frame" x="20" y="410" width="280" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Hgy-Hw-o1d"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Create Events">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -202,11 +199,8 @@
                                     <action selector="releasedSchemeButtonOutside:" destination="2" eventType="touchUpOutside" id="mxx-pC-x4e"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AT-Ov-PZc">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AT-Ov-PZc">
                                 <rect key="frame" x="20" y="180" width="280" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Yge-iS-hjE"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" title="Scheme">
                                     <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
@@ -221,16 +215,13 @@
                                     <action selector="releasedSchemeButtonOutside:" destination="2" eventType="touchUpOutside" id="MKE-Ue-fIl"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event title" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="psL-YU-azA">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event title" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="psL-YU-azA">
                                 <rect key="frame" x="20" y="142" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEH-mO-Trj">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEH-mO-Trj">
                                 <rect key="frame" x="20" y="352" width="280" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="C0h-vf-NNl"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Start Date">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -245,17 +236,14 @@
                                     <action selector="startDateButtonClicked:" destination="2" eventType="touchUpInside" id="L40-P1-v4L"/>
                                 </connections>
                             </button>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="YeR-FT-epD">
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YeR-FT-epD">
                                 <rect key="frame" x="0.0" y="64" width="320" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="jug-HK-iy0"/>
+                                    <constraint firstAttribute="height" constant="50" id="RvL-eW-ChI"/>
                                 </constraints>
                             </adBannerView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZu-Vp-KvZ">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZu-Vp-KvZ">
                                 <rect key="frame" x="20" y="238" width="280" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="E0p-cu-lno"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -263,24 +251,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.32692046359999999" green="0.46100282910000001" blue="0.62641501909999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="6AT-Ov-PZc" firstAttribute="top" secondItem="psL-YU-azA" secondAttribute="bottom" constant="8" symbolic="YES" id="6eX-b2-949"/>
-                            <constraint firstAttribute="trailing" secondItem="LEH-mO-Trj" secondAttribute="trailing" constant="20" symbolic="YES" id="Eld-ky-q5U"/>
-                            <constraint firstItem="LEH-mO-Trj" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="H1a-te-5iz"/>
-                            <constraint firstItem="weW-9a-Mys" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="MaV-2m-c36"/>
-                            <constraint firstItem="YeR-FT-epD" firstAttribute="top" secondItem="3" secondAttribute="top" constant="64" id="Req-oc-MdX"/>
-                            <constraint firstAttribute="trailing" secondItem="mZu-Vp-KvZ" secondAttribute="trailing" constant="20" symbolic="YES" id="SBI-7J-1eR"/>
-                            <constraint firstItem="weW-9a-Mys" firstAttribute="top" secondItem="LEH-mO-Trj" secondAttribute="bottom" constant="8" symbolic="YES" id="Vhw-hP-t7y"/>
-                            <constraint firstItem="mZu-Vp-KvZ" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="W6o-UV-Sf3"/>
-                            <constraint firstAttribute="bottom" secondItem="weW-9a-Mys" secondAttribute="bottom" constant="20" symbolic="YES" id="WmF-m8-usS"/>
-                            <constraint firstItem="psL-YU-azA" firstAttribute="top" secondItem="3" secondAttribute="top" constant="78" id="YAU-pm-IrP"/>
-                            <constraint firstItem="psL-YU-azA" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="Z6E-mc-iaT"/>
-                            <constraint firstAttribute="trailing" secondItem="psL-YU-azA" secondAttribute="trailing" constant="20" symbolic="YES" id="aJL-gK-uQ2"/>
-                            <constraint firstItem="YeR-FT-epD" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="fcu-xN-U6P"/>
-                            <constraint firstAttribute="trailing" secondItem="weW-9a-Mys" secondAttribute="trailing" constant="20" symbolic="YES" id="grq-G1-WSL"/>
-                            <constraint firstItem="6AT-Ov-PZc" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="kg4-HU-p2X"/>
-                            <constraint firstItem="YeR-FT-epD" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" id="psA-Xx-nPf"/>
-                            <constraint firstAttribute="trailing" secondItem="6AT-Ov-PZc" secondAttribute="trailing" constant="20" symbolic="YES" id="sDt-a2-VQJ"/>
-                            <constraint firstItem="mZu-Vp-KvZ" firstAttribute="top" secondItem="6AT-Ov-PZc" secondAttribute="bottom" constant="8" symbolic="YES" id="zkW-wZ-DmU"/>
+                            <constraint firstItem="YeR-FT-epD" firstAttribute="top" secondItem="9jV-B8-iHZ" secondAttribute="bottom" id="CAM-ve-cJ5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Reminder" id="dkk-Aw-P5I">
