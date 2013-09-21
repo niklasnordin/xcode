@@ -92,7 +92,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fci-8E-pKj">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fci-8E-pKj">
                                 <rect key="frame" x="25" y="430" width="270" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -253,12 +253,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R5x-fJ-nKb">
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="R5x-fJ-nKb">
                                 <rect key="frame" x="0.0" y="299" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="0db-ay-NCv"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="lsV-4F-WvM"/>
+                                    <constraint firstAttribute="width" constant="320" id="rLx-uR-OFA"/>
+                                    <constraint firstAttribute="height" constant="50" id="zOu-Py-SnB"/>
                                 </constraints>
                             </adBannerView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="ReactionText.png" translatesAutoresizingMaskIntoConstraints="NO" id="gce-AV-MBA">
@@ -293,20 +293,20 @@
                             <constraint firstItem="b06-ey-bvO" firstAttribute="centerY" secondItem="rfB-k0-Qbo" secondAttribute="centerY" id="9fQ-Wx-qEM"/>
                             <constraint firstItem="qbu-m7-0nb" firstAttribute="leading" secondItem="CUv-Z0-EpX" secondAttribute="trailing" constant="31" id="BH8-zu-0LK"/>
                             <constraint firstItem="aSv-R9-uHn" firstAttribute="centerY" secondItem="5kS-8m-GBu" secondAttribute="centerY" id="Cen-aU-BTi"/>
-                            <constraint firstItem="R5x-fJ-nKb" firstAttribute="leading" secondItem="ur7-iA-hXZ" secondAttribute="leading" id="DKi-BQ-bEJ"/>
                             <constraint firstItem="CUv-Z0-EpX" firstAttribute="leading" secondItem="gav-3H-Iox" secondAttribute="trailing" constant="2" id="DhK-wT-EgO"/>
                             <constraint firstItem="InI-xA-8P1" firstAttribute="top" secondItem="aSv-R9-uHn" secondAttribute="top" id="EA2-RS-YGV"/>
                             <constraint firstAttribute="trailing" secondItem="b06-ey-bvO" secondAttribute="trailing" constant="71" id="EOa-D0-azB"/>
                             <constraint firstItem="7IM-AN-O4J" firstAttribute="baseline" secondItem="C5h-yi-yfa" secondAttribute="baseline" id="EXt-kd-Yyl"/>
                             <constraint firstItem="gav-3H-Iox" firstAttribute="top" secondItem="C5h-yi-yfa" secondAttribute="bottom" constant="12" id="EsU-NH-nk7"/>
                             <constraint firstItem="rfB-k0-Qbo" firstAttribute="top" secondItem="Cwj-3i-eyJ" secondAttribute="bottom" constant="8" symbolic="YES" id="HEd-9Z-hcr"/>
+                            <constraint firstAttribute="trailing" secondItem="Fci-8E-pKj" secondAttribute="trailing" constant="25" id="HLt-lo-WNh"/>
                             <constraint firstItem="ZIy-ml-NAd" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="-319" id="JGP-QJ-Xgb"/>
                             <constraint firstItem="Cwj-3i-eyJ" firstAttribute="leading" secondItem="ur7-iA-hXZ" secondAttribute="trailing" constant="2" id="JRv-Uy-zZP"/>
                             <constraint firstItem="sXz-cE-2uJ" firstAttribute="bottom" secondItem="gav-3H-Iox" secondAttribute="bottom" id="Lq1-Hg-RHF"/>
                             <constraint firstItem="gce-AV-MBA" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="LrH-Pa-jom"/>
                             <constraint firstItem="q7s-1c-dop" firstAttribute="leading" secondItem="gSQ-Ww-7Mx" secondAttribute="trailing" constant="8" symbolic="YES" id="MKy-cE-24w"/>
                             <constraint firstItem="7IM-AN-O4J" firstAttribute="leading" secondItem="aSv-R9-uHn" secondAttribute="trailing" constant="7" id="Mw1-gh-sVG"/>
-                            <constraint firstAttribute="trailing" secondItem="R5x-fJ-nKb" secondAttribute="trailing" constant="-4" id="NYv-1p-gD8"/>
+                            <constraint firstAttribute="trailing" secondItem="R5x-fJ-nKb" secondAttribute="trailing" id="NYv-1p-gD8"/>
                             <constraint firstItem="sXz-cE-2uJ" firstAttribute="leading" secondItem="CUv-Z0-EpX" secondAttribute="trailing" constant="17" id="NZn-q5-NO9"/>
                             <constraint firstAttribute="bottom" secondItem="Fci-8E-pKj" secondAttribute="bottom" constant="20" symbolic="YES" id="OUf-w0-Gbv"/>
                             <constraint firstItem="gSQ-Ww-7Mx" firstAttribute="top" secondItem="Phc-G5-iDj" secondAttribute="bottom" constant="8" symbolic="YES" id="Obw-0M-y9a"/>
@@ -324,6 +324,7 @@
                             <constraint firstItem="InI-xA-8P1" firstAttribute="leading" secondItem="7IM-AN-O4J" secondAttribute="trailing" constant="8" symbolic="YES" id="jEt-ml-ric"/>
                             <constraint firstItem="b06-ey-bvO" firstAttribute="top" secondItem="sXz-cE-2uJ" secondAttribute="bottom" constant="14" id="jPW-yB-sk5"/>
                             <constraint firstItem="Phc-G5-iDj" firstAttribute="leading" secondItem="gSQ-Ww-7Mx" secondAttribute="leading" id="kZ1-bt-RKx"/>
+                            <constraint firstItem="R5x-fJ-nKb" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="lRe-X2-YQY"/>
                             <constraint firstItem="q7s-1c-dop" firstAttribute="centerY" secondItem="gSQ-Ww-7Mx" secondAttribute="centerY" id="lfs-Ls-Wgg"/>
                             <constraint firstItem="aSv-R9-uHn" firstAttribute="baseline" secondItem="InI-xA-8P1" secondAttribute="baseline" id="nbb-Fj-X4y"/>
                             <constraint firstItem="rfB-k0-Qbo" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="70" id="oGF-mj-fiO"/>
