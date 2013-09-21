@@ -236,10 +236,11 @@
                                     <action selector="startDateButtonClicked:" destination="2" eventType="touchUpInside" id="L40-P1-v4L"/>
                                 </connections>
                             </button>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YeR-FT-epD">
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="YeR-FT-epD">
                                 <rect key="frame" x="0.0" y="64" width="320" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="RvL-eW-ChI"/>
+                                    <constraint firstAttribute="width" constant="320" id="bFP-mN-OzQ"/>
                                 </constraints>
                             </adBannerView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZu-Vp-KvZ">
@@ -251,7 +252,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.32692046359999999" green="0.46100282910000001" blue="0.62641501909999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="YeR-FT-epD" firstAttribute="top" secondItem="9jV-B8-iHZ" secondAttribute="bottom" id="CAM-ve-cJ5"/>
+                            <constraint firstItem="YeR-FT-epD" firstAttribute="top" secondItem="9jV-B8-iHZ" secondAttribute="bottom" id="9OQ-sM-Adq"/>
+                            <constraint firstItem="YeR-FT-epD" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="OJc-Za-QRT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Reminder" id="dkk-Aw-P5I">
