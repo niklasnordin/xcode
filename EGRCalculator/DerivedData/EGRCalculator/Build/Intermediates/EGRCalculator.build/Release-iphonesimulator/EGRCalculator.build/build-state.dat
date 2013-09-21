@@ -22,7 +22,6 @@ cCpResource EGRCalculator/Icon_29x2_spot.png DerivedData/EGRCalculator/Build/Pro
 cCpResource EGRCalculator/H2O.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/H2O.png
 cCpResource EGRCalculatorText.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/EGRCalculatorText.jpg
 cCpResource EGRCalculator/Icon_40x2_spot.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon_40x2_spot.png
-cCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard
 cCpResource EGRCalculator/Icon_40_spot.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon_40_spot.png
 cCpResource lambda.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/lambda.jpg
 cCpResource EGRCalculator/CO2.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/CO2.jpg
@@ -30,6 +29,7 @@ cCpResource EGRCalculator/O2.png DerivedData/EGRCalculator/Build/Products/Releas
 cCpResource EGRCalculator/N2.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/N2.jpg
 cCpResource EGRCalculator/O2.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/O2.jpg
 cCpResource EGRCalculator/H2O.jpg DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/H2O.jpg
+cCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard
 cCpResource EGRCalculator/Icon_29_spot.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon_29_spot.png
 cCpResource Icon.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon.png
 cCpResource Icon@2x.png DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/Icon@2x.png
@@ -276,11 +276,11 @@ t1378904089
 s5342708
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app
-t1379749925
+t1379763386
 s1156
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app.dSYM
-t1379618206
+t1379749924
 s102
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/CO2.jpg
@@ -372,7 +372,7 @@ t1378913527
 s42
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/en.lproj/MainStoryboard.storyboardc
-t1379749930
+t1379764806
 s374
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/lambda.jpg
@@ -534,9 +534,9 @@ t1330280026
 s45
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard
-c00000000523D502200000000000103C1
-t1379749922
-s66497
+c00000000523D8A3E000000000000D88F
+t1379764798
+s55439
 
 N/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/lambda.png
 c00000000523081A80000000000000BC9
@@ -698,7 +698,7 @@ r0
 
 CCheck dependencies
 r0
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciesd25403a387edb741^b58810a387edb741^---0#1#1#--18"Check dependencies36"10A968B7-AD6F-4DA5-9CB4-BF0B7E483A05-
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies740cecbec1edb741^a8aaecbec1edb741^---0#1#1#--18"Check dependencies36"13BA7943-7B37-40CA-AFBA-1FC577259D2F-
 
 CCompileAssetCatalog /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/Images.xcassets
 s401442724.290970
@@ -821,13 +821,13 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection89"Compile
 b70D05F25-B262-46B9-B159-F6BF4EC6D5ED
 
 CCompileStoryboard /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard
-s401442724.287674
-e401442730.882670
+s401457598.939908
+e401457606.564923
 r1
 xCompileStoryboard
 x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection66"CompileStoryboard EGRCalculator/en.lproj/MainStoryboard.storyboard66"CompileStoryboard EGRCalculator/en.lproj/MainStoryboard.storyboardbbb849a487edb741^0ef7e1aa87edb741^---0#0#1#-19%DVTDocumentLocation2@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^975"CompileStoryboard EGRCalculator/en.lproj/MainStoryboard.storyboard    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 6.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/ibtool --errors --warnings --notices --minimum-deployment-target 6.0 --output-format human-readable-text --compile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/en.lproj/MainStoryboard.storyboardc /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard36"382844C0-6754-48E0-B40E-41DB5C6FAF27-
-b70D05F25-B262-46B9-B159-F6BF4EC6D5ED
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection66"CompileStoryboard EGRCalculator/en.lproj/MainStoryboard.storyboard66"CompileStoryboard EGRCalculator/en.lproj/MainStoryboard.storyboard89b5f0bec1edb741^6d02a0c6c1edb741^---0#0#1#-19%DVTDocumentLocation2@125"file://localhost/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard0000000000000000^975"CompileStoryboard EGRCalculator/en.lproj/MainStoryboard.storyboard    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 6.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/ibtool --errors --warnings --notices --minimum-deployment-target 6.0 --output-format human-readable-text --compile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/en.lproj/MainStoryboard.storyboardc /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/EGRCalculator/en.lproj/MainStoryboard.storyboard36"4EB8369F-CD59-4781-BE6B-93E895A1B99B-
+b66370C9B-7D05-47DD-97E8-F61E68A105C3
 
 CCopyStringsFile /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app/en.lproj/InfoPlist.strings EGRCalculator/en.lproj/InfoPlist.strings
 s400606327.078367
@@ -1201,11 +1201,11 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection194"Proces
 bEE9FB8DF-9593-4479-8052-84A615481F1B
 
 CTouch /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app
-s401442730.904194
-e401442730.912322
+s401457606.575712
+e401457606.597441
 r1
 xTouch
 x/Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection149"Touch /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app88"Touch DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app2e8de7aa87edb741^b98ee9aa87edb741^---0#0#1#--518"Touch DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app36"FB09C183-41BD-431D-8C06-1C9B7D270C0A-
-b70D05F25-B262-46B9-B159-F6BF4EC6D5ED
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection149"Touch /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app88"Touch DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.appc17393c6c1edb741^802ca0c6c1edb741^---0#0#1#--518"Touch DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app    cd /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/niklasnordin/Documents/xcode-github.git/EGRCalculator/DerivedData/EGRCalculator/Build/Products/Release-iphonesimulator/EGRCalculator.app36"FFD66B6F-9363-409B-80B1-50B2645BC155-
+b66370C9B-7D05-47DD-97E8-F61E68A105C3
 

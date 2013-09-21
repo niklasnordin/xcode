@@ -905,14 +905,7 @@
     </scenes>
     <resources>
         <image name="menu_35.png" width="280" height="35"/>
-        <image name="menu_35.png" width="280" height="35"/>
         <image name="plotButtonSeeThru.png" width="280" height="94"/>
-        <image name="seeThru_35.png" width="280" height="35"/>
-        <image name="seeThru_35.png" width="280" height="35"/>
-        <image name="seeThru_35.png" width="280" height="35"/>
-        <image name="seeThru_35.png" width="280" height="35"/>
-        <image name="seeThru_35.png" width="280" height="35"/>
-        <image name="seeThru_35.png" width="280" height="35"/>
         <image name="seeThru_35.png" width="280" height="35"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
