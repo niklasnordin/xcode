@@ -39,6 +39,7 @@
 		61EDE152177EB0B800745F6A /* schemeCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EDE151177EB0B800745F6A /* schemeCollectionView.m */; };
 		61EDE155177EB43900745F6A /* schemeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EDE154177EB43900745F6A /* schemeCollectionCell.m */; };
 		61EDE158177F194700745F6A /* eventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EDE157177F194700745F6A /* eventViewController.m */; };
+		61FC409A17ED69CA00C9B815 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61FC409917ED69CA00C9B815 /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		61EDE154177EB43900745F6A /* schemeCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = schemeCollectionCell.m; sourceTree = "<group>"; };
 		61EDE156177F194700745F6A /* eventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eventViewController.h; sourceTree = "<group>"; };
 		61EDE157177F194700745F6A /* eventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eventViewController.m; sourceTree = "<group>"; };
+		61FC409917ED69CA00C9B815 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61FC409A17ED69CA00C9B815 /* AdSupport.framework in Frameworks */,
 				61B71C041793C724001BD35D /* QuartzCore.framework in Frameworks */,
 				61C0DE121787E79800C57615 /* iAd.framework in Frameworks */,
 				6189E2331774B76A00D0D181 /* EventKitUI.framework in Frameworks */,
@@ -142,6 +145,7 @@
 		6189E2091774231600D0D181 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				61FC409917ED69CA00C9B815 /* AdSupport.framework */,
 				61B71C031793C724001BD35D /* QuartzCore.framework */,
 				61C0DE111787E79800C57615 /* iAd.framework */,
 				6189E2321774B76A00D0D181 /* EventKitUI.framework */,
