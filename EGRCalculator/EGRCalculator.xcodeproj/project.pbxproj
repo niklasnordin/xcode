@@ -40,6 +40,7 @@
 		61B1C5A617E0D669007EE28A /* Icon_40_spot.png in Resources */ = {isa = PBXBuildFile; fileRef = 61B1C5A117E0D669007EE28A /* Icon_40_spot.png */; };
 		61B1C5A717E0D669007EE28A /* Icon_40x2_spot.png in Resources */ = {isa = PBXBuildFile; fileRef = 61B1C5A217E0D669007EE28A /* Icon_40x2_spot.png */; };
 		61B1C5A817E0D669007EE28A /* Icon_60x2_spot.png in Resources */ = {isa = PBXBuildFile; fileRef = 61B1C5A317E0D669007EE28A /* Icon_60x2_spot.png */; };
+		61FC409817ED692500C9B815 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61FC409717ED692500C9B815 /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		61B1C5A217E0D669007EE28A /* Icon_40x2_spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_40x2_spot.png; sourceTree = "<group>"; };
 		61B1C5A317E0D669007EE28A /* Icon_60x2_spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_60x2_spot.png; sourceTree = "<group>"; };
 		61E91282148BD9AB0098F7E5 /* EGRCalculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = EGRCalculator.entitlements; sourceTree = "<group>"; };
+		61FC409717ED692500C9B815 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61FC409817ED692500C9B815 /* AdSupport.framework in Frameworks */,
 				61ACA7A517E0AC6D00BD49E6 /* iAd.framework in Frameworks */,
 				61938F14148A03EB00F40395 /* UIKit.framework in Frameworks */,
 				61938F16148A03EB00F40395 /* Foundation.framework in Frameworks */,
@@ -123,6 +126,7 @@
 		61938F12148A03EB00F40395 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				61FC409717ED692500C9B815 /* AdSupport.framework */,
 				61ACA7A417E0AC6D00BD49E6 /* iAd.framework */,
 				61938F13148A03EB00F40395 /* UIKit.framework */,
 				61938F15148A03EB00F40395 /* Foundation.framework */,

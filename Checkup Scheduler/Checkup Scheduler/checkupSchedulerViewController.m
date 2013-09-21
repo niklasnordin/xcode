@@ -551,16 +551,18 @@
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
+    NSLog(@"bannerViewDidLoadAd");
     [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:2];
+    [UIView setAnimationDuration:1];
     [banner setAlpha:1];
     [UIView commitAnimations];
 }
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
 {
+    NSLog(@"bannerView didFail: error=%@",error);
     [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:2];
+    [UIView setAnimationDuration:1];
     [banner setAlpha:0];
     [UIView commitAnimations];
 }

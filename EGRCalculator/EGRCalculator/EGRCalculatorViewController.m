@@ -192,7 +192,7 @@
 {
     self.egrCalc = [[EGRCalculator alloc] initWithLambda:self.lambaText.text egr:self.egrText.text cn:self.cnText.text cm:self.cmText.text cr:self.crText.text oxygen:self.o2Text.text nitro:self.n2Text.text];
 }
-
+/*
 - (void)bannerViewWillLoadAd:(ADBannerView *)banner
 {
     NSLog(@"bannerViewWillLoadAd");
@@ -202,23 +202,23 @@
 {
     NSLog(@"bannerViewActionDidFinish");
 }
-
+*/
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
-    NSLog(@"bannerViewDidLoadAd");
+    //NSLog(@"bannerViewDidLoadAd");
     [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationDuration:1];
     [banner setAlpha:1];
     [UIView commitAnimations];
 }
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
 {
-    NSLog(@"bannerView:: didFail: error = %@",error);
+    //NSLog(@"bannerView:: didFail: error = %@",error);
     
     [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.2];
-    [banner setAlpha:1];
+    [UIView setAnimationDuration:1];
+    [banner setAlpha:0];
     [UIView commitAnimations];
 }
 
