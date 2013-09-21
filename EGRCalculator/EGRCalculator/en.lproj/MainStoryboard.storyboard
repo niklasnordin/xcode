@@ -637,10 +637,17 @@
     </scenes>
     <resources>
         <image name="CO2.png" width="39" height="39"/>
+        <image name="CO2.png" width="39" height="39"/>
+        <image name="H2O.png" width="39" height="39"/>
         <image name="H2O.png" width="39" height="39"/>
         <image name="N2.png" width="39" height="39"/>
+        <image name="N2.png" width="39" height="39"/>
+        <image name="N2.png" width="39" height="39"/>
+        <image name="O2.png" width="39" height="39"/>
+        <image name="O2.png" width="39" height="39"/>
         <image name="O2.png" width="39" height="39"/>
         <image name="ReactionText.png" width="320" height="54"/>
+        <image name="lambda.png" width="39" height="39"/>
         <image name="lambda.png" width="39" height="39"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
