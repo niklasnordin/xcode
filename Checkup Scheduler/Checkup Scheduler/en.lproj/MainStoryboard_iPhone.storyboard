@@ -171,7 +171,7 @@
             </objects>
             <point key="canvasLocation" x="-8" y="-932"/>
         </scene>
-        <!--Checkup Scheduler View Controller - Reminder-->
+        <!--Checkup Scheduler View Controller - Scheduler-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="checkupSchedulerViewController" sceneMemberID="viewController">
@@ -256,7 +256,7 @@
                             <constraint firstItem="YeR-FT-epD" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="OJc-Za-QRT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Reminder" id="dkk-Aw-P5I">
+                    <navigationItem key="navigationItem" title="Scheduler" id="dkk-Aw-P5I">
                         <barButtonItem key="leftBarButtonItem" title="Preferences" id="BTn-Pg-4Bc">
                             <connections>
                                 <segue destination="tbS-sV-wcY" kind="push" identifier="settingsSegue" id="Vif-ll-j4s"/>

@@ -425,7 +425,7 @@
     // remember the selected name, in case the selection is cancelled
     self.selectedNameIndex = [self.schemePicker selectedRowInComponent:0];
 
-    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Schemes"
+    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Select Scheme"
                                                    delegate:nil
                                           cancelButtonTitle:nil
                                      destructiveButtonTitle:nil

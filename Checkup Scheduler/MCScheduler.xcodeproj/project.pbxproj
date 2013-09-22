@@ -220,9 +220,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6189E2061774231600D0D181 /* Checkup Scheduler */ = {
+		6189E2061774231600D0D181 /* MCScheduler */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6189E22D1774231600D0D181 /* Build configuration list for PBXNativeTarget "Checkup Scheduler" */;
+			buildConfigurationList = 6189E22D1774231600D0D181 /* Build configuration list for PBXNativeTarget "MCScheduler" */;
 			buildPhases = (
 				6189E2031774231600D0D181 /* Sources */,
 				6189E2041774231600D0D181 /* Frameworks */,
@@ -232,7 +232,7 @@
 			);
 			dependencies = (
 			);
-			name = "Checkup Scheduler";
+			name = MCScheduler;
 			productName = "Checkup Scheduler";
 			productReference = 6189E2071774231600D0D181 /* Checkup Scheduler.app */;
 			productType = "com.apple.product-type.application";
@@ -247,7 +247,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Niklas Nordin";
 			};
-			buildConfigurationList = 6189E2021774231600D0D181 /* Build configuration list for PBXProject "Checkup Scheduler" */;
+			buildConfigurationList = 6189E2021774231600D0D181 /* Build configuration list for PBXProject "MCScheduler" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -259,7 +259,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6189E2061774231600D0D181 /* Checkup Scheduler */,
+				6189E2061774231600D0D181 /* MCScheduler */,
 			);
 		};
 /* End PBXProject section */
@@ -427,7 +427,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6189E2021774231600D0D181 /* Build configuration list for PBXProject "Checkup Scheduler" */ = {
+		6189E2021774231600D0D181 /* Build configuration list for PBXProject "MCScheduler" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6189E22B1774231600D0D181 /* Debug */,
@@ -436,7 +436,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6189E22D1774231600D0D181 /* Build configuration list for PBXNativeTarget "Checkup Scheduler" */ = {
+		6189E22D1774231600D0D181 /* Build configuration list for PBXNativeTarget "MCScheduler" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6189E22E1774231600D0D181 /* Debug */,
