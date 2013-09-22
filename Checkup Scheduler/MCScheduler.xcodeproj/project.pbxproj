@@ -20,7 +20,6 @@
 		6189E21F1774231600D0D181 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6189E21E1774231600D0D181 /* Default@2x.png */; };
 		6189E2211774231600D0D181 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6189E2201774231600D0D181 /* Default-568h@2x.png */; };
 		6189E2241774231600D0D181 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6189E2221774231600D0D181 /* MainStoryboard_iPhone.storyboard */; };
-		6189E2271774231600D0D181 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6189E2251774231600D0D181 /* MainStoryboard_iPad.storyboard */; };
 		6189E22A1774231600D0D181 /* checkupSchedulerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6189E2291774231600D0D181 /* checkupSchedulerViewController.m */; };
 		6189E2311774242500D0D181 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6189E2301774242500D0D181 /* EventKit.framework */; };
 		6189E2331774B76A00D0D181 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6189E2321774B76A00D0D181 /* EventKitUI.framework */; };
@@ -49,21 +48,20 @@
 		61821DF51784B1EB00CE1063 /* reminderPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reminderPickerView.h; sourceTree = "<group>"; };
 		61821DF61784B1EB00CE1063 /* reminderPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reminderPickerView.m; sourceTree = "<group>"; };
 		61821DFC17872E0300CE1063 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = ../icon57.png; sourceTree = "<group>"; };
-		6189E2071774231600D0D181 /* Checkup Scheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Checkup Scheduler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6189E2071774231600D0D181 /* MCScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6189E20A1774231600D0D181 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6189E20C1774231600D0D181 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6189E20E1774231600D0D181 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		6189E2121774231600D0D181 /* Checkup Scheduler-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Checkup Scheduler-Info.plist"; sourceTree = "<group>"; };
+		6189E2121774231600D0D181 /* MCScheduler-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MCScheduler-Info.plist"; sourceTree = "<group>"; };
 		6189E2141774231600D0D181 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6189E2161774231600D0D181 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6189E2181774231600D0D181 /* Checkup Scheduler-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Checkup Scheduler-Prefix.pch"; sourceTree = "<group>"; };
+		6189E2181774231600D0D181 /* MCScheduler-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCScheduler-Prefix.pch"; sourceTree = "<group>"; };
 		6189E2191774231600D0D181 /* checkupSchedulerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = checkupSchedulerAppDelegate.h; sourceTree = "<group>"; };
 		6189E21A1774231600D0D181 /* checkupSchedulerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = checkupSchedulerAppDelegate.m; sourceTree = "<group>"; };
 		6189E21C1774231600D0D181 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		6189E21E1774231600D0D181 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6189E2201774231600D0D181 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6189E2231774231600D0D181 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		6189E2261774231600D0D181 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		6189E2281774231600D0D181 /* checkupSchedulerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = checkupSchedulerViewController.h; sourceTree = "<group>"; };
 		6189E2291774231600D0D181 /* checkupSchedulerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = checkupSchedulerViewController.m; sourceTree = "<group>"; };
 		6189E2301774242500D0D181 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
@@ -139,7 +137,7 @@
 		6189E2081774231600D0D181 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6189E2071774231600D0D181 /* Checkup Scheduler.app */,
+				6189E2071774231600D0D181 /* MCScheduler.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,7 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				6189E2221774231600D0D181 /* MainStoryboard_iPhone.storyboard */,
-				6189E2251774231600D0D181 /* MainStoryboard_iPad.storyboard */,
 				6189E2191774231600D0D181 /* checkupSchedulerAppDelegate.h */,
 				6189E21A1774231600D0D181 /* checkupSchedulerAppDelegate.m */,
 				6189E2281774231600D0D181 /* checkupSchedulerViewController.h */,
@@ -206,10 +203,10 @@
 		6189E2111774231600D0D181 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6189E2121774231600D0D181 /* Checkup Scheduler-Info.plist */,
+				6189E2121774231600D0D181 /* MCScheduler-Info.plist */,
 				6189E2131774231600D0D181 /* InfoPlist.strings */,
 				6189E2161774231600D0D181 /* main.m */,
-				6189E2181774231600D0D181 /* Checkup Scheduler-Prefix.pch */,
+				6189E2181774231600D0D181 /* MCScheduler-Prefix.pch */,
 				6189E21C1774231600D0D181 /* Default.png */,
 				6189E21E1774231600D0D181 /* Default@2x.png */,
 				6189E2201774231600D0D181 /* Default-568h@2x.png */,
@@ -234,7 +231,7 @@
 			);
 			name = MCScheduler;
 			productName = "Checkup Scheduler";
-			productReference = 6189E2071774231600D0D181 /* Checkup Scheduler.app */;
+			productReference = 6189E2071774231600D0D181 /* MCScheduler.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -275,7 +272,6 @@
 				6189E21F1774231600D0D181 /* Default@2x.png in Resources */,
 				6189E2211774231600D0D181 /* Default-568h@2x.png in Resources */,
 				6189E2241774231600D0D181 /* MainStoryboard_iPhone.storyboard in Resources */,
-				6189E2271774231600D0D181 /* MainStoryboard_iPad.storyboard in Resources */,
 				61821DFD17872E0300CE1063 /* icon57.png in Resources */,
 				61A79F8F17A70B5700233DA8 /* icon114.png in Resources */,
 			);
@@ -327,14 +323,6 @@
 			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
-		6189E2251774231600D0D181 /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6189E2261774231600D0D181 /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -366,7 +354,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -391,7 +379,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -402,8 +390,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Checkup Scheduler/Checkup Scheduler-Prefix.pch";
-				INFOPLIST_FILE = "Checkup Scheduler/Checkup Scheduler-Info.plist";
+				GCC_PREFIX_HEADER = "Checkup Scheduler/MCScheduler-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Checkup Scheduler/MCScheduler-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -416,8 +404,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Checkup Scheduler/Checkup Scheduler-Prefix.pch";
-				INFOPLIST_FILE = "Checkup Scheduler/Checkup Scheduler-Info.plist";
+				GCC_PREFIX_HEADER = "Checkup Scheduler/MCScheduler-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Checkup Scheduler/MCScheduler-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
