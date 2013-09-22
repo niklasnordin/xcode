@@ -13,7 +13,7 @@
 		619D194A17EF5D460094D193 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 619D194817EF5D460094D193 /* InfoPlist.strings */; };
 		619D194C17EF5D460094D193 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D194B17EF5D460094D193 /* main.m */; };
 		619D195017EF5D460094D193 /* MCSchedulerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D194F17EF5D460094D193 /* MCSchedulerAppDelegate.m */; };
-		619D195317EF5D460094D193 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 619D195117EF5D460094D193 /* Main.storyboard */; };
+		619D195317EF5D460094D193 /* Main-old.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 619D195117EF5D460094D193 /* Main-old.storyboard */; };
 		619D195617EF5D460094D193 /* MCSchedulerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D195517EF5D460094D193 /* MCSchedulerViewController.m */; };
 		619D195817EF5D460094D193 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 619D195717EF5D460094D193 /* Images.xcassets */; };
 		619D195F17EF5D460094D193 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 619D195E17EF5D460094D193 /* XCTest.framework */; };
@@ -21,6 +21,21 @@
 		619D196117EF5D460094D193 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 619D194317EF5D460094D193 /* UIKit.framework */; };
 		619D196917EF5D460094D193 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 619D196717EF5D460094D193 /* InfoPlist.strings */; };
 		619D196B17EF5D460094D193 /* MCSchedulerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D196A17EF5D460094D193 /* MCSchedulerTests.m */; };
+		619D197517EF5DC50094D193 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 619D197417EF5DC50094D193 /* Main.storyboard */; };
+		619D199217EF5DE20094D193 /* schemeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D197717EF5DE20094D193 /* schemeTableViewController.m */; };
+		619D199317EF5DE20094D193 /* schemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D197917EF5DE20094D193 /* schemeViewController.m */; };
+		619D199417EF5DE20094D193 /* eventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D197B17EF5DE20094D193 /* eventViewController.m */; };
+		619D199517EF5DE20094D193 /* tasPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D197D17EF5DE20094D193 /* tasPickerView.m */; };
+		619D199617EF5DE20094D193 /* timeSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D197F17EF5DE20094D193 /* timeSetupViewController.m */; };
+		619D199717EF5DE20094D193 /* durationPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D198117EF5DE20094D193 /* durationPickerView.m */; };
+		619D199817EF5DE20094D193 /* reminderPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D198317EF5DE20094D193 /* reminderPickerView.m */; };
+		619D199917EF5DE20094D193 /* schemeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D198517EF5DE20094D193 /* schemeCollectionCell.m */; };
+		619D199A17EF5DE20094D193 /* schemeCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D198717EF5DE20094D193 /* schemeCollectionView.m */; };
+		619D199B17EF5DE20094D193 /* collectionScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D198917EF5DE20094D193 /* collectionScrollView.m */; };
+		619D199C17EF5DE20094D193 /* idButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D198B17EF5DE20094D193 /* idButton.m */; };
+		619D199D17EF5DE20094D193 /* settingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D198D17EF5DE20094D193 /* settingsViewController.m */; };
+		619D199E17EF5DE20094D193 /* colorSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D198F17EF5DE20094D193 /* colorSettingsViewController.m */; };
+		619D199F17EF5DE20094D193 /* settingsDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D199117EF5DE20094D193 /* settingsDB.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +59,7 @@
 		619D194D17EF5D460094D193 /* MCScheduler-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCScheduler-Prefix.pch"; sourceTree = "<group>"; };
 		619D194E17EF5D460094D193 /* MCSchedulerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSchedulerAppDelegate.h; sourceTree = "<group>"; };
 		619D194F17EF5D460094D193 /* MCSchedulerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSchedulerAppDelegate.m; sourceTree = "<group>"; };
-		619D195217EF5D460094D193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		619D195217EF5D460094D193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main-old.storyboard"; sourceTree = "<group>"; };
 		619D195417EF5D460094D193 /* MCSchedulerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSchedulerViewController.h; sourceTree = "<group>"; };
 		619D195517EF5D460094D193 /* MCSchedulerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSchedulerViewController.m; sourceTree = "<group>"; };
 		619D195717EF5D460094D193 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -53,6 +68,35 @@
 		619D196617EF5D460094D193 /* MCSchedulerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MCSchedulerTests-Info.plist"; sourceTree = "<group>"; };
 		619D196817EF5D460094D193 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		619D196A17EF5D460094D193 /* MCSchedulerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSchedulerTests.m; sourceTree = "<group>"; };
+		619D197417EF5DC50094D193 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		619D197617EF5DE20094D193 /* schemeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = schemeTableViewController.h; sourceTree = "<group>"; };
+		619D197717EF5DE20094D193 /* schemeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = schemeTableViewController.m; sourceTree = "<group>"; };
+		619D197817EF5DE20094D193 /* schemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = schemeViewController.h; sourceTree = "<group>"; };
+		619D197917EF5DE20094D193 /* schemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = schemeViewController.m; sourceTree = "<group>"; };
+		619D197A17EF5DE20094D193 /* eventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eventViewController.h; sourceTree = "<group>"; };
+		619D197B17EF5DE20094D193 /* eventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eventViewController.m; sourceTree = "<group>"; };
+		619D197C17EF5DE20094D193 /* tasPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tasPickerView.h; sourceTree = "<group>"; };
+		619D197D17EF5DE20094D193 /* tasPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tasPickerView.m; sourceTree = "<group>"; };
+		619D197E17EF5DE20094D193 /* timeSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timeSetupViewController.h; sourceTree = "<group>"; };
+		619D197F17EF5DE20094D193 /* timeSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = timeSetupViewController.m; sourceTree = "<group>"; };
+		619D198017EF5DE20094D193 /* durationPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = durationPickerView.h; sourceTree = "<group>"; };
+		619D198117EF5DE20094D193 /* durationPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = durationPickerView.m; sourceTree = "<group>"; };
+		619D198217EF5DE20094D193 /* reminderPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reminderPickerView.h; sourceTree = "<group>"; };
+		619D198317EF5DE20094D193 /* reminderPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reminderPickerView.m; sourceTree = "<group>"; };
+		619D198417EF5DE20094D193 /* schemeCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = schemeCollectionCell.h; sourceTree = "<group>"; };
+		619D198517EF5DE20094D193 /* schemeCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = schemeCollectionCell.m; sourceTree = "<group>"; };
+		619D198617EF5DE20094D193 /* schemeCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = schemeCollectionView.h; sourceTree = "<group>"; };
+		619D198717EF5DE20094D193 /* schemeCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = schemeCollectionView.m; sourceTree = "<group>"; };
+		619D198817EF5DE20094D193 /* collectionScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectionScrollView.h; sourceTree = "<group>"; };
+		619D198917EF5DE20094D193 /* collectionScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = collectionScrollView.m; sourceTree = "<group>"; };
+		619D198A17EF5DE20094D193 /* idButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = idButton.h; sourceTree = "<group>"; };
+		619D198B17EF5DE20094D193 /* idButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = idButton.m; sourceTree = "<group>"; };
+		619D198C17EF5DE20094D193 /* settingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsViewController.h; sourceTree = "<group>"; };
+		619D198D17EF5DE20094D193 /* settingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsViewController.m; sourceTree = "<group>"; };
+		619D198E17EF5DE20094D193 /* colorSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colorSettingsViewController.h; sourceTree = "<group>"; };
+		619D198F17EF5DE20094D193 /* colorSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = colorSettingsViewController.m; sourceTree = "<group>"; };
+		619D199017EF5DE20094D193 /* settingsDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsDB.h; sourceTree = "<group>"; };
+		619D199117EF5DE20094D193 /* settingsDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsDB.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +156,40 @@
 		619D194517EF5D460094D193 /* MCScheduler */ = {
 			isa = PBXGroup;
 			children = (
+				619D197417EF5DC50094D193 /* Main.storyboard */,
 				619D194E17EF5D460094D193 /* MCSchedulerAppDelegate.h */,
 				619D194F17EF5D460094D193 /* MCSchedulerAppDelegate.m */,
-				619D195117EF5D460094D193 /* Main.storyboard */,
+				619D195117EF5D460094D193 /* Main-old.storyboard */,
 				619D195417EF5D460094D193 /* MCSchedulerViewController.h */,
 				619D195517EF5D460094D193 /* MCSchedulerViewController.m */,
+				619D197617EF5DE20094D193 /* schemeTableViewController.h */,
+				619D197717EF5DE20094D193 /* schemeTableViewController.m */,
+				619D197817EF5DE20094D193 /* schemeViewController.h */,
+				619D197917EF5DE20094D193 /* schemeViewController.m */,
+				619D197A17EF5DE20094D193 /* eventViewController.h */,
+				619D197B17EF5DE20094D193 /* eventViewController.m */,
+				619D197C17EF5DE20094D193 /* tasPickerView.h */,
+				619D197D17EF5DE20094D193 /* tasPickerView.m */,
+				619D197E17EF5DE20094D193 /* timeSetupViewController.h */,
+				619D197F17EF5DE20094D193 /* timeSetupViewController.m */,
+				619D198017EF5DE20094D193 /* durationPickerView.h */,
+				619D198117EF5DE20094D193 /* durationPickerView.m */,
+				619D198217EF5DE20094D193 /* reminderPickerView.h */,
+				619D198317EF5DE20094D193 /* reminderPickerView.m */,
+				619D198417EF5DE20094D193 /* schemeCollectionCell.h */,
+				619D198517EF5DE20094D193 /* schemeCollectionCell.m */,
+				619D198617EF5DE20094D193 /* schemeCollectionView.h */,
+				619D198717EF5DE20094D193 /* schemeCollectionView.m */,
+				619D198817EF5DE20094D193 /* collectionScrollView.h */,
+				619D198917EF5DE20094D193 /* collectionScrollView.m */,
+				619D198A17EF5DE20094D193 /* idButton.h */,
+				619D198B17EF5DE20094D193 /* idButton.m */,
+				619D198C17EF5DE20094D193 /* settingsViewController.h */,
+				619D198D17EF5DE20094D193 /* settingsViewController.m */,
+				619D198E17EF5DE20094D193 /* colorSettingsViewController.h */,
+				619D198F17EF5DE20094D193 /* colorSettingsViewController.m */,
+				619D199017EF5DE20094D193 /* settingsDB.h */,
+				619D199117EF5DE20094D193 /* settingsDB.m */,
 				619D195717EF5D460094D193 /* Images.xcassets */,
 				619D194617EF5D460094D193 /* Supporting Files */,
 			);
@@ -231,7 +304,8 @@
 			files = (
 				619D195817EF5D460094D193 /* Images.xcassets in Resources */,
 				619D194A17EF5D460094D193 /* InfoPlist.strings in Resources */,
-				619D195317EF5D460094D193 /* Main.storyboard in Resources */,
+				619D197517EF5DC50094D193 /* Main.storyboard in Resources */,
+				619D195317EF5D460094D193 /* Main-old.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,9 +324,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				619D199317EF5DE20094D193 /* schemeViewController.m in Sources */,
 				619D195617EF5D460094D193 /* MCSchedulerViewController.m in Sources */,
 				619D195017EF5D460094D193 /* MCSchedulerAppDelegate.m in Sources */,
+				619D199F17EF5DE20094D193 /* settingsDB.m in Sources */,
+				619D199617EF5DE20094D193 /* timeSetupViewController.m in Sources */,
+				619D199C17EF5DE20094D193 /* idButton.m in Sources */,
+				619D199D17EF5DE20094D193 /* settingsViewController.m in Sources */,
+				619D199417EF5DE20094D193 /* eventViewController.m in Sources */,
+				619D199E17EF5DE20094D193 /* colorSettingsViewController.m in Sources */,
+				619D199A17EF5DE20094D193 /* schemeCollectionView.m in Sources */,
+				619D199217EF5DE20094D193 /* schemeTableViewController.m in Sources */,
+				619D199817EF5DE20094D193 /* reminderPickerView.m in Sources */,
+				619D199717EF5DE20094D193 /* durationPickerView.m in Sources */,
+				619D199917EF5DE20094D193 /* schemeCollectionCell.m in Sources */,
 				619D194C17EF5D460094D193 /* main.m in Sources */,
+				619D199517EF5DE20094D193 /* tasPickerView.m in Sources */,
+				619D199B17EF5DE20094D193 /* collectionScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,12 +371,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		619D195117EF5D460094D193 /* Main.storyboard */ = {
+		619D195117EF5D460094D193 /* Main-old.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				619D195217EF5D460094D193 /* Base */,
 			);
-			name = Main.storyboard;
+			name = "Main-old.storyboard";
 			sourceTree = "<group>";
 		};
 		619D196717EF5D460094D193 /* InfoPlist.strings */ = {
