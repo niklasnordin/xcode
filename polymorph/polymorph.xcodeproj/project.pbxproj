@@ -165,6 +165,7 @@
 		61EB3D6C15E0FAD3009826F2 /* Complex.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D6B15E0FAD3009826F2 /* Complex.m */; };
 		61EB3D6F15E0FB4C009826F2 /* Polynomial.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D6E15E0FB4C009826F2 /* Polynomial.m */; };
 		61EB3D7215E1064D009826F2 /* pengRobinsonLiquid.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D7115E1064D009826F2 /* pengRobinsonLiquid.m */; };
+		61FC409C17EF1B7700C9B815 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61FC409B17EF1B7700C9B815 /* Images.xcassets */; };
 		61FD28C1160FA526007C1A6F /* FJ_Cp.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FD28C0160FA526007C1A6F /* FJ_Cp.m */; };
 		61FD28C51614DCEF007C1A6F /* fundamentalJacobsen.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FD28C41614DCEE007C1A6F /* fundamentalJacobsen.m */; };
 		61FD28C81614DF3D007C1A6F /* FJ_SoundSpeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 61FD28C71614DF3D007C1A6F /* FJ_SoundSpeed.m */; };
@@ -395,6 +396,7 @@
 		61EB3D6E15E0FB4C009826F2 /* Polynomial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Polynomial.m; sourceTree = "<group>"; };
 		61EB3D7015E1064D009826F2 /* pengRobinsonLiquid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pengRobinsonLiquid.h; sourceTree = "<group>"; };
 		61EB3D7115E1064D009826F2 /* pengRobinsonLiquid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pengRobinsonLiquid.m; sourceTree = "<group>"; };
+		61FC409B17EF1B7700C9B815 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = myPlot/Images.xcassets; sourceTree = "<group>"; };
 		61FD28BF160FA526007C1A6F /* FJ_Cp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJ_Cp.h; sourceTree = "<group>"; };
 		61FD28C0160FA526007C1A6F /* FJ_Cp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJ_Cp.m; sourceTree = "<group>"; };
 		61FD28C31614DCEE007C1A6F /* fundamentalJacobsen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fundamentalJacobsen.h; sourceTree = "<group>"; };
@@ -515,6 +517,7 @@
 		6164627B15B7F705006B703D = {
 			isa = PBXGroup;
 			children = (
+				61FC409B17EF1B7700C9B815 /* Images.xcassets */,
 				61545C041696C961004CC039 /* myPlot.entitlements */,
 				6164629015B7F705006B703D /* polymorph */,
 				6164628915B7F705006B703D /* Frameworks */,
@@ -777,7 +780,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = polymorph;
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = nequam;
 				TargetAttributes = {
 					6164628515B7F705006B703D = {
@@ -847,6 +850,7 @@
 				61B9CD1816231E5D00DD1A62 /* idealGasLaw.png in Resources */,
 				61B9CD1A16231E6E00DD1A62 /* idealGasLaw.tex in Resources */,
 				61B9CD1C16231EF400DD1A62 /* janaf_cp.png in Resources */,
+				61FC409C17EF1B7700C9B815 /* Images.xcassets in Resources */,
 				61B9CD1E16231F0300DD1A62 /* janaf_cp.tex in Resources */,
 				61B9CD201623213A00DD1A62 /* janaf_h.tex in Resources */,
 				61B9CD221623214C00DD1A62 /* janaf_h.png in Resources */,
@@ -1007,9 +1011,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1024,10 +1029,14 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1036,9 +1045,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1046,8 +1056,11 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -1059,7 +1072,8 @@
 		616462A515B7F706006B703D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Niklas Nordin (9646L7PG8M)";
 				COMPRESS_PNG_FILES = YES;
 				CURRENT_PROJECT_VERSION = 1.0;
@@ -1076,7 +1090,8 @@
 		616462A615B7F706006B703D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Niklas Nordin (9646L7PG8M)";
 				COMPRESS_PNG_FILES = YES;
 				CURRENT_PROJECT_VERSION = 1.0;

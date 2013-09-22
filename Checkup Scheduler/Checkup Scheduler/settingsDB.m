@@ -38,7 +38,7 @@
     else
     {
         // default background color
-        NSLog(@"setting default background color");
+        //NSLog(@"setting default background color");
         self.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     }
     
