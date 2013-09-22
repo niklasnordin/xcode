@@ -40,6 +40,7 @@
 		61EDE155177EB43900745F6A /* schemeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EDE154177EB43900745F6A /* schemeCollectionCell.m */; };
 		61EDE158177F194700745F6A /* eventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EDE157177F194700745F6A /* eventViewController.m */; };
 		61FC409A17ED69CA00C9B815 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61FC409917ED69CA00C9B815 /* AdSupport.framework */; };
+		61FC409E17EF219A00C9B815 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61FC409D17EF219A00C9B815 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,7 @@
 		61EDE156177F194700745F6A /* eventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eventViewController.h; sourceTree = "<group>"; };
 		61EDE157177F194700745F6A /* eventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eventViewController.m; sourceTree = "<group>"; };
 		61FC409917ED69CA00C9B815 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		61FC409D17EF219A00C9B815 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 				61B71C001792FE51001BD35D /* settingsDB.h */,
 				61B71C011792FE51001BD35D /* settingsDB.m */,
 				61821E0017872E2000CE1063 /* Pictures */,
+				61FC409D17EF219A00C9B815 /* Images.xcassets */,
 				6189E2111774231600D0D181 /* Supporting Files */,
 			);
 			path = "Checkup Scheduler";
@@ -266,6 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61FC409E17EF219A00C9B815 /* Images.xcassets in Resources */,
 				6189E2151774231600D0D181 /* InfoPlist.strings in Resources */,
 				6189E21D1774231600D0D181 /* Default.png in Resources */,
 				6189E21F1774231600D0D181 /* Default@2x.png in Resources */,
@@ -395,11 +399,13 @@
 		6189E22E1774231600D0D181 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Checkup Scheduler/Checkup Scheduler-Prefix.pch";
 				INFOPLIST_FILE = "Checkup Scheduler/Checkup Scheduler-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -407,11 +413,13 @@
 		6189E22F1774231600D0D181 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Checkup Scheduler/Checkup Scheduler-Prefix.pch";
 				INFOPLIST_FILE = "Checkup Scheduler/Checkup Scheduler-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

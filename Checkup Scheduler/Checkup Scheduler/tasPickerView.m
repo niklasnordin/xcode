@@ -56,11 +56,11 @@
 {
     if (component == 2)
     {
-        return [NSString stringWithFormat:@"%d",[[self.minutes objectAtIndex:row] intValue]];
+        return [NSString stringWithFormat:@"%3d",[[self.minutes objectAtIndex:row] intValue]];
     }
     else
     {
-        return [NSString stringWithFormat:@"%d",row];
+        return [NSString stringWithFormat:@"%3d",row];
     }
 }
 
