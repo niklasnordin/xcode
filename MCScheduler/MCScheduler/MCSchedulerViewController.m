@@ -189,8 +189,13 @@
     [self.eventTextField setBackgroundColor:self.preferences.selectedButtonColor];
     [self.eventTextField setTextColor:self.preferences.textColor];
     
-    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:self.preferences.textColor, UITextAttributeTextColor,
-                          [UIColor clearColor], UITextAttributeTextShadowColor, nil];
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor clearColor];
+    shadow.shadowBlurRadius = 0.0;
+    shadow.shadowOffset = CGSizeMake(0.0, 0.0);
+    
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:self.preferences.textColor, NSForegroundColorAttributeName,
+                          shadow, NSShadowAttributeName, nil];
     
     //[[UINavigationBar appearance] setTitleTextAttributes:dict];
     //[[UINavigationBar appearance] setBackgroundColor:self.preferences.backgroundColor];

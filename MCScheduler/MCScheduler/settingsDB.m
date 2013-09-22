@@ -108,34 +108,15 @@
 
 - (void)setNavigationColors:(UIViewController *)view
 {
-    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:self.textColor, UITextAttributeTextColor,
-                          [UIColor clearColor], UITextAttributeTextShadowColor, nil];
-        /*
-    NSArray *leftItems = view.navigationItem.leftBarButtonItems;
-    NSArray *rightItems = view.navigationItem.rightBarButtonItems;
-    
-    for (UIBarButtonItem *item in leftItems)
-    {
-        [item setTitleTextAttributes:dict forState:UIControlStateNormal];
-    }
-    for (UIBarButtonItem *item in rightItems)
-    {
-        [item setTitleTextAttributes:dict forState:UIControlStateNormal];
-    }
 
-    NSArray *l1 = view.navigationController.navigationItem.leftBarButtonItems;
-    for (UIBarButtonItem *item in l1)
-    {
-        [item setTitleTextAttributes:dict forState:UIControlStateNormal];
-    }
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor clearColor];
+    shadow.shadowBlurRadius = 0.0;
+    shadow.shadowOffset = CGSizeMake(0.0, 0.0);
     
-    NSArray *r1 = view.navigationController.navigationItem.rightBarButtonItems;
-    for (UIBarButtonItem *item in r1)
-    {
-        [item setTitleTextAttributes:dict forState:UIControlStateNormal];
-    }
-
-*/
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:self.textColor, NSForegroundColorAttributeName,
+                          shadow, NSShadowAttributeName, nil];
+    
     [[UIBarButtonItem appearance] setTitleTextAttributes:dict forState:UIControlStateNormal];
     [[UINavigationBar appearance] setTitleTextAttributes:dict];
 }

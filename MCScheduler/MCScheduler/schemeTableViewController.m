@@ -38,8 +38,15 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain
                                                                                target:self
                                                                                action:@selector(addSchemeButton:)];
-    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:self.preferences.textColor, UITextAttributeTextColor,
-                          [UIColor clearColor], UITextAttributeTextShadowColor, nil];
+    
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor clearColor];
+    shadow.shadowBlurRadius = 0.0;
+    shadow.shadowOffset = CGSizeMake(0.0, 0.0);
+    
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:self.preferences.textColor, NSForegroundColorAttributeName,
+                          shadow, NSShadowAttributeName, nil];
+
     [addButton setTitleTextAttributes:dict forState:UIControlStateNormal];
 
     self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:self.editButtonItem, addButton, nil ];

@@ -182,8 +182,15 @@
     else
     {
         self.colorTextLabel.textColor = color;
-        NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:color, UITextAttributeTextColor,
-                                [UIColor clearColor], UITextAttributeTextShadowColor, nil];
+        
+        NSShadow *shadow = [[NSShadow alloc] init];
+        shadow.shadowColor = [UIColor clearColor];
+        shadow.shadowBlurRadius = 0.0;
+        shadow.shadowOffset = CGSizeMake(0.0, 0.0);
+        
+        NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:color, NSForegroundColorAttributeName,
+                              shadow, NSShadowAttributeName, nil];
+
         self.navigationController.navigationBar.titleTextAttributes = dict;
         //NSLog(@"titleDict = %@",titleDict);
     }

@@ -171,10 +171,10 @@
             </objects>
             <point key="canvasLocation" x="-8" y="-932"/>
         </scene>
-        <!--Checkup Scheduler View Controller - Scheduler-->
+        <!--Scheduler View Controller - Scheduler-->
         <scene sceneID="5">
             <objects>
-                <viewController id="2" customClass="checkupSchedulerViewController" sceneMemberID="viewController">
+                <viewController id="2" customClass="MCSchedulerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9jV-B8-iHZ"/>
                         <viewControllerLayoutGuide type="bottom" id="tWA-EA-qnr"/>

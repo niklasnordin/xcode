@@ -13,7 +13,6 @@
 		619D194A17EF5D460094D193 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 619D194817EF5D460094D193 /* InfoPlist.strings */; };
 		619D194C17EF5D460094D193 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D194B17EF5D460094D193 /* main.m */; };
 		619D195017EF5D460094D193 /* MCSchedulerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D194F17EF5D460094D193 /* MCSchedulerAppDelegate.m */; };
-		619D195317EF5D460094D193 /* Main-old.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 619D195117EF5D460094D193 /* Main-old.storyboard */; };
 		619D195617EF5D460094D193 /* MCSchedulerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D195517EF5D460094D193 /* MCSchedulerViewController.m */; };
 		619D195817EF5D460094D193 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 619D195717EF5D460094D193 /* Images.xcassets */; };
 		619D195F17EF5D460094D193 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 619D195E17EF5D460094D193 /* XCTest.framework */; };
@@ -36,6 +35,7 @@
 		619D199D17EF5DE20094D193 /* settingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D198D17EF5DE20094D193 /* settingsViewController.m */; };
 		619D199E17EF5DE20094D193 /* colorSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D198F17EF5DE20094D193 /* colorSettingsViewController.m */; };
 		619D199F17EF5DE20094D193 /* settingsDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 619D199117EF5DE20094D193 /* settingsDB.m */; };
+		619D19A117EF61360094D193 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 619D19A017EF61360094D193 /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,6 @@
 		619D194D17EF5D460094D193 /* MCScheduler-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCScheduler-Prefix.pch"; sourceTree = "<group>"; };
 		619D194E17EF5D460094D193 /* MCSchedulerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSchedulerAppDelegate.h; sourceTree = "<group>"; };
 		619D194F17EF5D460094D193 /* MCSchedulerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSchedulerAppDelegate.m; sourceTree = "<group>"; };
-		619D195217EF5D460094D193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main-old.storyboard"; sourceTree = "<group>"; };
 		619D195417EF5D460094D193 /* MCSchedulerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSchedulerViewController.h; sourceTree = "<group>"; };
 		619D195517EF5D460094D193 /* MCSchedulerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCSchedulerViewController.m; sourceTree = "<group>"; };
 		619D195717EF5D460094D193 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -97,6 +96,7 @@
 		619D198F17EF5DE20094D193 /* colorSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = colorSettingsViewController.m; sourceTree = "<group>"; };
 		619D199017EF5DE20094D193 /* settingsDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsDB.h; sourceTree = "<group>"; };
 		619D199117EF5DE20094D193 /* settingsDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsDB.m; sourceTree = "<group>"; };
+		619D19A017EF61360094D193 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				619D19A117EF61360094D193 /* iAd.framework in Frameworks */,
 				619D194217EF5D460094D193 /* CoreGraphics.framework in Frameworks */,
 				619D194417EF5D460094D193 /* UIKit.framework in Frameworks */,
 				619D194017EF5D460094D193 /* Foundation.framework in Frameworks */,
@@ -145,6 +146,7 @@
 		619D193E17EF5D460094D193 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				619D19A017EF61360094D193 /* iAd.framework */,
 				619D193F17EF5D460094D193 /* Foundation.framework */,
 				619D194117EF5D460094D193 /* CoreGraphics.framework */,
 				619D194317EF5D460094D193 /* UIKit.framework */,
@@ -159,7 +161,6 @@
 				619D197417EF5DC50094D193 /* Main.storyboard */,
 				619D194E17EF5D460094D193 /* MCSchedulerAppDelegate.h */,
 				619D194F17EF5D460094D193 /* MCSchedulerAppDelegate.m */,
-				619D195117EF5D460094D193 /* Main-old.storyboard */,
 				619D195417EF5D460094D193 /* MCSchedulerViewController.h */,
 				619D195517EF5D460094D193 /* MCSchedulerViewController.m */,
 				619D197617EF5DE20094D193 /* schemeTableViewController.h */,
@@ -305,7 +306,6 @@
 				619D195817EF5D460094D193 /* Images.xcassets in Resources */,
 				619D194A17EF5D460094D193 /* InfoPlist.strings in Resources */,
 				619D197517EF5DC50094D193 /* Main.storyboard in Resources */,
-				619D195317EF5D460094D193 /* Main-old.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,14 +369,6 @@
 				619D194917EF5D460094D193 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		619D195117EF5D460094D193 /* Main-old.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				619D195217EF5D460094D193 /* Base */,
-			);
-			name = "Main-old.storyboard";
 			sourceTree = "<group>";
 		};
 		619D196717EF5D460094D193 /* InfoPlist.strings */ = {

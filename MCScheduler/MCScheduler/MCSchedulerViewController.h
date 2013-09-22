@@ -12,10 +12,10 @@
 
 @interface MCSchedulerViewController : UIViewController
 <
-UIPickerViewDataSource,
-UIPickerViewDelegate,
-UITextFieldDelegate,
-ADBannerViewDelegate
+    UIPickerViewDataSource,
+    UIPickerViewDelegate,
+    UITextFieldDelegate,
+    ADBannerViewDelegate
 >
 
 @property (strong,nonatomic) settingsDB *preferences;
