@@ -188,7 +188,7 @@
 {
     [self.preferences setupButton:sender withColor:self.preferences.backgroundColor];
 
-    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"duration (hours, mins)"
+    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Set duration"
                                                    delegate:nil
                                           cancelButtonTitle:nil
                                      destructiveButtonTitle:nil
