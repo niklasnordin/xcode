@@ -30,6 +30,8 @@
     _nSamplesTextField.delegate = self;
     _lambdaTextField.delegate = self;
     _kTextField.delegate = self;
+    
+    //[self.tabBarController]
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,8 +54,9 @@
     
     for (int i=1; i<=iterations; i++)
     {
-        //NSLog(@"i=%d",i);
+        NSLog(@"i=%d",i);
         [self.iterationLabel setText:[NSString stringWithFormat:@"%d", i]];
+        usleep(10000);
     }
 }
 

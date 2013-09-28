@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "pdf.h"
+#import "RosinRammlerPDF.h"
 
 @interface RRDistributionViewController : UIViewController
+
+@property (strong, nonatomic) RosinRammlerPDF<pdf> *function;
 
 @end

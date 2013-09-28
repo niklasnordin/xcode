@@ -18,6 +18,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSLog(@"super view did load");
+    
+    NSArray *tabs = self.tabBarController.viewControllers;
+    NSLog(@"tabs count = %d", [tabs count]);
+    for (id tab in tabs)
+    {
+        NSLog(@"%@",[tab class]);
+    }
 }
 
 - (void)didReceiveMemoryWarning
