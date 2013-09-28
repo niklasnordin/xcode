@@ -10,7 +10,18 @@
 #import "pdf.h"
 
 @interface TestViewController : UIViewController
+<
+    UITextFieldDelegate
+>
 
 @property id <pdf> function;
+@property (weak, nonatomic) IBOutlet UITextField *nSamplesTextField;
+@property (weak, nonatomic) IBOutlet UITextField *lambdaTextField;
+@property (weak, nonatomic) IBOutlet UITextField *kTextField;
+- (IBAction)pasteButtonPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *iterationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *SMDLabel;
+@property (weak, nonatomic) IBOutlet UILabel *DV90Label;
+- (IBAction)TestButtonPressed:(id)sender;
 
 @end

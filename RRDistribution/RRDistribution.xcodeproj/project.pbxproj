@@ -150,11 +150,7 @@
 				61F5A4C217F6FE65002F1854 /* RosinRammlerPDF.h */,
 				61F5A4C317F6FE65002F1854 /* RosinRammlerPDF.m */,
 				61F5A49117F6AA40002F1854 /* Images.xcassets */,
-				61F5A4AE17F6AE97002F1854 /* RRDist.png */,
-				61F5A4B917F6FAFE002F1854 /* purplePoint.png */,
-				61F5A4BB17F6FB06002F1854 /* redPoint.png */,
-				61F5A4BD17F6FB10002F1854 /* bluePoint.png */,
-				61F5A4BF17F6FB18002F1854 /* yellowPoint.png */,
+				61F5A4C517F704A2002F1854 /* Images */,
 				61F5A48017F6AA40002F1854 /* Supporting Files */,
 			);
 			path = RRDistribution;
@@ -187,6 +183,18 @@
 				61F5A4A117F6AA41002F1854 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		61F5A4C517F704A2002F1854 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				61F5A4AE17F6AE97002F1854 /* RRDist.png */,
+				61F5A4B917F6FAFE002F1854 /* purplePoint.png */,
+				61F5A4BB17F6FB06002F1854 /* redPoint.png */,
+				61F5A4BD17F6FB10002F1854 /* bluePoint.png */,
+				61F5A4BF17F6FB18002F1854 /* yellowPoint.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
