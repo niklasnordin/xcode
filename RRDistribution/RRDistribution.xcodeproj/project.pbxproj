@@ -22,6 +22,14 @@
 		61F5A4A317F6AA41002F1854 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61F5A4A117F6AA41002F1854 /* InfoPlist.strings */; };
 		61F5A4A517F6AA41002F1854 /* RRDistributionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F5A4A417F6AA41002F1854 /* RRDistributionTests.m */; };
 		61F5A4AF17F6AE97002F1854 /* RRDist.png in Resources */ = {isa = PBXBuildFile; fileRef = 61F5A4AE17F6AE97002F1854 /* RRDist.png */; };
+		61F5A4B217F6F52B002F1854 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F5A4B117F6F52B002F1854 /* TestViewController.m */; };
+		61F5A4B517F6F559002F1854 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F5A4B417F6F559002F1854 /* InfoViewController.m */; };
+		61F5A4B817F6F5B7002F1854 /* PlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F5A4B717F6F5B7002F1854 /* PlotViewController.m */; };
+		61F5A4BA17F6FAFE002F1854 /* purplePoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 61F5A4B917F6FAFE002F1854 /* purplePoint.png */; };
+		61F5A4BC17F6FB06002F1854 /* redPoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 61F5A4BB17F6FB06002F1854 /* redPoint.png */; };
+		61F5A4BE17F6FB10002F1854 /* bluePoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 61F5A4BD17F6FB10002F1854 /* bluePoint.png */; };
+		61F5A4C017F6FB18002F1854 /* yellowPoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 61F5A4BF17F6FB18002F1854 /* yellowPoint.png */; };
+		61F5A4C417F6FE65002F1854 /* RosinRammlerPDF.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F5A4C317F6FE65002F1854 /* RosinRammlerPDF.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +63,19 @@
 		61F5A4A217F6AA41002F1854 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		61F5A4A417F6AA41002F1854 /* RRDistributionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRDistributionTests.m; sourceTree = "<group>"; };
 		61F5A4AE17F6AE97002F1854 /* RRDist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RRDist.png; sourceTree = "<group>"; };
+		61F5A4B017F6F52B002F1854 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		61F5A4B117F6F52B002F1854 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		61F5A4B317F6F559002F1854 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		61F5A4B417F6F559002F1854 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		61F5A4B617F6F5B7002F1854 /* PlotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotViewController.h; sourceTree = "<group>"; };
+		61F5A4B717F6F5B7002F1854 /* PlotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotViewController.m; sourceTree = "<group>"; };
+		61F5A4B917F6FAFE002F1854 /* purplePoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purplePoint.png; sourceTree = "<group>"; };
+		61F5A4BB17F6FB06002F1854 /* redPoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redPoint.png; sourceTree = "<group>"; };
+		61F5A4BD17F6FB10002F1854 /* bluePoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluePoint.png; sourceTree = "<group>"; };
+		61F5A4BF17F6FB18002F1854 /* yellowPoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowPoint.png; sourceTree = "<group>"; };
+		61F5A4C117F6FE20002F1854 /* pdf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pdf.h; sourceTree = "<group>"; };
+		61F5A4C217F6FE65002F1854 /* RosinRammlerPDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RosinRammlerPDF.h; sourceTree = "<group>"; };
+		61F5A4C317F6FE65002F1854 /* RosinRammlerPDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RosinRammlerPDF.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,8 +140,21 @@
 				61F5A48917F6AA40002F1854 /* RRDistributionAppDelegate.m */,
 				61F5A48E17F6AA40002F1854 /* RRDistributionViewController.h */,
 				61F5A48F17F6AA40002F1854 /* RRDistributionViewController.m */,
+				61F5A4B017F6F52B002F1854 /* TestViewController.h */,
+				61F5A4B117F6F52B002F1854 /* TestViewController.m */,
+				61F5A4B317F6F559002F1854 /* InfoViewController.h */,
+				61F5A4B417F6F559002F1854 /* InfoViewController.m */,
+				61F5A4B617F6F5B7002F1854 /* PlotViewController.h */,
+				61F5A4B717F6F5B7002F1854 /* PlotViewController.m */,
+				61F5A4C117F6FE20002F1854 /* pdf.h */,
+				61F5A4C217F6FE65002F1854 /* RosinRammlerPDF.h */,
+				61F5A4C317F6FE65002F1854 /* RosinRammlerPDF.m */,
 				61F5A49117F6AA40002F1854 /* Images.xcassets */,
 				61F5A4AE17F6AE97002F1854 /* RRDist.png */,
+				61F5A4B917F6FAFE002F1854 /* purplePoint.png */,
+				61F5A4BB17F6FB06002F1854 /* redPoint.png */,
+				61F5A4BD17F6FB10002F1854 /* bluePoint.png */,
+				61F5A4BF17F6FB18002F1854 /* yellowPoint.png */,
 				61F5A48017F6AA40002F1854 /* Supporting Files */,
 			);
 			path = RRDistribution;
@@ -232,10 +266,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61F5A4C017F6FB18002F1854 /* yellowPoint.png in Resources */,
 				61F5A49217F6AA40002F1854 /* Images.xcassets in Resources */,
+				61F5A4BA17F6FAFE002F1854 /* purplePoint.png in Resources */,
 				61F5A4AF17F6AE97002F1854 /* RRDist.png in Resources */,
 				61F5A48417F6AA40002F1854 /* InfoPlist.strings in Resources */,
+				61F5A4BC17F6FB06002F1854 /* redPoint.png in Resources */,
 				61F5A48D17F6AA40002F1854 /* Main.storyboard in Resources */,
+				61F5A4BE17F6FB10002F1854 /* bluePoint.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,9 +292,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61F5A4C417F6FE65002F1854 /* RosinRammlerPDF.m in Sources */,
 				61F5A48A17F6AA40002F1854 /* RRDistributionAppDelegate.m in Sources */,
 				61F5A49017F6AA40002F1854 /* RRDistributionViewController.m in Sources */,
+				61F5A4B217F6F52B002F1854 /* TestViewController.m in Sources */,
+				61F5A4B517F6F559002F1854 /* InfoViewController.m in Sources */,
 				61F5A48617F6AA40002F1854 /* main.m in Sources */,
+				61F5A4B817F6F5B7002F1854 /* PlotViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
