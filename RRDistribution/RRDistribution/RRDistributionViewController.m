@@ -19,20 +19,18 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    NSLog(@"super view did load");
     _function = [[RosinRammlerPDF alloc] init];
     
     NSArray *tabs = self.tabBarController.viewControllers;
-    NSLog(@"tabs count = %d", [tabs count]);
+
     for (id tab in tabs)
     {
+        // set the function in the test view controller
         if ([tab class] == [TestViewController class])
         {
-            NSLog(@"setting the function in testview controll");
             TestViewController *tvc = (TestViewController *)tab;
             tvc.function = _function;
         }
-        NSLog(@"%@",[tab class]);
     }
 }
 

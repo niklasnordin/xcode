@@ -10,6 +10,16 @@
 
 @implementation RosinRammlerPDF
 
+- (id)init
+{
+    self = [super init];
+    if (self)
+    {
+        _lambda = 0.0;
+        _k = 0.0;
+    }
+    return self;
+}
 
 - (float)sample:(float)x
 {

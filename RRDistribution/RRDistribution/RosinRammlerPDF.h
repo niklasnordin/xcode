@@ -14,4 +14,6 @@
     pdf
 >
 
+@property (nonatomic) float lambda;
+@property (nonatomic) float k;
 @end
