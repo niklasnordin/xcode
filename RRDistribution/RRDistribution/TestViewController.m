@@ -54,7 +54,9 @@
     
     for (int i=1; i<=iterations; i++)
     {
-        NSLog(@"i=%d",i);
+        float f = [self.function sample:i];
+        
+        NSLog(@"i=%d, %f",i,f);
         [self.iterationLabel setText:[NSString stringWithFormat:@"%d", i]];
         usleep(10000);
     }

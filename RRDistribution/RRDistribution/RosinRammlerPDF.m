@@ -13,7 +13,7 @@
 
 - (float)sample:(float)x
 {
-    return 1.0;
+    return 1.0 + x;
 }
 
 @end
