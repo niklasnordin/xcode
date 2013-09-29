@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		616A943817F81228002372F0 /* PlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 616A943717F81228002372F0 /* PlotView.m */; };
 		61F5A47A17F6AA3F002F1854 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F5A47917F6AA3F002F1854 /* Foundation.framework */; };
 		61F5A47C17F6AA3F002F1854 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F5A47B17F6AA3F002F1854 /* CoreGraphics.framework */; };
 		61F5A47E17F6AA3F002F1854 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F5A47D17F6AA3F002F1854 /* UIKit.framework */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		616A943617F81228002372F0 /* PlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotView.h; sourceTree = "<group>"; };
+		616A943717F81228002372F0 /* PlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotView.m; sourceTree = "<group>"; };
 		61F5A47617F6AA3F002F1854 /* RRDistribution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RRDistribution.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61F5A47917F6AA3F002F1854 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		61F5A47B17F6AA3F002F1854 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -136,6 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				61F5A48B17F6AA40002F1854 /* Main.storyboard */,
+				616A943617F81228002372F0 /* PlotView.h */,
+				616A943717F81228002372F0 /* PlotView.m */,
 				61F5A48817F6AA40002F1854 /* RRDistributionAppDelegate.h */,
 				61F5A48917F6AA40002F1854 /* RRDistributionAppDelegate.m */,
 				61F5A48E17F6AA40002F1854 /* RRDistributionViewController.h */,
@@ -307,6 +312,7 @@
 				61F5A4B517F6F559002F1854 /* InfoViewController.m in Sources */,
 				61F5A48617F6AA40002F1854 /* main.m in Sources */,
 				61F5A4B817F6F5B7002F1854 /* PlotViewController.m in Sources */,
+				616A943817F81228002372F0 /* PlotView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +521,7 @@
 				61F5A4AA17F6AA41002F1854 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		61F5A4AB17F6AA41002F1854 /* Build configuration list for PBXNativeTarget "RRDistributionTests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +530,7 @@
 				61F5A4AD17F6AA41002F1854 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

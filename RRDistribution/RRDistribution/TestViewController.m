@@ -9,7 +9,7 @@
 #import "TestViewController.h"
 
 @interface TestViewController ()
-
+@property (nonatomic) int iterationIndex;
 @end
 
 @implementation TestViewController
@@ -30,7 +30,7 @@
     _nSamplesTextField.delegate = self;
     _lambdaTextField.delegate = self;
     _kTextField.delegate = self;
-    
+    [self.iterationLabel setText:@"kalle"];
     //[self.tabBarController]
 }
 
@@ -47,19 +47,9 @@
 
 - (IBAction)TestButtonPressed:(id)sender
 {
-    int iterations = [[self.nSamplesTextField text] intValue];
-    NSLog(@"iterations = %d",iterations);
-    //float smd = 0.0;
-    //float dv90 = 0.0;
-    
-    for (int i=1; i<=iterations; i++)
-    {
-        float f = [self.function sample:i];
-        
-        NSLog(@"i=%d, %f",i,f);
-        [self.iterationLabel setText:[NSString stringWithFormat:@"%d", i]];
-        usleep(10000);
-    }
+    //[self runIterations];
+    [self performSelectorInBackground:@selector(runIterations) withObject:nil];
+
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -67,4 +57,34 @@
     [textField resignFirstResponder];
     return YES;
 }
+
+- (void)runIterations
+{
+    //NSLog(@"iterations = %d",iterations);
+    //float smd = 0.0;
+    //float dv90 = 0.0;
+    self.iterationIndex = 1;
+    
+    [self updateIteration:self.iterationIndex];
+
+}
+
+- (void)updateIteration:(int)i
+{
+    float f = [self.function sample:i];
+
+    NSString *labelText = [NSString stringWithFormat:@"%d", i];
+    NSLog(@"labeltText = %@",labelText);
+    self.iterationLabel.text = labelText;
+    [self.view setNeedsDisplayInRect:self.iterationLabel.frame];
+    self.iterationIndex = i+1;
+    int iterations = [[self.nSamplesTextField text] intValue];
+
+    if (self.iterationIndex <= iterations)
+    {
+        //usleep(100000);
+        [self updateIteration:self.iterationIndex];
+    }
+}
+
 @end
