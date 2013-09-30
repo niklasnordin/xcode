@@ -30,10 +30,11 @@
     for (int i=1; i<=100; i++)
     {
         NSString *labelText = [NSString stringWithFormat:@"%d",i];
-        usleep(100000);
+        usleep(10000);
         NSLog(@"%@",labelText);
         self.iterationLabel.text = labelText;
-        [self setNeedsDisplay];
+        self.iterationLabel.textColor = [UIColor blackColor];
+        //[self setNeedsDisplay];
     }
    
 }

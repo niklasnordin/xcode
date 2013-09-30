@@ -10,6 +10,7 @@
 
 @interface TestViewController ()
 @property (nonatomic) int iterationIndex;
+@property (strong, nonatomic) NSTimer *timer;
 @end
 
 @implementation TestViewController
@@ -48,8 +49,9 @@
 - (IBAction)TestButtonPressed:(id)sender
 {
     //[self runIterations];
-    [self performSelectorInBackground:@selector(runIterations) withObject:nil];
-
+    //[self performSelectorInBackground:@selector(runIterations) withObject:nil];
+    self.iterationIndex = 1;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.0 target:self selector:@selector(runIterations) userInfo:nil repeats:YES];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -63,27 +65,13 @@
     //NSLog(@"iterations = %d",iterations);
     //float smd = 0.0;
     //float dv90 = 0.0;
-    self.iterationIndex = 1;
-    
-    [self updateIteration:self.iterationIndex];
+    NSString *labelText = [NSString stringWithFormat:@"%d", self.iterationIndex];
+    [self.iterationLabel setText:labelText];
 
-}
-
-- (void)updateIteration:(int)i
-{
-    float f = [self.function sample:i];
-
-    NSString *labelText = [NSString stringWithFormat:@"%d", i];
-    NSLog(@"labeltText = %@",labelText);
-    self.iterationLabel.text = labelText;
-    [self.view setNeedsDisplayInRect:self.iterationLabel.frame];
-    self.iterationIndex = i+1;
-    int iterations = [[self.nSamplesTextField text] intValue];
-
-    if (self.iterationIndex <= iterations)
+    self.iterationIndex = self.iterationIndex + 1;
+    if (self.iterationIndex > [self.nSamplesTextField.text intValue])
     {
-        //usleep(100000);
-        [self updateIteration:self.iterationIndex];
+        [self.timer invalidate];
     }
 }
 
