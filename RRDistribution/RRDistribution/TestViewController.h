@@ -23,5 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *SMDLabel;
 @property (weak, nonatomic) IBOutlet UILabel *DV90Label;
 - (IBAction)TestButtonPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *testButton;
 
 @end

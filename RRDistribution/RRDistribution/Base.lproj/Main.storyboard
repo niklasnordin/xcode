@@ -132,7 +132,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qyY-qc-o4f">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qyY-qc-o4f">
                                 <rect key="frame" x="20" y="381" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Test (Changes to stop when running)">
@@ -235,6 +235,7 @@
                         <outlet property="kTextField" destination="RQj-EM-mlG" id="4W3-S9-Pij"/>
                         <outlet property="lambdaTextField" destination="lUa-IS-TKR" id="izd-6M-RUP"/>
                         <outlet property="nSamplesTextField" destination="An2-vW-Tim" id="pLJ-Tp-N4w"/>
+                        <outlet property="testButton" destination="qyY-qc-o4f" id="jMs-nG-uJK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VyI-26-uzL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -342,6 +343,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="purplePoint.png" width="30" height="30"/>
+        <image name="purplePoint.png" width="30" height="30"/>
+        <image name="purplePoint.png" width="30" height="30"/>
         <image name="purplePoint.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

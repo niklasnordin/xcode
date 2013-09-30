@@ -10,6 +10,7 @@
 
 @interface TestViewController ()
 @property (nonatomic) int iterationIndex;
+@property (nonatomic) float sumSMD;
 @property (strong, nonatomic) NSTimer *timer;
 @end
 
@@ -32,6 +33,8 @@
     _lambdaTextField.delegate = self;
     _kTextField.delegate = self;
     [self.iterationLabel setText:@"kalle"];
+    _testButton.titleLabel.text = @"Start Test";
+    _testButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     //[self.tabBarController]
 }
 
@@ -50,8 +53,22 @@
 {
     //[self runIterations];
     //[self performSelectorInBackground:@selector(runIterations) withObject:nil];
-    self.iterationIndex = 1;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.0 target:self selector:@selector(runIterations) userInfo:nil repeats:YES];
+    if (self.timer.isValid)
+    {
+        [self.timer invalidate];
+        self.testButton.titleLabel.text = @"Start Test";
+        self.testButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    else
+    {
+        self.iterationIndex = 1;
+        self.sumSMD = 0.0;
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0e-6 target:self selector:@selector(runIterations) userInfo:nil repeats:YES];
+        self.testButton.titleLabel.text = @"Stop Test";
+        self.testButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+
+
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -62,16 +79,19 @@
 
 - (void)runIterations
 {
-    //NSLog(@"iterations = %d",iterations);
-    //float smd = 0.0;
-    //float dv90 = 0.0;
+    float f = [self.function sample:0.0];
+    self.sumSMD += f;
+    float average = self.sumSMD/self.iterationIndex;
     NSString *labelText = [NSString stringWithFormat:@"%d", self.iterationIndex];
     [self.iterationLabel setText:labelText];
-
+    [self.SMDLabel setText:[NSString stringWithFormat:@"%f",average]];
+    
     self.iterationIndex = self.iterationIndex + 1;
     if (self.iterationIndex > [self.nSamplesTextField.text intValue])
     {
         [self.timer invalidate];
+        self.testButton.titleLabel.text = @"Start Test";
+        self.testButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     }
 }
 
