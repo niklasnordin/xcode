@@ -33,8 +33,10 @@
     _lambdaTextField.delegate = self;
     _kTextField.delegate = self;
     [self.iterationLabel setText:@"kalle"];
-    _testButton.titleLabel.text = @"Start Test";
-    _testButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    //_testButton.titleLabel.text = @"Start Test";
+    //_testButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [self.testButton setTitle:@"Start Test" forState:UIControlStateNormal];
+
     //[self.tabBarController]
 }
 
@@ -56,16 +58,18 @@
     if (self.timer.isValid)
     {
         [self.timer invalidate];
-        self.testButton.titleLabel.text = @"Start Test";
-        self.testButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+        //self.testButton.titleLabel.text = @"Start Test";
+        [self.testButton setTitle:@"Start Test" forState:UIControlStateNormal];
+        //self.testButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     }
     else
     {
         self.iterationIndex = 1;
         self.sumSMD = 0.0;
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0e-6 target:self selector:@selector(runIterations) userInfo:nil repeats:YES];
-        self.testButton.titleLabel.text = @"Stop Test";
-        self.testButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+        //self.testButton.titleLabel.text = @"Stop Test";
+        [self.testButton setTitle:@"Stop Test" forState:UIControlStateNormal];
+        //self.testButton.titleLabel.textAlignment = NSTextAlignmentCenter;
 
 
     }
@@ -90,8 +94,9 @@
     if (self.iterationIndex > [self.nSamplesTextField.text intValue])
     {
         [self.timer invalidate];
-        self.testButton.titleLabel.text = @"Start Test";
-        self.testButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+        //self.testButton.titleLabel.text = @"Start Test";
+        [self.testButton setTitle:@"Start Test" forState:UIControlStateNormal];
+        //self.testButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     }
 }
 
