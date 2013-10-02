@@ -8,20 +8,24 @@
 
 #import <UIKit/UIKit.h>
 #import "pdf.h"
+#import "RRDistributionViewController.h"
+#import "RosinRammlerPDF.h"
 
 @interface TestViewController : UIViewController
 <
     UITextFieldDelegate
 >
 
-@property id <pdf> function;
+@property (weak, nonatomic) RRDistributionViewController *delegate;
+
+@property (weak, nonatomic) RosinRammlerPDF<pdf> *function;
 @property (weak, nonatomic) IBOutlet UITextField *nSamplesTextField;
 @property (weak, nonatomic) IBOutlet UITextField *lambdaTextField;
 @property (weak, nonatomic) IBOutlet UITextField *kTextField;
 - (IBAction)pasteButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *iterationLabel;
-@property (weak, nonatomic) IBOutlet UILabel *SMDLabel;
-@property (weak, nonatomic) IBOutlet UILabel *DV90Label;
+@property (weak, nonatomic) IBOutlet UILabel *smdLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dv90Label;
 - (IBAction)TestButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *testButton;
 

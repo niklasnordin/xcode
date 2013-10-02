@@ -149,7 +149,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="An2-vW-Tim">
-                                <rect key="frame" x="111" y="22" width="98" height="30"/>
+                                <rect key="frame" x="111" y="22" width="135" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -167,19 +167,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lUa-IS-TKR">
-                                <rect key="frame" x="111" y="60" width="97" height="30"/>
+                                <rect key="frame" x="111" y="60" width="135" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RQj-EM-mlG">
-                                <rect key="frame" x="111" y="98" width="97" height="30"/>
+                                <rect key="frame" x="111" y="98" width="135" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wul-tO-rjI">
-                                <rect key="frame" x="216" y="60" width="88" height="64"/>
+                                <rect key="frame" x="111" y="136" width="135" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Paste Values">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -229,12 +229,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Test" image="purplePoint.png" id="VqC-tu-DpM"/>
                     <connections>
-                        <outlet property="DV90Label" destination="lhz-l6-2Qa" id="oQF-Q5-PIn"/>
-                        <outlet property="SMDLabel" destination="BoI-Sa-Bkc" id="CfR-iY-KMN"/>
+                        <outlet property="dv90Label" destination="lhz-l6-2Qa" id="ujB-7I-Xb8"/>
                         <outlet property="iterationLabel" destination="nRj-oL-Ndh" id="73R-VP-zKX"/>
                         <outlet property="kTextField" destination="RQj-EM-mlG" id="4W3-S9-Pij"/>
                         <outlet property="lambdaTextField" destination="lUa-IS-TKR" id="izd-6M-RUP"/>
                         <outlet property="nSamplesTextField" destination="An2-vW-Tim" id="pLJ-Tp-N4w"/>
+                        <outlet property="smdLabel" destination="BoI-Sa-Bkc" id="LK8-sb-hdK"/>
                         <outlet property="testButton" destination="qyY-qc-o4f" id="jMs-nG-uJK"/>
                     </connections>
                 </viewController>
@@ -343,9 +343,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="purplePoint.png" width="30" height="30"/>
-        <image name="purplePoint.png" width="30" height="30"/>
-        <image name="purplePoint.png" width="30" height="30"/>
         <image name="purplePoint.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

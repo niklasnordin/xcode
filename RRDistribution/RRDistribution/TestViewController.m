@@ -12,6 +12,7 @@
 @property (nonatomic) int iterationIndex;
 @property (nonatomic) float sumSMD;
 @property (strong, nonatomic) NSTimer *timer;
+@property (strong, nonatomic) UIColor *normalStateColor;
 @end
 
 @implementation TestViewController
@@ -36,7 +37,7 @@
     //_testButton.titleLabel.text = @"Start Test";
     //_testButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     [self.testButton setTitle:@"Start Test" forState:UIControlStateNormal];
-
+    _normalStateColor = self.testButton.titleLabel.textColor;
     //[self.tabBarController]
 }
 
@@ -49,29 +50,37 @@
 - (IBAction)pasteButtonPressed:(id)sender
 {
     NSLog(@"paste pressed");
+    [self.kTextField setText:[NSString stringWithFormat:@"%f",self.delegate.k]];
+    [self.lambdaTextField setText:[NSString stringWithFormat:@"%f",self.delegate.lambda]];
 }
 
 - (IBAction)TestButtonPressed:(id)sender
 {
-    //[self runIterations];
-    //[self performSelectorInBackground:@selector(runIterations) withObject:nil];
+
     if (self.timer.isValid)
     {
         [self.timer invalidate];
-        //self.testButton.titleLabel.text = @"Start Test";
-        [self.testButton setTitle:@"Start Test" forState:UIControlStateNormal];
-        //self.testButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+        [self.testButton setTitle:@"Continue Test" forState:UIControlStateNormal];
+        [self.testButton.titleLabel setTextColor:self.normalStateColor];
+        [self.testButton setTitleColor:self.normalStateColor forState:UIControlStateNormal];
     }
     else
     {
-        self.iterationIndex = 1;
-        self.sumSMD = 0.0;
+        float k = [self.kTextField.text floatValue];
+        float lambda = [self.lambdaTextField.text floatValue];
+        self.function.k = k;
+        self.function.lambda = lambda;
+        float average = lambda*tgammaf(1.0+1.0/k);
+        [self.dv90Label setText:[NSString stringWithFormat:@"%f",average]];
+        if (self.iterationIndex >= [self.nSamplesTextField.text intValue])
+        {
+            self.iterationIndex = 1;
+            self.sumSMD = 0.0;
+        }
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0e-6 target:self selector:@selector(runIterations) userInfo:nil repeats:YES];
-        //self.testButton.titleLabel.text = @"Stop Test";
+
         [self.testButton setTitle:@"Stop Test" forState:UIControlStateNormal];
-        //self.testButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-
-
+        [self.testButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     }
 }
 
@@ -83,20 +92,20 @@
 
 - (void)runIterations
 {
-    float f = [self.function sample:0.0];
+    float x = ((float)rand())/RAND_MAX;
+    float f = [self.function sample:x];
     self.sumSMD += f;
     float average = self.sumSMD/self.iterationIndex;
     NSString *labelText = [NSString stringWithFormat:@"%d", self.iterationIndex];
     [self.iterationLabel setText:labelText];
-    [self.SMDLabel setText:[NSString stringWithFormat:@"%f",average]];
+    [self.smdLabel setText:[NSString stringWithFormat:@"%f",average]];
     
     self.iterationIndex = self.iterationIndex + 1;
     if (self.iterationIndex > [self.nSamplesTextField.text intValue])
     {
         [self.timer invalidate];
-        //self.testButton.titleLabel.text = @"Start Test";
         [self.testButton setTitle:@"Start Test" forState:UIControlStateNormal];
-        //self.testButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+        [self.testButton setTitleColor:self.normalStateColor forState:UIControlStateNormal];
     }
 }
 

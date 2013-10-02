@@ -23,7 +23,9 @@
 
 - (float)sample:(float)x
 {
-    float v = 0.5*arc4random()/(float)RAND_MAX;
+    //float v = 0.5*arc4random()/(float)RAND_MAX;
+    //float v = ((float)rand())/RAND_MAX;
+    float v = self.lambda*powf(-log(1.0 - x), 1.0/self.k);
     //NSLog(@"v=%f",v);
     return v;
 }

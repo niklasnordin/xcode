@@ -30,6 +30,7 @@
         {
             TestViewController *tvc = (TestViewController *)tab;
             tvc.function = _function;
+            tvc.delegate = self;
         }
     }
 }

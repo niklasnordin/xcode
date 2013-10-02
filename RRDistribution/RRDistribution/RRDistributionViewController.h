@@ -13,5 +13,7 @@
 @interface RRDistributionViewController : UIViewController
 
 @property (strong, nonatomic) RosinRammlerPDF<pdf> *function;
+@property (nonatomic) float lambda;
+@property (nonatomic) float k;
 
 @end
