@@ -27,16 +27,14 @@
 
 - (void)calculateValues
 {
-    for (int i=1; i<=100; i++)
+    //NSString *labelText = [NSString stringWithFormat:@"%d",i];
+    //self.iterationLabel.text = labelText;
+    //self.iterationLabel.textColor = [UIColor blackColor];
+    for(int i=1; i<5; i++)
     {
-        NSString *labelText = [NSString stringWithFormat:@"%d",i];
-        usleep(10000);
-        NSLog(@"%@",labelText);
-        self.iterationLabel.text = labelText;
-        self.iterationLabel.textColor = [UIColor blackColor];
-        //[self setNeedsDisplay];
+        float v = tgammaf(i);
+        NSLog(@"i=%i, gamma=%f",i,v);
     }
-   
 }
 
 /*

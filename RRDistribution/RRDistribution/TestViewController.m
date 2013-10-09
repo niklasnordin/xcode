@@ -33,7 +33,7 @@
     _nSamplesTextField.delegate = self;
     _lambdaTextField.delegate = self;
     _kTextField.delegate = self;
-    [self.iterationLabel setText:@"kalle"];
+    //[self.iterationLabel setText:@"kalle"];
     //_testButton.titleLabel.text = @"Start Test";
     //_testButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     [self.testButton setTitle:@"Start Test" forState:UIControlStateNormal];
@@ -95,10 +95,12 @@
     float x = ((float)rand())/RAND_MAX;
     float f = [self.function sample:x];
     self.sumSMD += f;
-    float average = self.sumSMD/self.iterationIndex;
+    float lambda = [self.lambdaTextField.text floatValue];
+    float k = [self.kTextField.text floatValue];
+    float smd = lambda*tgammaf(1.0 + 3.0/k)/tgammaf(1.0+2.0/k);
     NSString *labelText = [NSString stringWithFormat:@"%d", self.iterationIndex];
     [self.iterationLabel setText:labelText];
-    [self.smdLabel setText:[NSString stringWithFormat:@"%f",average]];
+    [self.smdLabel setText:[NSString stringWithFormat:@"%f",smd]];
     
     self.iterationIndex = self.iterationIndex + 1;
     if (self.iterationIndex > [self.nSamplesTextField.text intValue])
