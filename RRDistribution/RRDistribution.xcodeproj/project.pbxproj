@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		616A943817F81228002372F0 /* PlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 616A943717F81228002372F0 /* PlotView.m */; };
+		61C1C59518085C5B00CCECB8 /* gammaFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = 61C1C59418085C5B00CCECB8 /* gammaFunctions.c */; };
 		61F5A47A17F6AA3F002F1854 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F5A47917F6AA3F002F1854 /* Foundation.framework */; };
 		61F5A47C17F6AA3F002F1854 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F5A47B17F6AA3F002F1854 /* CoreGraphics.framework */; };
 		61F5A47E17F6AA3F002F1854 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F5A47D17F6AA3F002F1854 /* UIKit.framework */; };
@@ -46,6 +47,8 @@
 /* Begin PBXFileReference section */
 		616A943617F81228002372F0 /* PlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotView.h; sourceTree = "<group>"; };
 		616A943717F81228002372F0 /* PlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotView.m; sourceTree = "<group>"; };
+		61C1C59418085C5B00CCECB8 /* gammaFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gammaFunctions.c; path = ../gammaFunctions.c; sourceTree = "<group>"; };
+		61C1C59618085DEE00CCECB8 /* gammaFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gammaFunctions.h; sourceTree = "<group>"; };
 		61F5A47617F6AA3F002F1854 /* RRDistribution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RRDistribution.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61F5A47917F6AA3F002F1854 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		61F5A47B17F6AA3F002F1854 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -154,6 +157,8 @@
 				61F5A4C117F6FE20002F1854 /* pdf.h */,
 				61F5A4C217F6FE65002F1854 /* RosinRammlerPDF.h */,
 				61F5A4C317F6FE65002F1854 /* RosinRammlerPDF.m */,
+				61C1C59418085C5B00CCECB8 /* gammaFunctions.c */,
+				61C1C59618085DEE00CCECB8 /* gammaFunctions.h */,
 				61F5A49117F6AA40002F1854 /* Images.xcassets */,
 				61F5A4C517F704A2002F1854 /* Images */,
 				61F5A48017F6AA40002F1854 /* Supporting Files */,
@@ -309,6 +314,7 @@
 				61F5A48A17F6AA40002F1854 /* RRDistributionAppDelegate.m in Sources */,
 				61F5A49017F6AA40002F1854 /* RRDistributionViewController.m in Sources */,
 				61F5A4B217F6F52B002F1854 /* TestViewController.m in Sources */,
+				61C1C59518085C5B00CCECB8 /* gammaFunctions.c in Sources */,
 				61F5A4B517F6F559002F1854 /* InfoViewController.m in Sources */,
 				61F5A48617F6AA40002F1854 /* main.m in Sources */,
 				61F5A4B817F6F5B7002F1854 /* PlotViewController.m in Sources */,
@@ -365,7 +371,7 @@
 		61F5A4A617F6AA41002F1854 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -397,6 +403,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -404,7 +412,7 @@
 		61F5A4A717F6AA41002F1854 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -429,6 +437,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -437,12 +447,20 @@
 		61F5A4A917F6AA41002F1854 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LIBRARY = "libc++";
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RRDistribution/RRDistribution-Prefix.pch";
+				GCC_USE_STANDARD_INCLUDE_SEARCHING = YES;
 				INFOPLIST_FILE = "RRDistribution/RRDistribution-Info.plist";
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
+				SKIP_INSTALL = NO;
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -450,12 +468,21 @@
 		61F5A4AA17F6AA41002F1854 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LIBRARY = "libc++";
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RRDistribution/RRDistribution-Prefix.pch";
+				GCC_USE_STANDARD_INCLUDE_SEARCHING = YES;
 				INFOPLIST_FILE = "RRDistribution/RRDistribution-Info.plist";
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
+				SKIP_INSTALL = NO;
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

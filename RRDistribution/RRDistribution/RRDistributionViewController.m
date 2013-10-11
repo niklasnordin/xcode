@@ -8,6 +8,7 @@
 
 #import "RRDistributionViewController.h"
 #import "TestViewController.h"
+#include "gammaFunctions.h"
 
 @interface RRDistributionViewController ()
 
@@ -41,4 +42,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)calculateButtonPressed:(id)sender
+{
+    //double aa = Entire_Incomplete_Gamma_Function(double x, double nu);
+    double nu = 0.9;
+    double x = 0.9;
+    //double aa = tgamma(nu)*(1.0-Entire_Incomplete_Gamma_Function(0.9, nu));
+    double aa = gamma_i(nu, x);
+
+    NSLog(@"aa = %f",aa);
+    
+}
 @end

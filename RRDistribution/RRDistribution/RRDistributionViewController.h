@@ -15,5 +15,6 @@
 @property (strong, nonatomic) RosinRammlerPDF<pdf> *function;
 @property (nonatomic) float lambda;
 @property (nonatomic) float k;
+- (IBAction)calculateButtonPressed:(id)sender;
 
 @end
