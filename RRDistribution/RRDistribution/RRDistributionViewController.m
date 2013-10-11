@@ -12,6 +12,10 @@
 
 @interface RRDistributionViewController ()
 
+@property (strong, nonatomic) NSTimer *timer;
+@property (strong, nonatomic) UIColor *normalStateColor;
+@property (nonatomic) float err;
+
 @end
 
 @implementation RRDistributionViewController
@@ -32,6 +36,8 @@
             TestViewController *tvc = (TestViewController *)tab;
             tvc.function = _function;
             tvc.delegate = self;
+            _normalStateColor = self.calculateButton.titleLabel.textColor;
+
         }
     }
 }
@@ -40,6 +46,23 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)calculateValues
+{
+    float smdTarget = [self.smdTargetTextField.text floatValue];
+    float dv90Target = [self.dv90TargetTextField.text floatValue];
+    
+    self.k = 1.0;
+    self.lambda = smdTarget;
+    double errMax = 1.0e-3;
+    
+    if (self.err < errMax)
+    {
+        [self.timer invalidate];
+        [self.calculateButton setTitle:@"Calculate" forState:UIControlStateNormal];
+        [self.calculateButton setTitleColor:self.normalStateColor forState:UIControlStateNormal];
+    }
 }
 
 - (IBAction)calculateButtonPressed:(id)sender
@@ -52,5 +75,29 @@
 
     NSLog(@"aa = %f",aa);
     
+    if (self.timer.isValid)
+    {
+        [self.timer invalidate];
+        [self.calculateButton setTitle:@"Continue Calculation" forState:UIControlStateNormal];
+        [self.calculateButton.titleLabel setTextColor:self.normalStateColor];
+        [self.calculateButton setTitleColor:self.normalStateColor forState:UIControlStateNormal];
+    }
+    else
+    {
+        self.err = 1.0;
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0e-6 target:self selector:@selector(calculateValues) userInfo:nil repeats:YES];
+        
+        [self.calculateButton setTitle:@"Stop Calculation" forState:UIControlStateNormal];
+        [self.calculateButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    }
+
+    
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 @end

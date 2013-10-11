@@ -11,10 +11,19 @@
 #import "RosinRammlerPDF.h"
 
 @interface RRDistributionViewController : UIViewController
+<
+    UITextFieldDelegate
+>
+
+@property (weak, nonatomic) IBOutlet UITextField *smdTargetTextField;
+@property (weak, nonatomic) IBOutlet UITextField *dv90TargetTextField;
+@property (weak, nonatomic) IBOutlet UILabel *smdLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dv90Label;
 
 @property (strong, nonatomic) RosinRammlerPDF<pdf> *function;
 @property (nonatomic) float lambda;
 @property (nonatomic) float k;
 - (IBAction)calculateButtonPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *calculateButton;
 
 @end
