@@ -11,6 +11,26 @@
 
 
 double gamma_i(double nu, double x);
+double fd
+(
+    const double k,
+    const double d,
+    const double g3k
+);
+
+double find_Dv
+(
+    const double k,
+    const double percent
+);
+
+double smdCalc
+(
+    double k,
+    double lambda
+);
+
+// ==========
 
 double Gamma_Function(double x);
 long double xGamma_Function(long double x);

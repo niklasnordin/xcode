@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *dv90TargetTextField;
 @property (weak, nonatomic) IBOutlet UILabel *smdLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dv90Label;
+@property (weak, nonatomic) IBOutlet UILabel *lambdaLabel;
+@property (weak, nonatomic) IBOutlet UILabel *kLabel;
 
 @property (strong, nonatomic) RosinRammlerPDF<pdf> *function;
 @property (nonatomic) float lambda;

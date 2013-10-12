@@ -15,7 +15,11 @@
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) UIColor *normalStateColor;
 @property (nonatomic) float err;
-
+@property (nonatomic) float previousErr;
+@property (nonatomic) float dv90Target;
+@property (nonatomic) float smdTarget;
+@property (nonatomic) float urlx;
+@property (nonatomic) BOOL calculationAborted;
 @end
 
 @implementation RRDistributionViewController
@@ -27,6 +31,7 @@
     _function = [[RosinRammlerPDF alloc] init];
     
     NSArray *tabs = self.tabBarController.viewControllers;
+    _calculationAborted = NO;
 
     for (id tab in tabs)
     {
@@ -37,7 +42,6 @@
             tvc.function = _function;
             tvc.delegate = self;
             _normalStateColor = self.calculateButton.titleLabel.textColor;
-
         }
     }
 }
@@ -48,35 +52,83 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)calculateInBackground
+{
+    NSLog(@"calculateInBackground");
+    [self performSelectorInBackground:@selector(calculateValues) withObject:nil];
+}
+
 - (void)calculateValues
 {
-    float smdTarget = [self.smdTargetTextField.text floatValue];
-    float dv90Target = [self.dv90TargetTextField.text floatValue];
-    
-    self.k = 1.0;
-    self.lambda = smdTarget;
+    NSLog(@"calculateValues");
     double errMax = 1.0e-3;
+    double delta = 1.0e-4;
+
+    double smd_0 = smdCalc(self.k, self.lambda);
+    NSLog(@"smd_0 =%g",smd_0);
+    double d90_0 = self.lambda*find_Dv(self.k, 0.9);
+    self.previousErr = self.err;
+    self.err = sqrt( pow(smd_0/self.smdTarget-1.0, 2) + pow(d90_0/self.dv90Target-1.0, 2) );
+
+    double k1 = self.k*(1.0 + delta);
+    double lam1 = self.lambda*(1.0 + delta);
+    
+    //double dk = k1 - self.k;
+    //double dlam = lam1 - self.lambda;
+    
+    double smd_k1 = smdCalc(k1, self.lambda);
+    double d90_k1 = self.lambda*find_Dv(k1, 0.9);
+        
+    double smd_l1 = smdCalc(self.k, lam1);
+    double d90_l1 = lam1*find_Dv(self.k, 0.9);
+        
+    double errk1 = sqrt( pow(smd_k1/self.smdTarget-1.0, 2) + pow(d90_k1/self.dv90Target-1.0, 2) );
+    double errl1 = sqrt( pow(smd_l1/self.smdTarget-1.0, 2) + pow(d90_l1/self.dv90Target-1.0, 2) );
+        
+    double dkErr = errk1 - self.err;
+    double dlErr = errl1 - self.err;
+        
+    self.k -= self.urlx*dkErr;
+    self.lambda -= self.urlx*dlErr;
+    
+    /*
+        counter++;
+        if (counter > 10000)
+        {
+            cout << "err = " << err
+            << ", k = " << k
+            << ", lambda = " << lambda 
+            << ", smd = " << smd_0*1.0e+6
+            << ", Dv90 = " << d90_0*1.0e+6
+            << ", urlx = " << urlx
+            << endl;
+            
+            counter = 0;
+        }
+    */
+    
+    [self.kLabel setText:[NSString stringWithFormat:@"k = %g",self.k]];
+    [self.lambdaLabel setText:[NSString stringWithFormat:@"lambda = %g",self.lambda]];
+    [self.smdLabel setText:[NSString stringWithFormat:@"SMD = %f",smd_0*1.0e+6]];
+    [self.dv90Label setText:[NSString stringWithFormat:@"Dv90 = %f",d90_0*1.0e+6]];
+    NSLog(@"hello");
+    if (self.err > self.previousErr) self.urlx *= 0.5;
     
     if (self.err < errMax)
     {
         [self.timer invalidate];
         [self.calculateButton setTitle:@"Calculate" forState:UIControlStateNormal];
         [self.calculateButton setTitleColor:self.normalStateColor forState:UIControlStateNormal];
+        self.calculationAborted = NO;
     }
 }
 
 - (IBAction)calculateButtonPressed:(id)sender
 {
-    //double aa = Entire_Incomplete_Gamma_Function(double x, double nu);
-    double nu = 0.9;
-    double x = 0.9;
-    //double aa = tgamma(nu)*(1.0-Entire_Incomplete_Gamma_Function(0.9, nu));
-    double aa = gamma_i(nu, x);
 
-    NSLog(@"aa = %f",aa);
-    
     if (self.timer.isValid)
     {
+        self.calculationAborted = YES;
         [self.timer invalidate];
         [self.calculateButton setTitle:@"Continue Calculation" forState:UIControlStateNormal];
         [self.calculateButton.titleLabel setTextColor:self.normalStateColor];
@@ -84,8 +136,18 @@
     }
     else
     {
-        self.err = 1.0;
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0e-6 target:self selector:@selector(calculateValues) userInfo:nil repeats:YES];
+        self.smdTarget = 1.0e-6*[self.smdTargetTextField.text floatValue];
+        self.dv90Target = 1.0e-6*[self.dv90TargetTextField.text floatValue];
+        
+        if (!self.calculationAborted)
+        {
+            self.err = 1.0;
+            self.urlx = 1.0e-1;
+            self.k = 1.0;
+            self.lambda = self.smdTarget;
+            self.previousErr = 2.0;
+        }
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0e-6 target:self selector:@selector(calculateInBackground) userInfo:nil repeats:YES];
         
         [self.calculateButton setTitle:@"Stop Calculation" forState:UIControlStateNormal];
         [self.calculateButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];

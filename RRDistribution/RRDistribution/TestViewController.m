@@ -7,6 +7,7 @@
 //
 
 #import "TestViewController.h"
+#include "gammaFunctions.h"
 
 @interface TestViewController ()
 @property (nonatomic) int iterationIndex;
@@ -50,8 +51,8 @@
 - (IBAction)pasteButtonPressed:(id)sender
 {
     NSLog(@"paste pressed");
-    [self.kTextField setText:[NSString stringWithFormat:@"%f",self.delegate.k]];
-    [self.lambdaTextField setText:[NSString stringWithFormat:@"%f",self.delegate.lambda]];
+    [self.kTextField setText:[NSString stringWithFormat:@"%g",self.delegate.k]];
+    [self.lambdaTextField setText:[NSString stringWithFormat:@"%g",self.delegate.lambda]];
 }
 
 - (IBAction)TestButtonPressed:(id)sender
@@ -71,7 +72,7 @@
         self.function.k = k;
         self.function.lambda = lambda;
         float average = lambda*tgammaf(1.0+1.0/k);
-        [self.dv90Label setText:[NSString stringWithFormat:@"%f",average]];
+        [self.dv90Label setText:[NSString stringWithFormat:@"%g",average]];
         if (self.iterationIndex >= [self.nSamplesTextField.text intValue])
         {
             self.iterationIndex = 1;
@@ -98,9 +99,11 @@
     float lambda = [self.lambdaTextField.text floatValue];
     float k = [self.kTextField.text floatValue];
     float smd = lambda*tgammaf(1.0 + 3.0/k)/tgammaf(1.0+2.0/k);
+    //float dv90 = lambda*find_Dv(k, 0.9);
     NSString *labelText = [NSString stringWithFormat:@"%d", self.iterationIndex];
     [self.iterationLabel setText:labelText];
-    [self.smdLabel setText:[NSString stringWithFormat:@"%f",smd]];
+    [self.smdLabel setText:[NSString stringWithFormat:@"%g",smd*1.0e+6]];
+    //[self.dv90Label setText:[NSString stringWithFormat:@"%g",dv90*1.0e+6]];
     
     self.iterationIndex = self.iterationIndex + 1;
     if (self.iterationIndex > [self.nSamplesTextField.text intValue])

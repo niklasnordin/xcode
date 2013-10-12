@@ -19,6 +19,105 @@ double gamma_i(double nu, double x)
     return tgamma(nu)*(1.0-Entire_Incomplete_Gamma_Function(x, nu));
 }
 
+
+double fd
+(
+    const double k,
+    const double d,
+    const double g3k
+)
+{
+    double p1 = pow(d, k);
+    double e1 = exp(-p1);
+    double kp3 = k*pow(d,3);
+    double y1 = (3.0*gamma_i(3.0/k, p1) + kp3*e1)/g3k;
+    
+    return y1;
+}
+
+double find_Dv
+(
+    const double k,
+    const double percent
+)
+{
+    double d = 0.0;
+    double errMax = 1.0e-6;
+    double err = 1.0;
+    double g3k = 3.0*tgamma(3.0/k);
+    
+    double step = 10.0;
+    double x0 = 0.0;
+    double x1 = step;
+    double y0 = fd(k, x0, g3k);
+    double y1 = fd(k, x1, g3k);
+    
+    double yDesire = 1.0 - percent;
+    
+    while (err > errMax)
+    {
+        d = x0 + (x1-x0)*(yDesire - y0)/(y1-y0);
+        double yNew = fd(k, d, g3k);
+        /*
+         cout << "d = " << d
+	     << ", yNew = " << yNew
+	     << ", err = " << err
+	     << ", x0 = " << x0
+	     << ", x1 = " << x1
+	     << ", y0 = " << y0
+	     << ", y1 = " << y1
+	     << endl;
+         */
+        if (( d > x0) && ( d < x1))
+        {
+            // interpolate
+            if (yNew < yDesire)
+            {
+                y1 = yNew;
+                x1 = d;
+            }
+            else
+            {
+                y0 = yNew;
+                x0 = d;
+            }
+        }
+        else
+        {
+            // extrapolate
+            if (d > x1)
+            {
+                x0 = x1;
+                y0 = y1;
+                x1 = d;
+                y1 = yNew;
+            }
+            else
+            {
+                x1 = x0;
+                y1 = y0;
+                x0 = d;
+                y0 = yNew;
+            }
+        }
+        err = fabs(yNew-yDesire);
+    }
+    return d;
+}
+
+double smdCalc
+(
+    double k,
+    double lambda
+)
+{
+    double g2 = tgamma(1.0 + 2.0/k);
+    double g3 = tgamma(1.0 + 3.0/k);
+    
+    return lambda*g3/g2;
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // File: gamma_function.c                                                     //
 // Routine(s):                                                                //
