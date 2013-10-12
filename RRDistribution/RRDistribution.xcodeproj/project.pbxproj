@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		616A943817F81228002372F0 /* PlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 616A943717F81228002372F0 /* PlotView.m */; };
 		61C1C59518085C5B00CCECB8 /* gammaFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = 61C1C59418085C5B00CCECB8 /* gammaFunctions.c */; };
+		61C1C5991809E48800CCECB8 /* asa239.c in Sources */ = {isa = PBXBuildFile; fileRef = 61C1C5971809E48800CCECB8 /* asa239.c */; };
 		61F5A47A17F6AA3F002F1854 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F5A47917F6AA3F002F1854 /* Foundation.framework */; };
 		61F5A47C17F6AA3F002F1854 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F5A47B17F6AA3F002F1854 /* CoreGraphics.framework */; };
 		61F5A47E17F6AA3F002F1854 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F5A47D17F6AA3F002F1854 /* UIKit.framework */; };
@@ -49,6 +50,8 @@
 		616A943717F81228002372F0 /* PlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotView.m; sourceTree = "<group>"; };
 		61C1C59418085C5B00CCECB8 /* gammaFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gammaFunctions.c; path = ../gammaFunctions.c; sourceTree = "<group>"; };
 		61C1C59618085DEE00CCECB8 /* gammaFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gammaFunctions.h; sourceTree = "<group>"; };
+		61C1C5971809E48800CCECB8 /* asa239.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = asa239.c; sourceTree = "<group>"; };
+		61C1C5981809E48800CCECB8 /* asa239.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asa239.h; sourceTree = "<group>"; };
 		61F5A47617F6AA3F002F1854 /* RRDistribution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RRDistribution.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61F5A47917F6AA3F002F1854 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		61F5A47B17F6AA3F002F1854 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -148,6 +151,8 @@
 				61F5A48917F6AA40002F1854 /* RRDistributionAppDelegate.m */,
 				61F5A48E17F6AA40002F1854 /* RRDistributionViewController.h */,
 				61F5A48F17F6AA40002F1854 /* RRDistributionViewController.m */,
+				61C1C5971809E48800CCECB8 /* asa239.c */,
+				61C1C5981809E48800CCECB8 /* asa239.h */,
 				61F5A4B017F6F52B002F1854 /* TestViewController.h */,
 				61F5A4B117F6F52B002F1854 /* TestViewController.m */,
 				61F5A4B317F6F559002F1854 /* InfoViewController.h */,
@@ -312,6 +317,7 @@
 			files = (
 				61F5A4C417F6FE65002F1854 /* RosinRammlerPDF.m in Sources */,
 				61F5A48A17F6AA40002F1854 /* RRDistributionAppDelegate.m in Sources */,
+				61C1C5991809E48800CCECB8 /* asa239.c in Sources */,
 				61F5A49017F6AA40002F1854 /* RRDistributionViewController.m in Sources */,
 				61F5A4B217F6F52B002F1854 /* TestViewController.m in Sources */,
 				61C1C59518085C5B00CCECB8 /* gammaFunctions.c in Sources */,

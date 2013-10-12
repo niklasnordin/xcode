@@ -54,19 +54,18 @@
 
 - (void)calculateInBackground
 {
-    NSLog(@"calculateInBackground");
     [self performSelectorInBackground:@selector(calculateValues) withObject:nil];
 }
 
 - (void)calculateValues
 {
-    NSLog(@"calculateValues");
     double errMax = 1.0e-3;
     double delta = 1.0e-4;
 
     double smd_0 = smdCalc(self.k, self.lambda);
-    NSLog(@"smd_0 =%g",smd_0);
+    //NSLog(@"smd_0 = %g",smd_0*1.0e+6);
     double d90_0 = self.lambda*find_Dv(self.k, 0.9);
+    //NSLog(@"dv90 = %g",d90_0*1.0e+6);
     self.previousErr = self.err;
     self.err = sqrt( pow(smd_0/self.smdTarget-1.0, 2) + pow(d90_0/self.dv90Target-1.0, 2) );
 
@@ -90,28 +89,12 @@
         
     self.k -= self.urlx*dkErr;
     self.lambda -= self.urlx*dlErr;
-    
-    /*
-        counter++;
-        if (counter > 10000)
-        {
-            cout << "err = " << err
-            << ", k = " << k
-            << ", lambda = " << lambda 
-            << ", smd = " << smd_0*1.0e+6
-            << ", Dv90 = " << d90_0*1.0e+6
-            << ", urlx = " << urlx
-            << endl;
-            
-            counter = 0;
-        }
-    */
-    
+
     [self.kLabel setText:[NSString stringWithFormat:@"k = %g",self.k]];
     [self.lambdaLabel setText:[NSString stringWithFormat:@"lambda = %g",self.lambda]];
     [self.smdLabel setText:[NSString stringWithFormat:@"SMD = %f",smd_0*1.0e+6]];
     [self.dv90Label setText:[NSString stringWithFormat:@"Dv90 = %f",d90_0*1.0e+6]];
-    NSLog(@"hello");
+
     if (self.err > self.previousErr) self.urlx *= 0.5;
     
     if (self.err < errMax)
@@ -147,7 +130,7 @@
             self.lambda = self.smdTarget;
             self.previousErr = 2.0;
         }
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0e-6 target:self selector:@selector(calculateInBackground) userInfo:nil repeats:YES];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0e-6 target:self selector:@selector(calculateValues) userInfo:nil repeats:YES];
         
         [self.calculateButton setTitle:@"Stop Calculation" forState:UIControlStateNormal];
         [self.calculateButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];

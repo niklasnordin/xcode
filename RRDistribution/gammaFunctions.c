@@ -12,13 +12,24 @@
 #include <limits.h>    // required for LONG_MAX
 
 #include "gammaFunctions.h"
-
-
+#include "asa239.h"
+/*
 double gamma_i(double nu, double x)
 {
     return tgamma(nu)*(1.0-Entire_Incomplete_Gamma_Function(x, nu));
 }
+*/
+double gamma_i(double nu, double x)
+{
+    int iErr = 0;
+    return 1.0-gammad(x, nu, &iErr);
+}
 
+//int iErr = 0;
+// these are the same
+//double g1 = gamma_i(k, 0.9);
+//double g2 = 1.0-gammad(0.9, k, &iErr);
+//printf("g1 = %f, g2 = %f",g1,g2);
 
 double fd
 (
@@ -27,9 +38,9 @@ double fd
     const double g3k
 )
 {
-    double p1 = pow(d, k);
-    double e1 = exp(-p1);
-    double kp3 = k*pow(d,3);
+    double p1 = powf(d, k);
+    double e1 = expf(-p1);
+    double kp3 = k*powf(d,3);
     double y1 = (3.0*gamma_i(3.0/k, p1) + kp3*e1)/g3k;
     
     return y1;
@@ -53,21 +64,16 @@ double find_Dv
     double y1 = fd(k, x1, g3k);
     
     double yDesire = 1.0 - percent;
+    int i=0;
     
     while (err > errMax)
     {
+        i++;
         d = x0 + (x1-x0)*(yDesire - y0)/(y1-y0);
+        //printf("%d...",i);
         double yNew = fd(k, d, g3k);
-        /*
-         cout << "d = " << d
-	     << ", yNew = " << yNew
-	     << ", err = " << err
-	     << ", x0 = " << x0
-	     << ", x1 = " << x1
-	     << ", y0 = " << y0
-	     << ", y1 = " << y1
-	     << endl;
-         */
+        //printf("err=%f, d=%f, y=%f\n",err,d,yNew);
+
         if (( d > x0) && ( d < x1))
         {
             // interpolate
