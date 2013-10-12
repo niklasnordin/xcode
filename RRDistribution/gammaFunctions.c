@@ -13,23 +13,22 @@
 
 #include "gammaFunctions.h"
 #include "asa239.h"
-/*
-double gamma_i(double nu, double x)
+
+double gamma_io(double nu, double x)
 {
     return tgamma(nu)*(1.0-Entire_Incomplete_Gamma_Function(x, nu));
 }
-*/
+
 double gamma_i(double nu, double x)
 {
     int iErr = 0;
-    return 1.0-gammad(x, nu, &iErr);
+    double g = 1.0-gammad(x, nu, &iErr);
+    if (iErr)
+    {
+        printf("error calculation incomplete gamma function");
+    }
+    return g;
 }
-
-//int iErr = 0;
-// these are the same
-//double g1 = gamma_i(k, 0.9);
-//double g2 = 1.0-gammad(0.9, k, &iErr);
-//printf("g1 = %f, g2 = %f",g1,g2);
 
 double fd
 (
@@ -52,8 +51,15 @@ double find_Dv
     const double percent
 )
 {
+    
+    // these are the same
+    //double g1 = gamma_io(k, 1.9);
+    //double g2 = gamma_i(k, 1.9);
+    //printf("g1 = %f, g2 = %f\n",g1,g2);
+    
+
     double d = 0.0;
-    double errMax = 1.0e-6;
+    double errMax = 1.0e-7;
     double err = 1.0;
     double g3k = 3.0*tgamma(3.0/k);
     

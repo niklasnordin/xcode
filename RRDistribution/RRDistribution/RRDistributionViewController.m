@@ -20,6 +20,7 @@
 @property (nonatomic) float smdTarget;
 @property (nonatomic) float urlx;
 @property (nonatomic) BOOL calculationAborted;
+@property (nonatomic) int iteration;
 @end
 
 @implementation RRDistributionViewController
@@ -32,7 +33,8 @@
     
     NSArray *tabs = self.tabBarController.viewControllers;
     _calculationAborted = NO;
-
+    _smdTargetTextField.delegate = self;
+    _dv90TargetTextField.delegate = self;
     for (id tab in tabs)
     {
         // set the function in the test view controller
@@ -61,7 +63,7 @@
 {
     double errMax = 1.0e-3;
     double delta = 1.0e-4;
-
+    self.iteration++;
     double smd_0 = smdCalc(self.k, self.lambda);
     //NSLog(@"smd_0 = %g",smd_0*1.0e+6);
     double d90_0 = self.lambda*find_Dv(self.k, 0.9);
@@ -89,15 +91,16 @@
         
     self.k -= self.urlx*dkErr;
     self.lambda -= self.urlx*dlErr;
-
-    [self.kLabel setText:[NSString stringWithFormat:@"k = %g",self.k]];
+    
+    [self.iterationLabel setText:[NSString stringWithFormat:@"Iteration = %d",self.iteration]];
+    [self.kLabel setText:[NSString stringWithFormat:@"k = %g, urlx = %g",self.k, self.urlx]];
     [self.lambdaLabel setText:[NSString stringWithFormat:@"lambda = %g",self.lambda]];
     [self.smdLabel setText:[NSString stringWithFormat:@"SMD = %f",smd_0*1.0e+6]];
     [self.dv90Label setText:[NSString stringWithFormat:@"Dv90 = %f",d90_0*1.0e+6]];
 
     if (self.err > self.previousErr) self.urlx *= 0.5;
     
-    if (self.err < errMax)
+    if ((self.err < errMax) || (self.urlx < 1.0e-6))
     {
         [self.timer invalidate];
         [self.calculateButton setTitle:@"Calculate" forState:UIControlStateNormal];
@@ -125,10 +128,11 @@
         if (!self.calculationAborted)
         {
             self.err = 1.0;
-            self.urlx = 1.0e-1;
+            self.urlx = 1.0e-2;
             self.k = 1.0;
             self.lambda = self.smdTarget;
             self.previousErr = 2.0;
+            self.iteration = 0;
         }
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0e-6 target:self selector:@selector(calculateValues) userInfo:nil repeats:YES];
         

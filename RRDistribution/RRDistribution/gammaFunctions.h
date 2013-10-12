@@ -10,7 +10,9 @@
 #define RRDistribution_gammaFunctions_h
 
 
+double gamma_io(double nu, double x);
 double gamma_i(double nu, double x);
+
 double fd
 (
     const double k,
