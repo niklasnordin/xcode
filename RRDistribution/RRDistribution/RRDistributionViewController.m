@@ -71,7 +71,7 @@
     self.previousErr = self.err;
     self.err = sqrt( pow(smd_0/self.smdTarget-1.0, 2) + pow(d90_0/self.dv90Target-1.0, 2) );
 
-    double k1 = self.k*(1.0 + delta);
+    double k1 = self.k*(1.0 + 10.0*delta);
     double lam1 = self.lambda*(1.0 + delta);
     
     //double dk = k1 - self.k;
@@ -88,16 +88,22 @@
         
     double dkErr = errk1 - self.err;
     double dlErr = errl1 - self.err;
-        
-    self.k -= self.urlx*dkErr;
-    self.lambda -= self.urlx*dlErr;
+    
+    //if (fabs(dkErr) > fabs(dlErr))
+    {
+        self.k -= self.urlx*dkErr;
+    }
+    //else
+    {
+        self.lambda -= 0.001*self.urlx*dlErr;
+    }
     
     [self.iterationLabel setText:[NSString stringWithFormat:@"Iteration = %d",self.iteration]];
     [self.kLabel setText:[NSString stringWithFormat:@"k = %g, urlx = %g",self.k, self.urlx]];
     [self.lambdaLabel setText:[NSString stringWithFormat:@"lambda = %g",self.lambda]];
     [self.smdLabel setText:[NSString stringWithFormat:@"SMD = %f",smd_0*1.0e+6]];
     [self.dv90Label setText:[NSString stringWithFormat:@"Dv90 = %f",d90_0*1.0e+6]];
-
+/*
     if (self.err >= self.previousErr)
     {
         self.urlx *= 0.9;
@@ -106,7 +112,7 @@
     {
         self.urlx *= 1.0001;
     }
-    
+    */
     if ((self.err < errMax) || (self.urlx < 1.0e-10))
     {
         [self.timer invalidate];
@@ -135,8 +141,8 @@
         if (!self.calculationAborted)
         {
             self.err = 1.0;
-            self.urlx = 1.0e-2;
-            self.k = 0.6;
+            self.urlx = 0.25;
+            self.k = 1.0;
             self.lambda = self.smdTarget;
             self.previousErr = 2.0;
             self.iteration = 0;
