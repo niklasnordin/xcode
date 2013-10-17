@@ -13,13 +13,20 @@
 
 #include "gammaFunctions.h"
 #include "asa239.h"
+#include "mconf.h"
+#include "igam.h"
+
+double gamma_i(double nu, double x)
+{
+    return tgamma(nu)*igamc(nu,x);
+}
 
 double gamma_io(double nu, double x)
 {
     return tgamma(nu)*(1.0-Entire_Incomplete_Gamma_Function(x, nu));
 }
 
-double gamma_i(double nu, double x)
+double gamma_ii(double nu, double x)
 {
     int iErr = 0;
     double g = 1.0-gammad(x, nu, &iErr);
@@ -37,9 +44,10 @@ double fd
     const double g3k
 )
 {
-    double p1 = powf(d, k);
-    double e1 = expf(-p1);
-    double kp3 = k*powf(d,3);
+
+    double p1 = pow(d, k);
+    double e1 = exp(-p1);
+    double kp3 = k*pow(d, 3.0);
     double y1 = (3.0*gamma_i(3.0/k, p1) + kp3*e1)/g3k;
     
     return y1;
@@ -51,12 +59,13 @@ double find_Dv
     const double percent
 )
 {
-    
+    /*
     // these are the same
-    //double g1 = gamma_io(k, 1.9);
-    //double g2 = gamma_i(k, 1.9);
-    //printf("g1 = %f, g2 = %f\n",g1,g2);
-    
+    double g1 = gamma_io(k, 1.9);
+    double g2 = gamma_i(k, 1.9);
+    double g3 = gamma_ii(k, 1.9);
+    printf("g1 = %f, g2 = %f, g3 = %f\n",g1,g2,g3);
+    */
 
     double d = 0.0;
     double errMax = 1.0e-7;

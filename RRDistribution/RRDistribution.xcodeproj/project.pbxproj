@@ -8,8 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		616A943817F81228002372F0 /* PlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 616A943717F81228002372F0 /* PlotView.m */; };
+		618C858E180AB7C6003B36A6 /* gamma.c in Sources */ = {isa = PBXBuildFile; fileRef = 618C858D180AB7C6003B36A6 /* gamma.c */; };
+		618C8590180AB80C003B36A6 /* unity.c in Sources */ = {isa = PBXBuildFile; fileRef = 618C858F180AB80C003B36A6 /* unity.c */; };
+		618C8592180AB8D8003B36A6 /* polevl.c in Sources */ = {isa = PBXBuildFile; fileRef = 618C8591180AB8D8003B36A6 /* polevl.c */; };
+		618C8594180AB900003B36A6 /* mtherr.c in Sources */ = {isa = PBXBuildFile; fileRef = 618C8593180AB900003B36A6 /* mtherr.c */; };
+		618C8596180AB9D0003B36A6 /* isnan.c in Sources */ = {isa = PBXBuildFile; fileRef = 618C8595180AB9D0003B36A6 /* isnan.c */; };
+		618C8598180ABE61003B36A6 /* ndtri.c in Sources */ = {isa = PBXBuildFile; fileRef = 618C8597180ABE61003B36A6 /* ndtri.c */; };
 		61C1C59518085C5B00CCECB8 /* gammaFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = 61C1C59418085C5B00CCECB8 /* gammaFunctions.c */; };
 		61C1C5991809E48800CCECB8 /* asa239.c in Sources */ = {isa = PBXBuildFile; fileRef = 61C1C5971809E48800CCECB8 /* asa239.c */; };
+		61C1C59D180A829C00CCECB8 /* igam.c in Sources */ = {isa = PBXBuildFile; fileRef = 61C1C59A180A829C00CCECB8 /* igam.c */; };
+		61C1C59E180A829C00CCECB8 /* igami.c in Sources */ = {isa = PBXBuildFile; fileRef = 61C1C59B180A829C00CCECB8 /* igami.c */; };
+		61C1C5A1180A84BF00CCECB8 /* const.c in Sources */ = {isa = PBXBuildFile; fileRef = 61C1C5A0180A84BF00CCECB8 /* const.c */; };
 		61F5A47A17F6AA3F002F1854 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F5A47917F6AA3F002F1854 /* Foundation.framework */; };
 		61F5A47C17F6AA3F002F1854 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F5A47B17F6AA3F002F1854 /* CoreGraphics.framework */; };
 		61F5A47E17F6AA3F002F1854 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F5A47D17F6AA3F002F1854 /* UIKit.framework */; };
@@ -48,10 +57,21 @@
 /* Begin PBXFileReference section */
 		616A943617F81228002372F0 /* PlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotView.h; sourceTree = "<group>"; };
 		616A943717F81228002372F0 /* PlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotView.m; sourceTree = "<group>"; };
+		618C858D180AB7C6003B36A6 /* gamma.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gamma.c; sourceTree = "<group>"; };
+		618C858F180AB80C003B36A6 /* unity.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unity.c; sourceTree = "<group>"; };
+		618C8591180AB8D8003B36A6 /* polevl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = polevl.c; sourceTree = "<group>"; };
+		618C8593180AB900003B36A6 /* mtherr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mtherr.c; sourceTree = "<group>"; };
+		618C8595180AB9D0003B36A6 /* isnan.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = isnan.c; sourceTree = "<group>"; };
+		618C8597180ABE61003B36A6 /* ndtri.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ndtri.c; sourceTree = "<group>"; };
 		61C1C59418085C5B00CCECB8 /* gammaFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gammaFunctions.c; path = ../gammaFunctions.c; sourceTree = "<group>"; };
 		61C1C59618085DEE00CCECB8 /* gammaFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gammaFunctions.h; sourceTree = "<group>"; };
 		61C1C5971809E48800CCECB8 /* asa239.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = asa239.c; sourceTree = "<group>"; };
 		61C1C5981809E48800CCECB8 /* asa239.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asa239.h; sourceTree = "<group>"; };
+		61C1C59A180A829C00CCECB8 /* igam.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = igam.c; sourceTree = "<group>"; };
+		61C1C59B180A829C00CCECB8 /* igami.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = igami.c; sourceTree = "<group>"; };
+		61C1C59C180A829C00CCECB8 /* mconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mconf.h; sourceTree = "<group>"; };
+		61C1C59F180A837200CCECB8 /* igam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = igam.h; sourceTree = "<group>"; };
+		61C1C5A0180A84BF00CCECB8 /* const.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = const.c; path = ../const.c; sourceTree = "<group>"; };
 		61F5A47617F6AA3F002F1854 /* RRDistribution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RRDistribution.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61F5A47917F6AA3F002F1854 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		61F5A47B17F6AA3F002F1854 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -160,8 +180,19 @@
 				61F5A4C117F6FE20002F1854 /* pdf.h */,
 				61F5A4C217F6FE65002F1854 /* RosinRammlerPDF.h */,
 				61F5A4C317F6FE65002F1854 /* RosinRammlerPDF.m */,
-				61C1C59418085C5B00CCECB8 /* gammaFunctions.c */,
 				61C1C59618085DEE00CCECB8 /* gammaFunctions.h */,
+				61C1C59418085C5B00CCECB8 /* gammaFunctions.c */,
+				61C1C59C180A829C00CCECB8 /* mconf.h */,
+				61C1C59F180A837200CCECB8 /* igam.h */,
+				61C1C59A180A829C00CCECB8 /* igam.c */,
+				61C1C59B180A829C00CCECB8 /* igami.c */,
+				61C1C5A0180A84BF00CCECB8 /* const.c */,
+				618C8595180AB9D0003B36A6 /* isnan.c */,
+				618C8593180AB900003B36A6 /* mtherr.c */,
+				618C8591180AB8D8003B36A6 /* polevl.c */,
+				618C858F180AB80C003B36A6 /* unity.c */,
+				618C858D180AB7C6003B36A6 /* gamma.c */,
+				618C8597180ABE61003B36A6 /* ndtri.c */,
 				61C1C5971809E48800CCECB8 /* asa239.c */,
 				61C1C5981809E48800CCECB8 /* asa239.h */,
 				61F5A49117F6AA40002F1854 /* Images.xcassets */,
@@ -315,16 +346,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				618C8594180AB900003B36A6 /* mtherr.c in Sources */,
 				61F5A4C417F6FE65002F1854 /* RosinRammlerPDF.m in Sources */,
 				61F5A48A17F6AA40002F1854 /* RRDistributionAppDelegate.m in Sources */,
+				618C8596180AB9D0003B36A6 /* isnan.c in Sources */,
+				61C1C5A1180A84BF00CCECB8 /* const.c in Sources */,
 				61C1C5991809E48800CCECB8 /* asa239.c in Sources */,
+				61C1C59E180A829C00CCECB8 /* igami.c in Sources */,
+				618C8598180ABE61003B36A6 /* ndtri.c in Sources */,
 				61F5A49017F6AA40002F1854 /* RRDistributionViewController.m in Sources */,
 				61F5A4B217F6F52B002F1854 /* TestViewController.m in Sources */,
+				61C1C59D180A829C00CCECB8 /* igam.c in Sources */,
 				61C1C59518085C5B00CCECB8 /* gammaFunctions.c in Sources */,
+				618C8590180AB80C003B36A6 /* unity.c in Sources */,
 				61F5A4B517F6F559002F1854 /* InfoViewController.m in Sources */,
+				618C8592180AB8D8003B36A6 /* polevl.c in Sources */,
 				61F5A48617F6AA40002F1854 /* main.m in Sources */,
 				61F5A4B817F6F5B7002F1854 /* PlotViewController.m in Sources */,
 				616A943817F81228002372F0 /* PlotView.m in Sources */,
+				618C858E180AB7C6003B36A6 /* gamma.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

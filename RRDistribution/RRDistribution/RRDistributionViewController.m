@@ -62,7 +62,7 @@
 - (void)calculateValues
 {
     double errMax = 1.0e-3;
-    double delta = 1.0e-4;
+    double delta = 1.0e-5;
     self.iteration++;
     double smd_0 = smdCalc(self.k, self.lambda);
     //NSLog(@"smd_0 = %g",smd_0*1.0e+6);
@@ -98,9 +98,16 @@
     [self.smdLabel setText:[NSString stringWithFormat:@"SMD = %f",smd_0*1.0e+6]];
     [self.dv90Label setText:[NSString stringWithFormat:@"Dv90 = %f",d90_0*1.0e+6]];
 
-    if (self.err > self.previousErr) self.urlx *= 0.5;
+    if (self.err >= self.previousErr)
+    {
+        self.urlx *= 0.9;
+    }
+    else
+    {
+        self.urlx *= 1.0001;
+    }
     
-    if ((self.err < errMax) || (self.urlx < 1.0e-6))
+    if ((self.err < errMax) || (self.urlx < 1.0e-10))
     {
         [self.timer invalidate];
         [self.calculateButton setTitle:@"Calculate" forState:UIControlStateNormal];
@@ -129,7 +136,7 @@
         {
             self.err = 1.0;
             self.urlx = 1.0e-2;
-            self.k = 1.0;
+            self.k = 0.6;
             self.lambda = self.smdTarget;
             self.previousErr = 2.0;
             self.iteration = 0;
