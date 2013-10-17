@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *iterationLabel;
 @property (weak, nonatomic) IBOutlet UITextField *smdTargetTextField;
 @property (weak, nonatomic) IBOutlet UITextField *dv90TargetTextField;
+@property (weak, nonatomic) IBOutlet UITextField *urlxTtextField;
 @property (weak, nonatomic) IBOutlet UILabel *smdLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dv90Label;
 @property (weak, nonatomic) IBOutlet UILabel *lambdaLabel;

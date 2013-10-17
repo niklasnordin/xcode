@@ -35,6 +35,8 @@
     _calculationAborted = NO;
     _smdTargetTextField.delegate = self;
     _dv90TargetTextField.delegate = self;
+    _urlxTtextField.delegate = self;
+    
     for (id tab in tabs)
     {
         // set the function in the test view controller
@@ -61,15 +63,13 @@
 
 - (void)calculateValues
 {
-    double errMax = 1.0e-3;
+    double errMax = 1.0e-6;
     double delta = 1.0e-5;
     self.iteration++;
     double smd_0 = smdCalc(self.k, self.lambda);
-    //NSLog(@"smd_0 = %g",smd_0*1.0e+6);
     double d90_0 = self.lambda*find_Dv(self.k, 0.9);
-    //NSLog(@"dv90 = %g",d90_0*1.0e+6);
     self.previousErr = self.err;
-    self.err = sqrt( pow(smd_0/self.smdTarget-1.0, 2) + pow(d90_0/self.dv90Target-1.0, 2) );
+    self.err = pow(smd_0/self.smdTarget-1.0, 2) + pow(d90_0/self.dv90Target-1.0, 2);
 
     double k1 = self.k*(1.0 + 10.0*delta);
     double lam1 = self.lambda*(1.0 + delta);
@@ -83,8 +83,8 @@
     double smd_l1 = smdCalc(self.k, lam1);
     double d90_l1 = lam1*find_Dv(self.k, 0.9);
         
-    double errk1 = sqrt( pow(smd_k1/self.smdTarget-1.0, 2) + pow(d90_k1/self.dv90Target-1.0, 2) );
-    double errl1 = sqrt( pow(smd_l1/self.smdTarget-1.0, 2) + pow(d90_l1/self.dv90Target-1.0, 2) );
+    double errk1 = pow(smd_k1/self.smdTarget-1.0, 2) + pow(d90_k1/self.dv90Target-1.0, 2);
+    double errl1 = pow(smd_l1/self.smdTarget-1.0, 2) + pow(d90_l1/self.dv90Target-1.0, 2);
         
     double dkErr = errk1 - self.err;
     double dlErr = errl1 - self.err;
@@ -103,16 +103,7 @@
     [self.lambdaLabel setText:[NSString stringWithFormat:@"lambda = %g",self.lambda]];
     [self.smdLabel setText:[NSString stringWithFormat:@"SMD = %f",smd_0*1.0e+6]];
     [self.dv90Label setText:[NSString stringWithFormat:@"Dv90 = %f",d90_0*1.0e+6]];
-/*
-    if (self.err >= self.previousErr)
-    {
-        self.urlx *= 0.9;
-    }
-    else
-    {
-        self.urlx *= 1.0001;
-    }
-    */
+
     if ((self.err < errMax) || (self.urlx < 1.0e-10))
     {
         [self.timer invalidate];
@@ -137,11 +128,11 @@
     {
         self.smdTarget = 1.0e-6*[self.smdTargetTextField.text floatValue];
         self.dv90Target = 1.0e-6*[self.dv90TargetTextField.text floatValue];
-        
+        self.urlx = [self.urlxTtextField.text floatValue];
         if (!self.calculationAborted)
         {
             self.err = 1.0;
-            self.urlx = 0.25;
+            //self.urlx = 0.25;
             self.k = 1.0;
             self.lambda = self.smdTarget;
             self.previousErr = 2.0;
