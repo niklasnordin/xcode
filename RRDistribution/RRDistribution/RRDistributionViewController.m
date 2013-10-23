@@ -63,13 +63,13 @@
 
 - (void)calculateValues
 {
-    double errMax = 1.0e-6;
+    double errMax = 1.0e-7;
     double delta = 1.0e-5;
     self.iteration++;
     double smd_0 = smdCalc(self.k, self.lambda);
     double d90_0 = self.lambda*find_Dv(self.k, 0.9);
     self.previousErr = self.err;
-    self.err = pow(smd_0/self.smdTarget-1.0, 2) + pow(d90_0/self.dv90Target-1.0, 2);
+    self.err = sqrt( pow(smd_0/self.smdTarget-1.0, 2) + pow(d90_0/self.dv90Target-1.0, 2) );
 
     double k1 = self.k*(1.0 + 10.0*delta);
     double lam1 = self.lambda*(1.0 + delta);
@@ -83,19 +83,20 @@
     double smd_l1 = smdCalc(self.k, lam1);
     double d90_l1 = lam1*find_Dv(self.k, 0.9);
         
-    double errk1 = pow(smd_k1/self.smdTarget-1.0, 2) + pow(d90_k1/self.dv90Target-1.0, 2);
-    double errl1 = pow(smd_l1/self.smdTarget-1.0, 2) + pow(d90_l1/self.dv90Target-1.0, 2);
+    double errk1 = sqrt( pow(smd_k1/self.smdTarget-1.0, 2) + pow(d90_k1/self.dv90Target-1.0, 2) );
+    double errl1 = sqrt( pow(smd_l1/self.smdTarget-1.0, 2) + pow(d90_l1/self.dv90Target-1.0, 2) );
         
     double dkErr = errk1 - self.err;
     double dlErr = errl1 - self.err;
-    
-    //if (fabs(dkErr) > fabs(dlErr))
+
+    double dl = 0.001*self.urlx*dlErr;
+    //if (fabs(dlErr) > fabs(dkErr))
     {
-        self.k -= self.urlx*dkErr;
+        self.lambda -= dl;
     }
     //else
     {
-        self.lambda -= 0.001*self.urlx*dlErr;
+        self.k -= self.urlx*dkErr;
     }
     
     [self.iterationLabel setText:[NSString stringWithFormat:@"Iteration = %d",self.iteration]];

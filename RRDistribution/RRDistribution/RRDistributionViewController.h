@@ -25,8 +25,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *kLabel;
 
 @property (strong, nonatomic) RosinRammlerPDF<pdf> *function;
-@property (nonatomic) float lambda;
-@property (nonatomic) float k;
+@property (nonatomic) double lambda;
+@property (nonatomic) double k;
 - (IBAction)calculateButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *calculateButton;
 
