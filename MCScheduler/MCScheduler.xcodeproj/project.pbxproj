@@ -49,7 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		619D193C17EF5D460094D193 /* MCScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		619D193C17EF5D460094D193 /* MCReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		619D193F17EF5D460094D193 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		619D194117EF5D460094D193 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		619D194317EF5D460094D193 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -137,7 +137,7 @@
 		619D193D17EF5D460094D193 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				619D193C17EF5D460094D193 /* MCScheduler.app */,
+				619D193C17EF5D460094D193 /* MCReminder.app */,
 				619D195D17EF5D460094D193 /* MCSchedulerTests.xctest */,
 			);
 			name = Products;
@@ -229,9 +229,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		619D193B17EF5D460094D193 /* MCScheduler */ = {
+		619D193B17EF5D460094D193 /* MCReminder */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 619D196E17EF5D460094D193 /* Build configuration list for PBXNativeTarget "MCScheduler" */;
+			buildConfigurationList = 619D196E17EF5D460094D193 /* Build configuration list for PBXNativeTarget "MCReminder" */;
 			buildPhases = (
 				619D193817EF5D460094D193 /* Sources */,
 				619D193917EF5D460094D193 /* Frameworks */,
@@ -241,9 +241,9 @@
 			);
 			dependencies = (
 			);
-			name = MCScheduler;
+			name = MCReminder;
 			productName = MCScheduler;
-			productReference = 619D193C17EF5D460094D193 /* MCScheduler.app */;
+			productReference = 619D193C17EF5D460094D193 /* MCReminder.app */;
 			productType = "com.apple.product-type.application";
 		};
 		619D195C17EF5D460094D193 /* MCSchedulerTests */ = {
@@ -295,7 +295,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				619D193B17EF5D460094D193 /* MCScheduler */,
+				619D193B17EF5D460094D193 /* MCReminder */,
 				619D195C17EF5D460094D193 /* MCSchedulerTests */,
 			);
 		};
@@ -360,7 +360,7 @@
 /* Begin PBXTargetDependency section */
 		619D196317EF5D460094D193 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 619D193B17EF5D460094D193 /* MCScheduler */;
+			target = 619D193B17EF5D460094D193 /* MCReminder */;
 			targetProxy = 619D196217EF5D460094D193 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -402,8 +402,12 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+<<<<<<< HEAD
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Nicklas Nordin";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nicklas Nordin";
+=======
+				CODE_SIGN_IDENTITY = "";
+>>>>>>> 4fba81495b000c1616b4e0bd13de6d7b6ccdacaa
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -421,7 +425,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+<<<<<<< HEAD
 				PROVISIONING_PROFILE = "D83BD1BB-6A15-434F-BDB9-CEA11DFB1FA0";
+=======
+				PROVISIONING_PROFILE = "1A45BD65-7D66-4AC7-92A4-D9DC0F4390EF";
+>>>>>>> 4fba81495b000c1616b4e0bd13de6d7b6ccdacaa
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -443,8 +451,12 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+<<<<<<< HEAD
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Nicklas Nordin";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nicklas Nordin";
+=======
+				CODE_SIGN_IDENTITY = "";
+>>>>>>> 4fba81495b000c1616b4e0bd13de6d7b6ccdacaa
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -455,7 +467,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+<<<<<<< HEAD
 				PROVISIONING_PROFILE = "D83BD1BB-6A15-434F-BDB9-CEA11DFB1FA0";
+=======
+				PROVISIONING_PROFILE = "1A45BD65-7D66-4AC7-92A4-D9DC0F4390EF";
+>>>>>>> 4fba81495b000c1616b4e0bd13de6d7b6ccdacaa
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -466,11 +482,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+<<<<<<< HEAD
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+=======
+				CODE_SIGN_IDENTITY = "";
+>>>>>>> 4fba81495b000c1616b4e0bd13de6d7b6ccdacaa
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCScheduler/MCScheduler-Prefix.pch";
 				INFOPLIST_FILE = "MCScheduler/MCScheduler-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1A45BD65-7D66-4AC7-92A4-D9DC0F4390EF";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -480,11 +501,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+<<<<<<< HEAD
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+=======
+				CODE_SIGN_IDENTITY = "";
+>>>>>>> 4fba81495b000c1616b4e0bd13de6d7b6ccdacaa
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCScheduler/MCScheduler-Prefix.pch";
 				INFOPLIST_FILE = "MCScheduler/MCScheduler-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1A45BD65-7D66-4AC7-92A4-D9DC0F4390EF";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -543,13 +569,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		619D196E17EF5D460094D193 /* Build configuration list for PBXNativeTarget "MCScheduler" */ = {
+		619D196E17EF5D460094D193 /* Build configuration list for PBXNativeTarget "MCReminder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				619D196F17EF5D460094D193 /* Debug */,
 				619D197017EF5D460094D193 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		619D197117EF5D460094D193 /* Build configuration list for PBXNativeTarget "MCSchedulerTests" */ = {
 			isa = XCConfigurationList;
@@ -558,6 +585,7 @@
 				619D197317EF5D460094D193 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

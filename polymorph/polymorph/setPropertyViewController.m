@@ -114,7 +114,7 @@
 - (IBAction)clickedFunctionButton:(id)sender
 {
     
-    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Properties"
+    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Functions"
                                                    delegate:nil
                                           cancelButtonTitle:nil
                                      destructiveButtonTitle:nil
