@@ -402,7 +402,12 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+<<<<<<< HEAD
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nicklas Nordin";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nicklas Nordin";
+=======
 				CODE_SIGN_IDENTITY = "";
+>>>>>>> 4fba81495b000c1616b4e0bd13de6d7b6ccdacaa
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -420,7 +425,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+<<<<<<< HEAD
+				PROVISIONING_PROFILE = "D83BD1BB-6A15-434F-BDB9-CEA11DFB1FA0";
+=======
 				PROVISIONING_PROFILE = "1A45BD65-7D66-4AC7-92A4-D9DC0F4390EF";
+>>>>>>> 4fba81495b000c1616b4e0bd13de6d7b6ccdacaa
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -442,7 +451,12 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+<<<<<<< HEAD
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nicklas Nordin";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nicklas Nordin";
+=======
 				CODE_SIGN_IDENTITY = "";
+>>>>>>> 4fba81495b000c1616b4e0bd13de6d7b6ccdacaa
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -453,7 +467,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+<<<<<<< HEAD
+				PROVISIONING_PROFILE = "D83BD1BB-6A15-434F-BDB9-CEA11DFB1FA0";
+=======
 				PROVISIONING_PROFILE = "1A45BD65-7D66-4AC7-92A4-D9DC0F4390EF";
+>>>>>>> 4fba81495b000c1616b4e0bd13de6d7b6ccdacaa
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -464,7 +482,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+<<<<<<< HEAD
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+=======
 				CODE_SIGN_IDENTITY = "";
+>>>>>>> 4fba81495b000c1616b4e0bd13de6d7b6ccdacaa
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCScheduler/MCScheduler-Prefix.pch";
 				INFOPLIST_FILE = "MCScheduler/MCScheduler-Info.plist";
@@ -479,7 +501,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+<<<<<<< HEAD
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+=======
 				CODE_SIGN_IDENTITY = "";
+>>>>>>> 4fba81495b000c1616b4e0bd13de6d7b6ccdacaa
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCScheduler/MCScheduler-Prefix.pch";
 				INFOPLIST_FILE = "MCScheduler/MCScheduler-Info.plist";
