@@ -10,9 +10,12 @@
 
 @interface gameEngine : NSObject
 
-@property (nonatomic) double **grass;
-@property (nonatomic) double **rabbit;
-@property (nonatomic) double **predator;
+@property (nonatomic) int nx;
+@property (nonatomic) int ny;
+// these are the population of the individuals ranging from 0 to 100 %
+@property (nonatomic) double *grass;
+@property (nonatomic) double *rabbit;
+@property (nonatomic) double *predator;
 
 
 - (id)init;
