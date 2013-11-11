@@ -23,6 +23,7 @@
 		61270196182E50C500FBE8CA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61270194182E50C500FBE8CA /* InfoPlist.strings */; };
 		61270198182E50C500FBE8CA /* gameSimulatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61270197182E50C500FBE8CA /* gameSimulatorTests.m */; };
 		612701A3182E50FC00FBE8CA /* gameEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 612701A2182E50FC00FBE8CA /* gameEngine.m */; };
+		612701A61831650700FBE8CA /* gameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 612701A51831650700FBE8CA /* gameView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		61270197182E50C500FBE8CA /* gameSimulatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gameSimulatorTests.m; sourceTree = "<group>"; };
 		612701A1182E50FC00FBE8CA /* gameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gameEngine.h; sourceTree = "<group>"; };
 		612701A2182E50FC00FBE8CA /* gameEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gameEngine.m; sourceTree = "<group>"; };
+		612701A41831650700FBE8CA /* gameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gameView.h; sourceTree = "<group>"; };
+		612701A51831650700FBE8CA /* gameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gameView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				61270179182E50C500FBE8CA /* gameSimulatorAppDelegate.m */,
 				61270181182E50C500FBE8CA /* gameSimulatorViewController.h */,
 				61270182182E50C500FBE8CA /* gameSimulatorViewController.m */,
+				612701A41831650700FBE8CA /* gameView.h */,
+				612701A51831650700FBE8CA /* gameView.m */,
 				612701A1182E50FC00FBE8CA /* gameEngine.h */,
 				612701A2182E50FC00FBE8CA /* gameEngine.m */,
 				61270184182E50C500FBE8CA /* Images.xcassets */,
@@ -261,6 +266,7 @@
 			files = (
 				61270183182E50C500FBE8CA /* gameSimulatorViewController.m in Sources */,
 				61270176182E50C500FBE8CA /* main.m in Sources */,
+				612701A61831650700FBE8CA /* gameView.m in Sources */,
 				6127017A182E50C500FBE8CA /* gameSimulatorAppDelegate.m in Sources */,
 				612701A3182E50FC00FBE8CA /* gameEngine.m in Sources */,
 			);

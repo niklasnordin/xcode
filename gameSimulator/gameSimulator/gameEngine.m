@@ -52,23 +52,98 @@
     return self;
 }
 
+- (double)averageForField:(double *)f I:(int)i J:(int)j
+{
+    int indices[9];
+    indices[0] = [self indexWithI:i-1 J:j-1];
+    indices[1] = [self indexWithI:i J:j-1];
+    indices[2] = [self indexWithI:i+1 J:j-1];
+    indices[3] = [self indexWithI:i-1 J:j];
+    indices[4] = [self indexWithI:i J:j];
+    indices[5] = [self indexWithI:i+1 J:j];
+    indices[6] = [self indexWithI:i-1 J:j+1];
+    indices[7] = [self indexWithI:i J:j+1];
+    indices[8] = [self indexWithI:i+1 J:j+1];
+    
+    double sum = 0.0;
+    for (int i=0; i<9; i++)
+    {
+        sum += f[indices[i]];
+    }
+    
+    return sum;
+}
+
+- (double)solveForGrassI:(int)i J:(int)j dT:(double)dt
+{
+    int k = [self indexWithI:i J:j];
+    return dt*(self.aGrass + self.grass[k])/(1.0 + self.bGrass*self.rabbit[k]);
+}
+
+- (double)solveForRabbitI:(int)i J:(int)j dT:(double)dt
+{
+    int k = [self indexWithI:i J:j];
+    return dt*self.rabbit[k]/(1.0 - self.aRabbit*self.grass[k] + self.bRabbit*self.predator[k]);
+}
+
+- (double)solveForPredatorI:(int)i J:(int)j dT:(double)dt
+{
+    int k = [self indexWithI:i J:j];
+    return dt*self.predator[k]/(1.0 - self.aPredator*self.rabbit[k]);
+}
+
 - (void)updatePopulation:(double)dt
 {
  
+    double averageGrass[self.nx][self.ny];
+    double averageRabbit[self.nx][self.ny];
+    double averagePredator[self.nx][self.ny];
+    
     // grass
     // a = linear growth rate
     // b = amount eaten by rabbits
+    // d = spread rate for grass
     // (d/dt)grass = a - b*rabbit*grass
     
     // rabbits
-    // c = reproduction/feeding rate of rabbits
-    // d = feeding rate for predators
-    //
-    // (d/dt)rabbit = c*rabbit*grass - d*predators*rabbit
+    // a = reproduction/feeding rate of rabbits
+    // b = feeding rate for predators
+    // d = spread rate for rabbits
+    // (d/dt)rabbit = a*rabbit*grass - b*predators*rabbit
     
     // predators
-    // e = reproduction rate for predators
-    // (d/dt)predators = e*predators*rabbits
+    // a = reproduction rate for predators
+    // d = spread rate for predators
+    // (d/dt)predators = a*predators*rabbits
+    
+    for (int i=0; i<self.nx; i++)
+    {
+        for (int j=0; j<self.ny; j++)
+        {
+            // update i, j
+            int k = [self indexWithI:i J:j];
+            self.grass[k] = [self solveForGrassI:i J:j dT:dt];
+            self.rabbit[k] = [self solveForRabbitI:i J:j dT:dt];
+            self.predator[k] = [self solveForPredatorI:i J:j dT:dt];
+            
+            averageGrass[i][j] = [self averageForField:self.grass I:i J:j];
+            averageRabbit[i][j] = [self averageForField:self.rabbit I:i J:j];
+            averagePredator[i][j] = [self averageForField:self.predator I:i J:j];
+        }
+    }
+    
+    // diffusion
+    for (int i=0; i<self.nx; i++)
+    {
+        for (int j=0; j<self.ny; j++)
+        {
+            // update i, j
+            int k = [self indexWithI:i J:j];
+            self.grass[k] += dt*self.dGrass*(averageGrass[i][j] - self.grass[k]);
+            self.rabbit[k] += dt*self.dRabbit*(averageRabbit[i][j] - self.rabbit[k]);
+            self.predator[k] += dt*self.dPredator*(averagePredator[i][j] - self.predator[k]);
+        }
+    }
     
 }
 

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "gameEngine.h"
 
 @interface gameSimulatorViewController : UIViewController
+
+@property (strong, nonatomic) gameEngine *engine;
 
 @end

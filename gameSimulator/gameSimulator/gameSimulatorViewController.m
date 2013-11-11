@@ -18,6 +18,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    int nx = self.view.frame.size.width;
+    int ny = self.view.frame.size.height;
+    
+    _engine = [[gameEngine alloc] initWithNx:nx Ny:ny];
+    
 }
 
 - (void)didReceiveMemoryWarning
