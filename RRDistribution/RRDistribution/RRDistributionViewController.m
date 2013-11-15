@@ -79,7 +79,7 @@
     double stepLimit = 1.0e-8;
     bool stepsizeLarge = (self.deltak > stepLimit) || (self.deltal > stepLimit);
 
-    double errMax = 1.0e-6;
+    double errMax = 1.0e-7;
     self.iteration++;
     double smd_0 = smdCalc(self.k, self.lambda);
     double d90_0 = self.lambda*find_Dv(self.k, 0.9);
@@ -138,7 +138,7 @@
         [self setLabels:smd_0 dv90:d90_0];
     }
     
-    if ((self.err < errMax) && stepsizeLarge)
+    if ((self.err < errMax) || !stepsizeLarge)
     {
         [self setLabels:smd_0 dv90:d90_0];
 
