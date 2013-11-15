@@ -75,8 +75,11 @@
         [self.dv90Label setText:[NSString stringWithFormat:@"%g",average]];
         if (self.iterationIndex >= [self.nSamplesTextField.text intValue])
         {
+            NSLog(@"helloooo");
             self.iterationIndex = 1;
             self.sumSMD = 0.0;
+            [self.smdLabel setText:@""];
+            
         }
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0e-6 target:self selector:@selector(runIterations) userInfo:nil repeats:YES];
 
@@ -102,15 +105,22 @@
     //float dv90 = lambda*find_Dv(k, 0.9);
     NSString *labelText = [NSString stringWithFormat:@"%d", self.iterationIndex];
     [self.iterationLabel setText:labelText];
-    [self.smdLabel setText:[NSString stringWithFormat:@"%g",smd*1.0e+6]];
+    NSLog(@"%g %g %g",x,f,smd*1.0e+6);
+    NSString *smdText = [NSString stringWithFormat:@"%g",smd*1.0e+6];
+    [self.smdLabel setText:smdText];
     //[self.dv90Label setText:[NSString stringWithFormat:@"%g",dv90*1.0e+6]];
     
     self.iterationIndex = self.iterationIndex + 1;
+    
+    // max iterations reached
     if (self.iterationIndex > [self.nSamplesTextField.text intValue])
     {
+        NSLog(@"done");
         [self.timer invalidate];
         [self.testButton setTitle:@"Start Test" forState:UIControlStateNormal];
         [self.testButton setTitleColor:self.normalStateColor forState:UIControlStateNormal];
+        self.iterationIndex = 0;
+        self.sumSMD = 0.0;
     }
 }
 

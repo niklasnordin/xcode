@@ -61,12 +61,25 @@
     [self performSelectorInBackground:@selector(calculateValues) withObject:nil];
 }
 
+- (void)setLabels:(double)smd dv90:(double)dv90
+{
+    
+    [self.iterationLabel setText:[NSString stringWithFormat:@"Iteration = %d",self.iteration]];
+    [self.kLabel setText:[NSString stringWithFormat:@"k = %g",self.k]];
+    [self.lambdaLabel setText:[NSString stringWithFormat:@"lambda = %g",self.lambda]];
+    [self.smdLabel setText:[NSString stringWithFormat:@"SMD = %f",smd*1.0e+6]];
+    [self.dv90Label setText:[NSString stringWithFormat:@"Dv90 = %f",dv90*1.0e+6]];
+   
+}
+
 - (void)calculateValues
 {
     double dk = self.deltak*self.k;
 	double dl = self.deltal*self.lambda;
-    
-    double errMax = 1.0e-7;
+    double stepLimit = 1.0e-8;
+    bool stepsizeLarge = (self.deltak > stepLimit) || (self.deltal > stepLimit);
+
+    double errMax = 1.0e-6;
     self.iteration++;
     double smd_0 = smdCalc(self.k, self.lambda);
     double d90_0 = self.lambda*find_Dv(self.k, 0.9);
@@ -120,14 +133,15 @@
 	    self.deltal *= 0.5;
 	}
 
-    [self.iterationLabel setText:[NSString stringWithFormat:@"Iteration = %d",self.iteration]];
-    [self.kLabel setText:[NSString stringWithFormat:@"k = %g",self.k]];
-    [self.lambdaLabel setText:[NSString stringWithFormat:@"lambda = %g",self.lambda]];
-    [self.smdLabel setText:[NSString stringWithFormat:@"SMD = %f",smd_0*1.0e+6]];
-    [self.dv90Label setText:[NSString stringWithFormat:@"Dv90 = %f",d90_0*1.0e+6]];
-
-    if ((self.err < errMax))
+    if (!(self.iteration % 100))
     {
+        [self setLabels:smd_0 dv90:d90_0];
+    }
+    
+    if ((self.err < errMax) && stepsizeLarge)
+    {
+        [self setLabels:smd_0 dv90:d90_0];
+
         [self.timer invalidate];
         [self.calculateButton setTitle:@"Calculate" forState:UIControlStateNormal];
         [self.calculateButton setTitleColor:self.normalStateColor forState:UIControlStateNormal];
