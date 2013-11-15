@@ -15,10 +15,10 @@
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) UIColor *normalStateColor;
 @property (nonatomic) float err;
-@property (nonatomic) float previousErr;
 @property (nonatomic) float dv90Target;
 @property (nonatomic) float smdTarget;
-@property (nonatomic) float urlx;
+@property (nonatomic) float deltak;
+@property (nonatomic) float deltal;
 @property (nonatomic) BOOL calculationAborted;
 @property (nonatomic) int iteration;
 @end
@@ -63,49 +63,70 @@
 
 - (void)calculateValues
 {
+    double dk = self.deltak*self.k;
+	double dl = self.deltal*self.lambda;
+    
     double errMax = 1.0e-7;
-    double delta = 1.0e-5;
     self.iteration++;
     double smd_0 = smdCalc(self.k, self.lambda);
     double d90_0 = self.lambda*find_Dv(self.k, 0.9);
-    self.previousErr = self.err;
     self.err = sqrt( pow(smd_0/self.smdTarget-1.0, 2) + pow(d90_0/self.dv90Target-1.0, 2) );
+    
+    double smd_k0 = smdCalc(self.k - dk, self.lambda);
+    double d90_k0 = self.lambda*find_Dv(self.k - dk, 0.9);
+    double smd_l0 = smdCalc(self.k, self.lambda - dl);
+    double d90_l0 = (self.lambda - dl)*find_Dv(self.k, 0.9);
 
-    double k1 = self.k*(1.0 + 10.0*delta);
-    double lam1 = self.lambda*(1.0 + delta);
-    
-    //double dk = k1 - self.k;
-    //double dlam = lam1 - self.lambda;
-    
-    double smd_k1 = smdCalc(k1, self.lambda);
-    double d90_k1 = self.lambda*find_Dv(k1, 0.9);
+    double smd_k1 = smdCalc(self.k + dk, self.lambda);
+    double d90_k1 = self.lambda*find_Dv(self.k + dk, 0.9);
+    double smd_l1 = smdCalc(self.k, self.lambda + dl);
+    double d90_l1 = (self.lambda + dl)*find_Dv(self.k, 0.9);
         
-    double smd_l1 = smdCalc(self.k, lam1);
-    double d90_l1 = lam1*find_Dv(self.k, 0.9);
-        
+    double errk0 = sqrt( pow(smd_k0/self.smdTarget-1.0, 2) + pow(d90_k0/self.dv90Target-1.0, 2) );
+    double errl0 = sqrt( pow(smd_l0/self.smdTarget-1.0, 2) + pow(d90_l0/self.dv90Target-1.0, 2) );
     double errk1 = sqrt( pow(smd_k1/self.smdTarget-1.0, 2) + pow(d90_k1/self.dv90Target-1.0, 2) );
     double errl1 = sqrt( pow(smd_l1/self.smdTarget-1.0, 2) + pow(d90_l1/self.dv90Target-1.0, 2) );
-        
-    double dkErr = errk1 - self.err;
-    double dlErr = errl1 - self.err;
-
-    double dl = 0.001*self.urlx*dlErr;
-    //if (fabs(dlErr) > fabs(dkErr))
-    {
-        self.lambda -= dl;
-    }
-    //else
-    {
-        self.k -= self.urlx*dkErr;
-    }
     
+    double errOutside = fmin(errk0, fmin(errl0, fmin(errk1, errl1) ) );
+
+    if (errOutside < self.err)
+	{
+	    if (errk0 < fmin(errl0, fmin(errk1, errl1)))
+	    {
+            self.k -= dk;
+	    }
+	    else
+	    {
+            if (errl0 < fmin(errk1, errl1))
+            {
+                self.lambda -= dl;
+            }
+            else
+            {
+                if (errk1 < errl1)
+                {
+                    self.k += dk;
+                }
+                else
+                {
+                    self.lambda += dl;
+                }
+            }
+	    }
+	}
+	else
+	{
+	    self.deltak *= 0.5;
+	    self.deltal *= 0.5;
+	}
+
     [self.iterationLabel setText:[NSString stringWithFormat:@"Iteration = %d",self.iteration]];
-    [self.kLabel setText:[NSString stringWithFormat:@"k = %g, urlx = %g",self.k, self.urlx]];
+    [self.kLabel setText:[NSString stringWithFormat:@"k = %g",self.k]];
     [self.lambdaLabel setText:[NSString stringWithFormat:@"lambda = %g",self.lambda]];
     [self.smdLabel setText:[NSString stringWithFormat:@"SMD = %f",smd_0*1.0e+6]];
     [self.dv90Label setText:[NSString stringWithFormat:@"Dv90 = %f",d90_0*1.0e+6]];
 
-    if ((self.err < errMax) || (self.urlx < 1.0e-10))
+    if ((self.err < errMax))
     {
         [self.timer invalidate];
         [self.calculateButton setTitle:@"Calculate" forState:UIControlStateNormal];
@@ -129,14 +150,13 @@
     {
         self.smdTarget = 1.0e-6*[self.smdTargetTextField.text floatValue];
         self.dv90Target = 1.0e-6*[self.dv90TargetTextField.text floatValue];
-        self.urlx = [self.urlxTtextField.text floatValue];
+
         if (!self.calculationAborted)
         {
-            self.err = 1.0;
-            //self.urlx = 0.25;
+            self.deltak = 0.1;
+            self.deltal = 0.1;
             self.k = 1.0;
             self.lambda = self.smdTarget;
-            self.previousErr = 2.0;
             self.iteration = 0;
         }
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0e-6 target:self selector:@selector(calculateValues) userInfo:nil repeats:YES];
