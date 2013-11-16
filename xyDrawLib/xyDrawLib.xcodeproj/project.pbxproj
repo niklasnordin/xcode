@@ -16,6 +16,8 @@
 		614D5A561836A60200265090 /* libxyDrawLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 614D5A3E1836A60200265090 /* libxyDrawLib.a */; };
 		614D5A5C1836A60200265090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 614D5A5A1836A60200265090 /* InfoPlist.strings */; };
 		614D5A5E1836A60200265090 /* xyDrawLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 614D5A5D1836A60200265090 /* xyDrawLibTests.m */; };
+		614D5A691837A42100265090 /* xyPlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 614D5A681837A42100265090 /* xyPlotView.m */; };
+		614D5A6C1837A43500265090 /* xyPlotterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 614D5A6B1837A43500265090 /* xyPlotterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,12 @@
 		614D5A591836A60200265090 /* xyDrawLibTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "xyDrawLibTests-Info.plist"; sourceTree = "<group>"; };
 		614D5A5B1836A60200265090 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		614D5A5D1836A60200265090 /* xyDrawLibTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xyDrawLibTests.m; sourceTree = "<group>"; };
+		614D5A671837A42100265090 /* xyPlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xyPlotView.h; sourceTree = "<group>"; };
+		614D5A681837A42100265090 /* xyPlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xyPlotView.m; sourceTree = "<group>"; };
+		614D5A6A1837A43500265090 /* xyPlotterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xyPlotterViewController.h; sourceTree = "<group>"; };
+		614D5A6B1837A43500265090 /* xyPlotterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xyPlotterViewController.m; sourceTree = "<group>"; };
+		614D5A6D1837A44000265090 /* xyPlotDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xyPlotDataSource.h; sourceTree = "<group>"; };
+		614D5A6E1837A44000265090 /* xyPlotDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xyPlotDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +120,12 @@
 			children = (
 				614D5A461836A60200265090 /* xyDrawLib.h */,
 				614D5A481836A60200265090 /* xyDrawLib.m */,
+				614D5A671837A42100265090 /* xyPlotView.h */,
+				614D5A681837A42100265090 /* xyPlotView.m */,
+				614D5A6A1837A43500265090 /* xyPlotterViewController.h */,
+				614D5A6B1837A43500265090 /* xyPlotterViewController.m */,
+				614D5A6D1837A44000265090 /* xyPlotDataSource.h */,
+				614D5A6E1837A44000265090 /* xyPlotDelegate.h */,
 				614D5A441836A60200265090 /* Supporting Files */,
 			);
 			path = xyDrawLib;
@@ -224,7 +238,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				614D5A691837A42100265090 /* xyPlotView.m in Sources */,
 				614D5A491836A60200265090 /* xyDrawLib.m in Sources */,
+				614D5A6C1837A43500265090 /* xyPlotterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
