@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dv90Label;
 @property (weak, nonatomic) IBOutlet UILabel *lambdaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *kLabel;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 
 @property (strong, nonatomic) RosinRammlerPDF<pdf> *function;
 @property (nonatomic) double lambda;

@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) UIColor *normalStateColor;
 @property (nonatomic) float err;
+@property (nonatomic) float errMax;
 @property (nonatomic) float dv90Target;
 @property (nonatomic) float smdTarget;
 @property (nonatomic) float deltak;
@@ -69,6 +70,7 @@
     [self.lambdaLabel setText:[NSString stringWithFormat:@"lambda = %g",self.lambda]];
     [self.smdLabel setText:[NSString stringWithFormat:@"SMD = %f",smd*1.0e+6]];
     [self.dv90Label setText:[NSString stringWithFormat:@"Dv90 = %f",dv90*1.0e+6]];
+    [self.errorLabel setText:[NSString stringWithFormat:@"Error = %g",self.err]];
    
 }
 
@@ -76,10 +78,8 @@
 {
     double dk = self.deltak*self.k;
 	double dl = self.deltal*self.lambda;
-    double stepLimit = 1.0e-8;
+    double stepLimit = fmin(1.0e-10, 0.01*self.errMax);
     bool stepsizeLarge = (self.deltak > stepLimit) || (self.deltal > stepLimit);
-
-    double errMax = 1.0e-7;
     self.iteration++;
     double smd_0 = smdCalc(self.k, self.lambda);
     double d90_0 = self.lambda*find_Dv(self.k, 0.9);
@@ -138,7 +138,7 @@
         [self setLabels:smd_0 dv90:d90_0];
     }
     
-    if ((self.err < errMax) || !stepsizeLarge)
+    if ((self.err < self.errMax) || !stepsizeLarge)
     {
         [self setLabels:smd_0 dv90:d90_0];
 
@@ -164,7 +164,8 @@
     {
         self.smdTarget = 1.0e-6*[self.smdTargetTextField.text floatValue];
         self.dv90Target = 1.0e-6*[self.dv90TargetTextField.text floatValue];
-
+        self.errMax = [self.urlxTtextField.text floatValue];
+        
         if (!self.calculationAborted)
         {
             self.deltak = 0.1;
@@ -179,6 +180,11 @@
         [self.calculateButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     }
 
+    
+}
+
+- (void)findSizeRange:(double)maxValue
+{
     
 }
 
