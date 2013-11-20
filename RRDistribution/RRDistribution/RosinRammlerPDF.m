@@ -30,4 +30,13 @@
     return v;
 }
 
+- (float)value:(float)x
+{
+    double y = x/self.lambda;
+    double a = pow(y, self.k-1.0);
+    double t = pow(y, self.k);
+    double b = exp(-t);
+    
+    return a*b;
+}
 @end

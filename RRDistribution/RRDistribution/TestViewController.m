@@ -124,4 +124,8 @@
     }
 }
 
+- (IBAction)findRangeButtonClicked:(id)sender
+{
+    [self.delegate calculatePDFValues];
+}
 @end

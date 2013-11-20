@@ -28,5 +28,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *dv90Label;
 - (IBAction)TestButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *testButton;
+- (IBAction)findRangeButtonClicked:(id)sender;
 
 @end

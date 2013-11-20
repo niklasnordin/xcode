@@ -28,7 +28,11 @@
 @property (strong, nonatomic) RosinRammlerPDF<pdf> *function;
 @property (nonatomic) double lambda;
 @property (nonatomic) double k;
+@property (nonatomic) double *xValues;
+@property (nonatomic) double *pdfValues;
+
 - (IBAction)calculateButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *calculateButton;
+- (void)calculatePDFValues;
 
 @end

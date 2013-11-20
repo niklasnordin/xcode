@@ -10,6 +10,8 @@
 #import "TestViewController.h"
 #include "gammaFunctions.h"
 
+#define NX 500
+
 @interface RRDistributionViewController ()
 
 @property (strong, nonatomic) NSTimer *timer;
@@ -49,6 +51,9 @@
             _normalStateColor = self.calculateButton.titleLabel.textColor;
         }
     }
+    
+    _xValues = malloc(NX*sizeof(double));
+    _pdfValues = malloc(NX*sizeof(double));
 }
 
 - (void)didReceiveMemoryWarning
@@ -183,9 +188,32 @@
     
 }
 
-- (void)findSizeRange:(double)maxValue
+- (double)xAtPeakValue
 {
-    
+    double ik = 1.0/self.k;
+    return self.lambda*pow(2.0*ik+1.0, ik);
+}
+
+- (void)calculatePDFValues
+{
+    self.function.k = self.k;
+    self.function.lambda = self.lambda;
+
+    double xTop = [self xAtPeakValue];
+    double xMin = 1.0e-3*xTop;
+    double xMax = 1.0e+2*xTop;
+    double ymax = 10.0;
+
+    for(int i=0; i<NX; i++)
+    {
+        
+        double frac = (pow(10.0, i/(NX-1.0)) - 1.0)/(ymax - 1.0);
+        double xv = xMin + frac*(xMax-xMin);
+        self.xValues[i] = xv;
+        self.pdfValues[i] = [self.function value:xv];
+        //NSLog(@"x = %g",self.xValues[i]);
+    }
+
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

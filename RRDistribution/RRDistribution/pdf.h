@@ -11,5 +11,6 @@
 @protocol pdf <NSObject>
 
 - (float)sample:(float)x;
+- (float)value:(float)x;
 
 @end
