@@ -34,5 +34,9 @@
 - (IBAction)calculateButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *calculateButton;
 - (void)calculatePDFValues;
+- (double)findDv90;
+- (double)findSMD;
+
+- (void)addDrop:(double)x;
 
 @end

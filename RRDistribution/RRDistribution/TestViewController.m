@@ -67,15 +67,12 @@
     }
     else
     {
-        float k = [self.kTextField.text floatValue];
-        float lambda = [self.lambdaTextField.text floatValue];
-        self.function.k = k;
-        self.function.lambda = lambda;
-        float average = lambda*tgammaf(1.0+1.0/k);
-        [self.dv90Label setText:[NSString stringWithFormat:@"%g",average]];
+        self.function.k = [self.kTextField.text floatValue];
+        self.function.lambda = [self.lambdaTextField.text floatValue];
+
         if (self.iterationIndex >= [self.nSamplesTextField.text intValue])
         {
-            NSLog(@"helloooo");
+            //NSLog(@"helloooo");
             self.iterationIndex = 1;
             self.sumSMD = 0.0;
             [self.smdLabel setText:@""];
@@ -98,17 +95,16 @@
 {
     float x = ((float)rand())/RAND_MAX;
     float f = [self.function sample:x];
-    self.sumSMD += f;
-    float lambda = [self.lambdaTextField.text floatValue];
-    float k = [self.kTextField.text floatValue];
-    float smd = lambda*tgammaf(1.0 + 3.0/k)/tgammaf(1.0+2.0/k);
-    //float dv90 = lambda*find_Dv(k, 0.9);
+    [self.delegate addDrop:f];
+    float dv90 = [self.delegate findDv90];
+    float smd = [self.delegate findSMD];
+    
     NSString *labelText = [NSString stringWithFormat:@"%d", self.iterationIndex];
     [self.iterationLabel setText:labelText];
-    NSLog(@"%g %g %g",x,f,smd*1.0e+6);
+
     NSString *smdText = [NSString stringWithFormat:@"%g",smd*1.0e+6];
     [self.smdLabel setText:smdText];
-    //[self.dv90Label setText:[NSString stringWithFormat:@"%g",dv90*1.0e+6]];
+    [self.dv90Label setText:[NSString stringWithFormat:@"%g",dv90*1.0e+6]];
     
     self.iterationIndex = self.iterationIndex + 1;
     

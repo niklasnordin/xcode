@@ -54,6 +54,16 @@
     
     _xValues = malloc(NX*sizeof(double));
     _pdfValues = malloc(NX*sizeof(double));
+    [self clearPDF];
+
+}
+
+- (void)clearPDF
+{
+    for (int i=0; i<NX; i++)
+    {
+        self.pdfValues[i] = 0.0;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -206,16 +216,87 @@
 
     for(int i=0; i<NX; i++)
     {
-        
         double frac = (pow(10.0, i/(NX-1.0)) - 1.0)/(ymax - 1.0);
         double xv = xMin + frac*(xMax-xMin);
         self.xValues[i] = xv;
-        self.pdfValues[i] = [self.function value:xv];
-        //NSLog(@"x = %g",self.xValues[i]);
     }
 
 }
 
+- (double)findDv90
+{
+    double sum = 0.0;
+    int ii = 0;
+    bool found = false;
+    double cumPDF[NX];
+    cumPDF[0] = 0.0;
+    for(int i=1; i<NX; i++)
+    {
+        double x0 = self.xValues[i-1];
+        double x1 = self.xValues[i];
+        sum += 0.5*(x1-x0)*(x0*x0*x0*self.pdfValues[i-1] + x1*x1*x1*self.pdfValues[i]);
+        cumPDF[i] = sum;
+    }
+    
+    while (ii<NX && !found)
+    {
+        
+        ii++;
+        
+    }
+    
+    return 0.0;
+}
+
+- (double)findSMD
+{
+    double sum2 = 0.0;
+    double sum3 = 0.0;
+    
+    for(int i=0; i<NX-1; i++)
+    {
+        double d0 = self.xValues[i];
+        double d02 = d0*d0;
+        double d03 = d0*d02;
+        
+        double d1 = self.xValues[i+1];
+        double d12 = d1*d1;
+        double d13 = d1*d12;
+        
+        sum2 += 0.5*(d1-d0)*(d02*self.pdfValues[i] + d12*self.pdfValues[i+1]);
+        sum3 += 0.5*(d1-d0)*(d03*self.pdfValues[i] + d13*self.pdfValues[i+1]);
+        
+    }
+
+    return sum3/sum2;
+}
+
+- (void)addDrop:(double)x
+{
+    bool found = false;
+    int i=0;
+    if (x < self.xValues[0])
+    {
+        found = true;
+        self.pdfValues[i]++;
+    }
+    
+    if (x > self.xValues[NX-1])
+    {
+        found = true;
+        self.pdfValues[NX-1]++;
+    }
+    
+    while ((i<NX) && !found)
+    {
+        if (( x > self.xValues[i]) && ( x <= self.xValues[i+1]))
+        {
+            self.pdfValues[i]++;
+            found = true;
+        }
+        i++;
+    }
+}
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
