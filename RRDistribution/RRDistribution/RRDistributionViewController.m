@@ -226,7 +226,6 @@
 - (double)findDv90
 {
     double sum = 0.0;
-    int ii = 0;
     bool found = false;
     double cumPDF[NX];
     cumPDF[0] = 0.0;
@@ -238,14 +237,19 @@
         cumPDF[i] = sum;
     }
     
+    int ii = NX-1;
     while (ii<NX && !found)
     {
-        
-        ii++;
-        
+        ii--;
+        if (cumPDF[ii] < 0.9*sum)
+        {
+            found = true;
+        }
     }
     
-    return 0.0;
+    return self.xValues[ii]
+            + (self.xValues[ii+1]-self.xValues[ii])
+            * (0.9*sum - cumPDF[ii])/(cumPDF[ii+1]-cumPDF[ii]);
 }
 
 - (double)findSMD
