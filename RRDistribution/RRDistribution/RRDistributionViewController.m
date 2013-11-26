@@ -10,7 +10,7 @@
 #import "TestViewController.h"
 #include "gammaFunctions.h"
 
-#define NX 500
+#define NX 100
 
 @interface RRDistributionViewController ()
 
@@ -211,7 +211,7 @@
 
     double xTop = [self xAtPeakValue];
     double xMin = 1.0e-3*xTop;
-    double xMax = 1.0e+2*xTop;
+    double xMax = 1.0e+1*xTop;
     double ymax = 10.0;
 
     for(int i=0; i<NX; i++)
@@ -246,7 +246,8 @@
             found = true;
         }
     }
-    
+    NSLog(@"%i: %g %g",ii,self.xValues[ii],self.xValues[ii+1]);
+    NSLog(@"%g %g", cumPDF[ii]/sum, cumPDF[ii+1]/sum);
     return self.xValues[ii]
             + (self.xValues[ii+1]-self.xValues[ii])
             * (0.9*sum - cumPDF[ii])/(cumPDF[ii+1]-cumPDF[ii]);

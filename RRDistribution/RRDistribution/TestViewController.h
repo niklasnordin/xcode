@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *lambdaTextField;
 @property (weak, nonatomic) IBOutlet UITextField *kTextField;
 - (IBAction)pasteButtonPressed:(id)sender;
+- (IBAction)clearButtonPressend:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *iterationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *smdLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dv90Label;

@@ -53,6 +53,15 @@
     NSLog(@"paste pressed");
     [self.kTextField setText:[NSString stringWithFormat:@"%g",self.delegate.k]];
     [self.lambdaTextField setText:[NSString stringWithFormat:@"%g",self.delegate.lambda]];
+    [self.delegate calculatePDFValues];
+}
+
+- (IBAction)clearButtonPressend:(id)sender
+{
+    self.iterationIndex = 0;
+    self.sumSMD = 0.0;
+    [self.delegate clearPDF];
+    [self updateLabels:0 smd:0 dv90:0];
 }
 
 - (IBAction)TestButtonPressed:(id)sender
@@ -67,8 +76,8 @@
     }
     else
     {
-        self.function.k = [self.kTextField.text floatValue];
-        self.function.lambda = [self.lambdaTextField.text floatValue];
+        self.function.k = self.delegate.k;
+        self.function.lambda = self.delegate.lambda;
 
         if (self.iterationIndex >= [self.nSamplesTextField.text intValue])
         {
@@ -91,32 +100,44 @@
     return YES;
 }
 
+- (void)updateLabels:(int)it smd:(double)smd dv90:(double)dv90
+{
+    NSString *labelText = [NSString stringWithFormat:@"%d", self.iterationIndex];
+    [self.iterationLabel setText:labelText];
+    
+    NSString *smdText = [NSString stringWithFormat:@"%g",smd*1.0e+6];
+    [self.smdLabel setText:smdText];
+    [self.dv90Label setText:[NSString stringWithFormat:@"%g",dv90*1.0e+6]];
+}
+
 - (void)runIterations
 {
     float x = ((float)rand())/RAND_MAX;
+    x = fminf(x, 1.0-1.0e-6);
     float f = [self.function sample:x];
     [self.delegate addDrop:f];
     float dv90 = [self.delegate findDv90];
     float smd = [self.delegate findSMD];
     
-    NSString *labelText = [NSString stringWithFormat:@"%d", self.iterationIndex];
-    [self.iterationLabel setText:labelText];
-
-    NSString *smdText = [NSString stringWithFormat:@"%g",smd*1.0e+6];
-    [self.smdLabel setText:smdText];
-    [self.dv90Label setText:[NSString stringWithFormat:@"%g",dv90*1.0e+6]];
+    if (self.iterationIndex % 100 == 0)
+    {
+        [self updateLabels:self.iterationIndex smd:smd dv90:dv90];
+    }
     
     self.iterationIndex = self.iterationIndex + 1;
     
     // max iterations reached
     if (self.iterationIndex > [self.nSamplesTextField.text intValue])
     {
-        NSLog(@"done");
+        [self updateLabels:self.iterationIndex smd:smd dv90:dv90];
+
+        //NSLog(@"done");
         [self.timer invalidate];
         [self.testButton setTitle:@"Start Test" forState:UIControlStateNormal];
         [self.testButton setTitleColor:self.normalStateColor forState:UIControlStateNormal];
         self.iterationIndex = 0;
         self.sumSMD = 0.0;
+        [self.delegate clearPDF];
     }
 }
 
