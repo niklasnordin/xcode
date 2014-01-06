@@ -246,8 +246,8 @@
             found = true;
         }
     }
-    NSLog(@"%i: %g %g",ii,self.xValues[ii],self.xValues[ii+1]);
-    NSLog(@"%g %g", cumPDF[ii]/sum, cumPDF[ii+1]/sum);
+    //NSLog(@"%i: %g %g",ii,self.xValues[ii],self.xValues[ii+1]);
+    //NSLog(@"%g %g", cumPDF[ii]/sum, cumPDF[ii+1]/sum);
     return self.xValues[ii]
             + (self.xValues[ii+1]-self.xValues[ii])
             * (0.9*sum - cumPDF[ii])/(cumPDF[ii+1]-cumPDF[ii]);
