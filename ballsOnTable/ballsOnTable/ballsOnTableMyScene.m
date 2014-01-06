@@ -16,7 +16,7 @@
     {
         /* Setup your scene here */
         
-        self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
+        self.backgroundColor = [SKColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1.0];
         
         SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
         
@@ -44,7 +44,7 @@
     {
         CGPoint location = [touch locationInNode:self];
         
-        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"ballSmall"];
+        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"round"];
         sprite.size = CGSizeMake(20.0, 20.0);
         sprite.name = @"ball";
         sprite.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:10.0];

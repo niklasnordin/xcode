@@ -29,6 +29,7 @@
 		61C4731318799F3A009956F8 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C4731118799F3A009956F8 /* spark.png */; };
 		61C473151879ADC2009956F8 /* ballSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C473141879ADC2009956F8 /* ballSmall.png */; };
 		61C57BD9187AD9C700887F5E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57BD8187AD9C700887F5E /* CoreMotion.framework */; };
+		61C57BDB187AE31000887F5E /* round.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C57BDA187AE31000887F5E /* round.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		61C4731118799F3A009956F8 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		61C473141879ADC2009956F8 /* ballSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ballSmall.png; sourceTree = "<group>"; };
 		61C57BD8187AD9C700887F5E /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		61C57BDA187AE31000887F5E /* round.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = round.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 				61C472EF18797AE1009956F8 /* ballsOnTableMyScene.m */,
 				61C4731018799F3A009956F8 /* MyParticle.sks */,
 				61C4731118799F3A009956F8 /* spark.png */,
+				61C57BDA187AE31000887F5E /* round.png */,
 				61C472F118797AE1009956F8 /* Spaceship.png */,
 				61C473141879ADC2009956F8 /* ballSmall.png */,
 				61C472F318797AE1009956F8 /* Images.xcassets */,
@@ -260,6 +263,7 @@
 				61C472F218797AE1009956F8 /* Spaceship.png in Resources */,
 				61C4731218799F3A009956F8 /* MyParticle.sks in Resources */,
 				61C472F418797AE1009956F8 /* Images.xcassets in Resources */,
+				61C57BDB187AE31000887F5E /* round.png in Resources */,
 				61C4731318799F3A009956F8 /* spark.png in Resources */,
 				61C473151879ADC2009956F8 /* ballSmall.png in Resources */,
 				61C472EA18797AE1009956F8 /* Main_iPad.storyboard in Resources */,
