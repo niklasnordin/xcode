@@ -44,10 +44,11 @@
     {
         CGPoint location = [touch locationInNode:self];
         
+        float radius = 15.0;
         SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"round"];
-        sprite.size = CGSizeMake(20.0, 20.0);
+        sprite.size = CGSizeMake(2*radius, 2*radius);
         sprite.name = @"ball";
-        sprite.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:10.0];
+        sprite.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:radius];
         sprite.position = location;
         sprite.physicsBody.dynamic = YES;
         sprite.physicsBody.affectedByGravity = YES;
