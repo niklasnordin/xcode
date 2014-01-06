@@ -29,6 +29,9 @@
         self.physicsBody.categoryBitMask = wallCategory;
         [self setPhysicsBody:[SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame]];
 
+        self.motionManager = [[CMMotionManager alloc] init];
+        [self.motionManager startDeviceMotionUpdates];
+        
     }
     return self;
 }
@@ -42,29 +45,39 @@
         CGPoint location = [touch locationInNode:self];
         
         SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"ballSmall"];
+        sprite.size = CGSizeMake(20.0, 20.0);
         sprite.name = @"ball";
-        sprite.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:25.0];
+        sprite.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:10.0];
         sprite.position = location;
         sprite.physicsBody.dynamic = YES;
         sprite.physicsBody.affectedByGravity = YES;
         sprite.physicsBody.categoryBitMask = ballCategory;
         sprite.physicsBody.collisionBitMask = wallCategory || ballCategory;
 
-        sprite.physicsBody.restitution = 0.9;
+        sprite.physicsBody.restitution = 0.8;
         sprite.physicsBody.friction = 0.1;
-        sprite.physicsBody.linearDamping = 0.1;
-        sprite.physicsBody.angularDamping = 0.1;
+        sprite.physicsBody.linearDamping = 0.3;
+        sprite.physicsBody.angularDamping = 0.0;
         
-        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-        
-        [sprite runAction:[SKAction repeatActionForever:action]];
+        //SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
+        //[sprite runAction:[SKAction repeatActionForever:action]];
         
         [self addChild:sprite];
     }
 }
 
--(void)update:(CFTimeInterval)currentTime {
+-(void)update:(CFTimeInterval)currentTime
+{
+    CGFloat scale = 10.0;
+    CGFloat accScale = 50.0;
     /* Called before each frame is rendered */
+    CMAcceleration gravity = self.motionManager.deviceMotion.gravity;
+    CMAcceleration acc = self.motionManager.deviceMotion.userAcceleration;
+    //NSLog(@"gravity = %f %f %f",gravity.x, gravity.y, gravity.z);
+    CGVector g = CGVectorMake(scale*gravity.x, scale*gravity.y);
+    CGVector a = CGVectorMake(accScale*acc.x, accScale*acc.y);
+    CGVector ag = CGVectorMake(a.dx + g.dx, a.dy+g.dy);
+    self.physicsWorld.gravity = ag;
 }
 
 @end
