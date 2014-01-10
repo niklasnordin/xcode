@@ -1,0 +1,514 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		61C57BE91880378A00887F5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57BE81880378A00887F5E /* Foundation.framework */; };
+		61C57BEB1880378A00887F5E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57BEA1880378A00887F5E /* CoreGraphics.framework */; };
+		61C57BED1880378A00887F5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57BEC1880378A00887F5E /* UIKit.framework */; };
+		61C57BEF1880378A00887F5E /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57BEE1880378A00887F5E /* SpriteKit.framework */; };
+		61C57BF51880378A00887F5E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61C57BF31880378A00887F5E /* InfoPlist.strings */; };
+		61C57BF71880378A00887F5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C57BF61880378A00887F5E /* main.m */; };
+		61C57BFB1880378A00887F5E /* levelIndicatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C57BFA1880378A00887F5E /* levelIndicatorAppDelegate.m */; };
+		61C57BFE1880378A00887F5E /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61C57BFC1880378A00887F5E /* Main_iPhone.storyboard */; };
+		61C57C011880378A00887F5E /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61C57BFF1880378A00887F5E /* Main_iPad.storyboard */; };
+		61C57C041880378A00887F5E /* levelIndicatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C57C031880378A00887F5E /* levelIndicatorViewController.m */; };
+		61C57C071880378A00887F5E /* levelIndicatorMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C57C061880378A00887F5E /* levelIndicatorMyScene.m */; };
+		61C57C091880378A00887F5E /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C57C081880378A00887F5E /* Spaceship.png */; };
+		61C57C0B1880378A00887F5E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61C57C0A1880378A00887F5E /* Images.xcassets */; };
+		61C57C121880378A00887F5E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C111880378A00887F5E /* XCTest.framework */; };
+		61C57C131880378A00887F5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57BE81880378A00887F5E /* Foundation.framework */; };
+		61C57C141880378A00887F5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57BEC1880378A00887F5E /* UIKit.framework */; };
+		61C57C1C1880378A00887F5E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61C57C1A1880378A00887F5E /* InfoPlist.strings */; };
+		61C57C1E1880378A00887F5E /* levelIndicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C57C1D1880378A00887F5E /* levelIndicatorTests.m */; };
+		61C57C281880438D00887F5E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C271880438D00887F5E /* CoreMotion.framework */; };
+		61C57C2A18804BBD00887F5E /* hollowBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C57C2918804BBD00887F5E /* hollowBall.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		61C57C151880378A00887F5E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61C57BDD1880378A00887F5E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 61C57BE41880378A00887F5E;
+			remoteInfo = levelIndicator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		61C57BE51880378A00887F5E /* levelIndicator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = levelIndicator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		61C57BE81880378A00887F5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		61C57BEA1880378A00887F5E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		61C57BEC1880378A00887F5E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		61C57BEE1880378A00887F5E /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		61C57BF21880378A00887F5E /* levelIndicator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "levelIndicator-Info.plist"; sourceTree = "<group>"; };
+		61C57BF41880378A00887F5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		61C57BF61880378A00887F5E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		61C57BF81880378A00887F5E /* levelIndicator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "levelIndicator-Prefix.pch"; sourceTree = "<group>"; };
+		61C57BF91880378A00887F5E /* levelIndicatorAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = levelIndicatorAppDelegate.h; sourceTree = "<group>"; };
+		61C57BFA1880378A00887F5E /* levelIndicatorAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = levelIndicatorAppDelegate.m; sourceTree = "<group>"; };
+		61C57BFD1880378A00887F5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		61C57C001880378A00887F5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		61C57C021880378A00887F5E /* levelIndicatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = levelIndicatorViewController.h; sourceTree = "<group>"; };
+		61C57C031880378A00887F5E /* levelIndicatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = levelIndicatorViewController.m; sourceTree = "<group>"; };
+		61C57C051880378A00887F5E /* levelIndicatorMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = levelIndicatorMyScene.h; sourceTree = "<group>"; };
+		61C57C061880378A00887F5E /* levelIndicatorMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = levelIndicatorMyScene.m; sourceTree = "<group>"; };
+		61C57C081880378A00887F5E /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		61C57C0A1880378A00887F5E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		61C57C101880378A00887F5E /* levelIndicatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = levelIndicatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		61C57C111880378A00887F5E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		61C57C191880378A00887F5E /* levelIndicatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "levelIndicatorTests-Info.plist"; sourceTree = "<group>"; };
+		61C57C1B1880378A00887F5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		61C57C1D1880378A00887F5E /* levelIndicatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = levelIndicatorTests.m; sourceTree = "<group>"; };
+		61C57C271880438D00887F5E /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		61C57C2918804BBD00887F5E /* hollowBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hollowBall.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		61C57BE21880378A00887F5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61C57C281880438D00887F5E /* CoreMotion.framework in Frameworks */,
+				61C57BEB1880378A00887F5E /* CoreGraphics.framework in Frameworks */,
+				61C57BED1880378A00887F5E /* UIKit.framework in Frameworks */,
+				61C57BEF1880378A00887F5E /* SpriteKit.framework in Frameworks */,
+				61C57BE91880378A00887F5E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61C57C0D1880378A00887F5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61C57C121880378A00887F5E /* XCTest.framework in Frameworks */,
+				61C57C141880378A00887F5E /* UIKit.framework in Frameworks */,
+				61C57C131880378A00887F5E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		61C57BDC1880378A00887F5E = {
+			isa = PBXGroup;
+			children = (
+				61C57BF01880378A00887F5E /* levelIndicator */,
+				61C57C171880378A00887F5E /* levelIndicatorTests */,
+				61C57BE71880378A00887F5E /* Frameworks */,
+				61C57BE61880378A00887F5E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		61C57BE61880378A00887F5E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				61C57BE51880378A00887F5E /* levelIndicator.app */,
+				61C57C101880378A00887F5E /* levelIndicatorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		61C57BE71880378A00887F5E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				61C57C271880438D00887F5E /* CoreMotion.framework */,
+				61C57BE81880378A00887F5E /* Foundation.framework */,
+				61C57BEA1880378A00887F5E /* CoreGraphics.framework */,
+				61C57BEC1880378A00887F5E /* UIKit.framework */,
+				61C57BEE1880378A00887F5E /* SpriteKit.framework */,
+				61C57C111880378A00887F5E /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		61C57BF01880378A00887F5E /* levelIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				61C57BFC1880378A00887F5E /* Main_iPhone.storyboard */,
+				61C57BFF1880378A00887F5E /* Main_iPad.storyboard */,
+				61C57BF91880378A00887F5E /* levelIndicatorAppDelegate.h */,
+				61C57BFA1880378A00887F5E /* levelIndicatorAppDelegate.m */,
+				61C57C021880378A00887F5E /* levelIndicatorViewController.h */,
+				61C57C031880378A00887F5E /* levelIndicatorViewController.m */,
+				61C57C051880378A00887F5E /* levelIndicatorMyScene.h */,
+				61C57C061880378A00887F5E /* levelIndicatorMyScene.m */,
+				61C57C081880378A00887F5E /* Spaceship.png */,
+				61C57C2918804BBD00887F5E /* hollowBall.png */,
+				61C57C0A1880378A00887F5E /* Images.xcassets */,
+				61C57BF11880378A00887F5E /* Supporting Files */,
+			);
+			path = levelIndicator;
+			sourceTree = "<group>";
+		};
+		61C57BF11880378A00887F5E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				61C57BF21880378A00887F5E /* levelIndicator-Info.plist */,
+				61C57BF31880378A00887F5E /* InfoPlist.strings */,
+				61C57BF61880378A00887F5E /* main.m */,
+				61C57BF81880378A00887F5E /* levelIndicator-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		61C57C171880378A00887F5E /* levelIndicatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				61C57C1D1880378A00887F5E /* levelIndicatorTests.m */,
+				61C57C181880378A00887F5E /* Supporting Files */,
+			);
+			path = levelIndicatorTests;
+			sourceTree = "<group>";
+		};
+		61C57C181880378A00887F5E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				61C57C191880378A00887F5E /* levelIndicatorTests-Info.plist */,
+				61C57C1A1880378A00887F5E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		61C57BE41880378A00887F5E /* levelIndicator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61C57C211880378A00887F5E /* Build configuration list for PBXNativeTarget "levelIndicator" */;
+			buildPhases = (
+				61C57BE11880378A00887F5E /* Sources */,
+				61C57BE21880378A00887F5E /* Frameworks */,
+				61C57BE31880378A00887F5E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = levelIndicator;
+			productName = levelIndicator;
+			productReference = 61C57BE51880378A00887F5E /* levelIndicator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		61C57C0F1880378A00887F5E /* levelIndicatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61C57C241880378A00887F5E /* Build configuration list for PBXNativeTarget "levelIndicatorTests" */;
+			buildPhases = (
+				61C57C0C1880378A00887F5E /* Sources */,
+				61C57C0D1880378A00887F5E /* Frameworks */,
+				61C57C0E1880378A00887F5E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				61C57C161880378A00887F5E /* PBXTargetDependency */,
+			);
+			name = levelIndicatorTests;
+			productName = levelIndicatorTests;
+			productReference = 61C57C101880378A00887F5E /* levelIndicatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		61C57BDD1880378A00887F5E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = levelIndicator;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Niklas Nordin";
+				TargetAttributes = {
+					61C57C0F1880378A00887F5E = {
+						TestTargetID = 61C57BE41880378A00887F5E;
+					};
+				};
+			};
+			buildConfigurationList = 61C57BE01880378A00887F5E /* Build configuration list for PBXProject "levelIndicator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 61C57BDC1880378A00887F5E;
+			productRefGroup = 61C57BE61880378A00887F5E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				61C57BE41880378A00887F5E /* levelIndicator */,
+				61C57C0F1880378A00887F5E /* levelIndicatorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		61C57BE31880378A00887F5E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61C57C091880378A00887F5E /* Spaceship.png in Resources */,
+				61C57C0B1880378A00887F5E /* Images.xcassets in Resources */,
+				61C57C011880378A00887F5E /* Main_iPad.storyboard in Resources */,
+				61C57C2A18804BBD00887F5E /* hollowBall.png in Resources */,
+				61C57BFE1880378A00887F5E /* Main_iPhone.storyboard in Resources */,
+				61C57BF51880378A00887F5E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61C57C0E1880378A00887F5E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61C57C1C1880378A00887F5E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		61C57BE11880378A00887F5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61C57BF71880378A00887F5E /* main.m in Sources */,
+				61C57BFB1880378A00887F5E /* levelIndicatorAppDelegate.m in Sources */,
+				61C57C041880378A00887F5E /* levelIndicatorViewController.m in Sources */,
+				61C57C071880378A00887F5E /* levelIndicatorMyScene.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61C57C0C1880378A00887F5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61C57C1E1880378A00887F5E /* levelIndicatorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		61C57C161880378A00887F5E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 61C57BE41880378A00887F5E /* levelIndicator */;
+			targetProxy = 61C57C151880378A00887F5E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		61C57BF31880378A00887F5E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61C57BF41880378A00887F5E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		61C57BFC1880378A00887F5E /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61C57BFD1880378A00887F5E /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		61C57BFF1880378A00887F5E /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61C57C001880378A00887F5E /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		61C57C1A1880378A00887F5E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61C57C1B1880378A00887F5E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		61C57C1F1880378A00887F5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		61C57C201880378A00887F5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		61C57C221880378A00887F5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "levelIndicator/levelIndicator-Prefix.pch";
+				INFOPLIST_FILE = "levelIndicator/levelIndicator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		61C57C231880378A00887F5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "levelIndicator/levelIndicator-Prefix.pch";
+				INFOPLIST_FILE = "levelIndicator/levelIndicator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		61C57C251880378A00887F5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/levelIndicator.app/levelIndicator";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "levelIndicator/levelIndicator-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "levelIndicatorTests/levelIndicatorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		61C57C261880378A00887F5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/levelIndicator.app/levelIndicator";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "levelIndicator/levelIndicator-Prefix.pch";
+				INFOPLIST_FILE = "levelIndicatorTests/levelIndicatorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		61C57BE01880378A00887F5E /* Build configuration list for PBXProject "levelIndicator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61C57C1F1880378A00887F5E /* Debug */,
+				61C57C201880378A00887F5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		61C57C211880378A00887F5E /* Build configuration list for PBXNativeTarget "levelIndicator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61C57C221880378A00887F5E /* Debug */,
+				61C57C231880378A00887F5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		61C57C241880378A00887F5E /* Build configuration list for PBXNativeTarget "levelIndicatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61C57C251880378A00887F5E /* Debug */,
+				61C57C261880378A00887F5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 61C57BDD1880378A00887F5E /* Project object */;
+}
