@@ -27,6 +27,8 @@
 		61C57C1E1880378A00887F5E /* levelIndicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C57C1D1880378A00887F5E /* levelIndicatorTests.m */; };
 		61C57C281880438D00887F5E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C271880438D00887F5E /* CoreMotion.framework */; };
 		61C57C2A18804BBD00887F5E /* hollowBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C57C2918804BBD00887F5E /* hollowBall.png */; };
+		61C57C301881817500887F5E /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C57C2F1881817500887F5E /* circle.png */; };
+		61C57C381881869400887F5E /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C57C371881869400887F5E /* square.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		61C57C1D1880378A00887F5E /* levelIndicatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = levelIndicatorTests.m; sourceTree = "<group>"; };
 		61C57C271880438D00887F5E /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		61C57C2918804BBD00887F5E /* hollowBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hollowBall.png; sourceTree = "<group>"; };
+		61C57C2F1881817500887F5E /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
+		61C57C371881869400887F5E /* square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,8 @@
 				61C57C061880378A00887F5E /* levelIndicatorMyScene.m */,
 				61C57C081880378A00887F5E /* Spaceship.png */,
 				61C57C2918804BBD00887F5E /* hollowBall.png */,
+				61C57C371881869400887F5E /* square.png */,
+				61C57C2F1881817500887F5E /* circle.png */,
 				61C57C0A1880378A00887F5E /* Images.xcassets */,
 				61C57BF11880378A00887F5E /* Supporting Files */,
 			);
@@ -257,6 +263,8 @@
 				61C57C2A18804BBD00887F5E /* hollowBall.png in Resources */,
 				61C57BFE1880378A00887F5E /* Main_iPhone.storyboard in Resources */,
 				61C57BF51880378A00887F5E /* InfoPlist.strings in Resources */,
+				61C57C381881869400887F5E /* square.png in Resources */,
+				61C57C301881817500887F5E /* circle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
