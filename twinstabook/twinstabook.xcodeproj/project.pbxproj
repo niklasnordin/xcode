@@ -23,6 +23,7 @@
 		61C57C6D18897BA600887F5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4918897BA600887F5E /* UIKit.framework */; };
 		61C57C7518897BA600887F5E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61C57C7318897BA600887F5E /* InfoPlist.strings */; };
 		61C57C7718897BA600887F5E /* twinstabookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C57C7618897BA600887F5E /* twinstabookTests.m */; };
+		61C57C81188A660900887F5E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C80188A660900887F5E /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		61C57C7218897BA600887F5E /* twinstabookTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "twinstabookTests-Info.plist"; sourceTree = "<group>"; };
 		61C57C7418897BA600887F5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		61C57C7618897BA600887F5E /* twinstabookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = twinstabookTests.m; sourceTree = "<group>"; };
+		61C57C80188A660900887F5E /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61C57C81188A660900887F5E /* FacebookSDK.framework in Frameworks */,
 				61C57C4818897BA600887F5E /* CoreGraphics.framework in Frameworks */,
 				61C57C4A18897BA600887F5E /* UIKit.framework in Frameworks */,
 				61C57C4618897BA600887F5E /* Foundation.framework in Frameworks */,
@@ -106,6 +109,7 @@
 		61C57C4418897BA600887F5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				61C57C80188A660900887F5E /* FacebookSDK.framework */,
 				61C57C4518897BA600887F5E /* Foundation.framework */,
 				61C57C4718897BA600887F5E /* CoreGraphics.framework */,
 				61C57C4918897BA600887F5E /* UIKit.framework */,
@@ -399,6 +403,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/niklasnordin/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "twinstabook/twinstabook-Prefix.pch";
 				INFOPLIST_FILE = "twinstabook/twinstabook-Info.plist";
@@ -412,6 +420,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/niklasnordin/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "twinstabook/twinstabook-Prefix.pch";
 				INFOPLIST_FILE = "twinstabook/twinstabook-Info.plist";
