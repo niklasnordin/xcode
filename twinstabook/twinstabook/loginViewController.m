@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Niklas Nordin. All rights reserved.
 //
 
-#import "twinstabookSecondViewController.h"
+#import "loginViewController.h"
 
-@interface twinstabookSecondViewController ()
+@interface loginViewController ()
 
 @end
 
-@implementation twinstabookSecondViewController
+@implementation loginViewController
 
 - (void)viewDidLoad
 {

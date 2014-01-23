@@ -16,16 +16,6 @@
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         
-        self.angleLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-        
-        self.angleLabel.text = @"Hello, World!";
-        self.angleLabel.fontSize = 25;
-        
-        self.angleLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                       CGRectGetMidY(self.frame));
-        
-        [self addChild:self.angleLabel];
-        
         self.motionManager = [[CMMotionManager alloc] init];
         [self.motionManager startDeviceMotionUpdates];
         
@@ -65,6 +55,20 @@
         self.verticalBubble.alpha = 0.5;
         
         [self addChild:self.verticalBubble];
+        
+        
+        self.angleLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+        self.angleLabel.text = @"Hello, World!";
+        self.angleLabel.fontSize = 25;
+        //self.angleLabel.position = CGPointMake(CGRectGetMidX(self.frame),
+         //                                      CGRectGetMidY(self.frame));
+        self.angleLabel.position = vBar;
+        
+        SKAction *action = [SKAction rotateByAngle:M_PI/2.0 duration:0];
+        [self.angleLabel runAction:action];
+        
+        [self addChild:self.angleLabel];
+
     }
     return self;
 }
@@ -103,7 +107,7 @@
     // yaw är rotationsvinkeln runt gravitations-riktingen
     double yaw = att.yaw*rad2deg;
     
-    self.angleLabel.text = [NSString stringWithFormat:@"%4.1f deg",roll];
+    self.angleLabel.text = [NSString stringWithFormat:@"%4.1f deg",pitch];
     
     CGPoint center;
     center.x = self.frame.origin.x + 0.5*self.frame.size.width;

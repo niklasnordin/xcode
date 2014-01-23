@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface twinstabookSecondViewController : UIViewController
+@interface loginViewController : UIViewController
 
 @end

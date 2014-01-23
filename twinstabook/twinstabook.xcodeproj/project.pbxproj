@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6188A2A918917CB9009C75EB /* tif_db.m in Sources */ = {isa = PBXBuildFile; fileRef = 6188A2A818917CB9009C75EB /* tif_db.m */; };
 		61C57C4618897BA600887F5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4518897BA600887F5E /* Foundation.framework */; };
 		61C57C4818897BA600887F5E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4718897BA600887F5E /* CoreGraphics.framework */; };
 		61C57C4A18897BA600887F5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4918897BA600887F5E /* UIKit.framework */; };
@@ -16,7 +17,7 @@
 		61C57C5918897BA600887F5E /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61C57C5718897BA600887F5E /* Main_iPhone.storyboard */; };
 		61C57C5C18897BA600887F5E /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61C57C5A18897BA600887F5E /* Main_iPad.storyboard */; };
 		61C57C5F18897BA600887F5E /* twinstabookFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C57C5E18897BA600887F5E /* twinstabookFirstViewController.m */; };
-		61C57C6218897BA600887F5E /* twinstabookSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C57C6118897BA600887F5E /* twinstabookSecondViewController.m */; };
+		61C57C6218897BA600887F5E /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C57C6118897BA600887F5E /* loginViewController.m */; };
 		61C57C6418897BA600887F5E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61C57C6318897BA600887F5E /* Images.xcassets */; };
 		61C57C6B18897BA600887F5E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C6A18897BA600887F5E /* XCTest.framework */; };
 		61C57C6C18897BA600887F5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4518897BA600887F5E /* Foundation.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6188A2A718917CB9009C75EB /* tif_db.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tif_db.h; sourceTree = "<group>"; };
+		6188A2A818917CB9009C75EB /* tif_db.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tif_db.m; sourceTree = "<group>"; };
 		61C57C4218897BA600887F5E /* twinstabook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twinstabook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C57C4518897BA600887F5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		61C57C4718897BA600887F5E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -51,8 +54,8 @@
 		61C57C5B18897BA600887F5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		61C57C5D18897BA600887F5E /* twinstabookFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = twinstabookFirstViewController.h; sourceTree = "<group>"; };
 		61C57C5E18897BA600887F5E /* twinstabookFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = twinstabookFirstViewController.m; sourceTree = "<group>"; };
-		61C57C6018897BA600887F5E /* twinstabookSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = twinstabookSecondViewController.h; sourceTree = "<group>"; };
-		61C57C6118897BA600887F5E /* twinstabookSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = twinstabookSecondViewController.m; sourceTree = "<group>"; };
+		61C57C6018897BA600887F5E /* loginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
+		61C57C6118897BA600887F5E /* loginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		61C57C6318897BA600887F5E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		61C57C6918897BA600887F5E /* twinstabookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = twinstabookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C57C6A18897BA600887F5E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -121,14 +124,16 @@
 		61C57C4B18897BA600887F5E /* twinstabook */ = {
 			isa = PBXGroup;
 			children = (
-				61C57C5418897BA600887F5E /* twinstabookAppDelegate.h */,
-				61C57C5518897BA600887F5E /* twinstabookAppDelegate.m */,
 				61C57C5718897BA600887F5E /* Main_iPhone.storyboard */,
 				61C57C5A18897BA600887F5E /* Main_iPad.storyboard */,
+				61C57C5418897BA600887F5E /* twinstabookAppDelegate.h */,
+				61C57C5518897BA600887F5E /* twinstabookAppDelegate.m */,
 				61C57C5D18897BA600887F5E /* twinstabookFirstViewController.h */,
 				61C57C5E18897BA600887F5E /* twinstabookFirstViewController.m */,
-				61C57C6018897BA600887F5E /* twinstabookSecondViewController.h */,
-				61C57C6118897BA600887F5E /* twinstabookSecondViewController.m */,
+				61C57C6018897BA600887F5E /* loginViewController.h */,
+				61C57C6118897BA600887F5E /* loginViewController.m */,
+				6188A2A718917CB9009C75EB /* tif_db.h */,
+				6188A2A818917CB9009C75EB /* tif_db.m */,
 				61C57C6318897BA600887F5E /* Images.xcassets */,
 				61C57C4C18897BA600887F5E /* Supporting Files */,
 			);
@@ -263,10 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61C57C6218897BA600887F5E /* twinstabookSecondViewController.m in Sources */,
+				61C57C6218897BA600887F5E /* loginViewController.m in Sources */,
 				61C57C5F18897BA600887F5E /* twinstabookFirstViewController.m in Sources */,
 				61C57C5618897BA600887F5E /* twinstabookAppDelegate.m in Sources */,
 				61C57C5218897BA600887F5E /* main.m in Sources */,
+				6188A2A918917CB9009C75EB /* tif_db.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +499,7 @@
 				61C57C7C18897BA600887F5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		61C57C7D18897BA600887F5E /* Build configuration list for PBXNativeTarget "twinstabookTests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +508,7 @@
 				61C57C7F18897BA600887F5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -48,16 +48,25 @@
         SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"round"];
         sprite.size = CGSizeMake(2*radius, 2*radius);
         sprite.name = @"ball";
+
         sprite.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:radius];
         sprite.position = location;
+        CGPoint center;
+        center.x = self.frame.origin.x + 0.5*self.frame.size.width;
+        center.y = self.frame.origin.y + 0.5*self.frame.size.height;
+        //sprite.position = center;
+
         sprite.physicsBody.dynamic = YES;
         sprite.physicsBody.affectedByGravity = YES;
+        sprite.physicsBody.usesPreciseCollisionDetection = NO;
         sprite.physicsBody.categoryBitMask = ballCategory;
         sprite.physicsBody.collisionBitMask = wallCategory || ballCategory;
 
-        sprite.physicsBody.restitution = 0.8;
+        sprite.physicsBody.restitution = 0.95;
         sprite.physicsBody.friction = 0.1;
-        sprite.physicsBody.linearDamping = 0.3;
+        
+        // airflow resistance
+        sprite.physicsBody.linearDamping = 0.0;
         sprite.physicsBody.angularDamping = 0.0;
         
         //SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
@@ -79,6 +88,23 @@
     CGVector a = CGVectorMake(accScale*acc.x, accScale*acc.y);
     CGVector ag = CGVectorMake(a.dx + g.dx, a.dy+g.dy);
     self.physicsWorld.gravity = ag;
+    
+    /*
+    CGPoint center;
+    center.x = self.frame.origin.x + 0.5*self.frame.size.width;
+    center.y = self.frame.origin.y + 0.5*self.frame.size.height;
+    
+    [self enumerateChildNodesWithName:@"ball" usingBlock: ^(SKNode *node, BOOL *stop)
+    {
+        //SKSpriteNode *ball = (SKSpriteNode *)node;
+        CGPoint pos;
+        pos.x = center.x - 0.5*self.frame.size.width*gravity.x;
+        pos.y = center.y - 0.5*self.frame.size.height*gravity.y;
+        node.position = pos;
+        
+    }];
+     */
+
 }
 
 @end
