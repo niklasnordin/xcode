@@ -18,6 +18,20 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.defaultTextColor = self.facebookButton.titleLabel.textColor;
+    self.appDelegate = (twinstabookAppDelegate *)[[UIApplication sharedApplication] delegate];
+
+    self.database = self.appDelegate.database;
+    
+    [self.facebookSwitch setOn:self.database.useFacebook];
+    [self setButtonStatus:self.database.useFacebook forButton:self.facebookButton];
+    
+    [self.twitterSwitch setOn:self.database.useTwitter];
+    [self setButtonStatus:self.database.useTwitter forButton:self.twitterButton];
+    
+    [self.instagramSwitch setOn:self.database.useInstagram];
+    [self setButtonStatus:self.database.useInstagram forButton:self.instagramButton];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -26,4 +40,47 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setButtonStatus:(BOOL)status forButton:(UIButton *)button
+{
+    UIColor *col = [UIColor redColor];
+    if (status)
+    {
+        col = self.defaultTextColor;
+    }
+    [button setTitleColor:col forState:UIControlStateNormal];
+    [button setEnabled:status];
+}
+
+- (IBAction)clickedFacebookSwitch:(UISwitch *)sender
+{
+    self.database.useFacebook = sender.on;
+    [self setButtonStatus:sender.on forButton:self.facebookButton];
+}
+
+- (IBAction)clickedFacebookButton:(id)sender
+{
+    NSLog(@"clicked facebook login");
+}
+
+- (IBAction)clickedTwitterSwitch:(UISwitch *)sender
+{
+    self.database.useTwitter = sender.on;
+    [self setButtonStatus:sender.on forButton:self.twitterButton];
+}
+
+- (IBAction)clickedTwitterButton:(id)sender
+{
+    NSLog(@"clicked twitter login");
+}
+
+- (IBAction)clickedInstagramSwitch:(UISwitch *)sender
+{
+    self.database.useInstagram = sender.on;
+    [self setButtonStatus:sender.on forButton:self.instagramButton];
+}
+
+- (IBAction)clickedInstagramButton:(id)sender
+{
+    NSLog(@"clicked instagram login");
+}
 @end

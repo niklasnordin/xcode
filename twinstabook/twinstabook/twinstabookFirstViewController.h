@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "tif_db.h"
+#import "twinstabookAppDelegate.h"
 
 @interface twinstabookFirstViewController : UIViewController
+
+@property (weak, nonatomic) twinstabookAppDelegate *appDelegate;
 
 @end

@@ -16,12 +16,12 @@
     if (self)
     {
 
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSUserDefaults *database = [NSUserDefaults standardUserDefaults];
         // check for user setting exist
-        NSMutableDictionary *database = [defaults objectForKey:@"database"];
+        //NSMutableDictionary *database = [defaults objectForKey:@"database"];
         if (!database)
         {
-            database = [[NSMutableDictionary alloc] init];
+            //database = [[NSMutableDictionary alloc] init];
             
             _useFacebook = false;
             _useTwitter = false;
@@ -39,6 +39,7 @@
 }
 -(void)saveDatabase
 {
+    NSLog(@"save database");
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
     NSNumber *numberFacebook = [[NSNumber alloc] initWithBool:self.useFacebook];

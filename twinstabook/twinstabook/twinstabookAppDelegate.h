@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "tif_db.h"
 
 @interface twinstabookAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) tif_db *database;
 
 @end

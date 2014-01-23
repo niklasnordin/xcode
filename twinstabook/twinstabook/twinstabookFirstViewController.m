@@ -18,6 +18,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSLog(@"viewDidLoad");
+    self.appDelegate = (twinstabookAppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (!self.appDelegate.database)
+    {
+        self.appDelegate.database = [[tif_db alloc] init];
+    }
 }
 
 - (void)didReceiveMemoryWarning
