@@ -23,7 +23,10 @@
     if (!self.appDelegate.database)
     {
         self.appDelegate.database = [[tif_db alloc] init];
+        self.database = self.appDelegate.database;
     }
+    self.textView.scrollEnabled = YES;
+    self.textView.userInteractionEnabled = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -32,4 +35,72 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)updateButtonClicked:(id)sender
+{
+    NSLog(@"update button clicked");
+    if (self.database.useFacebook)
+    {
+        if (FBSession.activeSession.isOpen)
+        {
+            NSLog(@"FB session is open");
+            FBAccessTokenData *data = FBSession.activeSession.accessTokenData;
+            NSLog(@"permissions = %@",data.permissions);
+        }
+        else
+        {
+            NSLog(@"FB session is NOT open");
+        }
+        /*
+        NSString *fqlQuery = @"SELECT post_id, created_time,  type, attachment FROM stream WHERE filter_key in (SELECT filter_key FROM stream_filter WHERE uid=me() AND type='newsfeed')AND is_hidden = 0 LIMIT 300";
+    
+        // Make the API request that uses FQL
+        [FBRequestConnection startWithGraphPath:@"/fql"
+                                 parameters:[NSDictionary dictionaryWithObjectsAndKeys: fqlQuery, @"q", nil]
+                                 HTTPMethod:@"GET"
+                          completionHandler:^(FBRequestConnection *connection,
+                                              id result,
+                                              NSError *error)
+         {
+             if (error)
+                 NSLog(@"Error: %@", [error localizedDescription]);
+             else
+                 NSLog(@"Result: %@", result);
+         }];
+         */
+        {
+            //FBRequestConnection* conn = [[FBRequestConnection alloc] init];
+            [FBRequestConnection startWithGraphPath:@"/me" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error)
+             {
+                 //NSLog(@"me = %@",result);
+             }];
+        }
+        {
+            //FBRequestConnection* conn = [[FBRequestConnection alloc] init];
+            [FBRequestConnection startWithGraphPath:@"/me/feed" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error)
+             {
+                 NSMutableDictionary<FBGraphObject> *graph = result;
+                 NSArray *keys = [graph allKeys];
+                 NSLog(@"result class = %@",[result class]);
+                 //NSLog(@"me/feed %@",result);
+                 NSLog(@"keys = %@", keys);
+                 //self.textView.text = keys;
+                 NSLog(@"data = %@",[graph objectForKey:@"data"]);
+                 NSString *data = [NSString stringWithFormat:@"data = %@\n",[graph objectForKey:@"data"]];
+                 NSString *text = [NSString stringWithFormat:@"%@ paging = %@",data, [graph objectForKey:@"paging"]];
+                 self.textView.text = text;
+
+             }];
+        }
+    } // end useFacebook
+    
+    if (self.database.useInstagram)
+    {
+        
+    } // end useInstagram
+    
+    if (self.database.useTwitter)
+    {
+        
+    } // end useTwitter
+}
 @end
