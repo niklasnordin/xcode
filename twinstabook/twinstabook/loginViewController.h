@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "twinstabookAppDelegate.h"
 #import "tif_db.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface loginViewController : UIViewController
 
