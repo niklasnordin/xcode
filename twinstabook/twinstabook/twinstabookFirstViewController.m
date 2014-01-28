@@ -78,10 +78,7 @@
             //FBRequestConnection* conn = [[FBRequestConnection alloc] init];
             [FBRequestConnection startWithGraphPath:@"/me/feed" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error)
              {
-                 NSUInteger num = [result count];
-                 int n = (int)num;
-                 NSLog(@"num = %d",n);
-                 
+
                  NSArray *data = [result objectForKey:@"data"];
                  FBGraphObject *paging = [result objectForKey:@"paging"];
                  
@@ -104,6 +101,33 @@
                  NSString *previous = [paging objectForKey:@"previous"];
                  NSString *next = [paging objectForKey:@"next"];
                  
+                 if (next)
+                 {
+                     NSLog(@"hej...");
+                     
+                     [FBRequestConnection startWithGraphPath:next completionHandler:^(FBRequestConnection *nextConnection, id nextResult, NSError *nextError)
+                      {
+                          NSUInteger num = [result count];
+                          int n = (int)num;
+                          NSLog(@"num = %d",n);
+                          NSEnumerator *keys = [nextResult keyEnumerator];
+                          for (NSString *a in keys)
+                          {
+                              NSLog(@"a = %@",a);
+                          }
+                          NSArray *nextData = [nextResult objectForKey:@"data"];
+                          FBGraphObject *nextPage = [nextResult objectForKey:@"paging"];
+                          for (NSDictionary *k in nextData)
+                          {
+                              NSString *story = [k objectForKey:@"story"];
+                              NSString *from = [k objectForKey:@"from"];
+                              NSLog(@"story = %@",story);
+                          }
+                          NSString *nextNext = [nextPage objectForKey:@"next"];
+                      }];
+                      
+                 }
+                 NSLog(@"då...");
                  //NSMutableDictionary<FBGraphObject> *graph = result;
                  //NSArray *keys = [graph allKeys];
                  //NSLog(@"result class = %@",[result class]);
