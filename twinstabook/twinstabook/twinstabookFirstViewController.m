@@ -96,15 +96,19 @@
                  
                 //NSString *previous = [paging objectForKey:@"previous"];
                 NSString *next = [paging objectForKey:@"next"];
+                NSLog(@"next step");
                 NSURL *url = [NSURL URLWithString:next];
+                NSLog(@"url = %@",url);
                 NSMutableURLRequest *nextRequest = [NSMutableURLRequest requestWithURL:url];
                 //FBRequestHandler *handler;
-                [connection setUrlRequest:nextRequest];
-                [connection start];
+                //[connection setUrlRequest:nextRequest];
+                //[connection start];
+                //NSHTTPURLResponse *response = [connection urlResponse];
+                //NSLog(@"response = %@",response);
             }
             ];
             [conn start];
-            
+            NSLog(@"here i am");
 /*
             [FBRequestConnection startWithGraphPath:@"/me/feed" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error)
              {
