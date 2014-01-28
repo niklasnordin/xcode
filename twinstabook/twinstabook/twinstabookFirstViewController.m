@@ -78,16 +78,42 @@
             //FBRequestConnection* conn = [[FBRequestConnection alloc] init];
             [FBRequestConnection startWithGraphPath:@"/me/feed" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error)
              {
-                 NSMutableDictionary<FBGraphObject> *graph = result;
-                 NSArray *keys = [graph allKeys];
-                 NSLog(@"result class = %@",[result class]);
+                 NSUInteger num = [result count];
+                 int n = (int)num;
+                 NSLog(@"num = %d",n);
+                 
+                 NSArray *data = [result objectForKey:@"data"];
+                 FBGraphObject *paging = [result objectForKey:@"paging"];
+                 
+                 for (NSDictionary *k in data)
+                 {
+                     NSString *story = [k objectForKey:@"story"];
+                     NSString *from = [k objectForKey:@"from"];
+                     NSLog(@"story = %@",story);
+                     /*
+                     NSArray *dataKeys = [k allKeys];
+                     NSLog(@"new keys -------");
+                     for (NSString *ko in dataKeys)
+                     {
+                         NSLog(@"data key = %@",ko);
+                         NSLog(@"%@", [k objectForKey:ko]);
+                     }
+                      */
+                 }
+
+                 NSString *previous = [paging objectForKey:@"previous"];
+                 NSString *next = [paging objectForKey:@"next"];
+                 
+                 //NSMutableDictionary<FBGraphObject> *graph = result;
+                 //NSArray *keys = [graph allKeys];
+                 //NSLog(@"result class = %@",[result class]);
                  //NSLog(@"me/feed %@",result);
-                 NSLog(@"keys = %@", keys);
+                 //NSLog(@"keys = %@", keys);
                  //self.textView.text = keys;
-                 NSLog(@"data = %@",[graph objectForKey:@"data"]);
-                 NSString *data = [NSString stringWithFormat:@"data = %@\n",[graph objectForKey:@"data"]];
-                 NSString *text = [NSString stringWithFormat:@"%@ paging = %@",data, [graph objectForKey:@"paging"]];
-                 self.textView.text = text;
+                 //NSLog(@"data = %@",[graph objectForKey:@"data"]);
+                 //NSString *data = [NSString stringWithFormat:@"data = %@\n",[graph objectForKey:@"data"]];
+                 //NSString *text = [NSString stringWithFormat:@"%@ paging = %@",data, [graph objectForKey:@"paging"]];
+                 //self.textView.text = text;
 
              }];
         }

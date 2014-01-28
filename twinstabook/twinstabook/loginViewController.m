@@ -8,9 +8,7 @@
 
 #import "loginViewController.h"
 
-@interface loginViewController () <FBLoginViewDelegate>
-
-@property (strong, nonatomic) FBLoginView *fbloginView;
+@interface loginViewController ()
 
 @end
 
@@ -37,14 +35,10 @@
     [self setButtonStatus:self.database.useInstagram forButton:self.instagramButton];
 
     // Create Login View so that the app will be granted "status_update" permission.
-    if (!self.fbloginView)
-    {
-        self.fbloginView = [[FBLoginView alloc] init];
-        self.fbloginView.frame = self.facebookButton.frame;
-        self.fbloginView.delegate = self;
-        [self.view addSubview:self.fbloginView];
-        [self.fbloginView sizeToFit];
-    }
+    self.database.fbloginView.frame = self.facebookButton.frame;
+    self.database.fbloginView.delegate = self.database;
+    [self.view addSubview:self.database.fbloginView];
+    [self.database.fbloginView sizeToFit];
 
 }
 
@@ -67,14 +61,14 @@
 
 - (void)updateFacebookButton:(BOOL)status
 {
-    self.fbloginView.userInteractionEnabled = status;
+    self.database.fbloginView.userInteractionEnabled = status;
     if (status)
     {
-        self.fbloginView.alpha = 1.0;
+        self.database.fbloginView.alpha = 1.0;
     }
     else
     {
-        self.fbloginView.alpha = 0.3;
+        self.database.fbloginView.alpha = 0.3;
     }
    
 }
@@ -112,35 +106,4 @@
     NSLog(@"clicked instagram login");
 }
 
-#pragma mark - FBLoginViewDelegate
-
-- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
-{
-    // this is called when you have logged in
-    // first get the buttons set for login mode
-    //self.buttonPostPhoto.enabled = YES;
-    // "Post Status" available when logged on and potentially when logged off.  Differentiate in the label.
-    //[self.buttonPostStatus setTitle:@"Post Status Update (Logged On)" forState:self.buttonPostStatus.state];
-    NSLog(@"loginViewShowingLoggedInUser");
-}
-
-- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
-                            user:(id<FBGraphUser>)user
-{
-    NSLog(@"loginViewFetchUserInfo");
-}
-
-- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
-{
-    // this is called after you have logged out
-    NSLog(@"loginViewShowingLoggedOutUser");
-}
-
-
-- (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error
-{
-    // see https://developers.facebook.com/docs/reference/api/errors/ for general guidance on error handling for Facebook API
-    // our policy here is to let the login view handle errors, but to log the results
-    NSLog(@"FBLoginView encountered an error=%@", error);
-}
 @end

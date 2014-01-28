@@ -32,8 +32,9 @@
             _useFacebook = [[database objectForKey:USEFACEBOOK] boolValue];
             _useTwitter = [[database objectForKey:USETWITTER] boolValue];
             _useInstagram = [[database objectForKey:USEINSTAGRAM] boolValue];
-
         }
+        _fbloginView = [[FBLoginView alloc] init];
+
     }
     return self;
 }
@@ -54,4 +55,38 @@
     [defaults synchronize];
     
 }
+
+
+#pragma mark - FBLoginViewDelegate
+
+- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
+{
+    // this is called when you have logged in
+    // first get the buttons set for login mode
+    //self.buttonPostPhoto.enabled = YES;
+    // "Post Status" available when logged on and potentially when logged off.  Differentiate in the label.
+    //[self.buttonPostStatus setTitle:@"Post Status Update (Logged On)" forState:self.buttonPostStatus.state];
+    NSLog(@"loginViewShowingLoggedInUser");
+}
+
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
+                            user:(id<FBGraphUser>)user
+{
+    NSLog(@"loginViewFetchUserInfo");
+}
+
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
+{
+    // this is called after you have logged out
+    NSLog(@"loginViewShowingLoggedOutUser");
+}
+
+
+- (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error
+{
+    // see https://developers.facebook.com/docs/reference/api/errors/ for general guidance on error handling for Facebook API
+    // our policy here is to let the login view handle errors, but to log the results
+    NSLog(@"FBLoginView encountered an error=%@", error);
+}
+
 @end
