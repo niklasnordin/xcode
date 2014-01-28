@@ -37,18 +37,21 @@
 
 - (IBAction)updateButtonClicked:(id)sender
 {
-    NSLog(@"update button clicked");
+
     if (self.database.useFacebook)
     {
-        if (FBSession.activeSession.isOpen)
+        FBSession *session = [FBSession activeSession];
+
+        if (session.isOpen)
         {
             NSLog(@"FB session is open");
-            FBAccessTokenData *data = FBSession.activeSession.accessTokenData;
-            NSLog(@"permissions = %@",data.permissions);
+            //FBAccessTokenData *data = FBSession.activeSession.accessTokenData;
+            //NSLog(@"permissions = %@",data.permissions);
         }
         else
         {
             NSLog(@"FB session is NOT open");
+            return;
         }
         /*
         NSString *fqlQuery = @"SELECT post_id, created_time,  type, attachment FROM stream WHERE filter_key in (SELECT filter_key FROM stream_filter WHERE uid=me() AND type='newsfeed')AND is_hidden = 0 LIMIT 300";
@@ -75,7 +78,34 @@
              }];
         }
         {
-            //FBRequestConnection* conn = [[FBRequestConnection alloc] init];
+            FBRequestConnection* conn = [[FBRequestConnection alloc] init];
+            FBRequest *request = [[FBRequest alloc] initWithSession:session graphPath:@"/me/feed"];
+           // __block NSString *next;
+            [conn addRequest:request completionHandler:^(FBRequestConnection *connection, id result, NSError *error)
+            {
+                 
+                NSArray *data = [result objectForKey:@"data"];
+                FBGraphObject *paging = [result objectForKey:@"paging"];
+                 
+                for (NSDictionary *k in data)
+                {
+                     NSString *story = [k objectForKey:@"story"];
+                     //NSString *from = [k objectForKey:@"from"];
+                     NSLog(@"story = %@",story);
+                }
+                 
+                //NSString *previous = [paging objectForKey:@"previous"];
+                NSString *next = [paging objectForKey:@"next"];
+                NSURL *url = [NSURL URLWithString:next];
+                NSMutableURLRequest *nextRequest = [NSMutableURLRequest requestWithURL:url];
+                //FBRequestHandler *handler;
+                [connection setUrlRequest:nextRequest];
+                [connection start];
+            }
+            ];
+            [conn start];
+            
+/*
             [FBRequestConnection startWithGraphPath:@"/me/feed" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error)
              {
 
@@ -87,7 +117,7 @@
                      NSString *story = [k objectForKey:@"story"];
                      NSString *from = [k objectForKey:@"from"];
                      NSLog(@"story = %@",story);
-                     /*
+ 
                      NSArray *dataKeys = [k allKeys];
                      NSLog(@"new keys -------");
                      for (NSString *ko in dataKeys)
@@ -95,7 +125,7 @@
                          NSLog(@"data key = %@",ko);
                          NSLog(@"%@", [k objectForKey:ko]);
                      }
-                      */
+ 
                  }
 
                  NSString *previous = [paging objectForKey:@"previous"];
@@ -103,29 +133,13 @@
                  
                  if (next)
                  {
-                     NSLog(@"hej...");
+                     NSLog(@"hej... %@");
+                     NSURL *url = [NSURL URLWithString:next];
+                     NSMutableURLRequest *nextRequest = [NSMutableURLRequest requestWithURL:url];
                      
-                     [FBRequestConnection startWithGraphPath:next completionHandler:^(FBRequestConnection *nextConnection, id nextResult, NSError *nextError)
-                      {
-                          NSUInteger num = [result count];
-                          int n = (int)num;
-                          NSLog(@"num = %d",n);
-                          NSEnumerator *keys = [nextResult keyEnumerator];
-                          for (NSString *a in keys)
-                          {
-                              NSLog(@"a = %@",a);
-                          }
-                          NSArray *nextData = [nextResult objectForKey:@"data"];
-                          FBGraphObject *nextPage = [nextResult objectForKey:@"paging"];
-                          for (NSDictionary *k in nextData)
-                          {
-                              NSString *story = [k objectForKey:@"story"];
-                              NSString *from = [k objectForKey:@"from"];
-                              NSLog(@"story = %@",story);
-                          }
-                          NSString *nextNext = [nextPage objectForKey:@"next"];
-                      }];
-                      
+                     //connection.urlRequest = nextRequest;
+                     [connection setUrlRequest:nextRequest];
+                     [connection start];
                  }
                  NSLog(@"då...");
                  //NSMutableDictionary<FBGraphObject> *graph = result;
@@ -140,6 +154,7 @@
                  //self.textView.text = text;
 
              }];
+ */
         }
     } // end useFacebook
     
