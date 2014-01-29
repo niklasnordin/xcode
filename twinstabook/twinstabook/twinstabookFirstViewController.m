@@ -18,7 +18,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    NSLog(@"viewDidLoad");
     self.appDelegate = (twinstabookAppDelegate *)[[UIApplication sharedApplication] delegate];
     if (!self.appDelegate.database)
     {
@@ -35,9 +34,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)writeStories:(NSArray *)data
+{
+    if (data)
+    {
+        for (FBGraphObject *k in data)
+        {
+            NSString *story = [k objectForKey:@"story"];
+            //NSString *from = [k objectForKey:@"from"];
+            NSLog(@"story = %@",story);
+        }
+    }
+    
+}
+
 - (void)readURL:(NSString *)urlString
 {
-    NSLog(@"url = %@",urlString);
 
     if (urlString)
     {
@@ -48,10 +60,27 @@
         NSURLResponse *response;
         NSError *err;
         NSData *responseData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&err];
-        FBGraphObject *obj = [responseData bytes];
-        NSString *content = [NSString stringWithUTF8String:[responseData bytes]];
-        
-        //NSLog(@"responseData: %@", content);
+        if (!err)
+        {
+            NSString *content = [NSString stringWithUTF8String:[responseData bytes]];
+            NSDictionary *obj = [[NSDictionary alloc] initWithContentsOfFile:content];
+            NSArray *keys = [obj allKeys];
+            NSLog(@"keys = %@",keys);
+            NSArray *data = [obj objectForKey:@"data"];
+            [self writeStories:data];
+            FBGraphObject *paging = [obj objectForKey:@"paging"];
+            NSString *next = [paging objectForKey:@"next"];
+            NSString *previous = [paging objectForKey:@"previous"];
+
+            NSLog(@"next = %@",next);
+            NSLog(@"previous = %@",previous);
+            [self readURL:next];
+            [self readURL:previous];
+        }
+        else
+        {
+            NSLog(@"err = %@",err);
+        }
 
     }
 }
@@ -65,15 +94,16 @@
      {
          if (!error)
          {
-             NSLog(@"result class = %@",[result class]);
 
-             //NSArray *data = [result objectForKey:@"data"];
+             NSArray *data = [result objectForKey:@"data"];
+             [self writeStories:data];
              FBGraphObject *paging = [result objectForKey:@"paging"];
          
-             //NSString *previous = [paging objectForKey:@"previous"];
+             NSString *previous = [paging objectForKey:@"previous"];
              NSString *next = [paging objectForKey:@"next"];
-             //NSLog(@"in next = %@",next);
-             [self readURL:next];
+             
+             //[self readURL:previous];
+             //[self readURL:next];
          }
          else
          {
@@ -106,7 +136,7 @@
         FBRequestConnection* conn = [[FBRequestConnection alloc] init];
 
         [self readSession:session fromConnection:conn fromPage:@"/me/feed"];
-        NSLog(@"return");
+
         return;
         
         /*
