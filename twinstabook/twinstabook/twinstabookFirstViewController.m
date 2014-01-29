@@ -35,6 +35,56 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)readURL:(NSString *)urlString
+{
+    NSLog(@"url = %@",urlString);
+
+    if (urlString)
+    {
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+        //[urlRequest setHTTPMethod:@"GET"];
+        
+        NSURLResponse *response;
+        NSError *err;
+        NSData *responseData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&err];
+        FBGraphObject *obj = [responseData bytes];
+        NSString *content = [NSString stringWithUTF8String:[responseData bytes]];
+        
+        //NSLog(@"responseData: %@", content);
+
+    }
+}
+
+- (void)readSession:(FBSession *)session fromConnection:(FBRequestConnection *)connection fromPage:(NSString *)page
+{
+    NSLog(@"page = %@",page);
+    FBRequest *request = [[FBRequest alloc] initWithSession:session graphPath:page];
+
+    [connection addRequest:request completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
+     {
+         if (!error)
+         {
+             NSLog(@"result class = %@",[result class]);
+
+             //NSArray *data = [result objectForKey:@"data"];
+             FBGraphObject *paging = [result objectForKey:@"paging"];
+         
+             //NSString *previous = [paging objectForKey:@"previous"];
+             NSString *next = [paging objectForKey:@"next"];
+             //NSLog(@"in next = %@",next);
+             [self readURL:next];
+         }
+         else
+         {
+             NSLog(@"connection failed. error = %@",error);
+         }
+         
+     }
+    ];
+    [connection start];
+}
+
 - (IBAction)updateButtonClicked:(id)sender
 {
 
@@ -53,6 +103,12 @@
             NSLog(@"FB session is NOT open");
             return;
         }
+        FBRequestConnection* conn = [[FBRequestConnection alloc] init];
+
+        [self readSession:session fromConnection:conn fromPage:@"/me/feed"];
+        NSLog(@"return");
+        return;
+        
         /*
         NSString *fqlQuery = @"SELECT post_id, created_time,  type, attachment FROM stream WHERE filter_key in (SELECT filter_key FROM stream_filter WHERE uid=me() AND type='newsfeed')AND is_hidden = 0 LIMIT 300";
     
@@ -83,7 +139,8 @@
            // __block NSString *next;
             [conn addRequest:request completionHandler:^(FBRequestConnection *connection, id result, NSError *error)
             {
-                 
+                
+                NSLog(@"result class = %@",[result class]);
                 NSArray *data = [result objectForKey:@"data"];
                 FBGraphObject *paging = [result objectForKey:@"paging"];
                  
