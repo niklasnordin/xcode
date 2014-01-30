@@ -48,39 +48,54 @@
     
 }
 
-- (void)readURL:(NSString *)urlString
+- (void)readURL:(NSString *)urlString fromConnection:(FBRequestConnection *)connection
 {
-
+    //NSLog(@"urlString = %@", urlString);
     if (urlString)
     {
         NSURL *url = [NSURL URLWithString:urlString];
         NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-        //[urlRequest setHTTPMethod:@"GET"];
+        /*
+        FBRequestHandler handler =
+        ^(FBRequestConnection *connection, id result, NSError *error) {
+            // output the results of the request
+            [self requestCompleted:connection forFbID:fbid result:result error:error];
+        };
         
-        NSURLResponse *response;
-        NSError *err;
-        NSData *responseData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&err];
-        if (!err)
-        {
-            NSString *content = [NSString stringWithUTF8String:[responseData bytes]];
-            NSDictionary *obj = [[NSDictionary alloc] initWithContentsOfFile:content];
-            NSArray *keys = [obj allKeys];
-            NSLog(@"keys = %@",keys);
-            NSArray *data = [obj objectForKey:@"data"];
-            [self writeStories:data];
-            FBGraphObject *paging = [obj objectForKey:@"paging"];
-            NSString *next = [paging objectForKey:@"next"];
-            NSString *previous = [paging objectForKey:@"previous"];
+        // create the request object, using the fbid as the graph path
+        // as an alternative the request* static methods of the FBRequest class could
+        // be used to fetch common requests, such as /me and /me/friends
+        FBRequest *request = [[FBRequest alloc] initWithSession:FBSession.activeSession
+                                                      graphPath:fbid];
+        
+        // add the request to the connection object, if more than one request is added
+        // the connection object will compose the requests as a batch request; whether or
+        // not the request is a batch or a singleton, the handler behavior is the same,
+        // allowing the application to be dynamic in regards to whether a single or multiple
+        // requests are occuring
+        [newConnection addRequest:request completionHandler:handler];
+        */
+        //NSString *newAPI = [urlString stringByReplacingOccurrencesOfString:@"https://graph.facebook.com/" withString:@""];
 
-            NSLog(@"next = %@",next);
-            NSLog(@"previous = %@",previous);
-            [self readURL:next];
-            [self readURL:previous];
-        }
-        else
-        {
-            NSLog(@"err = %@",err);
-        }
+        //FBRequest *rq = [[FBRequest alloc] initWithSession:[FBSession activeSession] restMethod:urlString parameters:nil HTTPMethod:@"GET"];
+        FBRequest *request = [FBRequest requestWithGraphPath:urlString parameters:nil HTTPMethod:@"GET"];
+        [connection addRequest:request completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
+         {
+             if (!error)
+             {
+                 NSLog(@"no error = %@",urlString);
+                 NSArray *data = [result objectForKey:@"data"];
+                 [self writeStories:data];
+             }
+             else
+             {
+                 NSLog(@"error: %@",error);
+             }
+         }
+         ];
+ 
+        //[connection setUrlRequest:urlRequest];
+        [connection start];
 
     }
 }
@@ -88,31 +103,28 @@
 - (void)readSession:(FBSession *)session fromConnection:(FBRequestConnection *)connection fromPage:(NSString *)page
 {
     NSLog(@"page = %@",page);
-    FBRequest *request = [[FBRequest alloc] initWithSession:session graphPath:page];
 
-    [connection addRequest:request completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
-     {
-         if (!error)
-         {
-
-             NSArray *data = [result objectForKey:@"data"];
-             [self writeStories:data];
-             FBGraphObject *paging = [result objectForKey:@"paging"];
-         
-             NSString *previous = [paging objectForKey:@"previous"];
-             NSString *next = [paging objectForKey:@"next"];
-             
-             //[self readURL:previous];
-             //[self readURL:next];
-         }
-         else
-         {
-             NSLog(@"connection failed. error = %@",error);
-         }
-         
-     }
+    [FBRequestConnection startWithGraphPath:page parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
+    {
+        if (!error)
+        {
+            NSArray *data = [result objectForKey:@"data"];
+            [self writeStories:data];
+            FBGraphObject *paging = [result objectForKey:@"paging"];
+        
+            NSString *previous = [paging objectForKey:@"previous"];
+            NSString *next = [paging objectForKey:@"next"];
+        
+            [self readURL:previous fromConnection:connection];
+            [self readURL:next fromConnection:connection];
+        }
+        else
+        {
+            NSLog(@"error: %@",error);
+        }
+    }
     ];
-    [connection start];
+
 }
 
 - (IBAction)updateButtonClicked:(id)sender
@@ -134,119 +146,10 @@
             return;
         }
         FBRequestConnection* conn = [[FBRequestConnection alloc] init];
+        NSString *startPage = @"/me/feed";
+        [self readSession:session fromConnection:conn fromPage:startPage];
 
-        [self readSession:session fromConnection:conn fromPage:@"/me/feed"];
-
-        return;
         
-        /*
-        NSString *fqlQuery = @"SELECT post_id, created_time,  type, attachment FROM stream WHERE filter_key in (SELECT filter_key FROM stream_filter WHERE uid=me() AND type='newsfeed')AND is_hidden = 0 LIMIT 300";
-    
-        // Make the API request that uses FQL
-        [FBRequestConnection startWithGraphPath:@"/fql"
-                                 parameters:[NSDictionary dictionaryWithObjectsAndKeys: fqlQuery, @"q", nil]
-                                 HTTPMethod:@"GET"
-                          completionHandler:^(FBRequestConnection *connection,
-                                              id result,
-                                              NSError *error)
-         {
-             if (error)
-                 NSLog(@"Error: %@", [error localizedDescription]);
-             else
-                 NSLog(@"Result: %@", result);
-         }];
-         */
-        {
-            //FBRequestConnection* conn = [[FBRequestConnection alloc] init];
-            [FBRequestConnection startWithGraphPath:@"/me" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error)
-             {
-                 //NSLog(@"me = %@",result);
-             }];
-        }
-        {
-            FBRequestConnection* conn = [[FBRequestConnection alloc] init];
-            FBRequest *request = [[FBRequest alloc] initWithSession:session graphPath:@"/me/feed"];
-           // __block NSString *next;
-            [conn addRequest:request completionHandler:^(FBRequestConnection *connection, id result, NSError *error)
-            {
-                
-                NSLog(@"result class = %@",[result class]);
-                NSArray *data = [result objectForKey:@"data"];
-                FBGraphObject *paging = [result objectForKey:@"paging"];
-                 
-                for (NSDictionary *k in data)
-                {
-                     NSString *story = [k objectForKey:@"story"];
-                     //NSString *from = [k objectForKey:@"from"];
-                     NSLog(@"story = %@",story);
-                }
-                 
-                //NSString *previous = [paging objectForKey:@"previous"];
-                NSString *next = [paging objectForKey:@"next"];
-                NSLog(@"next step");
-                NSURL *url = [NSURL URLWithString:next];
-                NSLog(@"url = %@",url);
-                NSMutableURLRequest *nextRequest = [NSMutableURLRequest requestWithURL:url];
-                //FBRequestHandler *handler;
-                //[connection setUrlRequest:nextRequest];
-                //[connection start];
-                //NSHTTPURLResponse *response = [connection urlResponse];
-                //NSLog(@"response = %@",response);
-            }
-            ];
-            [conn start];
-            NSLog(@"here i am");
-/*
-            [FBRequestConnection startWithGraphPath:@"/me/feed" parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection, id result, NSError *error)
-             {
-
-                 NSArray *data = [result objectForKey:@"data"];
-                 FBGraphObject *paging = [result objectForKey:@"paging"];
-                 
-                 for (NSDictionary *k in data)
-                 {
-                     NSString *story = [k objectForKey:@"story"];
-                     NSString *from = [k objectForKey:@"from"];
-                     NSLog(@"story = %@",story);
- 
-                     NSArray *dataKeys = [k allKeys];
-                     NSLog(@"new keys -------");
-                     for (NSString *ko in dataKeys)
-                     {
-                         NSLog(@"data key = %@",ko);
-                         NSLog(@"%@", [k objectForKey:ko]);
-                     }
- 
-                 }
-
-                 NSString *previous = [paging objectForKey:@"previous"];
-                 NSString *next = [paging objectForKey:@"next"];
-                 
-                 if (next)
-                 {
-                     NSLog(@"hej... %@");
-                     NSURL *url = [NSURL URLWithString:next];
-                     NSMutableURLRequest *nextRequest = [NSMutableURLRequest requestWithURL:url];
-                     
-                     //connection.urlRequest = nextRequest;
-                     [connection setUrlRequest:nextRequest];
-                     [connection start];
-                 }
-                 NSLog(@"då...");
-                 //NSMutableDictionary<FBGraphObject> *graph = result;
-                 //NSArray *keys = [graph allKeys];
-                 //NSLog(@"result class = %@",[result class]);
-                 //NSLog(@"me/feed %@",result);
-                 //NSLog(@"keys = %@", keys);
-                 //self.textView.text = keys;
-                 //NSLog(@"data = %@",[graph objectForKey:@"data"]);
-                 //NSString *data = [NSString stringWithFormat:@"data = %@\n",[graph objectForKey:@"data"]];
-                 //NSString *text = [NSString stringWithFormat:@"%@ paging = %@",data, [graph objectForKey:@"paging"]];
-                 //self.textView.text = text;
-
-             }];
- */
-        }
     } // end useFacebook
     
     if (self.database.useInstagram)
