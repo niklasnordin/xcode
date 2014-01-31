@@ -50,53 +50,43 @@
 
 - (void)readURL:(NSString *)urlString fromConnection:(FBRequestConnection *)connection
 {
-    //NSLog(@"urlString = %@", urlString);
     if (urlString)
     {
         NSURL *url = [NSURL URLWithString:urlString];
         NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-        /*
-        FBRequestHandler handler =
-        ^(FBRequestConnection *connection, id result, NSError *error) {
-            // output the results of the request
-            [self requestCompleted:connection forFbID:fbid result:result error:error];
-        };
         
-        // create the request object, using the fbid as the graph path
-        // as an alternative the request* static methods of the FBRequest class could
-        // be used to fetch common requests, such as /me and /me/friends
-        FBRequest *request = [[FBRequest alloc] initWithSession:FBSession.activeSession
-                                                      graphPath:fbid];
+        NSError *error = [[NSError alloc] init];
+        NSHTTPURLResponse *responseCode = nil;
+
+        NSData *oResponseData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&responseCode error:&error];
         
-        // add the request to the connection object, if more than one request is added
-        // the connection object will compose the requests as a batch request; whether or
-        // not the request is a batch or a singleton, the handler behavior is the same,
-        // allowing the application to be dynamic in regards to whether a single or multiple
-        // requests are occuring
-        [newConnection addRequest:request completionHandler:handler];
-        */
-        //NSString *newAPI = [urlString stringByReplacingOccurrencesOfString:@"https://graph.facebook.com/" withString:@""];
-
-        //FBRequest *rq = [[FBRequest alloc] initWithSession:[FBSession activeSession] restMethod:urlString parameters:nil HTTPMethod:@"GET"];
-        FBRequest *request = [FBRequest requestWithGraphPath:urlString parameters:nil HTTPMethod:@"GET"];
-        [connection addRequest:request completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
-         {
-             if (!error)
-             {
-                 NSLog(@"no error = %@",urlString);
-                 NSArray *data = [result objectForKey:@"data"];
-                 [self writeStories:data];
-             }
-             else
-             {
-                 NSLog(@"error: %@",error);
-             }
-         }
-         ];
- 
-        //[connection setUrlRequest:urlRequest];
-        [connection start];
-
+        if([responseCode statusCode] != 200)
+        {
+            NSLog(@"Error getting %@, HTTP status code %ld", url, [responseCode statusCode]);
+            return;
+        }
+        NSError *jsonError;
+        //NSString *svar = [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
+        NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:oResponseData options:NSJSONReadingMutableContainers error:&jsonError];
+        NSLog(@"error = %@",jsonError);
+        if (!jsonError)
+        {
+            //NSLog(@"dict keys = %@",[dict allKeys]);
+            //NSLog(@"data class = %@", [[dict objectForKey:@"data"] class]);
+            NSArray *data = [dict objectForKey:@"data"];
+            if (data)
+            {
+                //[self writeStories:data];
+                NSLog(@"data # = %ld",[data count]);
+                NSLog(@"class 0 = %@",[[data objectAtIndex:0] class]);
+                //FBGraphObject *paging = [dict objectForKey:@"paging"];
+        
+                //NSString *previous = [paging objectForKey:@"previous"];
+                //NSString *next = [paging objectForKey:@"next"];
+                //[self readURL:previous fromConnection:connection];
+                //[self readURL:next fromConnection:connection];
+            }
+        }
     }
 }
 
@@ -114,8 +104,9 @@
         
             NSString *previous = [paging objectForKey:@"previous"];
             NSString *next = [paging objectForKey:@"next"];
-        
+            NSLog(@"read previous...");
             [self readURL:previous fromConnection:connection];
+            NSLog(@"read next...");
             [self readURL:next fromConnection:connection];
         }
         else
