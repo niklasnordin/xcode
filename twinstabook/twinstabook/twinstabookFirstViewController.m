@@ -48,7 +48,7 @@
     
 }
 
-- (void)readURL:(NSString *)urlString fromConnection:(FBRequestConnection *)connection
+- (void)readURL:(NSString *)urlString fromConnection:(FBRequestConnection *)connection next:(BOOL)goNext
 {
     if (urlString)
     {
@@ -68,23 +68,30 @@
         NSError *jsonError;
         //NSString *svar = [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
         NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:oResponseData options:NSJSONReadingMutableContainers error:&jsonError];
-        NSLog(@"error = %@",jsonError);
+
+        //NSLog(@"error = %@",jsonError);
         if (!jsonError)
         {
             //NSLog(@"dict keys = %@",[dict allKeys]);
             //NSLog(@"data class = %@", [[dict objectForKey:@"data"] class]);
-            NSArray *data = [dict objectForKey:@"data"];
+            NSMutableArray *data = [dict objectForKey:@"data"];
+            //NSMutableArray *data = [[NSMutableArray alloc] initWithArray:doa copyItems:YES];
             if (data)
             {
-                //[self writeStories:data];
-                NSLog(@"data # = %ld",[data count]);
-                NSLog(@"class 0 = %@",[[data objectAtIndex:0] class]);
-                //FBGraphObject *paging = [dict objectForKey:@"paging"];
-        
-                //NSString *previous = [paging objectForKey:@"previous"];
-                //NSString *next = [paging objectForKey:@"next"];
-                //[self readURL:previous fromConnection:connection];
-                //[self readURL:next fromConnection:connection];
+                [self writeStories:data];
+                //NSLog(@"data # = %ld",[data count]);
+                //NSLog(@"dict = %@",dict);
+                FBGraphObject *paging = [dict objectForKey:@"paging"];
+                if (goNext)
+                {
+                    NSString *next = [paging objectForKey:@"next"];
+                    [self readURL:next fromConnection:connection next:YES];
+                }
+                else
+                {
+                    NSString *previous = [paging objectForKey:@"previous"];
+                    [self readURL:previous fromConnection:connection next:NO];
+                }
             }
         }
     }
@@ -104,10 +111,8 @@
         
             NSString *previous = [paging objectForKey:@"previous"];
             NSString *next = [paging objectForKey:@"next"];
-            NSLog(@"read previous...");
-            [self readURL:previous fromConnection:connection];
-            NSLog(@"read next...");
-            [self readURL:next fromConnection:connection];
+            [self readURL:previous fromConnection:connection next:NO];
+            [self readURL:next fromConnection:connection next:YES];
         }
         else
         {
