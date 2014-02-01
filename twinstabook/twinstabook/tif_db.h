@@ -12,6 +12,7 @@
 static NSString *USEFACEBOOK = @"usefacebook";
 static NSString *USETWITTER = @"useTwitter";
 static NSString *USEINSTAGRAM = @"useInstagram";
+static NSString *GROUPS = @"groups";
 
 @interface tif_db : NSObject <FBLoginViewDelegate>
 
@@ -19,15 +20,22 @@ static NSString *USEINSTAGRAM = @"useInstagram";
 @property (nonatomic) bool useTwitter;
 @property (nonatomic) bool useInstagram;
 
+@property (strong, nonatomic) NSMutableArray *groups;
+
 @property (strong, nonatomic) FBLoginView *fbloginView;
 
 -(id)init;
 -(void)saveDatabase;
 
+// facebook functions
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView;
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user;
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView;
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error;
+
+// twitter functions
+
+// instagram functions
 
 @end

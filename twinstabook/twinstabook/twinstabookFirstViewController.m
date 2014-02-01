@@ -65,22 +65,18 @@
             NSLog(@"Error getting %@, HTTP status code %ld", url, [responseCode statusCode]);
             return;
         }
+        
         NSError *jsonError;
         //NSString *svar = [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
         NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:oResponseData options:NSJSONReadingMutableContainers error:&jsonError];
 
-        //NSLog(@"error = %@",jsonError);
         if (!jsonError)
         {
-            //NSLog(@"dict keys = %@",[dict allKeys]);
-            //NSLog(@"data class = %@", [[dict objectForKey:@"data"] class]);
             NSMutableArray *data = [dict objectForKey:@"data"];
-            //NSMutableArray *data = [[NSMutableArray alloc] initWithArray:doa copyItems:YES];
             if (data)
             {
                 [self writeStories:data];
-                //NSLog(@"data # = %ld",[data count]);
-                //NSLog(@"dict = %@",dict);
+
                 FBGraphObject *paging = [dict objectForKey:@"paging"];
                 if (goNext)
                 {
@@ -100,8 +96,16 @@
 - (void)readSession:(FBSession *)session fromConnection:(FBRequestConnection *)connection fromPage:(NSString *)page
 {
     NSLog(@"page = %@",page);
-
-    [FBRequestConnection startWithGraphPath:page parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    NSTimeInterval interval = -86400*7000;
+    NSDate *start = [[NSDate alloc] initWithTimeIntervalSinceNow:interval];
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setTimeStyle:NSDateFormatterShortStyle];
+    [format setDateStyle:NSDateFormatterShortStyle];
+    NSString *str = [format stringFromDate:start];
+    NSLog(@"str date : %@",str);
+    [params setObject:str forKey:@"since"];
+    [FBRequestConnection startWithGraphPath:page parameters:params HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
     {
         if (!error)
         {

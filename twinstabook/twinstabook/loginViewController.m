@@ -36,7 +36,6 @@
 
     // Create Login View so that the app will be granted "status_update" permission.
     self.database.fbloginView.frame = self.facebookButton.frame;
-    self.database.fbloginView.delegate = self.database;
     [self.view addSubview:self.database.fbloginView];
     [self.database.fbloginView sizeToFit];
 

@@ -137,17 +137,17 @@
             </objects>
             <point key="canvasLocation" x="-37" y="132"/>
         </scene>
-        <!--Table View Controller - Groups-->
+        <!--Group Table View Controller - Create Groups-->
         <scene sceneID="Zpo-2T-KUA">
             <objects>
-                <tableViewController id="GYs-V2-ufV" sceneMemberID="viewController">
+                <tableViewController id="GYs-V2-ufV" customClass="groupTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TOI-F1-Qpy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Cky-Wt-FWE">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Cky-Wt-FWE">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cky-Wt-FWE" id="KdN-vF-q1x">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -163,11 +163,11 @@
                             <outlet property="delegate" destination="GYs-V2-ufV" id="i0s-qg-ux9"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Groups" id="l5j-Eu-tcJ"/>
+                    <navigationItem key="navigationItem" title="Create Groups" id="ZeZ-uP-8k0"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cke-a2-Fm5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="417" y="132"/>
+            <point key="canvasLocation" x="943" y="132"/>
         </scene>
         <!--Group View Controller - Groups-->
         <scene sceneID="sgk-AQ-gUL">
@@ -202,12 +202,35 @@
                     <connections>
                         <segue destination="CZ4-MO-1fc" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
                         <segue destination="QUy-BD-bpt" kind="relationship" relationship="viewControllers" id="M8t-EP-wfW"/>
-                        <segue destination="GYs-V2-ufV" kind="relationship" relationship="viewControllers" id="I2q-61-jkT"/>
+                        <segue destination="haR-me-Nwn" kind="relationship" relationship="viewControllers" id="I2q-61-jkT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="120" y="-613"/>
+        </scene>
+        <!--Group Navigation Controller - Groups-->
+        <scene sceneID="JpK-k6-shH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="haR-me-Nwn" customClass="groupNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Groups" id="l5j-Eu-tcJ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ECC-Sv-Whc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="qjL-aw-Fb7">
+                        <rect key="frame" x="0.0" y="416" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="GYs-V2-ufV" kind="relationship" relationship="rootViewController" id="S02-5N-wMN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8KQ-IM-0ZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="417" y="132"/>
         </scene>
     </scenes>
     <resources>

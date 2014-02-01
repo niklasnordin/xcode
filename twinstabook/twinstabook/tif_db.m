@@ -26,21 +26,32 @@
             _useFacebook = false;
             _useTwitter = false;
             _useInstagram = false;
+            _groups = [[NSMutableArray alloc] init];
         }
         else
         {
             _useFacebook = [[database objectForKey:USEFACEBOOK] boolValue];
             _useTwitter = [[database objectForKey:USETWITTER] boolValue];
             _useInstagram = [[database objectForKey:USEINSTAGRAM] boolValue];
+            _groups = [database objectForKey:GROUPS];
+            
+            // need to add this since groups have been added after database was created
+            if (!_groups)
+            {
+                _groups = [[NSMutableArray alloc] init];
+            }
         }
         _fbloginView = [[FBLoginView alloc] init];
+        _fbloginView.delegate = self;
+
+        NSLog(@"read permissions = %@",[_fbloginView readPermissions]);
 
     }
     return self;
 }
 -(void)saveDatabase
 {
-    NSLog(@"save database");
+    //NSLog(@"save database");
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
     NSNumber *numberFacebook = [[NSNumber alloc] initWithBool:self.useFacebook];
@@ -51,6 +62,8 @@
     
     NSNumber *numberInstagram = [[NSNumber alloc] initWithBool:self.useInstagram];
     [defaults setObject:numberInstagram forKey:USEINSTAGRAM];
+    
+    [defaults setObject:self.groups forKey:GROUPS];
     
     [defaults synchronize];
     
