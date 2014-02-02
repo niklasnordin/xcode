@@ -38,10 +38,12 @@
 {
     if (data)
     {
-        for (FBGraphObject *k in data)
+        //for (FBGraphObject *k in data)
+        for (NSDictionary *k in data)
         {
             NSString *story = [k objectForKey:@"story"];
             //NSString *from = [k objectForKey:@"from"];
+            //NSArray *allk = [k allKeys];
             NSLog(@"story = %@",story);
         }
     }

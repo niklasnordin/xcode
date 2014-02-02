@@ -27,6 +27,9 @@
 {
     [super viewDidLoad];
 
+
+    self.appDelegate = (twinstabookAppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.database = self.appDelegate.database;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -45,6 +48,13 @@
 - (void)addGroup
 {
     NSLog(@"add group");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter group name" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
+    
+    alert.delegate = self;
+    //[alert dismissWithClickedButtonIndex:1 animated:NO];
+    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [alert show];
+
 }
 
 #pragma mark - Table view data source
@@ -58,9 +68,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 1;
+    return [self.database.groups count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -74,35 +82,58 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
     
-    cell.textLabel.text = @"yoyo";
-    
+    //cell.textLabel.text = @"yoyo";
     // Configure the cell...
-    
+    cell.textLabel.text = [self.database.groups objectAtIndex:indexPath.row];
     return cell;
 }
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        [self.database.groups removeObjectAtIndex:indexPath.row];
+        
+        [tableView beginUpdates];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView endUpdates];
+        [tableView reloadData];
+        [self.tableView reloadData];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    NSString *key = [self.database.groups objectAtIndex:indexPath.row];
+    NSLog(@"segue for %@",key);
+    
+    [segue.destinationViewController setTitle:key];
+    
+    /*
+    [segue.destinationViewController setDb:_db];
+    [segue.destinationViewController setSpecie:key];
+    [segue.destinationViewController setFunctionNames:_functionNames];
+    [segue.destinationViewController setTitle:key];
+    [segue.destinationViewController setParent:_parent];
+     */
+}
+
 
 /*
 // Override to support rearranging the table view.
@@ -131,5 +162,41 @@
 }
 
  */
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+
+    if (buttonIndex == 1)
+    {
+        NSString *name = [[alertView textFieldAtIndex:0] text];
+            
+        // check if name already exist
+        NSArray *names = self.database.groups;
+        bool alreadyInDB = NO;
+        if ([names count])
+        {
+            for(int i=0; i<[names count]; i++)
+            {
+                if ([name isEqualToString:[names objectAtIndex:i]])
+                {
+                        alreadyInDB = YES;
+                }
+            }
+        }
+        if (!alreadyInDB)
+        {
+            [self.database.groups addObject:name];
+            [self.tableView reloadData];
+        }
+    }
+
+ }
+
+
+-(BOOL) textFieldShouldReturn:(UITextField*) textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 
 @end

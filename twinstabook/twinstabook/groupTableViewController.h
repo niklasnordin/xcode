@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "tif_db.h"
+#import "twinstabookAppDelegate.h"
 
 @interface groupTableViewController : UITableViewController
+
+@property (weak, nonatomic) twinstabookAppDelegate *appDelegate;
+@property (weak, nonatomic) tif_db *database;
 
 @end
