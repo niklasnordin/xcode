@@ -41,10 +41,31 @@
                 _groups = [[NSMutableArray alloc] init];
             }
         }
+        self.mediaNames = [[NSArray alloc] initWithObjects:@"facebook", @"twitter", @"instagram", nil];
+        
         _fbloginView = [[FBLoginView alloc] init];
         _fbloginView.delegate = self;
-
+/*
         NSLog(@"read permissions = %@",[_fbloginView readPermissions]);
+        @"email",
+        @"user_birthday",
+        @"user_likes",
+        @"user_location",
+        @"user_photos",
+        @"read_stream",
+        @"publish_stream",
+        @"publish_actions",
+        @"status_update",
+        @"user_about_me",
+        @"read_friendlists",
+        @"friends_about_me",
+        @"friends_birthday",
+        @"friends_photos",
+        */
+        NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
+                                @"read_friendlists",
+                                nil];
+        [_fbloginView setReadPermissions:permissions];
 
     }
     return self;

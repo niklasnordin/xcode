@@ -20,6 +20,7 @@ static NSString *GROUPS = @"groups";
 @property (nonatomic) bool useTwitter;
 @property (nonatomic) bool useInstagram;
 
+@property (strong, nonatomic) NSArray *mediaNames;
 @property (strong, nonatomic) NSMutableArray *groups;
 
 @property (strong, nonatomic) FBLoginView *fbloginView;

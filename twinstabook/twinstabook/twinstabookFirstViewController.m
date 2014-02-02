@@ -99,7 +99,7 @@
 {
     NSLog(@"page = %@",page);
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    NSTimeInterval interval = -86400*7000;
+    NSTimeInterval interval = -86400*1;
     NSDate *start = [[NSDate alloc] initWithTimeIntervalSinceNow:interval];
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setTimeStyle:NSDateFormatterShortStyle];
