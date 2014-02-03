@@ -41,13 +41,28 @@
         //for (FBGraphObject *k in data)
         for (NSDictionary *k in data)
         {
-            NSString *story = [k objectForKey:@"story"];
+            NSString *story = [k objectForKey:@"message"];
             //NSString *from = [k objectForKey:@"from"];
             //NSArray *allk = [k allKeys];
-            NSLog(@"story = %@",story);
+            //NSLog(@"story = %@",story);
+            //self.textView.text = [NSString stringWithFormat:@"%@\n\n%@",self.textView.text,k];
+            self.textView.text = [NSString stringWithFormat:@"%@\n\n%@",self.textView.text,story];
         }
     }
     
+}
+
+- (void)readURLAsync:(NSString *)urlString fromConnection:(FBRequestConnection *)connection next:(BOOL)goNext
+{
+    if (urlString)
+    {
+        NSLog(@"read async");
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+        
+        NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+        //[conn start];
+    }
 }
 
 - (void)readURL:(NSString *)urlString fromConnection:(FBRequestConnection *)connection next:(BOOL)goNext
@@ -99,14 +114,17 @@
 {
     NSLog(@"page = %@",page);
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    NSTimeInterval interval = -86400*1;
+//    NSTimeInterval interval = -86400*1;
+    NSTimeInterval interval = -50000;
+
     NSDate *start = [[NSDate alloc] initWithTimeIntervalSinceNow:interval];
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setTimeStyle:NSDateFormatterShortStyle];
     [format setDateStyle:NSDateFormatterShortStyle];
     NSString *str = [format stringFromDate:start];
-    NSLog(@"str date : %@",str);
-    [params setObject:str forKey:@"since"];
+    //NSLog(@"str date : %@",str);
+    //[params setObject:str forKey:@"since"];
+    
     [FBRequestConnection startWithGraphPath:page parameters:params HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
     {
         if (!error)
@@ -117,8 +135,8 @@
         
             NSString *previous = [paging objectForKey:@"previous"];
             NSString *next = [paging objectForKey:@"next"];
-            [self readURL:previous fromConnection:connection next:NO];
-            [self readURL:next fromConnection:connection next:YES];
+            [self readURLAsync:previous fromConnection:connection next:NO];
+            [self readURLAsync:next fromConnection:connection next:YES];
         }
         else
         {
@@ -131,7 +149,7 @@
 
 - (IBAction)updateButtonClicked:(id)sender
 {
-
+    self.textView.text = @"";
     if (self.database.useFacebook)
     {
         FBSession *session = [FBSession activeSession];
@@ -163,5 +181,53 @@
     {
         
     } // end useTwitter
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    NSLog(@"didRecieveResponse");
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    NSLog(@"didReceiveData");
+    
+    NSError *jsonError;
+    //NSString *svar = [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
+    NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
+    
+    
+    if (!jsonError)
+    {
+        NSMutableArray *data = [dict objectForKey:@"data"];
+        if (data)
+        {
+            [self writeStories:data];
+        }
+    }
+
+
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse
+{
+    // Return nil to indicate not necessary to store a cached response for this connection
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    // The request is complete and data has been received
+    // You can parse the stuff in your instance variable now
+    NSLog(@"didFinishLoading");
+    
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    // The request has failed for some reason!
+    // Check the error var
+    NSLog(@"didFailWithError = %@",error);
 }
 @end

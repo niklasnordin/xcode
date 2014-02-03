@@ -11,9 +11,18 @@
 #import "twinstabookAppDelegate.h"
 
 @interface groupViewController : UIViewController
+<
+    UITableViewDelegate,
+    UITableViewDataSource
+>
 
 @property (weak, nonatomic) twinstabookAppDelegate *appDelegate;
 @property (weak, nonatomic) tif_db *database;
+
 @property (strong, nonatomic) NSString *groupName;
+@property (weak, nonatomic) IBOutlet UIButton *feedButton;
+@property (weak, nonatomic) IBOutlet UITextField *searchField;
+@property (weak, nonatomic) IBOutlet UITableView *searchTableView;
+- (IBAction)feedButtonClicked:(id)sender;
 
 @end

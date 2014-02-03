@@ -12,6 +12,7 @@
 static NSString *USEFACEBOOK = @"usefacebook";
 static NSString *USETWITTER = @"useTwitter";
 static NSString *USEINSTAGRAM = @"useInstagram";
+static NSString *SELECTEDMEDIANAME = @"selectedMediaName";
 static NSString *GROUPS = @"groups";
 
 @interface tif_db : NSObject <FBLoginViewDelegate>
@@ -19,6 +20,7 @@ static NSString *GROUPS = @"groups";
 @property (nonatomic) bool useFacebook;
 @property (nonatomic) bool useTwitter;
 @property (nonatomic) bool useInstagram;
+@property (nonatomic) int selectedMediaName;
 
 @property (strong, nonatomic) NSArray *mediaNames;
 @property (strong, nonatomic) NSMutableArray *groups;

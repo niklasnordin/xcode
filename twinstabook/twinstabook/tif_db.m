@@ -26,6 +26,7 @@
             _useFacebook = false;
             _useTwitter = false;
             _useInstagram = false;
+            _selectedMediaName = 0;
             _groups = [[NSMutableArray alloc] init];
         }
         else
@@ -33,6 +34,7 @@
             _useFacebook = [[database objectForKey:USEFACEBOOK] boolValue];
             _useTwitter = [[database objectForKey:USETWITTER] boolValue];
             _useInstagram = [[database objectForKey:USEINSTAGRAM] boolValue];
+            _selectedMediaName = [[database objectForKey:SELECTEDMEDIANAME] intValue];
             _groups = [database objectForKey:GROUPS];
             
             // need to add this since groups have been added after database was created
@@ -63,8 +65,8 @@
         @"friends_photos",
         */
         NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
-                                @"read_friendlists",
-                                nil];
+                            @"read_friendlists",
+                            nil];
         [_fbloginView setReadPermissions:permissions];
 
     }
@@ -86,6 +88,9 @@
     
     [defaults setObject:self.groups forKey:GROUPS];
     
+    NSNumber *selectedMediaName = [[NSNumber alloc] initWithInt:self.selectedMediaName];
+    [defaults setObject:selectedMediaName  forKey:SELECTEDMEDIANAME];
+    
     [defaults synchronize];
     
 }
@@ -100,19 +105,19 @@
     //self.buttonPostPhoto.enabled = YES;
     // "Post Status" available when logged on and potentially when logged off.  Differentiate in the label.
     //[self.buttonPostStatus setTitle:@"Post Status Update (Logged On)" forState:self.buttonPostStatus.state];
-    NSLog(@"loginViewShowingLoggedInUser");
+    //NSLog(@"loginViewShowingLoggedInUser");
 }
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user
 {
-    NSLog(@"loginViewFetchUserInfo");
+    //NSLog(@"loginViewFetchUserInfo");
 }
 
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
 {
     // this is called after you have logged out
-    NSLog(@"loginViewShowingLoggedOutUser");
+    //NSLog(@"loginViewShowingLoggedOutUser");
 }
 
 
