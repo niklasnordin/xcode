@@ -7,6 +7,8 @@
 //
 
 #import "groupViewController.h"
+#import "searchTableViewController.h"
+
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface groupViewController ()
@@ -134,9 +136,9 @@
          
          if (!error)
          {
-             NSArray *data = [result objectForKey:@"data"];
+             NSMutableArray *data = [result objectForKey:@"data"];
              NSLog(@"search result = %@", data);
-             [self performSegueWithIdentifier:@"searchUserSegue" sender:self];
+             [self performSegueWithIdentifier:@"searchUserSegue" sender:data];
          }
          else
          {
@@ -210,4 +212,12 @@
     NSLog(@"didFailWithError = %@",error);
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(NSMutableArray *)sender
+{
+    if ([[segue identifier] isEqualToString:@"searchUserSegue"])
+    {
+        searchTableViewController *vc = (searchTableViewController *)segue.destinationViewController;
+        [vc setNames:sender];
+    }
+}
 @end

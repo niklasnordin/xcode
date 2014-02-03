@@ -41,12 +41,12 @@
         //for (FBGraphObject *k in data)
         for (NSDictionary *k in data)
         {
-            //NSString *story = [k objectForKey:@"message"];
+            NSString *story = [k objectForKey:@"type"];
             //NSString *from = [k objectForKey:@"from"];
             //NSArray *allk = [k allKeys];
             //NSLog(@"story = %@",story);
             //self.textView.text = [NSString stringWithFormat:@"%@\n\n%@",self.textView.text,k];
-            self.textView.text = [NSString stringWithFormat:@"%@\n\n%@",self.textView.text,k];
+            self.textView.text = [NSString stringWithFormat:@"%@\n\n%@",self.textView.text,story];
         }
     }
     
@@ -61,7 +61,7 @@
         NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
         
         NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-        //[conn start];
+        [conn start];
     }
 }
 

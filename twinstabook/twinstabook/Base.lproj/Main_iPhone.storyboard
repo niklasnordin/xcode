@@ -250,10 +250,10 @@
             </objects>
             <point key="canvasLocation" x="417" y="844"/>
         </scene>
-        <!--Table View Controller - Search Result-->
+        <!--Search Table View Controller - Search Result-->
         <scene sceneID="4nK-SE-oN0">
             <objects>
-                <tableViewController id="lcQ-pU-xhZ" sceneMemberID="viewController">
+                <tableViewController id="lcQ-pU-xhZ" customClass="searchTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="huW-ds-Ke5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
