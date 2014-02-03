@@ -28,6 +28,7 @@
 		61ECD14E18981AB300E5B952 /* groupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61ECD14D18981AB300E5B952 /* groupViewController.m */; };
 		61ECD15118981B8C00E5B952 /* groupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61ECD15018981B8C00E5B952 /* groupTableViewController.m */; };
 		61ECD154189D2B4200E5B952 /* groupNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61ECD153189D2B4200E5B952 /* groupNavigationController.m */; };
+		61ECD15718A00F7500E5B952 /* searchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61ECD15618A00F7500E5B952 /* searchTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		61ECD15018981B8C00E5B952 /* groupTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = groupTableViewController.m; sourceTree = "<group>"; };
 		61ECD152189D2B4200E5B952 /* groupNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = groupNavigationController.h; sourceTree = "<group>"; };
 		61ECD153189D2B4200E5B952 /* groupNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = groupNavigationController.m; sourceTree = "<group>"; };
+		61ECD15518A00F7500E5B952 /* searchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchTableViewController.h; sourceTree = "<group>"; };
+		61ECD15618A00F7500E5B952 /* searchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,8 @@
 				61ECD15018981B8C00E5B952 /* groupTableViewController.m */,
 				61ECD14C18981AB300E5B952 /* groupViewController.h */,
 				61ECD14D18981AB300E5B952 /* groupViewController.m */,
+				61ECD15518A00F7500E5B952 /* searchTableViewController.h */,
+				61ECD15618A00F7500E5B952 /* searchTableViewController.m */,
 				6188A2A718917CB9009C75EB /* tif_db.h */,
 				6188A2A818917CB9009C75EB /* tif_db.m */,
 				61C57C6318897BA600887F5E /* Images.xcassets */,
@@ -286,6 +291,7 @@
 				61ECD14E18981AB300E5B952 /* groupViewController.m in Sources */,
 				61C57C6218897BA600887F5E /* loginViewController.m in Sources */,
 				61C57C5F18897BA600887F5E /* twinstabookFirstViewController.m in Sources */,
+				61ECD15718A00F7500E5B952 /* searchTableViewController.m in Sources */,
 				61C57C5618897BA600887F5E /* twinstabookAppDelegate.m in Sources */,
 				61ECD15118981B8C00E5B952 /* groupTableViewController.m in Sources */,
 				61C57C5218897BA600887F5E /* main.m in Sources */,

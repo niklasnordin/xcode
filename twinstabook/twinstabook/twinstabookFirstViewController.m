@@ -41,12 +41,12 @@
         //for (FBGraphObject *k in data)
         for (NSDictionary *k in data)
         {
-            NSString *story = [k objectForKey:@"message"];
+            //NSString *story = [k objectForKey:@"message"];
             //NSString *from = [k objectForKey:@"from"];
             //NSArray *allk = [k allKeys];
             //NSLog(@"story = %@",story);
             //self.textView.text = [NSString stringWithFormat:@"%@\n\n%@",self.textView.text,k];
-            self.textView.text = [NSString stringWithFormat:@"%@\n\n%@",self.textView.text,story];
+            self.textView.text = [NSString stringWithFormat:@"%@\n\n%@",self.textView.text,k];
         }
     }
     
@@ -56,7 +56,7 @@
 {
     if (urlString)
     {
-        NSLog(@"read async");
+        NSLog(@"read async: %@",urlString);
         NSURL *url = [NSURL URLWithString:urlString];
         NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
         
@@ -112,7 +112,7 @@
 
 - (void)readSession:(FBSession *)session fromConnection:(FBRequestConnection *)connection fromPage:(NSString *)page
 {
-    NSLog(@"page = %@",page);
+    //NSLog(@"page = %@",page);
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
 //    NSTimeInterval interval = -86400*1;
     NSTimeInterval interval = -50000;
@@ -167,6 +167,7 @@
         }
         FBRequestConnection* conn = [[FBRequestConnection alloc] init];
         NSString *startPage = @"/me/feed";
+        //NSString *startPage = @"search?q=max&type=user";
         [self readSession:session fromConnection:conn fromPage:startPage];
 
         

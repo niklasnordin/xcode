@@ -21,7 +21,6 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.defaultTextColor = self.facebookButton.titleLabel.textColor;
     self.appDelegate = (twinstabookAppDelegate *)[[UIApplication sharedApplication] delegate];
-
     self.database = self.appDelegate.database;
     
     [self.facebookSwitch setOn:self.database.useFacebook];
@@ -81,6 +80,7 @@
 - (IBAction)clickedFacebookButton:(id)sender
 {
     NSLog(@"clicked facebook login");
+
 }
 
 - (IBAction)clickedTwitterSwitch:(UISwitch *)sender

@@ -13,7 +13,8 @@
 @interface groupViewController : UIViewController
 <
     UITableViewDelegate,
-    UITableViewDataSource
+    UITableViewDataSource,
+    UITextFieldDelegate
 >
 
 @property (weak, nonatomic) twinstabookAppDelegate *appDelegate;
@@ -24,5 +25,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *searchField;
 @property (weak, nonatomic) IBOutlet UITableView *searchTableView;
 - (IBAction)feedButtonClicked:(id)sender;
+- (IBAction)searchButtonClicked:(id)sender;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *searchActivityIndicator;
 
 @end

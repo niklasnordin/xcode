@@ -65,8 +65,8 @@
         @"friends_photos",
         */
         NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
-                            @"read_friendlists",
-                            nil];
+                                 @"read_friendlists",
+                                 nil];
         [_fbloginView setReadPermissions:permissions];
 
     }

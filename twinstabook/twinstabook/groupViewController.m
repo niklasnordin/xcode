@@ -7,6 +7,7 @@
 //
 
 #import "groupViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface groupViewController ()
 
@@ -35,6 +36,10 @@
     
     self.searchTableView.delegate = self;
     self.searchTableView.dataSource = self;
+    
+    self.searchField.delegate = self;
+    
+    [self.searchActivityIndicator setHidden:YES];
     
 }
 
@@ -101,8 +106,108 @@
     }
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 - (IBAction)feedButtonClicked:(id)sender
 {
     NSLog(@"name = %@", [self.feedButton.titleLabel text]);
 }
+
+- (IBAction)searchButtonClicked:(id)sender
+{
+    [self.searchActivityIndicator setHidden:NO];
+    [self.searchActivityIndicator startAnimating];
+    //perform the search (add search indicator) and then segue the resulting list
+    NSString *searchString = self.searchField.text;
+    searchString = [searchString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    searchString = [searchString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *page = [NSString stringWithFormat:@"search?q=%@&type=user",searchString];
+
+    [FBRequestConnection startWithGraphPath:page parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
+     {
+         [self.searchActivityIndicator setHidden:YES];
+         [self.searchActivityIndicator stopAnimating];
+         
+         if (!error)
+         {
+             NSArray *data = [result objectForKey:@"data"];
+             NSLog(@"search result = %@", data);
+             [self performSegueWithIdentifier:@"searchUserSegue" sender:self];
+         }
+         else
+         {
+             NSLog(@"error: %@",error);
+         }
+     }
+     ];
+
+ 
+    return;
+    
+    NSString *accessToken = [[[FBSession activeSession] accessTokenData] accessToken];
+    NSString *http = @"https://graph.facebook.com";
+    NSString *fullSearchString = [NSString stringWithFormat:@"%@/%@?access_token=%@",http,page,accessToken];
+    NSLog(@"%@",fullSearchString);
+    NSURL *url = [NSURL URLWithString:fullSearchString];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+    
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+    [conn start];
+
+}
+
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    NSLog(@"didRecieveResponse");
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    NSLog(@"didReceiveData");
+    
+    NSError *jsonError;
+    //NSString *svar = [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
+    NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
+    
+    
+    if (!jsonError)
+    {
+        NSLog(@"dict = %@",dict);
+        NSMutableArray *data = [dict objectForKey:@"data"];
+        if (data)
+        {
+            NSLog(@"%@",data);
+        }
+    }
+    
+    
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse
+{
+    // Return nil to indicate not necessary to store a cached response for this connection
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    // The request is complete and data has been received
+    // You can parse the stuff in your instance variable now
+    NSLog(@"didFinishLoading");
+    
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    // The request has failed for some reason!
+    // Check the error var
+    NSLog(@"didFailWithError = %@",error);
+}
+
 @end
