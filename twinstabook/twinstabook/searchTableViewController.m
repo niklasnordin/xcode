@@ -60,14 +60,20 @@
     }
     
     NSError *jsonError;
-    //NSString *svar = [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
+
     NSMutableDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:oResponseData options:NSJSONReadingMutableContainers error:&jsonError];
     
     if (!jsonError)
     {
-        NSDictionary *pictureData = [responseDict objectForKey:@"picture"];
-        NSString *urlPicture = [pictureData objectForKey:@"url"];
-        NSLog(@"rDict = %@",responseDict);
+        //NSLog(@"responseDict:%@",responseDict);
+        NSDictionary *pictureData = [[responseDict objectForKey:@"picture"] objectForKey:@"data"];
+        NSString *urlPictureString = [pictureData objectForKey:@"url"];
+        //NSLog(@"url:%@",urlPictureString);
+        NSURL *urlForPicture = [NSURL URLWithString:urlPictureString];
+        NSMutableURLRequest *pictureRequest = [NSMutableURLRequest requestWithURL:urlForPicture];
+        
+        NSData *pResponseData = [NSURLConnection sendSynchronousRequest:pictureRequest returningResponse:&responseCode error:&error];
+        image = [UIImage imageWithData:pResponseData];
     }
 
     return image;
@@ -77,7 +83,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -89,7 +95,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"aliasNameCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *outCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
     //FBProfilePictureCropping
@@ -97,41 +103,23 @@
     NSDictionary *dict = [self.names objectAtIndex:indexPath.row];
     NSString *name = [dict objectForKey:@"name"];
     NSString *userID = [dict objectForKey:@"id"];
-    NSString *http = @"https://graph.facebook.com";
-    NSString *page = [NSString stringWithFormat:@"%@/%@?fields=picture",http,userID];
-    NSURL *url = [NSURL URLWithString:page];
-    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-    
-    NSError *error = [[NSError alloc] init];
-    NSHTTPURLResponse *responseCode = nil;
-    
-    NSData *oResponseData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&responseCode error:&error];
-    
-    if([responseCode statusCode] != 200)
-    {
-        NSLog(@"Error getting %@, HTTP status code %ld", url, [responseCode statusCode]);
-    }
-    
-    NSError *jsonError;
-    //NSString *svar = [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
-    NSMutableDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:oResponseData options:NSJSONReadingMutableContainers error:&jsonError];
-    
-    if (!jsonError)
-    {
-        NSDictionary *pictureData = [responseDict objectForKey:@"picture"];
-        NSString *urlPicture = [pictureData objectForKey:@"url"];
-        NSLog(@"rDict = %@",responseDict);
-    }
+   
+    //UIImage *img = [UIImage imageNamed:@"IMG_1414.jpg"];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        UIImage *img = [self getImageForUserID:userID];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
 
-    cell.textLabel.text = name;
-    UIImage *img = [UIImage imageNamed:@"IMG_1414.jpg"];
-    NSLog(@"img = %@",img);
-    //CIImage *imgRef = [img CIImage];
-    //CGSize imageSize = [cell.imageView.image size];
-//    UIImage *scaledImage = [UIImage imageWithCIImage:imgRef scale:(CGFloat) orientation:;
-    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    cell.imageView.image = img;
-    return cell;
+            cell.imageView.image = img;
+            cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+            cell.imageView.image = img;
+
+        });
+    });
+    
+    //[dict objectForKey:@"name"]UIImage *img = [self getImageForUserID:userID];
+    outCell.textLabel.text = name;
+    return outCell;
 }
 
 /*
@@ -184,5 +172,44 @@
 }
 
  */
+
+- (void)readURLAsync:(NSString *)urlString
+{
+    if (urlString)
+    {
+        NSLog(@"read async: %@",urlString);
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+        
+        NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+        [conn start];
+    }
+}
+
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    NSLog(@"didRecieveResponse");
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    NSLog(@"didReceiveData");
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse
+{
+    // Return nil to indicate not necessary to store a cached response for this connection
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    // The request is complete and data has been received
+    // You can parse the stuff in your instance variable now
+    NSLog(@"didFinishLoading");
+    
+}
 
 @end
