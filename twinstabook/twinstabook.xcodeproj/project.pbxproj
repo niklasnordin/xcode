@@ -29,6 +29,7 @@
 		61ECD15118981B8C00E5B952 /* groupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61ECD15018981B8C00E5B952 /* groupTableViewController.m */; };
 		61ECD154189D2B4200E5B952 /* groupNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61ECD153189D2B4200E5B952 /* groupNavigationController.m */; };
 		61ECD15718A00F7500E5B952 /* searchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61ECD15618A00F7500E5B952 /* searchTableViewController.m */; };
+		61ECD15918A1667700E5B952 /* IMG_1414.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61ECD15818A1667700E5B952 /* IMG_1414.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		61ECD153189D2B4200E5B952 /* groupNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = groupNavigationController.m; sourceTree = "<group>"; };
 		61ECD15518A00F7500E5B952 /* searchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchTableViewController.h; sourceTree = "<group>"; };
 		61ECD15618A00F7500E5B952 /* searchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchTableViewController.m; sourceTree = "<group>"; };
+		61ECD15818A1667700E5B952 /* IMG_1414.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1414.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 		61C57C4C18897BA600887F5E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				61ECD15818A1667700E5B952 /* IMG_1414.jpg */,
 				61C57C4D18897BA600887F5E /* twinstabook-Info.plist */,
 				61C57C4E18897BA600887F5E /* InfoPlist.strings */,
 				61C57C5118897BA600887F5E /* main.m */,
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61C57C5C18897BA600887F5E /* Main_iPad.storyboard in Resources */,
+				61ECD15918A1667700E5B952 /* IMG_1414.jpg in Resources */,
 				61C57C6418897BA600887F5E /* Images.xcassets in Resources */,
 				61C57C5918897BA600887F5E /* Main_iPhone.storyboard in Resources */,
 				61C57C5018897BA600887F5E /* InfoPlist.strings in Resources */,

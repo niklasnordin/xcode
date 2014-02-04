@@ -111,6 +111,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
+    [self searchButtonClicked:nil];
     return YES;
 }
 
@@ -121,10 +122,15 @@
 
 - (IBAction)searchButtonClicked:(id)sender
 {
+    NSString *searchString = self.searchField.text;
+    if ([searchString isEqualToString:@""])
+    {
+        return;
+    }
+    
     [self.searchActivityIndicator setHidden:NO];
     [self.searchActivityIndicator startAnimating];
     //perform the search (add search indicator) and then segue the resulting list
-    NSString *searchString = self.searchField.text;
     searchString = [searchString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     searchString = [searchString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString *page = [NSString stringWithFormat:@"search?q=%@&type=user",searchString];
@@ -137,7 +143,7 @@
          if (!error)
          {
              NSMutableArray *data = [result objectForKey:@"data"];
-             NSLog(@"search result = %@", data);
+             //NSLog(@"search result = %@", data);
              [self performSegueWithIdentifier:@"searchUserSegue" sender:data];
          }
          else

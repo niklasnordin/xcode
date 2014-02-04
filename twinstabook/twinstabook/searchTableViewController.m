@@ -7,6 +7,7 @@
 //
 
 #import "searchTableViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface searchTableViewController ()
 
@@ -40,11 +41,43 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (UIImage *)getImageForUserID:(NSString *)userID
+{
+    UIImage *image = nil;
+    NSString *http = @"https://graph.facebook.com";
+    NSString *page = [NSString stringWithFormat:@"%@/%@?fields=picture",http,userID];
+    NSURL *url = [NSURL URLWithString:page];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSError *error = [[NSError alloc] init];
+    NSHTTPURLResponse *responseCode = nil;
+    
+    NSData *oResponseData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&responseCode error:&error];
+    
+    if([responseCode statusCode] != 200)
+    {
+        NSLog(@"Error getting %@, HTTP status code %ld", url, [responseCode statusCode]);
+    }
+    
+    NSError *jsonError;
+    //NSString *svar = [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
+    NSMutableDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:oResponseData options:NSJSONReadingMutableContainers error:&jsonError];
+    
+    if (!jsonError)
+    {
+        NSDictionary *pictureData = [responseDict objectForKey:@"picture"];
+        NSString *urlPicture = [pictureData objectForKey:@"url"];
+        NSLog(@"rDict = %@",responseDict);
+    }
+
+    return image;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -59,10 +92,45 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    //cell.textLabel.text = [self.database.groups objectAtIndex:indexPath.row];
+    //FBProfilePictureCropping
+    
     NSDictionary *dict = [self.names objectAtIndex:indexPath.row];
     NSString *name = [dict objectForKey:@"name"];
+    NSString *userID = [dict objectForKey:@"id"];
+    NSString *http = @"https://graph.facebook.com";
+    NSString *page = [NSString stringWithFormat:@"%@/%@?fields=picture",http,userID];
+    NSURL *url = [NSURL URLWithString:page];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSError *error = [[NSError alloc] init];
+    NSHTTPURLResponse *responseCode = nil;
+    
+    NSData *oResponseData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&responseCode error:&error];
+    
+    if([responseCode statusCode] != 200)
+    {
+        NSLog(@"Error getting %@, HTTP status code %ld", url, [responseCode statusCode]);
+    }
+    
+    NSError *jsonError;
+    //NSString *svar = [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
+    NSMutableDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:oResponseData options:NSJSONReadingMutableContainers error:&jsonError];
+    
+    if (!jsonError)
+    {
+        NSDictionary *pictureData = [responseDict objectForKey:@"picture"];
+        NSString *urlPicture = [pictureData objectForKey:@"url"];
+        NSLog(@"rDict = %@",responseDict);
+    }
+
     cell.textLabel.text = name;
+    UIImage *img = [UIImage imageNamed:@"IMG_1414.jpg"];
+    NSLog(@"img = %@",img);
+    //CIImage *imgRef = [img CIImage];
+    //CGSize imageSize = [cell.imageView.image size];
+//    UIImage *scaledImage = [UIImage imageWithCIImage:imgRef scale:(CGFloat) orientation:;
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    cell.imageView.image = img;
     return cell;
 }
 
