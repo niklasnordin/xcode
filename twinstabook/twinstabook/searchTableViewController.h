@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface searchTableViewController : UITableViewController
+<
+    UITableViewDelegate
+>
 
-@property (strong,nonatomic) NSMutableArray *names;
+@property (strong, nonatomic) NSMutableArray *names;
 
 @end

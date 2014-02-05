@@ -134,6 +134,7 @@
     searchString = [searchString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     searchString = [searchString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString *page = [NSString stringWithFormat:@"search?q=%@&type=user",searchString];
+    //NSString *page = [NSString stringWithFormat:@"search?q=%@&type=group",searchString];
 
     [FBRequestConnection startWithGraphPath:page parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
      {
@@ -224,6 +225,7 @@
     {
         searchTableViewController *vc = (searchTableViewController *)segue.destinationViewController;
         [vc setNames:sender];
+        //vc.imageCache = [[NSMutableArray alloc] initWithCapacity:[sender count]];
     }
 }
 @end

@@ -11,6 +11,8 @@
 
 @interface searchTableViewController ()
 
+//@property (strong, nonatomic) NSMutableArray *imageCache;
+
 @end
 
 @implementation searchTableViewController
@@ -18,21 +20,27 @@
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
-    if (self) {
+    if (self)
+    {
         // Custom initialization
     }
+
     return self;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
 
+    [super viewDidLoad];
+    NSLog(@"viewDidLoad, names count = %ld",[self.names count]);
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //self.imageCache = [[NSMutableArray alloc] initWithCapacity:[self.names count]];
+    //NSLog(@"imageCache count = %ld",[self.imageCache count]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,6 +48,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+/*
+- (void)setImageCache:(NSMutableArray *)imageCache
+{
+    _imageCache = imageCache;
+    [self.tableView reloadData];
+}
+*/
 
 - (UIImage *)getImageForUserID:(NSString *)userID
 {
@@ -95,31 +110,29 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"aliasNameCell";
-    UITableViewCell *outCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    //FBProfilePictureCropping
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    if (!cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
     NSDictionary *dict = [self.names objectAtIndex:indexPath.row];
     NSString *name = [dict objectForKey:@"name"];
     NSString *userID = [dict objectForKey:@"id"];
-   
-    //UIImage *img = [UIImage imageNamed:@"IMG_1414.jpg"];
+    //UIImage *img = [self getImageForUserID:userID andIndex:indexPath.row];
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    //cell.imageView.image = nil;
+    cell.textLabel.text = name;
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UIImage *img = [self getImageForUserID:userID];
+        UIImage *image = [self getImageForUserID:userID];
         dispatch_async(dispatch_get_main_queue(), ^{
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-
-            cell.imageView.image = img;
-            cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-            cell.imageView.image = img;
-
+            UITableViewCell *currentCell = [tableView cellForRowAtIndexPath:indexPath];
+            currentCell.imageView.image = image;
         });
     });
-    
     //[dict objectForKey:@"name"]UIImage *img = [self getImageForUserID:userID];
-    outCell.textLabel.text = name;
-    return outCell;
+    return cell;
 }
 
 /*
@@ -172,6 +185,16 @@
 }
 
  */
+/*
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+}
+*/
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"didSelect");
+}
 
 - (void)readURLAsync:(NSString *)urlString
 {
