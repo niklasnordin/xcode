@@ -17,5 +17,6 @@
 @property (weak, nonatomic) tif_db *database;
 
 @property (strong, nonatomic) NSMutableArray *names;
+@property (strong, nonatomic) NSMutableDictionary *selectedUsers;
 
 @end
