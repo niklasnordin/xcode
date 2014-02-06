@@ -8,7 +8,6 @@
 
 #import "groupViewController.h"
 #import "searchTableViewController.h"
-
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface groupViewController ()
@@ -93,7 +92,8 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
         // Delete the row from the data source
         [self.database.groups removeObjectAtIndex:indexPath.row];
         
@@ -122,6 +122,7 @@
 
 - (IBAction)searchButtonClicked:(id)sender
 {
+    NSMutableArray *searchResults = [[NSMutableArray alloc] init];
     NSString *searchString = self.searchField.text;
     if ([searchString isEqualToString:@""])
     {
@@ -133,19 +134,38 @@
     //perform the search (add search indicator) and then segue the resulting list
     searchString = [searchString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     searchString = [searchString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *page = [NSString stringWithFormat:@"search?q=%@&type=user",searchString];
-    //NSString *page = [NSString stringWithFormat:@"search?q=%@&type=group",searchString];
+    NSString *userPage = [NSString stringWithFormat:@"search?q=%@&type=user",searchString];
+    NSString *groupPage = [NSString stringWithFormat:@"search?q=%@&type=group",searchString];
 
-    [FBRequestConnection startWithGraphPath:page parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
+    [FBRequestConnection startWithGraphPath:groupPage parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
      {
-         [self.searchActivityIndicator setHidden:YES];
-         [self.searchActivityIndicator stopAnimating];
          
          if (!error)
          {
-             NSMutableArray *data = [result objectForKey:@"data"];
-             //NSLog(@"search result = %@", data);
-             [self performSegueWithIdentifier:@"searchUserSegue" sender:data];
+             NSMutableArray *gData = [result objectForKey:@"data"];
+             //NSLog(@"search result = %@", gData);
+             [searchResults addObjectsFromArray:gData];
+             
+             
+             [FBRequestConnection startWithGraphPath:userPage parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
+              {
+                  [self.searchActivityIndicator setHidden:YES];
+                  [self.searchActivityIndicator stopAnimating];
+                  
+                  if (!error)
+                  {
+                      NSMutableArray *uData = [result objectForKey:@"data"];
+                      [searchResults addObjectsFromArray:uData];
+                      //NSLog(@"search result = %@", data);
+                      [self performSegueWithIdentifier:@"searchUserSegue" sender:searchResults];
+                  }
+                  else
+                  {
+                      NSLog(@"error: %@",error);
+                  }
+              }
+              ];
+
          }
          else
          {
@@ -153,19 +173,6 @@
          }
      }
      ];
-
- 
-    return;
-    
-    NSString *accessToken = [[[FBSession activeSession] accessTokenData] accessToken];
-    NSString *http = @"https://graph.facebook.com";
-    NSString *fullSearchString = [NSString stringWithFormat:@"%@/%@?access_token=%@",http,page,accessToken];
-    NSLog(@"%@",fullSearchString);
-    NSURL *url = [NSURL URLWithString:fullSearchString];
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-    
-    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-    [conn start];
 
 }
 

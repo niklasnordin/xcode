@@ -78,7 +78,7 @@
     
     if (!jsonError)
     {
-        //NSLog(@"responseDict:%@",responseDict);
+        NSLog(@"responseDict:%@",responseDict);
         NSDictionary *pictureData = [[responseDict objectForKey:@"picture"] objectForKey:@"data"];
         NSString *urlPictureString = [pictureData objectForKey:@"url"];
         //NSLog(@"url:%@",urlPictureString);
