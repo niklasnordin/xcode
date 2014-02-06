@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6137DFEC18A3FF1200E0C589 /* questionMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6137DFEB18A3FF1200E0C589 /* questionMark.png */; };
 		6188A2A918917CB9009C75EB /* tif_db.m in Sources */ = {isa = PBXBuildFile; fileRef = 6188A2A818917CB9009C75EB /* tif_db.m */; };
 		61C57C4618897BA600887F5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4518897BA600887F5E /* Foundation.framework */; };
 		61C57C4818897BA600887F5E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4718897BA600887F5E /* CoreGraphics.framework */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6137DFEB18A3FF1200E0C589 /* questionMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questionMark.png; sourceTree = "<group>"; };
 		6188A2A718917CB9009C75EB /* tif_db.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tif_db.h; sourceTree = "<group>"; };
 		6188A2A818917CB9009C75EB /* tif_db.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tif_db.m; sourceTree = "<group>"; };
 		61C57C4218897BA600887F5E /* twinstabook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twinstabook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +159,7 @@
 				6188A2A718917CB9009C75EB /* tif_db.h */,
 				6188A2A818917CB9009C75EB /* tif_db.m */,
 				61C57C6318897BA600887F5E /* Images.xcassets */,
+				6137DFEB18A3FF1200E0C589 /* questionMark.png */,
 				61C57C4C18897BA600887F5E /* Supporting Files */,
 			);
 			path = twinstabook;
@@ -269,6 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6137DFEC18A3FF1200E0C589 /* questionMark.png in Resources */,
 				61C57C5C18897BA600887F5E /* Main_iPad.storyboard in Resources */,
 				61ECD15918A1667700E5B952 /* IMG_1414.jpg in Resources */,
 				61C57C6418897BA600887F5E /* Images.xcassets in Resources */,

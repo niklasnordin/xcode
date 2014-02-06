@@ -125,7 +125,9 @@
     NSString *userID = [dict objectForKey:@"id"];
     NSString *name = [dict objectForKey:@"name"];
     cell.textLabel.text = name;
-
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    //cell.imageView.autoresizesSubviews = UIViewAutoresizingNone;
+    
     NSBlockOperation *loadImageIntoCellOp = [[NSBlockOperation alloc] init];
     __weak NSBlockOperation *weakOp = loadImageIntoCellOp;
     
@@ -139,9 +141,10 @@
             if (!weakOp.isCancelled)
             {
                 UITableViewCell *theCell = [tableView cellForRowAtIndexPath:indexPath];
-                cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+                //cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
                 theCell.imageView.image = image;
-                
+                theCell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+
                 [self.database.facebookUidToImageDownloadOperations removeObjectForKey:userID];
             }
         }];
@@ -162,8 +165,11 @@
     
     //Make sure cell doesn't contain any traces of data from reuse -
     //This would be a good place to assign a placeholder image
-    //cell.imageView.image = nil;
-    
+    UIImage *placeHolderImage = [UIImage imageNamed:@"questionMark.png"];
+    //[placeHolderImage set
+    cell.imageView.image = placeHolderImage;
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+
     return cell;
 }
 
