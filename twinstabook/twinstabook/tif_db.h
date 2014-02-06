@@ -24,6 +24,8 @@ static NSString *GROUPS = @"groups";
 
 @property (strong, nonatomic) NSArray *mediaNames;
 @property (strong, nonatomic) NSMutableArray *groups;
+@property (strong, nonatomic) NSOperationQueue *imageLoadingQueue;
+@property (strong, nonatomic) NSMutableDictionary *facebookUidToImageDownloadOperations;
 
 @property (strong, nonatomic) FBLoginView *fbloginView;
 

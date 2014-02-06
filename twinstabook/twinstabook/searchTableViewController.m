@@ -43,6 +43,11 @@
     //NSLog(@"imageCache count = %ld",[self.imageCache count]);
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self.database.imageLoadingQueue cancelAllOperations];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -113,26 +118,67 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     if (!cell)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        //cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     NSDictionary *dict = [self.names objectAtIndex:indexPath.row];
-    NSString *name = [dict objectForKey:@"name"];
     NSString *userID = [dict objectForKey:@"id"];
-    //UIImage *img = [self getImageForUserID:userID andIndex:indexPath.row];
-    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    //cell.imageView.image = nil;
+    NSString *name = [dict objectForKey:@"name"];
     cell.textLabel.text = name;
 
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    NSBlockOperation *loadImageIntoCellOp = [[NSBlockOperation alloc] init];
+    __weak NSBlockOperation *weakOp = loadImageIntoCellOp;
+    
+    [loadImageIntoCellOp addExecutionBlock:^(void)
+    {
         UIImage *image = [self getImageForUserID:userID];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            UITableViewCell *currentCell = [tableView cellForRowAtIndexPath:indexPath];
-            currentCell.imageView.image = image;
-        });
-    });
-    //[dict objectForKey:@"name"]UIImage *img = [self getImageForUserID:userID];
+        //Some asynchronous work. Once the image is ready, it will load into view on the main queue
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^(void)
+        {
+            //Check for cancelation before proceeding. We use cellForRowAtIndexPath to make sure we get nil for a non-visible cell
+            if (!weakOp.isCancelled)
+            {
+                UITableViewCell *theCell = [tableView cellForRowAtIndexPath:indexPath];
+                cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+                theCell.imageView.image = image;
+                
+                [self.database.facebookUidToImageDownloadOperations removeObjectForKey:userID];
+            }
+        }];
+    }];
+    
+    
+    //Save a reference to the operation in an NSMutableDictionary so that it can be cancelled later on
+    if (userID)
+    {
+        [self.database.facebookUidToImageDownloadOperations setObject:loadImageIntoCellOp forKey:userID];
+    }
+    
+    //Add the operation to the designated background queue
+    if (loadImageIntoCellOp)
+    {
+        [self.database.imageLoadingQueue addOperation:loadImageIntoCellOp];
+    }
+    
+    //Make sure cell doesn't contain any traces of data from reuse -
+    //This would be a good place to assign a placeholder image
+    //cell.imageView.image = nil;
+    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *dict = [self.names objectAtIndex:indexPath.row];
+    NSString *userID = [dict objectForKey:@"id"];
+    //Fetch operation that doesn't need executing anymore
+    NSBlockOperation *ongoingDownloadOperation = [self.database.facebookUidToImageDownloadOperations objectForKey:userID];
+    if (ongoingDownloadOperation)
+    {
+        //Cancel operation and remove from dictionary
+        [ongoingDownloadOperation cancel];
+        [self.database.facebookUidToImageDownloadOperations removeObjectForKey:userID];
+    }
 }
 
 /*

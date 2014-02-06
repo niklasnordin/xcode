@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "tif_db.h"
 
 @interface searchTableViewController : UITableViewController
 <
     UITableViewDelegate
 >
+
+@property (weak, nonatomic) tif_db *database;
 
 @property (strong, nonatomic) NSMutableArray *names;
 

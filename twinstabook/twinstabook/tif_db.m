@@ -47,6 +47,13 @@
         
         _fbloginView = [[FBLoginView alloc] init];
         _fbloginView.delegate = self;
+        
+        _imageLoadingQueue = [[NSOperationQueue alloc] init];
+        [_imageLoadingQueue setName:@"imageLoadingQueue"];
+        
+        _facebookUidToImageDownloadOperations = [[NSMutableDictionary alloc] init];
+        
+        
 /*
         NSLog(@"read permissions = %@",[_fbloginView readPermissions]);
         @"email",

@@ -113,19 +113,19 @@
 - (void)readSession:(FBSession *)session fromConnection:(FBRequestConnection *)connection fromPage:(NSString *)page
 {
     //NSLog(@"page = %@",page);
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    //NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
 //    NSTimeInterval interval = -86400*1;
-    NSTimeInterval interval = -50000;
+    //NSTimeInterval interval = -50000;
 
-    NSDate *start = [[NSDate alloc] initWithTimeIntervalSinceNow:interval];
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setTimeStyle:NSDateFormatterShortStyle];
-    [format setDateStyle:NSDateFormatterShortStyle];
-    NSString *str = [format stringFromDate:start];
+    //NSDate *start = [[NSDate alloc] initWithTimeIntervalSinceNow:interval];
+    //NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    //[format setTimeStyle:NSDateFormatterShortStyle];
+    //[format setDateStyle:NSDateFormatterShortStyle];
+    //NSString *str = [format stringFromDate:start];
     //NSLog(@"str date : %@",str);
     //[params setObject:str forKey:@"since"];
     
-    [FBRequestConnection startWithGraphPath:page parameters:params HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
+    [FBRequestConnection startWithGraphPath:page parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
     {
         if (!error)
         {

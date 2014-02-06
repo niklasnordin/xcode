@@ -225,6 +225,8 @@
     {
         searchTableViewController *vc = (searchTableViewController *)segue.destinationViewController;
         [vc setNames:sender];
+        [vc setDatabase:self.database];
+        
         //vc.imageCache = [[NSMutableArray alloc] initWithCapacity:[sender count]];
     }
 }
