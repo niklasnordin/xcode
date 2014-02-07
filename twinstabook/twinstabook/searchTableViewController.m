@@ -11,8 +11,6 @@
 
 @interface searchTableViewController ()
 
-//@property (strong, nonatomic) NSMutableArray *imageCache;
-
 @end
 
 @implementation searchTableViewController
@@ -41,6 +39,17 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     _selectedUsers = [[NSMutableDictionary alloc] init];
     
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    NSLog(@"viewWillDisappear");
+    NSLog(@"selectedUsers = %@",self.selectedUsers);
+    for (NSDictionary *dict in self.selectedUsers)
+    {
+        [self.groupMembers addObject:dict];
+    }
+    [self.members reloadData];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -78,7 +87,7 @@
     
     if (!jsonError)
     {
-        NSLog(@"responseDict:%@",responseDict);
+        //NSLog(@"responseDict:%@",responseDict);
         NSDictionary *pictureData = [[responseDict objectForKey:@"picture"] objectForKey:@"data"];
         NSString *urlPictureString = [pictureData objectForKey:@"url"];
         //NSLog(@"url:%@",urlPictureString);

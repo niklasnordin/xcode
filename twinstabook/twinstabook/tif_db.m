@@ -16,9 +16,10 @@
     if (self)
     {
 
+        self.mediaNames = [[NSArray alloc] initWithObjects:@"facebook", @"twitter", @"instagram", nil];
+
         NSUserDefaults *database = [NSUserDefaults standardUserDefaults];
         // check for user setting exist
-        //NSMutableDictionary *database = [defaults objectForKey:@"database"];
         if (!database)
         {
             //database = [[NSMutableDictionary alloc] init];
@@ -28,6 +29,12 @@
             _useInstagram = false;
             _selectedMediaName = 0;
             _groups = [[NSMutableArray alloc] init];
+            _groupMembers = [[NSMutableDictionary alloc] init];
+            for (NSString *name in self.mediaNames)
+            {
+                NSMutableArray *arry = [[NSMutableArray alloc] init];
+                [_groupMembers setObject:arry forKey:name];
+            }
         }
         else
         {
@@ -36,15 +43,24 @@
             _useInstagram = [[database objectForKey:USEINSTAGRAM] boolValue];
             _selectedMediaName = [[database objectForKey:SELECTEDMEDIANAME] intValue];
             _groups = [database objectForKey:GROUPS];
-            
+            _groupMembers = [database objectForKey:GROUPMEMBERS];
             // need to add this since groups have been added after database was created
             if (!_groups)
             {
                 _groups = [[NSMutableArray alloc] init];
             }
+            if (!_groupMembers)
+            {
+                _groupMembers = [[NSMutableDictionary alloc] init];
+                for (NSString *name in self.mediaNames)
+                {
+                    NSMutableArray *arry = [[NSMutableArray alloc] init];
+                    [_groupMembers setObject:arry forKey:name];
+                }
+            }
         }
-        self.mediaNames = [[NSArray alloc] initWithObjects:@"facebook", @"twitter", @"instagram", nil];
         
+        // initialize the facebook login button
         _fbloginView = [[FBLoginView alloc] init];
         _fbloginView.delegate = self;
         
@@ -95,7 +111,8 @@
     [defaults setObject:numberInstagram forKey:USEINSTAGRAM];
     
     [defaults setObject:self.groups forKey:GROUPS];
-    
+    [defaults setObject:self.groupMembers forKey:GROUPMEMBERS];
+
     NSNumber *selectedMediaName = [[NSNumber alloc] initWithInt:self.selectedMediaName];
     [defaults setObject:selectedMediaName  forKey:SELECTEDMEDIANAME];
     
@@ -134,6 +151,11 @@
     // see https://developers.facebook.com/docs/reference/api/errors/ for general guidance on error handling for Facebook API
     // our policy here is to let the login view handle errors, but to log the results
     NSLog(@"FBLoginView encountered an error=%@", error);
+}
+
+- (void)requestNewAccessToken
+{
+    
 }
 
 @end

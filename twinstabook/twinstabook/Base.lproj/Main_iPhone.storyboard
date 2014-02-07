@@ -181,7 +181,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Vz3-hl-WQl">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="one direction" borderStyle="roundedRect" placeholder="user or group" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Vz3-hl-WQl">
                                 <rect key="frame" x="20" y="115" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -240,9 +240,9 @@
                     <navigationItem key="navigationItem" id="Idz-G7-WkK"/>
                     <connections>
                         <outlet property="feedButton" destination="Ify-rm-Sm9" id="5bX-gj-cBn"/>
+                        <outlet property="membersTableView" destination="owz-CF-94N" id="WPv-oH-Ng6"/>
                         <outlet property="searchActivityIndicator" destination="eNb-t1-wqi" id="h7N-hk-pdR"/>
                         <outlet property="searchField" destination="Vz3-hl-WQl" id="tTR-b2-QX9"/>
-                        <outlet property="searchTableView" destination="owz-CF-94N" id="TJh-S2-CjH"/>
                         <segue destination="lcQ-pU-xhZ" kind="push" identifier="searchUserSegue" id="Pat-4d-bP1"/>
                     </connections>
                 </viewController>

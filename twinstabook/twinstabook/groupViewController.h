@@ -23,7 +23,7 @@
 @property (strong, nonatomic) NSString *groupName;
 @property (weak, nonatomic) IBOutlet UIButton *feedButton;
 @property (weak, nonatomic) IBOutlet UITextField *searchField;
-@property (weak, nonatomic) IBOutlet UITableView *searchTableView;
+@property (weak, nonatomic) IBOutlet UITableView *membersTableView;
 - (IBAction)feedButtonClicked:(id)sender;
 - (IBAction)searchButtonClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *searchActivityIndicator;

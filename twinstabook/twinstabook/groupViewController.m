@@ -12,6 +12,8 @@
 
 @interface groupViewController ()
 
+@property (weak, nonatomic) NSMutableDictionary *groupMembers;
+
 @end
 
 @implementation groupViewController
@@ -30,13 +32,14 @@
     [super viewDidLoad];
     self.appDelegate = (twinstabookAppDelegate *)[[UIApplication sharedApplication] delegate];
     self.database = self.appDelegate.database;
+    self.groupMembers = self.database.groupMembers;
     
 	// Do any additional setup after loading the view.
     NSString *name = [self.database.mediaNames objectAtIndex:self.database.selectedMediaName];
     [self.feedButton setTitle:name forState:UIControlStateNormal];
     
-    self.searchTableView.delegate = self;
-    self.searchTableView.dataSource = self;
+    self.membersTableView.delegate = self;
+    self.membersTableView.dataSource = self;
     
     self.searchField.delegate = self;
     
@@ -59,12 +62,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.database.groups count];
+    NSInteger count = 0;
+    for (NSString *name in self.database.mediaNames)
+    {
+        count += [[self.groupMembers objectForKey:name] count];
+    }
+    NSLog(@"count = %ld",count);
+    return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    NSLog(@"indexPath.row=%ld",indexPath.row);
     static NSString *CellIdentifier = @"SearchCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
@@ -74,8 +83,35 @@
     }
     
     // Configure the cell...
+    NSInteger row = indexPath.row;
+    NSInteger nFB = [[self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:0]] count];
+    NSInteger nTW = [[self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:1]] count];
+    //NSInteger nIG = [[self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:2]] count];
+    NSLog(@"nFB = %ld",nFB);
+    
+    NSString *name = nil;
+    if (row < nFB)
+    {
 
-    cell.textLabel.text = [self.database.groups objectAtIndex:indexPath.row];
+        NSMutableArray *members = [self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:0]];
+        NSDictionary *data = [members objectAtIndex:row];
+        NSString *uid = [[[data objectEnumerator] allObjects] lastObject];
+        name = [data objectForKey:uid];
+    }
+    else
+    {
+        row -= nFB;
+        if (row < nFB+nTW)
+        {
+            name = [[self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:1]] objectAtIndex:row];
+        }
+        else
+        {
+            row -= nTW;
+            name = [[self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:2]] objectAtIndex:row];
+        }
+    }
+    cell.textLabel.text = name;
     return cell;
 }
 
@@ -95,13 +131,38 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         // Delete the row from the data source
-        [self.database.groups removeObjectAtIndex:indexPath.row];
+        //[self.database.groups removeObjectAtIndex:indexPath.row];
+        NSInteger row = indexPath.row;
+        NSInteger nFB = [[self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:0]] count];
+        NSInteger nTW = [[self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:1]] count];
+        //NSInteger nIG = [[self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:2]] count];
+        
+        if (row < nFB)
+        {
+            NSMutableArray *arry = [self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:0]];
+            [arry removeObjectAtIndex:row];
+        }
+        else
+        {
+            row -= nFB;
+            if (row < nFB+nTW)
+            {
+                NSMutableArray *arry = [self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:1]];
+                [arry removeObjectAtIndex:row];
+            }
+            else
+            {
+                row -= nTW;
+                NSMutableArray *arry = [self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:1]];
+                [arry removeObjectAtIndex:row];
+            }
+        }
         
         [tableView beginUpdates];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [tableView endUpdates];
         [tableView reloadData];
-        [self.searchTableView reloadData];
+        [self.membersTableView reloadData];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -134,20 +195,20 @@
     //perform the search (add search indicator) and then segue the resulting list
     searchString = [searchString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     searchString = [searchString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *userPage = [NSString stringWithFormat:@"search?q=%@&type=user",searchString];
-    NSString *groupPage = [NSString stringWithFormat:@"search?q=%@&type=group",searchString];
+    NSString *userSearch = [NSString stringWithFormat:@"search?q=%@&type=user",searchString];
+    NSString *pageSearch = [NSString stringWithFormat:@"search?q=%@&type=page",searchString];
 
-    [FBRequestConnection startWithGraphPath:groupPage parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
+    [FBRequestConnection startWithGraphPath:pageSearch parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
      {
          
          if (!error)
          {
-             NSMutableArray *gData = [result objectForKey:@"data"];
-             //NSLog(@"search result = %@", gData);
-             [searchResults addObjectsFromArray:gData];
+             NSMutableArray *pData = [result objectForKey:@"data"];
+             //NSLog(@"search result = %@", pData);
+             [searchResults addObjectsFromArray:pData];
              
              
-             [FBRequestConnection startWithGraphPath:userPage parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
+             [FBRequestConnection startWithGraphPath:userSearch parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
               {
                   [self.searchActivityIndicator setHidden:YES];
                   [self.searchActivityIndicator stopAnimating];
@@ -234,7 +295,10 @@
         [vc setNames:sender];
         [vc setDatabase:self.database];
         
-        //vc.imageCache = [[NSMutableArray alloc] initWithCapacity:[sender count]];
+        NSString *feed = self.feedButton.titleLabel.text;
+        [vc setMediaName:feed];
+        [vc setGroupMembers:[self.database.groupMembers objectForKey:feed]];
+        [vc setMembers:self.membersTableView];
     }
 }
 @end

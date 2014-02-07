@@ -81,7 +81,6 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    //cell.textLabel.text = @"yoyo";
     // Configure the cell...
     cell.textLabel.text = [self.database.groups objectAtIndex:indexPath.row];
     return cell;
@@ -120,8 +119,7 @@
 {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     NSString *key = [self.database.groups objectAtIndex:indexPath.row];
-    NSLog(@"segue for %@",key);
-    
+
     [segue.destinationViewController setTitle:key];
     
     /*
@@ -186,6 +184,7 @@
         if (!alreadyInDB)
         {
             [self.database.groups addObject:name];
+            [self.database.groupMembers setObject:[[NSMutableDictionary alloc] init] forKey:name];
             [self.tableView reloadData];
         }
     }

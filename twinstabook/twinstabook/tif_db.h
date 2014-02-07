@@ -14,6 +14,7 @@ static NSString *USETWITTER = @"useTwitter";
 static NSString *USEINSTAGRAM = @"useInstagram";
 static NSString *SELECTEDMEDIANAME = @"selectedMediaName";
 static NSString *GROUPS = @"groups";
+static NSString *GROUPMEMBERS = @"groupMembers";
 
 @interface tif_db : NSObject <FBLoginViewDelegate>
 
@@ -24,6 +25,8 @@ static NSString *GROUPS = @"groups";
 
 @property (strong, nonatomic) NSArray *mediaNames;
 @property (strong, nonatomic) NSMutableArray *groups;
+@property (strong, nonatomic) NSMutableDictionary *groupMembers;
+
 @property (strong, nonatomic) NSOperationQueue *imageLoadingQueue;
 @property (strong, nonatomic) NSMutableDictionary *facebookUidToImageDownloadOperations;
 
@@ -38,6 +41,7 @@ static NSString *GROUPS = @"groups";
                             user:(id<FBGraphUser>)user;
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView;
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error;
+- (void)requestNewAccessToken;
 
 // twitter functions
 

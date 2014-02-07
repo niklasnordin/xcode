@@ -19,4 +19,8 @@
 @property (strong, nonatomic) NSMutableArray *names;
 @property (strong, nonatomic) NSMutableDictionary *selectedUsers;
 
+@property (weak, nonatomic) NSString *mediaName;
+@property (weak, nonatomic) NSMutableArray *groupMembers;
+@property (weak, nonatomic) UITableView *members;
+
 @end
