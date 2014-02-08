@@ -26,6 +26,7 @@ static CGFloat kThreeFifths = 0.6;
         self.topController = viewController.navigationController ?: viewController;
         [viewController.view addSubview:self];
         [self setBackgroundColor:[UIColor whiteColor]];
+        //[self setAlpha:0.5];
     }
     return self;
 }

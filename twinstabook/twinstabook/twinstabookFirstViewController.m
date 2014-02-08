@@ -29,8 +29,8 @@
     
     self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self];
     [self.picker hide];
-    self.feedButton.titleLabel.text = [self nameForPicker:self.database.selectedFeedIndex];
-    //[self.picker s]
+    [self.feedButton setTitle:[self nameForPicker:self.database.selectedFeedIndex] forState:UIControlStateNormal];
+    [self.picker selectRow:self.database.selectedFeedIndex inComponent:0 animated:NO];
     
 }
 
@@ -263,7 +263,9 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.database.selectedFeedIndex = component;
+    self.database.selectedFeedIndex = row;
+    [self.feedButton setTitle:[self nameForPicker:row] forState:UIControlStateNormal];
+
 }
 
 #pragma mark -
@@ -282,6 +284,7 @@
 - (void)pickerViewSelectionIndicatorWasTapped:(JMPickerView *)pickerView
 {
     NSLog(@"picker indicator tapped");
+
     [self.picker hide];
 }
 
