@@ -9,6 +9,7 @@
 @implementation JMPickerView
 
 static CGFloat kPickerViewStandardHeight = 216.f;
+static CGFloat kMenuHeight = 50.0f;
 static CGFloat kDismissViewAlpha = 0.66f;
 static CGFloat kAnimationDuration = 0.25f;
 static CGFloat kTwoFifths = 0.4f;
@@ -16,8 +17,10 @@ static CGFloat kThreeFifths = 0.6;
 
 // This is just a convenient init method.
 // All we need are a delegate and to be added to a viewController's view.
-- (JMPickerView *)initWithDelegate:(id<JMPickerViewDelegate>)delegate addingToViewController:(UIViewController *)viewController {
-    if (self = [super init]) {
+- (JMPickerView *)initWithDelegate:(id<JMPickerViewDelegate>)delegate addingToViewController:(UIViewController *)viewController
+{
+    if (self = [super init])
+    {
         self.showsSelectionIndicator = YES;
         self.delegate = delegate;
         self.topController = viewController.navigationController ?: viewController;
@@ -30,7 +33,9 @@ static CGFloat kThreeFifths = 0.6;
 // We're pretty much useless until we've been added to a view.
 - (void)didMoveToSuperview
 {
-    self.frame = CGRectMake(self.superview.bounds.origin.x, self.superview.bounds.size.height, self.superview.bounds.size.width, kPickerViewStandardHeight);
+
+    self.frame = CGRectMake(self.superview.bounds.origin.x, kPickerViewStandardHeight, self.superview.bounds.size.width, kPickerViewStandardHeight);
+    
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectionIndicatorTap:)]];
 
@@ -38,7 +43,7 @@ static CGFloat kThreeFifths = 0.6;
     self.pickerDismisserView.frame = self.topController.view.bounds;
     self.pickerDismisserView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.pickerDismisserView.backgroundColor = UIColor.blackColor;
-    self.pickerDismisserView.alpha = 0.f;
+    self.pickerDismisserView.alpha = 0.0f;
     [self.pickerDismisserView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)]];
     [self.topController.view addSubview:self.pickerDismisserView];
 }
@@ -46,8 +51,10 @@ static CGFloat kThreeFifths = 0.6;
 - (void)selectionIndicatorTap:(UITapGestureRecognizer *)gestureRecognizer
 {
     if ([gestureRecognizer locationInView:self].y > (self.bounds.size.height * kTwoFifths) &&
-        [gestureRecognizer locationInView:self].y < (self.bounds.size.height * kThreeFifths)) {
-        if ([self.delegate respondsToSelector:@selector(pickerViewSelectionIndicatorWasTapped:)]) {
+        [gestureRecognizer locationInView:self].y < (self.bounds.size.height * kThreeFifths))
+    {
+        if ([self.delegate respondsToSelector:@selector(pickerViewSelectionIndicatorWasTapped:)])
+        {
             [self.delegate pickerViewSelectionIndicatorWasTapped:self];
         }
     }
@@ -56,8 +63,11 @@ static CGFloat kThreeFifths = 0.6;
 - (void)show
 {
     [UIView animateWithDuration:kAnimationDuration animations:^{
-        self.frame = CGRectMake(self.superview.bounds.origin.x, self.superview.bounds.size.height - kPickerViewStandardHeight, self.superview.bounds.size.width, kPickerViewStandardHeight);
-        self.pickerDismisserView.frame = CGRectMake(self.topController.view.bounds.origin.x, self.topController.view.bounds.origin.y, self.topController.view.bounds.size.width, self.topController.view.bounds.size.height - kPickerViewStandardHeight);
+
+        self.frame = CGRectMake(self.superview.bounds.origin.x, self.superview.bounds.origin.y, self.superview.bounds.size.width, kPickerViewStandardHeight);
+        
+        self.pickerDismisserView.frame = CGRectMake(self.topController.view.bounds.origin.x, self.topController.view.bounds.origin.y+kPickerViewStandardHeight, self.topController.view.bounds.size.width, self.topController.view.bounds.size.height - kPickerViewStandardHeight);
+        
         self.pickerDismisserView.alpha = kDismissViewAlpha;
     }];
     if ([self.delegate respondsToSelector:@selector(pickerViewWasShown:)])
@@ -69,7 +79,7 @@ static CGFloat kThreeFifths = 0.6;
 - (void)hide
 {
     [UIView animateWithDuration:kAnimationDuration animations:^{
-        self.frame = CGRectMake(self.superview.bounds.origin.x, self.superview.bounds.size.height, self.superview.bounds.size.width, kPickerViewStandardHeight);
+        self.frame = CGRectMake(self.superview.bounds.origin.x, self.superview.bounds.origin.y-kPickerViewStandardHeight, self.superview.bounds.size.width, kPickerViewStandardHeight);
         self.pickerDismisserView.frame = self.topController.view.bounds;
         self.pickerDismisserView.alpha = 0.f;
     }];

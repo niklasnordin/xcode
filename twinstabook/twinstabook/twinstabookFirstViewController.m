@@ -28,7 +28,7 @@
     self.textView.userInteractionEnabled = YES;
     
     self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self];
-    
+    [self.picker hide];
 }
 
 - (void)didReceiveMemoryWarning
