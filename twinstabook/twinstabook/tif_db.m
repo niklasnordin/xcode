@@ -28,6 +28,8 @@
             _useTwitter = false;
             _useInstagram = false;
             _selectedMediaName = 0;
+            _selectedFeedIndex = 0;
+            
             _groups = [[NSMutableArray alloc] init];
             _groupMembers = [[NSMutableDictionary alloc] init];
             for (NSString *name in self.mediaNames)
@@ -42,6 +44,8 @@
             _useTwitter = [[database objectForKey:USETWITTER] boolValue];
             _useInstagram = [[database objectForKey:USEINSTAGRAM] boolValue];
             _selectedMediaName = [[database objectForKey:SELECTEDMEDIANAME] intValue];
+            _selectedFeedIndex = [[database objectForKey:SELECTEDFEEDINDEX] integerValue];
+            
             _groups = [database objectForKey:GROUPS];
             _groupMembers = [database objectForKey:GROUPMEMBERS];
             // need to add this since groups have been added after database was created
@@ -110,6 +114,8 @@
     
     NSNumber *numberInstagram = [[NSNumber alloc] initWithBool:self.useInstagram];
     [defaults setObject:numberInstagram forKey:USEINSTAGRAM];
+    
+    [defaults setObject:[[NSNumber alloc] initWithInteger:self.selectedFeedIndex] forKey:SELECTEDFEEDINDEX];
     
     [defaults setObject:self.groups forKey:GROUPS];
     [defaults setObject:self.groupMembers forKey:GROUPMEMBERS];

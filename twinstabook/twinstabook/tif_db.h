@@ -13,6 +13,7 @@ static NSString *USEFACEBOOK = @"usefacebook";
 static NSString *USETWITTER = @"useTwitter";
 static NSString *USEINSTAGRAM = @"useInstagram";
 static NSString *SELECTEDMEDIANAME = @"selectedMediaName";
+static NSString *SELECTEDFEEDINDEX = @"selectedFeedIndex";
 static NSString *GROUPS = @"groups";
 static NSString *GROUPMEMBERS = @"groupMembers";
 
@@ -22,6 +23,7 @@ static NSString *GROUPMEMBERS = @"groupMembers";
 @property (nonatomic) bool useTwitter;
 @property (nonatomic) bool useInstagram;
 @property (nonatomic) int selectedMediaName;
+@property (nonatomic) NSInteger selectedFeedIndex;
 
 @property (strong, nonatomic) NSArray *mediaNames;
 @property (strong, nonatomic) NSMutableArray *groups;

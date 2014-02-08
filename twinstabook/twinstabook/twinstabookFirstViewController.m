@@ -9,7 +9,7 @@
 #import "twinstabookFirstViewController.h"
 
 @interface twinstabookFirstViewController ()
-
+@property (strong, nonatomic) JMPickerView *picker;
 @end
 
 @implementation twinstabookFirstViewController
@@ -26,6 +26,9 @@
     }
     self.textView.scrollEnabled = YES;
     self.textView.userInteractionEnabled = YES;
+    
+    self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -231,4 +234,52 @@
     // Check the error var
     NSLog(@"didFailWithError = %@",error);
 }
+
+- (IBAction)feedButtonClicked:(id)sender
+{
+    [self.picker show];
+}
+
+#pragma mark -
+#pragma mark Standard UIPickerView data source and delegate methods
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return 1;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return @"me";
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    self.database.selectedFeedIndex = component;
+}
+
+#pragma mark -
+#pragma mark JMPickerView delegate methods
+
+- (void)pickerViewWasHidden:(JMPickerView *)pickerView
+{
+    NSLog(@"picker hidden");
+}
+
+- (void)pickerViewWasShown:(JMPickerView *)pickerView
+{
+    NSLog(@"picker is shown");
+}
+
+- (void)pickerViewSelectionIndicatorWasTapped:(JMPickerView *)pickerView
+{
+    NSLog(@"picker indicator tapped");
+    [self.picker hide];
+}
+
 @end
