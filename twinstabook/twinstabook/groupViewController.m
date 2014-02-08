@@ -67,13 +67,11 @@
     {
         count += [[self.groupMembers objectForKey:name] count];
     }
-    NSLog(@"count = %ld",count);
     return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"indexPath.row=%ld",indexPath.row);
     static NSString *CellIdentifier = @"SearchCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
@@ -87,7 +85,6 @@
     NSInteger nFB = [[self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:0]] count];
     NSInteger nTW = [[self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:1]] count];
     //NSInteger nIG = [[self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:2]] count];
-    NSLog(@"nFB = %ld",nFB);
     
     NSString *name = nil;
     if (row < nFB)
@@ -95,7 +92,10 @@
         NSMutableArray *members = [self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:0]];
         NSDictionary *data = [members objectAtIndex:row];
         NSString *uid = [[data allKeys] lastObject];
-        name = [data objectForKey:uid];
+        NSDictionary *dict = [data objectForKey:uid];
+        name = [dict objectForKey:@"name"];
+        NSData *imageData = [dict objectForKey:@"image"];
+        cell.imageView.image = [UIImage imageWithData:imageData];
     }
     else
     {

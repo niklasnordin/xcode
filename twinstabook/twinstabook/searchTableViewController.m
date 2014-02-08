@@ -49,6 +49,7 @@
     {
         NSDictionary *dict = [self.selectedUsers objectForKey:key];
         [members addObject:@{key: dict}];
+        //[members addObject:@{@"image",]
     }
     
     [self.members reloadData];
@@ -221,7 +222,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didSelect");
     NSUInteger row = indexPath.row;
     NSDictionary *dict = [self.names objectAtIndex:row];
     NSString *userID = [dict objectForKey:@"id"];
@@ -237,7 +237,14 @@
     }
     else
     {
-        [self.selectedUsers setObject:name forKey:userID];
+        UIImage *image = cell.imageView.image;
+        NSData *imageData = UIImagePNGRepresentation(image);
+        NSDictionary *dict = @{@"name" : name,
+                               @"image" : imageData,
+                                @"type" : self.mediaName};
+        //[self.selectedUsers setObject:name forKey:userID];
+        [self.selectedUsers setObject:dict forKey:userID];
+
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     }
     
