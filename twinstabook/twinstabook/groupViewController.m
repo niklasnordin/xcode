@@ -92,10 +92,9 @@
     NSString *name = nil;
     if (row < nFB)
     {
-
         NSMutableArray *members = [self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:0]];
         NSDictionary *data = [members objectAtIndex:row];
-        NSString *uid = [[[data objectEnumerator] allObjects] lastObject];
+        NSString *uid = [[data allKeys] lastObject];
         name = [data objectForKey:uid];
     }
     else
@@ -295,6 +294,7 @@
         [vc setNames:sender];
         [vc setDatabase:self.database];
         
+        NSLog(@"prepare for segue, count = %ld",[self.database.groupMembers count]);
         NSString *feed = self.feedButton.titleLabel.text;
         [vc setMediaName:feed];
         [vc setGroupMembers:[self.database.groupMembers objectForKey:feed]];

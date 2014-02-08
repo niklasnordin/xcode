@@ -20,7 +20,7 @@
 
         NSUserDefaults *database = [NSUserDefaults standardUserDefaults];
         // check for user setting exist
-        if (!database)
+        if (database)
         {
             //database = [[NSMutableDictionary alloc] init];
             
@@ -59,6 +59,7 @@
                 }
             }
         }
+        NSLog(@"init groupmembers count = %ld",[self.groupMembers count]);
         
         // initialize the facebook login button
         _fbloginView = [[FBLoginView alloc] init];

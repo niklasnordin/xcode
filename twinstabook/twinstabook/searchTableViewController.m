@@ -43,12 +43,14 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    NSLog(@"viewWillDisappear");
-    NSLog(@"selectedUsers = %@",self.selectedUsers);
-    for (NSDictionary *dict in self.selectedUsers)
+    NSMutableArray *members = [self.database.groupMembers objectForKey:self.mediaName];
+    NSEnumerator *keys = [self.selectedUsers keyEnumerator];
+    for (NSString *key in keys)
     {
-        [self.groupMembers addObject:dict];
+        NSDictionary *dict = [self.selectedUsers objectForKey:key];
+        [members addObject:@{key: dict}];
     }
+    
     [self.members reloadData];
 }
 

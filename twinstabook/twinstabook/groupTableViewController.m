@@ -184,7 +184,6 @@
         if (!alreadyInDB)
         {
             [self.database.groups addObject:name];
-            [self.database.groupMembers setObject:[[NSMutableDictionary alloc] init] forKey:name];
             [self.tableView reloadData];
         }
     }
