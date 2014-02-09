@@ -19,6 +19,7 @@ typedef enum
 
 @interface FacebookParser : NSObject
 
+- (id)init;
 + (displayObject *)parse:(NSDictionary *)dict;
 
 @end

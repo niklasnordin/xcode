@@ -7,6 +7,14 @@
 //
 
 #import "FacebookParser2.h"
+@interface FacebookParser()
+
+- (displayObject *)parseStatus:(NSDictionary *)dict;
+- (displayObject *)parseLink:(NSDictionary *)dict;
+- (displayObject *)parsePhoto:(NSDictionary *)dict;
+- (displayObject *)parseVideo:(NSDictionary *)dict;
+
+@end
 
 @implementation FacebookParser
 
@@ -16,6 +24,12 @@ static NSString *FBTYPELINK = @"link";
 static NSString *FBTYPEVIDEO = @"video";
 
 static NSString *OBJTYPE = @"type";
+
+- (id)init
+{
+    self = [super init];
+    return self;
+}
 
 + (displayObject *)parse:(NSDictionary *)dict
 {
@@ -28,7 +42,8 @@ static NSString *OBJTYPE = @"type";
       FBTYPESTATUS : [[NSNumber alloc] initWithInt:FBSTATUS]
     };
 
-    displayObject *obj;
+    FacebookParser *parser = [[FacebookParser alloc] init];
+    displayObject *obj = nil;
     
     NSString *type = [dict objectForKey:OBJTYPE];
     NSNumber *numberType = [FBType objectForKey:type];
@@ -36,25 +51,67 @@ static NSString *OBJTYPE = @"type";
     
     switch (enumType) {
         case FBPHOTO:
-            NSLog(@"type is photo");
+            //NSLog(@"type is photo");
             break;
             
         case FBSTATUS:
-            NSLog(@"type is status");
+            //NSLog(@"type is status");
+            obj = [parser parseStatus:dict];
             break;
         
         case FBLINK:
-            NSLog(@"type is link");
+            //NSLog(@"type is link");
             break;
             
         case FBVIDEO:
-            NSLog(@"type is video");
+            //NSLog(@"type is video");
             break;
         default:
-            NSLog(@"type is not implemented: %@", type);
+            NSLog(@"Not implemented: type is %@", type);
             break;
     }
     return obj;
 }
+
+- (displayObject *)parseStatus:(NSDictionary *)dict
+{
+    displayObject *obj = [[displayObject alloc] init];
+
+    NSString *message = [dict objectForKey:@"message"];
+    [obj setMain:message];
+    
+    //NSLog(@"dictionary is %@",dict);
+    NSLog(@"message is %@",message);
+    
+    return obj;
+}
+
+- (displayObject *)parseLink:(NSDictionary *)dict
+{
+    displayObject *obj;
+    
+    //NSLog(@"%@",dict);
+    
+    return obj;
+}
+
+- (displayObject *)parsePhoto:(NSDictionary *)dict
+{
+    displayObject *obj;
+    
+    //NSLog(@"%@",dict);
+    
+    return obj;
+}
+
+- (displayObject *)parseVideo:(NSDictionary *)dict
+{
+    displayObject *obj;
+    
+    //NSLog(@"%@",dict);
+    
+    return obj;
+}
+
 
 @end

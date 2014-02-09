@@ -61,12 +61,12 @@
         {
             displayObject *obj = [FacebookParser parse:k];
             
-            NSString *story = [k objectForKey:@"type"];
+            //NSString *story = [k objectForKey:@"type"];
             //NSString *from = [k objectForKey:@"from"];
             //NSArray *allk = [k allKeys];
             //NSLog(@"story = %@",story);
             //self.textView.text = [NSString stringWithFormat:@"%@\n\n%@",self.textView.text,k];
-            self.textView.text = [NSString stringWithFormat:@"%@\n\n%@",self.textView.text,story];
+            self.textView.text = [NSString stringWithFormat:@"%@\n\n%@",self.textView.text,obj.main];
         }
     }
     
@@ -289,18 +289,17 @@
 
 - (void)pickerViewWasHidden:(JMPickerView *)pickerView
 {
-    NSLog(@"picker hidden");
+    //NSLog(@"picker hidden");
 }
 
 - (void)pickerViewWasShown:(JMPickerView *)pickerView
 {
-    NSLog(@"picker is shown");
+    //NSLog(@"picker is shown");
 }
 
 - (void)pickerViewSelectionIndicatorWasTapped:(JMPickerView *)pickerView
 {
-    NSLog(@"picker indicator tapped");
-
+    //NSLog(@"picker indicator tapped");
     [self.picker hide];
 }
 
