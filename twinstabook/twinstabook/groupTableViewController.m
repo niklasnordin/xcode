@@ -7,6 +7,7 @@
 //
 
 #import "groupTableViewController.h"
+#import "twinstabookFirstViewController.h"
 
 @interface groupTableViewController ()
 
@@ -108,7 +109,22 @@
         [tableView endUpdates];
         [tableView reloadData];
         [self.tableView reloadData];
-    }   
+        
+        // reload the group to the picker in first view
+        UITabBarController *tabController = self.tabBarController;
+        NSArray *vc = [tabController viewControllers];
+        twinstabookFirstViewController *first = (twinstabookFirstViewController *)[vc objectAtIndex:0];
+        // check if the last object has been removed
+        NSInteger nFeeds = 1 + [self.database.groups count];
+        if (self.database.selectedFeedIndex >= nFeeds)
+        {
+            self.database.selectedFeedIndex = 0;
+            [first.picker selectRow:0 inComponent:0 animated:NO];
+            [first.feedButton setTitle:[first nameForPicker:0] forState:UIControlStateNormal];
+        }
+
+        [first.picker reloadAllComponents];
+    }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
@@ -185,6 +201,12 @@
         {
             [self.database.groups addObject:name];
             [self.tableView reloadData];
+            
+            // add the new group to the picker in first view
+            UITabBarController *tabController = self.tabBarController;
+            NSArray *vc = [tabController viewControllers];
+            twinstabookFirstViewController *first = (twinstabookFirstViewController *)[vc objectAtIndex:0];
+            [first.picker reloadAllComponents];
         }
     }
 

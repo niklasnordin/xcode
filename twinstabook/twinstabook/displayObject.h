@@ -16,4 +16,8 @@
 @property (strong, nonatomic) NSDate *date;
 @property (strong, nonatomic) UIImage *image;
 
+- (id)initWithFacebookDictionary:(NSDictionary *)dict;
+- (id)initWithTwitterDictionary:(NSDictionary *)dict;
+- (id)initWithInstagramDictionary:(NSDictionary *)dict;
+
 @end

@@ -19,10 +19,12 @@
 
 @property (weak, nonatomic) twinstabookAppDelegate *appDelegate;
 @property (weak, nonatomic) tif_db *database;
+@property (strong, nonatomic) JMPickerView *picker;
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 - (IBAction)updateButtonClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *feedButton;
 - (IBAction)feedButtonClicked:(id)sender;
+- (NSString *)nameForPicker:(NSInteger)index;
 
 @end

@@ -10,4 +10,39 @@
 
 @implementation displayObject
 
+- (id)initWithFacebookDictionary:(NSDictionary *)dict
+{
+    self = [super init];
+    if (self)
+    {
+        
+    }
+    
+    return self;
+}
+
+
+- (id)initWithTwitterDictionary:(NSDictionary *)dict
+{
+    self = [super init];
+    if (self)
+    {
+        
+    }
+    
+    return self;
+}
+
+
+- (id)initWithInstagramDictionary:(NSDictionary *)dict
+{
+    self = [super init];
+    if (self)
+    {
+        
+    }
+    
+    return self;
+}
+
 @end

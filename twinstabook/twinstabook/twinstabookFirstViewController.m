@@ -9,7 +9,7 @@
 #import "twinstabookFirstViewController.h"
 
 @interface twinstabookFirstViewController ()
-@property (strong, nonatomic) JMPickerView *picker;
+
 @end
 
 @implementation twinstabookFirstViewController
@@ -253,7 +253,9 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return 1 + [self.database.groups count];
+    NSInteger n = 1 + [self.database.groups count];
+    
+    return n;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
