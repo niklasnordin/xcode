@@ -7,7 +7,8 @@
 //
 
 #import "twinstabookFirstViewController.h"
-#import "facebookParser.h"
+#import "FacebookParser2.h"
+#import "displayObject.h"
 
 @interface twinstabookFirstViewController ()
 
@@ -58,6 +59,8 @@
         //for (FBGraphObject *k in data)
         for (NSDictionary *k in data)
         {
+            displayObject *obj = [FacebookParser parse:k];
+            
             NSString *story = [k objectForKey:@"type"];
             //NSString *from = [k objectForKey:@"from"];
             //NSArray *allk = [k allKeys];

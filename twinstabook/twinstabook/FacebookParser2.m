@@ -6,10 +6,9 @@
 //  Copyright (c) 2014 Niklas Nordin. All rights reserved.
 //
 
-#import "facebookParser.h"
+#import "FacebookParser2.h"
 
-@implementation facebookParser
-
+@implementation FacebookParser
 
 static NSString *FBTYPEPHOTO = @"photo";
 static NSString *FBTYPESTATUS = @"status";
@@ -18,7 +17,7 @@ static NSString *FBTYPEVIDEO = @"video";
 
 static NSString *OBJTYPE = @"type";
 
-+ (displayObject *)parser:(NSDictionary *)dict
++ (displayObject *)parse:(NSDictionary *)dict
 {
     // how can you make this static???
     NSDictionary *FBType =

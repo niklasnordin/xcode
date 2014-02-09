@@ -17,8 +17,8 @@ typedef enum
     FBPHOTO
 } FBTypes;
 
-@interface facebookParser : NSObject
+@interface FacebookParser : NSObject
 
-+ (displayObject *)parser:(NSDictionary *)dict;
++ (displayObject *)parse:(NSDictionary *)dict;
 
 @end
