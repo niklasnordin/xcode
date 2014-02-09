@@ -31,7 +31,16 @@
     [self.picker hide];
     [self.feedButton setTitle:[self nameForPicker:self.database.selectedFeedIndex] forState:UIControlStateNormal];
     [self.picker selectRow:self.database.selectedFeedIndex inComponent:0 animated:NO];
+ 
+    self.refreshController = [[UIRefreshControl alloc] init];
     
+    [self.refreshController addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)refresh:(UIRefreshControl *)sender
+{
+    NSLog(@"refreshing....hello");
+    [sender endRefreshing];
 }
 
 - (void)didReceiveMemoryWarning
