@@ -27,7 +27,7 @@
     self.textView.scrollEnabled = YES;
     self.textView.userInteractionEnabled = YES;
     
-    self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self];
+    self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self withDistanceToTop:20.0f];
     [self.picker hide];
     [self.feedButton setTitle:[self nameForPicker:self.database.selectedFeedIndex] forState:UIControlStateNormal];
     [self.picker selectRow:self.database.selectedFeedIndex inComponent:0 animated:NO];

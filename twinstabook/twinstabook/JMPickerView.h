@@ -13,8 +13,9 @@
 
 @interface JMPickerView : UIPickerView
 @property (nonatomic, weak) id<JMPickerViewDelegate> delegate;
+@property (nonatomic) CGFloat distance;
 
-- (JMPickerView *)initWithDelegate:(id<JMPickerViewDelegate>)delegate addingToViewController:(UIViewController *)viewController;
+- (JMPickerView *)initWithDelegate:(id<JMPickerViewDelegate>)delegate addingToViewController:(UIViewController *)viewController withDistanceToTop:(CGFloat)distance;
 - (void)show;
 - (void)hide;
 

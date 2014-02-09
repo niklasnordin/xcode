@@ -9,7 +9,7 @@
 @implementation JMPickerView
 
 static CGFloat kPickerViewStandardHeight = 216.f;
-static CGFloat kMenuHeight = 20.0f;
+//static CGFloat kMenuHeight = 20.0f;
 static CGFloat kDismissViewAlpha = 0.8f;
 static CGFloat kAnimationDuration = 0.25f;
 static CGFloat kTwoFifths = 0.4f;
@@ -17,10 +17,11 @@ static CGFloat kThreeFifths = 0.6;
 
 // This is just a convenient init method.
 // All we need are a delegate and to be added to a viewController's view.
-- (JMPickerView *)initWithDelegate:(id<JMPickerViewDelegate>)delegate addingToViewController:(UIViewController *)viewController
+- (JMPickerView *)initWithDelegate:(id<JMPickerViewDelegate>)delegate addingToViewController:(UIViewController *)viewController withDistanceToTop:(CGFloat)distance
 {
     if (self = [super init])
     {
+        self.distance = distance;
         self.showsSelectionIndicator = YES;
         self.delegate = delegate;
         self.topController = viewController.navigationController ?: viewController;
@@ -66,12 +67,12 @@ static CGFloat kThreeFifths = 0.6;
 {
     [UIView animateWithDuration:kAnimationDuration animations:^{
 
-        self.frame = CGRectMake(self.superview.bounds.origin.x, self.superview.bounds.origin.y+kMenuHeight, self.superview.bounds.size.width, kPickerViewStandardHeight);
+        self.frame = CGRectMake(self.superview.bounds.origin.x, self.superview.bounds.origin.y+self.distance, self.superview.bounds.size.width, kPickerViewStandardHeight);
         
-        self.pickerDismisserView.frame = CGRectMake(self.topController.view.bounds.origin.x, self.topController.view.bounds.origin.y+kPickerViewStandardHeight+kMenuHeight, self.topController.view.bounds.size.width, self.topController.view.bounds.size.height - kPickerViewStandardHeight);
+        self.pickerDismisserView.frame = CGRectMake(self.topController.view.bounds.origin.x, self.topController.view.bounds.origin.y+kPickerViewStandardHeight+self.distance, self.topController.view.bounds.size.width, self.topController.view.bounds.size.height - kPickerViewStandardHeight);
         
-        self.pickerDismisserView.alpha = kDismissViewAlpha;
-        
+        self.pickerDismisserView.alpha = 1.0f;
+        [self.pickerDismisserView setBackgroundColor:[UIColor lightGrayColor]];
         //self.topController.view.frame = CGRectMake(self.topController.view.frame.origin.x, self.topController.view.frame.origin.y+kPickerViewStandardHeight, self.topController.view.frame.size.width, self.topController.view.frame.size.height);
     }];
     if ([self.delegate respondsToSelector:@selector(pickerViewWasShown:)])

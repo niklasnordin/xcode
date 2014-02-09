@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "tif_db.h"
 #import "twinstabookAppDelegate.h"
+#import "JMPickerView.h"
 
 @interface groupViewController : UIViewController
 <
     UITableViewDelegate,
     UITableViewDataSource,
-    UITextFieldDelegate
+    UITextFieldDelegate,
+    JMPickerViewDelegate
 >
 
 @property (weak, nonatomic) twinstabookAppDelegate *appDelegate;

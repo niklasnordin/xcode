@@ -11,7 +11,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface groupViewController ()
-
+@property (strong, nonatomic) JMPickerView *picker;
 @property (weak, nonatomic) NSMutableDictionary *groupMembers;
 
 @end
@@ -44,6 +44,11 @@
     self.searchField.delegate = self;
     
     [self.searchActivityIndicator setHidden:YES];
+    
+    self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self withDistanceToTop:50.0f];
+    [self.picker hide];
+    [self.feedButton setTitle:[self.database.mediaNames objectAtIndex:self.database.selectedMediaName] forState:UIControlStateNormal];
+    [self.picker selectRow:self.database.selectedMediaName inComponent:0 animated:NO];
     
 }
 
@@ -178,6 +183,7 @@
 - (IBAction)feedButtonClicked:(id)sender
 {
     NSLog(@"name = %@", [self.feedButton.titleLabel text]);
+    [self.picker show];
 }
 
 - (IBAction)searchButtonClicked:(id)sender
@@ -301,4 +307,58 @@
         [vc setMembers:self.membersTableView];
     }
 }
+
+#pragma mark -
+#pragma mark Standard UIPickerView data source and delegate methods
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [self.database.mediaNames count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return [self.database.mediaNames objectAtIndex:row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    self.database.selectedMediaName = row;
+    [self.feedButton setTitle:[self.database.mediaNames objectAtIndex:row] forState:UIControlStateNormal];
+    if (row == 0)
+    {
+        // show secondary search options
+    }
+    else
+    {
+        // hide secondary seach options
+    }
+}
+
+#pragma mark -
+#pragma mark JMPickerView delegate methods
+
+- (void)pickerViewWasHidden:(JMPickerView *)pickerView
+{
+    NSLog(@"picker hidden");
+}
+
+- (void)pickerViewWasShown:(JMPickerView *)pickerView
+{
+    NSLog(@"picker is shown");
+}
+
+- (void)pickerViewSelectionIndicatorWasTapped:(JMPickerView *)pickerView
+{
+    NSLog(@"picker indicator tapped");
+    
+    [self.picker hide];
+}
+
+
 @end
