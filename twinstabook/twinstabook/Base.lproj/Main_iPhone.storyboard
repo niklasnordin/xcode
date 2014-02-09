@@ -63,6 +63,7 @@
                     <tabBarItem key="tabBarItem" title="First" image="first" id="u1e-5L-l1D"/>
                     <connections>
                         <outlet property="feedButton" destination="VNV-hw-as4" id="Gun-sM-GxM"/>
+                        <outlet property="feedTableView" destination="FJX-ti-L9c" id="uKH-N9-j6d"/>
                         <outlet property="textView" destination="tZ3-Hv-Q7E" id="WFu-qN-Anh"/>
                     </connections>
                 </viewController>

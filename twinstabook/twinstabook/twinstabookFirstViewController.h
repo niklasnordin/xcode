@@ -27,5 +27,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *feedButton;
 - (IBAction)feedButtonClicked:(id)sender;
 - (NSString *)nameForPicker:(NSInteger)index;
+@property (weak, nonatomic) IBOutlet UITableView *feedTableView;
 
 @end
