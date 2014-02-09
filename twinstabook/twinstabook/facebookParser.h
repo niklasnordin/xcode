@@ -7,7 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "displayObject.h"
+
+typedef enum
+{
+    FBSTATUS,
+    FBVIDEO,
+    FBLINK,
+    FBPHOTO
+} FBTypes;
 
 @interface facebookParser : NSObject
+
++ (displayObject *)parser:(NSDictionary *)dict;
 
 @end

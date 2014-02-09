@@ -10,6 +10,12 @@
 
 @implementation displayObject
 
+- (id) init
+{
+    self = [super init];
+    return self;
+}
+
 - (id)initWithFacebookDictionary:(NSDictionary *)dict
 {
     self = [super init];

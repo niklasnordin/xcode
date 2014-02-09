@@ -10,7 +10,7 @@
 
 static CGFloat kPickerViewStandardHeight = 216.f;
 //static CGFloat kMenuHeight = 20.0f;
-static CGFloat kDismissViewAlpha = 0.8f;
+//static CGFloat kDismissViewAlpha = 0.8f;
 static CGFloat kAnimationDuration = 0.25f;
 static CGFloat kTwoFifths = 0.4f;
 static CGFloat kThreeFifths = 0.6;
