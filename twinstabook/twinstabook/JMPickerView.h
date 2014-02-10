@@ -16,8 +16,8 @@
 @property (nonatomic) CGFloat distance;
 
 - (JMPickerView *)initWithDelegate:(id<JMPickerViewDelegate>)delegate addingToViewController:(UIViewController *)viewController withDistanceToTop:(CGFloat)distance;
-- (void)show;
-- (void)hide;
+- (void)show:(float)time;
+- (void)hide:(float)time;
 
 @end
 

@@ -12,7 +12,6 @@
 
 @interface groupViewController ()
 @property (strong, nonatomic) JMPickerView *picker;
-@property (weak, nonatomic) NSMutableDictionary *groupMembers;
 
 @end
 
@@ -32,12 +31,14 @@
     [super viewDidLoad];
     self.appDelegate = (twinstabookAppDelegate *)[[UIApplication sharedApplication] delegate];
     self.database = self.appDelegate.database;
-    self.groupMembers = self.database.groupMembers;
     
 	// Do any additional setup after loading the view.
     NSString *name = [self.database.mediaNames objectAtIndex:self.database.selectedMediaName];
     [self.feedButton setTitle:name forState:UIControlStateNormal];
     
+    // facebook is the first entry in the mediaNames
+    [self setSecondary];
+
     self.membersTableView.delegate = self;
     self.membersTableView.dataSource = self;
     
@@ -46,7 +47,7 @@
     [self.searchActivityIndicator setHidden:YES];
     
     self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self withDistanceToTop:50.0f];
-    [self.picker hide];
+    [self.picker hide:0.0f];
     [self.feedButton setTitle:[self.database.mediaNames objectAtIndex:self.database.selectedMediaName] forState:UIControlStateNormal];
     [self.picker selectRow:self.database.selectedMediaName inComponent:0 animated:NO];
     
@@ -67,12 +68,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger count = 0;
-    for (NSString *name in self.database.mediaNames)
-    {
-        count += [[self.groupMembers objectForKey:name] count];
-    }
-    return count;
+    return [self.groupMembers count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -80,43 +76,17 @@
     static NSString *CellIdentifier = @"SearchCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    if (!cell)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
-    }
-    
-    // Configure the cell...
-    NSInteger row = indexPath.row;
-    NSInteger nFB = [[self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:0]] count];
-    NSInteger nTW = [[self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:1]] count];
-    //NSInteger nIG = [[self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:2]] count];
-    
-    NSString *name = nil;
-    if (row < nFB)
-    {
-        NSMutableArray *members = [self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:0]];
-        NSDictionary *data = [members objectAtIndex:row];
-        NSString *uid = [[data allKeys] lastObject];
-        NSDictionary *dict = [data objectForKey:uid];
-        name = [dict objectForKey:@"name"];
-        NSData *imageData = [dict objectForKey:@"image"];
-        cell.imageView.image = [UIImage imageWithData:imageData];
-    }
-    else
-    {
-        row -= nFB;
-        if (row < nFB+nTW)
-        {
-            name = [[self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:1]] objectAtIndex:row];
-        }
-        else
-        {
-            row -= nTW;
-            name = [[self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:2]] objectAtIndex:row];
-        }
-    }
+    NSDictionary *member = [self.groupMembers objectAtIndex:indexPath.row];
+    NSLog(@"member = %@",member);
+    NSString *name = [member objectForKey:@"name"];
+    NSLog(@"name = %@", name);
     cell.textLabel.text = name;
+    
+    NSData *imageData = [member objectForKey:@"image"];
+    cell.imageView.image = [UIImage imageWithData:imageData];
+    
     return cell;
+    
 }
 
 
@@ -135,32 +105,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         // Delete the row from the data source
-        //[self.database.groups removeObjectAtIndex:indexPath.row];
-        NSInteger row = indexPath.row;
-        NSInteger nFB = [[self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:0]] count];
-        NSInteger nTW = [[self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:1]] count];
-        //NSInteger nIG = [[self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:2]] count];
-        
-        if (row < nFB)
-        {
-            NSMutableArray *arry = [self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:0]];
-            [arry removeObjectAtIndex:row];
-        }
-        else
-        {
-            row -= nFB;
-            if (row < nFB+nTW)
-            {
-                NSMutableArray *arry = [self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:1]];
-                [arry removeObjectAtIndex:row];
-            }
-            else
-            {
-                row -= nTW;
-                NSMutableArray *arry = [self.database.groupMembers objectForKey:[self.database.mediaNames objectAtIndex:1]];
-                [arry removeObjectAtIndex:row];
-            }
-        }
+        [self.groupMembers removeObjectAtIndex:indexPath.row];
         
         [tableView beginUpdates];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -183,7 +128,7 @@
 - (IBAction)feedButtonClicked:(id)sender
 {
     NSLog(@"name = %@", [self.feedButton.titleLabel text]);
-    [self.picker show];
+    [self.picker show:0.5f];
 }
 
 - (IBAction)searchButtonClicked:(id)sender
@@ -245,12 +190,12 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    NSLog(@"didRecieveResponse");
+    //NSLog(@"didRecieveResponse");
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    NSLog(@"didReceiveData");
+    //NSLog(@"didReceiveData");
     
     NSError *jsonError;
     //NSString *svar = [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
@@ -281,7 +226,7 @@
 {
     // The request is complete and data has been received
     // You can parse the stuff in your instance variable now
-    NSLog(@"didFinishLoading");
+    //NSLog(@"didFinishLoading");
     
 }
 
@@ -300,10 +245,10 @@
         [vc setNames:sender];
         [vc setDatabase:self.database];
         
-        NSLog(@"prepare for segue, count = %ld",[self.database.groupMembers count]);
+        NSLog(@"prepare for segue, count = %ld",[self.groupMembers count]);
         NSString *feed = self.feedButton.titleLabel.text;
         [vc setMediaName:feed];
-        [vc setGroupMembers:[self.database.groupMembers objectForKey:feed]];
+        [vc setGroupMembers:self.groupMembers];
         [vc setMembers:self.membersTableView];
     }
 }
@@ -330,14 +275,9 @@
 {
     self.database.selectedMediaName = row;
     [self.feedButton setTitle:[self.database.mediaNames objectAtIndex:row] forState:UIControlStateNormal];
-    if (row == 0)
-    {
-        // show secondary search options
-    }
-    else
-    {
-        // hide secondary seach options
-    }
+    
+    // facebook is the first entry in the mediaNames
+    [self setSecondary];
 }
 
 #pragma mark -
@@ -345,20 +285,44 @@
 
 - (void)pickerViewWasHidden:(JMPickerView *)pickerView
 {
-    NSLog(@"picker hidden");
+    //NSLog(@"picker hidden");
 }
 
 - (void)pickerViewWasShown:(JMPickerView *)pickerView
 {
-    NSLog(@"picker is shown");
+    //NSLog(@"picker is shown");
 }
 
 - (void)pickerViewSelectionIndicatorWasTapped:(JMPickerView *)pickerView
 {
-    NSLog(@"picker indicator tapped");
+    //NSLog(@"picker indicator tapped");
     
-    [self.picker hide];
+    [self.picker hide:0.5f];
 }
 
+
+- (IBAction)searchOptionButtonPressed:(id)sender
+{
+}
+
+- (void)setSecondary
+{
+    if (self.database.selectedMediaName == 0)
+    {
+        [self.optionLabel setEnabled:YES];
+        [self.optionLabel setAlpha:1.0f];
+        
+        [self.searchOptionButton setEnabled:YES];
+        [self.searchOptionButton setAlpha:1.0f];
+    }
+    else
+    {
+        [self.optionLabel setEnabled:NO];
+        [self.optionLabel setAlpha:0.0f];
+        
+        [self.searchOptionButton setEnabled:NO];
+        [self.searchOptionButton setAlpha:0.0f];
+    }
+}
 
 @end

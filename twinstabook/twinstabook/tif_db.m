@@ -17,7 +17,8 @@
     {
 
         self.mediaNames = [[NSArray alloc] initWithObjects:@"facebook", @"twitter", @"instagram", nil];
-
+        self.facebookSearchOptions = [[NSArray alloc] initWithObjects:@"friends", @"pages", @"users", nil];
+        
         NSUserDefaults *database = [NSUserDefaults standardUserDefaults];
         // check for user setting exist
         if (!database)
@@ -97,7 +98,8 @@
                                  @"user_photos",
                                  nil];
         [_fbloginView setReadPermissions:permissions];
-
+        //[self performSelectorInBackground:@selector(loadAllFacebookFriends) withObject:nil];
+        [self loadAllFacebookFriends];
     }
     return self;
 }
@@ -162,6 +164,119 @@
 
 - (void)requestNewAccessToken
 {
+    
+}
+
+
+- (void)readURLAsync:(NSString *)urlString fromConnection:(FBRequestConnection *)connection
+{
+    if (urlString)
+    {
+        NSLog(@"read async: %@",urlString);
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+        
+        NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+        [conn start];
+    }
+}
+
+- (void)loadAllFacebookFriends
+{
+    NSLog(@"loadAllFacebookFriends");
+    if ([[FBSession activeSession] isOpen])
+    {
+        NSLog(@"session is open");
+        FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+        [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
+                                                      NSDictionary* result,
+                                                      NSError *error)
+         {
+             if (error)
+             {
+                 NSLog(@"error = %@",error);
+             }
+             else
+
+             {
+                 
+                 NSArray* friends = [result objectForKey:@"data"];
+                 //FBGraphObject *paging = [result objectForKey:@"paging"];
+                 
+                 //NSString *previous = [paging objectForKey:@"previous"];
+                 // keys
+                 // first_name, id, last_name, name, username
+                 NSLog(@"Found: %ld friends", friends.count);
+
+                 if ([friends count])
+                 {
+                     [self.facebookFriends removeAllObjects];
+                     [self.facebookFriends addObjectsFromArray:friends];
+                 }
+                 
+                 //NSLog(@"result = %@",result);
+                 //NSString *next = [paging objectForKey:@"next"];
+                 //if (next)
+                 {
+                     //NSLog(@"next");
+                     //[self readURLAsync:next fromConnection:connection];
+                 }
+                 /*
+                 for (NSDictionary<FBGraphUser>* friend in friends)
+                 {
+                     NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
+                 }
+                  */
+             }
+         }];
+    }
+    else
+    {
+        NSLog(@"session is not open");
+    }
+
+
+}
+
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    NSLog(@"didRecieveResponse");
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    NSLog(@"didReceiveData");
+    
+    NSError *jsonError;
+    //NSString *svar = [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
+    NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
+    
+    NSLog(@"dict = %@",dict);
+    if (!jsonError)
+    {
+        NSMutableArray *data = [dict objectForKey:@"data"];
+        if (data)
+        {
+            NSLog(@"data = %@",data);
+        }
+    }
+    
+    
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse
+{
+    // Return nil to indicate not necessary to store a cached response for this connection
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    // The request is complete and data has been received
+    // You can parse the stuff in your instance variable now
+    NSLog(@"didFinishLoading");
     
 }
 

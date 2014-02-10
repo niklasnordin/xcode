@@ -30,12 +30,12 @@
     self.textView.userInteractionEnabled = YES;
     
     self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self withDistanceToTop:20.0f];
-    [self.picker hide];
+    [self.picker hide:0.0f];
     [self.feedButton setTitle:[self nameForPicker:self.database.selectedFeedIndex] forState:UIControlStateNormal];
     [self.picker selectRow:self.database.selectedFeedIndex inComponent:0 animated:NO];
  
+    // setup the refresh controller for the tableview
     self.refreshController = [[UIRefreshControl alloc] init];
-    
     [self.refreshController addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     [self.feedTableView addSubview:self.refreshController];
 }
@@ -254,7 +254,7 @@
 
 - (IBAction)feedButtonClicked:(id)sender
 {
-    [self.picker show];
+    [self.picker show:0.5f];
 }
 
 #pragma mark -
@@ -300,7 +300,7 @@
 - (void)pickerViewSelectionIndicatorWasTapped:(JMPickerView *)pickerView
 {
     //NSLog(@"picker indicator tapped");
-    [self.picker hide];
+    [self.picker hide:0.5f];
 }
 
 - (NSString *)nameForPicker:(NSInteger)index

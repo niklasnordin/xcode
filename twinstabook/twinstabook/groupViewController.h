@@ -21,6 +21,7 @@
 
 @property (weak, nonatomic) twinstabookAppDelegate *appDelegate;
 @property (weak, nonatomic) tif_db *database;
+@property (weak, nonatomic) NSMutableArray *groupMembers;
 
 @property (strong, nonatomic) NSString *groupName;
 @property (weak, nonatomic) IBOutlet UIButton *feedButton;
@@ -29,5 +30,8 @@
 - (IBAction)feedButtonClicked:(id)sender;
 - (IBAction)searchButtonClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *searchActivityIndicator;
+@property (weak, nonatomic) IBOutlet UIButton *searchOptionButton;
+- (IBAction)searchOptionButtonPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *optionLabel;
 
 @end

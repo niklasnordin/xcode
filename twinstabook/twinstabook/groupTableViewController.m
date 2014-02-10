@@ -8,6 +8,7 @@
 
 #import "groupTableViewController.h"
 #import "twinstabookFirstViewController.h"
+#import "groupViewController.h"
 
 @interface groupTableViewController ()
 
@@ -133,10 +134,16 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+
+
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     NSString *key = [self.database.groups objectAtIndex:indexPath.row];
-
-    [segue.destinationViewController setTitle:key];
+    NSMutableArray *groupMembers = [self.database.groupMembers objectForKey:key];
+    //NSLog(@"groupMembers = %@",groupMembers);
+    groupViewController *vc = (groupViewController *)segue.destinationViewController;
+    
+    [vc setTitle:key];
+    [vc setGroupMembers:groupMembers];
     
     /*
     [segue.destinationViewController setDb:_db];
@@ -200,6 +207,8 @@
         if (!alreadyInDB)
         {
             [self.database.groups addObject:name];
+            NSMutableArray *members = [[NSMutableArray alloc] init];
+            [self.database.groupMembers setObject:members forKey:name];
             [self.tableView reloadData];
             
             // add the new group to the picker in first view

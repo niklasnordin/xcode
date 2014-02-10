@@ -33,7 +33,8 @@ static NSString *GROUPMEMBERS = @"groupMembers";
 @property (strong, nonatomic) NSMutableDictionary *facebookUidToImageDownloadOperations;
 
 @property (strong, nonatomic) FBLoginView *fbloginView;
-
+@property (strong, nonatomic) NSMutableArray *facebookFriends;
+@property (strong, nonatomic) NSArray *facebookSearchOptions;
 -(id)init;
 -(void)saveDatabase;
 

@@ -25,6 +25,9 @@ static NSString *FBTYPEVIDEO = @"video";
 
 static NSString *OBJTYPE = @"type";
 
+static NSString *FBSTATUSTYPEWALLPOST = @"wall_post";
+static NSString *FBSTATUSTYPEMOBILEUPDATE = @"mobile_status_update";
+
 - (id)init
 {
     self = [super init];
@@ -33,6 +36,8 @@ static NSString *OBJTYPE = @"type";
 
 + (displayObject *)parse:(NSDictionary *)dict
 {
+    NSLog(@"dictionary is %@",dict);
+
     // how can you make this static???
     NSDictionary *FBType =
     @{
@@ -78,10 +83,12 @@ static NSString *OBJTYPE = @"type";
     displayObject *obj = [[displayObject alloc] init];
 
     NSString *message = [dict objectForKey:@"message"];
+    NSString *statusType = [dict objectForKey:@"status_type"];
     [obj setMain:message];
     
     //NSLog(@"dictionary is %@",dict);
-    NSLog(@"message is %@",message);
+    NSLog(@"status type is %@",statusType);
+    NSLog(@"message is %@\n\n",message);
     
     return obj;
 }

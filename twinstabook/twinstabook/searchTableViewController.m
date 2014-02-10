@@ -43,13 +43,12 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    NSMutableArray *members = [self.database.groupMembers objectForKey:self.mediaName];
     NSEnumerator *keys = [self.selectedUsers keyEnumerator];
     for (NSString *key in keys)
     {
         NSDictionary *dict = [self.selectedUsers objectForKey:key];
-        [members addObject:@{key: dict}];
-        //[members addObject:@{@"image",]
+        //[self.groupMembers addObject:@{key: dict}];
+        [self.groupMembers addObject:dict];
     }
     
     [self.members reloadData];
@@ -121,10 +120,6 @@
 {
     static NSString *CellIdentifier = @"aliasNameCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    if (!cell)
-    {
-        //cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
     
     NSDictionary *dict = [self.names objectAtIndex:indexPath.row];
     NSString *userID = [dict objectForKey:@"id"];
@@ -240,9 +235,10 @@
         UIImage *image = cell.imageView.image;
         NSData *imageData = UIImagePNGRepresentation(image);
         NSDictionary *dict = @{@"name" : name,
+                               @"uid" : userID,
                                @"image" : imageData,
                                 @"type" : self.mediaName};
-        //[self.selectedUsers setObject:name forKey:userID];
+
         [self.selectedUsers setObject:dict forKey:userID];
 
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
