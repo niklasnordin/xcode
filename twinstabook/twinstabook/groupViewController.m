@@ -77,9 +77,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     NSDictionary *member = [self.groupMembers objectAtIndex:indexPath.row];
-    NSLog(@"member = %@",member);
+    //NSLog(@"member = %@",member);
     NSString *name = [member objectForKey:@"name"];
-    NSLog(@"name = %@", name);
+    //NSLog(@"name = %@", name);
     cell.textLabel.text = name;
     
     NSData *imageData = [member objectForKey:@"image"];
