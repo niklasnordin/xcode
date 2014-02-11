@@ -47,6 +47,7 @@
     self.searchField.delegate = self;
     
     [self.searchActivityIndicator setHidden:YES];
+    [self.searchActivityIndicator setHidesWhenStopped:YES];
     
     self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self withDistanceToTop:65.0f];
     [self.picker hide:-1.0f];
@@ -149,7 +150,21 @@
 
 - (IBAction)searchButtonClicked:(id)sender
 {
-    NSMutableArray *searchResults = [[NSMutableArray alloc] init];
+    if (self.database.selectedMediaName == 0)
+    {
+        NSLog(@"facebooksearch");
+        [self facebookSearch];
+    }
+    else
+    {
+        NSLog(@"not included yet");
+    }
+
+}
+
+- (void)facebookSearch
+{
+    
     NSString *searchString = self.searchField.text;
     if ([searchString isEqualToString:@""])
     {
@@ -159,50 +174,62 @@
     [self.searchActivityIndicator setHidden:NO];
     [self.searchActivityIndicator startAnimating];
     //perform the search (add search indicator) and then segue the resulting list
-    searchString = [searchString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-    searchString = [searchString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *userSearch = [NSString stringWithFormat:@"search?q=%@&type=user",searchString];
-    NSString *pageSearch = [NSString stringWithFormat:@"search?q=%@&type=page",searchString];
+    
+    if (self.database.selectedOptionindex == 0)
+    {
+        // search friends list
+        NSMutableArray *friends = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary<FBGraphUser>* friend in self.database.facebookFriends)
+        {
+            NSString *username = friend.name;
+            NSInteger len = [username rangeOfString:searchString options:NSCaseInsensitiveSearch].length;
+            if (len)
+            {
+                NSDictionary *dict = @{@"name" : friend.name, @"id" : friend.id };
+                [friends addObject:dict];
+            }
+        }
 
-    [FBRequestConnection startWithGraphPath:pageSearch parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
-     {
-         
-         if (!error)
-         {
-             NSMutableArray *pData = [result objectForKey:@"data"];
-             //NSLog(@"search result = %@", pData);
-             [searchResults addObjectsFromArray:pData];
-             
-             
-             [FBRequestConnection startWithGraphPath:userSearch parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
-              {
-                  [self.searchActivityIndicator setHidden:YES];
-                  [self.searchActivityIndicator stopAnimating];
-                  
-                  if (!error)
-                  {
-                      NSMutableArray *uData = [result objectForKey:@"data"];
-                      [searchResults addObjectsFromArray:uData];
-                      //NSLog(@"search result = %@", data);
-                      [self performSegueWithIdentifier:@"searchUserSegue" sender:searchResults];
-                  }
-                  else
-                  {
-                      NSLog(@"error: %@",error);
-                  }
-              }
-              ];
+        [self.searchActivityIndicator stopAnimating];
+        [self performSegueWithIdentifier:@"searchUserSegue" sender:friends];
 
-         }
-         else
-         {
-             NSLog(@"error: %@",error);
-         }
-     }
-     ];
+    }
+    else
+    {
+        // replace all 'space' with plus sign
+        searchString = [searchString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+        searchString = [searchString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *search = nil;
 
+        if (self.database.selectedOptionindex == 1)
+        {
+            search = [NSString stringWithFormat:@"search?q=%@&type=page",searchString];
+        }
+        else
+        {
+            search = [NSString stringWithFormat:@"search?q=%@&type=user",searchString];
+        }
+    
+        [FBRequestConnection startWithGraphPath:search parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
+        {
+            [self.searchActivityIndicator stopAnimating];
+            
+            if (!error)
+            {
+                NSMutableArray *pData = [result objectForKey:@"data"];
+                NSLog(@"search result = %@", pData);
+                [self performSegueWithIdentifier:@"searchUserSegue" sender:pData];
+            }
+            else
+            {
+                NSLog(@"error: %@",error);
+            }
+        }
+        ];
+    }
+ 
 }
-
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -261,7 +288,7 @@
         [vc setNames:sender];
         [vc setDatabase:self.database];
         
-        NSLog(@"prepare for segue, count = %ld",[self.groupMembers count]);
+        //NSLog(@"prepare for segue, count = %ld",[sender count]);
         NSString *feed = self.feedButton.titleLabel.text;
         [vc setMediaName:feed];
         [vc setGroupMembers:self.groupMembers];

@@ -18,7 +18,7 @@
 
         self.mediaNames = [[NSArray alloc] initWithObjects:@"facebook", @"twitter", @"instagram", nil];
         self.facebookSearchOptions = [[NSArray alloc] initWithObjects:@"friends", @"pages", @"users", nil];
-        
+        self.facebookFriends = [[NSMutableArray alloc] init];
         NSUserDefaults *database = [NSUserDefaults standardUserDefaults];
         // check for user setting exist
         if (!database)
