@@ -48,7 +48,7 @@
     
     [self.searchActivityIndicator setHidden:YES];
     
-    self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self withDistanceToTop:50.0f];
+    self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self withDistanceToTop:65.0f];
     [self.picker hide:-1.0f];
     [self.feedButton setTitle:[self.database.mediaNames objectAtIndex:self.database.selectedMediaName] forState:UIControlStateNormal];
     [self.picker selectRow:self.database.selectedMediaName inComponent:0 animated:NO];
@@ -56,8 +56,15 @@
     self.optionsPVDelegate = [[optionsPickerViewDelegate alloc] init];
     [self.optionsPVDelegate setDatabase:self.database];
     self.optionsPVDelegate.delegate = self;
-    self.optionsPicker = [[JMPickerView alloc] initWithDelegate:self.optionsPVDelegate addingToViewController:self withDistanceToTop:200.0f];
-    
+    self.optionsPicker = [[JMPickerView alloc] initWithDelegate:self.optionsPVDelegate addingToViewController:self withDistanceToTop:65.0f];
+    [self.optionsPicker hide:-1.0f];
+    //[self.optionsPicker setBackgroundColor:[UIColor lightGrayColor]];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.picker hide:0.1];
+    [self.optionsPicker hide:0.1];
 }
 
 - (void)didReceiveMemoryWarning
@@ -310,6 +317,7 @@
 
 - (IBAction)searchOptionButtonPressed:(id)sender
 {
+    [self.optionsPicker show:0.3f];
 }
 
 - (void)setSecondary
