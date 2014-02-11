@@ -150,6 +150,7 @@
 
 - (IBAction)searchButtonClicked:(id)sender
 {
+    [self.searchField resignFirstResponder];
     if (self.database.selectedMediaName == 0)
     {
         NSLog(@"facebooksearch");
