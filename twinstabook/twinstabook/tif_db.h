@@ -35,6 +35,8 @@ static NSString *GROUPMEMBERS = @"groupMembers";
 @property (strong, nonatomic) FBLoginView *fbloginView;
 @property (strong, nonatomic) NSMutableArray *facebookFriends;
 @property (strong, nonatomic) NSArray *facebookSearchOptions;
+@property (nonatomic) NSInteger selectedOptionindex;
+
 -(id)init;
 -(void)saveDatabase;
 

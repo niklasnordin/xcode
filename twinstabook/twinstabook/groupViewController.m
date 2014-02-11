@@ -59,6 +59,8 @@
     self.optionsPicker = [[JMPickerView alloc] initWithDelegate:self.optionsPVDelegate addingToViewController:self withDistanceToTop:65.0f];
     [self.optionsPicker hide:-1.0f];
     //[self.optionsPicker setBackgroundColor:[UIColor lightGrayColor]];
+    [self.searchOptionButton setTitle:[self.database.facebookSearchOptions objectAtIndex:self.database.selectedOptionindex] forState:UIControlStateNormal];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated

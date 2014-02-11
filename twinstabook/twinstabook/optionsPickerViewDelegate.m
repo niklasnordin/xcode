@@ -31,17 +31,21 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return 1;
+    return [self.database.facebookSearchOptions count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return @"tap tap";
+    return [self.database.facebookSearchOptions objectAtIndex:row];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    NSLog(@"selected");
+    //NSLog(@"selected");
+    self.database.selectedOptionindex = row;
+    groupViewController *vc = (groupViewController *)self.delegate;
+    [vc.searchOptionButton setTitle:[self.database.facebookSearchOptions objectAtIndex:row] forState:UIControlStateNormal];
+    
 }
 
 #pragma mark -
