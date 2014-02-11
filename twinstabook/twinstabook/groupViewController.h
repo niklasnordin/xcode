@@ -22,6 +22,7 @@
 @property (weak, nonatomic) twinstabookAppDelegate *appDelegate;
 @property (weak, nonatomic) tif_db *database;
 @property (weak, nonatomic) NSMutableArray *groupMembers;
+@property (strong, nonatomic) JMPickerView *optionsPicker;
 
 @property (strong, nonatomic) NSString *groupName;
 @property (weak, nonatomic) IBOutlet UIButton *feedButton;

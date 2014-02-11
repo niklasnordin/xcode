@@ -30,7 +30,7 @@
     self.textView.userInteractionEnabled = YES;
     
     self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self withDistanceToTop:20.0f];
-    [self.picker hide:0.0f];
+    [self.picker hide:-1.0f];
     [self.feedButton setTitle:[self nameForPicker:self.database.selectedFeedIndex] forState:UIControlStateNormal];
     [self.picker selectRow:self.database.selectedFeedIndex inComponent:0 animated:NO];
  
@@ -254,7 +254,7 @@
 
 - (IBAction)feedButtonClicked:(id)sender
 {
-    [self.picker show:0.5f];
+    [self.picker show:0.3f];
 }
 
 #pragma mark -
@@ -300,7 +300,7 @@
 - (void)pickerViewSelectionIndicatorWasTapped:(JMPickerView *)pickerView
 {
     //NSLog(@"picker indicator tapped");
-    [self.picker hide:0.5f];
+    [self.picker hide:0.3f];
 }
 
 - (NSString *)nameForPicker:(NSInteger)index

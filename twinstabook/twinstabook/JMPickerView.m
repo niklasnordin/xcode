@@ -11,7 +11,7 @@
 static CGFloat kPickerViewStandardHeight = 216.f;
 //static CGFloat kMenuHeight = 20.0f;
 //static CGFloat kDismissViewAlpha = 0.8f;
-//static CGFloat kAnimationDuration = 0.f;
+static CGFloat kAnimationDuration = 0.3f;
 static CGFloat kTwoFifths = 0.4f;
 static CGFloat kThreeFifths = 0.6;
 
@@ -73,7 +73,7 @@ static CGFloat kThreeFifths = 0.6;
         
         self.pickerDismisserView.alpha = 1.0f;
         [self.pickerDismisserView setBackgroundColor:[UIColor lightGrayColor]];
-        //self.topController.view.frame = CGRectMake(self.topController.view.frame.origin.x, self.topController.view.frame.origin.y+kPickerViewStandardHeight, self.topController.view.frame.size.width, self.topController.view.frame.size.height);
+
     }];
     if ([self.delegate respondsToSelector:@selector(pickerViewWasShown:)])
     {
@@ -83,14 +83,23 @@ static CGFloat kThreeFifths = 0.6;
 
 - (void)hide:(float)time
 {
-    [UIView animateWithDuration:time animations:^{
+    float dt = time;
+
+    if (dt < 0)
+    {
+        dt = 0.0;
+    }
+    else
+    {
+        dt = fmaxf(dt, kAnimationDuration);
+    }
+    
+    [UIView animateWithDuration:dt animations:^{
         // move the frame up above the top
         self.frame = CGRectMake(self.superview.bounds.origin.x, self.superview.bounds.origin.y-kPickerViewStandardHeight, self.superview.bounds.size.width, kPickerViewStandardHeight);
         self.pickerDismisserView.frame = self.topController.view.bounds;
         self.pickerDismisserView.alpha = 0.0f;
         
-        //self.topController.view.frame = CGRectMake(self.topController.view.frame.origin.x, self.topController.view.frame.origin.y-kPickerViewStandardHeight, self.topController.view.frame.size.width, self.topController.view.frame.size.height);
-
     }];
     if ([self.delegate respondsToSelector:@selector(pickerViewWasHidden:)])
     {

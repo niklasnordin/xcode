@@ -8,11 +8,13 @@
 
 #import "groupViewController.h"
 #import "searchTableViewController.h"
+#import "optionsPickerViewDelegate.h"
+
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface groupViewController ()
 @property (strong, nonatomic) JMPickerView *picker;
-
+@property (strong, nonatomic) optionsPickerViewDelegate *optionsPVDelegate;
 @end
 
 @implementation groupViewController
@@ -47,9 +49,14 @@
     [self.searchActivityIndicator setHidden:YES];
     
     self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self withDistanceToTop:50.0f];
-    [self.picker hide:0.0f];
+    [self.picker hide:-1.0f];
     [self.feedButton setTitle:[self.database.mediaNames objectAtIndex:self.database.selectedMediaName] forState:UIControlStateNormal];
     [self.picker selectRow:self.database.selectedMediaName inComponent:0 animated:NO];
+    
+    self.optionsPVDelegate = [[optionsPickerViewDelegate alloc] init];
+    [self.optionsPVDelegate setDatabase:self.database];
+    self.optionsPVDelegate.delegate = self;
+    self.optionsPicker = [[JMPickerView alloc] initWithDelegate:self.optionsPVDelegate addingToViewController:self withDistanceToTop:200.0f];
     
 }
 
@@ -128,7 +135,7 @@
 - (IBAction)feedButtonClicked:(id)sender
 {
     NSLog(@"name = %@", [self.feedButton.titleLabel text]);
-    [self.picker show:0.5f];
+    [self.picker show:0.3f];
 }
 
 - (IBAction)searchButtonClicked:(id)sender
@@ -297,7 +304,7 @@
 {
     //NSLog(@"picker indicator tapped");
     
-    [self.picker hide:0.5f];
+    [self.picker hide:0.3f];
 }
 
 
