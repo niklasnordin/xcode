@@ -7,10 +7,12 @@
 //
 
 #import "twinstabookFirstViewController.h"
-#import "FacebookParser2.h"
+#import "FacebookParser.h"
 #import "displayObject.h"
 
 @interface twinstabookFirstViewController ()
+
+@property (strong, nonatomic) NSMutableArray *feedArray;
 
 @end
 
@@ -38,6 +40,8 @@
     self.refreshController = [[UIRefreshControl alloc] init];
     [self.refreshController addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     [self.feedTableView addSubview:self.refreshController];
+    
+    self.feedArray = [[NSMutableArray alloc] init];
 }
 
 - (void)refresh:(UIRefreshControl *)sender
@@ -60,7 +64,10 @@
         for (NSDictionary *k in data)
         {
             displayObject *obj = [FacebookParser parse:k];
-            
+            if (obj)
+            {
+                [self.feedArray addObject:obj];
+            }
             //NSString *story = [k objectForKey:@"type"];
             //NSString *from = [k objectForKey:@"from"];
             //NSArray *allk = [k allKeys];
@@ -151,12 +158,12 @@
         {
             NSArray *data = [result objectForKey:@"data"];
             [self writeStories:data];
-            FBGraphObject *paging = [result objectForKey:@"paging"];
-        
-            NSString *previous = [paging objectForKey:@"previous"];
-            NSString *next = [paging objectForKey:@"next"];
-            [self readURLAsync:previous fromConnection:connection next:NO];
-            [self readURLAsync:next fromConnection:connection next:YES];
+            
+            //FBGraphObject *paging = [result objectForKey:@"paging"];
+            //NSString *previous = [paging objectForKey:@"previous"];
+            //NSString *next = [paging objectForKey:@"next"];
+            //[self readURLAsync:previous fromConnection:connection next:NO];
+            //[self readURLAsync:next fromConnection:connection next:YES];
         }
         else
         {
@@ -170,6 +177,8 @@
 - (IBAction)updateButtonClicked:(id)sender
 {
     self.textView.text = @"";
+    [self.feedArray removeAllObjects];
+    
     if (self.database.useFacebook)
     {
         FBSession *session = [FBSession activeSession];

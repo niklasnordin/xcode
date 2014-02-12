@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Niklas Nordin. All rights reserved.
 //
 
-#import "FacebookParser2.h"
+#import "FacebookParser.h"
 @interface FacebookParser()
 
 - (displayObject *)parseStatus:(NSDictionary *)dict;
