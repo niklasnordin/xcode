@@ -49,7 +49,6 @@
 
 - (void)refresh:(UIRefreshControl *)sender
 {
-    NSLog(@"refreshing....hello");
     
     if (self.database.useFacebook)
     {
