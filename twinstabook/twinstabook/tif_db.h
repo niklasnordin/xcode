@@ -16,9 +16,14 @@ static NSString *SELECTEDMEDIANAME = @"selectedMediaName";
 static NSString *SELECTEDFEEDINDEX = @"selectedFeedIndex";
 static NSString *GROUPS = @"groups";
 static NSString *GROUPMEMBERS = @"groupMembers";
+static NSString *LASTUPDATE = @"lastUpdate";
 
-@interface tif_db : NSObject <FBLoginViewDelegate>
+@interface tif_db : NSObject
+<
+    FBLoginViewDelegate
+>
 
+@property (strong, nonatomic) NSDate *lastUpdate;
 @property (nonatomic) bool useFacebook;
 @property (nonatomic) bool useTwitter;
 @property (nonatomic) bool useInstagram;

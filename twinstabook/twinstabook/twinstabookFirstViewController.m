@@ -13,6 +13,8 @@
 @interface twinstabookFirstViewController ()
 
 @property (strong, nonatomic) NSMutableArray *feedArray;
+@property (strong, nonatomic) NSMutableArray *uidsToLoad;
+@property (strong, nonatomic) NSMutableDictionary *uidLoaded;
 
 @end
 
@@ -61,36 +63,39 @@
         }
         
         NSString *startPage = @"/me/feed";
-
-        [FBRequestConnection startWithGraphPath:startPage parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
-         {
-             if (!error)
-             {
-                 NSArray *data = [result objectForKey:@"data"];
-
-                 if (data)
-                 {
-                     [self.feedArray removeAllObjects];
-                     for (NSDictionary *k in data)
-                     {
-                         displayObject *obj = [FacebookParser parse:k];
-                         if (obj)
-                         {
-                             [self.feedArray addObject:obj];
-                         }
-                     }
-                     
-                 }
-                 [self.feedTableView reloadData];
-                 [sender endRefreshing];
-             }
-             else
-             {
-                 NSLog(@"error: %@",error);
-             }
-         }
-         ];
-
+        
+        self.database.lastUpdate = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
+        if (self.database.selectedFeedIndex == 0)
+        {
+            NSInteger num = self.database.facebookFriends.count;
+            self.uidsToLoad = [[NSMutableArray alloc] initWithCapacity:num];
+            self.uidLoaded = [[NSMutableDictionary alloc] init];
+            for (int i=0; i<num; i++)
+            {
+                NSDictionary<FBGraphUser>* friend = self.database.facebookFriends[i];
+                self.uidsToLoad[i] = friend.id;
+                [self.uidLoaded setObject:[[NSNumber alloc] initWithBool:NO] forKey:friend.id];
+            }
+            
+            for (NSDictionary<FBGraphUser> *friend in self.database.facebookFriends)
+            {
+                //NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
+                NSString *uid = friend.id;
+                [self readFacebookFeed:uid withRefresher:sender];
+            }
+        }
+        else
+        {
+            NSString *feedGroup = [self.database.groups objectAtIndex:self.database.selectedFeedIndex-1];
+            NSArray *members = [self.database.groupMembers objectForKey:feedGroup];
+            for (NSDictionary *user in members)
+            {
+                NSLog(@"user = %@",user);
+                NSString *uid = [user objectForKey:@"uid"];
+                [self readFacebookFeed:uid withRefresher:sender];
+            }
+        }
+        //[self readFacebookFeed: withRefresher:sender]
         
     } // end useFacebook
     
@@ -104,7 +109,69 @@
         
     } // end useTwitter
 
-    //[sender endRefreshing];
+    [sender endRefreshing];
+}
+
+-(bool)checkIfAllPostsAreLoaded
+{
+    bool loaded = YES;
+    for (int i=0; i<[self.uidsToLoad count]; i++)
+    {
+        NSString *uid = [self. uidsToLoad objectAtIndex:i];
+        NSNumber *n = [self.uidLoaded objectForKey:uid];
+        loaded = loaded && [n boolValue];
+    }
+    return loaded;
+}
+
+- (void)readFacebookFeed:(NSString *)uid withRefresher:(UIRefreshControl *)sender
+{
+    
+    NSString *startPage = [NSString stringWithFormat:@"/%@/feed",uid];
+    
+    //NSString *startPage = @"/me/feed";
+
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setTimeStyle:NSDateFormatterShortStyle];
+    [format setDateStyle:NSDateFormatterShortStyle];
+    NSString *str = [format stringFromDate:self.database.lastUpdate];
+    [params setObject:str forKey:@"since"];
+
+    [FBRequestConnection startWithGraphPath:startPage parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
+     {
+         if (!error)
+         {
+             NSArray *data = [result objectForKey:@"data"];
+             
+             if (data)
+             {
+                 //[self.feedArray removeAllObjects];
+                 //self.database.lastUpdate = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
+                 [self.uidLoaded setObject:[[NSNumber alloc] initWithBool:YES] forKey:uid];
+                 for (NSDictionary *k in data)
+                 {
+                     displayObject *obj = [FacebookParser parse:k];
+                     if (obj)
+                     {
+                         [self.feedArray addObject:obj];
+                     }
+                 }
+                 
+             }
+             [self.feedTableView reloadData];
+             if ([self checkIfAllPostsAreLoaded])
+             {
+                 [sender endRefreshing];
+             }
+         }
+         else
+         {
+             NSLog(@"error: %@",error);
+         }
+     }
+     ];
+  
 }
 
 - (void)didReceiveMemoryWarning
@@ -355,6 +422,9 @@
 - (void)pickerViewWasShown:(JMPickerView *)pickerView
 {
     //NSLog(@"picker is shown");
+    [self.feedArray removeAllObjects];
+    self.database.lastUpdate = [[NSDate alloc] initWithTimeIntervalSinceNow:-10000000];
+
 }
 
 - (void)pickerViewSelectionIndicatorWasTapped:(JMPickerView *)pickerView

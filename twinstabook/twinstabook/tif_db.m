@@ -40,6 +40,7 @@
                 NSMutableArray *arry = [[NSMutableArray alloc] init];
                 [_groupMembers setObject:arry forKey:name];
             }
+            _lastUpdate = [[NSDate alloc] initWithTimeIntervalSinceNow:-10000000];
         }
         else
         {
@@ -51,6 +52,10 @@
             
             _groups = [database objectForKey:GROUPS];
             _groupMembers = [database objectForKey:GROUPMEMBERS];
+            
+            // do not use this yet
+            //_lastUpdate = [database objectForKey:LASTUPDATE];
+
             // need to add this since groups have been added after database was created
             if (!_groups)
             {
@@ -64,6 +69,11 @@
                     NSMutableArray *arry = [[NSMutableArray alloc] init];
                     [_groupMembers setObject:arry forKey:name];
                 }
+            }
+            
+            //if (!_lastUpdate)
+            {
+                _lastUpdate = [[NSDate alloc] initWithTimeIntervalSinceNow:-10000000];
             }
         }
         //NSLog(@"init groupmembers count = %ld",[self.groupMembers count]);
@@ -126,6 +136,8 @@
 
     NSNumber *selectedMediaName = [[NSNumber alloc] initWithInt:self.selectedMediaName];
     [defaults setObject:selectedMediaName  forKey:SELECTEDMEDIANAME];
+    
+    [defaults setObject:self.lastUpdate forKey:LASTUPDATE];
     
     [defaults synchronize];
     
