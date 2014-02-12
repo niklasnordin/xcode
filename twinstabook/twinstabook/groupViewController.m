@@ -62,6 +62,26 @@
     //[self.optionsPicker setBackgroundColor:[UIColor lightGrayColor]];
     [self.searchOptionButton setTitle:[self.database.facebookSearchOptions objectAtIndex:self.database.selectedOptionindex] forState:UIControlStateNormal];
 
+    UIBarButtonItem *editButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editTable)];
+    //UIBarButtonItem *button = [[UIBarButtonItem alloc] ini]
+    self.navigationItem.rightBarButtonItem = editButtonItem;
+
+}
+
+- (void)editTable
+{
+
+    UIBarButtonItem *doneButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneEditTable)];
+    self.navigationItem.rightBarButtonItem = doneButtonItem;
+    [self.membersTableView setEditing:YES animated:YES];
+
+}
+
+- (void)doneEditTable
+{
+    UIBarButtonItem *editButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editTable)];
+    self.navigationItem.rightBarButtonItem = editButtonItem;
+    [self.membersTableView setEditing:NO animated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -94,9 +114,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     NSDictionary *member = [self.groupMembers objectAtIndex:indexPath.row];
-    //NSLog(@"member = %@",member);
     NSString *name = [member objectForKey:@"name"];
-    //NSLog(@"name = %@", name);
     cell.textLabel.text = name;
     
     NSData *imageData = [member objectForKey:@"image"];
