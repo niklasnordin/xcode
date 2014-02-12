@@ -10,8 +10,9 @@
 
 @interface displayObject : NSObject
 
-@property (strong, nonatomic) NSString *main;
-@property (strong, nonatomic) NSString *sub;
+@property (strong, nonatomic) NSString *mainTitle;
+@property (strong, nonatomic) NSString *subTitle;
+@property (strong, nonatomic) NSString *link;
 @property (strong, nonatomic) NSString *type;
 @property (strong, nonatomic) NSDate *date;
 @property (strong, nonatomic) UIImage *image;

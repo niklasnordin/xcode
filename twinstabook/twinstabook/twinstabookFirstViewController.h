@@ -14,6 +14,8 @@
 
 @interface twinstabookFirstViewController : UIViewController
 <
+    UITableViewDataSource,
+    UITableViewDelegate,
     JMPickerViewDelegate
 >
 
@@ -22,8 +24,6 @@
 @property (strong, nonatomic) JMPickerView *picker;
 @property (strong, nonatomic) UIRefreshControl *refreshController;
 
-@property (weak, nonatomic) IBOutlet UITextView *textView;
-- (IBAction)updateButtonClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *feedButton;
 - (IBAction)feedButtonClicked:(id)sender;
 - (NSString *)nameForPicker:(NSInteger)index;

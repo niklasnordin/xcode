@@ -36,7 +36,7 @@ static NSString *FBSTATUSTYPEMOBILEUPDATE = @"mobile_status_update";
 
 + (displayObject *)parse:(NSDictionary *)dict
 {
-    NSLog(@"dictionary is %@",dict);
+    //NSLog(@"dictionary is %@",dict);
 
     // how can you make this static???
     NSDictionary *FBType =
@@ -80,16 +80,30 @@ static NSString *FBSTATUSTYPEMOBILEUPDATE = @"mobile_status_update";
 
 - (displayObject *)parseStatus:(NSDictionary *)dict
 {
-    displayObject *obj = [[displayObject alloc] init];
-
+    displayObject *obj = nil;
     NSString *message = [dict objectForKey:@"message"];
     NSString *statusType = [dict objectForKey:@"status_type"];
-    [obj setMain:message];
     
-    //NSLog(@"dictionary is %@",dict);
-    NSLog(@"status type is %@",statusType);
-    NSLog(@"message is %@\n\n",message);
-    
+    if (message)
+    {
+        //NSLog(@"obj = %@",dict);
+        obj = [[displayObject alloc] init];
+        [obj setMainTitle:message];
+        [obj setType:@"facebook"];
+        
+        // get the link
+        NSArray *actions = [dict objectForKey:@"actions"];
+        for (NSDictionary *subDicts in actions)
+        {
+            NSString *subKey = [subDicts objectForKey:@"name"];
+            if ([subKey isEqualToString:@"Comment"])
+            {
+                NSString *url = [subDicts objectForKey:@"link"];
+                [obj setLink:url];
+            }
+        }
+    }
+
     return obj;
 }
 

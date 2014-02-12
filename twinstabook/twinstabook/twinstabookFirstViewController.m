@@ -28,8 +28,8 @@
         self.appDelegate.database = [[tif_db alloc] init];
         self.database = self.appDelegate.database;
     }
-    self.textView.scrollEnabled = YES;
-    self.textView.userInteractionEnabled = YES;
+//    self.textView.scrollEnabled = YES;
+//    self.textView.userInteractionEnabled = YES;
     
     self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self withDistanceToTop:20.0f];
     [self.picker hide:-1.0f];
@@ -39,6 +39,9 @@
     // setup the refresh controller for the tableview
     self.refreshController = [[UIRefreshControl alloc] init];
     [self.refreshController addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    
+    self.feedTableView.delegate = self;
+    self.feedTableView.dataSource = self;
     [self.feedTableView addSubview:self.refreshController];
     
     self.feedArray = [[NSMutableArray alloc] init];
@@ -47,7 +50,62 @@
 - (void)refresh:(UIRefreshControl *)sender
 {
     NSLog(@"refreshing....hello");
-    [sender endRefreshing];
+    
+    if (self.database.useFacebook)
+    {
+        FBSession *session = [FBSession activeSession];
+        
+        if (!session.isOpen)
+        {
+            NSLog(@"FB session is NOT open");
+            return;
+        }
+        
+        NSString *startPage = @"/me/feed";
+
+        [FBRequestConnection startWithGraphPath:startPage parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
+         {
+             if (!error)
+             {
+                 NSArray *data = [result objectForKey:@"data"];
+
+                 if (data)
+                 {
+                     [self.feedArray removeAllObjects];
+                     for (NSDictionary *k in data)
+                     {
+                         displayObject *obj = [FacebookParser parse:k];
+                         if (obj)
+                         {
+                             [self.feedArray addObject:obj];
+                         }
+                     }
+                     
+                 }
+                 [self.feedTableView reloadData];
+                 [sender endRefreshing];
+             }
+             else
+             {
+                 NSLog(@"error: %@",error);
+             }
+         }
+         ];
+
+        
+    } // end useFacebook
+    
+    if (self.database.useInstagram)
+    {
+        
+    } // end useInstagram
+    
+    if (self.database.useTwitter)
+    {
+        
+    } // end useTwitter
+
+    //[sender endRefreshing];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,12 +126,6 @@
             {
                 [self.feedArray addObject:obj];
             }
-            //NSString *story = [k objectForKey:@"type"];
-            //NSString *from = [k objectForKey:@"from"];
-            //NSArray *allk = [k allKeys];
-            //NSLog(@"story = %@",story);
-            //self.textView.text = [NSString stringWithFormat:@"%@\n\n%@",self.textView.text,k];
-            self.textView.text = [NSString stringWithFormat:@"%@\n\n%@",self.textView.text,obj.main];
         }
     }
     
@@ -176,7 +228,7 @@
 
 - (IBAction)updateButtonClicked:(id)sender
 {
-    self.textView.text = @"";
+    //self.textView.text = @"";
     [self.feedArray removeAllObjects];
     
     if (self.database.useFacebook)
@@ -323,4 +375,47 @@
     return name;
 }
 
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return [self.feedArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"feedCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+   
+    displayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = obj.mainTitle;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    displayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
+
+    //check if facebook app exists
+    bool facebookExist = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]];
+    
+    if (facebookExist)
+    {
+        // Facebook app installed
+        NSArray *tokens = [obj.link componentsSeparatedByString:@"/"];
+        //NSLog(@"tokens = %@",tokens);
+        NSString *last = [tokens lastObject];
+        NSString *pLink = [NSString stringWithFormat:@"fb://profile/%@",last];
+        NSURL *fbURL = [NSURL URLWithString:pLink];
+        [[UIApplication sharedApplication] openURL:fbURL];
+
+    }
+    
+}
 @end
