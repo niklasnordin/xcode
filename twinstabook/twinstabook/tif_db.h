@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Accounts/Accounts.h>
+#import <Social/Social.h>
 #import <FacebookSDK/FacebookSDK.h>
 
 static NSString *USEFACEBOOK = @"usefacebook";
@@ -22,6 +24,10 @@ static NSString *LASTUPDATE = @"lastUpdate";
 <
     FBLoginViewDelegate
 >
+
+@property (strong, nonatomic) ACAccountStore *account;
+@property (strong, nonatomic) ACAccountType *twitterAccount;
+@property (strong, nonatomic) ACAccountType *facebookAccount;
 
 @property (strong, nonatomic) NSDate *lastUpdate;
 @property (nonatomic) bool useFacebook;

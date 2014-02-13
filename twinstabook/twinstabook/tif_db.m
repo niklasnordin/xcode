@@ -15,7 +15,56 @@
     self = [super init];
     if (self)
     {
+        NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
+                                 @"read_friendlists",
+                                 @"user_photos",
+                                 nil];
+        
+        NSString *appID = @"${FacebookAppID}";
+        
+        NSDictionary *options = @{ ACFacebookPermissionsKey : permissions,
+                                   ACFacebookAudienceKey : ACFacebookAudienceFriends,
+                                   ACFacebookAppIdKey : appID };
+        // FacebookAppID
+        //ACFacebookAppIdKey : @"577876515622948" };
 
+        self.account = [[ACAccountStore alloc] init];
+        self.twitterAccount = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+        self.facebookAccount = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+        
+        [self.account requestAccessToAccountsWithType:self.twitterAccount options:nil completion:^(BOOL granted, NSError *error)
+         {
+             if (!error)
+             {
+                 if (granted)
+                 {
+                     NSLog(@"hello");
+                 }
+                 else
+                 {
+                     NSLog(@"twitter not granted");
+                 }
+             }
+         }
+         ];
+        
+        
+        [self.account requestAccessToAccountsWithType:self.facebookAccount options:options completion:^(BOOL granted, NSError *error)
+         {
+             if (!error)
+             {
+                 if (granted)
+                 {
+                     NSLog(@"hello facebook");
+                 }
+                 else
+                 {
+                     NSLog(@"facebook not granted");
+                 }
+             }
+         }
+         ];
+        
         self.mediaNames = [[NSArray alloc] initWithObjects:@"facebook", @"twitter", @"instagram", nil];
         self.facebookSearchOptions = [[NSArray alloc] initWithObjects:@"friends", @"pages", @"users", nil];
         self.facebookFriends = [[NSMutableArray alloc] init];
@@ -105,10 +154,7 @@
         @"friends_birthday",
         @"friends_photos",
         */
-        NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
-                                 @"read_friendlists",
-                                 @"user_photos",
-                                 nil];
+
         [_fbloginView setReadPermissions:permissions];
         //[self performSelectorInBackground:@selector(loadAllFacebookFriends) withObject:nil];
         [self loadAllFacebookFriends];
