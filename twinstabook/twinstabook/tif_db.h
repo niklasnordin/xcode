@@ -22,12 +22,13 @@ static NSString *LASTUPDATE = @"lastUpdate";
 
 @interface tif_db : NSObject
 <
-    FBLoginViewDelegate
+    FBLoginViewDelegate,
+    UIActionSheetDelegate
 >
 
 @property (strong, nonatomic) ACAccountStore *account;
-@property (strong, nonatomic) ACAccountType *twitterAccount;
-@property (strong, nonatomic) ACAccountType *facebookAccount;
+@property (strong, nonatomic) ACAccountType *twitterAccountType;
+@property (strong, nonatomic) ACAccountType *facebookAccountType;
 
 @property (strong, nonatomic) NSDate *lastUpdate;
 @property (nonatomic) bool useFacebook;

@@ -8,6 +8,10 @@
 
 #import "tif_db.h"
 
+@interface tif_db ()
+@property (strong, nonatomic) UIActionSheet *actionSheet;
+@end
+
 @implementation tif_db
 
 -(id)init
@@ -19,37 +23,45 @@
                                  @"read_friendlists",
                                  @"user_photos",
                                  nil];
-        
-        NSString *appID = @"${FacebookAppID}";
+        NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+        NSString *appID = infoDict[@"FacebookAppID"];
         
         NSDictionary *options = @{ ACFacebookPermissionsKey : permissions,
                                    ACFacebookAudienceKey : ACFacebookAudienceFriends,
                                    ACFacebookAppIdKey : appID };
         // FacebookAppID
         //ACFacebookAppIdKey : @"577876515622948" };
-
+        NSLog(@"appID = %@",appID);
         self.account = [[ACAccountStore alloc] init];
-        self.twitterAccount = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-        self.facebookAccount = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+        self.twitterAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+        self.facebookAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
         
-        [self.account requestAccessToAccountsWithType:self.twitterAccount options:nil completion:^(BOOL granted, NSError *error)
+        [self.account requestAccessToAccountsWithType:self.twitterAccountType options:nil completion:^(BOOL granted, NSError *error)
          {
              if (!error)
              {
                  if (granted)
                  {
-                     NSLog(@"hello");
+                     NSArray *accounts = [self.account accountsWithAccountType:self.twitterAccountType];
+                     NSLog(@"accounts = %@",accounts);
                  }
                  else
                  {
                      NSLog(@"twitter not granted");
+                     self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Properties"
+                                                                    delegate:self
+                                                           cancelButtonTitle:@"Cancel"
+                                                      destructiveButtonTitle:nil
+                                                           otherButtonTitles:nil];
+                     //[self.actionSheet showInView:self.view];
+                     
                  }
              }
          }
          ];
         
         
-        [self.account requestAccessToAccountsWithType:self.facebookAccount options:options completion:^(BOOL granted, NSError *error)
+        [self.account requestAccessToAccountsWithType:self.facebookAccountType options:options completion:^(BOOL granted, NSError *error)
          {
              if (!error)
              {
