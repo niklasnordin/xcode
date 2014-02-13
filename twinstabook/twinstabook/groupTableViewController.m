@@ -132,7 +132,7 @@
     }   
 }
 
-
+#pragma mark - Navigation
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 
@@ -145,14 +145,7 @@
     
     [vc setTitle:key];
     [vc setGroupMembers:groupMembers];
-    
-    /*
-    [segue.destinationViewController setDb:_db];
-    [segue.destinationViewController setSpecie:key];
-    [segue.destinationViewController setFunctionNames:_functionNames];
-    [segue.destinationViewController setTitle:key];
-    [segue.destinationViewController setParent:_parent];
-     */
+
 }
 
 
@@ -171,18 +164,6 @@
     return YES;
 }
 */
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

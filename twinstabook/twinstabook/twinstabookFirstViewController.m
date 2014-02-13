@@ -9,13 +9,14 @@
 #import "twinstabookFirstViewController.h"
 #import "FacebookParser.h"
 #import "displayObject.h"
+#import "linkWebViewController.h"
 
 @interface twinstabookFirstViewController ()
 
 @property (strong, nonatomic) NSMutableArray *feedArray;
 @property (strong, nonatomic) NSMutableArray *uidsToLoad;
 @property (strong, nonatomic) NSMutableDictionary *uidLoaded;
-
+@property (strong, nonatomic) NSString *selectedLinkForWebview;
 @end
 
 @implementation twinstabookFirstViewController
@@ -47,6 +48,7 @@
     [self.feedTableView addSubview:self.refreshController];
     
     self.feedArray = [[NSMutableArray alloc] init];
+    self.selectedLinkForWebview = [[NSString alloc] init];
 }
 
 - (void)refresh:(UIRefreshControl *)sender
@@ -62,7 +64,7 @@
             return;
         }
         
-        NSString *startPage = @"/me/feed";
+        //NSString *startPage = @"/me/feed";
         
         self.database.lastUpdate = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
         if (self.database.selectedFeedIndex == 0)
@@ -90,7 +92,7 @@
             NSArray *members = [self.database.groupMembers objectForKey:feedGroup];
             for (NSDictionary *user in members)
             {
-                NSLog(@"user = %@",user);
+                //NSLog(@"user = %@",user);
                 NSString *uid = [user objectForKey:@"uid"];
                 [self readFacebookFeed:uid withRefresher:sender];
             }
@@ -423,6 +425,7 @@
 {
     //NSLog(@"picker is shown");
     [self.feedArray removeAllObjects];
+    [self.feedTableView reloadData];
     self.database.lastUpdate = [[NSDate alloc] initWithTimeIntervalSinceNow:-10000000];
 
 }
@@ -469,6 +472,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    return;
+    
     displayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
 
     //check if facebook app exists
@@ -477,6 +482,7 @@
     if (facebookExist)
     {
         // Facebook app installed
+        self.selectedLinkForWebview = obj.link;
         NSArray *tokens = [obj.link componentsSeparatedByString:@"/"];
         //NSLog(@"tokens = %@",tokens);
         NSString *last = [tokens lastObject];
@@ -486,5 +492,28 @@
 
     }
     
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"tapped");
+    displayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
+    NSLog(@"link = %@",obj.link);
+    self.selectedLinkForWebview = obj.link;
+    [self performSegueWithIdentifier:@"weblinkSegue" sender:obj.link];
+
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
+    if ([segue.identifier isEqualToString:@"weblinkSegue"])
+    {
+
+        linkWebViewController *vc = (linkWebViewController *)segue.destinationViewController;
+        NSString *urlString = @"http://www.google.com";
+        NSLog(@"link = %@",self.selectedLinkForWebview);
+        [vc setUrlString:self.selectedLinkForWebview];
+    }
 }
 @end

@@ -17,6 +17,7 @@
 		617CE87F18AD2EE70025AA92 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617CE87E18AD2EE70025AA92 /* Social.framework */; };
 		617CE88218AD2F3C0025AA92 /* twitterParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 617CE88118AD2F3C0025AA92 /* twitterParser.m */; };
 		617CE88518AD2F630025AA92 /* instagramParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 617CE88418AD2F630025AA92 /* instagramParser.m */; };
+		617CE88818AD30270025AA92 /* linkWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 617CE88718AD30270025AA92 /* linkWebViewController.m */; };
 		6188A2A918917CB9009C75EB /* tif_db.m in Sources */ = {isa = PBXBuildFile; fileRef = 6188A2A818917CB9009C75EB /* tif_db.m */; };
 		61C57C4618897BA600887F5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4518897BA600887F5E /* Foundation.framework */; };
 		61C57C4818897BA600887F5E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4718897BA600887F5E /* CoreGraphics.framework */; };
@@ -70,6 +71,8 @@
 		617CE88118AD2F3C0025AA92 /* twitterParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = twitterParser.m; sourceTree = "<group>"; };
 		617CE88318AD2F630025AA92 /* instagramParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = instagramParser.h; sourceTree = "<group>"; };
 		617CE88418AD2F630025AA92 /* instagramParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = instagramParser.m; sourceTree = "<group>"; };
+		617CE88618AD30270025AA92 /* linkWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = linkWebViewController.h; sourceTree = "<group>"; };
+		617CE88718AD30270025AA92 /* linkWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = linkWebViewController.m; sourceTree = "<group>"; };
 		6188A2A718917CB9009C75EB /* tif_db.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tif_db.h; sourceTree = "<group>"; };
 		6188A2A818917CB9009C75EB /* tif_db.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tif_db.m; sourceTree = "<group>"; };
 		61C57C4218897BA600887F5E /* twinstabook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twinstabook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +224,8 @@
 				6137DFFD18A7B03C00E0C589 /* displayObject.m */,
 				6137DFFF18A7B11600E0C589 /* tifTableViewCell.h */,
 				6137E00018A7B11600E0C589 /* tifTableViewCell.m */,
+				617CE88618AD30270025AA92 /* linkWebViewController.h */,
+				617CE88718AD30270025AA92 /* linkWebViewController.m */,
 				6188A2A718917CB9009C75EB /* tif_db.h */,
 				6188A2A818917CB9009C75EB /* tif_db.m */,
 				61C57C6318897BA600887F5E /* Images.xcassets */,
@@ -375,6 +380,7 @@
 				61C57C5218897BA600887F5E /* main.m in Sources */,
 				6137DFFE18A7B03C00E0C589 /* displayObject.m in Sources */,
 				6188A2A918917CB9009C75EB /* tif_db.m in Sources */,
+				617CE88818AD30270025AA92 /* linkWebViewController.m in Sources */,
 				61ECD154189D2B4200E5B952 /* groupNavigationController.m in Sources */,
 				6137DFF918A7AFEF00E0C589 /* FacebookParser.m in Sources */,
 				6137DFF518A66C7200E0C589 /* JMPickerView.m in Sources */,
