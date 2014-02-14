@@ -48,6 +48,8 @@
     {
         NSDictionary *dict = [self.selectedUsers objectForKey:key];
         //[self.groupMembers addObject:@{key: dict}];
+        
+        // dont forget to check if member already exists
         [self.groupMembers addObject:dict];
     }
     

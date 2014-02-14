@@ -59,49 +59,44 @@
     static NSString *CellIdentifier = @"twitterAccountCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
+    if (!cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
     // Configure the cell...
     ACAccount *account = self.accounts[indexPath.row];
     //NSLog(@"class = %@", [account class]);
     cell.textLabel.text = [account username];
-    
+    if ([self.selected[indexPath.row] boolValue])
+    {
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    }
+    else
+    {
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+    }
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 
-    if (cell.accessoryType == UITableViewCellAccessoryCheckmark)
+    if ([self.selected[indexPath.row] boolValue])
     {
-        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
-    }
-    else
-    {
-        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
-    }
-
-    /*
-    if ([self.selectedUsers objectForKey:userID])
-    {
-        // objected is already selected, so we deselect it
-        [self.selectedUsers removeObjectForKey:userID];
         [cell setAccessoryType:UITableViewCellAccessoryNone];
+        self.selected[indexPath.row] = [[NSNumber alloc] initWithBool:NO];
     }
     else
     {
-        UIImage *image = cell.imageView.image;
-        NSData *imageData = UIImagePNGRepresentation(image);
-        NSDictionary *dict = @{@"name" : name,
-                               @"uid" : userID,
-                               @"image" : imageData,
-                               @"type" : self.mediaName};
-        
-        [self.selectedUsers setObject:dict forKey:userID];
-        
+        self.selected[indexPath.row] = [[NSNumber alloc] initWithBool:YES];
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
-     */
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
 @end

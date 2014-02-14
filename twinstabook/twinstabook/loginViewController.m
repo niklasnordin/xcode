@@ -118,6 +118,7 @@
         // transfer database
         twitterAccountsTableViewController *vc = (twitterAccountsTableViewController *)segue.destinationViewController;
         [vc setAccounts:self.database.twitterAccounts];
+        [vc setSelected:self.database.selectedTwitterAccounts];
     }
 }
 
