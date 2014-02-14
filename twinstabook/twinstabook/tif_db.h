@@ -15,11 +15,11 @@
 
 // these must be in the same order as the socialMediaNames
 static NSString *FACEBOOK = @"Facebook";
-static int kFacebook = 0;
+const static int kFacebook = 0;
 static NSString *TWITTER = @"Twitter";
-static int kTwitter = 1;
+const static int kTwitter = 1;
 static NSString *INSTAGRAM = @"Instagram";
-static int kInstagram = 2;
+const static int kInstagram = 2;
 
 static NSString *USEFACEBOOK = @"usefacebook";
 static NSString *USETWITTER = @"useTwitter";

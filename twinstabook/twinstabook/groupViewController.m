@@ -169,25 +169,24 @@
 - (IBAction)searchButtonClicked:(id)sender
 {
     [self.searchField resignFirstResponder];
-    if (self.database.selectedMediaNameIndex == kFacebook)
+    
+    int selected = self.database.selectedMediaNameIndex;
+    switch (selected)
     {
-        NSLog(@"facebooksearch");
-        [self facebookSearch];
-    }
-    else
-    {
-        if (self.database.selectedMediaNameIndex == kTwitter)
-        {
-            NSLog(@"not included yet");
-
-        }
-        else
-        {
-            if (self.database.selectedMediaNameIndex == kInstagram)
-            {
-                
-            }
-        }
+        case kFacebook :
+            [self facebookSearch];
+            break;
+            
+        case kTwitter :
+            [self twitterSearch];
+            break;
+        
+        case kInstagram:
+            [self instagramSearch];
+            break;
+            
+        default:
+            break;
     }
 
 }
@@ -264,6 +263,16 @@
         ];
     }
  
+}
+
+- (void)twitterSearch
+{
+    NSLog(@"not included yet");
+}
+
+- (void)instagramSearch
+{
+    NSLog(@"not included yet");
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
