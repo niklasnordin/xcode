@@ -11,11 +11,15 @@
 #import <Social/Social.h>
 #import <FacebookSDK/FacebookSDK.h>
 
-typedef enum { kFacebook, kTwitter, kInstagram } kMediaTypes;
+//typedef enum { kFacebook, kTwitter, kInstagram } kMediaTypes;
 
+// these must be in the same order as the socialMediaNames
 static NSString *FACEBOOK = @"Facebook";
+static int kFacebook = 0;
 static NSString *TWITTER = @"Twitter";
+static int kTwitter = 1;
 static NSString *INSTAGRAM = @"Instagram";
+static int kInstagram = 2;
 
 static NSString *USEFACEBOOK = @"usefacebook";
 static NSString *USETWITTER = @"useTwitter";
@@ -32,7 +36,8 @@ static NSString *SELECTEDTWITTERACCOUNTS = @"selectedTwitterAccounts";
     FBLoginViewDelegate
 >
 
-@property (strong, nonatomic) NSDictionary *socialMediaTypes;
+@property (strong, nonatomic) NSArray *socialMediaNames;
+@property (nonatomic) int selectedMediaNameIndex;
 
 @property (strong, nonatomic) ACAccountStore *account;
 @property (strong, nonatomic) ACAccountType *twitterAccountType;
@@ -42,10 +47,9 @@ static NSString *SELECTEDTWITTERACCOUNTS = @"selectedTwitterAccounts";
 @property (nonatomic) bool useFacebook;
 @property (nonatomic) bool useTwitter;
 @property (nonatomic) bool useInstagram;
-@property (nonatomic) int selectedMediaName;
 @property (nonatomic) NSInteger selectedFeedIndex;
 
-@property (strong, nonatomic) NSArray *mediaNames;
+//@property (strong, nonatomic) NSArray *mediaNames;
 @property (strong, nonatomic) NSMutableArray *groups;
 @property (strong, nonatomic) NSMutableDictionary *groupMembers;
 

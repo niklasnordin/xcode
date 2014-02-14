@@ -35,7 +35,7 @@
     self.database = self.appDelegate.database;
     
 	// Do any additional setup after loading the view.
-    NSString *name = [self.database.mediaNames objectAtIndex:self.database.selectedMediaName];
+    NSString *name = [self.database.socialMediaNames objectAtIndex:self.database.selectedMediaNameIndex];
     [self.feedButton setTitle:name forState:UIControlStateNormal];
     
     // facebook is the first entry in the mediaNames
@@ -51,8 +51,8 @@
     
     self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self withDistanceToTop:65.0f];
     [self.picker hide:-1.0f];
-    [self.feedButton setTitle:[self.database.mediaNames objectAtIndex:self.database.selectedMediaName] forState:UIControlStateNormal];
-    [self.picker selectRow:self.database.selectedMediaName inComponent:0 animated:NO];
+    [self.feedButton setTitle:name forState:UIControlStateNormal];
+    [self.picker selectRow:self.database.selectedMediaNameIndex inComponent:0 animated:NO];
     
     self.optionsPVDelegate = [[optionsPickerViewDelegate alloc] init];
     [self.optionsPVDelegate setDatabase:self.database];
@@ -169,21 +169,21 @@
 - (IBAction)searchButtonClicked:(id)sender
 {
     [self.searchField resignFirstResponder];
-    if (self.database.selectedMediaName == kFacebook)
+    if (self.database.selectedMediaNameIndex == kFacebook)
     {
         NSLog(@"facebooksearch");
         [self facebookSearch];
     }
     else
     {
-        if (self.database.selectedMediaName == kTwitter)
+        if (self.database.selectedMediaNameIndex == kTwitter)
         {
             NSLog(@"not included yet");
 
         }
         else
         {
-            if (self.database.selectedMediaName == kInstagram)
+            if (self.database.selectedMediaNameIndex == kInstagram)
             {
                 
             }
@@ -341,18 +341,18 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return [self.database.mediaNames count];
+    return [self.database.socialMediaNames count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [self.database.mediaNames objectAtIndex:row];
+    return [self.database.socialMediaNames objectAtIndex:row];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.database.selectedMediaName = row;
-    [self.feedButton setTitle:[self.database.mediaNames objectAtIndex:row] forState:UIControlStateNormal];
+    self.database.selectedMediaNameIndex = row;
+    [self.feedButton setTitle:[self.database.socialMediaNames objectAtIndex:row] forState:UIControlStateNormal];
     
     // facebook is the first entry in the mediaNames
     [self setSecondary];
@@ -386,7 +386,7 @@
 
 - (void)setSecondary
 {
-    if (self.database.selectedMediaName == 0)
+    if (self.database.selectedMediaNameIndex == kFacebook)
     {
         [self.optionLabel setEnabled:YES];
         [self.optionLabel setAlpha:1.0f];

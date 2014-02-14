@@ -20,18 +20,15 @@
     
     if (self)
     {
-        self.socialMediaTypes = @{FACEBOOK : [[NSNumber alloc] initWithInt:kFacebook],
-                                  TWITTER : [[NSNumber alloc] initWithInt:kTwitter],
-                                  INSTAGRAM : [[NSNumber alloc] initWithInt:kInstagram]};
+        self.socialMediaNames = @[FACEBOOK, TWITTER, INSTAGRAM];
 
         self.account = [[ACAccountStore alloc] init];
         self.twitterAccounts = [[NSArray alloc] init];
-        self.mediaNames = [[NSArray alloc] initWithObjects:FACEBOOK, TWITTER, INSTAGRAM, nil];
         self.facebookSearchOptions = [[NSArray alloc] initWithObjects:@"friends", @"pages", @"users", nil];
         self.facebookFriends = [[NSMutableArray alloc] init];
         
         NSUserDefaults *database = [NSUserDefaults standardUserDefaults];
-        
+
         // check for user setting exist
         if (!database)
         {
@@ -40,12 +37,12 @@
             _useFacebook = false;
             _useTwitter = false;
             _useInstagram = false;
-            _selectedMediaName = 0;
+            _selectedMediaNameIndex = 0;
             _selectedFeedIndex = 0;
             
             _groups = [[NSMutableArray alloc] init];
             _groupMembers = [[NSMutableDictionary alloc] init];
-            for (NSString *name in self.mediaNames)
+            for (NSString *name in self.socialMediaNames)
             {
                 NSMutableArray *arry = [[NSMutableArray alloc] init];
                 [_groupMembers setObject:arry forKey:name];
@@ -58,7 +55,7 @@
             _useFacebook = [[database objectForKey:USEFACEBOOK] boolValue];
             _useTwitter = [[database objectForKey:USETWITTER] boolValue];
             _useInstagram = [[database objectForKey:USEINSTAGRAM] boolValue];
-            _selectedMediaName = [[database objectForKey:SELECTEDMEDIANAME] intValue];
+            _selectedMediaNameIndex = [[database objectForKey:SELECTEDMEDIANAME] intValue];
             _selectedFeedIndex = [[database objectForKey:SELECTEDFEEDINDEX] integerValue];
             
             _groups = [database objectForKey:GROUPS];
@@ -76,7 +73,7 @@
             if (!_groupMembers)
             {
                 _groupMembers = [[NSMutableDictionary alloc] init];
-                for (NSString *name in self.mediaNames)
+                for (NSString *name in self.socialMediaNames)
                 {
                     NSMutableArray *arry = [[NSMutableArray alloc] init];
                     [_groupMembers setObject:arry forKey:name];
@@ -260,7 +257,7 @@
     [defaults setObject:self.groups forKey:GROUPS];
     [defaults setObject:self.groupMembers forKey:GROUPMEMBERS];
 
-    NSNumber *selectedMediaName = [[NSNumber alloc] initWithInt:self.selectedMediaName];
+    NSNumber *selectedMediaName = [[NSNumber alloc] initWithInt:self.selectedMediaNameIndex];
     [defaults setObject:selectedMediaName  forKey:SELECTEDMEDIANAME];
     
     [defaults setObject:self.lastUpdate forKey:LASTUPDATE];
