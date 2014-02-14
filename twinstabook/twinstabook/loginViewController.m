@@ -7,6 +7,7 @@
 //
 
 #import "loginViewController.h"
+#import "twitterAccountsTableViewController.h"
 
 @interface loginViewController ()
 
@@ -95,7 +96,7 @@
 
 - (IBAction)clickedTwitterButton:(id)sender
 {
-    NSLog(@"clicked twitter login");
+    //NSLog(@"clicked twitter login");
 }
 
 - (IBAction)clickedInstagramSwitch:(UISwitch *)sender
@@ -107,6 +108,17 @@
 - (IBAction)clickedInstagramButton:(id)sender
 {
     NSLog(@"clicked instagram login");
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
+    if ([segue.identifier isEqualToString:@"twitterAccountsSegue"])
+    {
+        // transfer database
+        twitterAccountsTableViewController *vc = (twitterAccountsTableViewController *)segue.destinationViewController;
+        [vc setAccounts:self.database.twitterAccounts];
+    }
 }
 
 @end

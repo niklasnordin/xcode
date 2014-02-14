@@ -19,6 +19,7 @@ static NSString *SELECTEDFEEDINDEX = @"selectedFeedIndex";
 static NSString *GROUPS = @"groups";
 static NSString *GROUPMEMBERS = @"groupMembers";
 static NSString *LASTUPDATE = @"lastUpdate";
+static NSString *SELECTEDTWITTERACCOUNTS = @"selectedTwitterAccounts";
 
 @interface tif_db : NSObject
 <
@@ -47,6 +48,9 @@ static NSString *LASTUPDATE = @"lastUpdate";
 @property (strong, nonatomic) NSMutableArray *facebookFriends;
 @property (strong, nonatomic) NSArray *facebookSearchOptions;
 @property (nonatomic) NSInteger selectedOptionindex;
+
+@property (strong, nonatomic) NSArray *twitterAccounts;
+@property (strong, nonatomic) NSMutableArray *selectedTwitterAccounts;
 
 - (id)init;
 - (void)saveDatabase;

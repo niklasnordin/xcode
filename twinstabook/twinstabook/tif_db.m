@@ -22,7 +22,7 @@
     {
 
         self.account = [[ACAccountStore alloc] init];
-        
+        self.twitterAccounts = [[NSArray alloc] init];
         self.mediaNames = [[NSArray alloc] initWithObjects:@"facebook", @"twitter", @"instagram", nil];
         self.facebookSearchOptions = [[NSArray alloc] initWithObjects:@"friends", @"pages", @"users", nil];
         self.facebookFriends = [[NSMutableArray alloc] init];
@@ -48,6 +48,7 @@
                 [_groupMembers setObject:arry forKey:name];
             }
             _lastUpdate = [[NSDate alloc] initWithTimeIntervalSinceNow:-10000000];
+            _selectedTwitterAccounts = [[NSMutableArray alloc] init];
         }
         else
         {
@@ -59,6 +60,7 @@
             
             _groups = [database objectForKey:GROUPS];
             _groupMembers = [database objectForKey:GROUPMEMBERS];
+            _selectedTwitterAccounts = [database objectForKey:SELECTEDTWITTERACCOUNTS];
             
             // do not use this yet
             //_lastUpdate = [database objectForKey:LASTUPDATE];
@@ -81,6 +83,10 @@
             //if (!_lastUpdate)
             {
                 _lastUpdate = [[NSDate alloc] initWithTimeIntervalSinceNow:-10000000];
+            }
+            if (!_selectedTwitterAccounts)
+            {
+                _selectedTwitterAccounts = [[NSMutableArray alloc] init];
             }
         }
                 
@@ -192,7 +198,7 @@
         {
             if (granted)
             {
-                NSArray *accounts = [self.account accountsWithAccountType:self.twitterAccountType];
+                self.twitterAccounts = [self.account accountsWithAccountType:self.twitterAccountType];
                 //NSLog(@"twitter accounts = %@",accounts);
             }
             else
@@ -256,6 +262,8 @@
     [defaults setObject:selectedMediaName  forKey:SELECTEDMEDIANAME];
     
     [defaults setObject:self.lastUpdate forKey:LASTUPDATE];
+    
+    [defaults setObject:self.selectedTwitterAccounts forKey:SELECTEDTWITTERACCOUNTS];
     
     [defaults synchronize];
     

@@ -185,9 +185,14 @@
 {
     
     NSString *searchString = self.searchField.text;
+    bool emptyStringSearch = NO;
     if ([searchString isEqualToString:@""])
     {
-        return;
+        if (self.database.selectedOptionindex != 0)
+        {
+            return;
+        }
+        emptyStringSearch = YES;
     }
     
     [self.searchActivityIndicator setHidden:NO];
@@ -203,7 +208,7 @@
         {
             NSString *username = friend.name;
             NSInteger len = [username rangeOfString:searchString options:NSCaseInsensitiveSearch].length;
-            if (len)
+            if (len || emptyStringSearch)
             {
                 NSDictionary *dict = @{@"name" : friend.name, @"id" : friend.id };
                 [friends addObject:dict];

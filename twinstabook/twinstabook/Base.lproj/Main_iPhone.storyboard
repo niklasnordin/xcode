@@ -83,7 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-213" y="-606"/>
+            <point key="canvasLocation" x="-179" y="-606"/>
         </scene>
         <!--Login View Controller - Second-->
         <scene sceneID="ot8-2e-RuS">
@@ -143,7 +143,7 @@
                                 </state>
                                 <connections>
                                     <action selector="clickedTwitterButton:" destination="QUy-BD-bpt" eventType="touchUpInside" id="MzC-dR-vo2"/>
-                                    <segue destination="MzI-1s-aFm" kind="push" id="mnT-VC-2J6"/>
+                                    <segue destination="MzI-1s-aFm" kind="push" identifier="twitterAccountsSegue" id="mnT-VC-2J6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnr-ES-3gM">
@@ -200,7 +200,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KzL-NP-Qex" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="313" y="166"/>
+            <point key="canvasLocation" x="371" y="166"/>
         </scene>
         <!--Group Table View Controller - Create Groups-->
         <scene sceneID="Zpo-2T-KUA">
@@ -232,7 +232,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cke-a2-Fm5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-213" y="844"/>
+            <point key="canvasLocation" x="-179" y="844"/>
         </scene>
         <!--Group View Controller - Groups-->
         <scene sceneID="sgk-AQ-gUL">

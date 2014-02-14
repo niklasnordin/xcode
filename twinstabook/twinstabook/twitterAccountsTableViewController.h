@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "tif_db.h"
 
 @interface twitterAccountsTableViewController : UITableViewController
+
+@property (weak, nonatomic) NSArray *accounts;
 
 @end
