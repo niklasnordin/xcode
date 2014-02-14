@@ -20,10 +20,13 @@
     
     if (self)
     {
+        self.socialMediaTypes = @{FACEBOOK : [[NSNumber alloc] initWithInt:kFacebook],
+                                  TWITTER : [[NSNumber alloc] initWithInt:kTwitter],
+                                  INSTAGRAM : [[NSNumber alloc] initWithInt:kInstagram]};
 
         self.account = [[ACAccountStore alloc] init];
         self.twitterAccounts = [[NSArray alloc] init];
-        self.mediaNames = [[NSArray alloc] initWithObjects:@"facebook", @"twitter", @"instagram", nil];
+        self.mediaNames = [[NSArray alloc] initWithObjects:FACEBOOK, TWITTER, INSTAGRAM, nil];
         self.facebookSearchOptions = [[NSArray alloc] initWithObjects:@"friends", @"pages", @"users", nil];
         self.facebookFriends = [[NSMutableArray alloc] init];
         

@@ -169,14 +169,25 @@
 - (IBAction)searchButtonClicked:(id)sender
 {
     [self.searchField resignFirstResponder];
-    if (self.database.selectedMediaName == 0)
+    if (self.database.selectedMediaName == kFacebook)
     {
         NSLog(@"facebooksearch");
         [self facebookSearch];
     }
     else
     {
-        NSLog(@"not included yet");
+        if (self.database.selectedMediaName == kTwitter)
+        {
+            NSLog(@"not included yet");
+
+        }
+        else
+        {
+            if (self.database.selectedMediaName == kInstagram)
+            {
+                
+            }
+        }
     }
 
 }

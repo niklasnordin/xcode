@@ -11,6 +11,12 @@
 #import <Social/Social.h>
 #import <FacebookSDK/FacebookSDK.h>
 
+typedef enum { kFacebook, kTwitter, kInstagram } kMediaTypes;
+
+static NSString *FACEBOOK = @"Facebook";
+static NSString *TWITTER = @"Twitter";
+static NSString *INSTAGRAM = @"Instagram";
+
 static NSString *USEFACEBOOK = @"usefacebook";
 static NSString *USETWITTER = @"useTwitter";
 static NSString *USEINSTAGRAM = @"useInstagram";
@@ -25,6 +31,8 @@ static NSString *SELECTEDTWITTERACCOUNTS = @"selectedTwitterAccounts";
 <
     FBLoginViewDelegate
 >
+
+@property (strong, nonatomic) NSDictionary *socialMediaTypes;
 
 @property (strong, nonatomic) ACAccountStore *account;
 @property (strong, nonatomic) ACAccountType *twitterAccountType;
