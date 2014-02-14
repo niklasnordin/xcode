@@ -66,9 +66,11 @@
     
     // Configure the cell...
     ACAccount *account = self.accounts[indexPath.row];
-    //NSLog(@"class = %@", [account class]);
-    cell.textLabel.text = [account username];
-    if ([self.selected[indexPath.row] boolValue])
+    NSString *username = [account username];
+    
+    cell.textLabel.text = username;
+    
+    if ([self.selected objectForKey:username])
     {
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     }
@@ -82,17 +84,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
+    ACAccount *account = self.accounts[indexPath.row];
+    NSString *username = [account username];
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 
-    if ([self.selected[indexPath.row] boolValue])
+    if ([self.selected objectForKey:username])
     {
         [cell setAccessoryType:UITableViewCellAccessoryNone];
-        self.selected[indexPath.row] = [[NSNumber alloc] initWithBool:NO];
+        [self.selected removeObjectForKey:username];
     }
     else
     {
-        self.selected[indexPath.row] = [[NSNumber alloc] initWithBool:YES];
+        [self.selected setObject:[[NSNumber alloc] initWithBool:YES] forKey:username];
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

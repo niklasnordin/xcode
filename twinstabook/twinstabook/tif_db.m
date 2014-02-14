@@ -48,7 +48,7 @@
                 [_groupMembers setObject:arry forKey:name];
             }
             _lastUpdate = [[NSDate alloc] initWithTimeIntervalSinceNow:-10000000];
-            _selectedTwitterAccounts = [[NSMutableArray alloc] init];
+            _selectedTwitterAccounts = [[NSMutableDictionary alloc] init];
         }
         else
         {
@@ -86,7 +86,7 @@
             }
             if (!_selectedTwitterAccounts)
             {
-                _selectedTwitterAccounts = [[NSMutableArray alloc] init];
+                _selectedTwitterAccounts = [[NSMutableDictionary alloc] init];
             }
         }
                 
@@ -199,14 +199,6 @@
             if (granted)
             {
                 self.twitterAccounts = [self.account accountsWithAccountType:self.twitterAccountType];
-                if ([self.selectedTwitterAccounts count] != [self.twitterAccounts count])
-                {
-                    self.selectedTwitterAccounts = [[NSMutableArray alloc] initWithCapacity:[self.twitterAccounts count]];
-                    for (int i=0; i < [self.twitterAccounts count]; i++)
-                    {
-                        self.selectedTwitterAccounts[i] = [[NSNumber alloc] initWithBool:NO];
-                    }
-                }
             }
             else
             {

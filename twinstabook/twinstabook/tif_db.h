@@ -50,7 +50,7 @@ static NSString *SELECTEDTWITTERACCOUNTS = @"selectedTwitterAccounts";
 @property (nonatomic) NSInteger selectedOptionindex;
 
 @property (strong, nonatomic) NSArray *twitterAccounts;
-@property (strong, nonatomic) NSMutableArray *selectedTwitterAccounts;
+@property (strong, nonatomic) NSMutableDictionary *selectedTwitterAccounts;
 
 - (id)init;
 - (void)saveDatabase;

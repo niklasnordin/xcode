@@ -12,6 +12,6 @@
 @interface twitterAccountsTableViewController : UITableViewController
 
 @property (weak, nonatomic) NSArray *accounts;
-@property (weak, nonatomic) NSMutableArray *selected;
+@property (weak, nonatomic) NSMutableDictionary *selected;
 
 @end
