@@ -18,6 +18,8 @@
 		617CE88218AD2F3C0025AA92 /* twitterParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 617CE88118AD2F3C0025AA92 /* twitterParser.m */; };
 		617CE88518AD2F630025AA92 /* instagramParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 617CE88418AD2F630025AA92 /* instagramParser.m */; };
 		617CE88818AD30270025AA92 /* linkWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 617CE88718AD30270025AA92 /* linkWebViewController.m */; };
+		617CE88A18AE66D80025AA92 /* old code snippets in Resources */ = {isa = PBXBuildFile; fileRef = 617CE88918AE66D80025AA92 /* old code snippets */; };
+		617CE88D18AE78680025AA92 /* twitterAccountsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 617CE88C18AE78680025AA92 /* twitterAccountsTableViewController.m */; };
 		6188A2A918917CB9009C75EB /* tif_db.m in Sources */ = {isa = PBXBuildFile; fileRef = 6188A2A818917CB9009C75EB /* tif_db.m */; };
 		61C57C4618897BA600887F5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4518897BA600887F5E /* Foundation.framework */; };
 		61C57C4818897BA600887F5E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4718897BA600887F5E /* CoreGraphics.framework */; };
@@ -73,6 +75,9 @@
 		617CE88418AD2F630025AA92 /* instagramParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = instagramParser.m; sourceTree = "<group>"; };
 		617CE88618AD30270025AA92 /* linkWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = linkWebViewController.h; sourceTree = "<group>"; };
 		617CE88718AD30270025AA92 /* linkWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = linkWebViewController.m; sourceTree = "<group>"; };
+		617CE88918AE66D80025AA92 /* old code snippets */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "old code snippets"; sourceTree = "<group>"; };
+		617CE88B18AE78680025AA92 /* twitterAccountsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = twitterAccountsTableViewController.h; sourceTree = "<group>"; };
+		617CE88C18AE78680025AA92 /* twitterAccountsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = twitterAccountsTableViewController.m; sourceTree = "<group>"; };
 		6188A2A718917CB9009C75EB /* tif_db.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tif_db.h; sourceTree = "<group>"; };
 		6188A2A818917CB9009C75EB /* tif_db.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tif_db.m; sourceTree = "<group>"; };
 		61C57C4218897BA600887F5E /* twinstabook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twinstabook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +153,8 @@
 		6137DFFA18A7B00000E0C589 /* twitter */ = {
 			isa = PBXGroup;
 			children = (
+				617CE88B18AE78680025AA92 /* twitterAccountsTableViewController.h */,
+				617CE88C18AE78680025AA92 /* twitterAccountsTableViewController.m */,
 				617CE88018AD2F3C0025AA92 /* twitterParser.h */,
 				617CE88118AD2F3C0025AA92 /* twitterParser.m */,
 			);
@@ -238,6 +245,7 @@
 		61C57C4C18897BA600887F5E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				617CE88918AE66D80025AA92 /* old code snippets */,
 				6137DFF318A66C7200E0C589 /* JMPickerView.h */,
 				6137DFF418A66C7200E0C589 /* JMPickerView.m */,
 				61ECD15818A1667700E5B952 /* IMG_1414.jpg */,
@@ -350,6 +358,7 @@
 				61C57C6418897BA600887F5E /* Images.xcassets in Resources */,
 				61C57C5918897BA600887F5E /* Main_iPhone.storyboard in Resources */,
 				61C57C5018897BA600887F5E /* InfoPlist.strings in Resources */,
+				617CE88A18AE66D80025AA92 /* old code snippets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +388,7 @@
 				61ECD15118981B8C00E5B952 /* groupTableViewController.m in Sources */,
 				61C57C5218897BA600887F5E /* main.m in Sources */,
 				6137DFFE18A7B03C00E0C589 /* displayObject.m in Sources */,
+				617CE88D18AE78680025AA92 /* twitterAccountsTableViewController.m in Sources */,
 				6188A2A918917CB9009C75EB /* tif_db.m in Sources */,
 				617CE88818AD30270025AA92 /* linkWebViewController.m in Sources */,
 				61ECD154189D2B4200E5B952 /* groupNavigationController.m in Sources */,

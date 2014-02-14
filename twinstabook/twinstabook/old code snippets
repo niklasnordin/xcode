@@ -1,0 +1,48 @@
+
+- (IBAction)updateButtonClicked:(id)sender
+{
+    //self.textView.text = @"";
+    [self.feedArray removeAllObjects];
+    
+    if (self.database.useFacebook)
+    {
+        FBSession *session = [FBSession activeSession];
+
+        if (session.isOpen)
+        {
+            NSLog(@"FB session is open");
+            //FBAccessTokenData *data = FBSession.activeSession.accessTokenData;
+            //NSLog(@"permissions = %@",data.permissions);
+        }
+        else
+        {
+            NSLog(@"FB session is NOT open");
+            return;
+        }
+        FBRequestConnection* conn = [[FBRequestConnection alloc] init];
+        NSString *startPage = @"/me/feed";
+        //NSString *startPage = @"search?q=max&type=user";
+        [self readSession:session fromConnection:conn fromPage:startPage];
+
+        
+    } // end useFacebook
+    
+    if (self.database.useInstagram)
+    {
+        
+    } // end useInstagram
+    
+    if (self.database.useTwitter)
+    {
+        
+    } // end useTwitter
+}
+
+    if (![vc isKindOfClass:[ twinstabookFirstViewController class]])
+    {
+        // only allowed at this point to call this from the first view controller
+        NSLog(@"you are calling this from wrong UIViewController %@",[vc class]);
+        return;
+    }
+    twinstabookFirstViewController *tvc = (twinstabookFirstViewController *)vc;
+    

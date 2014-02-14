@@ -13,6 +13,8 @@
 
 @interface twinstabookFirstViewController ()
 
+@property (strong, nonatomic) UIActionSheet *actionSheet;
+
 @property (strong, nonatomic) NSMutableArray *feedArray;
 @property (strong, nonatomic) NSMutableArray *uidsToLoad;
 @property (strong, nonatomic) NSMutableDictionary *uidLoaded;
@@ -31,8 +33,6 @@
         self.appDelegate.database = [[tif_db alloc] init];
         self.database = self.appDelegate.database;
     }
-//    self.textView.scrollEnabled = YES;
-//    self.textView.userInteractionEnabled = YES;
     
     self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self withDistanceToTop:20.0f];
     [self.picker hide:-1.0f];
@@ -49,6 +49,22 @@
     
     self.feedArray = [[NSMutableArray alloc] init];
     self.selectedLinkForWebview = [[NSString alloc] init];
+    
+    if (self.database.useFacebook)
+    {
+        [self.database openFacebookInViewController:self];
+    }
+    
+    if (self.database.useTwitter)
+    {
+        [self.database openTwitterInViewController:self];
+    }
+    
+    if (self.database.useInstagram)
+    {
+        // initialize instagram
+    }
+
 }
 
 - (void)refresh:(UIRefreshControl *)sender
@@ -294,45 +310,6 @@
 
 }
 
-- (IBAction)updateButtonClicked:(id)sender
-{
-    //self.textView.text = @"";
-    [self.feedArray removeAllObjects];
-    
-    if (self.database.useFacebook)
-    {
-        FBSession *session = [FBSession activeSession];
-
-        if (session.isOpen)
-        {
-            NSLog(@"FB session is open");
-            //FBAccessTokenData *data = FBSession.activeSession.accessTokenData;
-            //NSLog(@"permissions = %@",data.permissions);
-        }
-        else
-        {
-            NSLog(@"FB session is NOT open");
-            return;
-        }
-        FBRequestConnection* conn = [[FBRequestConnection alloc] init];
-        NSString *startPage = @"/me/feed";
-        //NSString *startPage = @"search?q=max&type=user";
-        [self readSession:session fromConnection:conn fromPage:startPage];
-
-        
-    } // end useFacebook
-    
-    if (self.database.useInstagram)
-    {
-        
-    } // end useInstagram
-    
-    if (self.database.useTwitter)
-    {
-        
-    } // end useTwitter
-}
-
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     NSLog(@"didRecieveResponse");
@@ -511,9 +488,31 @@
     {
 
         linkWebViewController *vc = (linkWebViewController *)segue.destinationViewController;
-        NSString *urlString = @"http://www.google.com";
+        //NSString *urlString = @"http://www.google.com";
         NSLog(@"link = %@",self.selectedLinkForWebview);
         [vc setUrlString:self.selectedLinkForWebview];
     }
 }
+/*
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"clicked on button %ld",buttonIndex);
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"didDismissWith index = %ld",buttonIndex);
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    
+}
+
+- (void)actionSheetCancel:(UIActionSheet *)actionSheet
+{
+
+}
+ */
+
 @end

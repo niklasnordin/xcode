@@ -87,6 +87,10 @@
 {
     self.database.useTwitter = sender.on;
     [self setButtonStatus:sender.on forButton:self.twitterButton];
+    if (sender.on)
+    {
+        [self.database openTwitterInViewController:self];
+    }
 }
 
 - (IBAction)clickedTwitterButton:(id)sender

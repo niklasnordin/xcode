@@ -22,8 +22,7 @@ static NSString *LASTUPDATE = @"lastUpdate";
 
 @interface tif_db : NSObject
 <
-    FBLoginViewDelegate,
-    UIActionSheetDelegate
+    FBLoginViewDelegate
 >
 
 @property (strong, nonatomic) ACAccountStore *account;
@@ -49,8 +48,12 @@ static NSString *LASTUPDATE = @"lastUpdate";
 @property (strong, nonatomic) NSArray *facebookSearchOptions;
 @property (nonatomic) NSInteger selectedOptionindex;
 
--(id)init;
--(void)saveDatabase;
+- (id)init;
+- (void)saveDatabase;
+
+- (void)openFacebookInViewController:(UIViewController *)vc;
+- (void)openTwitterInViewController:(UIViewController *)vc;
+- (void)openInstagramInViewController:(UIViewController *)vc;
 
 // facebook functions
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView;

@@ -7,9 +7,9 @@
 //
 
 #import "tif_db.h"
+#import "twinstabookFirstViewController.h"
 
 @interface tif_db ()
-@property (strong, nonatomic) UIActionSheet *actionSheet;
 @end
 
 @implementation tif_db
@@ -17,65 +17,11 @@
 -(id)init
 {
     self = [super init];
+    
     if (self)
     {
-        NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
-                                 @"read_friendlists",
-                                 @"user_photos",
-                                 nil];
-        NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
-        NSString *appID = infoDict[@"FacebookAppID"];
-        
-        NSDictionary *options = @{ ACFacebookPermissionsKey : permissions,
-                                   ACFacebookAudienceKey : ACFacebookAudienceFriends,
-                                   ACFacebookAppIdKey : appID };
-        // FacebookAppID
-        //ACFacebookAppIdKey : @"577876515622948" };
-        NSLog(@"appID = %@",appID);
+
         self.account = [[ACAccountStore alloc] init];
-        self.twitterAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-        self.facebookAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
-        
-        [self.account requestAccessToAccountsWithType:self.twitterAccountType options:nil completion:^(BOOL granted, NSError *error)
-         {
-             if (!error)
-             {
-                 if (granted)
-                 {
-                     NSArray *accounts = [self.account accountsWithAccountType:self.twitterAccountType];
-                     NSLog(@"accounts = %@",accounts);
-                 }
-                 else
-                 {
-                     NSLog(@"twitter not granted");
-                     self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Properties"
-                                                                    delegate:self
-                                                           cancelButtonTitle:@"Cancel"
-                                                      destructiveButtonTitle:nil
-                                                           otherButtonTitles:nil];
-                     //[self.actionSheet showInView:self.view];
-                     
-                 }
-             }
-         }
-         ];
-        
-        
-        [self.account requestAccessToAccountsWithType:self.facebookAccountType options:options completion:^(BOOL granted, NSError *error)
-         {
-             if (!error)
-             {
-                 if (granted)
-                 {
-                     NSLog(@"hello facebook");
-                 }
-                 else
-                 {
-                     NSLog(@"facebook not granted");
-                 }
-             }
-         }
-         ];
         
         self.mediaNames = [[NSArray alloc] initWithObjects:@"facebook", @"twitter", @"instagram", nil];
         self.facebookSearchOptions = [[NSArray alloc] initWithObjects:@"friends", @"pages", @"users", nil];
@@ -137,8 +83,7 @@
                 _lastUpdate = [[NSDate alloc] initWithTimeIntervalSinceNow:-10000000];
             }
         }
-        //NSLog(@"init groupmembers count = %ld",[self.groupMembers count]);
-        
+                
         // initialize the facebook login button
         _fbloginView = [[FBLoginView alloc] init];
         _fbloginView.delegate = self;
@@ -147,25 +92,11 @@
         [_imageLoadingQueue setName:@"imageLoadingQueue"];
         
         _facebookUidToImageDownloadOperations = [[NSMutableDictionary alloc] init];
-        
-        
-/*
-        NSLog(@"read permissions = %@",[_fbloginView readPermissions]);
-        @"email",
-        @"user_birthday",
-        @"user_likes",
-        @"user_location",
-        @"user_photos",
-        @"read_stream",
-        @"publish_stream",
-        @"publish_actions",
-        @"status_update",
-        @"user_about_me",
-        @"read_friendlists",
-        @"friends_about_me",
-        @"friends_birthday",
-        @"friends_photos",
-        */
+
+        NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
+                                 @"read_friendlists",
+                                 @"user_photos",
+                                 nil];
 
         [_fbloginView setReadPermissions:permissions];
         //[self performSelectorInBackground:@selector(loadAllFacebookFriends) withObject:nil];
@@ -173,7 +104,136 @@
     }
     return self;
 }
--(void)saveDatabase
+
+- (void)openFacebookInViewController:(UIViewController *)vc
+{
+    // FacebookAppID
+    //ACFacebookAppIdKey : @"577876515622948" };
+    /*
+     NSLog(@"read permissions = %@",[_fbloginView readPermissions]);
+     @"email",
+     @"user_birthday",
+     @"user_likes",
+     @"user_location",
+     @"user_photos",
+     @"read_stream",
+     @"publish_stream",
+     @"publish_actions",
+     @"status_update",
+     @"user_about_me",
+     @"read_friendlists",
+     @"friends_about_me",
+     @"friends_birthday",
+     @"friends_photos",
+     */
+
+    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString *appID = infoDict[@"FacebookAppID"];
+    
+    NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
+                             @"read_friendlists",
+                             @"user_photos",
+                             nil];
+    
+    NSDictionary *options = @{ ACFacebookPermissionsKey : permissions,
+                               ACFacebookAudienceKey : ACFacebookAudienceFriends,
+                               ACFacebookAppIdKey : appID };
+    
+    self.facebookAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+ 
+    [self.account requestAccessToAccountsWithType:self.facebookAccountType options:options completion:^(BOOL granted, NSError *error)
+    {
+        if (!error)
+        {
+            if (granted)
+            {
+                NSLog(@"hello facebook");
+            }
+            else
+            {
+                NSLog(@"facebook not granted");
+                UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"Facebook access not granted. Check permissions in Settings"
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                  destructiveButtonTitle:nil
+                                                       otherButtonTitles:nil];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [as showInView:vc.view];
+                });
+                
+            }
+        }
+        else
+        {
+            NSString *errorMessage = [NSString stringWithFormat:@"%@",[error localizedDescription]];
+            UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:errorMessage
+                                                            delegate:nil
+                                                   cancelButtonTitle:@"OK"
+                                              destructiveButtonTitle:nil
+                                                   otherButtonTitles:nil];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [as showInView:vc.view];
+            });
+            
+        }
+    }
+    ];
+
+}
+
+- (void)openTwitterInViewController:(UIViewController *)vc
+{
+    
+    self.twitterAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    
+    [self.account requestAccessToAccountsWithType:self.twitterAccountType options:nil completion:^(BOOL granted, NSError *error)
+    {
+        if (!error)
+        {
+            if (granted)
+            {
+                NSArray *accounts = [self.account accountsWithAccountType:self.twitterAccountType];
+                //NSLog(@"twitter accounts = %@",accounts);
+            }
+            else
+            {
+                NSLog(@"twitter not granted, error = %@", [error localizedDescription]);
+                
+                UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"Twitter access not granted. Check permissions in Settings"
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                  destructiveButtonTitle:nil
+                                                       otherButtonTitles:nil];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [as showInView:vc.view];
+                });
+                
+            }
+        }
+        else
+        {
+            NSString *errorMessage = [NSString stringWithFormat:@"%@",[error localizedDescription]];
+            UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:errorMessage
+                                                            delegate:nil
+                                                   cancelButtonTitle:@"OK"
+                                              destructiveButtonTitle:nil
+                                                   otherButtonTitles:nil];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [as showInView:vc.view];
+            });
+            
+        }
+    }
+    ];
+   
+}
+
+- (void)openInstagramInViewController:(UIViewController *)vc
+{
+    
+}
+
+- (void)saveDatabase
 {
     //NSLog(@"save database");
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

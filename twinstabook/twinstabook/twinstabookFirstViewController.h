@@ -17,6 +17,7 @@
     UITableViewDataSource,
     UITableViewDelegate,
     JMPickerViewDelegate
+//    UIActionSheetDelegate
 >
 
 @property (weak, nonatomic) twinstabookAppDelegate *appDelegate;
