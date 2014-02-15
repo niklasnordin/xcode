@@ -13,5 +13,5 @@
 
 @property (weak, nonatomic) NSArray *accounts;
 @property (weak, nonatomic) NSMutableDictionary *selected;
-
+@property (weak, nonatomic) UIButton *twitterButton;
 @end

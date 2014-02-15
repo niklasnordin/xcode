@@ -323,6 +323,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Niklas Nordin";
 				TargetAttributes = {
+					61C57C4118897BA600887F5E = {
+						DevelopmentTeam = QUP84UZ9KG;
+					};
 					61C57C6818897BA600887F5E = {
 						TestTargetID = 61C57C4118897BA600887F5E;
 					};
@@ -531,6 +534,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/niklasnordin/Documents/FacebookSDK,
@@ -539,6 +544,7 @@
 				GCC_PREFIX_HEADER = "twinstabook/twinstabook-Prefix.pch";
 				INFOPLIST_FILE = "twinstabook/twinstabook-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -548,6 +554,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/niklasnordin/Documents/FacebookSDK,
@@ -556,6 +564,7 @@
 				GCC_PREFIX_HEADER = "twinstabook/twinstabook-Prefix.pch";
 				INFOPLIST_FILE = "twinstabook/twinstabook-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

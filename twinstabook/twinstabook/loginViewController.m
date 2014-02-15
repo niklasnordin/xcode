@@ -39,6 +39,10 @@
     [self.view addSubview:self.database.fbloginView];
     [self.database.fbloginView sizeToFit];
 
+    NSArray *keys = [self.database.selectedTwitterAccounts allKeys];
+    NSString *username = [keys lastObject];
+    [self.twitterButton setTitle:username forState:UIControlStateNormal];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,6 +91,19 @@
 - (IBAction)clickedTwitterSwitch:(UISwitch *)sender
 {
     self.database.useTwitter = sender.on;
+    if (sender.on)
+    {
+        // set the title to the username
+        NSArray *keys = [self.database.selectedTwitterAccounts allKeys];
+        NSString *username = [keys lastObject];
+        [self.twitterButton setTitle:username forState:UIControlStateNormal];
+    }
+    else
+    {
+        // set the title to twitter
+        [self.twitterButton setTitle:self.database.socialMediaNames[kTwitter] forState:UIControlStateNormal];
+    }
+    
     [self setButtonStatus:sender.on forButton:self.twitterButton];
     if (sender.on)
     {
@@ -119,6 +136,7 @@
         twitterAccountsTableViewController *vc = (twitterAccountsTableViewController *)segue.destinationViewController;
         [vc setAccounts:self.database.twitterAccounts];
         [vc setSelected:self.database.selectedTwitterAccounts];
+        [vc setTwitterButton:self.twitterButton];
     }
 }
 

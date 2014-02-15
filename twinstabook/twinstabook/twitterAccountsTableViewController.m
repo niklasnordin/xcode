@@ -34,6 +34,14 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    // set the title for the twitter button in the login view to the selected twitter username
+    NSArray *keys = [self.selected allKeys];
+    NSString *username = [keys lastObject];
+    [self.twitterButton setTitle:username forState:UIControlStateNormal];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -104,6 +112,7 @@
         [self.selected setObject:id forKey:username];
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     }
+    [tableView reloadData];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
 }

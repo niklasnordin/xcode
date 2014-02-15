@@ -202,15 +202,24 @@
                 
                 if ([self.selectedTwitterAccounts count] == 0)
                 {
-                    NSString *name = [[self.twitterAccounts lastObject] name];
+                    ACAccount *account = [self.twitterAccounts lastObject];
+                    NSString *username = [account username];
                     NSString *uid = [[self.twitterAccounts lastObject] userID];
-                    
+                    [self.selectedTwitterAccounts setObject:uid forKey:username];
                 }
-/*
-                for (NSDictionary *dict in self.selectedTwitterAccounts) {
-                    NSString *id = [dict ]
+
+                ACAccount *selectedAccount = nil;
+                for (ACAccount *account in self.twitterAccounts)
+                {
+
+                    NSLog(@"account username = %@", account.username);
+                    if ([self.selectedTwitterAccounts objectForKey:account.username])
+                    {
+                        selectedAccount = account;
+                        NSLog(@"selecting %@",account.username);
+                    }
                 }
- */
+ 
             }
             else
             {
