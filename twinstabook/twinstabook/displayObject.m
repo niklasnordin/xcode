@@ -33,7 +33,7 @@
     self = [super init];
     if (self)
     {
-        
+        _mainTitle = [dict objectForKey:@"text"];
     }
     
     return self;

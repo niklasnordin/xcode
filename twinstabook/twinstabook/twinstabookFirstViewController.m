@@ -8,6 +8,7 @@
 
 #import "twinstabookFirstViewController.h"
 #import "FacebookParser.h"
+#import "twitterParser.h"
 #import "displayObject.h"
 #import "linkWebViewController.h"
 
@@ -179,7 +180,10 @@
                  }
                  
              }
-             [self.feedTableView reloadData];
+             dispatch_async(dispatch_get_main_queue(), ^(void){
+                 [self.feedTableView reloadData];
+             });
+             
              if ([self checkIfAllPostsAreLoaded])
              {
                  [sender endRefreshing];
@@ -222,7 +226,7 @@
             if (twitterAccount)
             {
                 NSLog(@"here i am");
-                NSString *apiString = [NSString stringWithFormat:@"http://api.twitter.com/%@/statuses/user_timeline.json", kTwitterAPIVersion];
+                NSString *apiString = [NSString stringWithFormat:@"https://api.twitter.com/%@/statuses/user_timeline.json", kTwitterAPIVersion];
                 NSURL *request = [NSURL URLWithString:apiString];
                 NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
                 [parameters setObject:@"100" forKey:@"count"];
@@ -233,7 +237,7 @@
                 posts.account = twitterAccount;
                 [posts performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
                  {
-                     NSLog(@"response = %@",response);
+                     //NSLog(@"response = %@",response);
                      //NSLog(@"error = %@",error.debugDescription);
                      if (!error)
                      {
@@ -242,7 +246,19 @@
                          //NSLog(@"urlResponse = %@",urlResponse);
                          if (self.twitterArray.count)
                          {
+                            // NSLog(@"class = %@",[[self.twitterArray lastObject] class]);
+                             for (NSDictionary *post in self.twitterArray)
+                             {
+                                 displayObject *obj = [twitterParser parse:post];
+                                 if (obj)
+                                 {
+                                     [self.feedArray addObject:obj];
+                                 }
+                             }
                          }
+                         dispatch_async(dispatch_get_main_queue(), ^(void){
+                             [self.feedTableView reloadData];
+                         });
                      }
                      else
                      {

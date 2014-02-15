@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "displayObject.h"
 
 @interface twitterParser : NSObject
+
++ (displayObject *)parse:(NSDictionary *)dict;
 
 @end
