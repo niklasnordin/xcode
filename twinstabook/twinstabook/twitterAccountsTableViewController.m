@@ -97,7 +97,11 @@
     }
     else
     {
-        [self.selected setObject:[[NSNumber alloc] initWithBool:YES] forKey:username];
+        NSLog(@"account = %@", account);
+        NSString *id = account.identifier;
+        NSString *key = [[self.selected allKeys] lastObject];
+        [self.selected removeObjectForKey:key];
+        [self.selected setObject:id forKey:username];
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

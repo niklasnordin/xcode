@@ -415,7 +415,7 @@
 
 - (NSString *)nameForPicker:(NSInteger)index
 {
-    NSString *name = @"me";
+    NSString *name = @"All";
     
     if (index > 0)
     {
@@ -473,9 +473,8 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"tapped");
     displayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
-    NSLog(@"link = %@",obj.link);
+    //NSLog(@"link = %@",obj.link);
     self.selectedLinkForWebview = obj.link;
     [self performSegueWithIdentifier:@"weblinkSegue" sender:obj.link];
 
@@ -493,26 +492,5 @@
         [vc setUrlString:self.selectedLinkForWebview];
     }
 }
-/*
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSLog(@"clicked on button %ld",buttonIndex);
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    NSLog(@"didDismissWith index = %ld",buttonIndex);
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    
-}
-
-- (void)actionSheetCancel:(UIActionSheet *)actionSheet
-{
-
-}
- */
 
 @end

@@ -199,6 +199,18 @@
             if (granted)
             {
                 self.twitterAccounts = [self.account accountsWithAccountType:self.twitterAccountType];
+                
+                if ([self.selectedTwitterAccounts count] == 0)
+                {
+                    NSString *name = [[self.twitterAccounts lastObject] name];
+                    NSString *uid = [[self.twitterAccounts lastObject] userID];
+                    
+                }
+/*
+                for (NSDictionary *dict in self.selectedTwitterAccounts) {
+                    NSString *id = [dict ]
+                }
+ */
             }
             else
             {
