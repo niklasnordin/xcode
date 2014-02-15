@@ -199,7 +199,9 @@
             if (granted)
             {
                 self.twitterAccounts = [self.account accountsWithAccountType:self.twitterAccountType];
-                if (!self.twitterAccounts)
+                NSInteger numAccounts = [self.twitterAccounts count];
+
+                if (numAccounts)
                 {
 
                     if ([self.selectedTwitterAccounts count] == 0)
