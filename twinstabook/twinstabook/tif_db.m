@@ -216,11 +216,11 @@
                     for (ACAccount *account in self.twitterAccounts)
                     {
 
-                        NSLog(@"account username = %@", account.username);
+                        //NSLog(@"account username = %@", account.username);
                         if ([self.selectedTwitterAccounts objectForKey:account.username])
                         {
                             selectedAccount = account;
-                            NSLog(@"selecting %@",account.username);
+                            //NSLog(@"selecting %@",account.username);
                         }
                     }
                 }

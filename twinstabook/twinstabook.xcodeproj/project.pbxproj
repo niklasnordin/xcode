@@ -21,6 +21,7 @@
 		617CE88A18AE66D80025AA92 /* old code snippets in Resources */ = {isa = PBXBuildFile; fileRef = 617CE88918AE66D80025AA92 /* old code snippets */; };
 		617CE88D18AE78680025AA92 /* twitterAccountsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 617CE88C18AE78680025AA92 /* twitterAccountsTableViewController.m */; };
 		6188A2A918917CB9009C75EB /* tif_db.m in Sources */ = {isa = PBXBuildFile; fileRef = 6188A2A818917CB9009C75EB /* tif_db.m */; };
+		618BE7BE18AFA0DF00A0CB7F /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 618BE7BD18AFA0DF00A0CB7F /* Twitter.framework */; };
 		61C57C4618897BA600887F5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4518897BA600887F5E /* Foundation.framework */; };
 		61C57C4818897BA600887F5E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4718897BA600887F5E /* CoreGraphics.framework */; };
 		61C57C4A18897BA600887F5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4918897BA600887F5E /* UIKit.framework */; };
@@ -80,6 +81,7 @@
 		617CE88C18AE78680025AA92 /* twitterAccountsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = twitterAccountsTableViewController.m; sourceTree = "<group>"; };
 		6188A2A718917CB9009C75EB /* tif_db.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tif_db.h; sourceTree = "<group>"; };
 		6188A2A818917CB9009C75EB /* tif_db.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tif_db.m; sourceTree = "<group>"; };
+		618BE7BD18AFA0DF00A0CB7F /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		61C57C4218897BA600887F5E /* twinstabook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twinstabook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C57C4518897BA600887F5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		61C57C4718897BA600887F5E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				618BE7BE18AFA0DF00A0CB7F /* Twitter.framework in Frameworks */,
 				617CE87F18AD2EE70025AA92 /* Social.framework in Frameworks */,
 				617CE87D18AD2EDD0025AA92 /* Accounts.framework in Frameworks */,
 				61C57C81188A660900887F5E /* FacebookSDK.framework in Frameworks */,
@@ -192,6 +195,7 @@
 		61C57C4418897BA600887F5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				618BE7BD18AFA0DF00A0CB7F /* Twitter.framework */,
 				617CE87E18AD2EE70025AA92 /* Social.framework */,
 				617CE87C18AD2EDD0025AA92 /* Accounts.framework */,
 				61C57C80188A660900887F5E /* FacebookSDK.framework */,

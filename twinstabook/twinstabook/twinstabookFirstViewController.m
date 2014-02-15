@@ -19,6 +19,8 @@
 @property (strong, nonatomic) NSMutableArray *uidsToLoad;
 @property (strong, nonatomic) NSMutableDictionary *uidLoaded;
 @property (strong, nonatomic) NSString *selectedLinkForWebview;
+@property (strong, nonatomic) NSArray *twitterArray;
+
 @end
 
 @implementation twinstabookFirstViewController
@@ -200,22 +202,27 @@
         {
             
             ACAccount *twitterAccount = nil;
+
             for (ACAccount *account in self.database.twitterAccounts)
             {
                 
-                NSLog(@"account username = %@", account.username);
+                //NSLog(@"account username = %@", account.username);
                 if ([self.database.selectedTwitterAccounts objectForKey:account.username])
                 {
                     twitterAccount = account;
                     NSLog(@"selecting %@",account.username);
                 }
             }
-            
+            /*
+            [self.database.account renewCredentialsForAccount:twitterAccount completion:^(ACAccountCredentialRenewResult renewResult, NSError *error)
+            {
+                NSLog(@"renewed credentials");
+            }];
+            */
             if (twitterAccount)
             {
                 NSLog(@"here i am");
                 NSString *apiString = [NSString stringWithFormat:@"http://api.twitter.com/%@/statuses/user_timeline.json", kTwitterAPIVersion];
-                NSLog(@"apiString = %@",apiString);
                 NSURL *request = [NSURL URLWithString:apiString];
                 NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
                 [parameters setObject:@"100" forKey:@"count"];
@@ -224,15 +231,16 @@
                 SLRequest *posts = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:request parameters:parameters];
                 
                 posts.account = twitterAccount;
-                
                 [posts performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
                  {
+                     NSLog(@"response = %@",response);
+                     //NSLog(@"error = %@",error.debugDescription);
                      if (!error)
                      {
-                         NSArray *arrayPost = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-                         NSLog(@"arrayPost.count = %ld",arrayPost.count);
-
-                         if (arrayPost.count)
+                         self.twitterArray = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+                         NSLog(@"arrayPost.count = %ld",self.twitterArray.count);
+                         //NSLog(@"urlResponse = %@",urlResponse);
+                         if (self.twitterArray.count)
                          {
                          }
                      }
