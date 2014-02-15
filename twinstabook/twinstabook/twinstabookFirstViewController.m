@@ -124,7 +124,7 @@
     
     if (self.database.useTwitter)
     {
-        
+        [self readTwitterFeedWithRefreshed:sender];
     } // end useTwitter
 
     [sender endRefreshing];
@@ -190,6 +190,62 @@
      }
      ];
   
+}
+
+- (void)readTwitterFeedWithRefreshed:(UIRefreshControl *)sender
+{
+    [self.database.account requestAccessToAccountsWithType:self.database.twitterAccountType options:nil completion:^(BOOL granted, NSError *error)
+    {
+        if (granted)
+        {
+            
+            ACAccount *twitterAccount = nil;
+            for (ACAccount *account in self.database.twitterAccounts)
+            {
+                
+                NSLog(@"account username = %@", account.username);
+                if ([self.database.selectedTwitterAccounts objectForKey:account.username])
+                {
+                    twitterAccount = account;
+                    NSLog(@"selecting %@",account.username);
+                }
+            }
+            
+            if (twitterAccount)
+            {
+                NSLog(@"here i am");
+                NSString *apiString = [NSString stringWithFormat:@"http://api.twitter.com/%@/statuses/user_timeline.json", kTwitterAPIVersion];
+                NSLog(@"apiString = %@",apiString);
+                NSURL *request = [NSURL URLWithString:apiString];
+                NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+                [parameters setObject:@"100" forKey:@"count"];
+                [parameters setObject:@"1" forKey:@"include_entities"];
+                
+                SLRequest *posts = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:request parameters:parameters];
+                
+                posts.account = twitterAccount;
+                
+                [posts performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
+                 {
+                     if (!error)
+                     {
+                         NSArray *arrayPost = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+                         NSLog(@"arrayPost.count = %ld",arrayPost.count);
+
+                         if (arrayPost.count)
+                         {
+                         }
+                     }
+                     else
+                     {
+                         NSLog(@"error = %@",[error localizedDescription]);
+                     }
+                     [sender endRefreshing];
+                 }];
+            }
+            
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning

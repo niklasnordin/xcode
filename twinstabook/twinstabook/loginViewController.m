@@ -97,7 +97,6 @@
 
 - (IBAction)clickedTwitterSwitch:(UISwitch *)sender
 {
-    self.database.useTwitter = sender.on;
     if (sender.on)
     {
         // set the title to the username
@@ -122,6 +121,7 @@
     }
     
     [self setButtonStatus:sender.on forButton:self.twitterButton];
+    self.database.useTwitter = sender.on;
 
 }
 

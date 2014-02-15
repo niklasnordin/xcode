@@ -31,6 +31,8 @@ static NSString *GROUPMEMBERS = @"groupMembers";
 static NSString *LASTUPDATE = @"lastUpdate";
 static NSString *SELECTEDTWITTERACCOUNTS = @"selectedTwitterAccounts";
 
+const static NSString *kTwitterAPIVersion = @"1.1";
+
 @interface tif_db : NSObject
 <
     FBLoginViewDelegate
