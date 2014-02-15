@@ -199,27 +199,41 @@
             if (granted)
             {
                 self.twitterAccounts = [self.account accountsWithAccountType:self.twitterAccountType];
-                
-                if ([self.selectedTwitterAccounts count] == 0)
-                {
-                    ACAccount *account = [self.twitterAccounts lastObject];
-                    NSString *username = [account username];
-                    NSString *uid = [[self.twitterAccounts lastObject] userID];
-                    [self.selectedTwitterAccounts setObject:uid forKey:username];
-                }
-
-                ACAccount *selectedAccount = nil;
-                for (ACAccount *account in self.twitterAccounts)
+                if (!self.twitterAccounts)
                 {
 
-                    NSLog(@"account username = %@", account.username);
-                    if ([self.selectedTwitterAccounts objectForKey:account.username])
+                    if ([self.selectedTwitterAccounts count] == 0)
                     {
-                        selectedAccount = account;
-                        NSLog(@"selecting %@",account.username);
+                        ACAccount *account = [self.twitterAccounts lastObject];
+                        NSString *username = [account username];
+                        NSString *uid = [[self.twitterAccounts lastObject] userID];
+                        [self.selectedTwitterAccounts setObject:uid forKey:username];
+                    }
+
+                    ACAccount *selectedAccount = nil;
+                    for (ACAccount *account in self.twitterAccounts)
+                    {
+
+                        NSLog(@"account username = %@", account.username);
+                        if ([self.selectedTwitterAccounts objectForKey:account.username])
+                        {
+                            selectedAccount = account;
+                            NSLog(@"selecting %@",account.username);
+                        }
                     }
                 }
- 
+                else
+                {
+                    
+                    UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"No available twitter account"
+                                                                    delegate:nil
+                                                           cancelButtonTitle:@"OK"
+                                                      destructiveButtonTitle:nil
+                                                           otherButtonTitles:nil];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [as showInView:vc.view];
+                    });
+                }
             }
             else
             {
