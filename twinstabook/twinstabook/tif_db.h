@@ -51,7 +51,6 @@ const static NSString *kTwitterAPIVersion = @"1.1";
 @property (nonatomic) bool useInstagram;
 @property (nonatomic) NSInteger selectedFeedIndex;
 
-//@property (strong, nonatomic) NSArray *mediaNames;
 @property (strong, nonatomic) NSMutableArray *groups;
 @property (strong, nonatomic) NSMutableDictionary *groupMembers;
 
