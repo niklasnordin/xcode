@@ -46,11 +46,28 @@
     NSEnumerator *keys = [self.selectedUsers keyEnumerator];
     for (NSString *key in keys)
     {
-        NSDictionary *dict = [self.selectedUsers objectForKey:key];
+        NSMutableDictionary *dict = [self.selectedUsers objectForKey:key];
         //[self.groupMembers addObject:@{key: dict}];
-        
+        [dict setObject:self.mediaName forKey:@"media"];
+        bool userAlreadyInList = false;
+        for (NSDictionary *u in self.groupMembers)
+        {
+            NSString *username = [u objectForKey:@"name"];
+            if ([username isEqualToString:[dict objectForKey:@"name"]])
+            {
+                NSString *media = [u objectForKey:@"media"];
+                if ([media isEqualToString:[dict objectForKey:@"media"]])
+                {
+                    userAlreadyInList = true;
+                }
+            }
+        }
+
         // dont forget to check if member already exists
-        [self.groupMembers addObject:dict];
+        if (!userAlreadyInList)
+        {
+            [self.groupMembers addObject:dict];
+        }
     }
     
     [self.members reloadData];

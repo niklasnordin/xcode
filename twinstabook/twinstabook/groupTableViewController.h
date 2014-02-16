@@ -11,6 +11,10 @@
 #import "twinstabookAppDelegate.h"
 
 @interface groupTableViewController : UITableViewController
+<
+    UITableViewDataSource,
+    UITableViewDelegate
+>
 
 @property (weak, nonatomic) twinstabookAppDelegate *appDelegate;
 @property (weak, nonatomic) tif_db *database;

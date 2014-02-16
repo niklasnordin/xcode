@@ -182,7 +182,7 @@
             {
                 if ([name isEqualToString:[names objectAtIndex:i]])
                 {
-                        alreadyInDB = YES;
+                    alreadyInDB = YES;
                 }
             }
         }
@@ -194,10 +194,23 @@
             [self.tableView reloadData];
             
             // add the new group to the picker in first view
-            UITabBarController *tabController = self.tabBarController;
+            twinstabookFirstViewController *first = nil;
+            UITabBarController *tabController = self.navigationController.tabBarController;
             NSArray *vc = [tabController viewControllers];
-            twinstabookFirstViewController *first = (twinstabookFirstViewController *)[vc objectAtIndex:0];
-            [first.picker reloadAllComponents];
+            if (vc.count)
+            {
+                for (int i=0; i<[vc count]; i++)
+                {
+                    UINavigationController *navController = [vc objectAtIndex:i];
+                    id child = [[navController childViewControllers] lastObject];
+                    if ([child isKindOfClass:[twinstabookFirstViewController class]])
+                    {
+                        first = child;
+                    }
+                }
+            
+                [first.picker reloadAllComponents];
+            }
         }
     }
 
