@@ -14,6 +14,8 @@
     UITableViewDelegate
 >
 
+@property (strong, nonatomic) NSNumber *downloadTwitterImage;
+
 @property (weak, nonatomic) tif_db *database;
 
 @property (strong, nonatomic) NSMutableArray *names;

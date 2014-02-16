@@ -85,6 +85,7 @@ const static NSString *kTwitterAPIVersion = @"1.1";
 
 - (void)openTwitterInViewController:(UIViewController *)vc;
 - (void)loadTwitterFriends;
+- (ACAccount *)selectedTwitterAccount;
 
 // instagram functions
 - (void)openInstagramInViewController:(UIViewController *)vc;
