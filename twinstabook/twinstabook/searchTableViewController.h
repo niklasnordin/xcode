@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "tif_db.h"
 
+const static int maxImages = 100;
+
 @interface searchTableViewController : UITableViewController
 <
     UITableViewDelegate
 >
 
 @property (strong, nonatomic) NSNumber *downloadTwitterImage;
+@property (strong, nonatomic) NSMutableDictionary *imageCache;
 
 @property (weak, nonatomic) tif_db *database;
 
