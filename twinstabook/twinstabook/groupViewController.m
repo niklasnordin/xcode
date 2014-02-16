@@ -217,12 +217,12 @@
         //for (NSDictionary<FBGraphUser>* friend in self.database.facebookFriends)
         for (NSDictionary *friend in self.database.facebookFriends)
         {
-            NSString *username = [friend objectForKey:@"username"];
-            NSInteger len = [username rangeOfString:searchString options:NSCaseInsensitiveSearch].length;
+            NSString *name = [friend objectForKey:@"name"];
+            NSInteger len = [name rangeOfString:searchString options:NSCaseInsensitiveSearch].length;
             if (len || emptyStringSearch)
             {
                 NSString *uid = [friend objectForKey:@"id"];
-                NSDictionary *dict = @{@"name" : username, @"id" : uid };
+                NSDictionary *dict = @{@"name" : name, @"id" : uid };
                 [friends addObject:dict];
             }
         }

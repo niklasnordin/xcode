@@ -112,169 +112,6 @@
     return self;
 }
 
-- (void)openFacebookInViewController:(UIViewController *)vc
-{
-    // FacebookAppID
-    //ACFacebookAppIdKey : @"577876515622948" };
-    /*
-     NSLog(@"read permissions = %@",[_fbloginView readPermissions]);
-     @"email",
-     @"user_birthday",
-     @"user_likes",
-     @"user_location",
-     @"user_photos",
-     @"read_stream",
-     @"publish_stream",
-     @"publish_actions",
-     @"status_update",
-     @"user_about_me",
-     @"read_friendlists",
-     @"friends_about_me",
-     @"friends_birthday",
-     @"friends_photos",
-     */
-
-    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
-    NSString *appID = infoDict[@"FacebookAppID"];
-    
-    NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
-                             @"read_friendlists",
-                             @"user_photos",
-                             nil];
-    
-    NSDictionary *options = @{ ACFacebookPermissionsKey : permissions,
-                               ACFacebookAudienceKey : ACFacebookAudienceFriends,
-                               ACFacebookAppIdKey : appID };
-    
-    self.facebookAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
- 
-    [self.account requestAccessToAccountsWithType:self.facebookAccountType options:options completion:^(BOOL granted, NSError *error)
-    {
-        if (!error)
-        {
-            if (granted)
-            {
-                NSLog(@"hello facebook");
-            }
-            else
-            {
-                NSLog(@"facebook not granted");
-                UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"Facebook access not granted. Check permissions in Settings"
-                                                                delegate:nil
-                                                       cancelButtonTitle:@"OK"
-                                                  destructiveButtonTitle:nil
-                                                       otherButtonTitles:nil];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [as showInView:vc.view];
-                });
-                
-            }
-        }
-        else
-        {
-            NSString *errorMessage = [NSString stringWithFormat:@"%@",[error localizedDescription]];
-            UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:errorMessage
-                                                            delegate:nil
-                                                   cancelButtonTitle:@"OK"
-                                              destructiveButtonTitle:nil
-                                                   otherButtonTitles:nil];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [as showInView:vc.view];
-            });
-            
-        }
-    }
-    ];
-
-}
-
-- (void)openTwitterInViewController:(UIViewController *)vc
-{
-    
-    self.twitterAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-    
-    [self.account requestAccessToAccountsWithType:self.twitterAccountType options:nil completion:^(BOOL granted, NSError *error)
-    {
-        if (!error)
-        {
-            if (granted)
-            {
-                self.twitterAccounts = [self.account accountsWithAccountType:self.twitterAccountType];
-                NSInteger numAccounts = [self.twitterAccounts count];
-
-                if (numAccounts)
-                {
-
-                    if ([self.selectedTwitterAccounts count] == 0)
-                    {
-                        ACAccount *account = [self.twitterAccounts lastObject];
-                        NSString *username = [account username];
-                        NSString *uid = [[self.twitterAccounts lastObject] userID];
-                        [self.selectedTwitterAccounts setObject:uid forKey:username];
-                    }
-
-                    ACAccount *selectedAccount = nil;
-                    for (ACAccount *account in self.twitterAccounts)
-                    {
-
-                        //NSLog(@"account username = %@", account.username);
-                        if ([self.selectedTwitterAccounts objectForKey:account.username])
-                        {
-                            selectedAccount = account;
-                            //NSLog(@"selecting %@",account.username);
-                        }
-                    }
-                }
-                else
-                {
-                    
-                    UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"No available twitter account"
-                                                                    delegate:nil
-                                                           cancelButtonTitle:@"OK"
-                                                      destructiveButtonTitle:nil
-                                                           otherButtonTitles:nil];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [as showInView:vc.view];
-                    });
-                }
-            }
-            else
-            {
-                NSLog(@"twitter not granted, error = %@", [error localizedDescription]);
-                
-                UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"Twitter access not granted. Check permissions in Settings"
-                                                                delegate:nil
-                                                       cancelButtonTitle:@"OK"
-                                                  destructiveButtonTitle:nil
-                                                       otherButtonTitles:nil];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [as showInView:vc.view];
-                });
-                
-            }
-        }
-        else
-        {
-            NSString *errorMessage = [NSString stringWithFormat:@"%@",[error localizedDescription]];
-            UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:errorMessage
-                                                            delegate:nil
-                                                   cancelButtonTitle:@"OK"
-                                              destructiveButtonTitle:nil
-                                                   otherButtonTitles:nil];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [as showInView:vc.view];
-            });
-            
-        }
-    }
-    ];
-   
-}
-
-- (void)openInstagramInViewController:(UIViewController *)vc
-{
-    
-}
 
 - (void)saveDatabase
 {
@@ -307,38 +144,6 @@
 }
 
 
-#pragma mark - FBLoginViewDelegate
-
-- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
-{
-    // this is called when you have logged in
-    // first get the buttons set for login mode
-    //self.buttonPostPhoto.enabled = YES;
-    // "Post Status" available when logged on and potentially when logged off.  Differentiate in the label.
-    //[self.buttonPostStatus setTitle:@"Post Status Update (Logged On)" forState:self.buttonPostStatus.state];
-    //NSLog(@"loginViewShowingLoggedInUser");
-}
-
-- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
-                            user:(id<FBGraphUser>)user
-{
-    //NSLog(@"loginViewFetchUserInfo");
-}
-
-- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
-{
-    // this is called after you have logged out
-    //NSLog(@"loginViewShowingLoggedOutUser");
-}
-
-
-- (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error
-{
-    // see https://developers.facebook.com/docs/reference/api/errors/ for general guidance on error handling for Facebook API
-    // our policy here is to let the login view handle errors, but to log the results
-    NSLog(@"FBLoginView encountered an error=%@", error);
-}
-
 - (void)requestNewAccessToken
 {
     
@@ -356,133 +161,6 @@
         NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
         [conn start];
     }
-}
-
-- (void)loadAllFacebookFriends
-{
-    NSLog(@"loadAllFacebookfriends");
-    
-    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
-    NSString *appID = infoDict[@"FacebookAppID"];
-    
-    NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
-                             @"read_friendlists",
-                             @"user_photos",
-                             nil];
-    
-    NSDictionary *options = @{ ACFacebookPermissionsKey : permissions,
-                               ACFacebookAudienceKey : ACFacebookAudienceFriends,
-                               ACFacebookAppIdKey : appID };
-
-    self.facebookAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
-    
-    [self.account requestAccessToAccountsWithType:self.facebookAccountType options:options completion:^(BOOL granted, NSError *error)
-     {
-         if (granted)
-         {
-             NSLog(@"access granted");
-             
-             NSArray *accounts = [self.account accountsWithAccountType:self.facebookAccountType];
-             
-             // there is only one facebook account
-             ACAccount *facebookAccount = [accounts lastObject];
-             
-             if (facebookAccount)
-             {
-                 NSLog(@"here i am in the facebook account to load friends");
-                 NSString *apiString = [NSString stringWithFormat:@"https://graph.facebook.com/me/friends"];
-                 NSURL *request = [NSURL URLWithString:apiString];
-                 NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:@"picture,id,name,link,gender,last_name,first_name,username",@"fields", nil];
-
-                 SLRequest *friends = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:param];
-                 friends.account = facebookAccount;
-                 [friends performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
-                  {
-                      //NSLog(@"response = %@",response);
-                      //NSLog(@"error = %@",error.debugDescription);
-                      if (!error)
-                      {
-                          NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-                          NSArray* friendsArray = [result objectForKey:@"data"];
-
-                          NSLog(@"friends.count = %ld",friendsArray.count);
-                          if (friendsArray.count)
-                          {
-                              [self.facebookFriends addObjectsFromArray:friendsArray];
-                          }
-
-                      }
-                      else
-                      {
-                          NSLog(@"error = %@",[error localizedDescription]);
-                      }
-                  }];
-             }
-             
-         }
-         else
-         {
-             NSLog(@"facebook access is not granted");
-         }
-            
-     }];
-    
-    return;
-    
-    // This is the old way to load the friends
-    if ([[FBSession activeSession] isOpen])
-    {
-
-        FBRequest* friendsRequest = [FBRequest requestForMyFriends];
-        
-        [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
-                                                      NSDictionary* result,
-                                                      NSError *error)
-         {
-             if (error)
-             {
-                 NSLog(@"error = %@",error);
-             }
-             else
-
-             {
-                 
-                 NSArray* friends = [result objectForKey:@"data"];
-                 //FBGraphObject *paging = [result objectForKey:@"paging"];
-                 
-                 //NSString *previous = [paging objectForKey:@"previous"];
-                 // keys
-                 // first_name, id, last_name, name, username
-                 NSLog(@"Found: %ld friends", friends.count);
-
-                 if ([friends count])
-                 {
-                     [self.facebookFriends removeAllObjects];
-                     [self.facebookFriends addObjectsFromArray:friends];
-                 }
-                 
-                 //NSLog(@"result = %@",result);
-                 //NSString *next = [paging objectForKey:@"next"];
-                 //if (next)
-                 {
-                     //NSLog(@"next");
-                     //[self readURLAsync:next fromConnection:connection];
-                 }
-                 /*
-                 for (NSDictionary<FBGraphUser>* friend in friends)
-                 {
-                     NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
-                 }
-                  */
-             }
-         }];
-    }
-    else
-    {
-        NSLog(@"session is not open");
-    }
-
-
 }
 
 
@@ -527,4 +205,333 @@
     
 }
 
+#pragma mark Facebook
+
+- (void)openFacebookInViewController:(UIViewController *)vc
+{
+    // FacebookAppID
+    //ACFacebookAppIdKey : @"577876515622948" };
+    /*
+     NSLog(@"read permissions = %@",[_fbloginView readPermissions]);
+     @"email",
+     @"user_birthday",
+     @"user_likes",
+     @"user_location",
+     @"user_photos",
+     @"read_stream",
+     @"publish_stream",
+     @"publish_actions",
+     @"status_update",
+     @"user_about_me",
+     @"read_friendlists",
+     @"friends_about_me",
+     @"friends_birthday",
+     @"friends_photos",
+     */
+    
+    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString *appID = infoDict[@"FacebookAppID"];
+    
+    NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
+                             @"read_friendlists",
+                             @"user_photos",
+                             nil];
+    
+    NSDictionary *options = @{ ACFacebookPermissionsKey : permissions,
+                               ACFacebookAudienceKey : ACFacebookAudienceFriends,
+                               ACFacebookAppIdKey : appID };
+    
+    self.facebookAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+    
+    [self.account requestAccessToAccountsWithType:self.facebookAccountType options:options completion:^(BOOL granted, NSError *error)
+     {
+         if (!error)
+         {
+             if (granted)
+             {
+                 NSLog(@"hello facebook");
+             }
+             else
+             {
+                 NSLog(@"facebook not granted");
+                 UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"Facebook access not granted. Check permissions in Settings"
+                                                                 delegate:nil
+                                                        cancelButtonTitle:@"OK"
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:nil];
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     [as showInView:vc.view];
+                 });
+                 
+             }
+         }
+         else
+         {
+             NSString *errorMessage = [NSString stringWithFormat:@"%@",[error localizedDescription]];
+             UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:errorMessage
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [as showInView:vc.view];
+             });
+             
+         }
+     }
+     ];
+    
+}
+
+- (void)loadAllFacebookFriends
+{
+    NSLog(@"loadAllFacebookfriends");
+    
+    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString *appID = infoDict[@"FacebookAppID"];
+    
+    NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
+                             @"read_friendlists",
+                             @"user_photos",
+                             nil];
+    
+    NSDictionary *options = @{ ACFacebookPermissionsKey : permissions,
+                               ACFacebookAudienceKey : ACFacebookAudienceFriends,
+                               ACFacebookAppIdKey : appID };
+    
+    self.facebookAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+    
+    [self.account requestAccessToAccountsWithType:self.facebookAccountType options:options completion:^(BOOL granted, NSError *error)
+     {
+         if (granted)
+         {
+             NSLog(@"access granted");
+             
+             NSArray *accounts = [self.account accountsWithAccountType:self.facebookAccountType];
+             
+             // there is only one facebook account
+             ACAccount *facebookAccount = [accounts lastObject];
+             
+             if (facebookAccount)
+             {
+                 NSLog(@"here i am in the facebook account to load friends");
+                 NSString *apiString = [NSString stringWithFormat:@"https://graph.facebook.com/me/friends"];
+                 NSURL *request = [NSURL URLWithString:apiString];
+                 NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:@"picture,id,name,link,gender,last_name,first_name,username",@"fields", nil];
+                 
+                 SLRequest *friends = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:param];
+                 friends.account = facebookAccount;
+                 [friends performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
+                  {
+                      //NSLog(@"response = %@",response);
+                      //NSLog(@"error = %@",error.debugDescription);
+                      if (!error)
+                      {
+                          NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+                          NSArray* friendsArray = [result objectForKey:@"data"];
+                          
+                          NSLog(@"friends.count = %ld",friendsArray.count);
+                          if (friendsArray.count)
+                          {
+                              [self.facebookFriends addObjectsFromArray:friendsArray];
+                          }
+                          NSLog(@"last friend = %@",[friendsArray lastObject]);
+                          
+                      }
+                      else
+                      {
+                          NSLog(@"error = %@",[error localizedDescription]);
+                      }
+                  }];
+             }
+             
+         }
+         else
+         {
+             NSLog(@"facebook access is not granted");
+         }
+         
+     }];
+    
+    return;
+    
+    // This is the old way to load the friends
+    if ([[FBSession activeSession] isOpen])
+    {
+        
+        FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+        
+        [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
+                                                      NSDictionary* result,
+                                                      NSError *error)
+         {
+             if (error)
+             {
+                 NSLog(@"error = %@",error);
+             }
+             else
+                 
+             {
+                 
+                 NSArray* friends = [result objectForKey:@"data"];
+                 //FBGraphObject *paging = [result objectForKey:@"paging"];
+                 
+                 //NSString *previous = [paging objectForKey:@"previous"];
+                 // keys
+                 // first_name, id, last_name, name, username
+                 NSLog(@"Found: %ld friends", friends.count);
+                 
+                 if ([friends count])
+                 {
+                     [self.facebookFriends removeAllObjects];
+                     [self.facebookFriends addObjectsFromArray:friends];
+                 }
+                 
+                 //NSLog(@"result = %@",result);
+                 //NSString *next = [paging objectForKey:@"next"];
+                 //if (next)
+                 {
+                     //NSLog(@"next");
+                     //[self readURLAsync:next fromConnection:connection];
+                 }
+                 /*
+                  for (NSDictionary<FBGraphUser>* friend in friends)
+                  {
+                  NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
+                  }
+                  */
+             }
+         }];
+    }
+    else
+    {
+        NSLog(@"session is not open");
+    }
+    
+    
+}
+
+#pragma mark - FBLoginViewDelegate
+
+- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
+{
+    // this is called when you have logged in
+    // first get the buttons set for login mode
+    //self.buttonPostPhoto.enabled = YES;
+    // "Post Status" available when logged on and potentially when logged off.  Differentiate in the label.
+    //[self.buttonPostStatus setTitle:@"Post Status Update (Logged On)" forState:self.buttonPostStatus.state];
+    //NSLog(@"loginViewShowingLoggedInUser");
+}
+
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
+                            user:(id<FBGraphUser>)user
+{
+    //NSLog(@"loginViewFetchUserInfo");
+}
+
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
+{
+    // this is called after you have logged out
+    //NSLog(@"loginViewShowingLoggedOutUser");
+}
+
+
+- (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error
+{
+    // see https://developers.facebook.com/docs/reference/api/errors/ for general guidance on error handling for Facebook API
+    // our policy here is to let the login view handle errors, but to log the results
+    NSLog(@"FBLoginView encountered an error=%@", error);
+}
+
+#pragma mark Twitter
+
+- (void)openTwitterInViewController:(UIViewController *)vc
+{
+    
+    self.twitterAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    
+    [self.account requestAccessToAccountsWithType:self.twitterAccountType options:nil completion:^(BOOL granted, NSError *error)
+     {
+         if (!error)
+         {
+             if (granted)
+             {
+                 self.twitterAccounts = [self.account accountsWithAccountType:self.twitterAccountType];
+                 NSInteger numAccounts = [self.twitterAccounts count];
+                 
+                 if (numAccounts)
+                 {
+                     
+                     if ([self.selectedTwitterAccounts count] == 0)
+                     {
+                         ACAccount *account = [self.twitterAccounts lastObject];
+                         NSString *username = [account username];
+                         NSString *uid = [[self.twitterAccounts lastObject] userID];
+                         [self.selectedTwitterAccounts setObject:uid forKey:username];
+                     }
+                     
+                     ACAccount *selectedAccount = nil;
+                     for (ACAccount *account in self.twitterAccounts)
+                     {
+                         
+                         //NSLog(@"account username = %@", account.username);
+                         if ([self.selectedTwitterAccounts objectForKey:account.username])
+                         {
+                             selectedAccount = account;
+                             //NSLog(@"selecting %@",account.username);
+                         }
+                     }
+                 }
+                 else
+                 {
+                     
+                     UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"No available twitter account"
+                                                                     delegate:nil
+                                                            cancelButtonTitle:@"OK"
+                                                       destructiveButtonTitle:nil
+                                                            otherButtonTitles:nil];
+                     dispatch_async(dispatch_get_main_queue(), ^{
+                         [as showInView:vc.view];
+                     });
+                 }
+             }
+             else
+             {
+                 NSLog(@"twitter not granted, error = %@", [error localizedDescription]);
+                 
+                 UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"Twitter access not granted. Check permissions in Settings"
+                                                                 delegate:nil
+                                                        cancelButtonTitle:@"OK"
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:nil];
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     [as showInView:vc.view];
+                 });
+                 
+             }
+         }
+         else
+         {
+             NSString *errorMessage = [NSString stringWithFormat:@"%@",[error localizedDescription]];
+             UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:errorMessage
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [as showInView:vc.view];
+             });
+             
+         }
+     }
+     ];
+    
+}
+
+#pragma mark Instagram
+
+- (void)openInstagramInViewController:(UIViewController *)vc
+{
+    
+}
 @end

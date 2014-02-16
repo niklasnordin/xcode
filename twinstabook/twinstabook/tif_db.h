@@ -14,7 +14,7 @@
 //typedef enum { kFacebook, kTwitter, kInstagram } kMediaTypes;
 
 // these must be in the same order as the socialMediaNames
-static NSString *FACEBOOK = @"Facebook";
+const static NSString *FACEBOOK = @"Facebook";
 const static int kFacebook = 0;
 static NSString *TWITTER = @"Twitter";
 const static int kTwitter = 1;
@@ -42,37 +42,31 @@ const static NSString *kTwitterAPIVersion = @"1.1";
 @property (nonatomic) int selectedMediaNameIndex;
 
 @property (strong, nonatomic) ACAccountStore *account;
-@property (strong, nonatomic) ACAccountType *twitterAccountType;
-@property (strong, nonatomic) ACAccountType *facebookAccountType;
 
 @property (strong, nonatomic) NSDate *lastUpdate;
+
 @property (nonatomic) bool useFacebook;
 @property (nonatomic) bool useTwitter;
 @property (nonatomic) bool useInstagram;
+
 @property (nonatomic) NSInteger selectedFeedIndex;
 
 @property (strong, nonatomic) NSMutableArray *groups;
 @property (strong, nonatomic) NSMutableDictionary *groupMembers;
-
 @property (strong, nonatomic) NSOperationQueue *imageLoadingQueue;
-@property (strong, nonatomic) NSMutableDictionary *facebookUidToImageDownloadOperations;
-
-@property (strong, nonatomic) FBLoginView *fbloginView;
-@property (strong, nonatomic) NSMutableArray *facebookFriends;
-@property (strong, nonatomic) NSArray *facebookSearchOptions;
 @property (nonatomic) NSInteger selectedOptionindex;
-
-@property (strong, nonatomic) NSArray *twitterAccounts;
-@property (strong, nonatomic) NSMutableDictionary *selectedTwitterAccounts;
 
 - (id)init;
 - (void)saveDatabase;
 
-- (void)openFacebookInViewController:(UIViewController *)vc;
-- (void)openTwitterInViewController:(UIViewController *)vc;
-- (void)openInstagramInViewController:(UIViewController *)vc;
+// facebook
+@property (strong, nonatomic) ACAccountType *facebookAccountType;
+@property (strong, nonatomic) NSMutableDictionary *facebookUidToImageDownloadOperations;
+@property (strong, nonatomic) FBLoginView *fbloginView;
+@property (strong, nonatomic) NSMutableArray *facebookFriends;
+@property (strong, nonatomic) NSArray *facebookSearchOptions;
 
-// facebook functions
+- (void)openFacebookInViewController:(UIViewController *)vc;
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView;
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user;
@@ -80,8 +74,14 @@ const static NSString *kTwitterAPIVersion = @"1.1";
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error;
 - (void)requestNewAccessToken;
 
-// twitter functions
+// twitter
+@property (strong, nonatomic) ACAccountType *twitterAccountType;
+@property (strong, nonatomic) NSArray *twitterAccounts;
+@property (strong, nonatomic) NSMutableDictionary *selectedTwitterAccounts;
+
+- (void)openTwitterInViewController:(UIViewController *)vc;
 
 // instagram functions
+- (void)openInstagramInViewController:(UIViewController *)vc;
 
 @end
