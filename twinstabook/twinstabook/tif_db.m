@@ -105,6 +105,7 @@
                                  nil];
 
         [_fbloginView setReadPermissions:permissions];
+        
         //[self performSelectorInBackground:@selector(loadAllFacebookFriends) withObject:nil];
         [self loadAllFacebookFriends];
     }
@@ -359,11 +360,81 @@
 
 - (void)loadAllFacebookFriends
 {
-    NSLog(@"loadAllFacebookFriends");
+    NSLog(@"loadAllFacebookfriends");
+    
+    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString *appID = infoDict[@"FacebookAppID"];
+    
+    NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
+                             @"read_friendlists",
+                             @"user_photos",
+                             nil];
+    
+    NSDictionary *options = @{ ACFacebookPermissionsKey : permissions,
+                               ACFacebookAudienceKey : ACFacebookAudienceFriends,
+                               ACFacebookAppIdKey : appID };
+
+    self.facebookAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+    
+    [self.account requestAccessToAccountsWithType:self.facebookAccountType options:options completion:^(BOOL granted, NSError *error)
+     {
+         if (granted)
+         {
+             NSLog(@"access granted");
+             
+             NSArray *accounts = [self.account accountsWithAccountType:self.facebookAccountType];
+             
+             // there is only one facebook account
+             ACAccount *facebookAccount = [accounts lastObject];
+             
+             if (facebookAccount)
+             {
+                 NSLog(@"here i am in the facebook account to load friends");
+                 NSString *apiString = [NSString stringWithFormat:@"https://graph.facebook.com/me/friends"];
+                 NSURL *request = [NSURL URLWithString:apiString];
+                 NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:@"picture,id,name,link,gender,last_name,first_name,username",@"fields", nil];
+
+                 SLRequest *friends = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:param];
+                 friends.account = facebookAccount;
+                 [friends performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
+                  {
+                      //NSLog(@"response = %@",response);
+                      //NSLog(@"error = %@",error.debugDescription);
+                      if (!error)
+                      {
+                          NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+                          NSArray* friendsArray = [result objectForKey:@"data"];
+
+                          NSLog(@"friends.count = %ld",friendsArray.count);
+                          if (friendsArray.count)
+                          {
+                              [self.facebookFriends addObjectsFromArray:friendsArray];
+                          }
+
+                      }
+                      else
+                      {
+                          NSLog(@"error = %@",[error localizedDescription]);
+                      }
+                  }];
+             }
+             
+         }
+         else
+         {
+             NSLog(@"facebook access is not granted");
+         }
+            
+     }];
+    
+    return;
+    
+    // This is the old way to load the friends
     if ([[FBSession activeSession] isOpen])
     {
-        NSLog(@"session is open");
+
         FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+        
         [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
                                                       NSDictionary* result,
                                                       NSError *error)

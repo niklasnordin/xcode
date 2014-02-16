@@ -86,7 +86,7 @@
         //NSString *startPage = @"/me/feed";
         
         self.database.lastUpdate = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
-        if (self.database.selectedFeedIndex == 0)
+        if (self.database.selectedFeedIndex == kFacebook)
         {
             NSInteger num = self.database.facebookFriends.count;
             self.uidsToLoad = [[NSMutableArray alloc] initWithCapacity:num];

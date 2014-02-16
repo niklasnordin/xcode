@@ -213,14 +213,16 @@
     {
         // search friends list
         NSMutableArray *friends = [[NSMutableArray alloc] init];
-        
-        for (NSDictionary<FBGraphUser>* friend in self.database.facebookFriends)
+
+        //for (NSDictionary<FBGraphUser>* friend in self.database.facebookFriends)
+        for (NSDictionary *friend in self.database.facebookFriends)
         {
-            NSString *username = friend.name;
+            NSString *username = [friend objectForKey:@"username"];
             NSInteger len = [username rangeOfString:searchString options:NSCaseInsensitiveSearch].length;
             if (len || emptyStringSearch)
             {
-                NSDictionary *dict = @{@"name" : friend.name, @"id" : friend.id };
+                NSString *uid = [friend objectForKey:@"id"];
+                NSDictionary *dict = @{@"name" : username, @"id" : uid };
                 [friends addObject:dict];
             }
         }
