@@ -21,6 +21,6 @@
 
 @property (weak, nonatomic) NSString *mediaName;
 @property (weak, nonatomic) NSMutableArray *groupMembers;
-@property (weak, nonatomic) UITableView *members;
+@property (weak, nonatomic) UITableView *membersTableView;
 
 @end

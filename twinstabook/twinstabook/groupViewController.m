@@ -366,7 +366,7 @@
         NSString *feed = self.feedButton.titleLabel.text;
         [vc setMediaName:feed];
         [vc setGroupMembers:self.groupMembers];
-        [vc setMembers:self.membersTableView];
+        [vc setMembersTableView:self.membersTableView];
     }
 }
 

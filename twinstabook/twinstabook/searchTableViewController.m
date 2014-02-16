@@ -43,10 +43,11 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    NSLog(@"enter: view will disappear");
     NSEnumerator *keys = [self.selectedUsers keyEnumerator];
     for (NSString *key in keys)
     {
-        NSMutableDictionary *dict = [self.selectedUsers objectForKey:key];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[self.selectedUsers objectForKey:key]];
         //[self.groupMembers addObject:@{key: dict}];
         [dict setObject:self.mediaName forKey:@"media"];
         bool userAlreadyInList = false;
@@ -70,7 +71,9 @@
         }
     }
     
-    [self.members reloadData];
+    [self.membersTableView reloadData];
+    NSLog(@"exit: view will disappear");
+
 }
 
 - (void)viewDidDisappear:(BOOL)animated
