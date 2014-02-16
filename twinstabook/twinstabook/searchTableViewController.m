@@ -75,6 +75,8 @@
         }
     }
     
+    [self.twitterIdsInView removeAllObjects];
+    [self.selectedUsers removeAllObjects];
     [self.membersTableView reloadData];
 
 }
@@ -183,7 +185,10 @@
                                   //NSLog(@"in main queue, setting image");
                                   //UIImage *placeHolderImage = [UIImage imageNamed:@"questionMark.png"];
                                   //UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-                                  weakCell.imageView.image = [UIImage imageWithData:pResponseData];
+                                  if (pResponseData)
+                                  {
+                                      weakCell.imageView.image = [UIImage imageWithData:pResponseData];
+                                  }
                                   //weakCell.imageView.image = placeHolderImage;
                                   [self.twitterIdsInView removeObjectForKey:uid];
                               }
@@ -268,7 +273,10 @@
                   {
                       UITableViewCell *theCell = [tableView cellForRowAtIndexPath:indexPath];
                       //cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-                      theCell.imageView.image = image;
+                      if (image)
+                      {
+                          theCell.imageView.image = image;
+                      }
                       theCell.imageView.contentMode = UIViewContentModeScaleAspectFit;
                  
                       [self.database.facebookUidToImageDownloadOperations removeObjectForKey:userID];
