@@ -21,15 +21,15 @@ const static int kTwitter = 1;
 const static NSString *INSTAGRAM = @"Instagram";
 const static int kInstagram = 2;
 
-const static NSString *USEFACEBOOK = @"usefacebook";
-const static NSString *USETWITTER = @"useTwitter";
-const static NSString *USEINSTAGRAM = @"useInstagram";
-const static NSString *SELECTEDMEDIANAME = @"selectedMediaName";
-const static NSString *SELECTEDFEEDINDEX = @"selectedFeedIndex";
-const static NSString *GROUPS = @"groups";
-const static NSString *GROUPMEMBERS = @"groupMembers";
-const static NSString *LASTUPDATE = @"lastUpdate";
-const static NSString *SELECTEDTWITTERACCOUNTS = @"selectedTwitterAccounts";
+static NSString *USEFACEBOOK = @"usefacebook";
+static NSString *USETWITTER = @"useTwitter";
+static NSString *USEINSTAGRAM = @"useInstagram";
+static NSString *SELECTEDMEDIANAME = @"selectedMediaName";
+static NSString *SELECTEDFEEDINDEX = @"selectedFeedIndex";
+static NSString *GROUPS = @"groups";
+static NSString *GROUPMEMBERS = @"groupMembers";
+static NSString *LASTUPDATE = @"lastUpdate";
+static NSString *SELECTEDTWITTERACCOUNTS = @"selectedTwitterAccounts";
 
 const static NSString *kFacebookGraphRoot = @"https://graph.facebook.com";
 const static NSString *kTwitterAPIRoot = @"https://api.twitter.com";

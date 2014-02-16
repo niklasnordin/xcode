@@ -29,6 +29,7 @@
         self.twitterAccounts = [[NSArray alloc] init];
         self.facebookSearchOptions = [[NSArray alloc] initWithObjects:@"friends", @"pages", @"users", nil];
         self.facebookFriends = [[NSMutableArray alloc] init];
+        self.twitterFriends = [[NSMutableArray alloc] init];
         
         NSUserDefaults *database = [NSUserDefaults standardUserDefaults];
 
@@ -536,16 +537,18 @@
              if (twitterAccount)
              {
                  NSLog(@"here i am in the twitter account to load friends");
-                 //NSString *apiString = [NSString stringWithFormat:@"%@/%@/followers/ids.json", kTwitterAPIRoot, kTwitterAPIVersion];
-                 NSString *apiString = [NSString stringWithFormat:@"%@/%@/friends/ids.json", kTwitterAPIRoot, kTwitterAPIVersion];
+                 NSString *apiString = [NSString stringWithFormat:@"%@/%@/friends/list.json", kTwitterAPIRoot, kTwitterAPIVersion];
+                 //NSString *apiString = [NSString stringWithFormat:@"%@/%@/friends/ids.json", kTwitterAPIRoot, kTwitterAPIVersion];
 
-                 //NSString *apiString = [NSString stringWithFormat:@"https://api.twitter.com/followers/list"];
                  NSURL *request = [NSURL URLWithString:apiString];
                  
                  NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
                  //[parameters setObject:@"100" forKey:@"count"];
                  //[parameters setObject:@"1" forKey:@"include_entities"];
-                 
+                 //[parameters setObject:@"1" forKey:@"user_id"];
+                 //[parameters setObject:@"1" forKey:@"screen_name"];
+                 [parameters setObject:@"1" forKey:@"skip_status"];
+
                  SLRequest *friends = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:request parameters:parameters];
                  friends.account = twitterAccount;
                  [friends performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
@@ -555,15 +558,29 @@
                       if (!error)
                       {
                           NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-                          NSLog(@"result = %@",result);
-                          /*
-                          NSLog(@"friends.count = %ld",friendsArray.count);
-                          if (friendsArray.count)
+                          //NSLog(@"result = %@",result);
+                          
+                          NSArray *users = [result objectForKey:@"users"];
+                          
+                          NSLog(@"twitter users.count = %ld",users.count);
+                          if (users.count)
                           {
-                              [self.facebookFriends addObjectsFromArray:friendsArray];
+                              if (self.twitterFriends.count)
+                              {
+                                  [self.twitterFriends removeAllObjects];
+                              }
+                              for (NSDictionary *u in users)
+                              {
+                                  NSString *name = [u objectForKey:@"screen_name"];
+                                  NSString *uid = [u objectForKey:@"id_str"];
+                                  NSDictionary *d = @{@"name" : name, @"id" : uid };
+                                  //NSLog(@"%@",d);
+                                  [self.twitterFriends addObject:d];
+                              }
+                              NSLog(@"twitterFriends.count = %ld",self.twitterFriends.count);
+                              //[self.facebookFriends addObjectsFromArray:friendsArray];
                           }
-                          NSLog(@"last friend = %@",[friendsArray lastObject]);
-                          */
+
                       }
                       else
                       {

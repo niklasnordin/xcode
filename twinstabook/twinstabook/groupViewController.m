@@ -269,7 +269,35 @@
 
 - (void)twitterSearch
 {
-    NSLog(@"not included yet");
+    NSString *searchString = self.searchField.text;
+    bool emptyStringSearch = NO;
+    if ([searchString isEqualToString:@""])
+    {
+        emptyStringSearch = YES;
+    }
+    
+    [self.searchActivityIndicator setHidden:NO];
+    [self.searchActivityIndicator startAnimating];
+    //perform the search (add search indicator) and then segue the resulting list
+    
+    // search friends list
+    NSMutableArray *friends = [[NSMutableArray alloc] init];
+        
+    for (NSDictionary *friend in self.database.twitterFriends)
+    {
+        NSString *name = [friend objectForKey:@"name"];
+        NSInteger len = [name rangeOfString:searchString options:NSCaseInsensitiveSearch].length;
+        if (len || emptyStringSearch)
+        {
+            NSString *uid = [friend objectForKey:@"id"];
+            NSDictionary *dict = @{@"name" : name, @"id" : uid };
+            [friends addObject:dict];
+        }
+    }
+        
+    [self.searchActivityIndicator stopAnimating];
+    [self performSegueWithIdentifier:@"searchUserSegue" sender:friends];
+
 }
 
 - (void)instagramSearch

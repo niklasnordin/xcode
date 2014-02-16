@@ -84,11 +84,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (UIImage *)getImageForUserID:(NSString *)userID
+- (UIImage *)getFacebookImageForUserID:(NSString *)userID
 {
     UIImage *image = nil;
-    NSString *http = @"https://graph.facebook.com";
-    NSString *page = [NSString stringWithFormat:@"%@/%@?fields=picture",http,userID];
+    NSString *page = [NSString stringWithFormat:@"%@/%@?fields=picture",kFacebookGraphRoot,userID];
     NSURL *url = [NSURL URLWithString:page];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -118,6 +117,20 @@
         NSData *pResponseData = [NSURLConnection sendSynchronousRequest:pictureRequest returningResponse:&responseCode error:&error];
         image = [UIImage imageWithData:pResponseData];
     }
+
+    return image;
+}
+
+- (UIImage *)getTwitterImageForUserID:(NSString *)uid
+{
+    UIImage *image = [UIImage imageNamed:@"questionMark.png"];
+    
+    return image;
+}
+
+- (UIImage *)getInstagramImageForUserID:(NSString *)uid
+{
+    UIImage *image = [UIImage imageNamed:@"questionMark.png"];
 
     return image;
 }
@@ -162,7 +175,22 @@
     
     [loadImageIntoCellOp addExecutionBlock:^(void)
     {
-        UIImage *image = [self getImageForUserID:userID];
+        UIImage *image = nil;
+        if ([self.mediaName isEqualToString:self.database.socialMediaNames[kFacebook]])
+        {
+            image = [self getFacebookImageForUserID:userID];
+        }
+
+        if ([self.mediaName isEqualToString:self.database.socialMediaNames[kTwitter]])
+        {
+            image = [self getTwitterImageForUserID:userID];
+        }
+        if ([self.mediaName isEqualToString:self.database.socialMediaNames[kInstagram]])
+        {
+            image = [self getInstagramImageForUserID:userID];
+        }
+        
+        
         //Some asynchronous work. Once the image is ready, it will load into view on the main queue
         [[NSOperationQueue mainQueue] addOperationWithBlock:^(void)
         {
