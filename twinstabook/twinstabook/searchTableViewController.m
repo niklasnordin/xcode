@@ -127,7 +127,11 @@
         if (pResponseData)
         {
             image = [UIImage imageWithData:pResponseData];
-            [self.imageCache setObject:pResponseData forKey:userID];
+            
+            // dont change the imageCache other then on main queue
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.imageCache setObject:pResponseData forKey:userID];
+            });
         }
     }
 
@@ -338,7 +342,7 @@
         NSData *imageData = [self.imageCache objectForKey:userID];
         if (imageData)
         {
-            NSLog(@"using cache");
+            //NSLog(@"using cache");
             cell.imageView.image = [UIImage imageWithData:imageData];
         }
         else
