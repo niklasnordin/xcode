@@ -105,7 +105,7 @@
     }
     else
     {
-        NSLog(@"account = %@", account);
+        //NSLog(@"account = %@", account);
         NSString *id = account.identifier;
         NSString *key = [[self.selected allKeys] lastObject];
         [self.selected removeObjectForKey:key];

@@ -87,6 +87,10 @@
     self.database.useFacebook = sender.on;
     [self setButtonStatus:sender.on forButton:self.facebookButton];
     [self updateFacebookButton:sender.on];
+    if (sender.on)
+    {
+        [self.database loadAllFacebookFriends];
+    }
 }
 
 - (IBAction)clickedFacebookButton:(id)sender
@@ -123,6 +127,10 @@
     [self setButtonStatus:sender.on forButton:self.twitterButton];
     self.database.useTwitter = sender.on;
 
+    if (sender.on)
+    {
+        [self.database loadTwitterFriends];
+    }
 }
 
 - (IBAction)clickedTwitterButton:(id)sender

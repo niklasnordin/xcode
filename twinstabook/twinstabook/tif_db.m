@@ -23,6 +23,9 @@
         self.socialMediaNames = @[FACEBOOK, TWITTER, INSTAGRAM];
 
         self.account = [[ACAccountStore alloc] init];
+        self.twitterAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+        self.facebookAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+
         self.twitterAccounts = [[NSArray alloc] init];
         self.facebookSearchOptions = [[NSArray alloc] initWithObjects:@"friends", @"pages", @"users", nil];
         self.facebookFriends = [[NSMutableArray alloc] init];
@@ -107,7 +110,15 @@
         [_fbloginView setReadPermissions:permissions];
         
         //[self performSelectorInBackground:@selector(loadAllFacebookFriends) withObject:nil];
-        [self loadAllFacebookFriends];
+        if (self.useFacebook)
+        {
+            [self loadAllFacebookFriends];
+        }
+        
+        if (self.useTwitter)
+        {
+            [self loadTwitterFriends];
+        }
     }
     return self;
 }
@@ -241,7 +252,7 @@
                                ACFacebookAudienceKey : ACFacebookAudienceFriends,
                                ACFacebookAppIdKey : appID };
     
-    self.facebookAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+    //self.facebookAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
     
     [self.account requestAccessToAccountsWithType:self.facebookAccountType options:options completion:^(BOOL granted, NSError *error)
      {
@@ -299,7 +310,7 @@
                                ACFacebookAudienceKey : ACFacebookAudienceFriends,
                                ACFacebookAppIdKey : appID };
     
-    self.facebookAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+    //self.facebookAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
     
     [self.account requestAccessToAccountsWithType:self.facebookAccountType options:options completion:^(BOOL granted, NSError *error)
      {
@@ -448,39 +459,19 @@
 - (void)openTwitterInViewController:(UIViewController *)vc
 {
     
-    self.twitterAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-    
+    //self.twitterAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    //NSLog(@"in openTwitterInViewController");
     [self.account requestAccessToAccountsWithType:self.twitterAccountType options:nil completion:^(BOOL granted, NSError *error)
      {
          if (!error)
          {
              if (granted)
              {
-                 self.twitterAccounts = [self.account accountsWithAccountType:self.twitterAccountType];
-                 NSInteger numAccounts = [self.twitterAccounts count];
                  
-                 if (numAccounts)
+                 ACAccount *twitterAccount = [self selectedTwitterAccount];
+                 if (twitterAccount)
                  {
-                     
-                     if ([self.selectedTwitterAccounts count] == 0)
-                     {
-                         ACAccount *account = [self.twitterAccounts lastObject];
-                         NSString *username = [account username];
-                         NSString *uid = [[self.twitterAccounts lastObject] userID];
-                         [self.selectedTwitterAccounts setObject:uid forKey:username];
-                     }
-                     
-                     ACAccount *selectedAccount = nil;
-                     for (ACAccount *account in self.twitterAccounts)
-                     {
-                         
-                         //NSLog(@"account username = %@", account.username);
-                         if ([self.selectedTwitterAccounts objectForKey:account.username])
-                         {
-                             selectedAccount = account;
-                             //NSLog(@"selecting %@",account.username);
-                         }
-                     }
+                     // do stuff here
                  }
                  else
                  {
@@ -526,6 +517,101 @@
      }
      ];
     
+}
+
+- (void)loadTwitterFriends
+{
+    NSLog(@"load twitter friends");
+
+    //self.twitterAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    
+    [self.account requestAccessToAccountsWithType:self.twitterAccountType options:nil completion:^(BOOL granted, NSError *error)
+     {
+         if (granted)
+         {
+             NSLog(@"twitter access granted");
+             
+             ACAccount *twitterAccount = [self selectedTwitterAccount];
+             
+             if (twitterAccount)
+             {
+                 NSLog(@"here i am in the twitter account to load friends");
+                 //NSString *apiString = [NSString stringWithFormat:@"%@/%@/followers/ids.json", kTwitterAPIRoot, kTwitterAPIVersion];
+                 NSString *apiString = [NSString stringWithFormat:@"%@/%@/friends/ids.json", kTwitterAPIRoot, kTwitterAPIVersion];
+
+                 //NSString *apiString = [NSString stringWithFormat:@"https://api.twitter.com/followers/list"];
+                 NSURL *request = [NSURL URLWithString:apiString];
+                 
+                 NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+                 //[parameters setObject:@"100" forKey:@"count"];
+                 //[parameters setObject:@"1" forKey:@"include_entities"];
+                 
+                 SLRequest *friends = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:request parameters:parameters];
+                 friends.account = twitterAccount;
+                 [friends performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
+                  {
+                      //NSLog(@"response = %@",response);
+                      //NSLog(@"error = %@",error.debugDescription);
+                      if (!error)
+                      {
+                          NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+                          NSLog(@"result = %@",result);
+                          /*
+                          NSLog(@"friends.count = %ld",friendsArray.count);
+                          if (friendsArray.count)
+                          {
+                              [self.facebookFriends addObjectsFromArray:friendsArray];
+                          }
+                          NSLog(@"last friend = %@",[friendsArray lastObject]);
+                          */
+                      }
+                      else
+                      {
+                          NSLog(@"error = %@",[error localizedDescription]);
+                      }
+                  }];
+             }
+             
+         }
+         else
+         {
+             NSLog(@"twitter access is not granted");
+         }
+         
+     }];
+    
+    return;
+}
+
+- (ACAccount *)selectedTwitterAccount
+{
+    ACAccount *twitterAccount = nil;
+
+    self.twitterAccounts = [self.account accountsWithAccountType:self.twitterAccountType];
+    NSInteger numAccounts = [self.twitterAccounts count];
+    
+    if (numAccounts)
+    {
+        if ([self.selectedTwitterAccounts count] == 0)
+        {
+            ACAccount *account = [self.twitterAccounts lastObject];
+            NSString *username = [account username];
+            NSString *uid = [[self.twitterAccounts lastObject] userID];
+            [self.selectedTwitterAccounts setObject:uid forKey:username];
+        }
+        
+        for (ACAccount *account in self.twitterAccounts)
+        {
+            //NSLog(@"username = %@",account.username);
+            if ([self.selectedTwitterAccounts objectForKey:account.username])
+            {
+                //NSLog(@"selected: %@",account.username);
+                twitterAccount = account;
+            }
+        }
+    }
+    
+    return twitterAccount;
 }
 
 #pragma mark Instagram

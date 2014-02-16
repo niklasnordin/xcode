@@ -226,7 +226,7 @@
             if (twitterAccount)
             {
                 NSLog(@"here i am");
-                NSString *apiString = [NSString stringWithFormat:@"https://api.twitter.com/%@/statuses/user_timeline.json", kTwitterAPIVersion];
+                NSString *apiString = [NSString stringWithFormat:@"%@/%@/statuses/user_timeline.json", kTwitterAPIRoot, kTwitterAPIVersion];
                 NSURL *request = [NSURL URLWithString:apiString];
                 NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
                 [parameters setObject:@"100" forKey:@"count"];

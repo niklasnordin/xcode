@@ -16,21 +16,23 @@
 // these must be in the same order as the socialMediaNames
 const static NSString *FACEBOOK = @"Facebook";
 const static int kFacebook = 0;
-static NSString *TWITTER = @"Twitter";
+const static NSString *TWITTER = @"Twitter";
 const static int kTwitter = 1;
-static NSString *INSTAGRAM = @"Instagram";
+const static NSString *INSTAGRAM = @"Instagram";
 const static int kInstagram = 2;
 
-static NSString *USEFACEBOOK = @"usefacebook";
-static NSString *USETWITTER = @"useTwitter";
-static NSString *USEINSTAGRAM = @"useInstagram";
-static NSString *SELECTEDMEDIANAME = @"selectedMediaName";
-static NSString *SELECTEDFEEDINDEX = @"selectedFeedIndex";
-static NSString *GROUPS = @"groups";
-static NSString *GROUPMEMBERS = @"groupMembers";
-static NSString *LASTUPDATE = @"lastUpdate";
-static NSString *SELECTEDTWITTERACCOUNTS = @"selectedTwitterAccounts";
+const static NSString *USEFACEBOOK = @"usefacebook";
+const static NSString *USETWITTER = @"useTwitter";
+const static NSString *USEINSTAGRAM = @"useInstagram";
+const static NSString *SELECTEDMEDIANAME = @"selectedMediaName";
+const static NSString *SELECTEDFEEDINDEX = @"selectedFeedIndex";
+const static NSString *GROUPS = @"groups";
+const static NSString *GROUPMEMBERS = @"groupMembers";
+const static NSString *LASTUPDATE = @"lastUpdate";
+const static NSString *SELECTEDTWITTERACCOUNTS = @"selectedTwitterAccounts";
 
+const static NSString *kFacebookGraphRoot = @"https://graph.facebook.com";
+const static NSString *kTwitterAPIRoot = @"https://api.twitter.com";
 const static NSString *kTwitterAPIVersion = @"1.1";
 
 @interface tif_db : NSObject
@@ -73,13 +75,16 @@ const static NSString *kTwitterAPIVersion = @"1.1";
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView;
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error;
 - (void)requestNewAccessToken;
+- (void)loadAllFacebookFriends;
 
 // twitter
 @property (strong, nonatomic) ACAccountType *twitterAccountType;
 @property (strong, nonatomic) NSArray *twitterAccounts;
 @property (strong, nonatomic) NSMutableDictionary *selectedTwitterAccounts;
+@property (strong, nonatomic) NSMutableArray *twitterFriends;
 
 - (void)openTwitterInViewController:(UIViewController *)vc;
+- (void)loadTwitterFriends;
 
 // instagram functions
 - (void)openInstagramInViewController:(UIViewController *)vc;
