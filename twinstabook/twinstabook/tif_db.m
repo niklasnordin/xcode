@@ -10,6 +10,7 @@
 #import "twinstabookFirstViewController.h"
 
 @interface tif_db ()
+
 @end
 
 @implementation tif_db
@@ -98,10 +99,10 @@
         _fbloginView = [[FBLoginView alloc] init];
         _fbloginView.delegate = self;
         
-        _imageLoadingQueue = [[NSOperationQueue alloc] init];
-        [_imageLoadingQueue setName:@"imageLoadingQueue"];
+        //_imageLoadingQueue = [[NSOperationQueue alloc] init];
+        //[_imageLoadingQueue setName:@"imageLoadingQueue"];
         
-        _facebookUidToImageDownloadOperations = [[NSMutableDictionary alloc] init];
+        //_facebookUidToImageDownloadOperations = [[NSMutableDictionary alloc] init];
 
         NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
                                  @"read_friendlists",

@@ -11,7 +11,9 @@
 
 @interface searchTableViewController ()
 
+@property (strong, nonatomic) NSMutableDictionary *uidToImageDownloadOperations;
 @property (strong, nonatomic) NSMutableDictionary *twitterIdsInView;
+@property (strong, nonatomic) NSOperationQueue *imageLoadingQueue;
 
 @end
 
@@ -43,7 +45,11 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     _selectedUsers = [[NSMutableDictionary alloc] init];
     _twitterIdsInView = [[NSMutableDictionary alloc] init];
+    _uidToImageDownloadOperations = [[NSMutableDictionary alloc] init];
     _imageCache = [[NSMutableDictionary alloc] init];
+    _imageLoadingQueue = [[NSOperationQueue alloc] init];
+    [_imageLoadingQueue setName:@"imageLoadingQueue"];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -83,7 +89,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [self.database.imageLoadingQueue cancelAllOperations];
+    [self.imageLoadingQueue cancelAllOperations];
 }
 
 - (void)didReceiveMemoryWarning
@@ -149,83 +155,111 @@
     
     __weak UITableViewCell *weakCell = cell;
     
-    [self.database.account requestAccessToAccountsWithType:self.database.twitterAccountType options:nil completion:^(BOOL granted, NSError *error)
-     {
-         if (granted)
+    NSBlockOperation *loadImageIntoCellOp = [[NSBlockOperation alloc] init];
+    __weak NSBlockOperation *weakOp = loadImageIntoCellOp;
+    
+    [loadImageIntoCellOp addExecutionBlock:^(void)
+    {
+        
+        [self.database.account requestAccessToAccountsWithType:self.database.twitterAccountType options:nil completion:^(BOOL granted, NSError *error)
          {
-             
-             ACAccount *twitterAccount = [self.database selectedTwitterAccount];
-             
-             if (twitterAccount)
+             if (granted)
              {
-                 NSString *apiString = [NSString stringWithFormat:@"%@/%@/users/show.json", kTwitterAPIRoot, kTwitterAPIVersion];
                  
-                 NSURL *request = [NSURL URLWithString:apiString];
+                 ACAccount *twitterAccount = [self.database selectedTwitterAccount];
                  
-                 NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
-                 //[parameters setObject:@"100" forKey:@"count"];
-                 //[parameters setObject:@"1" forKey:@"include_entities"];
-                 [parameters setObject:uid forKey:@"user_id"];
-                 //[parameters setObject:@"1" forKey:@"screen_name"];
-                 //[parameters setObject:@"1" forKey:@"skip_status"];
-                 
-                 SLRequest *friends = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:request parameters:parameters];
-                 friends.account = twitterAccount;
-                 [friends performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
-                  {
-                      //NSLog(@"response = %@",response);
-                      //NSLog(@"error = %@",error.debugDescription);
-                      if (!error)
+                 if (twitterAccount)
+                 {
+                     NSString *apiString = [NSString stringWithFormat:@"%@/%@/users/show.json", kTwitterAPIRoot, kTwitterAPIVersion];
+                     
+                     NSURL *request = [NSURL URLWithString:apiString];
+                     
+                     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+                     //[parameters setObject:@"100" forKey:@"count"];
+                     //[parameters setObject:@"1" forKey:@"include_entities"];
+                     [parameters setObject:uid forKey:@"user_id"];
+                     //[parameters setObject:@"1" forKey:@"screen_name"];
+                     //[parameters setObject:@"1" forKey:@"skip_status"];
+                     
+                     SLRequest *friends = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:request parameters:parameters];
+                     friends.account = twitterAccount;
+                     [friends performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
                       {
-                          NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-                          //NSLog(@"%@ result = %@",uid,result);
-                          NSString *pictureURLString = [result objectForKey:@"profile_image_url"];
-                          NSURL *pictureURL = [NSURL URLWithString:pictureURLString];
-                          NSMutableURLRequest *pictureRequest = [NSMutableURLRequest requestWithURL:pictureURL];
-                          NSHTTPURLResponse *responseCode = nil;
-
-                          NSData *pResponseData = [NSURLConnection sendSynchronousRequest:pictureRequest returningResponse:&responseCode error:&error];
-
+                          //NSLog(@"response = %@",response);
+                          //NSLog(@"error = %@",error.debugDescription);
                           if (!error)
                           {
-                              // set the image
-                              dispatch_async(dispatch_get_main_queue(), ^{
-                                  if ([self.twitterIdsInView objectForKey:uid])
-                                  {
-                                      //NSLog(@"in main queue, setting image");
-                                      //UIImage *placeHolderImage = [UIImage imageNamed:@"questionMark.png"];
-                                      //UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-                                      if (pResponseData)
-                                      {
-                                          [self.imageCache setObject:pResponseData forKey:uid];
-                                          weakCell.imageView.image = [UIImage imageWithData:pResponseData];
-                                      }
-                                      //weakCell.imageView.image = placeHolderImage;
-                                      [self.twitterIdsInView removeObjectForKey:uid];
-                                  }
-                              });
+                              NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+                              //NSLog(@"%@ result = %@",uid,result);
+                              NSString *pictureURLString = [result objectForKey:@"profile_image_url"];
+                              NSURL *pictureURL = [NSURL URLWithString:pictureURLString];
+                              NSMutableURLRequest *pictureRequest = [NSMutableURLRequest requestWithURL:pictureURL];
+                              NSHTTPURLResponse *responseCode = nil;
+                              
+                              NSData *pResponseData = [NSURLConnection sendSynchronousRequest:pictureRequest returningResponse:&responseCode error:&error];
+                              
+                              if (!error)
+                              {
+                                  // set the image
+                                  //Some asynchronous work. Once the image is ready, it will load into view on the main queue
+                                  [[NSOperationQueue mainQueue] addOperationWithBlock:^(void)
+                                   {
+                                       //Check for cancelation before proceeding. We use cellForRowAtIndexPath to make sure we get nil for a non-visible cell
+                                       if (!weakOp.isCancelled)
+                                       {
+                                           if ([self.twitterIdsInView objectForKey:uid])
+                                           {
+                                          
+                                               //UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+                                               if (pResponseData)
+                                               {
+                                                   [self.imageCache setObject:pResponseData forKey:uid];
+                                                   weakCell.imageView.image = [UIImage imageWithData:pResponseData];
+                                               }
+                                               //weakCell.imageView.image = placeHolderImage;
+                                               [self.twitterIdsInView removeObjectForKey:uid];
+                                           }
+                                           
+                                           [self.uidToImageDownloadOperations removeObjectForKey:uid];
+
+                                       }
+                                   }];
+                              }
+                              else
+                              {
+                                  NSLog(@"error = %@",[error debugDescription]);
+                              }
+                              
                           }
                           else
                           {
-                              NSLog(@"error = %@",[error debugDescription]);
+                              NSLog(@"error = %@",[error localizedDescription]);
                           }
-                          
-                      }
-                      else
-                      {
-                          NSLog(@"error = %@",[error localizedDescription]);
-                      }
-                  }];
+                      }];
+                 }
+                 
+             }
+             else
+             {
+                 NSLog(@"twitter access is not granted");
              }
              
-         }
-         else
-         {
-             NSLog(@"twitter access is not granted");
-         }
-         
-     }];
-
+         }];
+        
+    }];
+    
+    //Save a reference to the operation in an NSMutableDictionary so that it can be cancelled later on
+    if (uid)
+    {
+        [self.uidToImageDownloadOperations setObject:loadImageIntoCellOp forKey:uid];
+    }
+    
+    //Add the operation to the designated background queue
+    if (loadImageIntoCellOp)
+    {
+        [self.imageLoadingQueue addOperation:loadImageIntoCellOp];
+    }
+    
     NSArray *imageCacheKeys = [self.imageCache allKeys];
     if (imageCacheKeys.count > maxImages)
     {
@@ -298,14 +332,13 @@
                       if (!weakOp.isCancelled)
                       {
                           UITableViewCell *theCell = [tableView cellForRowAtIndexPath:indexPath];
-                          //cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+                          
                           if (image)
                           {
                               theCell.imageView.image = image;
                           }
-                          theCell.imageView.contentMode = UIViewContentModeScaleAspectFit;
                  
-                          [self.database.facebookUidToImageDownloadOperations removeObjectForKey:userID];
+                          [self.uidToImageDownloadOperations removeObjectForKey:userID];
                       }
                   }];
              }];
@@ -314,19 +347,18 @@
             //Save a reference to the operation in an NSMutableDictionary so that it can be cancelled later on
             if (userID)
             {
-                [self.database.facebookUidToImageDownloadOperations setObject:loadImageIntoCellOp forKey:userID];
+                [self.uidToImageDownloadOperations setObject:loadImageIntoCellOp forKey:userID];
             }
     
             //Add the operation to the designated background queue
             if (loadImageIntoCellOp)
             {
-                [self.database.imageLoadingQueue addOperation:loadImageIntoCellOp];
+                [self.imageLoadingQueue addOperation:loadImageIntoCellOp];
             }
         
             UIImage *placeHolderImage = [UIImage imageNamed:@"questionMark.png"];
             //[placeHolderImage set
             cell.imageView.image = placeHolderImage;
-            cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
         }
         
         NSArray *imageKeys = [self.imageCache allKeys];
@@ -379,12 +411,12 @@
     }
     
     //Fetch operation that doesn't need executing anymore
-    NSBlockOperation *ongoingDownloadOperation = [self.database.facebookUidToImageDownloadOperations objectForKey:userID];
+    NSBlockOperation *ongoingDownloadOperation = [self.uidToImageDownloadOperations objectForKey:userID];
     if (ongoingDownloadOperation)
     {
         //Cancel operation and remove from dictionary
         [ongoingDownloadOperation cancel];
-        [self.database.facebookUidToImageDownloadOperations removeObjectForKey:userID];
+        [self.uidToImageDownloadOperations removeObjectForKey:userID];
     }
 }
 

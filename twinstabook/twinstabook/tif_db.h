@@ -55,7 +55,7 @@ const static NSString *kTwitterAPIVersion = @"1.1";
 
 @property (strong, nonatomic) NSMutableArray *groups;
 @property (strong, nonatomic) NSMutableDictionary *groupMembers;
-@property (strong, nonatomic) NSOperationQueue *imageLoadingQueue;
+//@property (strong, nonatomic) NSOperationQueue *imageLoadingQueue;
 @property (nonatomic) NSInteger selectedOptionindex;
 
 - (id)init;
@@ -63,7 +63,7 @@ const static NSString *kTwitterAPIVersion = @"1.1";
 
 // facebook
 @property (strong, nonatomic) ACAccountType *facebookAccountType;
-@property (strong, nonatomic) NSMutableDictionary *facebookUidToImageDownloadOperations;
+//@property (strong, nonatomic) NSMutableDictionary *facebookUidToImageDownloadOperations;
 @property (strong, nonatomic) FBLoginView *fbloginView;
 @property (strong, nonatomic) NSMutableArray *facebookFriends;
 @property (strong, nonatomic) NSArray *facebookSearchOptions;
