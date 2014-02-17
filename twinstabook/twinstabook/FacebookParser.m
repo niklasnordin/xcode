@@ -82,7 +82,7 @@ static NSString *FBSTATUSTYPEMOBILEUPDATE = @"mobile_status_update";
 {
     displayObject *obj = nil;
     NSString *message = [dict objectForKey:@"message"];
-    NSString *statusType = [dict objectForKey:@"status_type"];
+    //NSString *statusType = [dict objectForKey:@"status_type"];
     
     if (message)
     {

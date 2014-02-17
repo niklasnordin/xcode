@@ -14,26 +14,26 @@
 //typedef enum { kFacebook, kTwitter, kInstagram } kMediaTypes;
 
 // these must be in the same order as the socialMediaNames
-const static NSString *FACEBOOK = @"Facebook";
-const static int kFacebook = 0;
-const static NSString *TWITTER = @"Twitter";
-const static int kTwitter = 1;
-const static NSString *INSTAGRAM = @"Instagram";
-const static int kInstagram = 2;
+static NSString * const FACEBOOK = @"Facebook";
+static const int kFacebook = 0;
+static NSString * const TWITTER = @"Twitter";
+static const int kTwitter = 1;
+static NSString * const INSTAGRAM = @"Instagram";
+static const int kInstagram = 2;
 
-static NSString *USEFACEBOOK = @"usefacebook";
-static NSString *USETWITTER = @"useTwitter";
-static NSString *USEINSTAGRAM = @"useInstagram";
-static NSString *SELECTEDMEDIANAME = @"selectedMediaName";
-static NSString *SELECTEDFEEDINDEX = @"selectedFeedIndex";
-static NSString *GROUPS = @"groups";
-static NSString *GROUPMEMBERS = @"groupMembers";
-static NSString *LASTUPDATE = @"lastUpdate";
-static NSString *SELECTEDTWITTERACCOUNTS = @"selectedTwitterAccounts";
+static NSString * const USEFACEBOOK = @"usefacebook";
+static NSString * const USETWITTER = @"useTwitter";
+static NSString * const USEINSTAGRAM = @"useInstagram";
+static NSString * const SELECTEDMEDIANAME = @"selectedMediaName";
+static NSString * const SELECTEDFEEDINDEX = @"selectedFeedIndex";
+static NSString * const GROUPS = @"groups";
+static NSString * const GROUPMEMBERS = @"groupMembers";
+static NSString * const LASTUPDATE = @"lastUpdate";
+static NSString * const SELECTEDTWITTERACCOUNTS = @"selectedTwitterAccounts";
 
-const static NSString *kFacebookGraphRoot = @"https://graph.facebook.com";
-const static NSString *kTwitterAPIRoot = @"https://api.twitter.com";
-const static NSString *kTwitterAPIVersion = @"1.1";
+static NSString * const kFacebookGraphRoot = @"https://graph.facebook.com";
+static NSString * const kTwitterAPIRoot = @"https://api.twitter.com";
+static NSString * const kTwitterAPIVersion = @"1.1";
 
 @interface tif_db : NSObject
 <
