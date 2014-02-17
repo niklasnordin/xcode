@@ -1,0 +1,502 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6165732418B27F3F0025DF09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6165732318B27F3F0025DF09 /* Foundation.framework */; };
+		6165732618B27F3F0025DF09 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6165732518B27F3F0025DF09 /* CoreGraphics.framework */; };
+		6165732818B27F3F0025DF09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6165732718B27F3F0025DF09 /* UIKit.framework */; };
+		6165732E18B27F3F0025DF09 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6165732C18B27F3F0025DF09 /* InfoPlist.strings */; };
+		6165733018B27F3F0025DF09 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165732F18B27F3F0025DF09 /* main.m */; };
+		6165733418B27F3F0025DF09 /* NNViewControllerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165733318B27F3F0025DF09 /* NNViewControllerAppDelegate.m */; };
+		6165733718B27F3F0025DF09 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6165733518B27F3F0025DF09 /* Main_iPhone.storyboard */; };
+		6165733A18B27F3F0025DF09 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6165733818B27F3F0025DF09 /* Main_iPad.storyboard */; };
+		6165733D18B27F3F0025DF09 /* NNViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165733C18B27F3F0025DF09 /* NNViewControllerViewController.m */; };
+		6165733F18B27F3F0025DF09 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6165733E18B27F3F0025DF09 /* Images.xcassets */; };
+		6165734618B27F3F0025DF09 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6165734518B27F3F0025DF09 /* XCTest.framework */; };
+		6165734718B27F3F0025DF09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6165732318B27F3F0025DF09 /* Foundation.framework */; };
+		6165734818B27F3F0025DF09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6165732718B27F3F0025DF09 /* UIKit.framework */; };
+		6165735018B27F3F0025DF09 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6165734E18B27F3F0025DF09 /* InfoPlist.strings */; };
+		6165735218B27F3F0025DF09 /* slideViewControllerExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165735118B27F3F0025DF09 /* slideViewControllerExampleTests.m */; };
+		6165735D18B280210025DF09 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165735C18B280210025DF09 /* MainViewController.m */; };
+		6165736018B280370025DF09 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165735F18B280370025DF09 /* MenuViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6165734918B27F3F0025DF09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6165731818B27F3F0025DF09 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6165731F18B27F3F0025DF09;
+			remoteInfo = slideViewControllerExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6165732018B27F3F0025DF09 /* slideViewControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = slideViewControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6165732318B27F3F0025DF09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6165732518B27F3F0025DF09 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6165732718B27F3F0025DF09 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6165732B18B27F3F0025DF09 /* slideViewControllerExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "slideViewControllerExample-Info.plist"; sourceTree = "<group>"; };
+		6165732D18B27F3F0025DF09 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6165732F18B27F3F0025DF09 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6165733118B27F3F0025DF09 /* slideViewControllerExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "slideViewControllerExample-Prefix.pch"; sourceTree = "<group>"; };
+		6165733218B27F3F0025DF09 /* NNViewControllerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNViewControllerAppDelegate.h; sourceTree = "<group>"; };
+		6165733318B27F3F0025DF09 /* NNViewControllerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNViewControllerAppDelegate.m; sourceTree = "<group>"; };
+		6165733618B27F3F0025DF09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		6165733918B27F3F0025DF09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		6165733B18B27F3F0025DF09 /* NNViewControllerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNViewControllerViewController.h; sourceTree = "<group>"; };
+		6165733C18B27F3F0025DF09 /* NNViewControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNViewControllerViewController.m; sourceTree = "<group>"; };
+		6165733E18B27F3F0025DF09 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6165734418B27F3F0025DF09 /* slideViewControllerExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = slideViewControllerExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6165734518B27F3F0025DF09 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		6165734D18B27F3F0025DF09 /* slideViewControllerExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "slideViewControllerExampleTests-Info.plist"; sourceTree = "<group>"; };
+		6165734F18B27F3F0025DF09 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6165735118B27F3F0025DF09 /* slideViewControllerExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = slideViewControllerExampleTests.m; sourceTree = "<group>"; };
+		6165735B18B280210025DF09 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		6165735C18B280210025DF09 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		6165735E18B280370025DF09 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		6165735F18B280370025DF09 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6165731D18B27F3F0025DF09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6165732618B27F3F0025DF09 /* CoreGraphics.framework in Frameworks */,
+				6165732818B27F3F0025DF09 /* UIKit.framework in Frameworks */,
+				6165732418B27F3F0025DF09 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6165734118B27F3F0025DF09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6165734618B27F3F0025DF09 /* XCTest.framework in Frameworks */,
+				6165734818B27F3F0025DF09 /* UIKit.framework in Frameworks */,
+				6165734718B27F3F0025DF09 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6165731718B27F3F0025DF09 = {
+			isa = PBXGroup;
+			children = (
+				6165732918B27F3F0025DF09 /* slideViewControllerExample */,
+				6165734B18B27F3F0025DF09 /* slideViewControllerExampleTests */,
+				6165732218B27F3F0025DF09 /* Frameworks */,
+				6165732118B27F3F0025DF09 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6165732118B27F3F0025DF09 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6165732018B27F3F0025DF09 /* slideViewControllerExample.app */,
+				6165734418B27F3F0025DF09 /* slideViewControllerExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6165732218B27F3F0025DF09 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6165732318B27F3F0025DF09 /* Foundation.framework */,
+				6165732518B27F3F0025DF09 /* CoreGraphics.framework */,
+				6165732718B27F3F0025DF09 /* UIKit.framework */,
+				6165734518B27F3F0025DF09 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6165732918B27F3F0025DF09 /* slideViewControllerExample */ = {
+			isa = PBXGroup;
+			children = (
+				6165733218B27F3F0025DF09 /* NNViewControllerAppDelegate.h */,
+				6165733318B27F3F0025DF09 /* NNViewControllerAppDelegate.m */,
+				6165733518B27F3F0025DF09 /* Main_iPhone.storyboard */,
+				6165735B18B280210025DF09 /* MainViewController.h */,
+				6165735C18B280210025DF09 /* MainViewController.m */,
+				6165735E18B280370025DF09 /* MenuViewController.h */,
+				6165735F18B280370025DF09 /* MenuViewController.m */,
+				6165733818B27F3F0025DF09 /* Main_iPad.storyboard */,
+				6165733B18B27F3F0025DF09 /* NNViewControllerViewController.h */,
+				6165733C18B27F3F0025DF09 /* NNViewControllerViewController.m */,
+				6165733E18B27F3F0025DF09 /* Images.xcassets */,
+				6165732A18B27F3F0025DF09 /* Supporting Files */,
+			);
+			path = slideViewControllerExample;
+			sourceTree = "<group>";
+		};
+		6165732A18B27F3F0025DF09 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6165732B18B27F3F0025DF09 /* slideViewControllerExample-Info.plist */,
+				6165732C18B27F3F0025DF09 /* InfoPlist.strings */,
+				6165732F18B27F3F0025DF09 /* main.m */,
+				6165733118B27F3F0025DF09 /* slideViewControllerExample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6165734B18B27F3F0025DF09 /* slideViewControllerExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				6165735118B27F3F0025DF09 /* slideViewControllerExampleTests.m */,
+				6165734C18B27F3F0025DF09 /* Supporting Files */,
+			);
+			path = slideViewControllerExampleTests;
+			sourceTree = "<group>";
+		};
+		6165734C18B27F3F0025DF09 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6165734D18B27F3F0025DF09 /* slideViewControllerExampleTests-Info.plist */,
+				6165734E18B27F3F0025DF09 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6165731F18B27F3F0025DF09 /* slideViewControllerExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6165735518B27F3F0025DF09 /* Build configuration list for PBXNativeTarget "slideViewControllerExample" */;
+			buildPhases = (
+				6165731C18B27F3F0025DF09 /* Sources */,
+				6165731D18B27F3F0025DF09 /* Frameworks */,
+				6165731E18B27F3F0025DF09 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = slideViewControllerExample;
+			productName = slideViewControllerExample;
+			productReference = 6165732018B27F3F0025DF09 /* slideViewControllerExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6165734318B27F3F0025DF09 /* slideViewControllerExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6165735818B27F3F0025DF09 /* Build configuration list for PBXNativeTarget "slideViewControllerExampleTests" */;
+			buildPhases = (
+				6165734018B27F3F0025DF09 /* Sources */,
+				6165734118B27F3F0025DF09 /* Frameworks */,
+				6165734218B27F3F0025DF09 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6165734A18B27F3F0025DF09 /* PBXTargetDependency */,
+			);
+			name = slideViewControllerExampleTests;
+			productName = slideViewControllerExampleTests;
+			productReference = 6165734418B27F3F0025DF09 /* slideViewControllerExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6165731818B27F3F0025DF09 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = NNViewController;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Niklas Nordin";
+				TargetAttributes = {
+					6165734318B27F3F0025DF09 = {
+						TestTargetID = 6165731F18B27F3F0025DF09;
+					};
+				};
+			};
+			buildConfigurationList = 6165731B18B27F3F0025DF09 /* Build configuration list for PBXProject "slideViewControllerExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6165731718B27F3F0025DF09;
+			productRefGroup = 6165732118B27F3F0025DF09 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6165731F18B27F3F0025DF09 /* slideViewControllerExample */,
+				6165734318B27F3F0025DF09 /* slideViewControllerExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6165731E18B27F3F0025DF09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6165733A18B27F3F0025DF09 /* Main_iPad.storyboard in Resources */,
+				6165733F18B27F3F0025DF09 /* Images.xcassets in Resources */,
+				6165733718B27F3F0025DF09 /* Main_iPhone.storyboard in Resources */,
+				6165732E18B27F3F0025DF09 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6165734218B27F3F0025DF09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6165735018B27F3F0025DF09 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6165731C18B27F3F0025DF09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6165733D18B27F3F0025DF09 /* NNViewControllerViewController.m in Sources */,
+				6165733018B27F3F0025DF09 /* main.m in Sources */,
+				6165733418B27F3F0025DF09 /* NNViewControllerAppDelegate.m in Sources */,
+				6165735D18B280210025DF09 /* MainViewController.m in Sources */,
+				6165736018B280370025DF09 /* MenuViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6165734018B27F3F0025DF09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6165735218B27F3F0025DF09 /* slideViewControllerExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6165734A18B27F3F0025DF09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6165731F18B27F3F0025DF09 /* slideViewControllerExample */;
+			targetProxy = 6165734918B27F3F0025DF09 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6165732C18B27F3F0025DF09 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6165732D18B27F3F0025DF09 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6165733518B27F3F0025DF09 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6165733618B27F3F0025DF09 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		6165733818B27F3F0025DF09 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6165733918B27F3F0025DF09 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		6165734E18B27F3F0025DF09 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6165734F18B27F3F0025DF09 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6165735318B27F3F0025DF09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6165735418B27F3F0025DF09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6165735618B27F3F0025DF09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "slideViewControllerExample/slideViewControllerExample-Prefix.pch";
+				INFOPLIST_FILE = "slideViewControllerExample/slideViewControllerExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6165735718B27F3F0025DF09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "slideViewControllerExample/slideViewControllerExample-Prefix.pch";
+				INFOPLIST_FILE = "slideViewControllerExample/slideViewControllerExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		6165735918B27F3F0025DF09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/slideViewControllerExample.app/slideViewControllerExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "slideViewControllerExample/slideViewControllerExample-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "slideViewControllerExampleTests/slideViewControllerExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		6165735A18B27F3F0025DF09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/slideViewControllerExample.app/slideViewControllerExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "slideViewControllerExample/slideViewControllerExample-Prefix.pch";
+				INFOPLIST_FILE = "slideViewControllerExampleTests/slideViewControllerExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6165731B18B27F3F0025DF09 /* Build configuration list for PBXProject "slideViewControllerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6165735318B27F3F0025DF09 /* Debug */,
+				6165735418B27F3F0025DF09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6165735518B27F3F0025DF09 /* Build configuration list for PBXNativeTarget "slideViewControllerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6165735618B27F3F0025DF09 /* Debug */,
+				6165735718B27F3F0025DF09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6165735818B27F3F0025DF09 /* Build configuration list for PBXNativeTarget "slideViewControllerExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6165735918B27F3F0025DF09 /* Debug */,
+				6165735A18B27F3F0025DF09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6165731818B27F3F0025DF09 /* Project object */;
+}
