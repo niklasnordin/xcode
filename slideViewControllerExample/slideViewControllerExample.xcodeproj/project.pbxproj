@@ -24,6 +24,7 @@
 		6165735218B27F3F0025DF09 /* slideViewControllerExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165735118B27F3F0025DF09 /* slideViewControllerExampleTests.m */; };
 		6165735D18B280210025DF09 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165735C18B280210025DF09 /* MainViewController.m */; };
 		6165736018B280370025DF09 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165735F18B280370025DF09 /* MenuViewController.m */; };
+		6165736418B3BF290025DF09 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165736318B3BF290025DF09 /* SWRevealViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		6165735C18B280210025DF09 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		6165735E18B280370025DF09 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		6165735F18B280370025DF09 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		6165736218B3BF290025DF09 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		6165736318B3BF290025DF09 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,7 @@
 		6165731718B27F3F0025DF09 = {
 			isa = PBXGroup;
 			children = (
+				6165736118B3BF290025DF09 /* SWRevealViewController */,
 				6165732918B27F3F0025DF09 /* slideViewControllerExample */,
 				6165734B18B27F3F0025DF09 /* slideViewControllerExampleTests */,
 				6165732218B27F3F0025DF09 /* Frameworks */,
@@ -163,6 +167,16 @@
 				6165734E18B27F3F0025DF09 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6165736118B3BF290025DF09 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6165736218B3BF290025DF09 /* SWRevealViewController.h */,
+				6165736318B3BF290025DF09 /* SWRevealViewController.m */,
+			);
+			name = SWRevealViewController;
+			path = slideViewControllerExample/SWRevealViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +283,7 @@
 				6165733418B27F3F0025DF09 /* NNViewControllerAppDelegate.m in Sources */,
 				6165735D18B280210025DF09 /* MainViewController.m in Sources */,
 				6165736018B280370025DF09 /* MenuViewController.m in Sources */,
+				6165736418B3BF290025DF09 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +423,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "slideViewControllerExample/slideViewControllerExample-Prefix.pch";
 				INFOPLIST_FILE = "slideViewControllerExample/slideViewControllerExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -421,6 +437,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "slideViewControllerExample/slideViewControllerExample-Prefix.pch";
 				INFOPLIST_FILE = "slideViewControllerExample/slideViewControllerExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

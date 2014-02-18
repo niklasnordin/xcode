@@ -11,3 +11,13 @@
 @interface NNViewControllerViewController : UIViewController
 
 @end
+
+
+// This will allow the class to be defined on a storyboard
+#pragma mark - SWRevealViewControllerSegue
+
+@interface NNViewControllerSegue : UIStoryboardSegue
+
+@property (strong) void(^performBlock)( NNViewControllerSegue* segue, UIViewController* svc, UIViewController* dvc );
+
+@end

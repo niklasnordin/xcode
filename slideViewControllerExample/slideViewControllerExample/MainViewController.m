@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 
 @interface MainViewController ()
+@property (nonatomic) IBOutlet UIBarButtonItem* revealButtonItem;
 
 @end
 
@@ -27,6 +28,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [self.revealButtonItem setTarget: self.revealViewController];
+    [self.revealButtonItem setAction: @selector( revealToggle: )];
+    [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+
 }
 
 - (void)didReceiveMemoryWarning

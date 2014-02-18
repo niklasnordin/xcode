@@ -18,6 +18,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSLog(@"NNView Did Load");
 }
 
 - (void)didReceiveMemoryWarning
@@ -27,3 +28,19 @@
 }
 
 @end
+
+
+#pragma mark - SWRevealViewControllerSegue Class
+
+@implementation NNViewControllerSegue
+
+- (void)perform
+{
+    if ( _performBlock != nil )
+    {
+        _performBlock( self, self.sourceViewController, self.destinationViewController );
+    }
+}
+
+@end
+

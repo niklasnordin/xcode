@@ -14,6 +14,8 @@
 
 @interface twinstabookFirstViewController ()
 
+@property (nonatomic) IBOutlet UIBarButtonItem* revealButtonItem;
+
 @property (strong, nonatomic) UIActionSheet *actionSheet;
 
 @property (strong, nonatomic) NSMutableArray *feedArray;
@@ -44,6 +46,7 @@
  
     // setup the refresh controller for the tableview
     self.refreshController = [[UIRefreshControl alloc] init];
+    self.refreshController.tintColor = [UIColor lightGrayColor];
     [self.refreshController addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     
     self.feedTableView.delegate = self;
@@ -67,11 +70,21 @@
     {
         // initialize instagram
     }
+    
+    // setup for the slider
+    [self.revealButtonItem setTarget: self.revealViewController];
+    [self.revealButtonItem setAction: @selector( revealToggle: )];
+    //[self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    [self.feedTableView addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+
 
 }
 
 - (void)refresh:(UIRefreshControl *)sender
 {
+    
+    NSAttributedString *title = [[NSAttributedString alloc] initWithString:@"hello"];
+    sender.attributedTitle = title;
     
     if (self.database.useFacebook)
     {
