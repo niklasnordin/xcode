@@ -9,6 +9,9 @@
 #import "MenuTableViewController.h"
 #import "twinstabookFirstViewController.h"
 #import "firstViewController.h"
+#import "FacebookSettingsViewController.h"
+#import "twitterSettingsViewController.h"
+#import "instagramSettingsViewController.h"
 
 @interface MenuTableViewController ()
 
@@ -127,17 +130,43 @@
 
     }
     
+    NSLog(@"destination class = %@",[segue.destinationViewController class]);
     // configure the segue.
     if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] )
     {
         NSLog(@"tjolahopp");
-        SWRevealViewControllerSegue* rvcs = (SWRevealViewControllerSegue*) segue;
+        //SWRevealViewControllerSegue* rvcs = (SWRevealViewControllerSegue*) segue;
         
         SWRevealViewController* rvc = self.revealViewController;
         NSAssert( rvc != nil, @"oops! must have a revealViewController" );
         
         NSAssert( [rvc.frontViewController isKindOfClass: [UINavigationController class]], @"oops!  for this segue we want a permanent navigation controller in the front!" );
         
+        if ([segue.destinationViewController isKindOfClass:[FacebookSettingsViewController class]])
+        {
+            FacebookSettingsViewController *vc = (FacebookSettingsViewController *)segue.destinationViewController;
+            //[vc setFa]
+        }
+        
+        if ([segue.destinationViewController isKindOfClass:[twitterSettingsViewController class]])
+        {
+            twitterSettingsViewController *vc = (twitterSettingsViewController *)segue.destinationViewController;
+            //[vc setFa]
+        }
+        
+        if ([segue.destinationViewController isKindOfClass:[instagramSettingsViewController class]])
+        {
+            instagramSettingsViewController *vc = (instagramSettingsViewController *)segue.destinationViewController;
+            //[vc setFa]
+        }
+
+        if ([segue.destinationViewController isKindOfClass:[twinstabookFirstViewController class]])
+        {
+            twinstabookFirstViewController *vc = (twinstabookFirstViewController *)segue.destinationViewController;
+            //[vc setFa]
+        }
+        
+
         rvcs.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc)
         {
             UINavigationController* nc = [[UINavigationController alloc] initWithRootViewController:dvc];

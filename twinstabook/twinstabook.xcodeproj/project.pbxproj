@@ -220,6 +220,17 @@
 			name = Pictures;
 			sourceTree = "<group>";
 		};
+		6165737D18B555670025DF09 /* SliderViewRelated */ = {
+			isa = PBXGroup;
+			children = (
+				6165737418B5288A0025DF09 /* firstViewController.h */,
+				6165737518B5288A0025DF09 /* firstViewController.m */,
+				6165736918B3FF3A0025DF09 /* MenuTableViewController.h */,
+				6165736A18B3FF3A0025DF09 /* MenuTableViewController.m */,
+			);
+			name = SliderViewRelated;
+			sourceTree = "<group>";
+		};
 		61C57C3918897BA600887F5E = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +269,7 @@
 		61C57C4B18897BA600887F5E /* twinstabook */ = {
 			isa = PBXGroup;
 			children = (
+				6165737D18B555670025DF09 /* SliderViewRelated */,
 				6165736C18B403830025DF09 /* Pictures */,
 				6137DFFB18A7B00C00E0C589 /* instagram */,
 				6137DFFA18A7B00000E0C589 /* twitter */,
@@ -288,10 +300,6 @@
 				617CE88718AD30270025AA92 /* linkWebViewController.m */,
 				6188A2A718917CB9009C75EB /* tif_db.h */,
 				6188A2A818917CB9009C75EB /* tif_db.m */,
-				6165737418B5288A0025DF09 /* firstViewController.h */,
-				6165737518B5288A0025DF09 /* firstViewController.m */,
-				6165736918B3FF3A0025DF09 /* MenuTableViewController.h */,
-				6165736A18B3FF3A0025DF09 /* MenuTableViewController.m */,
 				61C57C6318897BA600887F5E /* Images.xcassets */,
 				61C57C4C18897BA600887F5E /* Supporting Files */,
 			);
