@@ -574,10 +574,10 @@
             </objects>
             <point key="canvasLocation" x="-167" y="-973"/>
         </scene>
-        <!--View Controller-->
+        <!--Twitter Settings View Controller - Twitter-->
         <scene sceneID="Rv8-YF-jm1">
             <objects>
-                <viewController id="DgO-Wl-7CU" sceneMemberID="viewController">
+                <viewController id="DgO-Wl-7CU" customClass="twitterSettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ejs-oT-NR9"/>
                         <viewControllerLayoutGuide type="bottom" id="gCo-xm-XfM"/>
@@ -587,15 +587,22 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Twitter" id="dwg-8x-EAA">
+                        <barButtonItem key="leftBarButtonItem" image="reveal-icon.png" id="gTR-tV-Nr5"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="revealButtonItem" destination="gTR-tV-Nr5" id="waS-fE-aS9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jtq-PB-acU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-167" y="-277"/>
         </scene>
-        <!--View Controller-->
+        <!--Instagram Settings View Controller - Instagram-->
         <scene sceneID="3JK-wl-ScE">
             <objects>
-                <viewController id="gb1-wE-Oqn" sceneMemberID="viewController">
+                <viewController id="gb1-wE-Oqn" customClass="instagramSettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xEQ-7v-Nec"/>
                         <viewControllerLayoutGuide type="bottom" id="R7H-DP-MTO"/>
@@ -605,6 +612,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Instagram" id="TzW-K3-bh4">
+                        <barButtonItem key="leftBarButtonItem" image="reveal-icon.png" id="KWr-QB-SNg"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="revealButtonItem" destination="KWr-QB-SNg" id="X6Z-ua-caA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fX-lf-C5T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

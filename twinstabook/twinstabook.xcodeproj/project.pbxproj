@@ -18,6 +18,8 @@
 		6165737018B403A20025DF09 /* reveal-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6165736F18B403A20025DF09 /* reveal-icon@2x.png */; };
 		6165737318B51FF40025DF09 /* FacebookSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165737218B51FF40025DF09 /* FacebookSettingsViewController.m */; };
 		6165737618B5288A0025DF09 /* firstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165737518B5288A0025DF09 /* firstViewController.m */; };
+		6165737918B54D600025DF09 /* twitterSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165737818B54D600025DF09 /* twitterSettingsViewController.m */; };
+		6165737C18B54D810025DF09 /* instagramSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165737B18B54D810025DF09 /* instagramSettingsViewController.m */; };
 		617CE87B18AA933A0025AA92 /* optionsPickerViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 617CE87A18AA933A0025AA92 /* optionsPickerViewDelegate.m */; };
 		617CE87D18AD2EDD0025AA92 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617CE87C18AD2EDD0025AA92 /* Accounts.framework */; };
 		617CE87F18AD2EE70025AA92 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617CE87E18AD2EE70025AA92 /* Social.framework */; };
@@ -82,6 +84,10 @@
 		6165737218B51FF40025DF09 /* FacebookSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookSettingsViewController.m; sourceTree = "<group>"; };
 		6165737418B5288A0025DF09 /* firstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = firstViewController.h; sourceTree = "<group>"; };
 		6165737518B5288A0025DF09 /* firstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = firstViewController.m; sourceTree = "<group>"; };
+		6165737718B54D600025DF09 /* twitterSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = twitterSettingsViewController.h; sourceTree = "<group>"; };
+		6165737818B54D600025DF09 /* twitterSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = twitterSettingsViewController.m; sourceTree = "<group>"; };
+		6165737A18B54D810025DF09 /* instagramSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = instagramSettingsViewController.h; sourceTree = "<group>"; };
+		6165737B18B54D810025DF09 /* instagramSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = instagramSettingsViewController.m; sourceTree = "<group>"; };
 		617CE87918AA933A0025AA92 /* optionsPickerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = optionsPickerViewDelegate.h; sourceTree = "<group>"; };
 		617CE87A18AA933A0025AA92 /* optionsPickerViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = optionsPickerViewDelegate.m; sourceTree = "<group>"; };
 		617CE87C18AD2EDD0025AA92 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -178,6 +184,8 @@
 				617CE88C18AE78680025AA92 /* twitterAccountsTableViewController.m */,
 				617CE88018AD2F3C0025AA92 /* twitterParser.h */,
 				617CE88118AD2F3C0025AA92 /* twitterParser.m */,
+				6165737718B54D600025DF09 /* twitterSettingsViewController.h */,
+				6165737818B54D600025DF09 /* twitterSettingsViewController.m */,
 			);
 			name = twitter;
 			sourceTree = "<group>";
@@ -187,6 +195,8 @@
 			children = (
 				617CE88318AD2F630025AA92 /* instagramParser.h */,
 				617CE88418AD2F630025AA92 /* instagramParser.m */,
+				6165737A18B54D810025DF09 /* instagramSettingsViewController.h */,
+				6165737B18B54D810025DF09 /* instagramSettingsViewController.m */,
 			);
 			name = instagram;
 			sourceTree = "<group>";
@@ -442,8 +452,10 @@
 				6165737618B5288A0025DF09 /* firstViewController.m in Sources */,
 				61ECD15118981B8C00E5B952 /* groupTableViewController.m in Sources */,
 				61C57C5218897BA600887F5E /* main.m in Sources */,
+				6165737C18B54D810025DF09 /* instagramSettingsViewController.m in Sources */,
 				6137DFFE18A7B03C00E0C589 /* displayObject.m in Sources */,
 				617CE88D18AE78680025AA92 /* twitterAccountsTableViewController.m in Sources */,
+				6165737918B54D600025DF09 /* twitterSettingsViewController.m in Sources */,
 				6188A2A918917CB9009C75EB /* tif_db.m in Sources */,
 				617CE88818AD30270025AA92 /* linkWebViewController.m in Sources */,
 				61ECD154189D2B4200E5B952 /* groupNavigationController.m in Sources */,
