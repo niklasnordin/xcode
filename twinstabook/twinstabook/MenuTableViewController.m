@@ -8,6 +8,7 @@
 
 #import "MenuTableViewController.h"
 #import "twinstabookFirstViewController.h"
+#import "firstViewController.h"
 
 @interface MenuTableViewController ()
 
@@ -94,23 +95,44 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
+- (void) prepareForSegue: (UIStoryboardSegue *)segue sender: (id) sender
 {
-    /*
+    SWRevealViewControllerSegue* rvcs = (SWRevealViewControllerSegue*) segue;
+    SWRevealViewController* rvc = self.revealViewController;
+
+    NSLog(@"frontViewController = %@",[rvc.frontViewController class]);
+    NSLog(@"rearViewController = %@",[rvc.rearViewController class]);
+    NSLog(@"revealViewController = %@",[rvc.revealViewController class]);
+    NSLog(@"destination = %@",[segue.destinationViewController class]);
+    
     // configure the destination view controller:
     if ( [segue.destinationViewController isKindOfClass: [twinstabookFirstViewController class]] &&
         [sender isKindOfClass:[UITableViewCell class]] )
     {
+ 
+        if ([rvc.frontViewController isKindOfClass:[firstViewController class]])
+        {
+            NSLog(@"nu skall vi tillbaka till feed från main...");
+            rvcs.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc)
+            {
+                [rvc setFrontViewController:rvc.frontViewController animated:YES];
+            };
+        }
+        
+        // if frontview already is the feed, just slide it in
+        //if ([self.
+        //[self performSegueWithIdentifier:@"Feed" sender:sender];
         //UILabel* c = [(SWUITableViewCell *)sender label];
         //twinstabookFirstViewController* cvc = segue.destinationViewController;
         
         //cvc.color = c.textColor;
         //cvc.text = c.text;
     }
-    */
+    /*
     // configure the segue.
     if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] )
     {
+        NSLog(@"tjolahopp");
         SWRevealViewControllerSegue* rvcs = (SWRevealViewControllerSegue*) segue;
         
         SWRevealViewController* rvc = self.revealViewController;
@@ -124,6 +146,7 @@
             [rvc setFrontViewController:nc animated:YES];
         };
     }
+     */
 }
 
 @end

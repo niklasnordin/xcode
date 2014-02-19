@@ -33,6 +33,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.appDelegate = (twinstabookAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSLog(@"%@ viewDidLoad",[self class]);
     if (!self.appDelegate.database)
     {
         self.appDelegate.database = [[tif_db alloc] init];

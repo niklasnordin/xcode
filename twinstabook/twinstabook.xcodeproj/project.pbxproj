@@ -16,6 +16,8 @@
 		6165736B18B3FF3A0025DF09 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165736A18B3FF3A0025DF09 /* MenuTableViewController.m */; };
 		6165736E18B4039A0025DF09 /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6165736D18B4039A0025DF09 /* reveal-icon.png */; };
 		6165737018B403A20025DF09 /* reveal-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6165736F18B403A20025DF09 /* reveal-icon@2x.png */; };
+		6165737318B51FF40025DF09 /* FacebookSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165737218B51FF40025DF09 /* FacebookSettingsViewController.m */; };
+		6165737618B5288A0025DF09 /* firstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165737518B5288A0025DF09 /* firstViewController.m */; };
 		617CE87B18AA933A0025AA92 /* optionsPickerViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 617CE87A18AA933A0025AA92 /* optionsPickerViewDelegate.m */; };
 		617CE87D18AD2EDD0025AA92 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617CE87C18AD2EDD0025AA92 /* Accounts.framework */; };
 		617CE87F18AD2EE70025AA92 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617CE87E18AD2EE70025AA92 /* Social.framework */; };
@@ -76,6 +78,10 @@
 		6165736A18B3FF3A0025DF09 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 		6165736D18B4039A0025DF09 /* reveal-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon.png"; sourceTree = "<group>"; };
 		6165736F18B403A20025DF09 /* reveal-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon@2x.png"; sourceTree = "<group>"; };
+		6165737118B51FF40025DF09 /* FacebookSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookSettingsViewController.h; sourceTree = "<group>"; };
+		6165737218B51FF40025DF09 /* FacebookSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookSettingsViewController.m; sourceTree = "<group>"; };
+		6165737418B5288A0025DF09 /* firstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = firstViewController.h; sourceTree = "<group>"; };
+		6165737518B5288A0025DF09 /* firstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = firstViewController.m; sourceTree = "<group>"; };
 		617CE87918AA933A0025AA92 /* optionsPickerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = optionsPickerViewDelegate.h; sourceTree = "<group>"; };
 		617CE87A18AA933A0025AA92 /* optionsPickerViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = optionsPickerViewDelegate.m; sourceTree = "<group>"; };
 		617CE87C18AD2EDD0025AA92 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -157,6 +163,8 @@
 		6137DFF618A7AFB500E0C589 /* Facebook */ = {
 			isa = PBXGroup;
 			children = (
+				6165737118B51FF40025DF09 /* FacebookSettingsViewController.h */,
+				6165737218B51FF40025DF09 /* FacebookSettingsViewController.m */,
 				6137DFF718A7AFEF00E0C589 /* FacebookParser.h */,
 				6137DFF818A7AFEF00E0C589 /* FacebookParser.m */,
 			);
@@ -270,6 +278,8 @@
 				617CE88718AD30270025AA92 /* linkWebViewController.m */,
 				6188A2A718917CB9009C75EB /* tif_db.h */,
 				6188A2A818917CB9009C75EB /* tif_db.m */,
+				6165737418B5288A0025DF09 /* firstViewController.h */,
+				6165737518B5288A0025DF09 /* firstViewController.m */,
 				6165736918B3FF3A0025DF09 /* MenuTableViewController.h */,
 				6165736A18B3FF3A0025DF09 /* MenuTableViewController.m */,
 				61C57C6318897BA600887F5E /* Images.xcassets */,
@@ -419,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61ECD14E18981AB300E5B952 /* groupViewController.m in Sources */,
+				6165737318B51FF40025DF09 /* FacebookSettingsViewController.m in Sources */,
 				6165736818B3D3D10025DF09 /* SWRevealViewController.m in Sources */,
 				617CE88218AD2F3C0025AA92 /* twitterParser.m in Sources */,
 				61C57C6218897BA600887F5E /* loginViewController.m in Sources */,
@@ -428,6 +439,7 @@
 				6137E00118A7B11600E0C589 /* tifTableViewCell.m in Sources */,
 				61C57C5618897BA600887F5E /* twinstabookAppDelegate.m in Sources */,
 				617CE87B18AA933A0025AA92 /* optionsPickerViewDelegate.m in Sources */,
+				6165737618B5288A0025DF09 /* firstViewController.m in Sources */,
 				61ECD15118981B8C00E5B952 /* groupTableViewController.m in Sources */,
 				61C57C5218897BA600887F5E /* main.m in Sources */,
 				6137DFFE18A7B03C00E0C589 /* displayObject.m in Sources */,
