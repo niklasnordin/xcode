@@ -10,6 +10,9 @@
 
 @interface FacebookSettingsViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *revealButtonItem;
+@property (weak, nonatomic) IBOutlet UISwitch *facebookSwitch;
+- (IBAction)clickedSwitch:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 
 @end
 
@@ -44,4 +47,6 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)clickedSwitch:(id)sender {
+}
 @end
