@@ -99,17 +99,19 @@
 {
     SWRevealViewControllerSegue* rvcs = (SWRevealViewControllerSegue*) segue;
     SWRevealViewController* rvc = self.revealViewController;
-
+/*
+    NSLog(@"segue class = %@",[segue class]);
     NSLog(@"frontViewController = %@",[rvc.frontViewController class]);
     NSLog(@"rearViewController = %@",[rvc.rearViewController class]);
     NSLog(@"revealViewController = %@",[rvc.revealViewController class]);
     NSLog(@"destination = %@",[segue.destinationViewController class]);
-    
+    */
     // configure the destination view controller:
     if ( [segue.destinationViewController isKindOfClass: [twinstabookFirstViewController class]] &&
         [sender isKindOfClass:[UITableViewCell class]] )
     {
  
+        // if feed already is frontview, just slide it in
         if ([rvc.frontViewController isKindOfClass:[firstViewController class]])
         {
             NSLog(@"nu skall vi tillbaka till feed från main...");
@@ -119,16 +121,11 @@
             };
         }
         
-        // if frontview already is the feed, just slide it in
-        //if ([self.
+
         //[self performSegueWithIdentifier:@"Feed" sender:sender];
-        //UILabel* c = [(SWUITableViewCell *)sender label];
-        //twinstabookFirstViewController* cvc = segue.destinationViewController;
-        
-        //cvc.color = c.textColor;
-        //cvc.text = c.text;
+
     }
-    /*
+    
     // configure the segue.
     if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] )
     {
@@ -146,7 +143,7 @@
             [rvc setFrontViewController:nc animated:YES];
         };
     }
-     */
+    
 }
 
 @end

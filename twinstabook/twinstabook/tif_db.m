@@ -298,7 +298,7 @@
 
 - (void)loadAllFacebookFriends
 {
-    NSLog(@"loadAllFacebookfriends");
+    //NSLog(@"loadAllFacebookfriends");
     
     NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *appID = infoDict[@"FacebookAppID"];
@@ -318,7 +318,7 @@
      {
          if (granted)
          {
-             NSLog(@"access granted");
+             //NSLog(@"access granted");
              
              NSArray *accounts = [self.account accountsWithAccountType:self.facebookAccountType];
              
@@ -327,7 +327,7 @@
              
              if (facebookAccount)
              {
-                 NSLog(@"here i am in the facebook account to load friends");
+                 //NSLog(@"here i am in the facebook account to load friends");
                  NSString *apiString = [NSString stringWithFormat:@"https://graph.facebook.com/me/friends"];
                  NSURL *request = [NSURL URLWithString:apiString];
                  NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:@"picture,id,name,link,gender,last_name,first_name,username",@"fields", nil];
@@ -343,12 +343,12 @@
                           NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
                           NSArray* friendsArray = [result objectForKey:@"data"];
                           
-                          NSLog(@"friends.count = %ld",friendsArray.count);
+                          NSLog(@"facebook friends.count = %ld",friendsArray.count);
                           if (friendsArray.count)
                           {
                               [self.facebookFriends addObjectsFromArray:friendsArray];
                           }
-                          NSLog(@"last friend = %@",[friendsArray lastObject]);
+                          //NSLog(@"last friend = %@",[friendsArray lastObject]);
                           
                       }
                       else

@@ -9,6 +9,7 @@
 #import "FacebookSettingsViewController.h"
 
 @interface FacebookSettingsViewController ()
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *revealButtonItem;
 
 @end
 
@@ -27,6 +28,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    // setup for the slider
+    [self.revealButtonItem setTarget: self.revealViewController];
+    [self.revealButtonItem setAction: @selector( revealToggle: )];
+    [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    
+    NSLog(@"%@ viewDidLoad",[self class]);
 }
 
 - (void)didReceiveMemoryWarning
