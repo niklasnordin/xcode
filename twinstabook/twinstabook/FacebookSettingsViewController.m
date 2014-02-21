@@ -39,6 +39,15 @@
     [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     
     [self.facebookSwitch setOn:self.db.useFacebook];
+    if (self.db.useFacebook)
+    {
+        [self.statusLabel setText:[NSString stringWithFormat:@"Logged in as : %@",[self.db facebookUsername]]];
+        self.statusLabel.hidden = NO;
+    }
+    else
+    {
+        self.statusLabel.hidden = YES;
+    }
     
 }
 
@@ -51,6 +60,11 @@
 - (IBAction)clickedSwitch:(UISwitch *)sender
 {
     self.db.useFacebook = sender.on;
+    self.statusLabel.hidden = !sender.on;
+    if (sender.on)
+    {
+        [self.statusLabel setText:[NSString stringWithFormat:@"Logged in as : %@",[self.db facebookUsername]]];
+    }
 }
 
 @end

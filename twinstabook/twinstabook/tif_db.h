@@ -76,6 +76,7 @@ static NSString * const kTwitterAPIVersion = @"1.1";
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error;
 - (void)requestNewAccessToken;
 - (void)loadAllFacebookFriends;
+@property (strong, nonatomic) NSString *facebookUsername;
 
 // twitter
 @property (strong, nonatomic) ACAccountType *twitterAccountType;

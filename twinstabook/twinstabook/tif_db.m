@@ -32,6 +32,7 @@
         self.facebookFriends = [[NSMutableArray alloc] init];
         self.twitterFriends = [[NSMutableArray alloc] init];
         
+        self.facebookUsername = [[NSString alloc] init];
         NSUserDefaults *database = [NSUserDefaults standardUserDefaults];
 
         // check for user setting exist
@@ -340,6 +341,7 @@
                       //NSLog(@"error = %@",error.debugDescription);
                       if (!error)
                       {
+                          self.facebookUsername = [facebookAccount userFullName];
                           NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
                           NSArray* friendsArray = [result objectForKey:@"data"];
                           
