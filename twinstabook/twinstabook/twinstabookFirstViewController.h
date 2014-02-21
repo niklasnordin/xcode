@@ -19,7 +19,7 @@
     JMPickerViewDelegate
 >
 
-@property (weak, nonatomic) twinstabookAppDelegate *appDelegate;
+//@property (weak, nonatomic) twinstabookAppDelegate *appDelegate;
 @property (weak, nonatomic) tif_db *database;
 @property (strong, nonatomic) JMPickerView *picker;
 @property (strong, nonatomic) UIRefreshControl *refreshController;

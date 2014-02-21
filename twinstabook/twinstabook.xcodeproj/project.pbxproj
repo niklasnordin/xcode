@@ -276,8 +276,6 @@
 				6137DFF618A7AFB500E0C589 /* Facebook */,
 				61C57C5718897BA600887F5E /* Main_iPhone.storyboard */,
 				61C57C5A18897BA600887F5E /* Main_iPad.storyboard */,
-				61C57C5418897BA600887F5E /* twinstabookAppDelegate.h */,
-				61C57C5518897BA600887F5E /* twinstabookAppDelegate.m */,
 				61C57C5D18897BA600887F5E /* twinstabookFirstViewController.h */,
 				61C57C5E18897BA600887F5E /* twinstabookFirstViewController.m */,
 				61C57C6018897BA600887F5E /* loginViewController.h */,
@@ -300,6 +298,8 @@
 				617CE88718AD30270025AA92 /* linkWebViewController.m */,
 				6188A2A718917CB9009C75EB /* tif_db.h */,
 				6188A2A818917CB9009C75EB /* tif_db.m */,
+				61C57C5418897BA600887F5E /* twinstabookAppDelegate.h */,
+				61C57C5518897BA600887F5E /* twinstabookAppDelegate.m */,
 				61C57C6318897BA600887F5E /* Images.xcassets */,
 				61C57C4C18897BA600887F5E /* Supporting Files */,
 			);

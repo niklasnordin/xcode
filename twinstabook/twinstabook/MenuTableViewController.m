@@ -73,7 +73,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 7;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -99,6 +99,10 @@
             break;
             
         case 5:
+            CellIdentifier = @"Groups";
+            break;
+            
+        case 6:
             CellIdentifier = @"Settings";
             break;
     }
@@ -159,7 +163,7 @@
         
         if ([segue.destinationViewController isKindOfClass:[twinstabookFirstViewController class]])
         {
-            twinstabookFirstViewController *vc = (twinstabookFirstViewController *)segue.destinationViewController;
+            //twinstabookFirstViewController *vc = (twinstabookFirstViewController *)segue.destinationViewController;
             //[vc setFa]
         }
 
