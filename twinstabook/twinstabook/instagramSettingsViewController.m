@@ -10,6 +10,8 @@
 
 @interface instagramSettingsViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *revealButtonItem;
+@property (weak, nonatomic) IBOutlet UISwitch *instagramSwitch;
+- (IBAction)clickedInstagramSwitch:(UISwitch *)sender;
 @end
 
 @implementation instagramSettingsViewController
@@ -34,6 +36,7 @@
     [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
 
+    [self.instagramSwitch setOn:self.db.useTwitter];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,4 +45,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)clickedInstagramSwitch:(UISwitch *)sender
+{
+    self.db.useInstagram = sender.on;
+}
 @end

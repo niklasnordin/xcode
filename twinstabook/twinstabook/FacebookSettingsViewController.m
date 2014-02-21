@@ -11,7 +11,7 @@
 @interface FacebookSettingsViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *revealButtonItem;
 @property (weak, nonatomic) IBOutlet UISwitch *facebookSwitch;
-- (IBAction)clickedSwitch:(id)sender;
+- (IBAction)clickedSwitch:(UISwitch *)sender;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 
 @end
@@ -38,7 +38,8 @@
     [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     
-    NSLog(@"%@ viewDidLoad",[self class]);
+    [self.facebookSwitch setOn:self.db.useFacebook];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,6 +48,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)clickedSwitch:(id)sender {
+- (IBAction)clickedSwitch:(UISwitch *)sender
+{
+    self.db.useFacebook = sender.on;
 }
+
 @end

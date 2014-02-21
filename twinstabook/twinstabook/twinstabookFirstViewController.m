@@ -33,12 +33,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.appDelegate = (twinstabookAppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSLog(@"%@ viewDidLoad",[self class]);
+    //NSLog(@"%@ viewDidLoad",[self class]);
+    /*
     if (!self.appDelegate.database)
     {
         NSLog(@"no database, creating it");
         self.appDelegate.database = [[tif_db alloc] init];
     }
+     */
     self.database = self.appDelegate.database;
     
     self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self withDistanceToTop:20.0f];

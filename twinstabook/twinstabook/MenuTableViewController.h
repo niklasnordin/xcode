@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "twinstabookAppDelegate.h"
 
 @interface SWUITableViewCell : UITableViewCell
 @property (nonatomic) IBOutlet UILabel *label;
 @end
 
 @interface MenuTableViewController : UITableViewController
+
+//@property (weak, nonatomic) twinstabookAppDelegate *appDelegate;
+@property (weak, nonatomic) tif_db *database;
 
 @end

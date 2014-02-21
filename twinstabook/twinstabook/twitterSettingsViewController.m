@@ -10,6 +10,9 @@
 
 @interface twitterSettingsViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *revealButtonItem;
+@property (weak, nonatomic) IBOutlet UISwitch *twitterSwitch;
+- (IBAction)clickedTwitterSwitch:(UISwitch *)sender;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 @implementation twitterSettingsViewController
@@ -34,6 +37,8 @@
     [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
 
+    [self.twitterSwitch setOn:self.db.useTwitter];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,4 +47,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)clickedTwitterSwitch:(UISwitch *)sender
+{
+    self.db.useTwitter = sender.on;
+}
 @end

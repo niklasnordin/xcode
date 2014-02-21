@@ -10,6 +10,15 @@
 
 @implementation twinstabookAppDelegate
 
+- (tif_db *)database
+{
+    if (!_database)
+    {
+        _database = [[tif_db alloc] init];
+    }
+    return _database;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.

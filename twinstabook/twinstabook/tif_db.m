@@ -125,7 +125,7 @@
     return self;
 }
 
-
+//- (tif_db *)
 - (void)saveDatabase
 {
     //NSLog(@"save database");

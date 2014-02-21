@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "tif_db.h"
 
 @interface instagramSettingsViewController : UIViewController
+
+@property (weak, nonatomic) tif_db *db;
 
 @end

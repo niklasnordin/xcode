@@ -24,6 +24,7 @@
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
+
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
@@ -31,6 +32,20 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    
+    if (self)
+    {
+        // init
+        twinstabookAppDelegate *AppDelegate = (twinstabookAppDelegate *)[[UIApplication sharedApplication] delegate];
+        self.database = AppDelegate.database;
+    }
+    
+    return self;
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -142,28 +157,28 @@
         
         NSAssert( [rvc.frontViewController isKindOfClass: [UINavigationController class]], @"oops!  for this segue we want a permanent navigation controller in the front!" );
         
+        if ([segue.destinationViewController isKindOfClass:[twinstabookFirstViewController class]])
+        {
+            twinstabookFirstViewController *vc = (twinstabookFirstViewController *)segue.destinationViewController;
+            //[vc setFa]
+        }
+
         if ([segue.destinationViewController isKindOfClass:[FacebookSettingsViewController class]])
         {
             FacebookSettingsViewController *vc = (FacebookSettingsViewController *)segue.destinationViewController;
-            //[vc setFa]
+            [vc setDb:self.database];
         }
         
         if ([segue.destinationViewController isKindOfClass:[twitterSettingsViewController class]])
         {
             twitterSettingsViewController *vc = (twitterSettingsViewController *)segue.destinationViewController;
-            //[vc setFa]
+            [vc setDb:self.database];
         }
         
         if ([segue.destinationViewController isKindOfClass:[instagramSettingsViewController class]])
         {
             instagramSettingsViewController *vc = (instagramSettingsViewController *)segue.destinationViewController;
-            //[vc setFa]
-        }
-
-        if ([segue.destinationViewController isKindOfClass:[twinstabookFirstViewController class]])
-        {
-            twinstabookFirstViewController *vc = (twinstabookFirstViewController *)segue.destinationViewController;
-            //[vc setFa]
+            [vc setDb:self.database];
         }
         
 
