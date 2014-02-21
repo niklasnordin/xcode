@@ -10,7 +10,14 @@
 #import "tif_db.h"
 
 @interface twitterSettingsViewController : UIViewController
+<
+    UITableViewDataSource,
+    UITableViewDelegate
+>
 
 @property (weak, nonatomic) tif_db *db;
+
+@property (weak, nonatomic) NSArray *accounts;
+@property (weak, nonatomic) NSMutableDictionary *selected;
 
 @end

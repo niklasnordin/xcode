@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *twitterSwitch;
 - (IBAction)clickedTwitterSwitch:(UISwitch *)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end
 
 @implementation twitterSettingsViewController
@@ -38,6 +39,9 @@
     [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
 
     [self.twitterSwitch setOn:self.db.useTwitter];
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 
 }
 
@@ -51,4 +55,74 @@
 {
     self.db.useTwitter = sender.on;
 }
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return [self.accounts count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"twitterAccountCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    if (!cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    // Configure the cell...
+    ACAccount *account = self.accounts[indexPath.row];
+    NSString *username = [account username];
+    
+    cell.textLabel.text = username;
+    
+    if ([self.selected objectForKey:username])
+    {
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    }
+    else
+    {
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+    }
+    return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    ACAccount *account = self.accounts[indexPath.row];
+    NSString *username = [account username];
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    if ([self.selected objectForKey:username])
+    {
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+        [self.selected removeObjectForKey:username];
+    }
+    else
+    {
+        //NSLog(@"account = %@", account);
+        NSString *id = account.identifier;
+        NSString *key = [[self.selected allKeys] lastObject];
+        [self.selected removeObjectForKey:key];
+        [self.selected setObject:id forKey:username];
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    }
+    [tableView reloadData];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
+
 @end

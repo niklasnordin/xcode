@@ -173,6 +173,8 @@
         {
             twitterSettingsViewController *vc = (twitterSettingsViewController *)segue.destinationViewController;
             [vc setDb:self.database];
+            [vc setAccounts:self.database.twitterAccounts];
+            [vc setSelected:self.database.selectedTwitterAccounts];
         }
         
         if ([segue.destinationViewController isKindOfClass:[instagramSettingsViewController class]])
