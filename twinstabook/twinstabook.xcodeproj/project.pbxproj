@@ -27,7 +27,6 @@
 		617CE88518AD2F630025AA92 /* instagramParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 617CE88418AD2F630025AA92 /* instagramParser.m */; };
 		617CE88818AD30270025AA92 /* linkWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 617CE88718AD30270025AA92 /* linkWebViewController.m */; };
 		617CE88A18AE66D80025AA92 /* old code snippets in Resources */ = {isa = PBXBuildFile; fileRef = 617CE88918AE66D80025AA92 /* old code snippets */; };
-		617CE88D18AE78680025AA92 /* twitterAccountsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 617CE88C18AE78680025AA92 /* twitterAccountsTableViewController.m */; };
 		6188A2A918917CB9009C75EB /* tif_db.m in Sources */ = {isa = PBXBuildFile; fileRef = 6188A2A818917CB9009C75EB /* tif_db.m */; };
 		618BE7BE18AFA0DF00A0CB7F /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 618BE7BD18AFA0DF00A0CB7F /* Twitter.framework */; };
 		61C57C4618897BA600887F5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4518897BA600887F5E /* Foundation.framework */; };
@@ -39,7 +38,6 @@
 		61C57C5918897BA600887F5E /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61C57C5718897BA600887F5E /* Main_iPhone.storyboard */; };
 		61C57C5C18897BA600887F5E /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61C57C5A18897BA600887F5E /* Main_iPad.storyboard */; };
 		61C57C5F18897BA600887F5E /* twinstabookFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C57C5E18897BA600887F5E /* twinstabookFirstViewController.m */; };
-		61C57C6218897BA600887F5E /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C57C6118897BA600887F5E /* loginViewController.m */; };
 		61C57C6418897BA600887F5E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61C57C6318897BA600887F5E /* Images.xcassets */; };
 		61C57C6B18897BA600887F5E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C6A18897BA600887F5E /* XCTest.framework */; };
 		61C57C6C18897BA600887F5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4518897BA600887F5E /* Foundation.framework */; };
@@ -99,8 +97,6 @@
 		617CE88618AD30270025AA92 /* linkWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = linkWebViewController.h; sourceTree = "<group>"; };
 		617CE88718AD30270025AA92 /* linkWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = linkWebViewController.m; sourceTree = "<group>"; };
 		617CE88918AE66D80025AA92 /* old code snippets */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "old code snippets"; sourceTree = "<group>"; };
-		617CE88B18AE78680025AA92 /* twitterAccountsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = twitterAccountsTableViewController.h; sourceTree = "<group>"; };
-		617CE88C18AE78680025AA92 /* twitterAccountsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = twitterAccountsTableViewController.m; sourceTree = "<group>"; };
 		6188A2A718917CB9009C75EB /* tif_db.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tif_db.h; sourceTree = "<group>"; };
 		6188A2A818917CB9009C75EB /* tif_db.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tif_db.m; sourceTree = "<group>"; };
 		618BE7BD18AFA0DF00A0CB7F /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
@@ -118,8 +114,6 @@
 		61C57C5B18897BA600887F5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		61C57C5D18897BA600887F5E /* twinstabookFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = twinstabookFirstViewController.h; sourceTree = "<group>"; };
 		61C57C5E18897BA600887F5E /* twinstabookFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = twinstabookFirstViewController.m; sourceTree = "<group>"; };
-		61C57C6018897BA600887F5E /* loginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
-		61C57C6118897BA600887F5E /* loginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		61C57C6318897BA600887F5E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		61C57C6918897BA600887F5E /* twinstabookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = twinstabookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C57C6A18897BA600887F5E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -180,8 +174,6 @@
 		6137DFFA18A7B00000E0C589 /* twitter */ = {
 			isa = PBXGroup;
 			children = (
-				617CE88B18AE78680025AA92 /* twitterAccountsTableViewController.h */,
-				617CE88C18AE78680025AA92 /* twitterAccountsTableViewController.m */,
 				617CE88018AD2F3C0025AA92 /* twitterParser.h */,
 				617CE88118AD2F3C0025AA92 /* twitterParser.m */,
 				6165737718B54D600025DF09 /* twitterSettingsViewController.h */,
@@ -278,8 +270,6 @@
 				61C57C5A18897BA600887F5E /* Main_iPad.storyboard */,
 				61C57C5D18897BA600887F5E /* twinstabookFirstViewController.h */,
 				61C57C5E18897BA600887F5E /* twinstabookFirstViewController.m */,
-				61C57C6018897BA600887F5E /* loginViewController.h */,
-				61C57C6118897BA600887F5E /* loginViewController.m */,
 				61ECD152189D2B4200E5B952 /* groupNavigationController.h */,
 				61ECD153189D2B4200E5B952 /* groupNavigationController.m */,
 				61ECD14F18981B8C00E5B952 /* groupTableViewController.h */,
@@ -450,7 +440,6 @@
 				6165737318B51FF40025DF09 /* FacebookSettingsViewController.m in Sources */,
 				6165736818B3D3D10025DF09 /* SWRevealViewController.m in Sources */,
 				617CE88218AD2F3C0025AA92 /* twitterParser.m in Sources */,
-				61C57C6218897BA600887F5E /* loginViewController.m in Sources */,
 				6165736B18B3FF3A0025DF09 /* MenuTableViewController.m in Sources */,
 				61C57C5F18897BA600887F5E /* twinstabookFirstViewController.m in Sources */,
 				61ECD15718A00F7500E5B952 /* searchTableViewController.m in Sources */,
@@ -462,7 +451,6 @@
 				61C57C5218897BA600887F5E /* main.m in Sources */,
 				6165737C18B54D810025DF09 /* instagramSettingsViewController.m in Sources */,
 				6137DFFE18A7B03C00E0C589 /* displayObject.m in Sources */,
-				617CE88D18AE78680025AA92 /* twitterAccountsTableViewController.m in Sources */,
 				6165737918B54D600025DF09 /* twitterSettingsViewController.m in Sources */,
 				6188A2A918917CB9009C75EB /* tif_db.m in Sources */,
 				617CE88818AD30270025AA92 /* linkWebViewController.m in Sources */,
