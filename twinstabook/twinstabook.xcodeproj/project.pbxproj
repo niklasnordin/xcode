@@ -29,6 +29,7 @@
 		617CE88A18AE66D80025AA92 /* old code snippets in Resources */ = {isa = PBXBuildFile; fileRef = 617CE88918AE66D80025AA92 /* old code snippets */; };
 		6188A2A918917CB9009C75EB /* tif_db.m in Sources */ = {isa = PBXBuildFile; fileRef = 6188A2A818917CB9009C75EB /* tif_db.m */; };
 		618BE7BE18AFA0DF00A0CB7F /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 618BE7BD18AFA0DF00A0CB7F /* Twitter.framework */; };
+		618BE7C618B8D80500A0CB7F /* settingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 618BE7C518B8D80500A0CB7F /* settingsViewController.m */; };
 		61C57C4618897BA600887F5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4518897BA600887F5E /* Foundation.framework */; };
 		61C57C4818897BA600887F5E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4718897BA600887F5E /* CoreGraphics.framework */; };
 		61C57C4A18897BA600887F5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4918897BA600887F5E /* UIKit.framework */; };
@@ -100,6 +101,8 @@
 		6188A2A718917CB9009C75EB /* tif_db.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tif_db.h; sourceTree = "<group>"; };
 		6188A2A818917CB9009C75EB /* tif_db.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tif_db.m; sourceTree = "<group>"; };
 		618BE7BD18AFA0DF00A0CB7F /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		618BE7C418B8D80500A0CB7F /* settingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsViewController.h; sourceTree = "<group>"; };
+		618BE7C518B8D80500A0CB7F /* settingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsViewController.m; sourceTree = "<group>"; };
 		61C57C4218897BA600887F5E /* twinstabook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twinstabook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C57C4518897BA600887F5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		61C57C4718897BA600887F5E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -223,6 +226,28 @@
 			name = SliderViewRelated;
 			sourceTree = "<group>";
 		};
+		618BE7C218B8D25D00A0CB7F /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				61ECD14F18981B8C00E5B952 /* groupTableViewController.h */,
+				61ECD15018981B8C00E5B952 /* groupTableViewController.m */,
+				61ECD14C18981AB300E5B952 /* groupViewController.h */,
+				61ECD14D18981AB300E5B952 /* groupViewController.m */,
+				61ECD15518A00F7500E5B952 /* searchTableViewController.h */,
+				61ECD15618A00F7500E5B952 /* searchTableViewController.m */,
+			);
+			name = Groups;
+			sourceTree = "<group>";
+		};
+		618BE7C318B8D2A200A0CB7F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				618BE7C418B8D80500A0CB7F /* settingsViewController.h */,
+				618BE7C518B8D80500A0CB7F /* settingsViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		61C57C3918897BA600887F5E = {
 			isa = PBXGroup;
 			children = (
@@ -266,28 +291,24 @@
 				6137DFFB18A7B00C00E0C589 /* instagram */,
 				6137DFFA18A7B00000E0C589 /* twitter */,
 				6137DFF618A7AFB500E0C589 /* Facebook */,
+				618BE7C218B8D25D00A0CB7F /* Groups */,
+				618BE7C318B8D2A200A0CB7F /* Settings */,
 				61C57C5718897BA600887F5E /* Main_iPhone.storyboard */,
 				61C57C5A18897BA600887F5E /* Main_iPad.storyboard */,
 				61C57C5D18897BA600887F5E /* twinstabookFirstViewController.h */,
 				61C57C5E18897BA600887F5E /* twinstabookFirstViewController.m */,
 				61ECD152189D2B4200E5B952 /* groupNavigationController.h */,
 				61ECD153189D2B4200E5B952 /* groupNavigationController.m */,
-				61ECD14F18981B8C00E5B952 /* groupTableViewController.h */,
-				61ECD15018981B8C00E5B952 /* groupTableViewController.m */,
-				61ECD14C18981AB300E5B952 /* groupViewController.h */,
-				61ECD14D18981AB300E5B952 /* groupViewController.m */,
 				617CE87918AA933A0025AA92 /* optionsPickerViewDelegate.h */,
 				617CE87A18AA933A0025AA92 /* optionsPickerViewDelegate.m */,
-				61ECD15518A00F7500E5B952 /* searchTableViewController.h */,
-				61ECD15618A00F7500E5B952 /* searchTableViewController.m */,
-				6137DFFC18A7B03C00E0C589 /* displayObject.h */,
-				6137DFFD18A7B03C00E0C589 /* displayObject.m */,
 				6137DFFF18A7B11600E0C589 /* tifTableViewCell.h */,
 				6137E00018A7B11600E0C589 /* tifTableViewCell.m */,
 				617CE88618AD30270025AA92 /* linkWebViewController.h */,
 				617CE88718AD30270025AA92 /* linkWebViewController.m */,
 				6188A2A718917CB9009C75EB /* tif_db.h */,
 				6188A2A818917CB9009C75EB /* tif_db.m */,
+				6137DFFC18A7B03C00E0C589 /* displayObject.h */,
+				6137DFFD18A7B03C00E0C589 /* displayObject.m */,
 				61C57C5418897BA600887F5E /* twinstabookAppDelegate.h */,
 				61C57C5518897BA600887F5E /* twinstabookAppDelegate.m */,
 				61C57C6318897BA600887F5E /* Images.xcassets */,
@@ -440,6 +461,7 @@
 				6165737318B51FF40025DF09 /* FacebookSettingsViewController.m in Sources */,
 				6165736818B3D3D10025DF09 /* SWRevealViewController.m in Sources */,
 				617CE88218AD2F3C0025AA92 /* twitterParser.m in Sources */,
+				618BE7C618B8D80500A0CB7F /* settingsViewController.m in Sources */,
 				6165736B18B3FF3A0025DF09 /* MenuTableViewController.m in Sources */,
 				61C57C5F18897BA600887F5E /* twinstabookFirstViewController.m in Sources */,
 				61ECD15718A00F7500E5B952 /* searchTableViewController.m in Sources */,

@@ -32,7 +32,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WPq-e8-Y3Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="403" y="-1690"/>
+            <point key="canvasLocation" x="341" y="-1690"/>
         </scene>
         <!--Twinstabook First View Controller - First-->
         <scene sceneID="W3I-pn-N6e">
@@ -90,6 +90,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-167" y="-1690"/>
+        </scene>
+        <!--Settings View Controller - Settings-->
+        <scene sceneID="bAS-rj-ykG">
+            <objects>
+                <viewController id="OTw-Dc-iuW" customClass="settingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nEw-gh-heg"/>
+                        <viewControllerLayoutGuide type="bottom" id="BxO-r2-DRG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pGW-yV-AHK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" prompt="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Pd6-gh-Ehf">
+                                <rect key="frame" x="0.0" y="65" width="320" height="75"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="8NF-Xa-0so">
+                        <barButtonItem key="leftBarButtonItem" image="reveal-icon.png" id="Fop-Gj-PR4"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="revealButtonItem" destination="Fop-Gj-PR4" id="Bma-8d-jUi"/>
+                        <outlet property="searchBar" destination="Pd6-gh-Ehf" id="PVI-NY-Vkw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YXT-yy-a7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-700" y="461"/>
         </scene>
         <!--Group Table View Controller - Create Groups-->
         <scene sceneID="Zpo-2T-KUA">
@@ -428,6 +461,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="OTw-Dc-iuW" kind="custom" identifier="sw_settings" customClass="SWRevealViewControllerSegue" id="kUQ-Jn-P4D"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -551,7 +587,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jtq-PB-acU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="403" y="-973"/>
+            <point key="canvasLocation" x="341" y="-973"/>
         </scene>
         <!--Instagram Settings View Controller - Instagram-->
         <scene sceneID="3JK-wl-ScE">
