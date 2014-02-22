@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *twitterSwitch;
 - (IBAction)clickedTwitterSwitch:(UISwitch *)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 
 @end
 
@@ -43,6 +44,9 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 
+    bool hide = !self.db.useFacebook;
+    [self.statusLabel setHidden:hide];
+    [self.tableView setHidden:hide];
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,6 +58,11 @@
 - (IBAction)clickedTwitterSwitch:(UISwitch *)sender
 {
     self.db.useTwitter = sender.on;
+
+    bool hide = !sender.on;
+    
+    [self.tableView setHidden:hide];
+    [self.statusLabel setHidden:hide];
 }
 
 #pragma mark - Table view data source

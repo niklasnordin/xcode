@@ -544,6 +544,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="revealButtonItem" destination="gTR-tV-Nr5" id="waS-fE-aS9"/>
+                        <outlet property="statusLabel" destination="TH3-C2-dAj" id="IBA-1D-CWB"/>
                         <outlet property="tableView" destination="8wz-5r-dcj" id="tiu-5a-tHp"/>
                         <outlet property="twitterSwitch" destination="lpO-fu-ut4" id="3fs-XD-SQr"/>
                     </connections>
