@@ -474,7 +474,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OpS-fu-f7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-721" y="-277"/>
+            <point key="canvasLocation" x="-721" y="-625"/>
         </scene>
         <!--Facebook Settings View Controller - Facebook-->
         <scene sceneID="sH3-fG-N5H">
