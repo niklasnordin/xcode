@@ -12,6 +12,8 @@
 
 @interface groupTableViewController ()
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *revealButtonItem;
+
 @end
 
 @implementation groupTableViewController
@@ -39,6 +41,13 @@
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addGroup)];
     self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects:self.editButtonItem, addButton, nil ];
+    
+    // setup for the slider
+    [self.revealButtonItem setTarget: self.revealViewController];
+    [self.revealButtonItem setAction: @selector( revealToggle: )];
+    [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -192,7 +201,8 @@
             NSMutableArray *members = [[NSMutableArray alloc] init];
             [self.database.groupMembers setObject:members forKey:name];
             [self.tableView reloadData];
-            
+            /*
+             not used...and maybe not necessary
             // add the new group to the picker in first view
             twinstabookFirstViewController *first = nil;
             UITabBarController *tabController = self.navigationController.tabBarController;
@@ -201,6 +211,7 @@
             {
                 for (int i=0; i<[vc count]; i++)
                 {
+                    NSLog(@"class is %@",[vc class]);
                     UINavigationController *navController = [vc objectAtIndex:i];
                     id child = [[navController childViewControllers] lastObject];
                     if ([child isKindOfClass:[twinstabookFirstViewController class]])
@@ -211,6 +222,7 @@
             
                 [first.picker reloadAllComponents];
             }
+            */
         }
     }
 

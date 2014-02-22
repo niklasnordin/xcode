@@ -91,116 +91,6 @@
             </objects>
             <point key="canvasLocation" x="-167" y="-1690"/>
         </scene>
-        <!--Login View Controller - Second-->
-        <scene sceneID="ot8-2e-RuS">
-            <objects>
-                <viewController title="Second" id="QUy-BD-bpt" customClass="loginViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Rfh-k9-PY0"/>
-                        <viewControllerLayoutGuide type="bottom" id="lBO-73-7H3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gMD-aP-Fq6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R4m-9Q-wvX">
-                                <rect key="frame" x="20" y="163" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="clickedFacebookSwitch:" destination="QUy-BD-bpt" eventType="valueChanged" id="g7n-dH-jV6"/>
-                                </connections>
-                            </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QgJ-SD-aDI">
-                                <rect key="frame" x="20" y="221" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="clickedTwitterSwitch:" destination="QUy-BD-bpt" eventType="valueChanged" id="rDH-uT-2NW"/>
-                                </connections>
-                            </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lmu-Fr-A1n">
-                                <rect key="frame" x="20" y="279" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="clickedInstagramSwitch:" destination="QUy-BD-bpt" eventType="valueChanged" id="iVA-Uj-LWJ"/>
-                                </connections>
-                            </switch>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBr-Lo-MNO">
-                                <rect key="frame" x="77" y="154" width="223" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="clickedFacebookButton:" destination="QUy-BD-bpt" eventType="touchUpInside" id="ji3-0b-YSZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBJ-jI-LQO">
-                                <rect key="frame" x="77" y="212" width="223" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Twitter">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="clickedTwitterButton:" destination="QUy-BD-bpt" eventType="touchUpInside" id="MzC-dR-vo2"/>
-                                    <segue destination="MzI-1s-aFm" kind="push" identifier="twitterAccountsSegue" id="mnT-VC-2J6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnr-ES-3gM">
-                                <rect key="frame" x="77" y="270" width="223" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Instagram">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="clickedInstagramButton:" destination="QUy-BD-bpt" eventType="touchUpInside" id="P7J-HO-nxG"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Services" id="gcd-kn-38s"/>
-                    <connections>
-                        <outlet property="facebookButton" destination="EBr-Lo-MNO" id="N2d-4Q-iVY"/>
-                        <outlet property="facebookSwitch" destination="R4m-9Q-wvX" id="zub-u1-C5A"/>
-                        <outlet property="instagramButton" destination="wnr-ES-3gM" id="9Kq-1V-UYK"/>
-                        <outlet property="instagramSwitch" destination="Lmu-Fr-A1n" id="LnV-mP-BvB"/>
-                        <outlet property="twitterButton" destination="aBJ-jI-LQO" id="P0V-51-TA0"/>
-                        <outlet property="twitterSwitch" destination="QgJ-SD-aDI" id="ltB-Hq-sLY"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-453" y="1338"/>
-        </scene>
-        <!--Twitter Accounts Table View Controller - Select Twitter Accounts-->
-        <scene sceneID="Jbn-SL-8Hf">
-            <objects>
-                <tableViewController id="MzI-1s-aFm" customClass="twitterAccountsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="23k-47-BeP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="twitterAccountCell" id="T70-kG-435">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T70-kG-435" id="D7g-Ba-JM4">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="MzI-1s-aFm" id="o9W-fe-ypq"/>
-                            <outlet property="delegate" destination="MzI-1s-aFm" id="d9n-xF-tiu"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Select Twitter Accounts" id="FoY-uF-p2j"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KzL-NP-Qex" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="97" y="1338"/>
-        </scene>
         <!--Group Table View Controller - Create Groups-->
         <scene sceneID="Zpo-2T-KUA">
             <objects>
@@ -227,11 +117,17 @@
                             <outlet property="delegate" destination="GYs-V2-ufV" id="i0s-qg-ux9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Create Groups" id="ZeZ-uP-8k0"/>
+                    <navigationItem key="navigationItem" title="Create Groups" id="ZeZ-uP-8k0">
+                        <barButtonItem key="leftBarButtonItem" image="reveal-icon.png" id="j59-wL-h7Q"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="revealButtonItem" destination="j59-wL-h7Q" id="jGf-eh-Nv9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cke-a2-Fm5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-453" y="2016"/>
+            <point key="canvasLocation" x="-209" y="12"/>
         </scene>
         <!--Group View Controller - Groups-->
         <scene sceneID="sgk-AQ-gUL">
@@ -330,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Thq-mB-LgD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="97" y="2016"/>
+            <point key="canvasLocation" x="341" y="12"/>
         </scene>
         <!--Search Table View Controller - Search Result-->
         <scene sceneID="4nK-SE-oN0">
@@ -372,7 +268,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oaw-pC-Lif" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="645" y="2016"/>
+            <point key="canvasLocation" x="889" y="12"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="b4X-1R-WaM">
@@ -514,7 +410,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="i3L-5K-Sk5" kind="custom" identifier="sw_groups" customClass="SWRevealViewControllerSegue" id="O62-Nl-vwF"/>
+                                    <segue destination="GYs-V2-ufV" kind="custom" identifier="sw_groups" customClass="SWRevealViewControllerSegue" id="LGT-Xi-iBh"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Settings" id="oXq-c2-ewy">
@@ -543,35 +439,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OpS-fu-f7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-721" y="-277"/>
-        </scene>
-        <!--View Controller - Groups-->
-        <scene sceneID="V6Y-ol-ZE4">
-            <objects>
-                <viewController id="i3L-5K-Sk5" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tIm-Xq-PNq"/>
-                        <viewControllerLayoutGuide type="bottom" id="1pd-kH-p9n"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ORs-f6-0ft">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D3K-C2-H6l">
-                                <rect key="frame" x="0.0" y="65" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Groups" id="Ya8-O6-8vc">
-                        <barButtonItem key="leftBarButtonItem" image="reveal-icon.png" id="XbG-9J-HAr"/>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZQ4-qc-fKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-167" y="57"/>
         </scene>
         <!--Facebook Settings View Controller - Facebook-->
         <scene sceneID="sH3-fG-N5H">
@@ -726,29 +593,6 @@
             </objects>
             <point key="canvasLocation" x="901" y="-973"/>
         </scene>
-        <!--Group Navigation Controller - Groups-->
-        <scene sceneID="JpK-k6-shH">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="haR-me-Nwn" customClass="groupNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Groups" id="l5j-Eu-tcJ"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ECC-Sv-Whc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="qjL-aw-Fb7">
-                        <rect key="frame" x="0.0" y="416" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="GYs-V2-ufV" kind="relationship" relationship="rootViewController" id="S02-5N-wMN"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8KQ-IM-0ZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-979" y="2016"/>
-        </scene>
         <!--First View Controller - First-->
         <scene sceneID="9dt-fn-Eku">
             <objects>
@@ -769,30 +613,10 @@
             </objects>
             <point key="canvasLocation" x="-721" y="-1690"/>
         </scene>
-        <!--Navigation Controller - Settings-->
-        <scene sceneID="ebD-aq-bd3">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gOd-Wh-Xhe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="second" id="Z7h-1E-pvt"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C6H-VX-QWi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="QUy-BD-bpt" kind="relationship" relationship="rootViewController" id="Uet-rb-nRM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sIv-Dd-kco" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-979" y="1338"/>
-        </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
         <image name="reveal-icon.png" width="22" height="17"/>
-        <image name="second" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
