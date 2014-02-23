@@ -7,9 +7,17 @@
 //
 
 #import "AddGroupMembersViewController.h"
+#import "optionsPickerViewDelegate.h"
 
 @interface AddGroupMembersViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *feedButton;
+@property (weak, nonatomic) IBOutlet UIButton *optionsButton;
+@property (weak, nonatomic) IBOutlet UILabel *optionsLabel;
+- (IBAction)feedButtonClicked:(id)sender;
+- (IBAction)optionsButtonClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) JMPickerView *picker;
+@property (strong, nonatomic) optionsPickerViewDelegate *optionsPVDelegate;
 @end
 
 @implementation AddGroupMembersViewController
@@ -33,6 +41,23 @@
     
     UIBarButtonItem *editButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editTable)];
     self.navigationItem.rightBarButtonItem = editButtonItem;
+    
+    
+    NSString *name = [self.database.socialMediaNames objectAtIndex:self.database.selectedMediaNameIndex];
+    self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self withDistanceToTop:65.0f];
+    [self.picker hide:-1.0f];
+    [self.feedButton setTitle:name forState:UIControlStateNormal];
+    [self.picker selectRow:self.database.selectedMediaNameIndex inComponent:0 animated:NO];
+    
+    self.optionsPVDelegate = [[optionsPickerViewDelegate alloc] init];
+    [self.optionsPVDelegate setDatabase:self.database];
+    self.optionsPVDelegate.delegate = self;
+    self.optionsPicker = [[JMPickerView alloc] initWithDelegate:self.optionsPVDelegate addingToViewController:self withDistanceToTop:65.0f];
+    [self.optionsPicker hide:-1.0f];
+    //[self.optionsPicker setBackgroundColor:[UIColor lightGrayColor]];
+    [self.optionsButton setTitle:[self.database.facebookSearchOptions objectAtIndex:self.database.selectedOptionindex] forState:UIControlStateNormal];
+
+    [self setSecondary];
 
 }
 
@@ -117,6 +142,89 @@
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
+}
+
+#pragma mark -
+#pragma mark Standard UIPickerView data source and delegate methods
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [self.database.socialMediaNames count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return [self.database.socialMediaNames objectAtIndex:row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    self.database.selectedMediaNameIndex = row;
+    [self.feedButton setTitle:[self.database.socialMediaNames objectAtIndex:row] forState:UIControlStateNormal];
+    
+    // facebook is the first entry in the mediaNames
+    [self setSecondary];
+}
+
+#pragma mark -
+#pragma mark JMPickerView delegate methods
+
+- (void)pickerViewWasHidden:(JMPickerView *)pickerView
+{
+    //NSLog(@"picker hidden");
+}
+
+- (void)pickerViewWasShown:(JMPickerView *)pickerView
+{
+    //NSLog(@"picker is shown");
+}
+
+- (void)pickerViewSelectionIndicatorWasTapped:(JMPickerView *)pickerView
+{
+    //NSLog(@"picker indicator tapped");
+    
+    [self.picker hide:0.3f];
+}
+
+- (IBAction)feedButtonClicked:(id)sender
+{
+    [self.picker show:0.3f];
+}
+
+- (IBAction)optionsButtonClicked:(id)sender
+{
+    [self.optionsPicker show:0.3f];
+
+}
+
+- (void)setSecondary
+{
+    if (self.database.selectedMediaNameIndex == kFacebook)
+    {
+        [self.optionsLabel setEnabled:YES];
+        [self.optionsLabel setAlpha:1.0f];
+        
+        [self.optionsButton setEnabled:YES];
+        [self.optionsButton setAlpha:1.0f];
+    }
+    else
+    {
+        [self.optionsLabel setEnabled:NO];
+        [self.optionsLabel setAlpha:0.0f];
+        
+        [self.optionsButton setEnabled:NO];
+        [self.optionsButton setAlpha:0.0f];
+    }
+}
+
+- (void)updateOptionsForRow:(NSInteger)row
+{
+    [self.optionsButton setTitle:[self.database.facebookSearchOptions objectAtIndex:row] forState:UIControlStateNormal];
 }
 
 @end

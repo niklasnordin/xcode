@@ -154,7 +154,7 @@
     
     [vc setTitle:key];
     [vc setGroupMembers:groupMembers];
-
+    [vc setDatabase:self.database];
 }
 
 

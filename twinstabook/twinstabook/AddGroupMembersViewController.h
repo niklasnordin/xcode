@@ -7,13 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JMPickerView.h"
+#import "tif_db.h"
 
 @interface AddGroupMembersViewController : UIViewController
 <
     UITableViewDelegate,
-    UITableViewDataSource
+    UITableViewDataSource,
+    JMPickerViewDelegate
 >
 
+@property (weak, nonatomic) tif_db *database;
 @property (weak, nonatomic) NSMutableArray *groupMembers;
+@property (strong, nonatomic) JMPickerView *optionsPicker;
+
+- (void)updateOptionsForRow:(NSInteger)row;
 
 @end

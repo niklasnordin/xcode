@@ -15,4 +15,6 @@
     UISearchBarDelegate
 >
 
+@property (strong,nonatomic) NSString *searchFeed;
+
 @end

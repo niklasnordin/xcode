@@ -245,6 +245,8 @@
 				61ECD14D18981AB300E5B952 /* groupViewController.m */,
 				61ECD15518A00F7500E5B952 /* searchTableViewController.h */,
 				61ECD15618A00F7500E5B952 /* searchTableViewController.m */,
+				617CE87918AA933A0025AA92 /* optionsPickerViewDelegate.h */,
+				617CE87A18AA933A0025AA92 /* optionsPickerViewDelegate.m */,
 			);
 			name = Groups;
 			sourceTree = "<group>";
@@ -309,8 +311,6 @@
 				61C57C5E18897BA600887F5E /* twinstabookFirstViewController.m */,
 				61ECD152189D2B4200E5B952 /* groupNavigationController.h */,
 				61ECD153189D2B4200E5B952 /* groupNavigationController.m */,
-				617CE87918AA933A0025AA92 /* optionsPickerViewDelegate.h */,
-				617CE87A18AA933A0025AA92 /* optionsPickerViewDelegate.m */,
 				6137DFFF18A7B11600E0C589 /* tifTableViewCell.h */,
 				6137E00018A7B11600E0C589 /* tifTableViewCell.m */,
 				617CE88618AD30270025AA92 /* linkWebViewController.h */,

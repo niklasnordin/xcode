@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Niklas Nordin. All rights reserved.
 //
 
-#import "groupViewController.h"
+#import "AddGroupMembersViewController.h"
 #import "optionsPickerViewDelegate.h"
 
 @implementation optionsPickerViewDelegate
@@ -41,14 +41,13 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    //NSLog(@"selected");
     self.database.selectedOptionindex = row;
-    groupViewController *vc = (groupViewController *)self.delegate;
-    [vc.searchOptionButton setTitle:[self.database.facebookSearchOptions objectAtIndex:row] forState:UIControlStateNormal];
-    
+    //groupViewController *vc = (groupViewController *)self.delegate;
+    AddGroupMembersViewController *vc = (AddGroupMembersViewController *)self.delegate;
+    [vc updateOptionsForRow:row];
+    //[vc.optionsButton setTitle:[self.database.facebookSearchOptions objectAtIndex:row] forState:UIControlStateNormal];
 }
 
-#pragma mark -
 #pragma mark JMPickerView delegate methods
 
 - (void)pickerViewWasHidden:(JMPickerView *)pickerView
@@ -65,7 +64,9 @@
 {
     //NSLog(@"picker indicator tapped");
     
-    groupViewController *vc = (groupViewController *)self.delegate;
+    //groupViewController *vc = (groupViewController *)self.delegate;
+    AddGroupMembersViewController *vc = (AddGroupMembersViewController *)self.delegate;
+
     [vc.optionsPicker hide:0.3f];
 }
 
