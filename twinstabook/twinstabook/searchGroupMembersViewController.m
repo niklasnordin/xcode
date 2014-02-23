@@ -75,6 +75,41 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    NSLog(@"search text = %@",searchText);
+    //NSLog(@"search text = %@",searchText);
+    NSInteger length = [searchText length];
+    if (length >= self.minStringLength)
+    {
+        if ([self.searchFeed isEqualToString:[self.database.socialMediaNames objectAtIndex:kFacebook]])
+        {
+            [self facebookSearch];
+        }
+        
+        if ([self.searchFeed isEqualToString:[self.database.socialMediaNames objectAtIndex:kTwitter]])
+        {
+            [self twitterSearch];
+        }
+        
+        if ([self.searchFeed isEqualToString:[self.database.socialMediaNames objectAtIndex:kInstagram]])
+        {
+            [self instagramSearch];
+        }
+    }
+    
 }
+
+- (void)facebookSearch
+{
+    
+}
+
+- (void)twitterSearch
+{
+    
+}
+
+- (void)instagramSearch
+{
+    
+}
+
 @end

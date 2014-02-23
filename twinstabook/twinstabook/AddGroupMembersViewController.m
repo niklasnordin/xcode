@@ -8,6 +8,7 @@
 
 #import "AddGroupMembersViewController.h"
 #import "optionsPickerViewDelegate.h"
+#import "searchGroupMembersViewController.h"
 
 @interface AddGroupMembersViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *feedButton;
@@ -186,8 +187,6 @@
 
 - (void)pickerViewSelectionIndicatorWasTapped:(JMPickerView *)pickerView
 {
-    //NSLog(@"picker indicator tapped");
-    
     [self.picker hide:0.3f];
 }
 
@@ -222,9 +221,25 @@
     }
 }
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"searchMembersSegue"])
+    {
+        // set title
+        searchGroupMembersViewController *vc = (searchGroupMembersViewController *)segue.destinationViewController;
+        //NSLog(@"going...");
+        //self.database.selectedMediaNameIndex = row;
+
+        NSString *title = [NSString stringWithFormat:@"Search %@",[self.database.socialMediaNames objectAtIndex:self.database.selectedMediaNameIndex]];
+        [vc setTitle:title];
+    }
+}
+
 - (void)updateOptionsForRow:(NSInteger)row
 {
     [self.optionsButton setTitle:[self.database.facebookSearchOptions objectAtIndex:row] forState:UIControlStateNormal];
 }
+
 
 @end

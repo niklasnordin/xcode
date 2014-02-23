@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "tif_db.h"
 
 @interface searchGroupMembersViewController : UIViewController
 <
@@ -15,6 +16,8 @@
     UISearchBarDelegate
 >
 
-@property (strong,nonatomic) NSString *searchFeed;
+@property (weak, nonatomic) tif_db *database;
+@property (strong, nonatomic) NSString *searchFeed;
+@property (nonatomic) NSInteger minStringLength;
 
 @end
