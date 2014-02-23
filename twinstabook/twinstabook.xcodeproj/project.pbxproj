@@ -47,6 +47,7 @@
 		61C57C7718897BA600887F5E /* twinstabookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C57C7618897BA600887F5E /* twinstabookTests.m */; };
 		61C57C81188A660900887F5E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C80188A660900887F5E /* FacebookSDK.framework */; };
 		61DFBF6B18BA208800DB6D4E /* AddGroupMembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DFBF6A18BA208800DB6D4E /* AddGroupMembersViewController.m */; };
+		61DFBF6E18BA211C00DB6D4E /* searchGroupMembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DFBF6D18BA211C00DB6D4E /* searchGroupMembersViewController.m */; };
 		61ECD14E18981AB300E5B952 /* groupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61ECD14D18981AB300E5B952 /* groupViewController.m */; };
 		61ECD15118981B8C00E5B952 /* groupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61ECD15018981B8C00E5B952 /* groupTableViewController.m */; };
 		61ECD154189D2B4200E5B952 /* groupNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61ECD153189D2B4200E5B952 /* groupNavigationController.m */; };
@@ -127,6 +128,8 @@
 		61C57C80188A660900887F5E /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		61DFBF6918BA208800DB6D4E /* AddGroupMembersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGroupMembersViewController.h; sourceTree = "<group>"; };
 		61DFBF6A18BA208800DB6D4E /* AddGroupMembersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGroupMembersViewController.m; sourceTree = "<group>"; };
+		61DFBF6C18BA211C00DB6D4E /* searchGroupMembersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchGroupMembersViewController.h; sourceTree = "<group>"; };
+		61DFBF6D18BA211C00DB6D4E /* searchGroupMembersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchGroupMembersViewController.m; sourceTree = "<group>"; };
 		61ECD14C18981AB300E5B952 /* groupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = groupViewController.h; sourceTree = "<group>"; };
 		61ECD14D18981AB300E5B952 /* groupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = groupViewController.m; sourceTree = "<group>"; };
 		61ECD14F18981B8C00E5B952 /* groupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = groupTableViewController.h; sourceTree = "<group>"; };
@@ -234,6 +237,8 @@
 			children = (
 				61DFBF6918BA208800DB6D4E /* AddGroupMembersViewController.h */,
 				61DFBF6A18BA208800DB6D4E /* AddGroupMembersViewController.m */,
+				61DFBF6C18BA211C00DB6D4E /* searchGroupMembersViewController.h */,
+				61DFBF6D18BA211C00DB6D4E /* searchGroupMembersViewController.m */,
 				61ECD14F18981B8C00E5B952 /* groupTableViewController.h */,
 				61ECD15018981B8C00E5B952 /* groupTableViewController.m */,
 				61ECD14C18981AB300E5B952 /* groupViewController.h */,
@@ -483,6 +488,7 @@
 				61DFBF6B18BA208800DB6D4E /* AddGroupMembersViewController.m in Sources */,
 				617CE88818AD30270025AA92 /* linkWebViewController.m in Sources */,
 				61ECD154189D2B4200E5B952 /* groupNavigationController.m in Sources */,
+				61DFBF6E18BA211C00DB6D4E /* searchGroupMembersViewController.m in Sources */,
 				6137DFF918A7AFEF00E0C589 /* FacebookParser.m in Sources */,
 				6137DFF518A66C7200E0C589 /* JMPickerView.m in Sources */,
 				617CE88518AD2F630025AA92 /* instagramParser.m in Sources */,

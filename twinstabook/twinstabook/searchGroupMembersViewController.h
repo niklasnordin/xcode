@@ -1,5 +1,5 @@
 //
-//  AddGroupMembersViewController.h
+//  searchGroupMembersViewController.h
 //  twinstabook
 //
 //  Created by Niklas Nordin on 2014-02-23.
@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddGroupMembersViewController : UIViewController
+@interface searchGroupMembersViewController : UIViewController
 <
     UITableViewDelegate,
-    UITableViewDataSource
+    UITableViewDataSource,
+    UISearchBarDelegate
 >
-
-@property (weak, nonatomic) NSMutableArray *groupMembers;
 
 @end

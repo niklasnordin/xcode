@@ -8,7 +8,7 @@
 
 #import "groupTableViewController.h"
 #import "twinstabookFirstViewController.h"
-#import "groupViewController.h"
+#import "AddGroupMembersViewController.h"
 
 @interface groupTableViewController ()
 
@@ -150,7 +150,7 @@
     NSString *key = [self.database.groups objectAtIndex:indexPath.row];
     NSMutableArray *groupMembers = [self.database.groupMembers objectForKey:key];
     //NSLog(@"groupMembers = %@",groupMembers);
-    groupViewController *vc = (groupViewController *)segue.destinationViewController;
+    AddGroupMembersViewController *vc = (AddGroupMembersViewController *)segue.destinationViewController;
     
     [vc setTitle:key];
     [vc setGroupMembers:groupMembers];
@@ -201,28 +201,7 @@
             NSMutableArray *members = [[NSMutableArray alloc] init];
             [self.database.groupMembers setObject:members forKey:name];
             [self.tableView reloadData];
-            /*
-             not used...and maybe not necessary
-            // add the new group to the picker in first view
-            twinstabookFirstViewController *first = nil;
-            UITabBarController *tabController = self.navigationController.tabBarController;
-            NSArray *vc = [tabController viewControllers];
-            if (vc.count)
-            {
-                for (int i=0; i<[vc count]; i++)
-                {
-                    NSLog(@"class is %@",[vc class]);
-                    UINavigationController *navController = [vc objectAtIndex:i];
-                    id child = [[navController childViewControllers] lastObject];
-                    if ([child isKindOfClass:[twinstabookFirstViewController class]])
-                    {
-                        first = child;
-                    }
-                }
-            
-                [first.picker reloadAllComponents];
-            }
-            */
+
         }
     }
 
