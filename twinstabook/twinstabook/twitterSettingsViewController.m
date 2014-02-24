@@ -129,6 +129,8 @@
         [self.selected removeObjectForKey:key];
         [self.selected setObject:id forKey:username];
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        
+        NSLog(@"need to update friends list in %@",[self class]);
     }
     [tableView reloadData];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

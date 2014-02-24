@@ -45,6 +45,7 @@
     self.searchBar.delegate = self;
     
     self.tableViewObjects = [[NSMutableArray alloc] init];
+    [self searchWithText:@""];
 }
 
 - (void)didReceiveMemoryWarning
@@ -98,7 +99,7 @@
     [searchBar resignFirstResponder];
 }
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+- (void)searchWithText:(NSString *)searchText
 {
     NSInteger length = [searchText length];
     
@@ -119,7 +120,11 @@
             [self instagramSearch:searchText];
         }
     }
-    
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [self searchWithText:searchText];
 }
 
 - (void)facebookSearch:(NSString *)searchString
@@ -147,12 +152,24 @@
 
 - (void)twitterSearch:(NSString *)searchString
 {
+    bool emptyStringSearch = NO;
+    if ([searchString isEqualToString:@""])
+    {
+        emptyStringSearch = YES;
+    }
+    for (NSDictionary *dict in self.database.twitterFriends)
+    {
+        NSString *name = [dict objectForKey:@"name"];
+        NSInteger len = [name rangeOfString:searchString options:NSCaseInsensitiveSearch].length;
+        if (len || emptyStringSearch)
+        {
+            displayObject *obj = [[displayObject alloc] init];
+            obj.mainTitle = name;
+            [self addObjectToTable:obj];
+        }
+
+    }
     
-    displayObject *obj = [[displayObject alloc] init];
-    
-    obj.mainTitle = searchString;
-    [self addObjectToTable:obj];
-//    NSLog(@"adding object %@", searchString);
 }
 
 - (void)instagramSearch:(NSString *)searchString

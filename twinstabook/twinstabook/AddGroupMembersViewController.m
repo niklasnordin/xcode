@@ -235,7 +235,20 @@
         NSString *title = [NSString stringWithFormat:@"Search %@",feedName];
         [vc setTitle:title];
         [vc setDatabase:self.database];
-        [vc setMinStringLength:2];
+        switch (self.database.selectedMediaNameIndex) {
+            case kFacebook:
+                [vc setMinStringLength:2];
+                break;
+            case kTwitter:
+                [vc setMinStringLength:0];
+                break;
+            case kInstagram:
+                [vc setMinStringLength:2];
+                break;
+            default:
+                break;
+        }
+        //[vc setMinStringLength:2];
         [vc setSearchFeed:feedName];
     }
 }
