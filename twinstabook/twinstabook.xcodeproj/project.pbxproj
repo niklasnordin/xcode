@@ -10,7 +10,7 @@
 		6137DFEC18A3FF1200E0C589 /* questionMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6137DFEB18A3FF1200E0C589 /* questionMark.png */; };
 		6137DFF518A66C7200E0C589 /* JMPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6137DFF418A66C7200E0C589 /* JMPickerView.m */; };
 		6137DFF918A7AFEF00E0C589 /* FacebookParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6137DFF818A7AFEF00E0C589 /* FacebookParser.m */; };
-		6137DFFE18A7B03C00E0C589 /* DisplayObject3.m in Sources */ = {isa = PBXBuildFile; fileRef = 6137DFFD18A7B03C00E0C589 /* DisplayObject3.m */; };
+		6137DFFE18A7B03C00E0C589 /* DisplayObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6137DFFD18A7B03C00E0C589 /* DisplayObject.m */; };
 		6137E00118A7B11600E0C589 /* tifTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6137E00018A7B11600E0C589 /* tifTableViewCell.m */; };
 		6165736818B3D3D10025DF09 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165736718B3D3D10025DF09 /* SWRevealViewController.m */; };
 		6165736B18B3FF3A0025DF09 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165736A18B3FF3A0025DF09 /* MenuTableViewController.m */; };
@@ -72,8 +72,8 @@
 		6137DFF418A66C7200E0C589 /* JMPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPickerView.m; sourceTree = "<group>"; };
 		6137DFF718A7AFEF00E0C589 /* FacebookParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookParser.h; sourceTree = "<group>"; };
 		6137DFF818A7AFEF00E0C589 /* FacebookParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookParser.m; sourceTree = "<group>"; };
-		6137DFFC18A7B03C00E0C589 /* DisplayObject3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayObject3.h; sourceTree = "<group>"; };
-		6137DFFD18A7B03C00E0C589 /* DisplayObject3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayObject3.m; sourceTree = "<group>"; };
+		6137DFFC18A7B03C00E0C589 /* DisplayObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayObject.h; sourceTree = "<group>"; };
+		6137DFFD18A7B03C00E0C589 /* DisplayObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayObject.m; sourceTree = "<group>"; };
 		6137DFFF18A7B11600E0C589 /* tifTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tifTableViewCell.h; sourceTree = "<group>"; };
 		6137E00018A7B11600E0C589 /* tifTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tifTableViewCell.m; sourceTree = "<group>"; };
 		6165736618B3D3D10025DF09 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -320,8 +320,8 @@
 				617CE88718AD30270025AA92 /* linkWebViewController.m */,
 				6188A2A718917CB9009C75EB /* tif_db.h */,
 				6188A2A818917CB9009C75EB /* tif_db.m */,
-				6137DFFC18A7B03C00E0C589 /* DisplayObject3.h */,
-				6137DFFD18A7B03C00E0C589 /* DisplayObject3.m */,
+				6137DFFC18A7B03C00E0C589 /* DisplayObject.h */,
+				6137DFFD18A7B03C00E0C589 /* DisplayObject.m */,
 				61DFBF6F18BBEC0C00DB6D4E /* UserObject.h */,
 				61DFBF7018BBEC0C00DB6D4E /* UserObject.m */,
 				61C57C5418897BA600887F5E /* twinstabookAppDelegate.h */,
@@ -488,7 +488,7 @@
 				61ECD15118981B8C00E5B952 /* groupTableViewController.m in Sources */,
 				61C57C5218897BA600887F5E /* main.m in Sources */,
 				6165737C18B54D810025DF09 /* instagramSettingsViewController.m in Sources */,
-				6137DFFE18A7B03C00E0C589 /* DisplayObject3.m in Sources */,
+				6137DFFE18A7B03C00E0C589 /* DisplayObject.m in Sources */,
 				6165737918B54D600025DF09 /* twitterSettingsViewController.m in Sources */,
 				6188A2A918917CB9009C75EB /* tif_db.m in Sources */,
 				61DFBF6B18BA208800DB6D4E /* AddGroupMembersViewController.m in Sources */,
