@@ -9,10 +9,10 @@
 #import "FacebookParser.h"
 @interface FacebookParser()
 
-- (displayObject *)parseStatus:(NSDictionary *)dict;
-- (displayObject *)parseLink:(NSDictionary *)dict;
-- (displayObject *)parsePhoto:(NSDictionary *)dict;
-- (displayObject *)parseVideo:(NSDictionary *)dict;
+- (DisplayObject *)parseStatus:(NSDictionary *)dict;
+- (DisplayObject *)parseLink:(NSDictionary *)dict;
+- (DisplayObject *)parsePhoto:(NSDictionary *)dict;
+- (DisplayObject *)parseVideo:(NSDictionary *)dict;
 
 @end
 
@@ -34,7 +34,7 @@ static NSString *FBSTATUSTYPEMOBILEUPDATE = @"mobile_status_update";
     return self;
 }
 
-+ (displayObject *)parse:(NSDictionary *)dict
++ (DisplayObject *)parse:(NSDictionary *)dict
 {
     //NSLog(@"dictionary is %@",dict);
 
@@ -48,7 +48,7 @@ static NSString *FBSTATUSTYPEMOBILEUPDATE = @"mobile_status_update";
     };
 
     FacebookParser *parser = [[FacebookParser alloc] init];
-    displayObject *obj = nil;
+    DisplayObject *obj = nil;
     
     NSString *type = [dict objectForKey:OBJTYPE];
     NSNumber *numberType = [FBType objectForKey:type];
@@ -78,16 +78,16 @@ static NSString *FBSTATUSTYPEMOBILEUPDATE = @"mobile_status_update";
     return obj;
 }
 
-- (displayObject *)parseStatus:(NSDictionary *)dict
+- (DisplayObject *)parseStatus:(NSDictionary *)dict
 {
-    displayObject *obj = nil;
+    DisplayObject *obj = nil;
     NSString *message = [dict objectForKey:@"message"];
     //NSString *statusType = [dict objectForKey:@"status_type"];
     
     if (message)
     {
         //NSLog(@"obj = %@",dict);
-        obj = [[displayObject alloc] init];
+        obj = [[DisplayObject alloc] init];
         [obj setMainTitle:message];
         [obj setType:@"facebook"];
         
@@ -107,27 +107,27 @@ static NSString *FBSTATUSTYPEMOBILEUPDATE = @"mobile_status_update";
     return obj;
 }
 
-- (displayObject *)parseLink:(NSDictionary *)dict
+- (DisplayObject *)parseLink:(NSDictionary *)dict
 {
-    displayObject *obj;
+    DisplayObject *obj;
     
     //NSLog(@"%@",dict);
     
     return obj;
 }
 
-- (displayObject *)parsePhoto:(NSDictionary *)dict
+- (DisplayObject *)parsePhoto:(NSDictionary *)dict
 {
-    displayObject *obj;
+    DisplayObject *obj;
     
     //NSLog(@"%@",dict);
     
     return obj;
 }
 
-- (displayObject *)parseVideo:(NSDictionary *)dict
+- (DisplayObject *)parseVideo:(NSDictionary *)dict
 {
-    displayObject *obj;
+    DisplayObject *obj;
     
     //NSLog(@"%@",dict);
     

@@ -10,14 +10,14 @@
 
 @implementation twitterParser
 
-+ (displayObject *)parse:(NSDictionary *)dict
++ (DisplayObject *)parse:(NSDictionary *)dict
 {
-    displayObject *obj = nil;
+    DisplayObject *obj = nil;
     
     //NSLog(@"dict = %@",dict);
     if (dict)
     {
-        obj = [[displayObject alloc] initWithTwitterDictionary:dict];
+        obj = [[DisplayObject alloc] initWithTwitterDictionary:dict];
 //        obj.mainTitle = [dict objectForKey:@"text"];
         NSLog(@"text = %@",obj.mainTitle);
 

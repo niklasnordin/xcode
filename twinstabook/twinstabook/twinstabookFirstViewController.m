@@ -187,7 +187,7 @@
                  [self.uidLoaded setObject:[[NSNumber alloc] initWithBool:YES] forKey:uid];
                  for (NSDictionary *k in data)
                  {
-                     displayObject *obj = [FacebookParser parse:k];
+                     DisplayObject *obj = [FacebookParser parse:k];
                      if (obj)
                      {
                          [self.feedArray addObject:obj];
@@ -264,7 +264,7 @@
                             // NSLog(@"class = %@",[[self.twitterArray lastObject] class]);
                              for (NSDictionary *post in self.twitterArray)
                              {
-                                 displayObject *obj = [twitterParser parse:post];
+                                 DisplayObject *obj = [twitterParser parse:post];
                                  if (obj)
                                  {
                                      [self.feedArray addObject:obj];
@@ -300,7 +300,7 @@
         //for (FBGraphObject *k in data)
         for (NSDictionary *k in data)
         {
-            displayObject *obj = [FacebookParser parse:k];
+            DisplayObject *obj = [FacebookParser parse:k];
             if (obj)
             {
                 [self.feedArray addObject:obj];
@@ -537,7 +537,7 @@
     static NSString *CellIdentifier = @"feedCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
    
-    displayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
+    DisplayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
     cell.textLabel.text = obj.mainTitle;
     return cell;
 }
@@ -546,7 +546,7 @@
 {
     return;
     
-    displayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
+    DisplayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
 
     //check if facebook app exists
     bool facebookExist = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]];
@@ -568,7 +568,7 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    displayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
+    DisplayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
     //NSLog(@"link = %@",obj.link);
     self.selectedLinkForWebview = obj.link;
     [self performSegueWithIdentifier:@"weblinkSegue" sender:obj.link];

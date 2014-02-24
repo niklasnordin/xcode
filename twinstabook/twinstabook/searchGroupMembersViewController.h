@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "tif_db.h"
-#import "displayObject.h"
 
 const static int maxImages = 100;
 

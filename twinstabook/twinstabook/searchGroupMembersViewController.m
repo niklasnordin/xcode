@@ -7,6 +7,7 @@
 //
 
 #import "searchGroupMembersViewController.h"
+#import "UserObject.h"
 
 @interface searchGroupMembersViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -26,7 +27,7 @@
 
 @implementation searchGroupMembersViewController
 
-- (void)addObjectToTable:(displayObject *)obj
+- (void)addObjectToTable:(UserObject *)obj
 {
     NSLog(@"setting tableViewObjects, updating tableView");
     // make sure we only update the table view on the main queue
@@ -90,9 +91,9 @@
     static NSString *CellIdentifier = @"aliasNameCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
 
-    displayObject *obj = [self.tableViewObjects objectAtIndex:indexPath.row];
-    cell.textLabel.text = obj.mainTitle;
-    cell.imageView.image = obj.image;
+    UserObject *user = [self.tableViewObjects objectAtIndex:indexPath.row];
+    cell.textLabel.text = user.name;
+    cell.imageView.image = [UIImage imageWithData:user.imageData];
 
     // add uid to downloadImageQueue
     return cell;
@@ -184,10 +185,10 @@
         NSInteger len = [name rangeOfString:searchString options:NSCaseInsensitiveSearch].length;
         if (len || emptyStringSearch)
         {
-            displayObject *obj = [[displayObject alloc] init];
-            obj.mainTitle = name;
-            obj.image = defaultImage;
-            [self addObjectToTable:obj];
+            UserObject *user = [[UserObject alloc] init];
+            user.name = name;
+            user.imageData = UIImagePNGRepresentation(defaultImage);
+            [self addObjectToTable:user];
         }
 
     }
