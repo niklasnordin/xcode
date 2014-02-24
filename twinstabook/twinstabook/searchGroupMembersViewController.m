@@ -11,6 +11,17 @@
 @interface searchGroupMembersViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) NSMutableDictionary *uidToImageDownloadOperations;
+@property (strong, nonatomic) NSMutableDictionary *uidsInView;
+@property (strong, nonatomic) NSOperationQueue *imageLoadingQueue;
+
+@property (strong, nonatomic) NSMutableArray *tableViewObjects;
+
+//@property (strong, nonatomic) NSNumber *downloadImage;
+@property (strong, nonatomic) NSMutableDictionary *imageCache;
+
+
 @end
 
 @implementation searchGroupMembersViewController
@@ -46,6 +57,11 @@
     
     self.tableViewObjects = [[NSMutableArray alloc] init];
     [self searchWithText:@""];
+    
+    _uidToImageDownloadOperations = [[NSMutableDictionary alloc] init];
+    _imageCache = [[NSMutableDictionary alloc] init];
+    _imageLoadingQueue = [[NSOperationQueue alloc] init];
+    [_imageLoadingQueue setName:@"imageLoadingQueue"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,6 +92,9 @@
 
     displayObject *obj = [self.tableViewObjects objectAtIndex:indexPath.row];
     cell.textLabel.text = obj.mainTitle;
+    cell.imageView.image = obj.image;
+
+    // add uid to downloadImageQueue
     return cell;
 }
 
@@ -152,6 +171,8 @@
 
 - (void)twitterSearch:(NSString *)searchString
 {
+    UIImage *defaultImage = [UIImage imageNamed:@"questionMark.png"];
+
     bool emptyStringSearch = NO;
     if ([searchString isEqualToString:@""])
     {
@@ -165,6 +186,7 @@
         {
             displayObject *obj = [[displayObject alloc] init];
             obj.mainTitle = name;
+            obj.image = defaultImage;
             [self addObjectToTable:obj];
         }
 
