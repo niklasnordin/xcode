@@ -40,8 +40,15 @@ static NSString * const kTwitterAPIVersion = @"1.1";
     FBLoginViewDelegate
 >
 
+// contains the names of the social medias
 @property (strong, nonatomic) NSArray *socialMediaNames;
+
+// used for the search function when adding members to a group
 @property (nonatomic) int selectedMediaNameIndex;
+
+// used for the search function when there is a secondary option
+// so far only facebook has search options
+@property (nonatomic) NSInteger selectedOptionIndex;
 
 @property (strong, nonatomic) ACAccountStore *account;
 
@@ -51,12 +58,16 @@ static NSString * const kTwitterAPIVersion = @"1.1";
 @property (nonatomic) bool useTwitter;
 @property (nonatomic) bool useInstagram;
 
+// the index to which group to use for the feed
 @property (nonatomic) NSInteger selectedFeedIndex;
 
+// the names of all the groups
 @property (strong, nonatomic) NSMutableArray *groups;
+
+// dictionaries containing the groupmembers to all groups
 @property (strong, nonatomic) NSMutableDictionary *groupMembers;
-//@property (strong, nonatomic) NSOperationQueue *imageLoadingQueue;
-@property (nonatomic) NSInteger selectedOptionindex;
+
+
 
 - (id)init;
 - (void)saveDatabase;

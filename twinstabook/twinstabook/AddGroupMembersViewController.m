@@ -56,7 +56,7 @@
     self.optionsPicker = [[JMPickerView alloc] initWithDelegate:self.optionsPVDelegate addingToViewController:self withDistanceToTop:65.0f];
     [self.optionsPicker hide:-1.0f];
     //[self.optionsPicker setBackgroundColor:[UIColor lightGrayColor]];
-    [self.optionsButton setTitle:[self.database.facebookSearchOptions objectAtIndex:self.database.selectedOptionindex] forState:UIControlStateNormal];
+    [self.optionsButton setTitle:[self.database.facebookSearchOptions objectAtIndex:self.database.selectedOptionIndex] forState:UIControlStateNormal];
 
     [self setSecondary];
 
@@ -231,13 +231,19 @@
         //NSLog(@"going...");
         //self.database.selectedMediaNameIndex = row;
 
-        NSString *title = [NSString stringWithFormat:@"Search %@",[self.database.socialMediaNames objectAtIndex:self.database.selectedMediaNameIndex]];
+        NSString *feedName = [self.database.socialMediaNames objectAtIndex:self.database.selectedMediaNameIndex];
+        NSString *title = [NSString stringWithFormat:@"Search %@",feedName];
         [vc setTitle:title];
+        [vc setDatabase:self.database];
+        [vc setMinStringLength:2];
+        [vc setSearchFeed:feedName];
     }
 }
 
 - (void)updateOptionsForRow:(NSInteger)row
 {
+    // this is set in the optionsPicker delegate
+    //self.database.selectedOptionIndex = row;
     [self.optionsButton setTitle:[self.database.facebookSearchOptions objectAtIndex:row] forState:UIControlStateNormal];
 }
 

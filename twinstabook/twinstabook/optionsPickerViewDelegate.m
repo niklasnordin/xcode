@@ -41,7 +41,7 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.database.selectedOptionindex = row;
+    self.database.selectedOptionIndex = row;
     //groupViewController *vc = (groupViewController *)self.delegate;
     AddGroupMembersViewController *vc = (AddGroupMembersViewController *)self.delegate;
     [vc updateOptionsForRow:row];

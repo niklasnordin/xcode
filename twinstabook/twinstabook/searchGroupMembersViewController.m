@@ -15,6 +15,16 @@
 
 @implementation searchGroupMembersViewController
 
+- (void)addObjectToTable:(displayObject *)obj
+{
+    NSLog(@"setting tableViewObjects, updating tableView");
+    // make sure we only update the table view on the main queue
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableViewObjects addObject:obj];
+        [self.tableView reloadData];
+    });
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -33,6 +43,8 @@
     self.tableView.dataSource = self;
     
     self.searchBar.delegate = self;
+    
+    self.tableViewObjects = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,7 +63,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 0;
+    return [self.tableViewObjects count];
 }
 
 #pragma mark - Table view data source
@@ -61,7 +73,14 @@
     static NSString *CellIdentifier = @"aliasNameCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
 
+    displayObject *obj = [self.tableViewObjects objectAtIndex:indexPath.row];
+    cell.textLabel.text = obj.mainTitle;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -73,10 +92,16 @@
 
 #pragma mark - search bar delegate
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSLog(@"clicked");
+    [searchBar resignFirstResponder];
+}
+
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    //NSLog(@"search text = %@",searchText);
     NSInteger length = [searchText length];
+    
     if (length >= self.minStringLength)
     {
         if ([self.searchFeed isEqualToString:[self.database.socialMediaNames objectAtIndex:kFacebook]])
@@ -99,17 +124,64 @@
 
 - (void)facebookSearch:(NSString *)searchString
 {
+    NSLog(@"facebookSearch");
+    switch (self.database.selectedOptionIndex) {
+
+        case 0:
+            [self searchFacebookFriends:searchString];
+            break;
+
+        case 1:
+            [self searchFacebookPages:searchString];
+            break;
+
+        case 2:
+            [self searchFacebookUsers:searchString];
+            break;
+
+        default:
+            break;
+    }
     
 }
 
 - (void)twitterSearch:(NSString *)searchString
 {
     
+    displayObject *obj = [[displayObject alloc] init];
+    
+    obj.mainTitle = searchString;
+    [self addObjectToTable:obj];
+//    NSLog(@"adding object %@", searchString);
 }
 
 - (void)instagramSearch:(NSString *)searchString
 {
+    NSLog(@"instagramSearch");
+}
+
+- (void)searchFacebookFriends:(NSString *)searchString
+{
     
 }
+
+- (void)searchFacebookPages:(NSString *)searchString
+{
+    
+}
+
+- (void)searchFacebookUsers:(NSString *)searchString
+{
+    
+}
+
+/*
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    //[self searchButtonClicked:nil];
+    return YES;
+}
+*/
 
 @end

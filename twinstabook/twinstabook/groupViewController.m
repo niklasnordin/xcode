@@ -60,7 +60,7 @@
     self.optionsPicker = [[JMPickerView alloc] initWithDelegate:self.optionsPVDelegate addingToViewController:self withDistanceToTop:65.0f];
     [self.optionsPicker hide:-1.0f];
     //[self.optionsPicker setBackgroundColor:[UIColor lightGrayColor]];
-    [self.searchOptionButton setTitle:[self.database.facebookSearchOptions objectAtIndex:self.database.selectedOptionindex] forState:UIControlStateNormal];
+    [self.searchOptionButton setTitle:[self.database.facebookSearchOptions objectAtIndex:self.database.selectedOptionIndex] forState:UIControlStateNormal];
 
     UIBarButtonItem *editButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editTable)];
     //UIBarButtonItem *button = [[UIBarButtonItem alloc] ini]
@@ -198,7 +198,7 @@
     bool emptyStringSearch = NO;
     if ([searchString isEqualToString:@""])
     {
-        if (self.database.selectedOptionindex != 0)
+        if (self.database.selectedOptionIndex != 0)
         {
             return;
         }
@@ -209,7 +209,7 @@
     [self.searchActivityIndicator startAnimating];
     //perform the search (add search indicator) and then segue the resulting list
     
-    if (self.database.selectedOptionindex == 0)
+    if (self.database.selectedOptionIndex == 0)
     {
         // search friends list
         NSMutableArray *friends = [[NSMutableArray alloc] init];
@@ -238,7 +238,7 @@
         searchString = [searchString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSString *search = nil;
 
-        if (self.database.selectedOptionindex == 1)
+        if (self.database.selectedOptionIndex == 1)
         {
             search = [NSString stringWithFormat:@"search?q=%@&type=page",searchString];
         }
