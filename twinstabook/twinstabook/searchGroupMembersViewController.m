@@ -81,33 +81,33 @@
     {
         if ([self.searchFeed isEqualToString:[self.database.socialMediaNames objectAtIndex:kFacebook]])
         {
-            [self facebookSearch];
+            [self facebookSearch:searchText];
         }
         
         if ([self.searchFeed isEqualToString:[self.database.socialMediaNames objectAtIndex:kTwitter]])
         {
-            [self twitterSearch];
+            [self twitterSearch:searchText];
         }
         
         if ([self.searchFeed isEqualToString:[self.database.socialMediaNames objectAtIndex:kInstagram]])
         {
-            [self instagramSearch];
+            [self instagramSearch:searchText];
         }
     }
     
 }
 
-- (void)facebookSearch
+- (void)facebookSearch:(NSString *)searchString
 {
     
 }
 
-- (void)twitterSearch
+- (void)twitterSearch:(NSString *)searchString
 {
     
 }
 
-- (void)instagramSearch
+- (void)instagramSearch:(NSString *)searchString
 {
     
 }

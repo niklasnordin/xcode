@@ -44,7 +44,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 
-    bool hide = !self.db.useFacebook;
+    bool hide = !self.db.useTwitter;
     [self.statusLabel setHidden:hide];
     [self.tableView setHidden:hide];
 }
@@ -117,8 +117,9 @@
     
     if ([self.selected objectForKey:username])
     {
-        [cell setAccessoryType:UITableViewCellAccessoryNone];
-        [self.selected removeObjectForKey:username];
+        // already selected, do nothing
+        //[cell setAccessoryType:UITableViewCellAccessoryNone];
+        //[self.selected removeObjectForKey:username];
     }
     else
     {
