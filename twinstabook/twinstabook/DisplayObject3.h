@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface displayObject : NSObject
+@interface DisplayObject : NSObject
 
 @property (strong, nonatomic) NSString *mainTitle;
 @property (strong, nonatomic) NSString *subTitle;
