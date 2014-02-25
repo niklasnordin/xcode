@@ -8,6 +8,7 @@
 
 #import "tif_db.h"
 #import "twinstabookFirstViewController.h"
+#import "UserObject.h"
 
 @interface tif_db ()
 
@@ -578,7 +579,11 @@
                                   NSString *uid = [u objectForKey:@"id_str"];
                                   NSDictionary *d = @{@"name" : name, @"id" : uid };
                                   //NSLog(@"%@",d);
-                                  [self.twitterFriends addObject:d];
+                                  UserObject *user = [[UserObject alloc] init];
+                                  user.name = name;
+                                  user.uid = uid;
+                                  //[self.twitterFriends addObject:d];
+                                  [self.twitterFriends addObject:user];
                               }
                               NSLog(@"twitterFriends.count = %ld",self.twitterFriends.count);
                               //[self.facebookFriends addObjectsFromArray:friendsArray];
