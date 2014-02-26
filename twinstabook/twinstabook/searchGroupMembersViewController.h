@@ -11,7 +11,7 @@
 
 const static int maxImages = 100;
 
-@interface searchGroupMembersViewController : UIViewController
+@interface searchGroupMembersViewController : UITableViewController
 <
     UITableViewDelegate,
     UITableViewDataSource,

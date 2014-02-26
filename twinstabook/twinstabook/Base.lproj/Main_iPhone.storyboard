@@ -191,7 +191,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="LIL-Tm-XPG" kind="push" identifier="searchMembersSegue" id="gpD-Aw-82d"/>
+                                    <segue destination="Z9U-Mn-r1D" kind="push" identifier="searchMembersSegue" id="Zqq-j1-VfX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -210,49 +210,56 @@
             <point key="canvasLocation" x="-826" y="670"/>
         </scene>
         <!--Search Group Members View Controller - Search-->
-        <scene sceneID="WoL-xC-ifi">
+        <scene sceneID="5qN-mg-3WY">
             <objects>
-                <viewController id="LIL-Tm-XPG" customClass="searchGroupMembersViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WDw-rP-Ofn"/>
-                        <viewControllerLayoutGuide type="bottom" id="GLw-vy-Jem"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Qh8-Dc-73x">
+                <tableViewController id="Z9U-Mn-r1D" customClass="searchGroupMembersViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Mqa-W5-lIw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pMt-w6-MgG">
-                                <rect key="frame" x="0.0" y="65" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vxR-8K-1RZ">
-                                <rect key="frame" x="0.0" y="109" width="320" height="459"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="aliasNameCell" id="cLT-FL-VoF">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cLT-FL-VoF" id="J0R-BW-8mg">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Search" id="fqR-wg-Hjb"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="1jR-SD-O2F">
+                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="Z9U-Mn-r1D" id="Iru-dY-QeD"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="aliasNameCell" id="xl4-mI-esF">
+                                <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xl4-mI-esF" id="bYF-qm-fgN">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Z9U-Mn-r1D" id="qCC-ZA-sBN"/>
+                            <outlet property="delegate" destination="Z9U-Mn-r1D" id="9fu-3H-Sq8"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Search" id="8vW-oa-tIa"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="searchBar" destination="pMt-w6-MgG" id="xXd-0P-QLp"/>
-                        <outlet property="tableView" destination="vxR-8K-1RZ" id="azO-rO-nVt"/>
+                        <outlet property="searchBar" destination="1jR-SD-O2F" id="Ox4-ly-7O4"/>
+                        <outlet property="searchDisplayController" destination="f6q-CC-y9n" id="TR9-bS-3bB"/>
+                        <outlet property="tableView" destination="Mqa-W5-lIw" id="N6D-6C-smM"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9NM-Jy-wNP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="09f-bN-6ju" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="f6q-CC-y9n">
+                    <connections>
+                        <outlet property="delegate" destination="Z9U-Mn-r1D" id="vjf-Xr-Nq1"/>
+                        <outlet property="searchBar" destination="1jR-SD-O2F" id="EUv-bE-XS9"/>
+                        <outlet property="searchContentsController" destination="Z9U-Mn-r1D" id="rR2-9F-eGa"/>
+                        <outlet property="searchResultsDataSource" destination="Z9U-Mn-r1D" id="SVa-SZ-PZR"/>
+                        <outlet property="searchResultsDelegate" destination="Z9U-Mn-r1D" id="RjC-5T-CDh"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-441" y="670"/>
+            <point key="canvasLocation" x="-305" y="675"/>
         </scene>
         <!--Group Table View Controller - Create Groups-->
         <scene sceneID="Zpo-2T-KUA">

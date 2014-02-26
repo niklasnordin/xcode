@@ -18,7 +18,7 @@
         self.type = -1;
         self.name = @"";
         self.uid = @"";
-        self.imageData = [[NSData alloc] init];
+        //self.imageData = [[NSData alloc] init];
     }
     
     return self;

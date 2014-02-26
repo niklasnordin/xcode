@@ -13,7 +13,7 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *uid;
 @property (nonatomic) NSInteger type;
-@property (strong, nonatomic) NSData *imageData;
+//@property (strong, nonatomic) NSData *imageData;
 
 - (id)init;
 

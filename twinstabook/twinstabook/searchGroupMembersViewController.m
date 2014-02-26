@@ -17,10 +17,8 @@
 @property (strong, nonatomic) NSOperationQueue *imageLoadingQueue;
 
 @property (strong, nonatomic) NSMutableArray *tableViewObjects;
-
-//@property (strong, nonatomic) NSNumber *downloadImage;
 @property (strong, nonatomic) NSMutableDictionary *imageCache;
-
+@property (strong, nonatomic) NSMutableDictionary *userToIndexPath;
 
 @end
 
@@ -36,10 +34,40 @@
     });
 }
 
+- (void)removeObjectFromTable:(NSInteger)i
+{
+    //NSLog(@"setting tableViewObjects, updating tableView");
+    // make sure we only update the table view on the main queue
+    /*
+    [tableView beginUpdates];
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    [tableView endUpdates];
+    [tableView reloadData];
+     */
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [self.tableViewObjects removeObjectAtIndex:i];
+        [self.tableView reloadData];
+    });
+}
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self)
+    {
+        // Custom initialization
+    }
+    
+    return self;
+}
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self)
+    {
         // Custom initialization
     }
     return self;
@@ -58,6 +86,7 @@
     self.tableViewObjects = [[NSMutableArray alloc] init];
     [self searchWithText:@""];
     
+    _userToIndexPath = [[NSMutableDictionary alloc] init];
     _uidToImageDownloadOperations = [[NSMutableDictionary alloc] init];
     _imageCache = [[NSMutableDictionary alloc] init];
     _imageLoadingQueue = [[NSOperationQueue alloc] init];
@@ -80,50 +109,61 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.tableViewObjects count];
+    if ([tableView isEqual:self.tableView])
+    {
+        return [self.tableViewObjects count];
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 #pragma mark - Table view data source
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.tableView != tableView)
+    {
+        NSLog(@"this is not tableview!!!");
+    }
+    
     static NSString *CellIdentifier = @"aliasNameCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
+    if (!cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
     UserObject *user = [self.tableViewObjects objectAtIndex:indexPath.row];
 
     cell.textLabel.text = user.name;
+    cell.imageView.image = [UIImage imageNamed:@"questionMark.png"];
 
-    if (!user.imageData)
+    // no image data available so set the image to download and put a
+    // question mark there meanwhile
+    switch (self.database.selectedMediaNameIndex)
     {
-        // no image data available so set the image to download and put a
-        // question mark there meanwhile
-        switch (self.database.selectedMediaNameIndex)
-        {
-            case kFacebook:
-                //[self facebookSearch:searchText];
-                break;
+        case kFacebook:
+            //[self facebookSearch:searchText];
+            break;
                 
-            case kTwitter:
-                [self downloadTwitterImageForUser:user andTV:tableView indexPath:indexPath];
-                break;
+        case kTwitter:
+            [self downloadTwitterImageForUser:user andCell:cell];
+            break;
                 
-            case kInstagram:
-                //[self instagramSearch:searchText];
-                break;
+        case kInstagram:
+            //[self instagramSearch:searchText];
+            break;
                 
-            default:
-                break;
-        }
-        [self downloadImageForUser:user andTV:tableView indexPath:indexPath];
-        cell.imageView.image = [UIImage imageNamed:@"questionMark.png"];
+        default:
+            break;
     }
-    else
-    {
-        cell.imageView.image = [UIImage imageWithData:user.imageData];
-    }
-    
-    // add uid to downloadImageQueue
+
+    [self.userToIndexPath setObject:indexPath forKey:user.uid];
+
     return cell;
 }
 
@@ -136,7 +176,7 @@
 {
 
     UserObject *user = [self.tableViewObjects objectAtIndex:indexPath.row];
-
+    [self.userToIndexPath removeObjectForKey:user.uid];
     //Fetch operation that doesn't need executing anymore
     NSBlockOperation *ongoingDownloadOperation = [self.uidToImageDownloadOperations objectForKey:user.uid];
     if (ongoingDownloadOperation)
@@ -148,7 +188,6 @@
 
 }
 
-
 - (void)downloadImageForUser:(UserObject *)user andTV:(UITableView *)tv indexPath:(NSIndexPath *)ip
 {
     
@@ -156,6 +195,7 @@
     NSData *imageData = [self.imageCache objectForKey:user.uid];
     if (imageData)
     {
+        NSLog(@"using imageData for uid = %@",user.uid);
         UITableViewCell *cell = [tv cellForRowAtIndexPath:ip];
         cell.imageView.image = [UIImage imageWithData:imageData];
     }
@@ -185,7 +225,7 @@
                           theCell.imageView.image = image;
                           NSData *imageData = UIImagePNGRepresentation(image);
                           [self.imageCache setObject:imageData forKey:user.uid];
-                          user.imageData = imageData;
+                          //user.imageData = imageData;
                       }
                       
                       [self.uidToImageDownloadOperations removeObjectForKey:user.uid];
@@ -208,14 +248,22 @@
     
 }
 
-- (void)downloadTwitterImageForUser:(UserObject *)user  andTV:(UITableView *)tv indexPath:(NSIndexPath *)ip
+//- (void)downloadTwitterImageForUser:(UserObject *)user  andTV:(UITableView *)tv indexPath:(NSIndexPath *)ip
+- (void)downloadTwitterImageForUser:(UserObject *)user andCell:(UITableViewCell *)cell
 {
+
+    if ([self.imageCache objectForKey:user.uid])
+    {
+        //UITableViewCell *cell = [tv cellForRowAtIndexPath:ip];
+        cell.imageView.image = [UIImage imageWithData:[self.imageCache objectForKey:user.uid]];
+        return;
+    }
     
-    __weak UITableViewCell *weakCell = [tv cellForRowAtIndexPath:ip];
+    __weak UITableViewCell *weakCell = cell;
     
     NSBlockOperation *loadImageIntoCellOp = [[NSBlockOperation alloc] init];
     __weak NSBlockOperation *weakOp = loadImageIntoCellOp;
-    
+
     [loadImageIntoCellOp addExecutionBlock:^(void)
      {
          
@@ -229,13 +277,13 @@
                   if (twitterAccount)
                   {
                       NSString *apiString = [NSString stringWithFormat:@"%@/%@/users/show.json", kTwitterAPIRoot, kTwitterAPIVersion];
-                      NSLog(@"apiString = %@", apiString);
+                      //NSLog(@"apiString = %@", apiString);
                       
                       NSURL *request = [NSURL URLWithString:apiString];
                       
                       NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
                       [parameters setObject:user.uid forKey:@"user_id"];
-                      NSLog(@"parameters = %@",parameters);
+                      //NSLog(@"parameters = %@",parameters);
                       SLRequest *friends = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:request parameters:parameters];
                       friends.account = twitterAccount;
                       [friends performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
@@ -265,8 +313,12 @@
                                             if (pResponseData)
                                             {
                                                 [self.imageCache setObject:pResponseData forKey:user.uid];
-                                                user.imageData = pResponseData;
+                                                //user.imageData = pResponseData;
+                                                //UITableViewCell *cell = [tv cellForRowAtIndexPath:ip];
+
                                                 weakCell.imageView.image = [UIImage imageWithData:pResponseData];
+                                                //NSLog(@"here we go for uid = %@",user.uid);
+
                                             }
                                             
                                             [self.uidToImageDownloadOperations removeObjectForKey:user.uid];
@@ -379,17 +431,39 @@
 
 - (void)twitterSearch:(NSString *)searchString
 {
+    
     bool emptyStringSearch = NO;
     if ([searchString isEqualToString:@""])
     {
         emptyStringSearch = YES;
     }
+    
+    [self.tableView beginUpdates];
+    NSMutableArray *tmpArray = [[NSMutableArray alloc] init];
+    NSInteger num = [self.tableViewObjects count];
+    for (int i=0; i<num; i++)
+    {
+        UserObject *user = self.tableViewObjects[i];
+        NSInteger len = [user.name rangeOfString:searchString options:NSCaseInsensitiveSearch].length;
+        if (len)
+        {
+            [tmpArray addObject:user];
+        }
+    }
+    [self.tableViewObjects removeAllObjects];
+    self.tableViewObjects = [[NSMutableArray alloc] initWithArray:tmpArray];
+    [self.tableView endUpdates];
+    [self.tableView reloadData];
+    
     for (UserObject *user in self.database.twitterFriends)
     {
         NSInteger len = [user.name rangeOfString:searchString options:NSCaseInsensitiveSearch].length;
         if (len || emptyStringSearch)
         {
-            [self addObjectToTable:user];
+            if ([self.tableViewObjects indexOfObjectIdenticalTo:user] == NSNotFound)
+            {
+                [self addObjectToTable:user];
+            }
         }
     }
     

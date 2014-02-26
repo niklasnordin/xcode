@@ -291,6 +291,10 @@
 {
     static NSString *CellIdentifier = @"aliasNameCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    if (!cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
     NSDictionary *dict = [self.names objectAtIndex:indexPath.row];
     NSString *userID = [dict objectForKey:@"id"];
