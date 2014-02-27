@@ -15,7 +15,9 @@ const static int maxImages = 100;
 <
     UITableViewDelegate,
     UITableViewDataSource,
-    UISearchBarDelegate
+    UISearchBarDelegate,
+    UISearchDisplayDelegate,
+    UITextFieldDelegate
 >
 
 @property (weak, nonatomic) tif_db *database;

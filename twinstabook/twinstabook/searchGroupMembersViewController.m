@@ -17,12 +17,35 @@
 @property (strong, nonatomic) NSOperationQueue *imageLoadingQueue;
 
 @property (strong, nonatomic) NSMutableArray *tableViewObjects;
+@property (strong, nonatomic) NSMutableArray *searchObjects;
 @property (strong, nonatomic) NSMutableDictionary *imageCache;
 @property (strong, nonatomic) NSMutableDictionary *userToIndexPath;
 
 @end
 
 @implementation searchGroupMembersViewController
+
+
+- (NSMutableArray *)searchArray:(NSMutableArray *)ar with:(NSString *)searchText
+{
+    if ([searchText isEqualToString:@""])
+    {
+        return ar;
+    }
+    
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    //NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains [search] %@",searchText];
+
+    for (UserObject *user in ar)
+    {
+        if ([user.name rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
+        {
+            [result addObject:user];
+        }
+    }
+
+    return result;
+}
 
 - (void)addObjectToTable:(UserObject *)obj
 {
@@ -86,11 +109,17 @@
     self.tableViewObjects = [[NSMutableArray alloc] init];
     [self searchWithText:@""];
     
+    _searchObjects = [[NSMutableArray alloc] init];
     _userToIndexPath = [[NSMutableDictionary alloc] init];
     _uidToImageDownloadOperations = [[NSMutableDictionary alloc] init];
     _imageCache = [[NSMutableDictionary alloc] init];
     _imageLoadingQueue = [[NSOperationQueue alloc] init];
     [_imageLoadingQueue setName:@"imageLoadingQueue"];
+    
+    // if twitter
+
+    self.tableViewObjects = [self searchArray:self.database.twitterFriends with:@""];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -115,7 +144,8 @@
     }
     else
     {
-        return 0;
+        // search?
+        return [self.searchObjects count];
     }
 }
 
@@ -137,8 +167,16 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    UserObject *user = [self.tableViewObjects objectAtIndex:indexPath.row];
-
+    UserObject *user = nil;
+    if ([tableView isEqual:self.tableView])
+    {
+        user = [self.tableViewObjects objectAtIndex:indexPath.row];
+        [self.userToIndexPath setObject:indexPath forKey:user.uid];
+    }
+    else
+    {
+        user = [self.searchObjects objectAtIndex:indexPath.row];
+    }
     cell.textLabel.text = user.name;
     cell.imageView.image = [UIImage imageNamed:@"questionMark.png"];
 
@@ -161,8 +199,6 @@
         default:
             break;
     }
-
-    [self.userToIndexPath setObject:indexPath forKey:user.uid];
 
     return cell;
 }
@@ -431,42 +467,7 @@
 
 - (void)twitterSearch:(NSString *)searchString
 {
-    
-    bool emptyStringSearch = NO;
-    if ([searchString isEqualToString:@""])
-    {
-        emptyStringSearch = YES;
-    }
-    
-    [self.tableView beginUpdates];
-    NSMutableArray *tmpArray = [[NSMutableArray alloc] init];
-    NSInteger num = [self.tableViewObjects count];
-    for (int i=0; i<num; i++)
-    {
-        UserObject *user = self.tableViewObjects[i];
-        NSInteger len = [user.name rangeOfString:searchString options:NSCaseInsensitiveSearch].length;
-        if (len)
-        {
-            [tmpArray addObject:user];
-        }
-    }
-    [self.tableViewObjects removeAllObjects];
-    self.tableViewObjects = [[NSMutableArray alloc] initWithArray:tmpArray];
-    [self.tableView endUpdates];
-    [self.tableView reloadData];
-    
-    for (UserObject *user in self.database.twitterFriends)
-    {
-        NSInteger len = [user.name rangeOfString:searchString options:NSCaseInsensitiveSearch].length;
-        if (len || emptyStringSearch)
-        {
-            if ([self.tableViewObjects indexOfObjectIdenticalTo:user] == NSNotFound)
-            {
-                [self addObjectToTable:user];
-            }
-        }
-    }
-    
+    self.searchObjects = [self searchArray:self.tableViewObjects with:searchString];
 }
 
 - (void)instagramSearch:(NSString *)searchString
@@ -489,13 +490,10 @@
     
 }
 
-/*
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
-    //[self searchButtonClicked:nil];
     return YES;
 }
-*/
 
 @end
