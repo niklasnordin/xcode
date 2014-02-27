@@ -12,14 +12,13 @@
 @interface searchGroupMembersViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (strong, nonatomic) NSMutableDictionary *selectedObjects;
 @property (strong, nonatomic) NSMutableDictionary *uidToImageDownloadOperations;
 @property (strong, nonatomic) NSOperationQueue *imageLoadingQueue;
 
 @property (strong, nonatomic) NSMutableArray *tableViewObjects;
 @property (strong, nonatomic) NSMutableArray *searchObjects;
 @property (strong, nonatomic) NSMutableDictionary *imageCache;
-@property (strong, nonatomic) NSMutableDictionary *userToIndexPath;
 
 @end
 
@@ -57,22 +56,16 @@
     });
 }
 
+/*
 - (void)removeObjectFromTable:(NSInteger)i
 {
-    //NSLog(@"setting tableViewObjects, updating tableView");
-    // make sure we only update the table view on the main queue
-    /*
-    [tableView beginUpdates];
-    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    [tableView endUpdates];
-    [tableView reloadData];
-     */
     dispatch_async(dispatch_get_main_queue(), ^{
         
         [self.tableViewObjects removeObjectAtIndex:i];
         [self.tableView reloadData];
     });
 }
+*/
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -109,8 +102,9 @@
     self.tableViewObjects = [[NSMutableArray alloc] init];
     [self searchWithText:@""];
     
+    _selectedObjects = [[NSMutableDictionary alloc] init];
     _searchObjects = [[NSMutableArray alloc] init];
-    _userToIndexPath = [[NSMutableDictionary alloc] init];
+
     _uidToImageDownloadOperations = [[NSMutableDictionary alloc] init];
     _imageCache = [[NSMutableDictionary alloc] init];
     _imageLoadingQueue = [[NSOperationQueue alloc] init];
@@ -171,7 +165,6 @@
     if ([tableView isEqual:self.tableView])
     {
         user = [self.tableViewObjects objectAtIndex:indexPath.row];
-        [self.userToIndexPath setObject:indexPath forKey:user.uid];
     }
     else
     {
@@ -179,6 +172,15 @@
     }
     cell.textLabel.text = user.name;
     cell.imageView.image = [UIImage imageNamed:@"questionMark.png"];
+
+    if ([self.selectedObjects objectForKey:user.uid])
+    {
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    }
+    else
+    {
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+    }
 
     // no image data available so set the image to download and put a
     // question mark there meanwhile
@@ -206,13 +208,37 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UserObject *user = nil;
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
+    if ([tableView isEqual:self.tableView])
+    {
+        user = [self.tableViewObjects objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        user = [self.searchObjects objectAtIndex:indexPath.row];
+    }
+    
+    if ([self.selectedObjects objectForKey:user.uid])
+    {
+        [self.selectedObjects removeObjectForKey:user.uid];
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+    }
+    else
+    {
+        NSNumber *uno = [[NSNumber alloc] initWithBool:YES];
+        [self.selectedObjects setObject:uno forKey:user.uid];
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    }
+    
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
     UserObject *user = [self.tableViewObjects objectAtIndex:indexPath.row];
-    [self.userToIndexPath removeObjectForKey:user.uid];
+
     //Fetch operation that doesn't need executing anymore
     NSBlockOperation *ongoingDownloadOperation = [self.uidToImageDownloadOperations objectForKey:user.uid];
     if (ongoingDownloadOperation)
