@@ -9,6 +9,7 @@
 #import "AddGroupMembersViewController.h"
 #import "optionsPickerViewDelegate.h"
 #import "searchGroupMembersViewController.h"
+#import "UserObject.h"
 
 @interface AddGroupMembersViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *feedButton;
@@ -102,12 +103,9 @@
     static NSString *CellIdentifier = @"memberCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSDictionary *member = [self.groupMembers objectAtIndex:indexPath.row];
-    NSString *name = [member objectForKey:@"name"];
-    cell.textLabel.text = name;
-    
-    NSData *imageData = [member objectForKey:@"image"];
-    cell.imageView.image = [UIImage imageWithData:imageData];
+    UserObject *user = [self.groupMembers objectAtIndex:indexPath.row];
+    cell.textLabel.text = user.name;
+    cell.imageView.image = [UIImage imageWithData:user.imageData];
     
     return cell;
     
@@ -235,6 +233,8 @@
         NSString *title = [NSString stringWithFormat:@"Search %@",feedName];
         [vc setTitle:title];
         [vc setDatabase:self.database];
+        [vc setMembersTableView:self.tableView];
+        
         switch (self.database.selectedMediaNameIndex) {
             case kFacebook:
                 [vc setMinStringLength:2];

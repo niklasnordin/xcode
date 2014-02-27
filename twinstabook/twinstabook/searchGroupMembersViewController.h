@@ -23,6 +23,8 @@ const static int maxImages = 100;
 @property (weak, nonatomic) tif_db *database;
 @property (strong, nonatomic) NSString *searchFeed;
 @property (strong, nonatomic) NSString *searchOption;
+@property (weak, nonatomic) NSMutableArray *groupMembers;
+@property (weak, nonatomic) UITableView *membersTableView;
 
 @property (nonatomic) NSInteger minStringLength;
 

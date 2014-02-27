@@ -37,7 +37,7 @@
         NSUserDefaults *database = [NSUserDefaults standardUserDefaults];
 
         // check for user setting exist
-        if (!database)
+        if (database)
         {
             //database = [[NSMutableDictionary alloc] init];
             

@@ -116,6 +116,26 @@
 
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    bool reloadTableView = NO;
+    for (UserObject *user in self.selectedObjects)
+    {
+        //add it to member list
+        if (![self.groupMembers containsObject:user])
+        {
+            NSLog(@"adding member %@",user.name);
+            [self.groupMembers addObject:user];
+            reloadTableView = YES;
+        }
+    }
+    
+    if (reloadTableView)
+    {
+        [self.membersTableView reloadData];
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -147,11 +167,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.tableView != tableView)
-    {
-        NSLog(@"this is not tableview!!!");
-    }
-    
+
     static NSString *CellIdentifier = @"aliasNameCell";
     //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -227,8 +243,7 @@
     }
     else
     {
-        NSNumber *uno = [[NSNumber alloc] initWithBool:YES];
-        [self.selectedObjects setObject:uno forKey:user.uid];
+        [self.selectedObjects setObject:user forKey:user.uid];
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     }
     
@@ -375,7 +390,7 @@
                                             if (pResponseData)
                                             {
                                                 [self.imageCache setObject:pResponseData forKey:user.uid];
-                                                //user.imageData = pResponseData;
+                                                user.imageData = pResponseData;
                                                 //UITableViewCell *cell = [tv cellForRowAtIndexPath:ip];
 
                                                 weakCell.imageView.image = [UIImage imageWithData:pResponseData];
@@ -435,6 +450,14 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [searchBar resignFirstResponder];
+    // need to reload the data if something selected/deselected while in search bar
+    [self.tableView reloadData];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    // need to reload the data if something selected/deselected while in search bar
+    [self.tableView reloadData];
 }
 
 - (void)searchWithText:(NSString *)searchText
