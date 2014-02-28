@@ -32,11 +32,14 @@
         self.facebookFriends = [[NSMutableArray alloc] init];
         self.twitterFriends = [[NSMutableArray alloc] init];
         
-        self.facebookUsername = [[NSString alloc] init];
+        //self.facebookUsername = [[NSString alloc] init];
+
+        self.twitterLogo = [UIImage imageNamed:@"Twitter_logo_blue.png"];
+        
         NSUserDefaults *database = [NSUserDefaults standardUserDefaults];
 
         // check for user setting exist
-        if (database)
+        if (!database)
         {
             //database = [[NSMutableDictionary alloc] init];
             
@@ -64,7 +67,15 @@
             _selectedFeedIndex = [[database objectForKey:SELECTEDFEEDINDEX] integerValue];
             
             _groups = [database objectForKey:GROUPS];
-            _groupMembers = [database objectForKey:GROUPMEMBERS];
+            _groupMembers = [[NSMutableDictionary alloc] init];
+
+            NSMutableDictionary *groupMembers = [database objectForKey:GROUPMEMBERS];
+            for (NSString *group in self.groups)
+            {
+                NSMutableArray *memberDict = [groupMembers objectForKey:group];
+                NSMutableArray *memberObjects = [self dictionaryToUserObjects:memberDict];
+                [self.groupMembers setObject:memberObjects forKey:group];
+            }
             
             // do not use this yet
             //_lastUpdate = [database objectForKey:LASTUPDATE];
@@ -139,7 +150,16 @@
     [defaults setObject:[[NSNumber alloc] initWithInteger:self.selectedFeedIndex] forKey:SELECTEDFEEDINDEX];
     
     [defaults setObject:self.groups forKey:GROUPS];
-    [defaults setObject:self.groupMembers forKey:GROUPMEMBERS];
+    
+    NSMutableDictionary *groupMembers = [[NSMutableDictionary alloc] init];
+    for (NSString *group in self.groups)
+    {
+        NSMutableArray *memberObjects = [self.groupMembers objectForKey:group];
+        NSMutableArray *memberDict = [self userObjectsToDictionary:memberObjects];
+        [groupMembers setObject:memberDict forKey:group];
+    }
+    
+    [defaults setObject:groupMembers forKey:GROUPMEMBERS];
 
     NSNumber *selectedMediaName = [[NSNumber alloc] initWithInt:self.selectedMediaNameIndex];
     [defaults setObject:selectedMediaName  forKey:SELECTEDMEDIANAME];
@@ -152,6 +172,36 @@
     
 }
 
+- (NSMutableArray *)userObjectsToDictionary:(NSArray *)users
+{
+    NSMutableArray *dict = [[NSMutableArray alloc] init];
+    
+    for (UserObject *user in users)
+    {
+        NSString *name = user.name;
+        NSString *uid = user.uid;
+        NSNumber *type = [[NSNumber alloc] initWithInteger:user.type];
+        NSDictionary *userDict = @{@"name": name, @"uid" : uid, @"type" : type};
+        [dict addObject:userDict];
+    }
+    return dict;
+}
+
+- (NSMutableArray *)dictionaryToUserObjects:(NSArray *)users
+{
+    NSMutableArray *dict = [[NSMutableArray alloc] init];
+    
+    for (NSMutableDictionary *user in users)
+    {
+        UserObject *obj = [[UserObject alloc] init];
+        obj.name = [user objectForKey:@"name"];
+        obj.uid = [user objectForKey:@"uid"];
+        NSNumber *num = [user objectForKey:@"type"];
+        obj.type = [num integerValue];
+        [dict addObject:obj];
+    }
+    return dict;
+}
 
 - (void)requestNewAccessToken
 {

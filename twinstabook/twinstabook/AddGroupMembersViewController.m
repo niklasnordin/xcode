@@ -10,6 +10,7 @@
 #import "optionsPickerViewDelegate.h"
 #import "searchGroupMembersViewController.h"
 #import "UserObject.h"
+#import "MemberTableViewCell.h"
 
 @interface AddGroupMembersViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *feedButton;
@@ -101,12 +102,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"memberCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    MemberTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     UserObject *user = [self.groupMembers objectAtIndex:indexPath.row];
     cell.textLabel.text = user.name;
     cell.imageView.image = [UIImage imageWithData:user.imageData];
-    
+    cell.typeView.image = self.database.twitterLogo;
     return cell;
     
 }

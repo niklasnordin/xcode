@@ -94,6 +94,7 @@ static NSString * const kTwitterAPIVersion = @"1.1";
 @property (strong, nonatomic) NSArray *twitterAccounts;
 @property (strong, nonatomic) NSMutableArray *twitterFriends;
 @property (strong, nonatomic) ACAccount *selectedTwitterAccount;
+@property (strong, nonatomic) UIImage *twitterLogo;
 
 - (void)openTwitterInViewController:(UIViewController *)vc;
 - (void)loadTwitterFriends;

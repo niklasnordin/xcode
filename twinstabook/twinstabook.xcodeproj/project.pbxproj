@@ -10,6 +10,7 @@
 		6131929418C0E7F7005A1C5E /* Twitter_logo_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 6131929318C0E7F7005A1C5E /* Twitter_logo_blue.png */; };
 		6131929618C0E86B005A1C5E /* Instagram_Icon_Large.png in Resources */ = {isa = PBXBuildFile; fileRef = 6131929518C0E86B005A1C5E /* Instagram_Icon_Large.png */; };
 		6131929818C0E8E6005A1C5E /* FB-fLogo-Blue-printpackaging.tif in Resources */ = {isa = PBXBuildFile; fileRef = 6131929718C0E8E6005A1C5E /* FB-fLogo-Blue-printpackaging.tif */; };
+		6131929B18C0E9E9005A1C5E /* MemberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6131929A18C0E9E9005A1C5E /* MemberTableViewCell.m */; };
 		6137DFEC18A3FF1200E0C589 /* questionMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6137DFEB18A3FF1200E0C589 /* questionMark.png */; };
 		6137DFF518A66C7200E0C589 /* JMPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6137DFF418A66C7200E0C589 /* JMPickerView.m */; };
 		6137DFF918A7AFEF00E0C589 /* FacebookParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6137DFF818A7AFEF00E0C589 /* FacebookParser.m */; };
@@ -73,6 +74,8 @@
 		6131929318C0E7F7005A1C5E /* Twitter_logo_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter_logo_blue.png; sourceTree = "<group>"; };
 		6131929518C0E86B005A1C5E /* Instagram_Icon_Large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instagram_Icon_Large.png; sourceTree = "<group>"; };
 		6131929718C0E8E6005A1C5E /* FB-fLogo-Blue-printpackaging.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "FB-fLogo-Blue-printpackaging.tif"; sourceTree = "<group>"; };
+		6131929918C0E9E9005A1C5E /* MemberTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberTableViewCell.h; sourceTree = "<group>"; };
+		6131929A18C0E9E9005A1C5E /* MemberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberTableViewCell.m; sourceTree = "<group>"; };
 		6137DFEB18A3FF1200E0C589 /* questionMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questionMark.png; sourceTree = "<group>"; };
 		6137DFF318A66C7200E0C589 /* JMPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPickerView.h; sourceTree = "<group>"; };
 		6137DFF418A66C7200E0C589 /* JMPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPickerView.m; sourceTree = "<group>"; };
@@ -333,6 +336,8 @@
 				6137DFFD18A7B03C00E0C589 /* DisplayObject.m */,
 				61DFBF6F18BBEC0C00DB6D4E /* UserObject.h */,
 				61DFBF7018BBEC0C00DB6D4E /* UserObject.m */,
+				6131929918C0E9E9005A1C5E /* MemberTableViewCell.h */,
+				6131929A18C0E9E9005A1C5E /* MemberTableViewCell.m */,
 				61C57C5418897BA600887F5E /* twinstabookAppDelegate.h */,
 				61C57C5518897BA600887F5E /* twinstabookAppDelegate.m */,
 				61C57C6318897BA600887F5E /* Images.xcassets */,
@@ -491,6 +496,7 @@
 				618BE7C618B8D80500A0CB7F /* settingsViewController.m in Sources */,
 				61DFBF7118BBEC0C00DB6D4E /* UserObject.m in Sources */,
 				6165736B18B3FF3A0025DF09 /* MenuTableViewController.m in Sources */,
+				6131929B18C0E9E9005A1C5E /* MemberTableViewCell.m in Sources */,
 				61C57C5F18897BA600887F5E /* twinstabookFirstViewController.m in Sources */,
 				61ECD15718A00F7500E5B952 /* searchTableViewController.m in Sources */,
 				6137E00118A7B11600E0C589 /* tifTableViewCell.m in Sources */,
