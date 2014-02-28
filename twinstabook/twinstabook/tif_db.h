@@ -29,7 +29,7 @@ static NSString * const SELECTEDFEEDINDEX = @"selectedFeedIndex";
 static NSString * const GROUPS = @"groups";
 static NSString * const GROUPMEMBERS = @"groupMembers";
 static NSString * const LASTUPDATE = @"lastUpdate";
-static NSString * const SELECTEDTWITTERACCOUNTS = @"selectedTwitterAccounts";
+static NSString * const SELECTEDTWITTERACCOUNT = @"selectedTwitterAccount";
 
 static NSString * const kFacebookGraphRoot = @"https://graph.facebook.com";
 static NSString * const kTwitterAPIRoot = @"https://api.twitter.com";
@@ -92,12 +92,11 @@ static NSString * const kTwitterAPIVersion = @"1.1";
 // twitter
 @property (strong, nonatomic) ACAccountType *twitterAccountType;
 @property (strong, nonatomic) NSArray *twitterAccounts;
-@property (strong, nonatomic) NSMutableDictionary *selectedTwitterAccounts;
 @property (strong, nonatomic) NSMutableArray *twitterFriends;
+@property (strong, nonatomic) ACAccount *selectedTwitterAccount;
 
 - (void)openTwitterInViewController:(UIViewController *)vc;
 - (void)loadTwitterFriends;
-- (ACAccount *)selectedTwitterAccount;
 
 // instagram functions
 - (void)openInstagramInViewController:(UIViewController *)vc;

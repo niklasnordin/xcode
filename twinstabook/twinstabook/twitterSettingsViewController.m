@@ -47,6 +47,7 @@
     bool hide = !self.db.useTwitter;
     [self.statusLabel setHidden:hide];
     [self.tableView setHidden:hide];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,6 +64,11 @@
     
     [self.tableView setHidden:hide];
     [self.statusLabel setHidden:hide];
+
+    if (self.db.useTwitter)
+    {
+        [self.tableView reloadData];
+    }
 }
 
 #pragma mark - Table view data source
@@ -76,7 +82,12 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.accounts count];
+    NSInteger num = 0;
+    if (self.db.useTwitter)
+    {
+        num = [self.db.twitterAccounts count];
+    }
+    return num;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -90,12 +101,12 @@
     }
     
     // Configure the cell...
-    ACAccount *account = self.accounts[indexPath.row];
+    ACAccount *account = self.db.twitterAccounts[indexPath.row];
     NSString *username = [account username];
     
     cell.textLabel.text = username;
     
-    if ([self.selected objectForKey:username])
+    if ([account isEqual:self.db.selectedTwitterAccount])
     {
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     }
@@ -110,12 +121,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    ACAccount *account = self.accounts[indexPath.row];
-    NSString *username = [account username];
+    ACAccount *account = self.db.twitterAccounts[indexPath.row];
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    if ([self.selected objectForKey:username])
+    if ([account isEqual:self.db.selectedTwitterAccount])
     {
         // already selected, do nothing
         //[cell setAccessoryType:UITableViewCellAccessoryNone];
@@ -123,11 +133,8 @@
     }
     else
     {
-        //NSLog(@"account = %@", account);
-        NSString *id = account.identifier;
-        NSString *key = [[self.selected allKeys] lastObject];
-        [self.selected removeObjectForKey:key];
-        [self.selected setObject:id forKey:username];
+
+        self.db.selectedTwitterAccount = account;
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
         
         NSLog(@"need to update friends list in %@",[self class]);

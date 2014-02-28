@@ -28,7 +28,6 @@
         self.twitterAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
         self.facebookAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
 
-        self.twitterAccounts = [[NSArray alloc] init];
         self.facebookSearchOptions = [[NSArray alloc] initWithObjects:@"friends", @"pages", @"users", nil];
         self.facebookFriends = [[NSMutableArray alloc] init];
         self.twitterFriends = [[NSMutableArray alloc] init];
@@ -55,7 +54,6 @@
                 [_groupMembers setObject:arry forKey:name];
             }
             _lastUpdate = [[NSDate alloc] initWithTimeIntervalSinceNow:-10000000];
-            _selectedTwitterAccounts = [[NSMutableDictionary alloc] init];
         }
         else
         {
@@ -67,7 +65,6 @@
             
             _groups = [database objectForKey:GROUPS];
             _groupMembers = [database objectForKey:GROUPMEMBERS];
-            _selectedTwitterAccounts = [database objectForKey:SELECTEDTWITTERACCOUNTS];
             
             // do not use this yet
             //_lastUpdate = [database objectForKey:LASTUPDATE];
@@ -91,10 +88,7 @@
             {
                 _lastUpdate = [[NSDate alloc] initWithTimeIntervalSinceNow:-10000000];
             }
-            if (!_selectedTwitterAccounts)
-            {
-                _selectedTwitterAccounts = [[NSMutableDictionary alloc] init];
-            }
+  
         }
                 
         // initialize the facebook login button
@@ -152,7 +146,7 @@
     
     [defaults setObject:self.lastUpdate forKey:LASTUPDATE];
     
-    [defaults setObject:self.selectedTwitterAccounts forKey:SELECTEDTWITTERACCOUNTS];
+    //[defaults setObject:self.selectedTwitterAccount forKey:SELECTEDTWITTERACCOUNT];
     
     [defaults synchronize];
     
@@ -527,8 +521,6 @@
 - (void)loadTwitterFriends
 {
     NSLog(@"load twitter friends");
-
-    //self.twitterAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
     
     [self.account requestAccessToAccountsWithType:self.twitterAccountType options:nil completion:^(BOOL granted, NSError *error)
      {
@@ -608,6 +600,26 @@
     return;
 }
 
+- (NSArray *)twitterAccounts
+{
+    if (!_twitterAccounts)
+    {
+        _twitterAccounts = [self.account accountsWithAccountType:self.twitterAccountType];
+    }
+    
+    return _twitterAccounts;
+}
+- (ACAccount *)selectedTwitterAccount
+{
+    if (!_selectedTwitterAccount)
+    {
+        _selectedTwitterAccount = [self.twitterAccounts lastObject];
+    }
+    
+    return _selectedTwitterAccount;
+}
+
+/*
 - (ACAccount *)selectedTwitterAccount
 {
     ACAccount *twitterAccount = nil;
@@ -638,7 +650,7 @@
     
     return twitterAccount;
 }
-
+*/
 #pragma mark Instagram
 
 - (void)openInstagramInViewController:(UIViewController *)vc

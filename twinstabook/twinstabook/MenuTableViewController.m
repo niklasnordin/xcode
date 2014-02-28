@@ -153,7 +153,6 @@
     // configure the segue.
     if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] )
     {
-        NSLog(@"tjolahopp");
         //SWRevealViewControllerSegue* rvcs = (SWRevealViewControllerSegue*) segue;
         
         SWRevealViewController* rvc = self.revealViewController;
@@ -177,8 +176,6 @@
         {
             twitterSettingsViewController *vc = (twitterSettingsViewController *)segue.destinationViewController;
             [vc setDb:self.database];
-            [vc setAccounts:self.database.twitterAccounts];
-            [vc setSelected:self.database.selectedTwitterAccounts];
         }
         
         if ([segue.destinationViewController isKindOfClass:[instagramSettingsViewController class]])

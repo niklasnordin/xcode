@@ -222,6 +222,7 @@
             
             ACAccount *twitterAccount = nil;
 
+            /*
             for (ACAccount *account in self.database.twitterAccounts)
             {
                 
@@ -232,7 +233,7 @@
                     NSLog(@"selecting %@",account.username);
                 }
             }
-            /*
+            
             [self.database.account renewCredentialsForAccount:twitterAccount completion:^(ACAccountCredentialRenewResult renewResult, NSError *error)
             {
                 NSLog(@"renewed credentials");
