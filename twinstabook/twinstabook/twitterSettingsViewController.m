@@ -67,6 +67,7 @@
 
     if (self.db.useTwitter)
     {
+        [self.db loadTwitterFriends];
         [self.tableView reloadData];
     }
 }
@@ -128,16 +129,12 @@
     if ([account isEqual:self.db.selectedTwitterAccount])
     {
         // already selected, do nothing
-        //[cell setAccessoryType:UITableViewCellAccessoryNone];
-        //[self.selected removeObjectForKey:username];
     }
     else
     {
-
         self.db.selectedTwitterAccount = account;
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
-        
-        NSLog(@"need to update friends list in %@",[self class]);
+        [self.db loadTwitterFriends];
     }
     [tableView reloadData];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

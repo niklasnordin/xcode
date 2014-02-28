@@ -520,19 +520,18 @@
 
 - (void)loadTwitterFriends
 {
-    NSLog(@"load twitter friends");
     
     [self.account requestAccessToAccountsWithType:self.twitterAccountType options:nil completion:^(BOOL granted, NSError *error)
      {
+
          if (granted)
          {
-             NSLog(@"twitter access granted");
-             
+
              ACAccount *twitterAccount = [self selectedTwitterAccount];
              
              if (twitterAccount)
              {
-                 NSLog(@"here i am in the twitter account to load friends");
+                 //NSLog(@"here i am in the twitter account to load friends");
                  NSString *apiString = [NSString stringWithFormat:@"%@/%@/friends/list.json", kTwitterAPIRoot, kTwitterAPIVersion];
                  //NSString *apiString = [NSString stringWithFormat:@"%@/%@/friends/ids.json", kTwitterAPIRoot, kTwitterAPIVersion];
 
@@ -569,12 +568,10 @@
                               {
                                   NSString *name = [u objectForKey:@"screen_name"];
                                   NSString *uid = [u objectForKey:@"id_str"];
-                                  NSDictionary *d = @{@"name" : name, @"id" : uid };
-                                  //NSLog(@"%@",d);
                                   UserObject *user = [[UserObject alloc] init];
                                   user.name = name;
                                   user.uid = uid;
-                                  //[self.twitterFriends addObject:d];
+                                  user.type = kTwitter;
                                   [self.twitterFriends addObject:user];
                               }
                               NSLog(@"twitterFriends.count = %ld",self.twitterFriends.count);
