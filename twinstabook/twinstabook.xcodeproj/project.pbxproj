@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6131929418C0E7F7005A1C5E /* Twitter_logo_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 6131929318C0E7F7005A1C5E /* Twitter_logo_blue.png */; };
+		6131929618C0E86B005A1C5E /* Instagram_Icon_Large.png in Resources */ = {isa = PBXBuildFile; fileRef = 6131929518C0E86B005A1C5E /* Instagram_Icon_Large.png */; };
+		6131929818C0E8E6005A1C5E /* FB-fLogo-Blue-printpackaging.tif in Resources */ = {isa = PBXBuildFile; fileRef = 6131929718C0E8E6005A1C5E /* FB-fLogo-Blue-printpackaging.tif */; };
 		6137DFEC18A3FF1200E0C589 /* questionMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6137DFEB18A3FF1200E0C589 /* questionMark.png */; };
 		6137DFF518A66C7200E0C589 /* JMPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6137DFF418A66C7200E0C589 /* JMPickerView.m */; };
 		6137DFF918A7AFEF00E0C589 /* FacebookParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6137DFF818A7AFEF00E0C589 /* FacebookParser.m */; };
@@ -67,6 +70,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6131929318C0E7F7005A1C5E /* Twitter_logo_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter_logo_blue.png; sourceTree = "<group>"; };
+		6131929518C0E86B005A1C5E /* Instagram_Icon_Large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instagram_Icon_Large.png; sourceTree = "<group>"; };
+		6131929718C0E8E6005A1C5E /* FB-fLogo-Blue-printpackaging.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "FB-fLogo-Blue-printpackaging.tif"; sourceTree = "<group>"; };
 		6137DFEB18A3FF1200E0C589 /* questionMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questionMark.png; sourceTree = "<group>"; };
 		6137DFF318A66C7200E0C589 /* JMPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPickerView.h; sourceTree = "<group>"; };
 		6137DFF418A66C7200E0C589 /* JMPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPickerView.m; sourceTree = "<group>"; };
@@ -175,6 +181,7 @@
 		6137DFF618A7AFB500E0C589 /* Facebook */ = {
 			isa = PBXGroup;
 			children = (
+				6131929718C0E8E6005A1C5E /* FB-fLogo-Blue-printpackaging.tif */,
 				6165737118B51FF40025DF09 /* FacebookSettingsViewController.h */,
 				6165737218B51FF40025DF09 /* FacebookSettingsViewController.m */,
 				6137DFF718A7AFEF00E0C589 /* FacebookParser.h */,
@@ -186,6 +193,7 @@
 		6137DFFA18A7B00000E0C589 /* twitter */ = {
 			isa = PBXGroup;
 			children = (
+				6131929318C0E7F7005A1C5E /* Twitter_logo_blue.png */,
 				617CE88018AD2F3C0025AA92 /* twitterParser.h */,
 				617CE88118AD2F3C0025AA92 /* twitterParser.m */,
 				6165737718B54D600025DF09 /* twitterSettingsViewController.h */,
@@ -197,6 +205,7 @@
 		6137DFFB18A7B00C00E0C589 /* instagram */ = {
 			isa = PBXGroup;
 			children = (
+				6131929518C0E86B005A1C5E /* Instagram_Icon_Large.png */,
 				617CE88318AD2F630025AA92 /* instagramParser.h */,
 				617CE88418AD2F630025AA92 /* instagramParser.m */,
 				6165737A18B54D810025DF09 /* instagramSettingsViewController.h */,
@@ -449,10 +458,13 @@
 				61C57C5C18897BA600887F5E /* Main_iPad.storyboard in Resources */,
 				61ECD15918A1667700E5B952 /* IMG_1414.jpg in Resources */,
 				61C57C6418897BA600887F5E /* Images.xcassets in Resources */,
+				6131929418C0E7F7005A1C5E /* Twitter_logo_blue.png in Resources */,
+				6131929618C0E86B005A1C5E /* Instagram_Icon_Large.png in Resources */,
 				61C57C5918897BA600887F5E /* Main_iPhone.storyboard in Resources */,
 				6165737018B403A20025DF09 /* reveal-icon@2x.png in Resources */,
 				61C57C5018897BA600887F5E /* InfoPlist.strings in Resources */,
 				617CE88A18AE66D80025AA92 /* old code snippets in Resources */,
+				6131929818C0E8E6005A1C5E /* FB-fLogo-Blue-printpackaging.tif in Resources */,
 				6165736E18B4039A0025DF09 /* reveal-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
