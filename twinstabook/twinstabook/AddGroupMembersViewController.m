@@ -234,7 +234,7 @@
         [vc setTitle:title];
         [vc setDatabase:self.database];
         [vc setMembersTableView:self.tableView];
-        
+        [vc setGroupMembers:self.groupMembers];
         switch (self.database.selectedMediaNameIndex) {
             case kFacebook:
                 [vc setMinStringLength:2];

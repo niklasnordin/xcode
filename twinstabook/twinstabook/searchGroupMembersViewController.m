@@ -115,7 +115,7 @@
         UserObject *user = [self.selectedObjects objectForKey:key];
         if (![self.groupMembers containsObject:user])
         {
-            NSLog(@"adding member %@",user.name);
+            //NSLog(@"adding member %@",user.name);
             [self.groupMembers addObject:user];
             reloadTableView = YES;
         }
