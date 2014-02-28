@@ -557,7 +557,6 @@
                           
                           NSArray *users = [result objectForKey:@"users"];
                           
-                          NSLog(@"twitter users.count = %ld",users.count);
                           if (users.count)
                           {
                               if (self.twitterFriends.count)
@@ -574,8 +573,7 @@
                                   user.type = kTwitter;
                                   [self.twitterFriends addObject:user];
                               }
-                              NSLog(@"twitterFriends.count = %ld",self.twitterFriends.count);
-                              //[self.facebookFriends addObjectsFromArray:friendsArray];
+                              //NSLog(@"twitterFriends.count = %ld",self.twitterFriends.count);
                           }
 
                       }

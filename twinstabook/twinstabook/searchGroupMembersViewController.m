@@ -56,17 +56,6 @@
     });
 }
 
-/*
-- (void)removeObjectFromTable:(NSInteger)i
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        [self.tableViewObjects removeObjectAtIndex:i];
-        [self.tableView reloadData];
-    });
-}
-*/
-
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -119,9 +108,11 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     bool reloadTableView = NO;
-    for (UserObject *user in self.selectedObjects)
+    
+    NSArray *keys = [self.selectedObjects allKeys];
+    for (NSString *key in keys)
     {
-        //add it to member list
+        UserObject *user = [self.selectedObjects objectForKey:key];
         if (![self.groupMembers containsObject:user])
         {
             NSLog(@"adding member %@",user.name);

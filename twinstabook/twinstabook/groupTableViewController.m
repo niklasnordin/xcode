@@ -145,7 +145,6 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 
-
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     NSString *key = [self.database.groups objectAtIndex:indexPath.row];
     NSMutableArray *groupMembers = [self.database.groupMembers objectForKey:key];
