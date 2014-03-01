@@ -88,6 +88,7 @@ static NSString * const kTwitterAPIVersion = @"1.1";
 - (void)requestNewAccessToken;
 - (void)loadAllFacebookFriends;
 @property (strong, nonatomic) NSString *facebookUsername;
+@property (strong, nonatomic) UIImage *facebookLogo;
 
 // twitter
 @property (strong, nonatomic) ACAccountType *twitterAccountType;
@@ -101,5 +102,6 @@ static NSString * const kTwitterAPIVersion = @"1.1";
 
 // instagram functions
 - (void)openInstagramInViewController:(UIViewController *)vc;
+@property (strong, nonatomic) UIImage *instagramLogo;
 
 @end

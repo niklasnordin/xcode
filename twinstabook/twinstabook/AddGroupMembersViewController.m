@@ -107,7 +107,21 @@
     UserObject *user = [self.groupMembers objectAtIndex:indexPath.row];
     cell.nameLabel.text = user.name;
     cell.userImage.image = [UIImage imageWithData:user.imageData];
-    cell.typeView.image = self.database.twitterLogo;
+    
+    switch (user.type) {
+        case kFacebook:
+            cell.typeView.image = self.database.facebookLogo;
+            break;
+        case kTwitter:
+            cell.typeView.image = self.database.twitterLogo;
+            break;
+        case kInstagram:
+            cell.typeView.image = self.database.instagramLogo;
+            break;
+        default:
+            break;
+    }
+
     cell.typeView.contentMode = UIViewContentModeScaleAspectFit;
     
     return cell;

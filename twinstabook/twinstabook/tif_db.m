@@ -35,6 +35,8 @@
         //self.facebookUsername = [[NSString alloc] init];
 
         self.twitterLogo = [UIImage imageNamed:@"Twitter_logo_blue.png"];
+        self.facebookLogo = [UIImage imageNamed:@"FB-fLogo-Blue-printpackaging.tif"];
+        self.instagramLogo = [UIImage imageNamed:@"Instagram_Icon_Large.png"];
         
         NSUserDefaults *database = [NSUserDefaults standardUserDefaults];
 
