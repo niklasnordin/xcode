@@ -99,6 +99,12 @@
     _imageLoadingQueue = [[NSOperationQueue alloc] init];
     [_imageLoadingQueue setName:@"imageLoadingQueue"];
     
+
+    // if facebook
+    if ([self.searchFeed isEqualToString:[self.database.socialMediaNames objectAtIndex:kFacebook]])
+    {
+        self.tableViewObjects = [self searchArray:self.database.facebookFriends with:@""];
+    }
     
     // if twitter
     if ([self.searchFeed isEqualToString:[self.database.socialMediaNames objectAtIndex:kTwitter]])
@@ -196,7 +202,7 @@
     switch (self.database.selectedMediaNameIndex)
     {
         case kFacebook:
-            //[self facebookSearch:searchText];
+            //[self ];
             break;
                 
         case kTwitter:
@@ -318,7 +324,8 @@
     
 }
 
-//- (void)downloadTwitterImageForUser:(UserObject *)user  andTV:(UITableView *)tv indexPath:(NSIndexPath *)ip
+
+# pragma mark twitter
 - (void)downloadTwitterImageForUser:(UserObject *)user andCell:(UITableViewCell *)cell
 {
 

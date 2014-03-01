@@ -10,15 +10,20 @@
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
 
-//typedef enum { kFacebook, kTwitter, kInstagram } kMediaTypes;
+typedef enum : NSInteger
+{
+    kFacebook = 0,
+    kTwitter,
+    kInstagram
+} kMediaTypes;
 
 // these must be in the same order as the socialMediaNames
 static NSString * const FACEBOOK = @"Facebook";
-static const int kFacebook = 0;
+//static const int kFacebook = 0;
 static NSString * const TWITTER = @"Twitter";
-static const int kTwitter = 1;
+//static const int kTwitter = 1;
 static NSString * const INSTAGRAM = @"Instagram";
-static const int kInstagram = 2;
+//static const int kInstagram = 2;
 
 static NSString * const USEFACEBOOK = @"usefacebook";
 static NSString * const USETWITTER = @"useTwitter";

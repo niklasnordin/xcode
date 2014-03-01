@@ -64,6 +64,10 @@
     if (sender.on)
     {
         [self.statusLabel setText:[NSString stringWithFormat:@"Logged in as : %@",[self.db facebookUsername]]];
+        if (![self.db.facebookFriends count])
+        {
+            [self.db loadAllFacebookFriends];
+        }
     }
 }
 

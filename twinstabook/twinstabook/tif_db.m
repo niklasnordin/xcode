@@ -32,8 +32,6 @@
         self.facebookFriends = [[NSMutableArray alloc] init];
         self.twitterFriends = [[NSMutableArray alloc] init];
         
-        //self.facebookUsername = [[NSString alloc] init];
-
         self.twitterLogo = [UIImage imageNamed:@"Twitter_logo_blue.png"];
         self.facebookLogo = [UIImage imageNamed:@"FB-fLogo-Blue-printpackaging.tif"];
         self.instagramLogo = [UIImage imageNamed:@"Instagram_Icon_Large.png"];
@@ -349,7 +347,6 @@
 
 - (void)loadAllFacebookFriends
 {
-    //NSLog(@"loadAllFacebookfriends");
     
     NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *appID = infoDict[@"FacebookAppID"];
@@ -402,7 +399,18 @@
                           NSLog(@"facebook friends.count = %ld",friendsArray.count);
                           if (friendsArray.count)
                           {
-                              [self.facebookFriends addObjectsFromArray:friendsArray];
+                              [self.facebookFriends removeAllObjects];
+                              for (NSDictionary *userDict in friendsArray)
+                              {
+                                  //NSLog(@"userDict = %@",userDict);
+                                  UserObject *user = [[UserObject alloc] init];
+                                  user.name = [userDict objectForKey:@"name"];
+                                  user.uid = [userDict objectForKey:@"id"];
+                                  user.type = kFacebook;
+                                  [self.facebookFriends addObject:user];
+                              }
+
+                              //[self.facebookFriends addObjectsFromArray:friendsArray];
                           }
                           //NSLog(@"last friend = %@",[friendsArray lastObject]);
                           
@@ -530,7 +538,7 @@
                       if (!error)
                       {
                           NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-                          //NSLog(@"result = %@",result);
+                          NSLog(@"result = %@",result);
                           
                           NSArray *users = [result objectForKey:@"users"];
                           
