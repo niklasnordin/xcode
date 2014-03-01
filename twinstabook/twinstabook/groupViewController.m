@@ -10,7 +10,7 @@
 #import "searchTableViewController.h"
 #import "optionsPickerViewDelegate.h"
 
-#import <FacebookSDK/FacebookSDK.h>
+//#import <FacebookSDK/FacebookSDK.h>
 
 @interface groupViewController ()
 @property (strong, nonatomic) JMPickerView *picker;
@@ -246,7 +246,7 @@
         {
             search = [NSString stringWithFormat:@"search?q=%@&type=user",searchString];
         }
-    
+    /*
         [FBRequestConnection startWithGraphPath:search parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
         {
             [self.searchActivityIndicator stopAnimating];
@@ -263,6 +263,7 @@
             }
         }
         ];
+     */
     }
  
 }

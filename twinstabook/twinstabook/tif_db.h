@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
-#import <FacebookSDK/FacebookSDK.h>
 
 //typedef enum { kFacebook, kTwitter, kInstagram } kMediaTypes;
 
@@ -36,9 +35,6 @@ static NSString * const kTwitterAPIRoot = @"https://api.twitter.com";
 static NSString * const kTwitterAPIVersion = @"1.1";
 
 @interface tif_db : NSObject
-<
-    FBLoginViewDelegate
->
 
 // contains the names of the social medias
 @property (strong, nonatomic) NSArray *socialMediaNames;
@@ -68,27 +64,26 @@ static NSString * const kTwitterAPIVersion = @"1.1";
 @property (strong, nonatomic) NSMutableDictionary *groupMembers;
 
 
-
 - (id)init;
 - (void)saveDatabase;
 
 // facebook
 @property (strong, nonatomic) ACAccountType *facebookAccountType;
-//@property (strong, nonatomic) NSMutableDictionary *facebookUidToImageDownloadOperations;
-@property (strong, nonatomic) FBLoginView *fbloginView;
 @property (strong, nonatomic) NSMutableArray *facebookFriends;
 @property (strong, nonatomic) NSArray *facebookSearchOptions;
-
-- (void)openFacebookInViewController:(UIViewController *)vc;
-- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView;
-- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
-                            user:(id<FBGraphUser>)user;
-- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView;
-- (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error;
-- (void)requestNewAccessToken;
-- (void)loadAllFacebookFriends;
 @property (strong, nonatomic) NSString *facebookUsername;
 @property (strong, nonatomic) UIImage *facebookLogo;
+
+//@property (strong, nonatomic) FBLoginView *fbloginView;
+- (void)openFacebookInViewController:(UIViewController *)vc;
+//- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView;
+//- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
+//                            user:(id<FBGraphUser>)user;
+//- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView;
+//- (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error;
+//- (void)requestNewAccessToken;
+- (void)loadAllFacebookFriends;
+
 
 // twitter
 @property (strong, nonatomic) ACAccountType *twitterAccountType;
@@ -101,7 +96,8 @@ static NSString * const kTwitterAPIVersion = @"1.1";
 - (void)loadTwitterFriends;
 
 // instagram functions
-- (void)openInstagramInViewController:(UIViewController *)vc;
 @property (strong, nonatomic) UIImage *instagramLogo;
+
+- (void)openInstagramInViewController:(UIViewController *)vc;
 
 @end

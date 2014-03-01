@@ -229,7 +229,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V44-ZT-pfu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-808" y="670"/>
+            <point key="canvasLocation" x="341" y="12"/>
         </scene>
         <!--Search Group Members View Controller - Search-->
         <scene sceneID="5qN-mg-3WY">
@@ -281,7 +281,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-305" y="675"/>
+            <point key="canvasLocation" x="901" y="12"/>
         </scene>
         <!--Group Table View Controller - Create Groups-->
         <scene sceneID="Zpo-2T-KUA">
@@ -418,25 +418,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Thq-mB-LgD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="341" y="12"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Isb-Eg-8Ae">
-            <objects>
-                <viewController id="bAB-zr-EfR" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="yeT-7E-ees"/>
-                        <viewControllerLayoutGuide type="bottom" id="ugL-MT-RVn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0Pr-fk-wmE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uth-uQ-7eZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1425" y="115"/>
+            <point key="canvasLocation" x="1948" y="509"/>
         </scene>
         <!--Search Table View Controller - Search Result-->
         <scene sceneID="4nK-SE-oN0">
@@ -478,7 +460,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oaw-pC-Lif" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889" y="12"/>
+            <point key="canvasLocation" x="2368" y="617"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="b4X-1R-WaM">

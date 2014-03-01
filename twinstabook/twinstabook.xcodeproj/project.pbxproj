@@ -49,7 +49,6 @@
 		61C57C6D18897BA600887F5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4918897BA600887F5E /* UIKit.framework */; };
 		61C57C7518897BA600887F5E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61C57C7318897BA600887F5E /* InfoPlist.strings */; };
 		61C57C7718897BA600887F5E /* twinstabookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C57C7618897BA600887F5E /* twinstabookTests.m */; };
-		61C57C81188A660900887F5E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C80188A660900887F5E /* FacebookSDK.framework */; };
 		61DFBF6B18BA208800DB6D4E /* AddGroupMembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DFBF6A18BA208800DB6D4E /* AddGroupMembersViewController.m */; };
 		61DFBF6E18BA211C00DB6D4E /* searchGroupMembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DFBF6D18BA211C00DB6D4E /* searchGroupMembersViewController.m */; };
 		61DFBF7118BBEC0C00DB6D4E /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DFBF7018BBEC0C00DB6D4E /* UserObject.m */; };
@@ -161,7 +160,6 @@
 				618BE7BE18AFA0DF00A0CB7F /* Twitter.framework in Frameworks */,
 				617CE87F18AD2EE70025AA92 /* Social.framework in Frameworks */,
 				617CE87D18AD2EDD0025AA92 /* Accounts.framework in Frameworks */,
-				61C57C81188A660900887F5E /* FacebookSDK.framework in Frameworks */,
 				61C57C4818897BA600887F5E /* CoreGraphics.framework in Frameworks */,
 				61C57C4A18897BA600887F5E /* UIKit.framework in Frameworks */,
 				61C57C4618897BA600887F5E /* Foundation.framework in Frameworks */,

@@ -10,7 +10,7 @@
 #import "tif_db.h"
 #import "twinstabookAppDelegate.h"
 #import "JMPickerView.h"
-#import <FacebookSDK/FacebookSDK.h>
+//#import <FacebookSDK/FacebookSDK.h>
 
 @interface twinstabookFirstViewController : UIViewController
 <

@@ -90,6 +90,7 @@
     
     if (self.database.useFacebook)
     {
+        /*
         FBSession *session = [FBSession activeSession];
         
         if (!session.isOpen)
@@ -132,7 +133,7 @@
             }
         }
         //[self readFacebookFeed: withRefresher:sender]
-        
+        */
     } // end useFacebook
     
     if (self.database.useInstagram)
@@ -163,8 +164,7 @@
 - (void)readFacebookFeed:(NSString *)uid withRefresher:(UIRefreshControl *)sender
 {
     
-    NSString *startPage = [NSString stringWithFormat:@"/%@/feed",uid];
-    
+    //NSString *startPage = [NSString stringWithFormat:@"/%@/feed",uid];
     //NSString *startPage = @"/me/feed";
 
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
@@ -173,7 +173,7 @@
     [format setDateStyle:NSDateFormatterShortStyle];
     NSString *str = [format stringFromDate:self.database.lastUpdate];
     [params setObject:str forKey:@"since"];
-
+/*
     [FBRequestConnection startWithGraphPath:startPage parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
      {
          if (!error)
@@ -210,7 +210,7 @@
          }
      }
      ];
-  
+  */
 }
 
 - (void)readTwitterFeedWithRefreshed:(UIRefreshControl *)sender
@@ -310,7 +310,7 @@
     }
     
 }
-
+/*
 - (void)readURLAsync:(NSString *)urlString fromConnection:(FBRequestConnection *)connection next:(BOOL)goNext
 {
     if (urlString)
@@ -405,6 +405,7 @@
     ];
 
 }
+*/
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {

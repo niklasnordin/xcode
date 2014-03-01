@@ -36,7 +36,7 @@
     [super viewDidLoad];
     self.downloadTwitterImage = [[NSNumber alloc] initWithBool:YES];
     
-    NSLog(@"viewDidLoad, names count = %ld",[self.names count]);
+    //NSLog(@"viewDidLoad, names count = %ld",[self.names count]);
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -113,7 +113,7 @@
     
     if([responseCode statusCode] != 200)
     {
-        NSLog(@"Error getting %@, HTTP status code %ld", url, [responseCode statusCode]);
+        NSLog(@"Error getting %@, HTTP status code %li", url, [responseCode statusCode]);
     }
     
     NSError *jsonError;

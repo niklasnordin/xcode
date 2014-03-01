@@ -103,5 +103,95 @@
 }
 
  */
+ 
+ 
+ 
+    
+    // This is the old way to load the friends
+    if ([[FBSession activeSession] isOpen])
+    {
+        
+        FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+        
+        [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
+                                                      NSDictionary* result,
+                                                      NSError *error)
+         {
+             if (error)
+             {
+                 NSLog(@"error = %@",error);
+             }
+             else
+                 
+             {
+                 
+                 NSArray* friends = [result objectForKey:@"data"];
+                 //FBGraphObject *paging = [result objectForKey:@"paging"];
+                 
+                 //NSString *previous = [paging objectForKey:@"previous"];
+                 // keys
+                 // first_name, id, last_name, name, username
+                 NSLog(@"Found: %ld friends", friends.count);
+                 
+                 if ([friends count])
+                 {
+                     [self.facebookFriends removeAllObjects];
+                     [self.facebookFriends addObjectsFromArray:friends];
+                 }
+                 
+                 //NSLog(@"result = %@",result);
+                 //NSString *next = [paging objectForKey:@"next"];
+                 //if (next)
+                 {
+                     //NSLog(@"next");
+                     //[self readURLAsync:next fromConnection:connection];
+                 }
+                 /*
+                  for (NSDictionary<FBGraphUser>* friend in friends)
+                  {
+                  NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
+                  }
+                  */
+             }
+         }];
+    }
+    else
+    {
+        NSLog(@"session is not open");
+    }
+    
+
+
+#pragma mark - FBLoginViewDelegate
+
+- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
+{
+    // this is called when you have logged in
+    // first get the buttons set for login mode
+    //self.buttonPostPhoto.enabled = YES;
+    // "Post Status" available when logged on and potentially when logged off.  Differentiate in the label.
+    //[self.buttonPostStatus setTitle:@"Post Status Update (Logged On)" forState:self.buttonPostStatus.state];
+    //NSLog(@"loginViewShowingLoggedInUser");
+}
+
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
+                            user:(id<FBGraphUser>)user
+{
+    //NSLog(@"loginViewFetchUserInfo");
+}
+
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
+{
+    // this is called after you have logged out
+    //NSLog(@"loginViewShowingLoggedOutUser");
+}
+
+
+- (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error
+{
+    // see https://developers.facebook.com/docs/reference/api/errors/ for general guidance on error handling for Facebook API
+    // our policy here is to let the login view handle errors, but to log the results
+    NSLog(@"FBLoginView encountered an error=%@", error);
+}
 
     

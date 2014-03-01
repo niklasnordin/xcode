@@ -105,21 +105,21 @@
         }
                 
         // initialize the facebook login button
-        _fbloginView = [[FBLoginView alloc] init];
-        _fbloginView.delegate = self;
+        //_fbloginView = [[FBLoginView alloc] init];
+        //_fbloginView.delegate = self;
         
         //_imageLoadingQueue = [[NSOperationQueue alloc] init];
         //[_imageLoadingQueue setName:@"imageLoadingQueue"];
         
         //_facebookUidToImageDownloadOperations = [[NSMutableDictionary alloc] init];
-
+/*
         NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
                                  @"read_friendlists",
                                  @"user_photos",
                                  nil];
 
         [_fbloginView setReadPermissions:permissions];
-        
+  */      
         //[self performSelectorInBackground:@selector(loadAllFacebookFriends) withObject:nil];
         if (self.useFacebook)
         {
@@ -137,7 +137,6 @@
 //- (tif_db *)
 - (void)saveDatabase
 {
-    //NSLog(@"save database");
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
     NSNumber *numberFacebook = [[NSNumber alloc] initWithBool:self.useFacebook];
@@ -216,7 +215,7 @@
     
 }
 
-
+/*
 - (void)readURLAsync:(NSString *)urlString fromConnection:(FBRequestConnection *)connection
 {
     if (urlString)
@@ -256,7 +255,7 @@
     
     
 }
-
+*/
 - (NSCachedURLResponse *)connection:(NSURLConnection *)connection
                   willCacheResponse:(NSCachedURLResponse*)cachedResponse
 {
@@ -307,8 +306,6 @@
     NSDictionary *options = @{ ACFacebookPermissionsKey : permissions,
                                ACFacebookAudienceKey : ACFacebookAudienceFriends,
                                ACFacebookAppIdKey : appID };
-    
-    //self.facebookAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
     
     [self.account requestAccessToAccountsWithType:self.facebookAccountType options:options completion:^(BOOL granted, NSError *error)
      {
@@ -388,8 +385,12 @@
                  
                  SLRequest *friends = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:param];
                  friends.account = facebookAccount;
+                 [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+
                  [friends performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
                   {
+                      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+
                       //NSLog(@"response = %@",response);
                       //NSLog(@"error = %@",error.debugDescription);
                       if (!error)
@@ -422,93 +423,7 @@
      }];
     
     return;
-    
-    // This is the old way to load the friends
-    if ([[FBSession activeSession] isOpen])
-    {
-        
-        FBRequest* friendsRequest = [FBRequest requestForMyFriends];
-        
-        [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
-                                                      NSDictionary* result,
-                                                      NSError *error)
-         {
-             if (error)
-             {
-                 NSLog(@"error = %@",error);
-             }
-             else
-                 
-             {
-                 
-                 NSArray* friends = [result objectForKey:@"data"];
-                 //FBGraphObject *paging = [result objectForKey:@"paging"];
-                 
-                 //NSString *previous = [paging objectForKey:@"previous"];
-                 // keys
-                 // first_name, id, last_name, name, username
-                 NSLog(@"Found: %ld friends", friends.count);
-                 
-                 if ([friends count])
-                 {
-                     [self.facebookFriends removeAllObjects];
-                     [self.facebookFriends addObjectsFromArray:friends];
-                 }
-                 
-                 //NSLog(@"result = %@",result);
-                 //NSString *next = [paging objectForKey:@"next"];
-                 //if (next)
-                 {
-                     //NSLog(@"next");
-                     //[self readURLAsync:next fromConnection:connection];
-                 }
-                 /*
-                  for (NSDictionary<FBGraphUser>* friend in friends)
-                  {
-                  NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
-                  }
-                  */
-             }
-         }];
-    }
-    else
-    {
-        NSLog(@"session is not open");
-    }
-    
-    
-}
-
-#pragma mark - FBLoginViewDelegate
-
-- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
-{
-    // this is called when you have logged in
-    // first get the buttons set for login mode
-    //self.buttonPostPhoto.enabled = YES;
-    // "Post Status" available when logged on and potentially when logged off.  Differentiate in the label.
-    //[self.buttonPostStatus setTitle:@"Post Status Update (Logged On)" forState:self.buttonPostStatus.state];
-    //NSLog(@"loginViewShowingLoggedInUser");
-}
-
-- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
-                            user:(id<FBGraphUser>)user
-{
-    //NSLog(@"loginViewFetchUserInfo");
-}
-
-- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
-{
-    // this is called after you have logged out
-    //NSLog(@"loginViewShowingLoggedOutUser");
-}
-
-
-- (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error
-{
-    // see https://developers.facebook.com/docs/reference/api/errors/ for general guidance on error handling for Facebook API
-    // our policy here is to let the login view handle errors, but to log the results
-    NSLog(@"FBLoginView encountered an error=%@", error);
+     
 }
 
 #pragma mark Twitter
@@ -604,8 +519,12 @@
 
                  SLRequest *friends = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:request parameters:parameters];
                  friends.account = twitterAccount;
+                 [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+                 
                  [friends performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
                   {
+                      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+
                       //NSLog(@"response = %@",response);
                       //NSLog(@"error = %@",error.debugDescription);
                       if (!error)
@@ -662,6 +581,7 @@
     
     return _twitterAccounts;
 }
+
 - (ACAccount *)selectedTwitterAccount
 {
     if (!_selectedTwitterAccount)
@@ -672,38 +592,6 @@
     return _selectedTwitterAccount;
 }
 
-/*
-- (ACAccount *)selectedTwitterAccount
-{
-    ACAccount *twitterAccount = nil;
-
-    self.twitterAccounts = [self.account accountsWithAccountType:self.twitterAccountType];
-    NSInteger numAccounts = [self.twitterAccounts count];
-    
-    if (numAccounts)
-    {
-        if ([self.selectedTwitterAccounts count] == 0)
-        {
-            ACAccount *account = [self.twitterAccounts lastObject];
-            NSString *username = [account username];
-            NSString *uid = [[self.twitterAccounts lastObject] userID];
-            [self.selectedTwitterAccounts setObject:uid forKey:username];
-        }
-        
-        for (ACAccount *account in self.twitterAccounts)
-        {
-            //NSLog(@"username = %@",account.username);
-            if ([self.selectedTwitterAccounts objectForKey:account.username])
-            {
-                //NSLog(@"selected: %@",account.username);
-                twitterAccount = account;
-            }
-        }
-    }
-    
-    return twitterAccount;
-}
-*/
 #pragma mark Instagram
 
 - (void)openInstagramInViewController:(UIViewController *)vc
