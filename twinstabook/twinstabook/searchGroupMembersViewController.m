@@ -99,10 +99,12 @@
     _imageLoadingQueue = [[NSOperationQueue alloc] init];
     [_imageLoadingQueue setName:@"imageLoadingQueue"];
     
+    
     // if twitter
-
-    self.tableViewObjects = [self searchArray:self.database.twitterFriends with:@""];
-
+    if ([self.searchFeed isEqualToString:[self.database.socialMediaNames objectAtIndex:kTwitter]])
+    {
+        self.tableViewObjects = [self searchArray:self.database.twitterFriends with:@""];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -380,8 +382,10 @@
  
                                             if (pResponseData)
                                             {
+                                                NSDate *now = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
                                                 [self.imageCache setObject:pResponseData forKey:user.uid];
                                                 user.imageData = pResponseData;
+                                                user.updated = now;
                                                 //UITableViewCell *cell = [tv cellForRowAtIndexPath:ip];
 
                                                 weakCell.imageView.image = [UIImage imageWithData:pResponseData];

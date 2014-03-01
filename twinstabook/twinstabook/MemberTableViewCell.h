@@ -11,6 +11,8 @@
 
 @interface MemberTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *userImage;
 @property (weak, nonatomic) IBOutlet UIImageView *typeView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end

@@ -105,9 +105,11 @@
     MemberTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     UserObject *user = [self.groupMembers objectAtIndex:indexPath.row];
-    cell.textLabel.text = user.name;
-    cell.imageView.image = [UIImage imageWithData:user.imageData];
+    cell.nameLabel.text = user.name;
+    cell.userImage.image = [UIImage imageWithData:user.imageData];
     cell.typeView.image = self.database.twitterLogo;
+    cell.typeView.contentMode = UIViewContentModeScaleAspectFit;
+    
     return cell;
     
 }

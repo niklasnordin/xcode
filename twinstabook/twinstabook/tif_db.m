@@ -178,10 +178,14 @@
     
     for (UserObject *user in users)
     {
-        NSString *name = user.name;
-        NSString *uid = user.uid;
+
         NSNumber *type = [[NSNumber alloc] initWithInteger:user.type];
-        NSDictionary *userDict = @{@"name": name, @"uid" : uid, @"type" : type};
+
+        NSDictionary *userDict = @{@"name": user.name,
+                                   @"uid" : user.uid,
+                                   @"imageData" : user.imageData,
+                                   @"updated" : user.updated,
+                                   @"type" : type};
         [dict addObject:userDict];
     }
     return dict;
@@ -196,6 +200,8 @@
         UserObject *obj = [[UserObject alloc] init];
         obj.name = [user objectForKey:@"name"];
         obj.uid = [user objectForKey:@"uid"];
+        obj.imageData = [user objectForKey:@"imageData"];
+        obj.updated = [user objectForKey:@"updated"];
         NSNumber *num = [user objectForKey:@"type"];
         obj.type = [num integerValue];
         [dict addObject:obj];
