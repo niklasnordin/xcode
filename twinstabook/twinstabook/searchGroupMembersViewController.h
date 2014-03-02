@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "tif_db.h"
 
-const static int maxImages = 100;
+const static int maxImages = 200;
 
 @interface searchGroupMembersViewController : UITableViewController
 <

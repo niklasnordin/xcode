@@ -107,6 +107,8 @@
     UserObject *user = [self.groupMembers objectAtIndex:indexPath.row];
     cell.nameLabel.text = user.name;
     cell.userImage.image = [UIImage imageWithData:user.imageData];
+    [cell.userImage setContentMode:UIViewContentModeScaleAspectFit];
+    //NSLog(@"image = %@",user.imageData);
     
     switch (user.type) {
         case kFacebook:

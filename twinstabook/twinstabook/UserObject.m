@@ -20,6 +20,7 @@
         self.uid = @"";
         self.profileImageURL = @"";
         self.imageData = nil;
+        self.updated = nil;
     }
     
     return self;

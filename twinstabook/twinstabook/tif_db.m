@@ -128,7 +128,6 @@
     return self;
 }
 
-//- (tif_db *)
 - (void)saveDatabase
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

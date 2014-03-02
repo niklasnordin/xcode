@@ -118,12 +118,20 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    
     bool reloadTableView = NO;
     
     NSArray *keys = [self.selectedObjects allKeys];
     for (NSString *key in keys)
     {
         UserObject *user = [self.selectedObjects objectForKey:key];
+        if (!user.imageData)
+        {
+            if ([self.imageCache objectForKey:user.uid])
+            {
+                user.imageData = [self.imageCache objectForKey:user.uid];
+            }
+        }
         if (![self.groupMembers containsObject:user])
         {
             //NSLog(@"adding member %@",user.name);
@@ -132,6 +140,7 @@
         }
     }
     
+
     if (reloadTableView)
     {
         [self.membersTableView reloadData];
@@ -205,7 +214,7 @@
     switch (self.database.selectedMediaNameIndex)
     {
         case kFacebook:
-            [self downloadImageForUser:user andCell:cell];
+            [self downloadFacebookImageForUser:user andCell:cell];
             break;
                 
         case kTwitter:
@@ -336,6 +345,118 @@
         {
             [self.imageLoadingQueue addOperation:loadImageIntoCellOp];
         }
+    }
+    
+    NSArray *imageCacheKeys = [self.imageCache allKeys];
+    if (imageCacheKeys.count > maxImages)
+    {
+        [self.imageCache removeObjectForKey:imageCacheKeys[0]];
+    }
+    
+}
+
+// facebook doesn not provide the image link so we need to get it from the uid
+- (void)downloadFacebookImageForUser:(UserObject *)user andCell:(UITableViewCell *)cell
+{
+    NSData *imageData = [self.imageCache objectForKey:user.uid];
+    if (imageData)
+    {
+        //NSLog(@"using imageData for uid = %@",user.uid);
+        cell.imageView.image = [UIImage imageWithData:imageData];
+    }
+    else
+    {
+        NSBlockOperation *loadImageIntoCellOp = [[NSBlockOperation alloc] init];
+        __weak NSBlockOperation *weakOp = loadImageIntoCellOp;
+        
+        [loadImageIntoCellOp addExecutionBlock:^(void)
+         {
+
+             NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+             NSString *appID = infoDict[@"FacebookAppID"];
+    
+             NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
+                             @"read_friendlists",
+                             @"user_photos",
+                             nil];
+    
+             NSDictionary *options = @{ ACFacebookPermissionsKey : permissions,
+                                        ACFacebookAudienceKey : ACFacebookAudienceFriends,
+                                        ACFacebookAppIdKey : appID };
+    
+    
+             [self.database.account requestAccessToAccountsWithType:self.database.facebookAccountType options:options completion:^(BOOL granted, NSError *error)
+              {
+                  if (granted)
+                  {
+             
+                      NSArray *accounts = [self.database.account accountsWithAccountType:self.database.facebookAccountType];
+             
+                      // there is only one facebook account
+                      ACAccount *facebookAccount = [accounts lastObject];
+             
+                      if (facebookAccount)
+                      {
+                          NSString *apiString = [NSString stringWithFormat:@"%@/%@/picture",kFacebookGraphRoot,user.uid];
+                          NSURL *request = [NSURL URLWithString:apiString];
+                          NSDictionary *param = @{ @"type" : @"square"
+                                                   };
+                          SLRequest *pictureRequest = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:param];
+                          pictureRequest.account = facebookAccount;
+                          [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+                 
+                          [pictureRequest performRequestWithHandler:^(NSData *pImageData, NSHTTPURLResponse *urlResponse, NSError *error)
+                           {
+                               [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                      
+                               if (!error)
+                               {
+                                   [[NSOperationQueue mainQueue] addOperationWithBlock:^(void)
+                                    {
+                                        //Check for cancelation before proceeding. We use cellForRowAtIndexPath to make sure we get nil for a non-visible cell
+                                        if (!weakOp.isCancelled)
+                                        {
+                                            
+                                            if (pImageData)
+                                            {
+                                                cell.imageView.image = [UIImage imageWithData:pImageData];
+                                                [self.imageCache setObject:pImageData forKey:user.uid];
+                                                user.imageData = pImageData;
+                                                user.updated = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
+                                            }
+                                            
+                                            [self.uidToImageDownloadOperations removeObjectForKey:user.uid];
+                                        }
+                                    }];
+                          
+                               }
+                               else
+                               {
+                                   NSLog(@"error = %@",[error localizedDescription]);
+                               }
+                           }];
+                      }
+             
+                  }
+                  else
+                  {
+                      NSLog(@"facebook access is not granted");
+                  }
+         
+              }];
+         }];
+        //Save a reference to the operation in an NSMutableDictionary so that it can be cancelled later on
+        if (user.uid)
+        {
+            [self.uidToImageDownloadOperations setObject:loadImageIntoCellOp forKey:user.uid];
+        }
+        
+        //Add the operation to the designated background queue
+        if (loadImageIntoCellOp)
+        {
+            [self.imageLoadingQueue addOperation:loadImageIntoCellOp];
+        }
+        
     }
     
     NSArray *imageCacheKeys = [self.imageCache allKeys];
@@ -494,7 +615,7 @@
                 if (![self.groupMembers containsObject:user])
                 {
                     //NSLog(@"adding member %@",user.name);
-                    if ([self.tableViewObjects containsObject:user])
+                    if (![self.tableViewObjects containsObject:user])
                     {
                         [self.tableViewObjects addObject:user];
                     }
@@ -605,18 +726,6 @@
     // replace all 'space' with plus sign
     NSString *searchString = [searchStringWithSpace stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     searchString = [searchString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-   // NSString *search = [NSString stringWithFormat:@"search?q=%@&type=page",searchString];
-
-    /*
-    if (self.database.selectedOptionIndex == 1)
-    {
-        search = [NSString stringWithFormat:@"search?q=%@&type=page",searchString];
-    }
-    else
-    {
-        search = [NSString stringWithFormat:@"search?q=%@&type=user",searchString];
-    }
-     */
     
     NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *appID = infoDict[@"FacebookAppID"];
@@ -676,7 +785,6 @@
                               dispatch_async(dispatch_get_main_queue(), ^{
                                   
                                   NSArray *dataDict = [result objectForKey:@"data"];
-                                  //NSLog(@"%@",dataDict);
                                   
                                   [self.searchObjects removeAllObjects];
 
@@ -685,6 +793,9 @@
                                       UserObject *obj = [[UserObject alloc] init];
                                       obj.name = [dataDict[i] objectForKey:@"name"];
                                       obj.uid = [dataDict[i] objectForKey:@"id"];
+                                      obj.type = kFacebook;
+                                      obj.updated = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
+                                      obj.profileImageURL = @"";
                                       [self.searchObjects addObject:obj];
                                   }
                                 
