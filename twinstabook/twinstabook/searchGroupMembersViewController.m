@@ -202,7 +202,7 @@
     switch (self.database.selectedMediaNameIndex)
     {
         case kFacebook:
-            //[self ];
+            [self downloadImageForUser:user andCell:cell];
             break;
                 
         case kTwitter:

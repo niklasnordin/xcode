@@ -400,9 +400,12 @@
                               for (NSDictionary *userDict in friendsArray)
                               {
                                   //NSLog(@"userDict = %@",userDict);
+                                  NSDictionary *pictureDict = [[userDict objectForKey:@"picture"] objectForKey:@"data"];
+                                 // NSLog(@"picureDict = %@",pictureDict);
                                   UserObject *user = [[UserObject alloc] init];
                                   user.name = [userDict objectForKey:@"name"];
                                   user.uid = [userDict objectForKey:@"id"];
+                                  user.profileImageURL = [pictureDict objectForKey:@"url"];
                                   user.type = kFacebook;
                                   [self.facebookFriends addObject:user];
                               }
