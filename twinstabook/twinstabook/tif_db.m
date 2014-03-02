@@ -124,10 +124,6 @@
             [self loadAllFacebookFriends];
         }
         
-        if (self.useTwitter)
-        {
-            [self loadTwitterFriends];
-        }
     }
     return self;
 }
@@ -360,7 +356,6 @@
                                ACFacebookAudienceKey : ACFacebookAudienceFriends,
                                ACFacebookAppIdKey : appID };
     
-    //self.facebookAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
     
     [self.account requestAccessToAccountsWithType:self.facebookAccountType options:options completion:^(BOOL granted, NSError *error)
      {
@@ -439,8 +434,6 @@
 - (void)openTwitterInViewController:(UIViewController *)vc
 {
     
-    //self.twitterAccountType = [self.account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-    //NSLog(@"in openTwitterInViewController");
     [self.account requestAccessToAccountsWithType:self.twitterAccountType options:nil completion:^(BOOL granted, NSError *error)
      {
          if (!error)
@@ -499,7 +492,12 @@
     
 }
 
-- (void)loadTwitterFriends
+- (void)loadAllTwitterFriendsInViewController:(UIViewController *)vc
+{
+    [self loadTwitterFriendsWithCursor:@"" inViewController:vc];
+}
+
+- (void)loadTwitterFriendsWithCursor:(NSString *)cursor inViewController:(UIViewController *)vc
 {
     
     [self.account requestAccessToAccountsWithType:self.twitterAccountType options:nil completion:^(BOOL granted, NSError *error)
@@ -524,7 +522,14 @@
                  //[parameters setObject:@"1" forKey:@"user_id"];
                  //[parameters setObject:@"1" forKey:@"screen_name"];
                  [parameters setObject:@"1" forKey:@"skip_status"];
-
+                 if (cursor)
+                 {
+                     if (![cursor isEqualToString:@""])
+                     {
+                         [parameters setObject:cursor forKey:@"cursor"];
+                     }
+                 }
+                 NSLog(@"cursor = %@",cursor);
                  SLRequest *friends = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:request parameters:parameters];
                  friends.account = twitterAccount;
                  [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -538,13 +543,28 @@
                       if (!error)
                       {
                           NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-                          NSLog(@"result = %@",result);
+                          //NSLog(@"result = %@",result);
                           
                           NSArray *users = [result objectForKey:@"users"];
-                          
+                          NSDictionary *errors = [[result objectForKey:@"errors"] lastObject];
+                          if (errors)
+                          {
+                              NSLog(@"%@",errors);
+                              NSString *message = [errors objectForKey:@"message"];
+                              NSString *output = [NSString stringWithFormat:@"Twitter Error: %@",message];
+                              UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:output
+                                                                              delegate:nil
+                                                                     cancelButtonTitle:@"OK"
+                                                                destructiveButtonTitle:nil
+                                                                     otherButtonTitles:nil];
+                              dispatch_async(dispatch_get_main_queue(), ^{
+                                  [as showInView:vc.view];
+                              });
+                              
+                          }
                           if (users.count)
                           {
-                              if (self.twitterFriends.count)
+                              if (self.twitterFriends.count && [cursor isEqualToString:@""])
                               {
                                   [self.twitterFriends removeAllObjects];
                               }
@@ -558,9 +578,16 @@
                                   user.type = kTwitter;
                                   [self.twitterFriends addObject:user];
                               }
-                              //NSLog(@"twitterFriends.count = %ld",self.twitterFriends.count);
+                              NSLog(@"twitterFriends.count = %ld",self.twitterFriends.count);
                           }
-
+                          NSString *next_cursor = [result objectForKey:@"next_cursor_str"];
+                          if (next_cursor)
+                          {
+                              if (![next_cursor isEqualToString:@"0"])
+                              {
+                                  [self loadTwitterFriendsWithCursor:next_cursor inViewController:vc];
+                              }
+                          }
                       }
                       else
                       {

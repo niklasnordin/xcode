@@ -98,7 +98,8 @@ static NSString * const kTwitterAPIVersion = @"1.1";
 @property (strong, nonatomic) UIImage *twitterLogo;
 
 - (void)openTwitterInViewController:(UIViewController *)vc;
-- (void)loadTwitterFriends;
+- (void)loadAllTwitterFriendsInViewController:(UIViewController *)vc;
+- (void)loadTwitterFriendsWithCursor:(NSString *)cursor inViewController:(UIViewController *)vc;
 
 // instagram functions
 @property (strong, nonatomic) UIImage *instagramLogo;

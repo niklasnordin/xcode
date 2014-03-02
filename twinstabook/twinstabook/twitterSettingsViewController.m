@@ -67,7 +67,7 @@
 
     if (self.db.useTwitter)
     {
-        [self.db loadTwitterFriends];
+        [self.db loadAllTwitterFriendsInViewController:self];
         [self.tableView reloadData];
     }
 }
@@ -134,7 +134,7 @@
     {
         self.db.selectedTwitterAccount = account;
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
-        [self.db loadTwitterFriends];
+        [self.db loadAllTwitterFriendsInViewController:self];
     }
     [tableView reloadData];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

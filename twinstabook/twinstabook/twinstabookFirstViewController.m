@@ -61,6 +61,7 @@
     if (self.database.useTwitter)
     {
         [self.database openTwitterInViewController:self];
+        [self.database loadAllTwitterFriendsInViewController:self];
     }
     
     if (self.database.useInstagram)
