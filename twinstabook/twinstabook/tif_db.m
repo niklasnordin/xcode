@@ -519,7 +519,7 @@
                  NSURL *request = [NSURL URLWithString:apiString];
                  
                  NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
-                 //[parameters setObject:@"100" forKey:@"count"];
+                 [parameters setObject:@"200" forKey:@"count"];
                  //[parameters setObject:@"1" forKey:@"include_entities"];
                  //[parameters setObject:@"1" forKey:@"user_id"];
                  //[parameters setObject:@"1" forKey:@"screen_name"];
@@ -553,7 +553,7 @@
                           {
                               NSLog(@"%@",errors);
                               NSString *message = [errors objectForKey:@"message"];
-                              NSString *output = [NSString stringWithFormat:@"Twitter Error: %@",message];
+                              NSString *output = [NSString stringWithFormat:@"Twitter Error when reading friends list: %@",message];
                               UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:output
                                                                               delegate:nil
                                                                      cancelButtonTitle:@"OK"
