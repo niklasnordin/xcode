@@ -186,7 +186,11 @@
     }
     else
     {
-        user = [self.searchObjects objectAtIndex:indexPath.row];
+        if (indexPath.row < [self.searchObjects count])
+        {
+            user = [self.searchObjects objectAtIndex:indexPath.row];
+        }
+//        user = [self.searchObjects objectAtIndex:indexPath.row];
     }
     cell.textLabel.text = user.name;
     cell.imageView.image = [UIImage imageNamed:@"questionMark.png"];
@@ -477,6 +481,12 @@
     [self.tableView reloadData];
 }
 
+//- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+    return YES;
+}
+
 - (void)searchWithText:(NSString *)searchText
 {
     NSInteger length = [searchText length];
@@ -611,7 +621,7 @@
                  //NSLog(@"here i am in the facebook account to load friends");
                  NSString *apiString = [NSString stringWithFormat:@"%@/search",kFacebookGraphRoot];
                  NSURL *request = [NSURL URLWithString:apiString];
-                 NSLog(@"apiString = %@",apiString);
+                 //NSLog(@"apiString = %@",apiString);
 
                  NSDictionary *param = @{@"q": searchString, @"type" : @"page"};
                  
@@ -633,15 +643,22 @@
                             //NSLog(@"result = %@",result);
                           if (result)
                           {
-                              NSDictionary *dataDict = [result objectForKey:@"data"];
-                              [self.searchObjects removeAllObjects];
-                              for (NSDictionary *hit in dataDict)
-                              {
-                                  UserObject *obj = [[UserObject alloc] init];
-                                  obj.name = [hit objectForKey:@"name"];
-                                  obj.uid = [hit objectForKey:@"id"];
-                                  [self.searchObjects addObject:obj];
-                              }
+                              dispatch_async(dispatch_get_main_queue(), ^{
+                                  
+                                  //NSDictionary *dataDict = [result objectForKey:@"data"];
+                                  NSArray *dataArray = [[result objectForKey:@"data"] lastObject];
+                                  //[self.searchObjects removeAllObjects];
+
+                                  for(int i=0;i<[dataArray count]; i++)
+                                  {
+                                      UserObject *obj = [[UserObject alloc] init];
+                                      obj.name = [dataArray[i] objectForKey:@"name"];
+                                      obj.uid = [dataArray[i] objectForKey:@"id"];
+                                      //[self.searchObjects addObject:obj];
+                                      [self.searchObjects replaceObjectAtIndex:i withObject:obj];
+                                  }
+                                  [self.tableView reloadData];
+                              });
                               //NSDictionary *paging = [result objectForKey:@"paging"];
                           }
                       }
@@ -654,97 +671,8 @@
 
          }
     }];
-                 /*
-    [SLRequestConnection startWithGraphPath:search parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
-             {
-             [self.searchActivityIndicator stopAnimating];
-             
-             if (!error)
-             {
-             NSMutableArray *pData = [result objectForKey:@"data"];
-             NSLog(@"search result = %@", pData);
-             [self performSegueWithIdentifier:@"searchUserSegue" sender:pData];
-             }
-             else
-             {
-             NSLog(@"error: %@",error);
-             }
-             }
-             ];
-             
-        }
-*/
 
-}
 
-- (void)searchFacebookPagesWithHTTPS:(NSString *)searchStringWithSpace
-{
-    NSLog(@"search facebook pages");
-    //[self.searchActivityIndicator setHidden:NO];
-    //[self.searchActivityIndicator startAnimating];
-    
-    // replace all 'space' with plus sign
-    NSString *searchString = [searchStringWithSpace stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-    searchString = [searchString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *search = [NSString stringWithFormat:@"search?q=%@&type=page",searchString];
-    
-    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
-    NSString *appID = infoDict[@"FacebookAppID"];
-    
-    NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
-                             @"read_friendlists",
-                             @"user_photos",
-                             nil];
-    
-    NSDictionary *options = @{ ACFacebookPermissionsKey : permissions,
-                               ACFacebookAudienceKey : ACFacebookAudienceFriends,
-                               ACFacebookAppIdKey : appID };
-    
-    [self.database.account requestAccessToAccountsWithType:self.database.facebookAccountType options:options completion:^(BOOL granted, NSError *error)
-     {
-         if (granted)
-         {
-             //NSLog(@"access granted");
-             
-             NSArray *accounts = [self.database.account accountsWithAccountType:self.database.facebookAccountType];
-             
-             // there is only one facebook account
-             ACAccount *facebookAccount = [accounts lastObject];
-             
-             // Get the access token, could be used in other scenarios
-             ACAccountCredential *fbCredential = [facebookAccount credential];
-             NSString *accessToken = [fbCredential oauthToken];
-             //NSLog(@"Facebook Access Token: %@", accessToken);
-             NSString *searchWithToken = [NSString stringWithFormat:@"%@&access_token=%@",search,accessToken];
-             if (facebookAccount)
-             {
-                 NSError *error = [[NSError alloc] init];
-                 NSHTTPURLResponse *responseCode = nil;
-
-                 //NSLog(@"here i am in the facebook account to load friends");
-                 NSString *apiString = [NSString stringWithFormat:@"%@/%@",kFacebookGraphRoot,searchWithToken];
-                 NSLog(@"apiString = %@",apiString);
-                 NSURL *request = [NSURL URLWithString:apiString];
-                 NSMutableURLRequest *searchRequest = [NSMutableURLRequest requestWithURL:request];
-
-                 NSData *response = [NSURLConnection sendSynchronousRequest:searchRequest returningResponse:&responseCode error:&error];
-                 
-                 //NSLog(@"response = %@",response);
-                 NSLog(@"error = %@",error.debugDescription);
-                 if (!error)
-                 {
-                     if (response)
-                     {
-                         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-                         NSLog(@"result = %@",result);
-                     }
-                 }
-             }
-             
-         }
-     }];
-
-    
 }
 
 - (void)searchFacebookUsers:(NSString *)searchString
