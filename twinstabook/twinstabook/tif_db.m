@@ -180,6 +180,7 @@
                                    @"uid" : user.uid,
                                    @"imageData" : user.imageData,
                                    @"updated" : user.updated,
+                                   @"profileImageURL" : user.profileImageURL,
                                    @"type" : type};
         [dict addObject:userDict];
     }
@@ -197,6 +198,7 @@
         obj.uid = [user objectForKey:@"uid"];
         obj.imageData = [user objectForKey:@"imageData"];
         obj.updated = [user objectForKey:@"updated"];
+        obj.profileImageURL = [user objectForKey:@"profileImageURL"];
         NSNumber *num = [user objectForKey:@"type"];
         obj.type = [num integerValue];
         [dict addObject:obj];
@@ -529,7 +531,7 @@
                          [parameters setObject:cursor forKey:@"cursor"];
                      }
                  }
-                 NSLog(@"cursor = %@",cursor);
+                 //NSLog(@"cursor = %@",cursor);
                  SLRequest *friends = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:request parameters:parameters];
                  friends.account = twitterAccount;
                  [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -570,11 +572,13 @@
                               }
                               for (NSDictionary *u in users)
                               {
+                                  //NSLog(@"%@",u);
                                   NSString *name = [u objectForKey:@"screen_name"];
                                   NSString *uid = [u objectForKey:@"id_str"];
                                   UserObject *user = [[UserObject alloc] init];
                                   user.name = name;
                                   user.uid = uid;
+                                  user.profileImageURL = [u objectForKey:@"profile_image_url"];
                                   user.type = kTwitter;
                                   [self.twitterFriends addObject:user];
                               }

@@ -18,7 +18,8 @@
         self.type = -1;
         self.name = @"";
         self.uid = @"";
-        //self.imageData = [[NSData alloc] init];
+        self.profileImageURL = @"";
+        self.imageData = nil;
     }
     
     return self;

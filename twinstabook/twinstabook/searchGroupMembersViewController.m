@@ -206,7 +206,7 @@
             break;
                 
         case kTwitter:
-            [self downloadTwitterImageForUser:user andCell:cell];
+            [self downloadImageForUser:user andCell:cell];
             break;
                 
         case kInstagram:
@@ -264,44 +264,48 @@
 
 }
 
-- (void)downloadImageForUser:(UserObject *)user andTV:(UITableView *)tv indexPath:(NSIndexPath *)ip
+// this will use the profileImageURL and should work for all services
+- (void)downloadImageForUser:(UserObject *)user andCell:(UITableViewCell *)cell
 {
     
     // first check if the image exists in the cache
     NSData *imageData = [self.imageCache objectForKey:user.uid];
     if (imageData)
     {
-        NSLog(@"using imageData for uid = %@",user.uid);
-        UITableViewCell *cell = [tv cellForRowAtIndexPath:ip];
+        //NSLog(@"using imageData for uid = %@",user.uid);
         cell.imageView.image = [UIImage imageWithData:imageData];
     }
     else
     {
+        //NSLog(@"dowloading image for user: %@",user.name);
         // otherwise download it
         NSBlockOperation *loadImageIntoCellOp = [[NSBlockOperation alloc] init];
         __weak NSBlockOperation *weakOp = loadImageIntoCellOp;
         
         [loadImageIntoCellOp addExecutionBlock:^(void)
          {
-             UIImage *image = nil;
+             NSError *error = [[NSError alloc] init];
+             NSHTTPURLResponse *responseCode = nil;
              
              // get the image here
-             //image = [self getFacebookImageForUserID:userID];
-             
+             //NSLog(@"imageURL : %@",user.profileImageURL);
+             NSURL *url = [NSURL URLWithString:user.profileImageURL];
+             NSMutableURLRequest *pictureRequest = [NSMutableURLRequest requestWithURL:url];
+             NSData *pImageData = [NSURLConnection sendSynchronousRequest:pictureRequest returningResponse:&responseCode error:&error];
+
              //Some asynchronous work. Once the image is ready, it will load into view on the main queue
              [[NSOperationQueue mainQueue] addOperationWithBlock:^(void)
               {
                   //Check for cancelation before proceeding. We use cellForRowAtIndexPath to make sure we get nil for a non-visible cell
                   if (!weakOp.isCancelled)
                   {
-                      UITableViewCell *theCell = [tv cellForRowAtIndexPath:ip];
+                      //UITableViewCell *theCell = [tv cellForRowAtIndexPath:ip];
                       
-                      if (image)
+                      if (pImageData)
                       {
-                          theCell.imageView.image = image;
-                          NSData *imageData = UIImagePNGRepresentation(image);
-                          [self.imageCache setObject:imageData forKey:user.uid];
-                          //user.imageData = imageData;
+                          cell.imageView.image = [UIImage imageWithData:pImageData];
+                          [self.imageCache setObject:pImageData forKey:user.uid];
+                          user.imageData = pImageData;
                       }
                       
                       [self.uidToImageDownloadOperations removeObjectForKey:user.uid];
@@ -320,6 +324,12 @@
         {
             [self.imageLoadingQueue addOperation:loadImageIntoCellOp];
         }
+    }
+    
+    NSArray *imageCacheKeys = [self.imageCache allKeys];
+    if (imageCacheKeys.count > maxImages)
+    {
+        [self.imageCache removeObjectForKey:imageCacheKeys[0]];
     }
     
 }

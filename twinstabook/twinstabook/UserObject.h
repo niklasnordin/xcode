@@ -15,7 +15,7 @@
 @property (nonatomic) NSInteger type;
 @property (strong, nonatomic) NSData *imageData;
 @property (strong, nonatomic) NSDate *updated;
-
+@property (strong, nonatomic) NSString *profileImageURL;
 - (id)init;
 
 @end
