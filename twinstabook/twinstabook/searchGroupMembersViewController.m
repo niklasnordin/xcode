@@ -186,11 +186,7 @@
     }
     else
     {
-        if (indexPath.row < [self.searchObjects count])
-        {
-            user = [self.searchObjects objectAtIndex:indexPath.row];
-        }
-//        user = [self.searchObjects objectAtIndex:indexPath.row];
+        user = [self.searchObjects objectAtIndex:indexPath.row];
     }
     cell.textLabel.text = user.name;
     cell.imageView.image = [UIImage imageNamed:@"questionMark.png"];
@@ -257,9 +253,16 @@
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-    UserObject *user = [self.tableViewObjects objectAtIndex:indexPath.row];
-
+    UserObject *user = nil;
+    if ([tableView isEqual:self.tableView])
+    {
+        user = [self.tableViewObjects objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        user = [self.searchObjects objectAtIndex:indexPath.row];
+    }
+    
     //Fetch operation that doesn't need executing anymore
     NSBlockOperation *ongoingDownloadOperation = [self.uidToImageDownloadOperations objectForKey:user.uid];
     if (ongoingDownloadOperation)
@@ -478,14 +481,36 @@
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
     // need to reload the data if something selected/deselected while in search bar
+    
+    if (self.database.selectedMediaNameIndex == kFacebook)
+    {
+        if (self.database.selectedOptionIndex == 1)
+        {
+
+            NSArray *keys = [self.selectedObjects allKeys];
+            for (NSString *key in keys)
+            {
+                UserObject *user = [self.selectedObjects objectForKey:key];
+                if (![self.groupMembers containsObject:user])
+                {
+                    //NSLog(@"adding member %@",user.name);
+                    if ([self.tableViewObjects containsObject:user])
+                    {
+                        [self.tableViewObjects addObject:user];
+                    }
+                }
+            }
+        }
+    }
+    
     [self.tableView reloadData];
 }
 
 //- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
-{
-    return YES;
-}
+//- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+//{
+//    return YES;
+//}
 
 - (void)searchWithText:(NSString *)searchText
 {
@@ -529,6 +554,11 @@
     [self searchWithText:searchText];
 }
 
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    return NO;
+}
+
 - (void)facebookSearch:(NSString *)searchString
 {
     switch (self.database.selectedOptionIndex) {
@@ -568,14 +598,14 @@
 
 - (void)searchFacebookPages:(NSString *)searchStringWithSpace
 {
-    NSLog(@"search facebook pages");
+    //NSLog(@"search facebook pages");
     //[self.searchActivityIndicator setHidden:NO];
     //[self.searchActivityIndicator startAnimating];
     
     // replace all 'space' with plus sign
     NSString *searchString = [searchStringWithSpace stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     searchString = [searchString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *search = [NSString stringWithFormat:@"search?q=%@&type=page",searchString];
+   // NSString *search = [NSString stringWithFormat:@"search?q=%@&type=page",searchString];
 
     /*
     if (self.database.selectedOptionIndex == 1)
@@ -604,7 +634,6 @@
     {
          if (granted)
          {
-             //NSLog(@"access granted");
              
              NSArray *accounts = [self.database.account accountsWithAccountType:self.database.facebookAccountType];
              
@@ -618,23 +647,24 @@
              //NSString *searchWithToken = [NSString stringWithFormat:@"%@&access_token=%@",search,accessToken];
              if (facebookAccount)
              {
-                 //NSLog(@"here i am in the facebook account to load friends");
+
                  NSString *apiString = [NSString stringWithFormat:@"%@/search",kFacebookGraphRoot];
                  NSURL *request = [NSURL URLWithString:apiString];
-                 //NSLog(@"apiString = %@",apiString);
 
-                 NSDictionary *param = @{@"q": searchString, @"type" : @"page"};
+                 NSDictionary *param = @{@"q": searchString,
+                                         @"type" : @"page"
+                                         };
                  
                  SLRequest *users = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:param];
                  users.account = facebookAccount;
-                 //[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+                 [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
                  
                  [users performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
                   {
-                      //[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                       
                       //NSLog(@"response = %@",response);
-                      NSLog(@"error = %@",error.debugDescription);
+                      //NSLog(@"error = %@",error.debugDescription);
                       if (!error)
                       {
                           //self.facebookUsername = [facebookAccount userFullName];
@@ -645,19 +675,20 @@
                           {
                               dispatch_async(dispatch_get_main_queue(), ^{
                                   
-                                  //NSDictionary *dataDict = [result objectForKey:@"data"];
-                                  NSArray *dataArray = [[result objectForKey:@"data"] lastObject];
-                                  //[self.searchObjects removeAllObjects];
+                                  NSArray *dataDict = [result objectForKey:@"data"];
+                                  //NSLog(@"%@",dataDict);
+                                  
+                                  [self.searchObjects removeAllObjects];
 
-                                  for(int i=0;i<[dataArray count]; i++)
+                                  for(int i=0;i<[dataDict count]; i++)
                                   {
                                       UserObject *obj = [[UserObject alloc] init];
-                                      obj.name = [dataArray[i] objectForKey:@"name"];
-                                      obj.uid = [dataArray[i] objectForKey:@"id"];
-                                      //[self.searchObjects addObject:obj];
-                                      [self.searchObjects replaceObjectAtIndex:i withObject:obj];
+                                      obj.name = [dataDict[i] objectForKey:@"name"];
+                                      obj.uid = [dataDict[i] objectForKey:@"id"];
+                                      [self.searchObjects addObject:obj];
                                   }
-                                  [self.tableView reloadData];
+                                
+                                  [self.searchDisplayController.searchResultsTableView reloadData];
                               });
                               //NSDictionary *paging = [result objectForKey:@"paging"];
                           }
