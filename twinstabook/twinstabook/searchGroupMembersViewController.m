@@ -103,7 +103,10 @@
     // if facebook
     if ([self.searchFeed isEqualToString:[self.database.socialMediaNames objectAtIndex:kFacebook]])
     {
-        self.tableViewObjects = [self searchArray:self.database.facebookFriends with:@""];
+        if (self.database.selectedOptionIndex == 0)
+        {
+            self.tableViewObjects = [self searchArray:self.database.facebookFriends with:@""];
+        }
     }
     
     // if twitter
@@ -291,7 +294,9 @@
              //NSLog(@"imageURL : %@",user.profileImageURL);
              NSURL *url = [NSURL URLWithString:user.profileImageURL];
              NSMutableURLRequest *pictureRequest = [NSMutableURLRequest requestWithURL:url];
+             [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
              NSData *pImageData = [NSURLConnection sendSynchronousRequest:pictureRequest returningResponse:&responseCode error:&error];
+             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 
              //Some asynchronous work. Once the image is ready, it will load into view on the main queue
              [[NSOperationQueue mainQueue] addOperationWithBlock:^(void)
@@ -516,7 +521,6 @@
 
 - (void)facebookSearch:(NSString *)searchString
 {
-    NSLog(@"facebookSearch");
     switch (self.database.selectedOptionIndex) {
 
         case 0:
@@ -552,8 +556,194 @@
     self.searchObjects = [self searchArray:self.tableViewObjects with:searchString];
 }
 
-- (void)searchFacebookPages:(NSString *)searchString
+- (void)searchFacebookPages:(NSString *)searchStringWithSpace
 {
+    NSLog(@"search facebook pages");
+    //[self.searchActivityIndicator setHidden:NO];
+    //[self.searchActivityIndicator startAnimating];
+    
+    // replace all 'space' with plus sign
+    NSString *searchString = [searchStringWithSpace stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    searchString = [searchString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *search = [NSString stringWithFormat:@"search?q=%@&type=page",searchString];
+
+    /*
+    if (self.database.selectedOptionIndex == 1)
+    {
+        search = [NSString stringWithFormat:@"search?q=%@&type=page",searchString];
+    }
+    else
+    {
+        search = [NSString stringWithFormat:@"search?q=%@&type=user",searchString];
+    }
+     */
+    
+    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString *appID = infoDict[@"FacebookAppID"];
+    
+    NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
+                             @"read_friendlists",
+                             @"user_photos",
+                             nil];
+    
+    NSDictionary *options = @{ ACFacebookPermissionsKey : permissions,
+                               ACFacebookAudienceKey : ACFacebookAudienceFriends,
+                               ACFacebookAppIdKey : appID };
+    
+    [self.database.account requestAccessToAccountsWithType:self.database.facebookAccountType options:options completion:^(BOOL granted, NSError *error)
+    {
+         if (granted)
+         {
+             //NSLog(@"access granted");
+             
+             NSArray *accounts = [self.database.account accountsWithAccountType:self.database.facebookAccountType];
+             
+             // there is only one facebook account
+             ACAccount *facebookAccount = [accounts lastObject];
+             
+             // Get the access token, could be used in other scenarios
+             //ACAccountCredential *fbCredential = [facebookAccount credential];
+             //NSString *accessToken = [fbCredential oauthToken];
+             //NSLog(@"Facebook Access Token: %@", accessToken);
+             //NSString *searchWithToken = [NSString stringWithFormat:@"%@&access_token=%@",search,accessToken];
+             if (facebookAccount)
+             {
+                 //NSLog(@"here i am in the facebook account to load friends");
+                 NSString *apiString = [NSString stringWithFormat:@"%@/search",kFacebookGraphRoot];
+                 NSURL *request = [NSURL URLWithString:apiString];
+                 NSLog(@"apiString = %@",apiString);
+
+                 NSDictionary *param = @{@"q": searchString, @"type" : @"page"};
+                 
+                 SLRequest *users = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:param];
+                 users.account = facebookAccount;
+                 //[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+                 
+                 [users performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
+                  {
+                      //[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                      
+                      //NSLog(@"response = %@",response);
+                      NSLog(@"error = %@",error.debugDescription);
+                      if (!error)
+                      {
+                          //self.facebookUsername = [facebookAccount userFullName];
+                          NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+
+                            //NSLog(@"result = %@",result);
+                          if (result)
+                          {
+                              NSDictionary *dataDict = [result objectForKey:@"data"];
+                              [self.searchObjects removeAllObjects];
+                              for (NSDictionary *hit in dataDict)
+                              {
+                                  UserObject *obj = [[UserObject alloc] init];
+                                  obj.name = [hit objectForKey:@"name"];
+                                  obj.uid = [hit objectForKey:@"id"];
+                                  [self.searchObjects addObject:obj];
+                              }
+                              //NSDictionary *paging = [result objectForKey:@"paging"];
+                          }
+                      }
+                      else
+                      {
+                          NSLog(@"error = %@",[error localizedDescription]);
+                      }
+                  }];
+             }
+
+         }
+    }];
+                 /*
+    [SLRequestConnection startWithGraphPath:search parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
+             {
+             [self.searchActivityIndicator stopAnimating];
+             
+             if (!error)
+             {
+             NSMutableArray *pData = [result objectForKey:@"data"];
+             NSLog(@"search result = %@", pData);
+             [self performSegueWithIdentifier:@"searchUserSegue" sender:pData];
+             }
+             else
+             {
+             NSLog(@"error: %@",error);
+             }
+             }
+             ];
+             
+        }
+*/
+
+}
+
+- (void)searchFacebookPagesWithHTTPS:(NSString *)searchStringWithSpace
+{
+    NSLog(@"search facebook pages");
+    //[self.searchActivityIndicator setHidden:NO];
+    //[self.searchActivityIndicator startAnimating];
+    
+    // replace all 'space' with plus sign
+    NSString *searchString = [searchStringWithSpace stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    searchString = [searchString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *search = [NSString stringWithFormat:@"search?q=%@&type=page",searchString];
+    
+    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString *appID = infoDict[@"FacebookAppID"];
+    
+    NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
+                             @"read_friendlists",
+                             @"user_photos",
+                             nil];
+    
+    NSDictionary *options = @{ ACFacebookPermissionsKey : permissions,
+                               ACFacebookAudienceKey : ACFacebookAudienceFriends,
+                               ACFacebookAppIdKey : appID };
+    
+    [self.database.account requestAccessToAccountsWithType:self.database.facebookAccountType options:options completion:^(BOOL granted, NSError *error)
+     {
+         if (granted)
+         {
+             //NSLog(@"access granted");
+             
+             NSArray *accounts = [self.database.account accountsWithAccountType:self.database.facebookAccountType];
+             
+             // there is only one facebook account
+             ACAccount *facebookAccount = [accounts lastObject];
+             
+             // Get the access token, could be used in other scenarios
+             ACAccountCredential *fbCredential = [facebookAccount credential];
+             NSString *accessToken = [fbCredential oauthToken];
+             //NSLog(@"Facebook Access Token: %@", accessToken);
+             NSString *searchWithToken = [NSString stringWithFormat:@"%@&access_token=%@",search,accessToken];
+             if (facebookAccount)
+             {
+                 NSError *error = [[NSError alloc] init];
+                 NSHTTPURLResponse *responseCode = nil;
+
+                 //NSLog(@"here i am in the facebook account to load friends");
+                 NSString *apiString = [NSString stringWithFormat:@"%@/%@",kFacebookGraphRoot,searchWithToken];
+                 NSLog(@"apiString = %@",apiString);
+                 NSURL *request = [NSURL URLWithString:apiString];
+                 NSMutableURLRequest *searchRequest = [NSMutableURLRequest requestWithURL:request];
+
+                 NSData *response = [NSURLConnection sendSynchronousRequest:searchRequest returningResponse:&responseCode error:&error];
+                 
+                 //NSLog(@"response = %@",response);
+                 NSLog(@"error = %@",error.debugDescription);
+                 if (!error)
+                 {
+                     if (response)
+                     {
+                         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+                         NSLog(@"result = %@",result);
+                     }
+                 }
+             }
+             
+         }
+     }];
+
     
 }
 

@@ -373,7 +373,8 @@
              if (facebookAccount)
              {
                  //NSLog(@"here i am in the facebook account to load friends");
-                 NSString *apiString = [NSString stringWithFormat:@"https://graph.facebook.com/me/friends"];
+                 NSString *apiString = [NSString stringWithFormat:@"%@/me/friends",kFacebookGraphRoot];
+                 //NSString *apiString = [NSString stringWithFormat:@"https://graph.facebook.com/me/friends"];
                  NSURL *request = [NSURL URLWithString:apiString];
                  NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:@"picture,id,name,link,gender,last_name,first_name,username",@"fields", nil];
                  
@@ -640,4 +641,77 @@
 {
     
 }
+/*
+// this will use the profileImageURL and should work for all services
+- (void)downloadImageForUser:(UserObject *)user andCell:(UITableViewCell *)cell
+{
+    
+    // first check if the image exists in the cache
+    NSData *imageData = [self.imageCache objectForKey:user.uid];
+    if (imageData)
+    {
+        //NSLog(@"using imageData for uid = %@",user.uid);
+        cell.imageView.image = [UIImage imageWithData:imageData];
+    }
+    else
+    {
+        //NSLog(@"dowloading image for user: %@",user.name);
+        // otherwise download it
+        NSBlockOperation *loadImageIntoCellOp = [[NSBlockOperation alloc] init];
+        __weak NSBlockOperation *weakOp = loadImageIntoCellOp;
+        
+        [loadImageIntoCellOp addExecutionBlock:^(void)
+         {
+             NSError *error = [[NSError alloc] init];
+             NSHTTPURLResponse *responseCode = nil;
+             
+             // get the image here
+             //NSLog(@"imageURL : %@",user.profileImageURL);
+             NSURL *url = [NSURL URLWithString:user.profileImageURL];
+             NSMutableURLRequest *pictureRequest = [NSMutableURLRequest requestWithURL:url];
+             [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+             NSData *pImageData = [NSURLConnection sendSynchronousRequest:pictureRequest returningResponse:&responseCode error:&error];
+             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+             
+             //Some asynchronous work. Once the image is ready, it will load into view on the main queue
+             [[NSOperationQueue mainQueue] addOperationWithBlock:^(void)
+              {
+                  //Check for cancelation before proceeding. We use cellForRowAtIndexPath to make sure we get nil for a non-visible cell
+                  if (!weakOp.isCancelled)
+                  {
+                      //UITableViewCell *theCell = [tv cellForRowAtIndexPath:ip];
+                      
+                      if (pImageData)
+                      {
+                          cell.imageView.image = [UIImage imageWithData:pImageData];
+                          [self.imageCache setObject:pImageData forKey:user.uid];
+                          user.imageData = pImageData;
+                      }
+                      
+                      [self.uidToImageDownloadOperations removeObjectForKey:user.uid];
+                  }
+              }];
+         }];
+        
+        //Save a reference to the operation in an NSMutableDictionary so that it can be cancelled later on
+        if (user.uid)
+        {
+            [self.uidToImageDownloadOperations setObject:loadImageIntoCellOp forKey:user.uid];
+        }
+        
+        //Add the operation to the designated background queue
+        if (loadImageIntoCellOp)
+        {
+            [self.imageLoadingQueue addOperation:loadImageIntoCellOp];
+        }
+    }
+    
+    NSArray *imageCacheKeys = [self.imageCache allKeys];
+    if (imageCacheKeys.count > maxImages)
+    {
+        [self.imageCache removeObjectForKey:imageCacheKeys[0]];
+    }
+    
+}
+*/
 @end
