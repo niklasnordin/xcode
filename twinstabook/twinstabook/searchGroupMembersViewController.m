@@ -549,7 +549,7 @@
 
 - (void)searchFacebookFriends:(NSString *)searchString
 {
-    
+    self.searchObjects = [self searchArray:self.tableViewObjects with:searchString];
 }
 
 - (void)searchFacebookPages:(NSString *)searchString

@@ -254,13 +254,25 @@
         [vc setGroupMembers:self.groupMembers];
         switch (self.database.selectedMediaNameIndex) {
             case kFacebook:
-                [vc setMinStringLength:2];
+                switch (self.database.selectedOptionIndex) {
+                    case 0:
+                        [vc setMinStringLength:0];
+                        break;
+                    case 1:
+                        [vc setMinStringLength:2];
+                        break;
+                    case 2:
+                        [vc setMinStringLength:2];
+                        break;
+                    default:
+                        break;
+                }
                 break;
             case kTwitter:
                 [vc setMinStringLength:0];
                 break;
             case kInstagram:
-                [vc setMinStringLength:2];
+                [vc setMinStringLength:0];
                 break;
             default:
                 break;
