@@ -34,6 +34,7 @@ static NSString * const GROUPS = @"groups";
 static NSString * const GROUPMEMBERS = @"groupMembers";
 static NSString * const LASTUPDATE = @"lastUpdate";
 static NSString * const SELECTEDTWITTERACCOUNT = @"selectedTwitterAccount";
+static NSString * const INSTAGRAMACCESSTOKEN = @"instagramAccessToken";
 
 static NSString * const kFacebookGraphRoot = @"https://graph.facebook.com";
 static NSString * const kTwitterAPIRoot = @"https://api.twitter.com";
@@ -108,7 +109,8 @@ static NSString * const kInstagramRedirectUrl = @"http://twinstabook.me";
 
 // instagram functions
 @property (strong, nonatomic) UIImage *instagramLogo;
+@property (strong, nonatomic) NSString *instagramAccessToken;
 
-- (void)openInstagramInViewController:(UIViewController *)vc;
+- (void)openInstagramInViewController:(UIViewController *)vc andWebView:(UIWebView *)webView;
 
 @end

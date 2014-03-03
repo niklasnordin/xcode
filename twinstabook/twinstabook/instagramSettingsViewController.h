@@ -10,6 +10,9 @@
 #import "tif_db.h"
 
 @interface instagramSettingsViewController : UIViewController
+<
+    UIWebViewDelegate
+>
 
 @property (weak, nonatomic) tif_db *db;
 

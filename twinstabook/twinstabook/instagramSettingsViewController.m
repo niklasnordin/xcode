@@ -31,6 +31,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.webView.delegate = self;
+    
     // setup for the slider
     [self.revealButtonItem setTarget: self.revealViewController];
     [self.revealButtonItem setAction: @selector( revealToggle: )];
@@ -51,7 +53,28 @@
     self.db.useInstagram = sender.on;
     if (self.db.useInstagram)
     {
-        [self.db openInstagramInViewController:self];
+        [self.db openInstagramInViewController:self andWebView:self.webView];
     }
 }
+
+- (BOOL)webView:(UIWebView *)webView
+    shouldStartLoadWithRequest:(NSURLRequest *)request
+                navigationType:(UIWebViewNavigationType)navigationType
+{
+    
+    if ([request.URL.absoluteString rangeOfString:@"#"].location != NSNotFound)
+    {
+        NSString* params = [[request.URL.absoluteString componentsSeparatedByString:@"#"] objectAtIndex:1];
+        self.db.instagramAccessToken = [params stringByReplacingOccurrencesOfString:@"access_token=" withString:@""];
+        //self.webView.hidden = YES;
+
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:self.db.instagramAccessToken forKey:INSTAGRAMACCESSTOKEN];
+        [defaults synchronize];
+
+    }
+    
+	return YES;
+}
+
 @end

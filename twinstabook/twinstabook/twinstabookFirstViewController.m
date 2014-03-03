@@ -69,7 +69,7 @@
     if (self.database.useInstagram)
     {
         // initialize instagram
-        [self.database openInstagramInViewController:self];
+        //[self.database openInstagramInViewController:self];
     }
     
     // setup for the slider

@@ -633,23 +633,23 @@
 
 #pragma mark Instagram
 
-- (void)openInstagramInViewController:(UIViewController *)vc
+- (void)openInstagramInViewController:(UIViewController *)vc andWebView:(UIWebView *)webView
 {
     //https://api.instagram.com/oauth/authorize/?client_id=CLIENT-ID&redirect_uri=REDIRECT-URI&response_type=code
     
-    NSError *error = [[NSError alloc] init];
-    NSHTTPURLResponse *responseCode = nil;
+    //NSError *error = [[NSError alloc] init];
+    //NSHTTPURLResponse *responseCode = nil;
     
     NSString *urlString = [NSString stringWithFormat:@"https://instagram.com/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token",kInstagramClientId, kInstagramRedirectUrl];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-    NSData *pData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&responseCode error:&error];
-    
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:pData options:NSJSONReadingMutableLeaves error:&error];
+    [webView loadRequest:urlRequest];
 
+   // NSData *pData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&responseCode error:&error];
+    //NSDictionary *result = [NSJSONSerialization JSONObjectWithData:pData options:NSJSONReadingMutableLeaves error:&error];
     //NSLog(@"result = %@",result);
     //NSLog(@"urlString = %@",urlString);
-    NSLog(@"response = %@",responseCode);
+    //NSLog(@"response = %@",responseCode);
 
 }
 
