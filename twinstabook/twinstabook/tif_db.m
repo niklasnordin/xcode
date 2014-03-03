@@ -119,10 +119,6 @@
         [_fbloginView setReadPermissions:permissions];
   */      
         //[self performSelectorInBackground:@selector(loadAllFacebookFriends) withObject:nil];
-        if (self.useFacebook)
-        {
-            [self loadAllFacebookFriends];
-        }
         
     }
     return self;
@@ -173,7 +169,8 @@
     for (UserObject *user in users)
     {
 
-        NSNumber *type = [[NSNumber alloc] initWithInteger:user.type];
+        NSInteger itype = user.type;
+        NSNumber *type = [[NSNumber alloc] initWithInteger:itype];
 
         NSDictionary *userDict = @{@"name": user.name,
                                    @"uid" : user.uid,
@@ -638,79 +635,42 @@
 
 - (void)openInstagramInViewController:(UIViewController *)vc
 {
+    //https://api.instagram.com/oauth/authorize/?client_id=CLIENT-ID&redirect_uri=REDIRECT-URI&response_type=code
     
+    NSError *error = [[NSError alloc] init];
+    NSHTTPURLResponse *responseCode = nil;
+    
+    NSString *urlString = [NSString stringWithFormat:@"https://instagram.com/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token",kInstagramClientId, kInstagramRedirectUrl];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+    NSData *pData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&responseCode error:&error];
+    
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:pData options:NSJSONReadingMutableLeaves error:&error];
+
+    //NSLog(@"result = %@",result);
+    //NSLog(@"urlString = %@",urlString);
+    NSLog(@"response = %@",responseCode);
+
 }
-/*
+
 // this will use the profileImageURL and should work for all services
-- (void)downloadImageForUser:(UserObject *)user andCell:(UITableViewCell *)cell
+- (void)downloadImageForUser:(UserObject *)user
 {
     
-    // first check if the image exists in the cache
-    NSData *imageData = [self.imageCache objectForKey:user.uid];
-    if (imageData)
-    {
-        //NSLog(@"using imageData for uid = %@",user.uid);
-        cell.imageView.image = [UIImage imageWithData:imageData];
-    }
-    else
-    {
-        //NSLog(@"dowloading image for user: %@",user.name);
-        // otherwise download it
-        NSBlockOperation *loadImageIntoCellOp = [[NSBlockOperation alloc] init];
-        __weak NSBlockOperation *weakOp = loadImageIntoCellOp;
-        
-        [loadImageIntoCellOp addExecutionBlock:^(void)
-         {
-             NSError *error = [[NSError alloc] init];
-             NSHTTPURLResponse *responseCode = nil;
+    NSError *error = [[NSError alloc] init];
+    NSHTTPURLResponse *responseCode = nil;
              
-             // get the image here
-             //NSLog(@"imageURL : %@",user.profileImageURL);
-             NSURL *url = [NSURL URLWithString:user.profileImageURL];
-             NSMutableURLRequest *pictureRequest = [NSMutableURLRequest requestWithURL:url];
-             [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-             NSData *pImageData = [NSURLConnection sendSynchronousRequest:pictureRequest returningResponse:&responseCode error:&error];
-             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    NSURL *url = [NSURL URLWithString:user.profileImageURL];
+    NSMutableURLRequest *pictureRequest = [NSMutableURLRequest requestWithURL:url];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    NSData *pImageData = [NSURLConnection sendSynchronousRequest:pictureRequest returningResponse:&responseCode error:&error];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
              
-             //Some asynchronous work. Once the image is ready, it will load into view on the main queue
-             [[NSOperationQueue mainQueue] addOperationWithBlock:^(void)
-              {
-                  //Check for cancelation before proceeding. We use cellForRowAtIndexPath to make sure we get nil for a non-visible cell
-                  if (!weakOp.isCancelled)
-                  {
-                      //UITableViewCell *theCell = [tv cellForRowAtIndexPath:ip];
-                      
-                      if (pImageData)
-                      {
-                          cell.imageView.image = [UIImage imageWithData:pImageData];
-                          [self.imageCache setObject:pImageData forKey:user.uid];
-                          user.imageData = pImageData;
-                      }
-                      
-                      [self.uidToImageDownloadOperations removeObjectForKey:user.uid];
-                  }
-              }];
-         }];
-        
-        //Save a reference to the operation in an NSMutableDictionary so that it can be cancelled later on
-        if (user.uid)
-        {
-            [self.uidToImageDownloadOperations setObject:loadImageIntoCellOp forKey:user.uid];
-        }
-        
-        //Add the operation to the designated background queue
-        if (loadImageIntoCellOp)
-        {
-            [self.imageLoadingQueue addOperation:loadImageIntoCellOp];
-        }
-    }
-    
-    NSArray *imageCacheKeys = [self.imageCache allKeys];
-    if (imageCacheKeys.count > maxImages)
+    if (pImageData)
     {
-        [self.imageCache removeObjectForKey:imageCacheKeys[0]];
+        user.imageData = pImageData;
     }
     
 }
-*/
+
 @end

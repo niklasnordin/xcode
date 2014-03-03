@@ -39,6 +39,11 @@ static NSString * const kFacebookGraphRoot = @"https://graph.facebook.com";
 static NSString * const kTwitterAPIRoot = @"https://api.twitter.com";
 static NSString * const kTwitterAPIVersion = @"1.1";
 
+
+static NSString * const kInstagramBaseURLString = @"https://api.instagram.com/v1/";
+static NSString * const kInstagramClientId = @"d2fe9f8c3f6949efa13f439616032bb5";
+static NSString * const kInstagramRedirectUrl = @"http://twinstabook.me";
+
 @interface tif_db : NSObject
 
 // contains the names of the social medias

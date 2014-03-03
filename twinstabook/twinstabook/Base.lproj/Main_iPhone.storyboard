@@ -770,6 +770,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUN-fK-Ab3">
+                                <rect key="frame" x="0.0" y="158" width="320" height="376"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -780,6 +785,7 @@
                     <connections>
                         <outlet property="instagramSwitch" destination="cQW-PJ-8Em" id="89D-gI-h14"/>
                         <outlet property="revealButtonItem" destination="KWr-QB-SNg" id="X6Z-ua-caA"/>
+                        <outlet property="webView" destination="QUN-fK-Ab3" id="21G-tr-wEx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fX-lf-C5T" userLabel="First Responder" sceneMemberID="firstResponder"/>

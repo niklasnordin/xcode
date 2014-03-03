@@ -11,6 +11,7 @@
 @interface instagramSettingsViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *revealButtonItem;
 @property (weak, nonatomic) IBOutlet UISwitch *instagramSwitch;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 - (IBAction)clickedInstagramSwitch:(UISwitch *)sender;
 @end
 
@@ -48,5 +49,9 @@
 - (IBAction)clickedInstagramSwitch:(UISwitch *)sender
 {
     self.db.useInstagram = sender.on;
+    if (self.db.useInstagram)
+    {
+        [self.db openInstagramInViewController:self];
+    }
 }
 @end

@@ -286,6 +286,11 @@
 // this will use the profileImageURL and should work for all services
 - (void)downloadImageForUser:(UserObject *)user andCell:(UITableViewCell *)cell
 {
+    if (user.imageData)
+    {
+        cell.imageView.image = [UIImage imageWithData:user.imageData];
+        return;
+    }
     
     // first check if the image exists in the cache
     NSData *imageData = [self.imageCache objectForKey:user.uid];
@@ -307,7 +312,6 @@
              NSHTTPURLResponse *responseCode = nil;
              
              // get the image here
-             //NSLog(@"imageURL : %@",user.profileImageURL);
              NSURL *url = [NSURL URLWithString:user.profileImageURL];
              NSMutableURLRequest *pictureRequest = [NSMutableURLRequest requestWithURL:url];
              [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -327,6 +331,7 @@
                           cell.imageView.image = [UIImage imageWithData:pImageData];
                           [self.imageCache setObject:pImageData forKey:user.uid];
                           user.imageData = pImageData;
+                          user.updated = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
                       }
                       
                       [self.uidToImageDownloadOperations removeObjectForKey:user.uid];
@@ -358,6 +363,12 @@
 // facebook doesn not provide the image link so we need to get it from the uid
 - (void)downloadFacebookImageForUser:(UserObject *)user andCell:(UITableViewCell *)cell
 {
+    if (user.imageData)
+    {
+        cell.imageView.image = [UIImage imageWithData:user.imageData];
+        return;
+    }
+
     NSData *imageData = [self.imageCache objectForKey:user.uid];
     if (imageData)
     {
@@ -689,11 +700,11 @@
             break;
 
         case 1:
-            [self searchFacebookPages:searchString];
+            [self searchFacebook:searchString withType:@"page"];
             break;
 
         case 2:
-            [self searchFacebookUsers:searchString];
+            [self searchFacebook:searchString withType:@"user"];
             break;
 
         default:
@@ -717,7 +728,7 @@
     self.searchObjects = [self searchArray:self.tableViewObjects with:searchString];
 }
 
-- (void)searchFacebookPages:(NSString *)searchStringWithSpace
+- (void)searchFacebook:(NSString *)searchStringWithSpace withType:(NSString *)typeString
 {
     //NSLog(@"search facebook pages");
     //[self.searchActivityIndicator setHidden:NO];
@@ -761,7 +772,7 @@
                  NSURL *request = [NSURL URLWithString:apiString];
 
                  NSDictionary *param = @{@"q": searchString,
-                                         @"type" : @"page"
+                                         @"type" : typeString
                                          };
                  
                  SLRequest *users = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:param];

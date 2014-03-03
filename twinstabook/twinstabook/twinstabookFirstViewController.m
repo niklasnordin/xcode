@@ -56,8 +56,10 @@
     if (self.database.useFacebook)
     {
         [self.database openFacebookInViewController:self];
+        [self.database loadAllFacebookFriends];
+
     }
-    
+
     if (self.database.useTwitter)
     {
         [self.database openTwitterInViewController:self];
@@ -67,6 +69,7 @@
     if (self.database.useInstagram)
     {
         // initialize instagram
+        [self.database openInstagramInViewController:self];
     }
     
     // setup for the slider
