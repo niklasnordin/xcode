@@ -539,6 +539,9 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="7hL-tD-AvI" kind="custom" customClass="SWRevealViewControllerSegue" id="cS8-R7-giP"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="2" indentationWidth="5" shouldIndentWhileEditing="NO" reuseIdentifier="Twitter" textLabel="qYr-o3-67y" imageView="IL5-gt-RPT" style="IBUITableViewCellStyleDefault" id="0dm-Ly-1vb">
                                         <rect key="frame" x="0.0" y="191" width="320" height="44"/>
@@ -560,6 +563,9 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="DgO-Wl-7CU" kind="custom" customClass="SWRevealViewControllerSegue" id="mQi-bL-NPr"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="2" indentationWidth="5" reuseIdentifier="Instagram" textLabel="Oo9-DC-bZh" imageView="hno-HP-xJu" style="IBUITableViewCellStyleDefault" id="EP0-tD-l6B">
                                         <rect key="frame" x="0.0" y="235" width="320" height="44"/>
@@ -581,12 +587,15 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="gb1-wE-Oqn" kind="custom" customClass="SWRevealViewControllerSegue" id="6mA-Rh-NBu"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Settings" id="mfA-Yt-z9z">
                                 <cells>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Groups" textLabel="tgg-79-UBb" style="IBUITableViewCellStyleDefault" id="dh5-dQ-Ny5">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Groups" textLabel="tgg-79-UBb" style="IBUITableViewCellStyleDefault" id="dh5-dQ-Ny5">
                                         <rect key="frame" x="0.0" y="327" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dh5-dQ-Ny5" id="Ccp-ju-a2U">
@@ -602,6 +611,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="GYs-V2-ufV" kind="custom" customClass="SWRevealViewControllerSegue" id="KTZ-5q-6LE"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
