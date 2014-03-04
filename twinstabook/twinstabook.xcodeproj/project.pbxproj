@@ -14,6 +14,7 @@
 		6131929D18C67F7C005A1C5E /* Twitter-Logo-200.png in Resources */ = {isa = PBXBuildFile; fileRef = 6131929C18C67F7C005A1C5E /* Twitter-Logo-200.png */; };
 		6131929F18C67F90005A1C5E /* Facebook-Logo-200.tif in Resources */ = {isa = PBXBuildFile; fileRef = 6131929E18C67F90005A1C5E /* Facebook-Logo-200.tif */; };
 		613192A118C67F96005A1C5E /* Instagram-Logo-200.png in Resources */ = {isa = PBXBuildFile; fileRef = 613192A018C67F96005A1C5E /* Instagram-Logo-200.png */; };
+		613192A318C68063005A1C5E /* Twitter-Logo-200-sq.png in Resources */ = {isa = PBXBuildFile; fileRef = 613192A218C68063005A1C5E /* Twitter-Logo-200-sq.png */; };
 		6137DFEC18A3FF1200E0C589 /* questionMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6137DFEB18A3FF1200E0C589 /* questionMark.png */; };
 		6137DFF518A66C7200E0C589 /* JMPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6137DFF418A66C7200E0C589 /* JMPickerView.m */; };
 		6137DFF918A7AFEF00E0C589 /* FacebookParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6137DFF818A7AFEF00E0C589 /* FacebookParser.m */; };
@@ -81,6 +82,7 @@
 		6131929C18C67F7C005A1C5E /* Twitter-Logo-200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Twitter-Logo-200.png"; sourceTree = "<group>"; };
 		6131929E18C67F90005A1C5E /* Facebook-Logo-200.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "Facebook-Logo-200.tif"; sourceTree = "<group>"; };
 		613192A018C67F96005A1C5E /* Instagram-Logo-200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Instagram-Logo-200.png"; sourceTree = "<group>"; };
+		613192A218C68063005A1C5E /* Twitter-Logo-200-sq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Twitter-Logo-200-sq.png"; sourceTree = "<group>"; };
 		6137DFEB18A3FF1200E0C589 /* questionMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = questionMark.png; sourceTree = "<group>"; };
 		6137DFF318A66C7200E0C589 /* JMPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPickerView.h; sourceTree = "<group>"; };
 		6137DFF418A66C7200E0C589 /* JMPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPickerView.m; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 		6137DFFA18A7B00000E0C589 /* twitter */ = {
 			isa = PBXGroup;
 			children = (
+				613192A218C68063005A1C5E /* Twitter-Logo-200-sq.png */,
 				6131929318C0E7F7005A1C5E /* Twitter_logo_blue.png */,
 				6131929C18C67F7C005A1C5E /* Twitter-Logo-200.png */,
 				617CE88018AD2F3C0025AA92 /* twitterParser.h */,
@@ -477,6 +480,7 @@
 				6165737018B403A20025DF09 /* reveal-icon@2x.png in Resources */,
 				61C57C5018897BA600887F5E /* InfoPlist.strings in Resources */,
 				617CE88A18AE66D80025AA92 /* old code snippets in Resources */,
+				613192A318C68063005A1C5E /* Twitter-Logo-200-sq.png in Resources */,
 				6131929D18C67F7C005A1C5E /* Twitter-Logo-200.png in Resources */,
 				6131929818C0E8E6005A1C5E /* FB-fLogo-Blue-printpackaging.tif in Resources */,
 				6165736E18B4039A0025DF09 /* reveal-icon.png in Resources */,

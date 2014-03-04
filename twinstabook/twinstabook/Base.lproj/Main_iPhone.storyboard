@@ -533,7 +533,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="FB-fLogo-Blue-printpackaging.tif" id="ELR-Ze-WWn">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Facebook-Logo-200.tif" id="ELR-Ze-WWn">
                                                     <rect key="frame" x="15" y="0.0" width="43" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
@@ -548,14 +548,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Twitter" lineBreakMode="tailTruncation" baselineAdjustment="none" adjustsFontSizeToFit="NO" id="qYr-o3-67y">
-                                                    <rect key="frame" x="93" y="0.0" width="212" height="43"/>
+                                                    <rect key="frame" x="83" y="0.0" width="222" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Twitter_logo_blue.png" id="IL5-gt-RPT">
-                                                    <rect key="frame" x="15" y="0.0" width="53" height="43"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Twitter-Logo-200-sq.png" id="IL5-gt-RPT">
+                                                    <rect key="frame" x="15" y="0.0" width="43" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -575,7 +575,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Instagram_Icon_Large.png" id="hno-HP-xJu">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Instagram-Logo-200.png" id="hno-HP-xJu">
                                                     <rect key="frame" x="15" y="0.0" width="43" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
@@ -816,9 +816,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FB-fLogo-Blue-printpackaging.tif" width="2134" height="2135"/>
-        <image name="Instagram_Icon_Large.png" width="512" height="512"/>
-        <image name="Twitter_logo_blue.png" width="1139" height="926"/>
+        <image name="Facebook-Logo-200.tif" width="2134" height="2135"/>
+        <image name="Instagram-Logo-200.png" width="200" height="200"/>
+        <image name="Twitter-Logo-200-sq.png" width="246" height="246"/>
         <image name="first" width="30" height="30"/>
         <image name="reveal-icon.png" width="22" height="17"/>
     </resources>
