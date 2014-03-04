@@ -85,14 +85,7 @@ static NSString * const kInstagramRedirectUrl = @"http://twinstabook.me";
 @property (strong, nonatomic) NSString *facebookUsername;
 @property (strong, nonatomic) UIImage *facebookLogo;
 
-//@property (strong, nonatomic) FBLoginView *fbloginView;
 - (void)openFacebookInViewController:(UIViewController *)vc;
-//- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView;
-//- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
-//                            user:(id<FBGraphUser>)user;
-//- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView;
-//- (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error;
-//- (void)requestNewAccessToken;
 - (void)loadAllFacebookFriends;
 
 

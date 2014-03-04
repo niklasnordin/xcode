@@ -65,7 +65,7 @@
             _useInstagram = [[database objectForKey:USEINSTAGRAM] boolValue];
             _selectedMediaNameIndex = [[database objectForKey:SELECTEDMEDIANAME] intValue];
             _selectedFeedIndex = [[database objectForKey:SELECTEDFEEDINDEX] integerValue];
-            
+            _instagramAccessToken = [database objectForKey:INSTAGRAMACCESSTOKEN];
             _groups = [database objectForKey:GROUPS];
             _groupMembers = [[NSMutableDictionary alloc] init];
 
@@ -101,26 +101,9 @@
             }
   
         }
-                
-        // initialize the facebook login button
-        //_fbloginView = [[FBLoginView alloc] init];
-        //_fbloginView.delegate = self;
-        
-        //_imageLoadingQueue = [[NSOperationQueue alloc] init];
-        //[_imageLoadingQueue setName:@"imageLoadingQueue"];
-        
-        //_facebookUidToImageDownloadOperations = [[NSMutableDictionary alloc] init];
-/*
-        NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
-                                 @"read_friendlists",
-                                 @"user_photos",
-                                 nil];
-
-        [_fbloginView setReadPermissions:permissions];
-  */      
-        //[self performSelectorInBackground:@selector(loadAllFacebookFriends) withObject:nil];
         
     }
+    
     return self;
 }
 
