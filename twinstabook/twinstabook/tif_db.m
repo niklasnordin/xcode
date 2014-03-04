@@ -33,9 +33,13 @@
         self.twitterFriends = [[NSMutableArray alloc] init];
         self.instagramFriends = [[NSMutableArray alloc] init];
         
-        self.twitterLogo = [UIImage imageNamed:@"Twitter_logo_blue.png"];
-        self.facebookLogo = [UIImage imageNamed:@"FB-fLogo-Blue-printpackaging.tif"];
-        self.instagramLogo = [UIImage imageNamed:@"Instagram_Icon_Large.png"];
+        //self.twitterLogo = [UIImage imageNamed:@"Twitter_logo_blue.png"];
+        //self.facebookLogo = [UIImage imageNamed:@"FB-fLogo-Blue-printpackaging.tif"];
+        //self.instagramLogo = [UIImage imageNamed:@"Instagram_Icon_Large.png"];
+        
+        self.twitterLogo = [UIImage imageNamed:@"Twitter-Logo-200.png"];
+        self.facebookLogo = [UIImage imageNamed:@"Facebook-Logo-200.tif"];
+        self.instagramLogo = [UIImage imageNamed:@"Instagram-Logo-200.png"];
         
         NSUserDefaults *database = [NSUserDefaults standardUserDefaults];
 

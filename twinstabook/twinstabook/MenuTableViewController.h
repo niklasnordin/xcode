@@ -10,7 +10,7 @@
 #import "twinstabookAppDelegate.h"
 
 @interface SWUITableViewCell : UITableViewCell
-@property (nonatomic) IBOutlet UILabel *label;
+//@property (nonatomic) IBOutlet UILabel *label;
 @end
 
 @interface MenuTableViewController : UITableViewController

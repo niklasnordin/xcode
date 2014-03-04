@@ -68,47 +68,37 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 7;
+    NSInteger rows = 1;
+    switch (section) {
+        case 0:
+            rows = 1;
+            break;
+        case 1:
+            rows = 3;
+            break;
+        case 2:
+            rows = 1;
+            break;
+        default:
+            break;
+    }
+    //NSLog(@"section %ld -> %ld",section,rows);
+    return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     
-    switch ( indexPath.row )
-    {
-        case 1:
-            CellIdentifier = @"Feed";
-            break;
-            
-        case 2:
-            CellIdentifier = @"Facebook";
-            break;
-            
-        case 3:
-            CellIdentifier = @"Twitter";
-            break;
-            
-        case 4:
-            CellIdentifier = @"Instagram";
-            break;
-            
-        case 5:
-            CellIdentifier = @"Groups";
-            break;
-            
-        case 6:
-            CellIdentifier = @"Settings";
-            break;
-    }
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier forIndexPath: indexPath];
-    
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
     return cell;
 }
 
@@ -122,8 +112,9 @@
 {
     SWRevealViewControllerSegue* rvcs = (SWRevealViewControllerSegue*) segue;
     SWRevealViewController* rvc = self.revealViewController;
-/*
+
     NSLog(@"segue class = %@",[segue class]);
+    /*
     NSLog(@"frontViewController = %@",[rvc.frontViewController class]);
     NSLog(@"rearViewController = %@",[rvc.rearViewController class]);
     NSLog(@"revealViewController = %@",[rvc.revealViewController class]);

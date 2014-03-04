@@ -194,4 +194,48 @@
     NSLog(@"FBLoginView encountered an error=%@", error);
 }
 
+ /*
+    NSLog(@"indexPath = %@",indexPath);
+    static NSString *CellIdentifier = @"Cell";
+    NSTextAlignment alignment = NSTextAlignmentLeft;
+    UIImage *image = nil;
+    
+    switch ( indexPath.section)
+    {
+        case 0:
+            CellIdentifier = @"Feed";
+            alignment = NSTextAlignmentCenter;
+            break;
+            
+        case 1:
+            switch ( indexPath.row )
+            {
+                case 0:
+                    CellIdentifier = @"Facebook";
+                    image = self.database.facebookLogo;
+                    break;
+                
+                case 1:
+                    CellIdentifier = @"Twitter";
+                    image = self.database.twitterLogo;
+                    break;
+                
+                case 2:
+                    CellIdentifier = @"Instagram";
+                    image = self.database.instagramLogo;
+                    break;
+            }
+            break;
+            
+        case 2:
+            CellIdentifier = @"Groups";
+            alignment = NSTextAlignmentCenter;
+            break;
+            
+        default:
+            break;
+    }
+*/
+    //NSLog(@"hey: %@",CellIdentifier);
+
     
