@@ -103,7 +103,9 @@ static NSString * const kInstagramRedirectUrl = @"http://twinstabook.me";
 // instagram functions
 @property (strong, nonatomic) UIImage *instagramLogo;
 @property (strong, nonatomic) NSString *instagramAccessToken;
+@property (strong, nonatomic) NSMutableArray *instagramFriends;
 
 - (void)openInstagramInViewController:(UIViewController *)vc andWebView:(UIWebView *)webView;
+- (void)loadAllInstagramFriendsInViewController:(UIViewController *)vc;
 
 @end

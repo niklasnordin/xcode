@@ -31,6 +31,7 @@
         self.facebookSearchOptions = [[NSArray alloc] initWithObjects:@"friends", @"pages", @"users", nil];
         self.facebookFriends = [[NSMutableArray alloc] init];
         self.twitterFriends = [[NSMutableArray alloc] init];
+        self.instagramFriends = [[NSMutableArray alloc] init];
         
         self.twitterLogo = [UIImage imageNamed:@"Twitter_logo_blue.png"];
         self.facebookLogo = [UIImage imageNamed:@"FB-fLogo-Blue-printpackaging.tif"];
@@ -66,6 +67,7 @@
             _selectedMediaNameIndex = [[database objectForKey:SELECTEDMEDIANAME] intValue];
             _selectedFeedIndex = [[database objectForKey:SELECTEDFEEDINDEX] integerValue];
             _instagramAccessToken = [database objectForKey:INSTAGRAMACCESSTOKEN];
+            
             _groups = [database objectForKey:GROUPS];
             _groupMembers = [[NSMutableDictionary alloc] init];
 
@@ -618,22 +620,63 @@
 
 - (void)openInstagramInViewController:(UIViewController *)vc andWebView:(UIWebView *)webView
 {
-    //https://api.instagram.com/oauth/authorize/?client_id=CLIENT-ID&redirect_uri=REDIRECT-URI&response_type=code
-    
-    //NSError *error = [[NSError alloc] init];
-    //NSHTTPURLResponse *responseCode = nil;
-    
+
     NSString *urlString = [NSString stringWithFormat:@"https://instagram.com/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token",kInstagramClientId, kInstagramRedirectUrl];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     [webView loadRequest:urlRequest];
 
-   // NSData *pData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&responseCode error:&error];
-    //NSDictionary *result = [NSJSONSerialization JSONObjectWithData:pData options:NSJSONReadingMutableLeaves error:&error];
-    //NSLog(@"result = %@",result);
-    //NSLog(@"urlString = %@",urlString);
-    //NSLog(@"response = %@",responseCode);
 
+}
+
+- (void)loadAllInstagramFriendsInViewController:(UIViewController *)vc
+{
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^ {
+        
+        NSError *error = [[NSError alloc] init];
+        NSHTTPURLResponse *responseCode = nil;
+        
+        NSString *urlString = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/follows/?access_token=%@",self.instagramAccessToken];
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+        NSData *pData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&responseCode error:&error];
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:pData options:NSJSONReadingMutableLeaves error:&error];
+        
+        //NSLog(@"result = %@",result);
+        NSDictionary *metaDict = [result objectForKey:@"meta"];
+        NSNumber *codeNumber = [metaDict objectForKey:@"code"];
+        int codeInt = [codeNumber intValue];
+        NSLog(@"code = %@",codeNumber);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if (codeInt != 400)
+            {
+                //NSLog(@"it is valid");
+                /*
+                NSDictionary *dataDict = [result objectForKey:@"data"];
+                NSString *username = [dataDict objectForKey:@"username"];
+                NSString *profileLinkURL = [dataDict objectForKey:@"profile_picture"];
+                NSString *userid = [dataDict objectForKey:@"id"];
+                */
+            }
+            else
+            {
+                //NSLog(@"it is not valid");
+                NSString *output = [NSString stringWithFormat:@"Instagram Authentication Error. No valid access token. Please log in."];
+                UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:output
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                  destructiveButtonTitle:nil
+                                                       otherButtonTitles:nil];
+                
+                [as showInView:vc.view];
+                
+            }
+        });
+    });
+    
+    
 }
 
 // this will use the profileImageURL and should work for all services
@@ -655,5 +698,6 @@
     }
     
 }
+
 
 @end

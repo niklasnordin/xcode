@@ -70,6 +70,7 @@
     {
         // initialize instagram
         //[self.database openInstagramInViewController:self];
+        [self.database loadAllInstagramFriendsInViewController:self];
     }
     
     // setup for the slider
