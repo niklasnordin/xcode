@@ -62,7 +62,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="feedCell" rowHeight="120" id="grA-oQ-fYD">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="feedCell" rowHeight="120" id="grA-oQ-fYD" customClass="tifTableViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="grA-oQ-fYD" id="Tlc-Uf-QeR">
@@ -122,6 +122,18 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="commentsImage" destination="KQo-YN-66Z" id="uui-YI-skE"/>
+                                            <outlet property="commentsLabel" destination="l11-cJ-9ou" id="Jdd-sW-xeL"/>
+                                            <outlet property="dateLabel" destination="mXv-HB-5JC" id="ZNf-c7-f9e"/>
+                                            <outlet property="likesImage" destination="3Aj-nK-Da9" id="u94-GQ-HcU"/>
+                                            <outlet property="likesLabel" destination="30r-ry-14m" id="6UU-Lz-a6C"/>
+                                            <outlet property="mainImage" destination="5s2-BB-JmJ" id="RfJ-Lo-jy4"/>
+                                            <outlet property="messageLabel" destination="rAz-8G-m5r" id="cVa-Wk-ioc"/>
+                                            <outlet property="profileImage" destination="31c-Xe-ofi" id="MOS-MJ-G0F"/>
+                                            <outlet property="typeImage" destination="gel-qC-5oc" id="mIA-re-XlA"/>
+                                            <outlet property="usernameLabel" destination="zfD-a3-oqp" id="LK7-Oz-bRG"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
