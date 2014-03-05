@@ -114,6 +114,12 @@
     {
         self.tableViewObjects = [self searchArray:self.database.twitterFriends with:@""];
     }
+    
+    // if instagram
+    if ([self.searchFeed isEqualToString:[self.database.socialMediaNames objectAtIndex:kInstagram]])
+    {
+        self.tableViewObjects = [self searchArray:self.database.instagramFriends with:@""];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -222,7 +228,7 @@
             break;
                 
         case kInstagram:
-            //[self instagramSearch:searchText];
+            [self downloadImageForUser:user andCell:cell];
             break;
                 
         default:
@@ -721,6 +727,7 @@
 - (void)instagramSearch:(NSString *)searchString
 {
     NSLog(@"instagramSearch");
+    self.searchObjects = [self searchArray:self.tableViewObjects with:searchString];
 }
 
 - (void)searchFacebookFriends:(NSString *)searchString

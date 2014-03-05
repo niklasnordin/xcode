@@ -633,8 +633,15 @@
 
 }
 
-- (void)loadAllInstagramFriendsInViewController:(UIViewController *)vc
+- (void)loadAllInstagramFriendsInViewController:(UIViewController *)vc withCursor:(NSString *)cursor
 {
+    bool addCursor = YES;
+    if (!cursor || [cursor isEqualToString:@""])
+    {
+        addCursor = NO;
+        [self.instagramFriends removeAllObjects];
+    }
+    
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^ {
         
@@ -642,6 +649,11 @@
         NSHTTPURLResponse *responseCode = nil;
         
         NSString *urlString = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/follows/?access_token=%@",self.instagramAccessToken];
+        if (addCursor)
+        {
+            urlString = [NSString stringWithFormat:@"%@&cursor=%@",urlString,cursor];
+        }
+        
         NSURL *url = [NSURL URLWithString:urlString];
         NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
         NSData *pData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&responseCode error:&error];
@@ -657,6 +669,30 @@
             if (codeInt != 400)
             {
                 //NSLog(@"it is valid");
+                //NSLog(@"result = %@",result);
+                NSArray *userData = [result objectForKey:@"data"];
+                NSDictionary *pagination = [result objectForKey:@"pagination"];
+                NSString *next_cursor = [pagination objectForKey:@"next_cursor"];
+                //NSString *next_url = [pagination objectForKey:@"next_link"];
+                NSLog(@"instagram user count = %ld",[userData count]);
+                NSLog(@"adding to users %ld",self.instagramFriends.count);
+                NSLog(@"pagination = %@",pagination);
+                NSLog(@"cursor = %@",next_cursor);
+                for (NSDictionary *userDict in userData)
+                {
+                    UserObject *user = [[UserObject alloc] init];
+                    user.name = [userDict objectForKey:@"username"];
+                    user.uid = [userDict objectForKey:@"id"];
+                    user.profileImageURL = [userDict objectForKey:@"profile_picture"];
+                    user.type = kInstagram;
+                    
+                    [self.instagramFriends addObject:user];
+                }
+                if (next_cursor)
+                {
+                    // load next sequence
+                    [self loadAllInstagramFriendsInViewController:vc withCursor:next_cursor];
+                }
                 /*
                 NSDictionary *dataDict = [result objectForKey:@"data"];
                 NSString *username = [dataDict objectForKey:@"username"];
