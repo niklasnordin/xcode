@@ -225,19 +225,9 @@
         if (granted)
         {
             
-            ACAccount *twitterAccount = nil;
+            ACAccount *twitterAccount = self.database.selectedTwitterAccount;
 
             /*
-            for (ACAccount *account in self.database.twitterAccounts)
-            {
-                
-                //NSLog(@"account username = %@", account.username);
-                if ([self.database.selectedTwitterAccounts objectForKey:account.username])
-                {
-                    twitterAccount = account;
-                    NSLog(@"selecting %@",account.username);
-                }
-            }
             
             [self.database.account renewCredentialsForAccount:twitterAccount completion:^(ACAccountCredentialRenewResult renewResult, NSError *error)
             {
@@ -265,19 +255,20 @@
                          self.twitterArray = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
                          NSLog(@"arrayPost.count = %ld",self.twitterArray.count);
                          //NSLog(@"urlResponse = %@",urlResponse);
-                         if (self.twitterArray.count)
-                         {
-                            // NSLog(@"class = %@",[[self.twitterArray lastObject] class]);
-                             for (NSDictionary *post in self.twitterArray)
+                         dispatch_async(dispatch_get_main_queue(), ^(void){
+
+                             if (self.twitterArray.count)
                              {
-                                 DisplayObject *obj = [twitterParser parse:post];
-                                 if (obj)
+                                 // NSLog(@"class = %@",[[self.twitterArray lastObject] class]);
+                                 for (NSDictionary *post in self.twitterArray)
                                  {
-                                     [self.feedArray addObject:obj];
+                                     DisplayObject *obj = [twitterParser parse:post];
+                                     if (obj)
+                                     {
+                                         [self.feedArray addObject:obj];
+                                     }
                                  }
                              }
-                         }
-                         dispatch_async(dispatch_get_main_queue(), ^(void){
                              [self.feedTableView reloadData];
                          });
                      }
