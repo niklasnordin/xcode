@@ -656,7 +656,13 @@
         
         NSURL *url = [NSURL URLWithString:urlString];
         NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+        
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+
         NSData *pData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&responseCode error:&error];
+        
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:pData options:NSJSONReadingMutableLeaves error:&error];
         
         //NSLog(@"result = %@",result);
@@ -674,10 +680,10 @@
                 NSDictionary *pagination = [result objectForKey:@"pagination"];
                 NSString *next_cursor = [pagination objectForKey:@"next_cursor"];
                 //NSString *next_url = [pagination objectForKey:@"next_link"];
-                NSLog(@"instagram user count = %ld",[userData count]);
-                NSLog(@"adding to users %ld",self.instagramFriends.count);
-                NSLog(@"pagination = %@",pagination);
-                NSLog(@"cursor = %@",next_cursor);
+                //NSLog(@"instagram user count = %ld",[userData count]);
+                //NSLog(@"adding to users %ld",self.instagramFriends.count);
+                //NSLog(@"pagination = %@",pagination);
+                //NSLog(@"cursor = %@",next_cursor);
                 for (NSDictionary *userDict in userData)
                 {
                     UserObject *user = [[UserObject alloc] init];
@@ -737,6 +743,11 @@
         user.imageData = pImageData;
     }
     
+}
+
+- (void)checkIfProfilePicturesAreUpToDate
+{
+    //need to implement this later
 }
 
 

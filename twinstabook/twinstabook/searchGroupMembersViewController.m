@@ -726,7 +726,6 @@
 
 - (void)instagramSearch:(NSString *)searchString
 {
-    NSLog(@"instagramSearch");
     self.searchObjects = [self searchArray:self.tableViewObjects with:searchString];
 }
 
