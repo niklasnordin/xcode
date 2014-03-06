@@ -14,7 +14,6 @@
 #import "instagramSettingsViewController.h"
 
 @interface MenuTableViewController ()
-
 @end
 
 @implementation SWUITableViewCell
@@ -49,7 +48,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -140,7 +139,7 @@
 
     }
     
-    NSLog(@"destination class = %@",[segue.destinationViewController class]);
+    //NSLog(@"destination class = %@",[segue.destinationViewController class]);
     // configure the segue.
     if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] )
     {

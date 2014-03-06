@@ -599,7 +599,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Facebook-Logo-200.tif" id="ELR-Ze-WWn">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Facebook-Logo-Small-Border.jpg" id="ELR-Ze-WWn">
                                                     <rect key="frame" x="15" y="0.0" width="43" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
@@ -623,7 +623,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Twitter-Logo-200-sq.png" id="IL5-gt-RPT">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Twitter-Logo-200-sq-Border.png" id="IL5-gt-RPT">
                                                     <rect key="frame" x="15" y="0.0" width="43" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
@@ -647,7 +647,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Instagram-Logo-200.png" id="hno-HP-xJu">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Instagram-Logo-200-Border.png" id="hno-HP-xJu">
                                                     <rect key="frame" x="15" y="0.0" width="43" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
@@ -894,9 +894,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Facebook-Logo-200.tif" width="2134" height="2135"/>
-        <image name="Instagram-Logo-200.png" width="200" height="200"/>
-        <image name="Twitter-Logo-200-sq.png" width="246" height="246"/>
+        <image name="Facebook-Logo-Small-Border.jpg" width="300" height="300"/>
+        <image name="Instagram-Logo-200-Border.png" width="290" height="290"/>
+        <image name="Twitter-Logo-200-sq-Border.png" width="350" height="350"/>
         <image name="first" width="30" height="30"/>
         <image name="reveal-icon.png" width="22" height="17"/>
     </resources>
