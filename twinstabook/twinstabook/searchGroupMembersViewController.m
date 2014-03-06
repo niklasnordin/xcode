@@ -20,6 +20,8 @@
 @property (strong, nonatomic) NSMutableArray *searchObjects;
 @property (strong, nonatomic) NSMutableDictionary *imageCache;
 
+@property (strong, nonatomic) NSString *searchString;
+
 @end
 
 @implementation searchGroupMembersViewController
@@ -120,6 +122,7 @@
     {
         self.tableViewObjects = [self searchArray:self.database.instagramFriends with:@""];
     }
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -689,6 +692,7 @@
 */
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
+    self.searchString = searchText;
     [self searchWithText:searchText];
 }
 
@@ -801,22 +805,26 @@
                           {
                               dispatch_async(dispatch_get_main_queue(), ^{
                                   
-                                  NSArray *dataDict = [result objectForKey:@"data"];
-                                  
-                                  [self.searchObjects removeAllObjects];
-
-                                  for(int i=0;i<[dataDict count]; i++)
+                                  // check if the search string hasnt changed before we start to update
+                                  if ([searchStringWithSpace isEqualToString:self.searchString])
                                   {
-                                      UserObject *obj = [[UserObject alloc] init];
-                                      obj.name = [dataDict[i] objectForKey:@"name"];
-                                      obj.uid = [dataDict[i] objectForKey:@"id"];
-                                      obj.type = kFacebook;
-                                      obj.updated = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
-                                      obj.profileImageURL = @"";
-                                      [self.searchObjects addObject:obj];
-                                  }
+                                      NSArray *dataDict = [result objectForKey:@"data"];
+                                  
+                                      [self.searchObjects removeAllObjects];
+
+                                      for(int i=0;i<[dataDict count]; i++)
+                                      {
+                                          UserObject *obj = [[UserObject alloc] init];
+                                          obj.name = [dataDict[i] objectForKey:@"name"];
+                                          obj.uid = [dataDict[i] objectForKey:@"id"];
+                                          obj.type = kFacebook;
+                                          obj.updated = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
+                                          obj.profileImageURL = @"";
+                                          [self.searchObjects addObject:obj];
+                                      }
                                 
-                                  [self.searchDisplayController.searchResultsTableView reloadData];
+                                      [self.searchDisplayController.searchResultsTableView reloadData];
+                                  }
                               });
                               //NSDictionary *paging = [result objectForKey:@"paging"];
                           }
@@ -832,11 +840,6 @@
     }];
 
 
-}
-
-- (void)searchFacebookUsers:(NSString *)searchString
-{
-    
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
