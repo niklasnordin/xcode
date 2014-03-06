@@ -787,6 +787,11 @@
                  
                  SLRequest *users = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:param];
                  users.account = facebookAccount;
+                 if (![searchStringWithSpace isEqualToString:self.searchString])
+                 {
+                     // dont do anything if the search text has changed
+                     return;
+                 }
                  [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
                  
                  [users performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
