@@ -19,7 +19,7 @@
     {
         obj = [[DisplayObject alloc] initWithTwitterDictionary:dict];
 //        obj.mainTitle = [dict objectForKey:@"text"];
-        NSLog(@"text = %@",obj.mainTitle);
+        NSLog(@"text = %@",obj.message);
 
     }
     return obj;

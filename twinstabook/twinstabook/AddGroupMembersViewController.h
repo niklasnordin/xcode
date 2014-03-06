@@ -20,6 +20,7 @@
 @property (weak, nonatomic) tif_db *database;
 @property (weak, nonatomic) NSMutableArray *groupMembers;
 @property (strong, nonatomic) JMPickerView *optionsPicker;
+@property (weak, nonatomic) IBOutlet UIButton *searchButton;
 
 - (void)updateOptionsForRow:(NSInteger)row;
 

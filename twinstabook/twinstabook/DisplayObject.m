@@ -34,7 +34,7 @@
     self = [super init];
     if (self)
     {
-        _mainTitle = [dict objectForKey:@"text"];
+        _message = [dict objectForKey:@"text"];
     }
     
     return self;

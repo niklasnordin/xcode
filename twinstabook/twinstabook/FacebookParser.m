@@ -88,7 +88,7 @@ static NSString *FBSTATUSTYPEMOBILEUPDATE = @"mobile_status_update";
     {
         //NSLog(@"obj = %@",dict);
         obj = [[DisplayObject alloc] init];
-        [obj setMainTitle:message];
+        [obj setMessage:message];
         [obj setType:@"facebook"];
         
         // get the link

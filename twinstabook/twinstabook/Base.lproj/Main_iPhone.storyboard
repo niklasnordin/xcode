@@ -289,6 +289,7 @@
                         <outlet property="feedButton" destination="37l-PT-tGj" id="VUl-mD-IoA"/>
                         <outlet property="optionsButton" destination="IZ9-9t-g2d" id="e6f-et-uHr"/>
                         <outlet property="optionsLabel" destination="Je3-DT-Cwi" id="saH-fD-gAp"/>
+                        <outlet property="searchButton" destination="VeL-cb-0iw" id="wyJ-e6-dWl"/>
                         <outlet property="tableView" destination="BM3-O0-BgL" id="qVu-16-9YG"/>
                     </connections>
                 </viewController>

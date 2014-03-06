@@ -53,6 +53,11 @@
 - (void)pickerViewWasHidden:(JMPickerView *)pickerView
 {
     //NSLog(@"picker hidden");
+//    [self.navigationController setNavigationBarHidden:YES];
+
+    AddGroupMembersViewController *vc = (AddGroupMembersViewController *)self.delegate;
+    [vc.navigationController setNavigationBarHidden:NO];
+    [vc.searchButton setHidden:NO];
 }
 
 - (void)pickerViewWasShown:(JMPickerView *)pickerView

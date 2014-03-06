@@ -10,8 +10,6 @@
 #import "searchTableViewController.h"
 #import "optionsPickerViewDelegate.h"
 
-//#import <FacebookSDK/FacebookSDK.h>
-
 @interface groupViewController ()
 @property (strong, nonatomic) JMPickerView *picker;
 @property (strong, nonatomic) optionsPickerViewDelegate *optionsPVDelegate;
@@ -49,7 +47,7 @@
     [self.searchActivityIndicator setHidden:YES];
     [self.searchActivityIndicator setHidesWhenStopped:YES];
     
-    self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self withDistanceToTop:65.0f];
+    self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self withDistanceToTop:kDistanceFromTop];
     [self.picker hide:-1.0f];
     [self.feedButton setTitle:name forState:UIControlStateNormal];
     [self.picker selectRow:self.database.selectedMediaNameIndex inComponent:0 animated:NO];
@@ -57,7 +55,7 @@
     self.optionsPVDelegate = [[optionsPickerViewDelegate alloc] init];
     [self.optionsPVDelegate setDatabase:self.database];
     self.optionsPVDelegate.delegate = self;
-    self.optionsPicker = [[JMPickerView alloc] initWithDelegate:self.optionsPVDelegate addingToViewController:self withDistanceToTop:65.0f];
+    self.optionsPicker = [[JMPickerView alloc] initWithDelegate:self.optionsPVDelegate addingToViewController:self withDistanceToTop:kDistanceFromTop];
     [self.optionsPicker hide:-1.0f];
     //[self.optionsPicker setBackgroundColor:[UIColor lightGrayColor]];
     [self.searchOptionButton setTitle:[self.database.facebookSearchOptions objectAtIndex:self.database.selectedOptionIndex] forState:UIControlStateNormal];
@@ -164,6 +162,7 @@
 {
     NSLog(@"name = %@", [self.feedButton.titleLabel text]);
     [self.picker show:0.3f];
+    //[self.revealButtonItem setEnabled:NO];
 }
 
 - (IBAction)searchButtonClicked:(id)sender

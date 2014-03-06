@@ -7,15 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UserObject.h"
+#import "tif_db.h"
 
 @interface DisplayObject : NSObject
 
-@property (strong, nonatomic) NSString *mainTitle;
+@property (strong, nonatomic) UserObject *user;
+
+@property (strong, nonatomic) NSString *message;
 @property (strong, nonatomic) NSString *subTitle;
 @property (strong, nonatomic) NSString *link;
-@property (strong, nonatomic) NSString *type;
+@property (nonatomic) kMediaTypes type;
 @property (strong, nonatomic) NSDate *date;
 @property (strong, nonatomic) UIImage *image;
+@property (strong,nonatomic) UIImage *typeImage;
 
 - (id)initWithFacebookDictionary:(NSDictionary *)dict;
 - (id)initWithTwitterDictionary:(NSDictionary *)dict;

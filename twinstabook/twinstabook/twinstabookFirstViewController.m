@@ -36,7 +36,7 @@
 
     self.database = AppDelegate.database;
     
-    self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self withDistanceToTop:20.0f];
+    self.picker = [[JMPickerView alloc] initWithDelegate:self addingToViewController:self withDistanceToTop:kDistanceFromTop];
     [self.picker hide:-1.0f];
     [self.feedButton setTitle:[self nameForPicker:self.database.selectedFeedIndex] forState:UIControlStateNormal];
     [self.picker selectRow:self.database.selectedFeedIndex inComponent:0 animated:NO];
@@ -454,6 +454,7 @@
 - (IBAction)feedButtonClicked:(id)sender
 {
     [self.picker show:0.3f];
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 #pragma mark -
@@ -489,6 +490,7 @@
 - (void)pickerViewWasHidden:(JMPickerView *)pickerView
 {
     //NSLog(@"picker hidden");
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)pickerViewWasShown:(JMPickerView *)pickerView
@@ -536,7 +538,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
    
     DisplayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = obj.mainTitle;
+    cell.textLabel.text = obj.message;
     return cell;
 }
 

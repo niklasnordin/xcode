@@ -10,7 +10,7 @@
 
 static CGFloat kPickerViewStandardHeight = 216.f;
 //static CGFloat kMenuHeight = 20.0f;
-//static CGFloat kDismissViewAlpha = 0.8f;
+static CGFloat kDismissViewAlpha = 0.8f;
 static CGFloat kAnimationDuration = 0.3f;
 static CGFloat kTwoFifths = 0.4f;
 static CGFloat kThreeFifths = 0.6;
@@ -46,7 +46,7 @@ static CGFloat kThreeFifths = 0.6;
     self.pickerDismisserView.frame = self.topController.view.bounds;
     self.pickerDismisserView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.pickerDismisserView.backgroundColor = UIColor.blackColor;
-    self.pickerDismisserView.alpha = 0.0f;
+    self.pickerDismisserView.alpha = 0.0;
     [self.pickerDismisserView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide:)]];
     [self.topController.view addSubview:self.pickerDismisserView];
 }
@@ -71,7 +71,7 @@ static CGFloat kThreeFifths = 0.6;
         
         self.pickerDismisserView.frame = CGRectMake(self.topController.view.bounds.origin.x, self.topController.view.bounds.origin.y+kPickerViewStandardHeight+self.distance, self.topController.view.bounds.size.width, self.topController.view.bounds.size.height - kPickerViewStandardHeight);
         
-        self.pickerDismisserView.alpha = 1.0f;
+        self.pickerDismisserView.alpha = kDismissViewAlpha;
         [self.pickerDismisserView setBackgroundColor:[UIColor lightGrayColor]];
 
     }];
