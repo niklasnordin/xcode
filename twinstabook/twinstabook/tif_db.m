@@ -54,6 +54,13 @@
             _selectedMediaNameIndex = 0;
             _selectedFeedIndex = 0;
             
+            _posts = [[NSMutableDictionary alloc] init];
+            
+            NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+            [_posts setObject:dict forKey:FACEBOOK];
+            [_posts setObject:dict forKey:TWITTER];
+            [_posts setObject:dict forKey:INSTAGRAM];
+            
             _groups = [[NSMutableArray alloc] init];
             _groupMembers = [[NSMutableDictionary alloc] init];
             for (NSString *name in self.socialMediaNames)
@@ -71,6 +78,8 @@
             _selectedMediaNameIndex = [[database objectForKey:SELECTEDMEDIANAME] intValue];
             _selectedFeedIndex = [[database objectForKey:SELECTEDFEEDINDEX] integerValue];
             _instagramAccessToken = [database objectForKey:INSTAGRAMACCESSTOKEN];
+            
+            _posts = [database objectForKey:POSTS];
             
             _groups = [database objectForKey:GROUPS];
             _groupMembers = [[NSMutableDictionary alloc] init];

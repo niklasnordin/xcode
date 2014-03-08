@@ -35,6 +35,7 @@ static NSString * const GROUPMEMBERS = @"groupMembers";
 static NSString * const LASTUPDATE = @"lastUpdate";
 static NSString * const SELECTEDTWITTERACCOUNT = @"selectedTwitterAccount";
 static NSString * const INSTAGRAMACCESSTOKEN = @"instagramAccessToken";
+static NSString * const POSTS = @"posts";
 
 static NSString * const kFacebookGraphRoot = @"https://graph.facebook.com";
 static NSString * const kTwitterAPIRoot = @"https://api.twitter.com";
@@ -80,6 +81,14 @@ static float const kDistanceFromTop = 20.0f;
 
 - (id)init;
 - (void)saveDatabase;
+
+// the feed...
+// every feed has a dictionary of posts.
+// each user has a list of posts attached to its userID
+// @{ "uid" : { "posts" : NSMutableArray of posts, "lastUpdated" : NSDate }
+// posts will be added to these arrays
+// and the feed will be pulled and filtered from these
+@property (strong, nonatomic) NSMutableDictionary *posts;
 
 // facebook
 @property (strong, nonatomic) ACAccountType *facebookAccountType;

@@ -218,26 +218,29 @@
         [cell setAccessoryType:UITableViewCellAccessoryNone];
     }
 
-    // no image data available so set the image to download and put a
-    // question mark there meanwhile
-    switch (self.database.selectedMediaNameIndex)
+    //if ([self.searchString isEqualToString:self.searchBar.text])
     {
-        case kFacebook:
-            [self downloadFacebookImageForUser:user andCell:cell];
-            break;
+        // no image data available so set the image to download and put a
+        // question mark there meanwhile
+        switch (self.database.selectedMediaNameIndex)
+        {
+            case kFacebook:
+                [self downloadFacebookImageForUser:user andCell:cell];
+                break;
                 
-        case kTwitter:
-            [self downloadImageForUser:user andCell:cell];
-            break;
+            case kTwitter:
+                [self downloadImageForUser:user andCell:cell];
+                break;
                 
-        case kInstagram:
-            [self downloadImageForUser:user andCell:cell];
-            break;
+            case kInstagram:
+                [self downloadImageForUser:user andCell:cell];
+                break;
                 
-        default:
-            break;
+            default:
+                break;
+        }
     }
-
+    
     return cell;
 }
 
@@ -274,22 +277,30 @@
     UserObject *user = nil;
     if ([tableView isEqual:self.tableView])
     {
-        user = [self.tableViewObjects objectAtIndex:indexPath.row];
+        if (indexPath.row < self.tableViewObjects.count)
+        {
+            user = [self.tableViewObjects objectAtIndex:indexPath.row];
+        }
     }
     else
     {
-        user = [self.searchObjects objectAtIndex:indexPath.row];
+        if (indexPath.row < self.searchObjects.count)
+        {
+            user = [self.searchObjects objectAtIndex:indexPath.row];
+        }
     }
     
-    //Fetch operation that doesn't need executing anymore
-    NSBlockOperation *ongoingDownloadOperation = [self.uidToImageDownloadOperations objectForKey:user.uid];
-    if (ongoingDownloadOperation)
+    if (user)
     {
-        //Cancel operation and remove from dictionary
-        [ongoingDownloadOperation cancel];
-        [self.uidToImageDownloadOperations removeObjectForKey:user.uid];
+        //Fetch operation that doesn't need executing anymore
+        NSBlockOperation *ongoingDownloadOperation = [self.uidToImageDownloadOperations objectForKey:user.uid];
+        if (ongoingDownloadOperation)
+        {
+            //Cancel operation and remove from dictionary
+            [ongoingDownloadOperation cancel];
+            [self.uidToImageDownloadOperations removeObjectForKey:user.uid];
+        }
     }
-
 }
 
 // this will use the profileImageURL and should work for all services

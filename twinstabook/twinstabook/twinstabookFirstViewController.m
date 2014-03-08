@@ -45,6 +45,16 @@
     self.refreshController = [[UIRefreshControl alloc] init];
     self.refreshController.tintColor = [UIColor lightGrayColor];
     [self.refreshController addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.refreshController setTintColor:[UIColor redColor]];
+    [self.refreshController setBackgroundColor:[UIColor lightGrayColor]];
+    
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setTimeStyle:NSDateFormatterShortStyle];
+    [format setDateStyle:NSDateFormatterShortStyle];
+    NSString *str = [format stringFromDate:self.database.lastUpdate];
+    
+    NSAttributedString *title = [[NSAttributedString alloc] initWithString:str];
+    self.refreshController.attributedTitle = title;
     
     self.feedTableView.delegate = self;
     self.feedTableView.dataSource = self;
@@ -90,8 +100,23 @@
 - (void)refresh:(UIRefreshControl *)sender
 {
     
-    NSAttributedString *title = [[NSAttributedString alloc] initWithString:@"hello"];
-    sender.attributedTitle = title;
+    NSDate *now = [[NSDate alloc]initWithTimeIntervalSinceNow:0];
+    NSTimeInterval interval = [now timeIntervalSinceDate:self.database.lastUpdate];
+
+    // dont update too often, every 60s seems good enough
+    if (interval < 60)
+    {
+        [sender endRefreshing];
+        return;
+    }
+    self.database.lastUpdate = now;
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setTimeStyle:NSDateFormatterShortStyle];
+    [format setDateStyle:NSDateFormatterShortStyle];
+    NSString *str = [format stringFromDate:self.database.lastUpdate];
+    
+    NSAttributedString *title = [[NSAttributedString alloc] initWithString:str];
+    self.refreshController.attributedTitle = title;
     
     if (self.database.useFacebook)
     {
@@ -365,44 +390,6 @@
     }
 }
 
-- (void)readSession:(FBSession *)session fromConnection:(FBRequestConnection *)connection fromPage:(NSString *)page
-{
-    //NSLog(@"page = %@",page);
-    //NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-//    NSTimeInterval interval = -86400*1;
-    //NSTimeInterval interval = -50000;
-
-    //NSDate *start = [[NSDate alloc] initWithTimeIntervalSinceNow:interval];
-    //NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    //[format setTimeStyle:NSDateFormatterShortStyle];
-    //[format setDateStyle:NSDateFormatterShortStyle];
-    //NSString *str = [format stringFromDate:start];
-    //NSLog(@"str date : %@",str);
-    //[params setObject:str forKey:@"since"];
-    
-    [FBRequestConnection startWithGraphPath:page parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
-    {
-        if (!error)
-        {
-            NSArray *data = [result objectForKey:@"data"];
-            [self writeStories:data];
-            
-            //FBGraphObject *paging = [result objectForKey:@"paging"];
-            //NSString *previous = [paging objectForKey:@"previous"];
-            //NSString *next = [paging objectForKey:@"next"];
-            //[self readURLAsync:previous fromConnection:connection next:NO];
-            //[self readURLAsync:next fromConnection:connection next:YES];
-        }
-        else
-        {
-            NSLog(@"error: %@",error);
-        }
-    }
-    ];
-
-}
-*/
-
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     NSLog(@"didRecieveResponse");
@@ -450,6 +437,7 @@
     // Check the error var
     NSLog(@"didFailWithError = %@",error);
 }
+*/
 
 - (IBAction)feedButtonClicked:(id)sender
 {
