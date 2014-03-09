@@ -21,6 +21,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // init the database
+    if (!self.database)
+    {
+        self.database = [[tif_db alloc] init];
+    }
+    
     // Override point for customization after application launch.
     return YES;
 }

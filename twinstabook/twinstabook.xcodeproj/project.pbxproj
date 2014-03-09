@@ -60,6 +60,7 @@
 		61FC7F2818C8F8290025350A /* Twitter-Logo-200-sq-Border.png in Resources */ = {isa = PBXBuildFile; fileRef = 61FC7F2718C8F8290025350A /* Twitter-Logo-200-sq-Border.png */; };
 		61FC7F2A18C8F8490025350A /* Facebook-Logo-Small.tif in Resources */ = {isa = PBXBuildFile; fileRef = 61FC7F2918C8F8490025350A /* Facebook-Logo-Small.tif */; };
 		61FC7F2E18C8FC540025350A /* Facebook-Logo-Small-Border.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61FC7F2D18C8FC540025350A /* Facebook-Logo-Small-Border.jpg */; };
+		61FC7F3518CC50930025350A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61FC7F3318CC50930025350A /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +157,7 @@
 		61FC7F2718C8F8290025350A /* Twitter-Logo-200-sq-Border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Twitter-Logo-200-sq-Border.png"; sourceTree = "<group>"; };
 		61FC7F2918C8F8490025350A /* Facebook-Logo-Small.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "Facebook-Logo-Small.tif"; sourceTree = "<group>"; };
 		61FC7F2D18C8FC540025350A /* Facebook-Logo-Small-Border.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Facebook-Logo-Small-Border.jpg"; sourceTree = "<group>"; };
+		61FC7F3418CC50930025350A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +322,7 @@
 		61C57C4B18897BA600887F5E /* twinstabook */ = {
 			isa = PBXGroup;
 			children = (
+				61FC7F3218CC50560025350A /* DB */,
 				6165737D18B555670025DF09 /* SliderViewRelated */,
 				6165736C18B403830025DF09 /* Pictures */,
 				6137DFFB18A7B00C00E0C589 /* instagram */,
@@ -337,12 +340,6 @@
 				6137E00018A7B11600E0C589 /* tifTableViewCell.m */,
 				617CE88618AD30270025AA92 /* linkWebViewController.h */,
 				617CE88718AD30270025AA92 /* linkWebViewController.m */,
-				6188A2A718917CB9009C75EB /* tif_db.h */,
-				6188A2A818917CB9009C75EB /* tif_db.m */,
-				6137DFFC18A7B03C00E0C589 /* DisplayObject.h */,
-				6137DFFD18A7B03C00E0C589 /* DisplayObject.m */,
-				61DFBF6F18BBEC0C00DB6D4E /* UserObject.h */,
-				61DFBF7018BBEC0C00DB6D4E /* UserObject.m */,
 				6131929918C0E9E9005A1C5E /* MemberTableViewCell.h */,
 				6131929A18C0E9E9005A1C5E /* MemberTableViewCell.m */,
 				61C57C5418897BA600887F5E /* twinstabookAppDelegate.h */,
@@ -384,6 +381,20 @@
 				61C57C7318897BA600887F5E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		61FC7F3218CC50560025350A /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				6137DFFC18A7B03C00E0C589 /* DisplayObject.h */,
+				6137DFFD18A7B03C00E0C589 /* DisplayObject.m */,
+				61DFBF6F18BBEC0C00DB6D4E /* UserObject.h */,
+				61DFBF7018BBEC0C00DB6D4E /* UserObject.m */,
+				6188A2A718917CB9009C75EB /* tif_db.h */,
+				6188A2A818917CB9009C75EB /* tif_db.m */,
+				61FC7F3318CC50930025350A /* Model.xcdatamodeld */,
+			);
+			name = DB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,6 +513,7 @@
 				61ECD14E18981AB300E5B952 /* groupViewController.m in Sources */,
 				6165737318B51FF40025DF09 /* FacebookSettingsViewController.m in Sources */,
 				6165736818B3D3D10025DF09 /* SWRevealViewController.m in Sources */,
+				61FC7F3518CC50930025350A /* Model.xcdatamodeld in Sources */,
 				617CE88218AD2F3C0025AA92 /* twitterParser.m in Sources */,
 				618BE7C618B8D80500A0CB7F /* settingsViewController.m in Sources */,
 				61DFBF7118BBEC0C00DB6D4E /* UserObject.m in Sources */,
@@ -772,6 +784,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		61FC7F3318CC50930025350A /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				61FC7F3418CC50930025350A /* Model.xcdatamodel */,
+			);
+			currentVersion = 61FC7F3418CC50930025350A /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 61C57C3A18897BA600887F5E /* Project object */;
 }
