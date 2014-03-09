@@ -41,13 +41,15 @@ static NSString * const kFacebookGraphRoot = @"https://graph.facebook.com";
 static NSString * const kTwitterAPIRoot = @"https://api.twitter.com";
 static NSString * const kTwitterAPIVersion = @"1.1";
 
-
 static NSString * const kInstagramBaseURLString = @"https://api.instagram.com/v1/";
 static NSString * const kInstagramClientId = @"d2fe9f8c3f6949efa13f439616032bb5";
 static NSString * const kInstagramRedirectUrl = @"http://twinstabook.me";
 
 // for pop up the pickerview
 static float const kDistanceFromTop = 20.0f;
+
+// document name
+static NSString * const kDocumentName = @"twinstabook";
 
 @interface tif_db : NSObject
 

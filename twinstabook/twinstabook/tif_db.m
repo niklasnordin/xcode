@@ -22,6 +22,9 @@
     
     if (self)
     {
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSURL *documentsDirectory = [[fileManager URLsForDirectory:NSUserDirectory inDomains:NSUserDomainMask] firstObject];
+        
         self.socialMediaNames = @[FACEBOOK, TWITTER, INSTAGRAM];
 
         self.account = [[ACAccountStore alloc] init];
