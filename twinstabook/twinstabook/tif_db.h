@@ -45,6 +45,9 @@ static NSString * const kInstagramBaseURLString = @"https://api.instagram.com/v1
 static NSString * const kInstagramClientId = @"d2fe9f8c3f6949efa13f439616032bb5";
 static NSString * const kInstagramRedirectUrl = @"http://twinstabook.me";
 
+static NSString * const moPost = @"Post";
+static NSString * const moUser = @"User";
+
 // for pop up the pickerview
 static float const kDistanceFromTop = 20.0f;
 
@@ -52,6 +55,8 @@ static float const kDistanceFromTop = 20.0f;
 static NSString * const kDocumentName = @"twinstabook";
 
 @interface tif_db : NSObject
+
+@property (strong, nonatomic) UIManagedDocument *managedDocument;
 
 // contains the names of the social medias
 @property (strong, nonatomic) NSArray *socialMediaNames;

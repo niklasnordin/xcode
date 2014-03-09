@@ -118,6 +118,7 @@
     NSAttributedString *title = [[NSAttributedString alloc] initWithString:str];
     self.refreshController.attributedTitle = title;
     
+    
     if (self.database.useFacebook)
     {
         /*

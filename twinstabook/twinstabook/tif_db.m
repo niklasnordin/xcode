@@ -24,6 +24,41 @@
     {
         NSFileManager *fileManager = [NSFileManager defaultManager];
         NSURL *documentsDirectory = [[fileManager URLsForDirectory:NSUserDirectory inDomains:NSUserDomainMask] firstObject];
+        NSURL *url = [documentsDirectory URLByAppendingPathComponent:kDocumentName];
+        self.managedDocument = [[UIManagedDocument alloc] initWithFileURL:url];
+        
+        BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:[url path]];
+        
+        if (fileExists)
+        {
+            // open the document
+            [self.managedDocument openWithCompletionHandler:^(BOOL success) {
+                if (success)
+                {
+                    NSLog(@"opening %@",kDocumentName);
+                    [self managedDocumentIsReady];
+                }
+                else
+                {
+                    NSLog(@"error opening %@",kDocumentName);
+                }
+            }];
+        }
+        else
+        {
+            [self.managedDocument saveToURL:url forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
+                // create the document
+                if (success)
+                {
+                    [self managedDocumentIsReady];
+                    NSLog(@"created %@",kDocumentName);
+                }
+                else
+                {
+                    NSLog(@"could not created %@",kDocumentName);
+                }
+            }];
+        }
         
         self.socialMediaNames = @[FACEBOOK, TWITTER, INSTAGRAM];
 
@@ -123,6 +158,14 @@
     }
     
     return self;
+}
+
+- (void)managedDocumentIsReady
+{
+    if (self.managedDocument.documentState == UIDocumentStateNormal)
+    {
+        NSLog(@"document %@ is ready", self.managedDocument.fileURL.path);
+    }
 }
 
 - (void)saveDatabase

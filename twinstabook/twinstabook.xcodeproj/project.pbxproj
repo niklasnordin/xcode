@@ -15,6 +15,9 @@
 		6137DFF918A7AFEF00E0C589 /* FacebookParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6137DFF818A7AFEF00E0C589 /* FacebookParser.m */; };
 		6137DFFE18A7B03C00E0C589 /* DisplayObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6137DFFD18A7B03C00E0C589 /* DisplayObject.m */; };
 		6137E00118A7B11600E0C589 /* tifTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6137E00018A7B11600E0C589 /* tifTableViewCell.m */; };
+		613CE95118CC9B8D00045F12 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 613CE95018CC9B8D00045F12 /* Post.m */; };
+		613CE95418CC9B8E00045F12 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 613CE95318CC9B8E00045F12 /* User.m */; };
+		613CE95718CCA08400045F12 /* Post+Facebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 613CE95618CCA08400045F12 /* Post+Facebook.m */; };
 		6165736818B3D3D10025DF09 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165736718B3D3D10025DF09 /* SWRevealViewController.m */; };
 		6165736B18B3FF3A0025DF09 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165736A18B3FF3A0025DF09 /* MenuTableViewController.m */; };
 		6165736E18B4039A0025DF09 /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6165736D18B4039A0025DF09 /* reveal-icon.png */; };
@@ -87,6 +90,12 @@
 		6137DFFD18A7B03C00E0C589 /* DisplayObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayObject.m; sourceTree = "<group>"; };
 		6137DFFF18A7B11600E0C589 /* tifTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tifTableViewCell.h; sourceTree = "<group>"; };
 		6137E00018A7B11600E0C589 /* tifTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tifTableViewCell.m; sourceTree = "<group>"; };
+		613CE94F18CC9B8D00045F12 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		613CE95018CC9B8D00045F12 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		613CE95218CC9B8E00045F12 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		613CE95318CC9B8E00045F12 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		613CE95518CCA08400045F12 /* Post+Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Post+Facebook.h"; sourceTree = "<group>"; };
+		613CE95618CCA08400045F12 /* Post+Facebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Post+Facebook.m"; sourceTree = "<group>"; };
 		6165736618B3D3D10025DF09 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		6165736718B3D3D10025DF09 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		6165736918B3FF3A0025DF09 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
@@ -392,7 +401,13 @@
 				61DFBF7018BBEC0C00DB6D4E /* UserObject.m */,
 				6188A2A718917CB9009C75EB /* tif_db.h */,
 				6188A2A818917CB9009C75EB /* tif_db.m */,
+				613CE95218CC9B8E00045F12 /* User.h */,
+				613CE95318CC9B8E00045F12 /* User.m */,
+				613CE94F18CC9B8D00045F12 /* Post.h */,
+				613CE95018CC9B8D00045F12 /* Post.m */,
 				61FC7F3318CC50930025350A /* Model.xcdatamodeld */,
+				613CE95518CCA08400045F12 /* Post+Facebook.h */,
+				613CE95618CCA08400045F12 /* Post+Facebook.m */,
 			);
 			name = DB;
 			sourceTree = "<group>";
@@ -512,6 +527,7 @@
 			files = (
 				61ECD14E18981AB300E5B952 /* groupViewController.m in Sources */,
 				6165737318B51FF40025DF09 /* FacebookSettingsViewController.m in Sources */,
+				613CE95718CCA08400045F12 /* Post+Facebook.m in Sources */,
 				6165736818B3D3D10025DF09 /* SWRevealViewController.m in Sources */,
 				61FC7F3518CC50930025350A /* Model.xcdatamodeld in Sources */,
 				617CE88218AD2F3C0025AA92 /* twitterParser.m in Sources */,
@@ -530,10 +546,12 @@
 				6165737C18B54D810025DF09 /* instagramSettingsViewController.m in Sources */,
 				6137DFFE18A7B03C00E0C589 /* DisplayObject.m in Sources */,
 				6165737918B54D600025DF09 /* twitterSettingsViewController.m in Sources */,
+				613CE95418CC9B8E00045F12 /* User.m in Sources */,
 				6188A2A918917CB9009C75EB /* tif_db.m in Sources */,
 				61DFBF6B18BA208800DB6D4E /* AddGroupMembersViewController.m in Sources */,
 				617CE88818AD30270025AA92 /* linkWebViewController.m in Sources */,
 				61ECD154189D2B4200E5B952 /* groupNavigationController.m in Sources */,
+				613CE95118CC9B8D00045F12 /* Post.m in Sources */,
 				61DFBF6E18BA211C00DB6D4E /* searchGroupMembersViewController.m in Sources */,
 				6137DFF918A7AFEF00E0C589 /* FacebookParser.m in Sources */,
 				6137DFF518A66C7200E0C589 /* JMPickerView.m in Sources */,
