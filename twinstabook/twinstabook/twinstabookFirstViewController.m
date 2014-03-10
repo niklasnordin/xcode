@@ -66,7 +66,9 @@
     if (self.database.useFacebook)
     {
         [self.database openFacebookInViewController:self];
-        [self.database loadAllFacebookFriends];
+        [self.database loadAllFacebookFriendsWithCompletionsHandler:^(BOOL success) {
+            // do nothing
+        }];
 
     }
 
@@ -90,7 +92,9 @@
     [self.feedTableView addGestureRecognizer: self.revealViewController.panGestureRecognizer];
 
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:moPost cacheName:nil];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]];
+    //request.predicate = [NSPredicate predicateWithFormat:@"date"];
+    //self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:moPost cacheName:nil];
     
 }
 

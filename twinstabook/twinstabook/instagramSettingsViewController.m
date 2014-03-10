@@ -154,8 +154,8 @@
                 //NSLog(@"it is valid");
                 NSDictionary *dataDict = [result objectForKey:@"data"];
                 NSString *username = [dataDict objectForKey:@"username"];
-                NSString *profileLinkURL = [dataDict objectForKey:@"profile_picture"];
-                NSString *userid = [dataDict objectForKey:@"id"];
+                //NSString *profileLinkURL = [dataDict objectForKey:@"profile_picture"];
+                //NSString *userid = [dataDict objectForKey:@"id"];
             
                 [self.loggedInAsLabel setHidden:NO];
                 [self.loggedInAsLabel setText:[NSString stringWithFormat:@"Logged in as: %@",username]];

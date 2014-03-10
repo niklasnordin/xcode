@@ -62,7 +62,7 @@ static NSString * const kDocumentName = @"twinstabook";
 @property (strong, nonatomic) NSArray *socialMediaNames;
 
 // used for the search function when adding members to a group
-@property (nonatomic) int selectedMediaNameIndex;
+@property (nonatomic) NSInteger selectedMediaNameIndex;
 
 // used for the search function when there is a secondary option
 // so far only facebook has search options
@@ -105,8 +105,8 @@ static NSString * const kDocumentName = @"twinstabook";
 @property (strong, nonatomic) UIImage *facebookLogo;
 
 - (void)openFacebookInViewController:(UIViewController *)vc;
-- (void)loadAllFacebookFriends;
-
+//- (void)loadAllFacebookFriends;
+- (void)loadAllFacebookFriendsWithCompletionsHandler:(void (^)(BOOL success))completion;
 
 // twitter
 @property (strong, nonatomic) ACAccountType *twitterAccountType;

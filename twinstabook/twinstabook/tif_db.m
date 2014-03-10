@@ -25,7 +25,7 @@
         NSFileManager *fileManager = [NSFileManager defaultManager];
         NSURL *documentsDirectory = [[fileManager URLsForDirectory:NSUserDirectory inDomains:NSUserDomainMask] firstObject];
         NSURL *url = [documentsDirectory URLByAppendingPathComponent:kDocumentName];
-        self.managedDocument = [[UIManagedDocument alloc] initWithFileURL:url];
+        //self.managedDocument = [[UIManagedDocument alloc] initWithFileURL:url];
         
         BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:[url path]];
         
@@ -195,7 +195,7 @@
     
     [defaults setObject:groupMembers forKey:GROUPMEMBERS];
 
-    NSNumber *selectedMediaName = [[NSNumber alloc] initWithInt:self.selectedMediaNameIndex];
+    NSNumber *selectedMediaName = [[NSNumber alloc] initWithInteger:self.selectedMediaNameIndex];
     [defaults setObject:selectedMediaName  forKey:SELECTEDMEDIANAME];
     
     [defaults setObject:self.lastUpdate forKey:LASTUPDATE];
@@ -382,8 +382,14 @@
      ];
     
 }
+/*
+- (void)loadAllFacebookFriendsWithCompletionsHandler:(void (^)(BOOL success))completion;
+{
+    completion(YES);
+}
+*/
 
-- (void)loadAllFacebookFriends
+- (void)loadAllFacebookFriendsWithCompletionsHandler:(void (^)(BOOL success))completion
 {
     
     NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
@@ -454,10 +460,11 @@
                               //[self.facebookFriends addObjectsFromArray:friendsArray];
                           }
                           //NSLog(@"last friend = %@",[friendsArray lastObject]);
-                          
+                          completion(YES);
                       }
                       else
                       {
+                          completion(NO);
                           NSLog(@"error = %@",[error localizedDescription]);
                       }
                   }];
@@ -466,6 +473,7 @@
          }
          else
          {
+             completion(NO);
              NSLog(@"facebook access is not granted");
          }
          

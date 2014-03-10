@@ -169,7 +169,7 @@
 {
     [self.searchField resignFirstResponder];
     
-    int selected = self.database.selectedMediaNameIndex;
+    NSInteger selected = self.database.selectedMediaNameIndex;
     switch (selected)
     {
         case kFacebook :

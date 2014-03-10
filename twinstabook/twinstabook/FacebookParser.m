@@ -89,7 +89,7 @@ static NSString *FBSTATUSTYPEMOBILEUPDATE = @"mobile_status_update";
         //NSLog(@"obj = %@",dict);
         obj = [[DisplayObject alloc] init];
         [obj setMessage:message];
-        [obj setType:@"facebook"];
+        [obj setType:kFacebook];
         
         // get the link
         NSArray *actions = [dict objectForKey:@"actions"];
