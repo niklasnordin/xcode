@@ -41,8 +41,14 @@
     [self.facebookSwitch setOn:self.db.useFacebook];
     if (self.db.useFacebook)
     {
-        [self.statusLabel setText:[NSString stringWithFormat:@"Logged in as : %@",[self.db facebookUsername]]];
-        self.statusLabel.hidden = NO;
+        [self.db openFacebookInViewController:self withCompletionsHandler:^(BOOL success) {
+            if (success)
+            {
+                self.statusLabel.hidden = NO;
+                [self.statusLabel setText:[NSString stringWithFormat:@"Logged in as : %@",[self.db facebookUsername]]];
+            }
+        }];
+//        [self.statusLabel setText:[NSString stringWithFormat:@"Logged in as : %@",[self.db facebookUsername]]];
     }
     else
     {
@@ -60,16 +66,25 @@
 - (IBAction)clickedSwitch:(UISwitch *)sender
 {
     self.db.useFacebook = sender.on;
-    self.statusLabel.hidden = !sender.on;
     if (sender.on)
     {
+        [self.db openFacebookInViewController:self withCompletionsHandler:^(BOOL success) {
+            NSLog(@"success = %d",success);
+            if (success)
+            {
+                NSLog(@"setting label text");
+                self.statusLabel.hidden = !sender.on;
+                [self.statusLabel setText:[NSString stringWithFormat:@"Logged in as : %@",[self.db facebookUsername]]];
+            }
+        }];
+        
         if (![self.db.facebookFriends count])
         {
             //[self.db loadAllFacebookFriends];
             [self.db loadAllFacebookFriendsWithCompletionsHandler:^(BOOL success) {
                 if (success)
                 {
-                    [self.statusLabel setText:[NSString stringWithFormat:@"Logged in as : %@",[self.db facebookUsername]]];
+                    //[self.statusLabel setText:[NSString stringWithFormat:@"Logged in as : %@",[self.db facebookUsername]]];
                 }
             }];
         }

@@ -309,7 +309,7 @@
 
 #pragma mark Facebook
 
-- (void)openFacebookInViewController:(UIViewController *)vc
+- (void)openFacebookInViewController:(UIViewController *)vc withCompletionsHandler:(void (^)(BOOL success))completion
 {
     // FacebookAppID
     //ACFacebookAppIdKey : @"577876515622948" };
@@ -349,7 +349,15 @@
          {
              if (granted)
              {
+                 NSArray *accounts = [self.account accountsWithAccountType:self.facebookAccountType];
+                 // there is only one facebook account
+                 ACAccount *facebookAccount = [accounts lastObject];
+                 self.facebookUsername = [facebookAccount userFullName];
+
                  NSLog(@"hello facebook");
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     completion(YES);
+                 });
              }
              else
              {
@@ -361,8 +369,8 @@
                                                         otherButtonTitles:nil];
                  dispatch_async(dispatch_get_main_queue(), ^{
                      [as showInView:vc.view];
+                     completion(NO);
                  });
-                 
              }
          }
          else
@@ -375,8 +383,8 @@
                                                     otherButtonTitles:nil];
              dispatch_async(dispatch_get_main_queue(), ^{
                  [as showInView:vc.view];
+                 completion(NO);
              });
-             
          }
      }
      ];
@@ -436,7 +444,7 @@
                       //NSLog(@"error = %@",error.debugDescription);
                       if (!error)
                       {
-                          self.facebookUsername = [facebookAccount userFullName];
+                          //self.facebookUsername = [facebookAccount userFullName];
                           NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
                           NSArray* friendsArray = [result objectForKey:@"data"];
                           

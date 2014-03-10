@@ -104,7 +104,7 @@ static NSString * const kDocumentName = @"twinstabook";
 @property (strong, nonatomic) NSString *facebookUsername;
 @property (strong, nonatomic) UIImage *facebookLogo;
 
-- (void)openFacebookInViewController:(UIViewController *)vc;
+- (void)openFacebookInViewController:(UIViewController *)vc withCompletionsHandler:(void (^)(BOOL success))completion;
 //- (void)loadAllFacebookFriends;
 - (void)loadAllFacebookFriendsWithCompletionsHandler:(void (^)(BOOL success))completion;
 

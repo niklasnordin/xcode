@@ -65,7 +65,9 @@
     
     if (self.database.useFacebook)
     {
-        [self.database openFacebookInViewController:self];
+        [self.database openFacebookInViewController:self withCompletionsHandler:^(BOOL success) {
+            // do nothing
+        }];
         [self.database loadAllFacebookFriendsWithCompletionsHandler:^(BOOL success) {
             // do nothing
         }];
