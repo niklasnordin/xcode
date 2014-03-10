@@ -10,4 +10,9 @@
 
 @implementation Post (Facebook)
 
++ (void)addDummy
+{
+//    NSManagedObjectContext *context = self.mana
+}
+
 @end

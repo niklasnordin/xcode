@@ -89,7 +89,9 @@
     //[self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     [self.feedTableView addGestureRecognizer: self.revealViewController.panGestureRecognizer];
 
-
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:moPost cacheName:nil];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated

@@ -64,6 +64,7 @@
 		61FC7F2A18C8F8490025350A /* Facebook-Logo-Small.tif in Resources */ = {isa = PBXBuildFile; fileRef = 61FC7F2918C8F8490025350A /* Facebook-Logo-Small.tif */; };
 		61FC7F2E18C8FC540025350A /* Facebook-Logo-Small-Border.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61FC7F2D18C8FC540025350A /* Facebook-Logo-Small-Border.jpg */; };
 		61FC7F3518CC50930025350A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61FC7F3318CC50930025350A /* Model.xcdatamodeld */; };
+		61FC7F3718CE2DE80025350A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61FC7F3618CE2DE80025350A /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +168,7 @@
 		61FC7F2918C8F8490025350A /* Facebook-Logo-Small.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "Facebook-Logo-Small.tif"; sourceTree = "<group>"; };
 		61FC7F2D18C8FC540025350A /* Facebook-Logo-Small-Border.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Facebook-Logo-Small-Border.jpg"; sourceTree = "<group>"; };
 		61FC7F3418CC50930025350A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		61FC7F3618CE2DE80025350A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61FC7F3718CE2DE80025350A /* CoreData.framework in Frameworks */,
 				618BE7BE18AFA0DF00A0CB7F /* Twitter.framework in Frameworks */,
 				617CE87F18AD2EE70025AA92 /* Social.framework in Frameworks */,
 				617CE87D18AD2EDD0025AA92 /* Accounts.framework in Frameworks */,
@@ -316,6 +319,7 @@
 		61C57C4418897BA600887F5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				61FC7F3618CE2DE80025350A /* CoreData.framework */,
 				618BE7BD18AFA0DF00A0CB7F /* Twitter.framework */,
 				617CE87E18AD2EE70025AA92 /* Social.framework */,
 				617CE87C18AD2EDD0025AA92 /* Accounts.framework */,

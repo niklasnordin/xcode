@@ -10,4 +10,6 @@
 
 @interface Post (Facebook)
 
++ (void)addDummy;
+
 @end
