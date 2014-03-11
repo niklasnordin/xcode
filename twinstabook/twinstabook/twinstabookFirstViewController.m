@@ -11,6 +11,8 @@
 #import "twitterParser.h"
 #import "displayObject.h"
 #import "linkWebViewController.h"
+#import "Post.h"
+#import "Post+Facebook.h"
 
 @interface twinstabookFirstViewController ()
 
@@ -187,7 +189,7 @@
 
     [sender endRefreshing];
 }
-
+/*
 -(bool)checkIfAllPostsAreLoaded
 {
     bool loaded = YES;
@@ -199,7 +201,7 @@
     }
     return loaded;
 }
-
+*/
 - (void)readFacebookFeed:(NSString *)uid withRefresher:(UIRefreshControl *)sender
 {
     
@@ -340,113 +342,6 @@
     }
     
 }
-/*
-- (void)readURLAsync:(NSString *)urlString fromConnection:(FBRequestConnection *)connection next:(BOOL)goNext
-{
-    if (urlString)
-    {
-        NSLog(@"read async: %@",urlString);
-        NSURL *url = [NSURL URLWithString:urlString];
-        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-        
-        NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-        [conn start];
-    }
-}
-
-- (void)readURL:(NSString *)urlString fromConnection:(FBRequestConnection *)connection next:(BOOL)goNext
-{
-    if (urlString)
-    {
-        NSURL *url = [NSURL URLWithString:urlString];
-        NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-        
-        NSError *error = [[NSError alloc] init];
-        NSHTTPURLResponse *responseCode = nil;
-
-        NSData *oResponseData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&responseCode error:&error];
-        
-        if([responseCode statusCode] != 200)
-        {
-            NSLog(@"Error getting %@, HTTP status code %ld", url, [responseCode statusCode]);
-            return;
-        }
-        
-        NSError *jsonError;
-        //NSString *svar = [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
-        NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:oResponseData options:NSJSONReadingMutableContainers error:&jsonError];
-
-        if (!jsonError)
-        {
-            NSMutableArray *data = [dict objectForKey:@"data"];
-            if (data)
-            {
-                [self writeStories:data];
-
-                FBGraphObject *paging = [dict objectForKey:@"paging"];
-                if (goNext)
-                {
-                    NSString *next = [paging objectForKey:@"next"];
-                    [self readURL:next fromConnection:connection next:YES];
-                }
-                else
-                {
-                    NSString *previous = [paging objectForKey:@"previous"];
-                    [self readURL:previous fromConnection:connection next:NO];
-                }
-            }
-        }
-    }
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    NSLog(@"didRecieveResponse");
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    NSLog(@"didReceiveData");
-    
-    NSError *jsonError;
-    //NSString *svar = [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
-    NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
-    
-    
-    if (!jsonError)
-    {
-        NSMutableArray *data = [dict objectForKey:@"data"];
-        if (data)
-        {
-            [self writeStories:data];
-        }
-    }
-
-
-}
-
-- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
-                  willCacheResponse:(NSCachedURLResponse*)cachedResponse
-{
-    // Return nil to indicate not necessary to store a cached response for this connection
-    return nil;
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    // The request is complete and data has been received
-    // You can parse the stuff in your instance variable now
-    NSLog(@"didFinishLoading");
-    
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    // The request has failed for some reason!
-    // Check the error var
-    NSLog(@"didFailWithError = %@",error);
-}
-*/
 
 - (IBAction)feedButtonClicked:(id)sender
 {
@@ -520,13 +415,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.feedArray count];
+    return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -534,6 +429,9 @@
     static NSString *CellIdentifier = @"feedCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
    
+    //Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    //cell.textLabel.text = post.message;
+    
     DisplayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
     cell.textLabel.text = obj.message;
     return cell;

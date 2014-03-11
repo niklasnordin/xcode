@@ -10,6 +10,6 @@
 
 @interface Post (Facebook)
 
-+ (void)addDummy;
++ (Post *)addDummyToContext:(NSManagedObjectContext *)context;
 
 @end
