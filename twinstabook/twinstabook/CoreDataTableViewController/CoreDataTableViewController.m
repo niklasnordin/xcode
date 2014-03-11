@@ -1,9 +1,6 @@
 //
 //  CoreDataTableViewController.m
 //
-//  Created for Stanford CS193p Fall 2011.
-//  Copyright 2011 Stanford University. All rights reserved.
-//
 
 #import "CoreDataTableViewController.h"
 
@@ -15,30 +12,36 @@
 
 #pragma mark - Properties
 
-@synthesize fetchedResultsController = _fetchedResultsController;
-@synthesize suspendAutomaticTrackingOfChangesInManagedObjectContext = _suspendAutomaticTrackingOfChangesInManagedObjectContext;
-@synthesize debug = _debug;
-@synthesize beganUpdates = _beganUpdates;
-
+//@synthesize fetchedResultsController = _fetchedResultsController;
+//@synthesize suspendAutomaticTrackingOfChangesInManagedObjectContext = _suspendAutomaticTrackingOfChangesInManagedObjectContext;
+//@synthesize debug = _debug;
+//@synthesize beganUpdates = _beganUpdates;
+/*
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
 }
-
+*/
 #pragma mark - Fetching
 
 - (void)performFetch
 {
-    if (self.fetchedResultsController) {
-        if (self.fetchedResultsController.fetchRequest.predicate) {
+    if (self.fetchedResultsController)
+    {
+        if (self.fetchedResultsController.fetchRequest.predicate)
+        {
             if (self.debug) NSLog(@"[%@ %@] fetching %@ with predicate: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), self.fetchedResultsController.fetchRequest.entityName, self.fetchedResultsController.fetchRequest.predicate);
-        } else {
+        }
+        else
+        {
             if (self.debug) NSLog(@"[%@ %@] fetching all %@ (i.e., no predicate)", NSStringFromClass([self class]), NSStringFromSelector(_cmd), self.fetchedResultsController.fetchRequest.entityName);
         }
         NSError *error;
         [self.fetchedResultsController performFetch:&error];
         if (error) NSLog(@"[%@ %@] %@ (%@)", NSStringFromClass([self class]), NSStringFromSelector(_cmd), [error localizedDescription], [error localizedFailureReason]);
-    } else {
+    }
+    else
+    {
         if (self.debug) NSLog(@"[%@ %@] no NSFetchedResultsController (yet?)", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     }
     [self.tableView reloadData];
@@ -47,16 +50,21 @@
 - (void)setFetchedResultsController:(NSFetchedResultsController *)newfrc
 {
     NSFetchedResultsController *oldfrc = _fetchedResultsController;
-    if (newfrc != oldfrc) {
+    if (newfrc != oldfrc)
+    {
         _fetchedResultsController = newfrc;
         newfrc.delegate = self;
-        if ((!self.title || [self.title isEqualToString:oldfrc.fetchRequest.entity.name]) && (!self.navigationController || !self.navigationItem.title)) {
+        if ((!self.title || [self.title isEqualToString:oldfrc.fetchRequest.entity.name]) && (!self.navigationController || !self.navigationItem.title))
+        {
             self.title = newfrc.fetchRequest.entity.name;
         }
-        if (newfrc) {
+        if (newfrc)
+        {
             if (self.debug) NSLog(@"[%@ %@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), oldfrc ? @"updated" : @"set");
             [self performFetch]; 
-        } else {
+        }
+        else
+        {
             if (self.debug) NSLog(@"[%@ %@] reset to nil", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
             [self.tableView reloadData];
         }
@@ -94,7 +102,8 @@
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
-    if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext) {
+    if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext)
+    {
         [self.tableView beginUpdates];
         self.beganUpdates = YES;
     }
@@ -163,9 +172,12 @@
 
 - (void)setSuspendAutomaticTrackingOfChangesInManagedObjectContext:(BOOL)suspend
 {
-    if (suspend) {
+    if (suspend)
+    {
         _suspendAutomaticTrackingOfChangesInManagedObjectContext = YES;
-    } else {
+    }
+    else
+    {
         [self performSelector:@selector(endSuspensionOfUpdatesDueToContextChanges) withObject:0 afterDelay:0];
     }
 }

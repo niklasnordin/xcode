@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "CoreDataTableViewController.h"
 
 #import "tif_db.h"
 #import "twinstabookAppDelegate.h"
@@ -16,7 +17,6 @@
 @interface twinstabookFirstViewController : UIViewController
 <
     UITableViewDataSource,
-    UITableViewDelegate,
     JMPickerViewDelegate
 >
 
@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *feedButton;
 - (IBAction)feedButtonClicked:(id)sender;
 - (NSString *)nameForPicker:(NSInteger)index;
+@property (strong, nonatomic) CoreDataTableViewController *cdtvc;
 @property (weak, nonatomic) IBOutlet UITableView *feedTableView;
 
 @end

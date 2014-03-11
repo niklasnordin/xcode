@@ -23,9 +23,10 @@
     if (self)
     {
         NSFileManager *fileManager = [NSFileManager defaultManager];
-        NSURL *documentsDirectory = [[fileManager URLsForDirectory:NSUserDirectory inDomains:NSUserDomainMask] firstObject];
+        NSArray *dirs = [fileManager URLsForDirectory:NSDocumentationDirectory inDomains:NSUserDomainMask];
+        NSURL *documentsDirectory = [dirs firstObject];
         NSURL *url = [documentsDirectory URLByAppendingPathComponent:kDocumentName];
-        //self.managedDocument = [[UIManagedDocument alloc] initWithFileURL:url];
+        self.managedDocument = [[UIManagedDocument alloc] initWithFileURL:url];
         
         BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:[url path]];
         

@@ -58,7 +58,8 @@
     NSAttributedString *title = [[NSAttributedString alloc] initWithString:str];
     self.refreshController.attributedTitle = title;
     
-    self.feedTableView.delegate = self;
+    self.cdtvc = [[CoreDataTableViewController alloc] init];
+    self.feedTableView.delegate = self.cdtvc;
     self.feedTableView.dataSource = self;
     [self.feedTableView addSubview:self.refreshController];
     
@@ -96,9 +97,10 @@
     [self.feedTableView addGestureRecognizer: self.revealViewController.panGestureRecognizer];
 
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]];
-    //request.predicate = [NSPredicate predicateWithFormat:@"date"];
-    //self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:moPost cacheName:nil];
+    request.predicate = nil;
+    request.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES selector:@selector(localizedStandardCompare:)] ];
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     
 }
 
@@ -415,14 +417,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[self.fetchedResultsController sections] count];
+    return [self.cdtvc numberOfSectionsInTableView:tableView];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
+    return [self.cdtvc.tableView numberOfRowsInSection:section];
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
