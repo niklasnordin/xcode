@@ -44,4 +44,14 @@
     return usr;
 }
 
++ (User *)dummyUserInContext:(NSManagedObjectContext *)context
+{
+    User *usr = [NSEntityDescription insertNewObjectForEntityForName:moUser inManagedObjectContext:context];
+    usr.name = @"dummy User";
+    usr.uid = @"-1";
+    usr.type = kFacebook;
+    
+    return usr;
+}
+
 @end

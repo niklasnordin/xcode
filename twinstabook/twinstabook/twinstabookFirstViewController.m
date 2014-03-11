@@ -102,6 +102,10 @@
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     
+    [self.database.managedDocument.managedObjectContext performBlock:^{
+        NSLog(@"performBlock");
+        [Post addDummyToContext:self.database.managedDocument.managedObjectContext];
+    }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -432,11 +436,11 @@
     static NSString *CellIdentifier = @"feedCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
    
-    //Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    //cell.textLabel.text = post.message;
-    
-    DisplayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = obj.message;
+    Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = post.message;
+    NSLog(@"post.message = %@",post.message);
+    //DisplayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
+    //cell.textLabel.text = obj.message;
     return cell;
 }
 

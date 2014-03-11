@@ -12,5 +12,6 @@
 @interface User (Facebook)
 
 + (User *)facebookUserInContext:(NSManagedObjectContext *)context fromPost:(Post *)post;
++ (User *)dummyUserInContext:(NSManagedObjectContext *)context;
 
 @end

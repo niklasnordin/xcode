@@ -46,6 +46,9 @@
 - (id)init;
 - (void)saveDatabase;
 
+- (void)startActivityIndicator;
+- (void)stopActivityIndicator;
+
 // the feed...
 // every feed has a dictionary of posts.
 // each user has a list of posts attached to its userID

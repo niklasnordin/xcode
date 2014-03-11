@@ -11,7 +11,7 @@
 #import "UserObject.h"
 
 @interface tif_db ()
-
+@property (nonatomic) int nActivities;
 @end
 
 @implementation tif_db
@@ -22,6 +22,8 @@
     
     if (self)
     {
+        self.nActivities = 0;
+        
         NSFileManager *fileManager = [NSFileManager defaultManager];
         NSArray *dirs = [fileManager URLsForDirectory:NSDocumentationDirectory inDomains:NSUserDomainMask];
         NSURL *documentsDirectory = [dirs firstObject];
@@ -56,7 +58,7 @@
                 }
                 else
                 {
-                    NSLog(@"could not created %@",kDocumentName);
+                    NSLog(@"could not create %@",kDocumentName);
                 }
             }];
         }
@@ -435,12 +437,11 @@
                  
                  SLRequest *friends = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:param];
                  friends.account = facebookAccount;
-                 [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-
+                 [self startActivityIndicator];
                  [friends performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
                   {
-                      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-
+                      [self stopActivityIndicator];
+                      
                       //NSLog(@"response = %@",response);
                       //NSLog(@"error = %@",error.debugDescription);
                       if (!error)
@@ -595,11 +596,11 @@
                  //NSLog(@"cursor = %@",cursor);
                  SLRequest *friends = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:request parameters:parameters];
                  friends.account = twitterAccount;
-                 [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-                 
+
+                 [self startActivityIndicator];
                  [friends performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
                   {
-                      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                      [self stopActivityIndicator];
 
                       //NSLog(@"response = %@",response);
                       //NSLog(@"error = %@",error.debugDescription);
@@ -729,11 +730,9 @@
         NSURL *url = [NSURL URLWithString:urlString];
         NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
         
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-
+        [self startActivityIndicator];
         NSData *pData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&responseCode error:&error];
-        
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        [self stopActivityIndicator];
 
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:pData options:NSJSONReadingMutableLeaves error:&error];
         
@@ -806,9 +805,9 @@
              
     NSURL *url = [NSURL URLWithString:user.profileImageURL];
     NSMutableURLRequest *pictureRequest = [NSMutableURLRequest requestWithURL:url];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [self startActivityIndicator];
     NSData *pImageData = [NSURLConnection sendSynchronousRequest:pictureRequest returningResponse:&responseCode error:&error];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [self stopActivityIndicator];
              
     if (pImageData)
     {
@@ -822,5 +821,21 @@
     //need to implement this later
 }
 
+- (void)startActivityIndicator
+{
+    if (self.nActivities == 0)
+    {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    }
+    self.nActivities++;
+}
 
+- (void)stopActivityIndicator
+{
+    self.nActivities--;
+    if (self.nActivities == 0)
+    {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    }
+}
 @end

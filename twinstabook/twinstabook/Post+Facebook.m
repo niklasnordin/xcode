@@ -17,12 +17,11 @@
 {
 //    NSManagedObjectContext *context = self.mana
     Post *post = [NSEntityDescription insertNewObjectForEntityForName:moPost inManagedObjectContext:context];
-    User *user = [NSEntityDescription insertNewObjectForEntityForName:moUser inManagedObjectContext:context];
+    User *user = [User dummyUserInContext:context];
     
     post.message = @"its a facebook dummy post";
-    user.type = kFacebook;
     
-    post.postedBy = [User facebookUserInContext:context fromPost:post];
+    post.postedBy = user;
     
     return post;
     
