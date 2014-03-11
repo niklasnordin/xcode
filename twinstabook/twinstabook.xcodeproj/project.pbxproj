@@ -27,6 +27,7 @@
 		6165737918B54D600025DF09 /* twitterSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165737818B54D600025DF09 /* twitterSettingsViewController.m */; };
 		6165737C18B54D810025DF09 /* instagramSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165737B18B54D810025DF09 /* instagramSettingsViewController.m */; };
 		6175B80718CF8541000FC42B /* User+Facebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 6175B80618CF8541000FC42B /* User+Facebook.m */; };
+		6175B80B18CF8BAC000FC42B /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6175B80A18CF8BAC000FC42B /* CoreDataTableViewController.m */; };
 		617CE87B18AA933A0025AA92 /* optionsPickerViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 617CE87A18AA933A0025AA92 /* optionsPickerViewDelegate.m */; };
 		617CE87D18AD2EDD0025AA92 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617CE87C18AD2EDD0025AA92 /* Accounts.framework */; };
 		617CE87F18AD2EE70025AA92 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617CE87E18AD2EE70025AA92 /* Social.framework */; };
@@ -115,6 +116,8 @@
 		6175B80418CF71B6000FC42B /* staticConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = staticConstants.h; sourceTree = "<group>"; };
 		6175B80518CF8541000FC42B /* User+Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+Facebook.h"; sourceTree = "<group>"; };
 		6175B80618CF8541000FC42B /* User+Facebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Facebook.m"; sourceTree = "<group>"; };
+		6175B80918CF8BAC000FC42B /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		6175B80A18CF8BAC000FC42B /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		617CE87918AA933A0025AA92 /* optionsPickerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = optionsPickerViewDelegate.h; sourceTree = "<group>"; };
 		617CE87A18AA933A0025AA92 /* optionsPickerViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = optionsPickerViewDelegate.m; sourceTree = "<group>"; };
 		617CE87C18AD2EDD0025AA92 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -272,6 +275,15 @@
 			name = SliderViewRelated;
 			sourceTree = "<group>";
 		};
+		6175B80818CF8BAC000FC42B /* CoreDataTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6175B80918CF8BAC000FC42B /* CoreDataTableViewController.h */,
+				6175B80A18CF8BAC000FC42B /* CoreDataTableViewController.m */,
+			);
+			path = CoreDataTableViewController;
+			sourceTree = "<group>";
+		};
 		618BE7C218B8D25D00A0CB7F /* Groups */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +351,7 @@
 		61C57C4B18897BA600887F5E /* twinstabook */ = {
 			isa = PBXGroup;
 			children = (
+				6175B80818CF8BAC000FC42B /* CoreDataTableViewController */,
 				61FC7F3218CC50560025350A /* DB */,
 				6165737D18B555670025DF09 /* SliderViewRelated */,
 				6165736C18B403830025DF09 /* Pictures */,
@@ -538,6 +551,7 @@
 			files = (
 				61ECD14E18981AB300E5B952 /* groupViewController.m in Sources */,
 				6165737318B51FF40025DF09 /* FacebookSettingsViewController.m in Sources */,
+				6175B80B18CF8BAC000FC42B /* CoreDataTableViewController.m in Sources */,
 				613CE95718CCA08400045F12 /* Post+Facebook.m in Sources */,
 				6165736818B3D3D10025DF09 /* SWRevealViewController.m in Sources */,
 				61FC7F3518CC50930025350A /* Model.xcdatamodeld in Sources */,
