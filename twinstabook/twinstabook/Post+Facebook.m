@@ -15,7 +15,7 @@
 
 + (Post *)addDummyToContext:(NSManagedObjectContext *)context
 {
-//    NSManagedObjectContext *context = self.mana
+
     Post *post = [NSEntityDescription insertNewObjectForEntityForName:moPost inManagedObjectContext:context];
     User *user = [User dummyUserInContext:context];
     
@@ -24,10 +24,10 @@
     post.postedBy = user;
     
     return post;
-    
-    NSString *dummy = @"";
+
+/*
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
-    request.predicate = [NSPredicate predicateWithFormat:@"uid = %@",dummy];
+    request.predicate = [NSPredicate predicateWithFormat:@"url = %@",dummy];
     
     NSError *error;
     NSArray *matches = [context executeFetchRequest:request error:&error];
@@ -36,6 +36,7 @@
     if (!matches || error)
     {
         // do it
+        NSLog(@"matches is nil for creating post. error = %@",error);
     }
     else
     {
@@ -48,6 +49,7 @@
             post = [NSEntityDescription insertNewObjectForEntityForName:moPost inManagedObjectContext:context];
         }
     }
+ */
 }
 
 @end

@@ -12,6 +12,7 @@
 #import "displayObject.h"
 #import "linkWebViewController.h"
 #import "Post.h"
+#import "User.h"
 #import "Post+Facebook.h"
 
 @interface twinstabookFirstViewController ()
@@ -100,11 +101,11 @@
     request.predicate = nil;
     request.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES selector:@selector(localizedStandardCompare:)] ];
     
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    self.cdtvc.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     
     [self.database.managedDocument.managedObjectContext performBlock:^{
         NSLog(@"performBlock");
-        [Post addDummyToContext:self.database.managedDocument.managedObjectContext];
+        //[Post addDummyToContext:self.database.managedDocument.managedObjectContext];
     }];
 }
 
@@ -134,6 +135,11 @@
     NSAttributedString *title = [[NSAttributedString alloc] initWithString:str];
     self.refreshController.attributedTitle = title;
     
+    [self.database.managedDocument.managedObjectContext performBlock:^{
+        NSLog(@"performBlock");
+        Post *post = [Post addDummyToContext:self.database.managedDocument.managedObjectContext];
+        NSLog(@"post.postedBy.name = %@",post.postedBy.name);
+    }];
     
     if (self.database.useFacebook)
     {
@@ -421,12 +427,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    NSLog(@"sections = %ld",[self.cdtvc numberOfSectionsInTableView:tableView]);
     return [self.cdtvc numberOfSectionsInTableView:tableView];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    NSLog(@"rowsInSection = %ld",[self.cdtvc.tableView numberOfRowsInSection:section]);
     return [self.cdtvc.tableView numberOfRowsInSection:section];
 }
 
@@ -436,7 +444,7 @@
     static NSString *CellIdentifier = @"feedCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
    
-    Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Post *post = [self.cdtvc.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = post.message;
     NSLog(@"post.message = %@",post.message);
     //DisplayObject *obj = [self.feedArray objectAtIndex:indexPath.row];

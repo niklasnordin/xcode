@@ -23,7 +23,7 @@
 @property (weak, nonatomic) tif_db *database;
 @property (strong, nonatomic) JMPickerView *picker;
 @property (strong, nonatomic) UIRefreshControl *refreshController;
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+//@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @property (weak, nonatomic) IBOutlet UIButton *feedButton;
 - (IBAction)feedButtonClicked:(id)sender;

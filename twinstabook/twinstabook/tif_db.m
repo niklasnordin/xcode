@@ -25,11 +25,15 @@
         self.nActivities = 0;
         
         NSFileManager *fileManager = [NSFileManager defaultManager];
-        NSArray *dirs = [fileManager URLsForDirectory:NSDocumentationDirectory inDomains:NSUserDomainMask];
+        NSArray *dirs = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
         NSURL *documentsDirectory = [dirs firstObject];
         NSURL *url = [documentsDirectory URLByAppendingPathComponent:kDocumentName];
         self.managedDocument = [[UIManagedDocument alloc] initWithFileURL:url];
-        
+        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                                 [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+        self.managedDocument.persistentStoreOptions = options;
+
         BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:[url path]];
         
         if (fileExists)
@@ -49,6 +53,7 @@
         }
         else
         {
+            NSLog(@"file does not exist = %@",[url path]);
             [self.managedDocument saveToURL:url forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
                 // create the document
                 if (success)

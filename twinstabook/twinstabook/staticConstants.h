@@ -9,7 +9,6 @@
 #ifndef twinstabook_staticConstants_h
 #define twinstabook_staticConstants_h
 
-
 typedef enum : NSInteger
 {
     kFacebook = 0,

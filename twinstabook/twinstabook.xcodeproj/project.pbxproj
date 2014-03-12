@@ -118,6 +118,7 @@
 		6175B80618CF8541000FC42B /* User+Facebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Facebook.m"; sourceTree = "<group>"; };
 		6175B80918CF8BAC000FC42B /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
 		6175B80A18CF8BAC000FC42B /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		6175B80C18D0BE05000FC42B /* twinstabook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = twinstabook.entitlements; sourceTree = "<group>"; };
 		617CE87918AA933A0025AA92 /* optionsPickerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = optionsPickerViewDelegate.h; sourceTree = "<group>"; };
 		617CE87A18AA933A0025AA92 /* optionsPickerViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = optionsPickerViewDelegate.m; sourceTree = "<group>"; };
 		617CE87C18AD2EDD0025AA92 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -351,6 +352,7 @@
 		61C57C4B18897BA600887F5E /* twinstabook */ = {
 			isa = PBXGroup;
 			children = (
+				6175B80C18D0BE05000FC42B /* twinstabook.entitlements */,
 				6175B80818CF8BAC000FC42B /* CoreDataTableViewController */,
 				61FC7F3218CC50560025350A /* DB */,
 				6165737D18B555670025DF09 /* SliderViewRelated */,
@@ -486,6 +488,11 @@
 				TargetAttributes = {
 					61C57C4118897BA600887F5E = {
 						DevelopmentTeam = QUP84UZ9KG;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					61C57C6818897BA600887F5E = {
 						TestTargetID = 61C57C4118897BA600887F5E;
