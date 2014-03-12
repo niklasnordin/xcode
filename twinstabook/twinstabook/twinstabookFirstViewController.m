@@ -443,8 +443,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"feedCell";
-    tifTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-   
+    tifTableViewCell *cell = (tifTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        //cell.frame.size.height = 100.0f;
+    //CGRect frame = CGRectMake(0.0f, 0.0f, 300.0f, 100.0f);
+    //cell.frame = frame;
+    if (!cell)
+    {
+        NSLog(@"cell is nil");
+        cell = [[tifTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
     User *user = post.postedBy;
     
