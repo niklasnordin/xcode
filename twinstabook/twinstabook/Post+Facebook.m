@@ -19,10 +19,18 @@
     Post *post = [NSEntityDescription insertNewObjectForEntityForName:moPost inManagedObjectContext:context];
     User *user = [User dummyUserInContext:context];
     
-    post.message = @"its a facebook dummy post";
-    
+    post.date = [NSDate dateWithTimeIntervalSinceNow:0];
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    NSString *str = [dateFormatter stringFromDate:post.date];
+    NSString *msg = [NSString stringWithFormat:@"its a facebook dummy post created at %@",str];
+    post.message = msg;
     post.postedBy = user;
-    
+    post.likes = [NSNumber numberWithInt:12];
+    post.comments = [NSNumber numberWithInt:124];
+
     return post;
 
 /*

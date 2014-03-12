@@ -18,7 +18,7 @@
 
 @interface twinstabookFirstViewController ()
 @property (nonatomic) BOOL beganUpdates;
-
+@property (strong,nonatomic) NSDateFormatter *dateFormatter;
 @property (nonatomic) IBOutlet UIBarButtonItem* revealButtonItem;
 
 @property (strong, nonatomic) UIActionSheet *actionSheet;
@@ -53,10 +53,10 @@
     [self.refreshController setTintColor:[UIColor redColor]];
     [self.refreshController setBackgroundColor:[UIColor lightGrayColor]];
     
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setTimeStyle:NSDateFormatterShortStyle];
-    [format setDateStyle:NSDateFormatterShortStyle];
-    NSString *str = [format stringFromDate:self.database.lastUpdate];
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    [self.dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    [self.dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    NSString *str = [self.dateFormatter stringFromDate:self.database.lastUpdate];
     
     NSAttributedString *title = [[NSAttributedString alloc] initWithString:str];
     self.refreshController.attributedTitle = title;
@@ -102,7 +102,7 @@
 
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
     request.predicate = nil;
-    request.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES selector:@selector(localizedStandardCompare:)] ];
+    request.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO] ];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     
@@ -121,14 +121,15 @@
 {
     
     NSDate *now = [[NSDate alloc]initWithTimeIntervalSinceNow:0];
-    NSTimeInterval interval = [now timeIntervalSinceDate:self.database.lastUpdate];
-
+/*
+   NSTimeInterval interval = [now timeIntervalSinceDate:self.database.lastUpdate];
     // dont update too often, every 60s seems good enough
     if (interval < 60)
     {
         [sender endRefreshing];
         return;
     }
+ */
     self.database.lastUpdate = now;
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setTimeStyle:NSDateFormatterShortStyle];
@@ -455,23 +456,19 @@
     Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
     User *user = post.postedBy;
     
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setTimeStyle:NSDateFormatterShortStyle];
-    [format setDateStyle:NSDateFormatterShortStyle];
-    
     cell.usernameLabel.text = user.name;
-    NSString *dateStr = [format stringFromDate:post.date];
+    NSString *dateStr = [self.dateFormatter stringFromDate:post.date];
 
     cell.dateLabel.text = dateStr;
     cell.messageLabel.text = post.message;
-    cell.likesLabel.text = @"";
-    cell.commentsLabel.text = @"";
-    cell.mainImage.image = nil;
+    cell.likesLabel.text = [NSString stringWithFormat:@"%@",post.likes];
+    cell.commentsLabel.text = [NSString stringWithFormat:@"%@",post.comments];
+    cell.mainImage.image = self.database.instagramLogo;
     cell.typeImage.image = self.database.facebookLogo;
-    cell.profileImage.image = nil;
-    cell.likesImage.image = nil;
-    cell.commentsImage.image = nil;
-    
+    cell.profileImage.image = self.database.twitterLogo;
+    cell.likesImage.image = [UIImage imageNamed:@"FB-ThumbsUp_29.png"];
+    cell.commentsImage.image = [UIImage imageNamed:@"Basic-Speech-bubble-icon.png"];
+    cell.accessoryType = UITableViewCellAccessoryNone;
     return cell;
 }
 
@@ -595,7 +592,7 @@
 	 forChangeType:(NSFetchedResultsChangeType)type
 	  newIndexPath:(NSIndexPath *)newIndexPath
 {
-    NSLog(@"inc cdtvc: controller");
+
     if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext)
     {
         switch(type)
@@ -645,7 +642,8 @@
 # pragma mark prepare for segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-
+    NSLog(@"prepareForSegue: segue %@",segue.identifier);
+    
     if ([segue.identifier isEqualToString:@"weblinkSegue"])
     {
 

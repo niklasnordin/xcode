@@ -2,7 +2,7 @@
 //  Post.h
 //  twinstabook
 //
-//  Created by Niklas Nordin on 09/03/14.
+//  Created by Niklas Nordin on 2014-03-12.
 //  Copyright (c) 2014 Niklas Nordin. All rights reserved.
 //
 
@@ -17,6 +17,8 @@
 @property (nonatomic, retain) NSData * image;
 @property (nonatomic, retain) NSString * message;
 @property (nonatomic, retain) NSString * url;
+@property (nonatomic, retain) NSNumber * likes;
+@property (nonatomic, retain) NSNumber * comments;
 @property (nonatomic, retain) User *postedBy;
 
 @end
