@@ -46,12 +46,33 @@
 
 + (User *)dummyUserInContext:(NSManagedObjectContext *)context
 {
-    User *usr = [NSEntityDescription insertNewObjectForEntityForName:moUser inManagedObjectContext:context];
-    usr.name = @"dummy User";
-    usr.uid = @"-1";
-    usr.type = kFacebook;
+    User *usr = nil;
+    NSString *uid = @"-1";
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moUser];
+    request.predicate = [NSPredicate predicateWithFormat:@"uid = %@", uid];
+    
+    NSError *error;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    
+    if (!matches || error || [matches count] > 1)
+    {
+        // handle error
+    }
+    else if (!matches.count)
+    {
+        usr = [NSEntityDescription insertNewObjectForEntityForName:moUser inManagedObjectContext:context];
+        usr.uid = uid;
+        usr.name = @"dummy User";
+        usr.type = kFacebook;
+    }
+    else
+    {
+        usr = [matches lastObject];
+    }
     
     return usr;
+
 }
 
 @end

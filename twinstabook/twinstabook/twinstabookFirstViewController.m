@@ -7,6 +7,7 @@
 //
 
 #import "twinstabookFirstViewController.h"
+#import "tifTableViewCell.h"
 #import "FacebookParser.h"
 #import "twitterParser.h"
 #import "displayObject.h"
@@ -16,6 +17,7 @@
 #import "Post+Facebook.h"
 
 @interface twinstabookFirstViewController ()
+@property (nonatomic) BOOL beganUpdates;
 
 @property (nonatomic) IBOutlet UIBarButtonItem* revealButtonItem;
 
@@ -59,9 +61,10 @@
     NSAttributedString *title = [[NSAttributedString alloc] initWithString:str];
     self.refreshController.attributedTitle = title;
     
-    self.cdtvc = [[CoreDataTableViewController alloc] init];
-    self.feedTableView.delegate = self.cdtvc;
+    
+    self.feedTableView.delegate = self;
     self.feedTableView.dataSource = self;
+    
     [self.feedTableView addSubview:self.refreshController];
     
     self.feedArray = [[NSMutableArray alloc] init];
@@ -101,7 +104,7 @@
     request.predicate = nil;
     request.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES selector:@selector(localizedStandardCompare:)] ];
     
-    self.cdtvc.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     
     [self.database.managedDocument.managedObjectContext performBlock:^{
         NSLog(@"performBlock");
@@ -427,28 +430,41 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSLog(@"sections = %ld",[self.cdtvc numberOfSectionsInTableView:tableView]);
-    return [self.cdtvc numberOfSectionsInTableView:tableView];
+    return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    NSLog(@"rowsInSection = %ld",[self.cdtvc.tableView numberOfRowsInSection:section]);
-    return [self.cdtvc.tableView numberOfRowsInSection:section];
+    return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"feedCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    tifTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
    
-    Post *post = [self.cdtvc.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = post.message;
-    NSLog(@"post.message = %@",post.message);
-    //DisplayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
-    //cell.textLabel.text = obj.message;
+    Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    User *user = post.postedBy;
+    
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setTimeStyle:NSDateFormatterShortStyle];
+    [format setDateStyle:NSDateFormatterShortStyle];
+    
+    cell.usernameLabel.text = user.name;
+    NSString *dateStr = [format stringFromDate:post.date];
+
+    cell.dateLabel.text = dateStr;
+    cell.messageLabel.text = post.message;
+    cell.likesLabel.text = @"";
+    cell.commentsLabel.text = @"";
+    cell.mainImage.image = nil;
+    cell.typeImage.image = self.database.facebookLogo;
+    cell.profileImage.image = nil;
+    cell.likesImage.image = nil;
+    cell.commentsImage.image = nil;
+    
     return cell;
 }
 
@@ -485,6 +501,141 @@
 
 }
 
+#pragma mark - Fetching
+
+- (void)performFetch
+{
+    if (self.fetchedResultsController)
+    {
+        if (self.fetchedResultsController.fetchRequest.predicate)
+        {
+            if (self.debug) NSLog(@"[%@ %@] fetching %@ with predicate: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), self.fetchedResultsController.fetchRequest.entityName, self.fetchedResultsController.fetchRequest.predicate);
+        }
+        else
+        {
+            if (self.debug) NSLog(@"[%@ %@] fetching all %@ (i.e., no predicate)", NSStringFromClass([self class]), NSStringFromSelector(_cmd), self.fetchedResultsController.fetchRequest.entityName);
+        }
+        NSError *error;
+        [self.fetchedResultsController performFetch:&error];
+        if (error) NSLog(@"[%@ %@] %@ (%@)", NSStringFromClass([self class]), NSStringFromSelector(_cmd), [error localizedDescription], [error localizedFailureReason]);
+    }
+    else
+    {
+        if (self.debug) NSLog(@"[%@ %@] no NSFetchedResultsController (yet?)", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    }
+    [self.feedTableView reloadData];
+}
+
+- (void)setFetchedResultsController:(NSFetchedResultsController *)newfrc
+{
+    NSFetchedResultsController *oldfrc = _fetchedResultsController;
+    if (newfrc != oldfrc)
+    {
+        _fetchedResultsController = newfrc;
+        newfrc.delegate = self;
+        if ((!self.title || [self.title isEqualToString:oldfrc.fetchRequest.entity.name]) && (!self.navigationController || !self.navigationItem.title))
+        {
+            self.title = newfrc.fetchRequest.entity.name;
+        }
+        if (newfrc)
+        {
+            if (self.debug) NSLog(@"[%@ %@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), oldfrc ? @"updated" : @"set");
+            [self performFetch];
+        }
+        else
+        {
+            if (self.debug) NSLog(@"[%@ %@] reset to nil", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+            [self.feedTableView reloadData];
+        }
+    }
+}
+
+#pragma mark - NSFetchedResultsControllerDelegate
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
+{
+    if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext)
+    {
+        [self.feedTableView beginUpdates];
+        self.beganUpdates = YES;
+    }
+}
+
+- (void)controller:(NSFetchedResultsController *)controller
+  didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+		   atIndex:(NSUInteger)sectionIndex
+	 forChangeType:(NSFetchedResultsChangeType)type
+{
+    if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext)
+    {
+        switch(type)
+        {
+            case NSFetchedResultsChangeInsert:
+                [self.feedTableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+                
+            case NSFetchedResultsChangeDelete:
+                [self.feedTableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+        }
+    }
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+	   atIndexPath:(NSIndexPath *)indexPath
+	 forChangeType:(NSFetchedResultsChangeType)type
+	  newIndexPath:(NSIndexPath *)newIndexPath
+{
+    NSLog(@"inc cdtvc: controller");
+    if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext)
+    {
+        switch(type)
+        {
+            case NSFetchedResultsChangeInsert:
+                [self.feedTableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+                
+            case NSFetchedResultsChangeDelete:
+                [self.feedTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+                
+            case NSFetchedResultsChangeUpdate:
+                [self.feedTableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+                
+            case NSFetchedResultsChangeMove:
+                [self.feedTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                [self.feedTableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+        }
+    }
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    if (self.beganUpdates) [self.feedTableView endUpdates];
+}
+
+- (void)endSuspensionOfUpdatesDueToContextChanges
+{
+    _suspendAutomaticTrackingOfChangesInManagedObjectContext = NO;
+}
+
+- (void)setSuspendAutomaticTrackingOfChangesInManagedObjectContext:(BOOL)suspend
+{
+    if (suspend)
+    {
+        _suspendAutomaticTrackingOfChangesInManagedObjectContext = YES;
+    }
+    else
+    {
+        [self performSelector:@selector(endSuspensionOfUpdatesDueToContextChanges) withObject:0 afterDelay:0];
+    }
+}
+
+# pragma mark prepare for segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 
