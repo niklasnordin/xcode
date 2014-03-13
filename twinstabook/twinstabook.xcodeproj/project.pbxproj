@@ -40,6 +40,8 @@
 		6188A2A918917CB9009C75EB /* tif_db.m in Sources */ = {isa = PBXBuildFile; fileRef = 6188A2A818917CB9009C75EB /* tif_db.m */; };
 		618BE7BE18AFA0DF00A0CB7F /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 618BE7BD18AFA0DF00A0CB7F /* Twitter.framework */; };
 		618BE7C618B8D80500A0CB7F /* settingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 618BE7C518B8D80500A0CB7F /* settingsViewController.m */; };
+		619F936318D2398C00751232 /* User+Instagram.m in Sources */ = {isa = PBXBuildFile; fileRef = 619F936218D2398C00751232 /* User+Instagram.m */; };
+		619F936618D239C600751232 /* Post+Instagram.m in Sources */ = {isa = PBXBuildFile; fileRef = 619F936518D239C600751232 /* Post+Instagram.m */; };
 		61C57C4618897BA600887F5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4518897BA600887F5E /* Foundation.framework */; };
 		61C57C4818897BA600887F5E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4718897BA600887F5E /* CoreGraphics.framework */; };
 		61C57C4A18897BA600887F5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4918897BA600887F5E /* UIKit.framework */; };
@@ -139,6 +141,10 @@
 		618BE7BD18AFA0DF00A0CB7F /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		618BE7C418B8D80500A0CB7F /* settingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsViewController.h; sourceTree = "<group>"; };
 		618BE7C518B8D80500A0CB7F /* settingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsViewController.m; sourceTree = "<group>"; };
+		619F936118D2398C00751232 /* User+Instagram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+Instagram.h"; sourceTree = "<group>"; };
+		619F936218D2398C00751232 /* User+Instagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Instagram.m"; sourceTree = "<group>"; };
+		619F936418D239C600751232 /* Post+Instagram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Post+Instagram.h"; path = "../Post+Instagram.h"; sourceTree = "<group>"; };
+		619F936518D239C600751232 /* Post+Instagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Post+Instagram.m"; path = "../Post+Instagram.m"; sourceTree = "<group>"; };
 		61C57C4218897BA600887F5E /* twinstabook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twinstabook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C57C4518897BA600887F5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		61C57C4718897BA600887F5E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -242,6 +248,10 @@
 		6137DFFB18A7B00C00E0C589 /* instagram */ = {
 			isa = PBXGroup;
 			children = (
+				619F936118D2398C00751232 /* User+Instagram.h */,
+				619F936218D2398C00751232 /* User+Instagram.m */,
+				619F936418D239C600751232 /* Post+Instagram.h */,
+				619F936518D239C600751232 /* Post+Instagram.m */,
 				61FC7F2518C8F7FB0025350A /* Instagram-Logo-200-Border.png */,
 				613192A018C67F96005A1C5E /* Instagram-Logo-200.png */,
 				617CE88318AD2F630025AA92 /* instagramParser.h */,
@@ -565,6 +575,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61ECD14E18981AB300E5B952 /* groupViewController.m in Sources */,
+				619F936318D2398C00751232 /* User+Instagram.m in Sources */,
 				6165737318B51FF40025DF09 /* FacebookSettingsViewController.m in Sources */,
 				6175B80B18CF8BAC000FC42B /* CoreDataTableViewController.m in Sources */,
 				613CE95718CCA08400045F12 /* Post+Facebook.m in Sources */,
@@ -596,6 +607,7 @@
 				61DFBF6E18BA211C00DB6D4E /* searchGroupMembersViewController.m in Sources */,
 				6137DFF918A7AFEF00E0C589 /* FacebookParser.m in Sources */,
 				6137DFF518A66C7200E0C589 /* JMPickerView.m in Sources */,
+				619F936618D239C600751232 /* Post+Instagram.m in Sources */,
 				617CE88518AD2F630025AA92 /* instagramParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
