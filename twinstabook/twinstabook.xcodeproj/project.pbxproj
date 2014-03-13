@@ -13,7 +13,6 @@
 		6137DFEC18A3FF1200E0C589 /* questionMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6137DFEB18A3FF1200E0C589 /* questionMark.png */; };
 		6137DFF518A66C7200E0C589 /* JMPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6137DFF418A66C7200E0C589 /* JMPickerView.m */; };
 		6137DFF918A7AFEF00E0C589 /* FacebookParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6137DFF818A7AFEF00E0C589 /* FacebookParser.m */; };
-		6137DFFE18A7B03C00E0C589 /* DisplayObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6137DFFD18A7B03C00E0C589 /* DisplayObject.m */; };
 		6137E00118A7B11600E0C589 /* tifTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6137E00018A7B11600E0C589 /* tifTableViewCell.m */; };
 		613CE95718CCA08400045F12 /* Post+Facebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 613CE95618CCA08400045F12 /* Post+Facebook.m */; };
 		6165736818B3D3D10025DF09 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6165736718B3D3D10025DF09 /* SWRevealViewController.m */; };
@@ -33,8 +32,6 @@
 		617CE87B18AA933A0025AA92 /* optionsPickerViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 617CE87A18AA933A0025AA92 /* optionsPickerViewDelegate.m */; };
 		617CE87D18AD2EDD0025AA92 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617CE87C18AD2EDD0025AA92 /* Accounts.framework */; };
 		617CE87F18AD2EE70025AA92 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617CE87E18AD2EE70025AA92 /* Social.framework */; };
-		617CE88218AD2F3C0025AA92 /* twitterParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 617CE88118AD2F3C0025AA92 /* twitterParser.m */; };
-		617CE88518AD2F630025AA92 /* instagramParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 617CE88418AD2F630025AA92 /* instagramParser.m */; };
 		617CE88818AD30270025AA92 /* linkWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 617CE88718AD30270025AA92 /* linkWebViewController.m */; };
 		617CE88A18AE66D80025AA92 /* old code snippets in Resources */ = {isa = PBXBuildFile; fileRef = 617CE88918AE66D80025AA92 /* old code snippets */; };
 		6188A2A918917CB9009C75EB /* tif_db.m in Sources */ = {isa = PBXBuildFile; fileRef = 6188A2A818917CB9009C75EB /* tif_db.m */; };
@@ -42,6 +39,8 @@
 		618BE7C618B8D80500A0CB7F /* settingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 618BE7C518B8D80500A0CB7F /* settingsViewController.m */; };
 		619F936318D2398C00751232 /* User+Instagram.m in Sources */ = {isa = PBXBuildFile; fileRef = 619F936218D2398C00751232 /* User+Instagram.m */; };
 		619F936618D239C600751232 /* Post+Instagram.m in Sources */ = {isa = PBXBuildFile; fileRef = 619F936518D239C600751232 /* Post+Instagram.m */; };
+		619F936918D2590B00751232 /* Post+Twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 619F936818D2590B00751232 /* Post+Twitter.m */; };
+		619F936C18D2593600751232 /* User+Twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 619F936B18D2593600751232 /* User+Twitter.m */; };
 		61C57C4618897BA600887F5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4518897BA600887F5E /* Foundation.framework */; };
 		61C57C4818897BA600887F5E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4718897BA600887F5E /* CoreGraphics.framework */; };
 		61C57C4A18897BA600887F5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4918897BA600887F5E /* UIKit.framework */; };
@@ -93,8 +92,6 @@
 		6137DFF418A66C7200E0C589 /* JMPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPickerView.m; sourceTree = "<group>"; };
 		6137DFF718A7AFEF00E0C589 /* FacebookParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookParser.h; sourceTree = "<group>"; };
 		6137DFF818A7AFEF00E0C589 /* FacebookParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookParser.m; sourceTree = "<group>"; };
-		6137DFFC18A7B03C00E0C589 /* DisplayObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayObject.h; sourceTree = "<group>"; };
-		6137DFFD18A7B03C00E0C589 /* DisplayObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayObject.m; sourceTree = "<group>"; };
 		6137DFFF18A7B11600E0C589 /* tifTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tifTableViewCell.h; sourceTree = "<group>"; };
 		6137E00018A7B11600E0C589 /* tifTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tifTableViewCell.m; sourceTree = "<group>"; };
 		613CE95518CCA08400045F12 /* Post+Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Post+Facebook.h"; sourceTree = "<group>"; };
@@ -129,10 +126,6 @@
 		617CE87A18AA933A0025AA92 /* optionsPickerViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = optionsPickerViewDelegate.m; sourceTree = "<group>"; };
 		617CE87C18AD2EDD0025AA92 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		617CE87E18AD2EE70025AA92 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		617CE88018AD2F3C0025AA92 /* twitterParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = twitterParser.h; sourceTree = "<group>"; };
-		617CE88118AD2F3C0025AA92 /* twitterParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = twitterParser.m; sourceTree = "<group>"; };
-		617CE88318AD2F630025AA92 /* instagramParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = instagramParser.h; sourceTree = "<group>"; };
-		617CE88418AD2F630025AA92 /* instagramParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = instagramParser.m; sourceTree = "<group>"; };
 		617CE88618AD30270025AA92 /* linkWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = linkWebViewController.h; sourceTree = "<group>"; };
 		617CE88718AD30270025AA92 /* linkWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = linkWebViewController.m; sourceTree = "<group>"; };
 		617CE88918AE66D80025AA92 /* old code snippets */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "old code snippets"; sourceTree = "<group>"; };
@@ -145,6 +138,10 @@
 		619F936218D2398C00751232 /* User+Instagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Instagram.m"; sourceTree = "<group>"; };
 		619F936418D239C600751232 /* Post+Instagram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Post+Instagram.h"; path = "../Post+Instagram.h"; sourceTree = "<group>"; };
 		619F936518D239C600751232 /* Post+Instagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Post+Instagram.m"; path = "../Post+Instagram.m"; sourceTree = "<group>"; };
+		619F936718D2590B00751232 /* Post+Twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Post+Twitter.h"; sourceTree = "<group>"; };
+		619F936818D2590B00751232 /* Post+Twitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Post+Twitter.m"; sourceTree = "<group>"; };
+		619F936A18D2593600751232 /* User+Twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+Twitter.h"; sourceTree = "<group>"; };
+		619F936B18D2593600751232 /* User+Twitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Twitter.m"; sourceTree = "<group>"; };
 		61C57C4218897BA600887F5E /* twinstabook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twinstabook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C57C4518897BA600887F5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		61C57C4718897BA600887F5E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -220,6 +217,10 @@
 		6137DFF618A7AFB500E0C589 /* Facebook */ = {
 			isa = PBXGroup;
 			children = (
+				6175B80518CF8541000FC42B /* User+Facebook.h */,
+				6175B80618CF8541000FC42B /* User+Facebook.m */,
+				613CE95518CCA08400045F12 /* Post+Facebook.h */,
+				613CE95618CCA08400045F12 /* Post+Facebook.m */,
 				6175B81518D10761000FC42B /* Basic-Speech-bubble-icon.png */,
 				6175B80D18D1048E000FC42B /* FB-ThumbsUp_29.png */,
 				61FC7F2D18C8FC540025350A /* Facebook-Logo-Small-Border.jpg */,
@@ -237,10 +238,12 @@
 			children = (
 				61FC7F2718C8F8290025350A /* Twitter-Logo-200-sq-Border.png */,
 				613192A218C68063005A1C5E /* Twitter-Logo-200-sq.png */,
-				617CE88018AD2F3C0025AA92 /* twitterParser.h */,
-				617CE88118AD2F3C0025AA92 /* twitterParser.m */,
 				6165737718B54D600025DF09 /* twitterSettingsViewController.h */,
 				6165737818B54D600025DF09 /* twitterSettingsViewController.m */,
+				619F936718D2590B00751232 /* Post+Twitter.h */,
+				619F936818D2590B00751232 /* Post+Twitter.m */,
+				619F936A18D2593600751232 /* User+Twitter.h */,
+				619F936B18D2593600751232 /* User+Twitter.m */,
 			);
 			name = twitter;
 			sourceTree = "<group>";
@@ -254,8 +257,6 @@
 				619F936518D239C600751232 /* Post+Instagram.m */,
 				61FC7F2518C8F7FB0025350A /* Instagram-Logo-200-Border.png */,
 				613192A018C67F96005A1C5E /* Instagram-Logo-200.png */,
-				617CE88318AD2F630025AA92 /* instagramParser.h */,
-				617CE88418AD2F630025AA92 /* instagramParser.m */,
 				6165737A18B54D810025DF09 /* instagramSettingsViewController.h */,
 				6165737B18B54D810025DF09 /* instagramSettingsViewController.m */,
 			);
@@ -435,8 +436,6 @@
 			isa = PBXGroup;
 			children = (
 				6175B80418CF71B6000FC42B /* staticConstants.h */,
-				6137DFFC18A7B03C00E0C589 /* DisplayObject.h */,
-				6137DFFD18A7B03C00E0C589 /* DisplayObject.m */,
 				61DFBF6F18BBEC0C00DB6D4E /* UserObject.h */,
 				61DFBF7018BBEC0C00DB6D4E /* UserObject.m */,
 				6188A2A718917CB9009C75EB /* tif_db.h */,
@@ -446,10 +445,6 @@
 				6175B81018D1060E000FC42B /* Post.m */,
 				6175B81218D1060F000FC42B /* User.h */,
 				6175B81318D1060F000FC42B /* User.m */,
-				613CE95518CCA08400045F12 /* Post+Facebook.h */,
-				613CE95618CCA08400045F12 /* Post+Facebook.m */,
-				6175B80518CF8541000FC42B /* User+Facebook.h */,
-				6175B80618CF8541000FC42B /* User+Facebook.m */,
 			);
 			name = DB;
 			sourceTree = "<group>";
@@ -581,8 +576,8 @@
 				613CE95718CCA08400045F12 /* Post+Facebook.m in Sources */,
 				6165736818B3D3D10025DF09 /* SWRevealViewController.m in Sources */,
 				61FC7F3518CC50930025350A /* Model.xcdatamodeld in Sources */,
-				617CE88218AD2F3C0025AA92 /* twitterParser.m in Sources */,
 				618BE7C618B8D80500A0CB7F /* settingsViewController.m in Sources */,
+				619F936C18D2593600751232 /* User+Twitter.m in Sources */,
 				61DFBF7118BBEC0C00DB6D4E /* UserObject.m in Sources */,
 				6165736B18B3FF3A0025DF09 /* MenuTableViewController.m in Sources */,
 				6131929B18C0E9E9005A1C5E /* MemberTableViewCell.m in Sources */,
@@ -595,10 +590,10 @@
 				6175B81418D1060F000FC42B /* User.m in Sources */,
 				6165737618B5288A0025DF09 /* firstViewController.m in Sources */,
 				61ECD15118981B8C00E5B952 /* groupTableViewController.m in Sources */,
+				619F936918D2590B00751232 /* Post+Twitter.m in Sources */,
 				6175B81118D1060E000FC42B /* Post.m in Sources */,
 				61C57C5218897BA600887F5E /* main.m in Sources */,
 				6165737C18B54D810025DF09 /* instagramSettingsViewController.m in Sources */,
-				6137DFFE18A7B03C00E0C589 /* DisplayObject.m in Sources */,
 				6165737918B54D600025DF09 /* twitterSettingsViewController.m in Sources */,
 				6188A2A918917CB9009C75EB /* tif_db.m in Sources */,
 				61DFBF6B18BA208800DB6D4E /* AddGroupMembersViewController.m in Sources */,
@@ -608,7 +603,6 @@
 				6137DFF918A7AFEF00E0C589 /* FacebookParser.m in Sources */,
 				6137DFF518A66C7200E0C589 /* JMPickerView.m in Sources */,
 				619F936618D239C600751232 /* Post+Instagram.m in Sources */,
-				617CE88518AD2F630025AA92 /* instagramParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

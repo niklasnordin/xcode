@@ -334,9 +334,10 @@
              // get the image here
              NSURL *url = [NSURL URLWithString:user.profileImageURL];
              NSMutableURLRequest *pictureRequest = [NSMutableURLRequest requestWithURL:url];
-             [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+             [self.database startActivityIndicator];
+
              NSData *pImageData = [NSURLConnection sendSynchronousRequest:pictureRequest returningResponse:&responseCode error:&error];
-             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+             [self.database stopActivityIndicator];
 
              //Some asynchronous work. Once the image is ready, it will load into view on the main queue
              [[NSOperationQueue mainQueue] addOperationWithBlock:^(void)
@@ -392,7 +393,6 @@
     NSData *imageData = [self.imageCache objectForKey:user.uid];
     if (imageData)
     {
-        //NSLog(@"using imageData for uid = %@",user.uid);
         cell.imageView.image = [UIImage imageWithData:imageData];
     }
     else
@@ -434,11 +434,11 @@
                                                    };
                           SLRequest *pictureRequest = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:param];
                           pictureRequest.account = facebookAccount;
-                          [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+                          [self.database startActivityIndicator];
                  
                           [pictureRequest performRequestWithHandler:^(NSData *pImageData, NSHTTPURLResponse *urlResponse, NSError *error)
                            {
-                               [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                               [self.database stopActivityIndicator];
                       
                                if (!error)
                                {
@@ -528,18 +528,20 @@
                   if (twitterAccount)
                   {
                       NSString *apiString = [NSString stringWithFormat:@"%@/%@/users/show.json", kTwitterAPIRoot, kTwitterAPIVersion];
-                      //NSLog(@"apiString = %@", apiString);
+
                       
                       NSURL *request = [NSURL URLWithString:apiString];
                       
                       NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
                       [parameters setObject:user.uid forKey:@"user_id"];
-                      //NSLog(@"parameters = %@",parameters);
+
                       SLRequest *friends = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:request parameters:parameters];
                       friends.account = twitterAccount;
+                      [self.database startActivityIndicator];
                       [friends performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
                        {
-
+                           [self.database stopActivityIndicator];
+                           
                            if (!error)
                            {
                                NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
@@ -570,7 +572,6 @@
                                                 //UITableViewCell *cell = [tv cellForRowAtIndexPath:ip];
 
                                                 weakCell.imageView.image = [UIImage imageWithData:pResponseData];
-                                                //NSLog(@"here we go for uid = %@",user.uid);
 
                                             }
                                             
@@ -658,7 +659,6 @@
     [self.tableView reloadData];
 }
 
-//- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
 //- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
 //{
 //    return YES;
@@ -751,9 +751,6 @@
 
 - (void)searchFacebook:(NSString *)searchStringWithSpace withType:(NSString *)typeString
 {
-    //NSLog(@"search facebook pages");
-    //[self.searchActivityIndicator setHidden:NO];
-    //[self.searchActivityIndicator startAnimating];
     
     // replace all 'space' with plus sign
     NSString *searchString = [searchStringWithSpace stringByReplacingOccurrencesOfString:@" " withString:@"+"];
@@ -803,20 +800,17 @@
                      // dont do anything if the search text has changed
                      return;
                  }
-                 [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+                 [self.database startActivityIndicator];
                  
                  [users performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
                   {
-                      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-                      
-                      //NSLog(@"response = %@",response);
-                      //NSLog(@"error = %@",error.debugDescription);
+                      [self.database stopActivityIndicator];
+
                       if (!error)
                       {
                           //self.facebookUsername = [facebookAccount userFullName];
                           NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
 
-                            //NSLog(@"result = %@",result);
                           if (result)
                           {
                               dispatch_async(dispatch_get_main_queue(), ^{
@@ -842,7 +836,7 @@
                                       [self.searchDisplayController.searchResultsTableView reloadData];
                                   }
                               });
-                              //NSDictionary *paging = [result objectForKey:@"paging"];
+
                           }
                       }
                       else

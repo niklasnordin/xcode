@@ -362,14 +362,12 @@
                  ACAccount *facebookAccount = [accounts lastObject];
                  self.facebookUsername = [facebookAccount userFullName];
 
-                 NSLog(@"hello facebook");
                  dispatch_async(dispatch_get_main_queue(), ^{
                      completion(YES);
                  });
              }
              else
              {
-                 NSLog(@"facebook not granted");
                  UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"Facebook access not granted. Check permissions in Settings"
                                                                  delegate:nil
                                                         cancelButtonTitle:@"OK"
@@ -398,12 +396,6 @@
      ];
     
 }
-/*
-- (void)loadAllFacebookFriendsWithCompletionsHandler:(void (^)(BOOL success))completion;
-{
-    completion(YES);
-}
-*/
 
 - (void)loadAllFacebookFriendsWithCompletionsHandler:(void (^)(BOOL success))completion
 {
@@ -607,18 +599,14 @@
                   {
                       [self stopActivityIndicator];
 
-                      //NSLog(@"response = %@",response);
-                      //NSLog(@"error = %@",error.debugDescription);
                       if (!error)
                       {
                           NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-                          //NSLog(@"result = %@",result);
                           
                           NSArray *users = [result objectForKey:@"users"];
                           NSDictionary *errors = [[result objectForKey:@"errors"] lastObject];
                           if (errors)
                           {
-                              NSLog(@"%@",errors);
                               NSString *message = [errors objectForKey:@"message"];
                               NSString *output = [NSString stringWithFormat:@"Twitter Error when reading friends list: %@",message];
                               UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:output
@@ -639,7 +627,6 @@
                               }
                               for (NSDictionary *u in users)
                               {
-                                  //NSLog(@"%@",u);
                                   NSString *name = [u objectForKey:@"screen_name"];
                                   NSString *uid = [u objectForKey:@"id_str"];
                                   UserObject *user = [[UserObject alloc] init];
@@ -726,7 +713,7 @@
         NSError *error = [[NSError alloc] init];
         NSHTTPURLResponse *responseCode = nil;
         
-        NSString *urlString = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/follows/?access_token=%@",self.instagramAccessToken];
+        NSString *urlString = [NSString stringWithFormat:@"%@/users/self/follows/?access_token=%@", kInstagramBaseURLString, self.instagramAccessToken];
         if (addCursor)
         {
             urlString = [NSString stringWithFormat:@"%@&cursor=%@",urlString,cursor];
@@ -745,21 +732,16 @@
         NSDictionary *metaDict = [result objectForKey:@"meta"];
         NSNumber *codeNumber = [metaDict objectForKey:@"code"];
         int codeInt = [codeNumber intValue];
-        NSLog(@"code = %@",codeNumber);
+
         dispatch_async(dispatch_get_main_queue(), ^{
             
             if (codeInt != 400)
             {
-                //NSLog(@"it is valid");
-                //NSLog(@"result = %@",result);
+
                 NSArray *userData = [result objectForKey:@"data"];
                 NSDictionary *pagination = [result objectForKey:@"pagination"];
                 NSString *next_cursor = [pagination objectForKey:@"next_cursor"];
-                //NSString *next_url = [pagination objectForKey:@"next_link"];
-                //NSLog(@"instagram user count = %ld",[userData count]);
-                //NSLog(@"adding to users %ld",self.instagramFriends.count);
-                //NSLog(@"pagination = %@",pagination);
-                //NSLog(@"cursor = %@",next_cursor);
+
                 for (NSDictionary *userDict in userData)
                 {
                     UserObject *user = [[UserObject alloc] init];
@@ -775,16 +757,10 @@
                     // load next sequence
                     [self loadAllInstagramFriendsInViewController:vc withCursor:next_cursor];
                 }
-                /*
-                NSDictionary *dataDict = [result objectForKey:@"data"];
-                NSString *username = [dataDict objectForKey:@"username"];
-                NSString *profileLinkURL = [dataDict objectForKey:@"profile_picture"];
-                NSString *userid = [dataDict objectForKey:@"id"];
-                */
+
             }
             else
             {
-                //NSLog(@"it is not valid");
                 NSString *output = [NSString stringWithFormat:@"Instagram Authentication Error. No valid access token. Please log in."];
                 UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:output
                                                                 delegate:nil

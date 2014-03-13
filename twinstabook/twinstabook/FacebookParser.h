@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DisplayObject.h"
+//#import "DisplayObject.h"
 
 typedef enum
 {
@@ -20,6 +20,6 @@ typedef enum
 @interface FacebookParser : NSObject
 
 - (id)init;
-+ (DisplayObject *)parse:(NSDictionary *)dict;
+//+ (DisplayObject *)parse:(NSDictionary *)dict;
 
 @end

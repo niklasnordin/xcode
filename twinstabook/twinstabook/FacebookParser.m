@@ -8,12 +8,12 @@
 
 #import "FacebookParser.h"
 @interface FacebookParser()
-
+/*
 - (DisplayObject *)parseStatus:(NSDictionary *)dict;
 - (DisplayObject *)parseLink:(NSDictionary *)dict;
 - (DisplayObject *)parsePhoto:(NSDictionary *)dict;
 - (DisplayObject *)parseVideo:(NSDictionary *)dict;
-
+*/
 @end
 
 @implementation FacebookParser
@@ -33,7 +33,7 @@ static NSString *FBSTATUSTYPEMOBILEUPDATE = @"mobile_status_update";
     self = [super init];
     return self;
 }
-
+/*
 + (DisplayObject *)parse:(NSDictionary *)dict
 {
     //NSLog(@"dictionary is %@",dict);
@@ -133,6 +133,6 @@ static NSString *FBSTATUSTYPEMOBILEUPDATE = @"mobile_status_update";
     
     return obj;
 }
-
+*/
 
 @end

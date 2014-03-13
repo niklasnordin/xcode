@@ -8,9 +8,8 @@
 
 #import "twinstabookFirstViewController.h"
 #import "tifTableViewCell.h"
-#import "FacebookParser.h"
-#import "twitterParser.h"
-#import "displayObject.h"
+//#import "FacebookParser.h"
+//#import "displayObject.h"
 #import "linkWebViewController.h"
 #import "Post.h"
 #import "User.h"
@@ -28,7 +27,7 @@
 @property (strong, nonatomic) NSMutableDictionary *uidLoaded;
 @property (strong, nonatomic) NSString *selectedLinkForWebview;
 @property (strong, nonatomic) NSArray *twitterArray;
-
+@property (nonatomic) int nRefreshers;
 @end
 
 @implementation twinstabookFirstViewController
@@ -110,11 +109,27 @@
         NSLog(@"performBlock");
         //[Post addDummyToContext:self.database.managedDocument.managedObjectContext];
     }];
+    
+    self.nRefreshers = 0;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     //NSLog(@"%@ viewWillDisappear",[self class]);
+}
+
+- (void)startRefresher
+{
+    self.nRefreshers++;
+}
+
+-(void)stopRefresher
+{
+    self.nRefreshers--;
+    if (self.nRefreshers == 0)
+    {
+        [self.refreshController endRefreshing];
+    }
 }
 
 - (void)refresh:(UIRefreshControl *)sender
@@ -139,14 +154,17 @@
     NSAttributedString *title = [[NSAttributedString alloc] initWithString:str];
     self.refreshController.attributedTitle = title;
     
+    /*
     [self.database.managedDocument.managedObjectContext performBlock:^{
         NSLog(@"performBlock");
         Post *post = [Post addDummyToContext:self.database.managedDocument.managedObjectContext];
         NSLog(@"post.postedBy.name = %@",post.postedBy.name);
     }];
-    
+    */
     if (self.database.useFacebook)
     {
+        //[self startRefresher];
+        
         /*
         FBSession *session = [FBSession activeSession];
         
@@ -195,15 +213,15 @@
     
     if (self.database.useInstagram)
     {
-        
+        //[self startRefresher];
     } // end useInstagram
     
     if (self.database.useTwitter)
     {
+        [self startRefresher];
         [self readTwitterFeedWithRefreshed:sender];
     } // end useTwitter
 
-    [sender endRefreshing];
 }
 /*
 -(bool)checkIfAllPostsAreLoaded
@@ -300,6 +318,7 @@
                 posts.account = twitterAccount;
                 [posts performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
                  {
+                     [self stopRefresher];
                      //NSLog(@"response = %@",response);
                      //NSLog(@"error = %@",error.debugDescription);
                      if (!error)
@@ -314,11 +333,17 @@
                                  // NSLog(@"class = %@",[[self.twitterArray lastObject] class]);
                                  for (NSDictionary *post in self.twitterArray)
                                  {
+                                     [self.database.managedDocument.managedObjectContext performBlock:^{
+                                         //Post *post = [Post addTwitterPostToContext:self.database.managedDocument.managedObjectContext];
+                                     }];
+                                     
+                                     /*
                                      DisplayObject *obj = [twitterParser parse:post];
                                      if (obj)
                                      {
                                          [self.feedArray addObject:obj];
                                      }
+                                      */
                                  }
                              }
                              [self.feedTableView reloadData];
@@ -340,23 +365,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)writeStories:(NSArray *)data
-{
-    if (data)
-    {
-        //for (FBGraphObject *k in data)
-        for (NSDictionary *k in data)
-        {
-            DisplayObject *obj = [FacebookParser parse:k];
-            if (obj)
-            {
-                [self.feedArray addObject:obj];
-            }
-        }
-    }
-    
 }
 
 - (IBAction)feedButtonClicked:(id)sender
@@ -475,7 +483,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return;
-    
+    /*
     DisplayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
 
     //check if facebook app exists
@@ -493,15 +501,15 @@
         [[UIApplication sharedApplication] openURL:fbURL];
 
     }
-    
+    */
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    DisplayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
+    //DisplayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
     //NSLog(@"link = %@",obj.link);
-    self.selectedLinkForWebview = obj.link;
-    [self performSegueWithIdentifier:@"weblinkSegue" sender:obj.link];
+    //self.selectedLinkForWebview = obj.link;
+    //[self performSegueWithIdentifier:@"weblinkSegue" sender:obj.link];
 
 }
 
