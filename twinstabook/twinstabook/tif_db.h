@@ -49,14 +49,6 @@
 - (void)startActivityIndicator;
 - (void)stopActivityIndicator;
 
-// the feed...
-// every feed has a dictionary of posts.
-// each user has a list of posts attached to its userID
-// @{ "uid" : { "posts" : NSMutableArray of posts, "lastUpdated" : NSDate }
-// posts will be added to these arrays
-// and the feed will be pulled and filtered from these
-@property (strong, nonatomic) NSMutableDictionary *posts;
-
 // facebook
 @property (strong, nonatomic) ACAccountType *facebookAccountType;
 @property (strong, nonatomic) NSMutableArray *facebookFriends;
@@ -73,6 +65,7 @@
 @property (strong, nonatomic) NSArray *twitterAccounts;
 @property (strong, nonatomic) NSMutableArray *twitterFriends;
 @property (strong, nonatomic) ACAccount *selectedTwitterAccount;
+@property (strong, nonatomic) NSNumber *selectedTwitterAccountIndex;
 @property (strong, nonatomic) UIImage *twitterLogo;
 
 - (void)openTwitterInViewController:(UIViewController *)vc;

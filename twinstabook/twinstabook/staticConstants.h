@@ -33,6 +33,8 @@ static NSString * const GROUPS = @"groups";
 static NSString * const GROUPMEMBERS = @"groupMembers";
 static NSString * const LASTUPDATE = @"lastUpdate";
 static NSString * const SELECTEDTWITTERACCOUNT = @"selectedTwitterAccount";
+static NSString * const SELECTEDTWITTERACCOUNTINDEX = @"selectedTwitterAccountIndex";
+
 static NSString * const INSTAGRAMACCESSTOKEN = @"instagramAccessToken";
 static NSString * const POSTS = @"posts";
 

@@ -13,13 +13,13 @@
 
 @implementation Post (Twitter)
 
-+ (Post *)addPostToContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict
++ (Post *)addTwitterPostToContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict
 {
     Post *post = nil;
-    
-    NSString *urlString = [dict objectForKey:@"url"];
+    NSLog(@"postDict = %@",dict);
+    NSString *postID = [NSString stringWithFormat:@"%@",[dict objectForKey:@"id"]];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
-    request.predicate = [NSPredicate predicateWithFormat:@"url = %@",urlString];
+    request.predicate = [NSPredicate predicateWithFormat:@"postID = %@",postID];
     
     NSError *error;
     NSArray *matches = [context executeFetchRequest:request error:&error];
@@ -40,8 +40,15 @@
         {
             post = [NSEntityDescription insertNewObjectForEntityForName:moPost inManagedObjectContext:context];
             
+            post.postID = postID;
+            post.message = [dict objectForKey:@"text"];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateStyle:NSDateFormatterFullStyle];
+            [dateFormatter setTimeStyle:NSDateFormatterFullStyle];
+            post.date = [dateFormatter dateFromString:[dict objectForKey:@"created_at"]];
             // add the user
-            User *user = [User twitterUserInContext:context fromPost:post];
+            NSDictionary *userDict = [dict objectForKey:@"user"];
+            User *user = [User twitterUserInContext:context fromDictionary:userDict];
             post.postedBy = user;
 
         }

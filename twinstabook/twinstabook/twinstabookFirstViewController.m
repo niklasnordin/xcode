@@ -14,6 +14,7 @@
 #import "Post.h"
 #import "User.h"
 #import "Post+Facebook.h"
+#import "Post+Twitter.h"
 
 @interface twinstabookFirstViewController ()
 @property (nonatomic) BOOL beganUpdates;
@@ -222,6 +223,12 @@
         [self readTwitterFeedWithRefreshed:sender];
     } // end useTwitter
 
+    bool allFeeds = self.database.useFacebook || self.database.useInstagram || self.database.useTwitter;
+    
+    if (!allFeeds)
+    {
+        [sender endRefreshing];
+    }
 }
 /*
 -(bool)checkIfAllPostsAreLoaded
@@ -297,6 +304,7 @@
             
             ACAccount *twitterAccount = self.database.selectedTwitterAccount;
 
+            NSString *username = [twitterAccount username];
             /*
             
             [self.database.account renewCredentialsForAccount:twitterAccount completion:^(ACAccountCredentialRenewResult renewResult, NSError *error)
@@ -306,13 +314,14 @@
             */
             if (twitterAccount)
             {
-                NSLog(@"here i am");
+                NSLog(@"here i am in twitter for %@",username);
                 NSString *apiString = [NSString stringWithFormat:@"%@/%@/statuses/user_timeline.json", kTwitterAPIRoot, kTwitterAPIVersion];
                 NSURL *request = [NSURL URLWithString:apiString];
                 NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
                 [parameters setObject:@"100" forKey:@"count"];
                 [parameters setObject:@"1" forKey:@"include_entities"];
-                
+                //[parameters setObject:@"uid" forKey:@"user_id"];
+                [parameters setObject:username forKey:@"screen_name"];
                 SLRequest *posts = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:request parameters:parameters];
                 
                 posts.account = twitterAccount;
@@ -323,18 +332,19 @@
                      //NSLog(@"error = %@",error.debugDescription);
                      if (!error)
                      {
-                         self.twitterArray = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-                         NSLog(@"arrayPost.count = %ld",self.twitterArray.count);
-                         //NSLog(@"urlResponse = %@",urlResponse);
+                         NSArray *json = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+                         NSLog(@"json.count = %ld",json.count);
+                         //NSLog(@"json = %@",json);
                          dispatch_async(dispatch_get_main_queue(), ^(void){
 
-                             if (self.twitterArray.count)
+                             if (json.count)
                              {
-                                 // NSLog(@"class = %@",[[self.twitterArray lastObject] class]);
-                                 for (NSDictionary *post in self.twitterArray)
+                                 //NSLog(@"json[0] = %@",json[0]);
+                                 for (NSDictionary *jPost in json)
                                  {
                                      [self.database.managedDocument.managedObjectContext performBlock:^{
-                                         //Post *post = [Post addTwitterPostToContext:self.database.managedDocument.managedObjectContext];
+                                         Post *post = [Post addTwitterPostToContext:self.database.managedDocument.managedObjectContext fromDictionary:jPost];
+                                         //post.postedBy.im
                                      }];
                                      
                                      /*
@@ -346,6 +356,7 @@
                                       */
                                  }
                              }
+                             [self stopRefresher];
                              [self.feedTableView reloadData];
                          });
                      }
@@ -353,8 +364,13 @@
                      {
                          NSLog(@"error = %@",[error localizedDescription]);
                      }
-                     [sender endRefreshing];
+                     [self stopRefresher];
+
                  }];
+            }
+            else
+            {
+                [self stopRefresher];
             }
             
         }
@@ -472,8 +488,23 @@
     cell.likesLabel.text = [NSString stringWithFormat:@"%@",post.likes];
     cell.commentsLabel.text = [NSString stringWithFormat:@"%@",post.comments];
     cell.mainImage.image = self.database.instagramLogo;
-    cell.typeImage.image = self.database.facebookLogo;
-    cell.profileImage.image = self.database.twitterLogo;
+    
+    kMediaTypes type = user.type.intValue;
+    switch (type) {
+        case kFacebook:
+            cell.typeImage.image = self.database.facebookLogo;
+            break;
+        case kInstagram:
+            cell.typeImage.image = self.database.instagramLogo;
+            break;
+        case kTwitter:
+            cell.typeImage.image = self.database.twitterLogo;
+            break;
+            
+        default:
+            break;
+    }
+    cell.profileImage.image = [UIImage imageWithData:user.profileImageData];
     cell.likesImage.image = [UIImage imageNamed:@"FB-ThumbsUp_29.png"];
     cell.commentsImage.image = [UIImage imageNamed:@"Basic-Speech-bubble-icon.png"];
     cell.accessoryType = UITableViewCellAccessoryNone;

@@ -79,10 +79,6 @@
         self.twitterFriends = [[NSMutableArray alloc] init];
         self.instagramFriends = [[NSMutableArray alloc] init];
         
-        //self.twitterLogo = [UIImage imageNamed:@"Twitter_logo_blue.png"];
-        //self.facebookLogo = [UIImage imageNamed:@"FB-fLogo-Blue-printpackaging.tif"];
-        //self.instagramLogo = [UIImage imageNamed:@"Instagram_Icon_Large.png"];
-        
         self.twitterLogo = [UIImage imageNamed:@"Twitter-Logo-200-sq.png"];
         self.facebookLogo = [UIImage imageNamed:@"Facebook-Logo-Small.tif"];
         self.instagramLogo = [UIImage imageNamed:@"Instagram-Logo-200.png"];
@@ -100,13 +96,6 @@
             _selectedMediaNameIndex = 0;
             _selectedFeedIndex = 0;
             
-            _posts = [[NSMutableDictionary alloc] init];
-            
-            NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-            [_posts setObject:dict forKey:FACEBOOK];
-            [_posts setObject:dict forKey:TWITTER];
-            [_posts setObject:dict forKey:INSTAGRAM];
-            
             _groups = [[NSMutableArray alloc] init];
             _groupMembers = [[NSMutableDictionary alloc] init];
             for (NSString *name in self.socialMediaNames)
@@ -115,6 +104,7 @@
                 [_groupMembers setObject:arry forKey:name];
             }
             _lastUpdate = [[NSDate alloc] initWithTimeIntervalSinceNow:-10000000];
+            _selectedTwitterAccountIndex = [[NSNumber alloc] initWithInt:0];
         }
         else
         {
@@ -124,8 +114,12 @@
             _selectedMediaNameIndex = [[database objectForKey:SELECTEDMEDIANAME] intValue];
             _selectedFeedIndex = [[database objectForKey:SELECTEDFEEDINDEX] integerValue];
             _instagramAccessToken = [database objectForKey:INSTAGRAMACCESSTOKEN];
+            _selectedTwitterAccountIndex = [database objectForKey:SELECTEDTWITTERACCOUNTINDEX];
             
-            _posts = [database objectForKey:POSTS];
+            if (_useTwitter)
+            {
+                _selectedTwitterAccount = [self.twitterAccounts objectAtIndex:self.selectedTwitterAccountIndex.intValue];
+            }
             
             _groups = [database objectForKey:GROUPS];
             _groupMembers = [[NSMutableDictionary alloc] init];
@@ -208,7 +202,6 @@
     
     [defaults setObject:self.lastUpdate forKey:LASTUPDATE];
     
-    //[defaults setObject:self.selectedTwitterAccount forKey:SELECTEDTWITTERACCOUNT];
     
     [defaults synchronize];
     

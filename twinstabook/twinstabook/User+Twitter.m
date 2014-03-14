@@ -78,4 +78,38 @@
     return usr;
 }
 
+
++ (User *)twitterUserInContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict
+{
+    User *usr = nil;
+    NSString *uid = [dict objectForKey:@"id_str"];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moUser];
+    request.predicate = [NSPredicate predicateWithFormat:@"uid = %@", uid];
+    
+    NSError *error;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    
+    if (!matches || error || [matches count] > 1)
+    {
+        // handle error
+    }
+    else if (!matches.count)
+    {
+        usr = [NSEntityDescription insertNewObjectForEntityForName:moUser inManagedObjectContext:context];
+        usr.name = [dict objectForKey:@"screen_name"];
+        usr.profileImageData = nil;
+        usr.profileImageURL = [dict objectForKey:@"profile_image_url_https"];
+        usr.uid = uid;
+        usr.type = [NSNumber numberWithInteger:kTwitter];
+        usr.updated = [NSDate dateWithTimeIntervalSinceNow:0];
+    }
+    else
+    {
+        usr = [matches lastObject];
+    }
+    
+    return usr;
+}
+
 @end

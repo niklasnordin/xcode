@@ -132,6 +132,11 @@
     }
     else
     {
+        self.db.selectedTwitterAccountIndex = [[NSNumber alloc] initWithInteger:indexPath.row];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:self.db.selectedTwitterAccountIndex forKey:SELECTEDTWITTERACCOUNTINDEX];
+        [defaults synchronize];
+        
         self.db.selectedTwitterAccount = account;
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
         [self.db loadAllTwitterFriendsInViewController:self];

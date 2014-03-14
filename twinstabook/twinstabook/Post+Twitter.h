@@ -10,6 +10,6 @@
 
 @interface Post (Twitter)
 
-+ (Post *)addPostToContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict;
++ (Post *)addTwitterPostToContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict;
 
 @end

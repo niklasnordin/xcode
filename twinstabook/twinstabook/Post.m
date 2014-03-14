@@ -2,7 +2,7 @@
 //  Post.m
 //  twinstabook
 //
-//  Created by Niklas Nordin on 2014-03-12.
+//  Created by Niklas Nordin on 2014-03-14.
 //  Copyright (c) 2014 Niklas Nordin. All rights reserved.
 //
 
@@ -12,12 +12,13 @@
 
 @implementation Post
 
+@dynamic comments;
 @dynamic date;
 @dynamic image;
+@dynamic likes;
 @dynamic message;
 @dynamic url;
-@dynamic likes;
-@dynamic comments;
+@dynamic postID;
 @dynamic postedBy;
 
 @end
