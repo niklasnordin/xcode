@@ -106,11 +106,12 @@
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     
+    /*
     [self.database.managedDocument.managedObjectContext performBlock:^{
         NSLog(@"performBlock");
         //[Post addDummyToContext:self.database.managedDocument.managedObjectContext];
     }];
-    
+    */
     self.nRefreshers = 0;
 }
 
@@ -121,16 +122,20 @@
 
 - (void)startRefresher
 {
-    self.nRefreshers++;
+    dispatch_async(dispatch_get_main_queue(), ^(void){
+        self.nRefreshers++;
+    });
 }
 
 -(void)stopRefresher
 {
-    self.nRefreshers--;
-    if (self.nRefreshers == 0)
-    {
-        [self.refreshController endRefreshing];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^(void){
+        self.nRefreshers--;
+        if (self.nRefreshers == 0)
+        {
+            [self.refreshController endRefreshing];
+        }
+    });
 }
 
 - (void)refresh:(UIRefreshControl *)sender
@@ -315,7 +320,10 @@
             if (twitterAccount)
             {
                 NSLog(@"here i am in twitter for %@",username);
-                NSString *apiString = [NSString stringWithFormat:@"%@/%@/statuses/user_timeline.json", kTwitterAPIRoot, kTwitterAPIVersion];
+                NSString *apiString = [NSString stringWithFormat:@"%@/%@/statuses/home_timeline.json", kTwitterAPIRoot, kTwitterAPIVersion];
+
+                //NSString *apiString = [NSString stringWithFormat:@"%@/%@/statuses/user_timeline.json", kTwitterAPIRoot, kTwitterAPIVersion];
+
                 NSURL *request = [NSURL URLWithString:apiString];
                 NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
                 [parameters setObject:@"100" forKey:@"count"];
@@ -333,29 +341,24 @@
                      if (!error)
                      {
                          NSArray *json = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-                         NSLog(@"json.count = %ld",json.count);
+                         //NSLog(@"json.count = %ld",json.count);
                          //NSLog(@"json = %@",json);
-                         dispatch_async(dispatch_get_main_queue(), ^(void){
+                         //dispatch_async(dispatch_get_main_queue(), ^(void){
 
                              if (json.count)
                              {
-                                 //NSLog(@"json[0] = %@",json[0]);
+
                                  for (NSDictionary *jPost in json)
                                  {
                                      [self.database.managedDocument.managedObjectContext performBlock:^{
                                          Post *post = [Post addTwitterPostToContext:self.database.managedDocument.managedObjectContext fromDictionary:jPost];
-                                         //post.postedBy.im
+                                         //[self downloadImageForUser:post.postedBy];
                                      }];
                                      
-                                     /*
-                                     DisplayObject *obj = [twitterParser parse:post];
-                                     if (obj)
-                                     {
-                                         [self.feedArray addObject:obj];
-                                     }
-                                      */
                                  }
                              }
+                         dispatch_async(dispatch_get_main_queue(), ^(void){
+
                              [self stopRefresher];
                              [self.feedTableView reloadData];
                          });
@@ -370,9 +373,15 @@
             }
             else
             {
+                NSLog(@"no twitter account");
                 [self stopRefresher];
             }
             
+        }
+        else
+        {
+            NSLog(@"not granted");
+            [self stopRefresher];
         }
     }];
 }
@@ -469,9 +478,7 @@
 {
     static NSString *CellIdentifier = @"feedCell";
     tifTableViewCell *cell = (tifTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        //cell.frame.size.height = 100.0f;
-    //CGRect frame = CGRectMake(0.0f, 0.0f, 300.0f, 100.0f);
-    //cell.frame = frame;
+
     if (!cell)
     {
         NSLog(@"cell is nil");
@@ -487,7 +494,40 @@
     cell.messageLabel.text = post.message;
     cell.likesLabel.text = [NSString stringWithFormat:@"%@",post.likes];
     cell.commentsLabel.text = [NSString stringWithFormat:@"%@",post.comments];
-    cell.mainImage.image = self.database.instagramLogo;
+    
+    if (post.imageData)
+    {
+        cell.mainImage.image = [UIImage imageWithData:post.imageData];
+    }
+    else
+    {
+        if (post.imageURL || ![post.imageURL isEqualToString:@""])
+        {
+            [self downloadImageForPost:post AtIndexPath:indexPath];
+        }
+        else
+        {
+            kMediaTypes type = user.type.intValue;
+            switch (type) {
+                case kFacebook:
+                    cell.mainImage.image = self.database.facebookLogo;
+                    break;
+                case kInstagram:
+                    cell.mainImage.image = self.database.instagramLogo;
+                    break;
+                case kTwitter:
+                    cell.mainImage.image = self.database.twitterLogo;
+                    break;
+                    
+                default:
+                    break;
+            }
+            post.imageData = UIImagePNGRepresentation(cell.mainImage.image);
+        }
+        
+    }
+//    cell.mainImage.image = self.database.instagramLogo;
+    cell.mainImage.contentMode = UIViewContentModeScaleToFill;
     
     kMediaTypes type = user.type.intValue;
     switch (type) {
@@ -504,7 +544,15 @@
         default:
             break;
     }
-    cell.profileImage.image = [UIImage imageWithData:user.profileImageData];
+    
+    if (user.profileImageData)
+    {
+        cell.profileImage.image = [UIImage imageWithData:user.profileImageData];
+    }
+    else
+    {
+        [self downloadImageForUser:user AtIndexPath:indexPath];
+    }
     cell.likesImage.image = [UIImage imageNamed:@"FB-ThumbsUp_29.png"];
     cell.commentsImage.image = [UIImage imageNamed:@"Basic-Speech-bubble-icon.png"];
     cell.accessoryType = UITableViewCellAccessoryNone;
@@ -513,6 +561,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     return;
     /*
     DisplayObject *obj = [self.feedArray objectAtIndex:indexPath.row];
@@ -690,6 +739,84 @@
         //NSString *urlString = @"http://www.google.com";
         NSLog(@"link = %@",self.selectedLinkForWebview);
         [vc setUrlString:self.selectedLinkForWebview];
+    }
+}
+
+- (void)downloadImageForUser:(User *)user AtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    NSURL *url = [NSURL URLWithString:user.profileImageURL];
+    NSMutableURLRequest *pictureRequest = [NSMutableURLRequest requestWithURL:url];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+
+    __block NSData *pImageData = nil;
+    dispatch_async(queue, ^ {
+        NSHTTPURLResponse *responseCode = nil;
+        NSError *error = [[NSError alloc] init];
+        [self.database startActivityIndicator];
+        pImageData = [NSURLConnection sendSynchronousRequest:pictureRequest returningResponse:&responseCode error:&error];
+
+        [self.database stopActivityIndicator];
+        
+        dispatch_async(dispatch_get_main_queue(), ^ {
+            if (pImageData)
+            {
+                user.profileImageData = pImageData;
+                [self.feedTableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+            }
+        });
+        
+    });
+
+}
+
+- (void)downloadImageForPost:(Post *)post AtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    NSURL *url = [NSURL URLWithString:post.imageURL];
+    NSMutableURLRequest *pictureRequest = [NSMutableURLRequest requestWithURL:url];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    __block NSData *pImageData = nil;
+    dispatch_async(queue, ^ {
+        NSHTTPURLResponse *responseCode = nil;
+        NSError *error = [[NSError alloc] init];
+        [self.database startActivityIndicator];
+        pImageData = [NSURLConnection sendSynchronousRequest:pictureRequest returningResponse:&responseCode error:&error];
+        
+        [self.database stopActivityIndicator];
+        
+        dispatch_async(dispatch_get_main_queue(), ^ {
+            if (pImageData)
+            {
+                post.imageData = pImageData;
+                [self.feedTableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+            }
+        });
+        
+    });
+    
+}
+- (void)updateImagesInManagedObject
+{
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moUser];
+    request.predicate = nil;
+    request.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO] ];
+    NSError *error;
+    NSArray *matches = [self.database.managedDocument.managedObjectContext executeFetchRequest:request error:&error];
+    
+    if ([matches count])
+    {
+        for (User *usr in matches)
+        {
+            if (!usr.profileImageData)
+            {
+                //
+            }
+            
+            // check if picture is too old, then we also update it
+        }
     }
 }
 

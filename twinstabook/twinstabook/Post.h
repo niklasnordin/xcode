@@ -15,10 +15,10 @@
 
 @property (nonatomic, retain) NSNumber * comments;
 @property (nonatomic, retain) NSDate * date;
-@property (nonatomic, retain) NSData * image;
+@property (nonatomic, retain) NSData * imageData;
 @property (nonatomic, retain) NSNumber * likes;
 @property (nonatomic, retain) NSString * message;
-@property (nonatomic, retain) NSString * url;
+@property (nonatomic, retain) NSString * imageURL;
 @property (nonatomic, retain) NSString * postID;
 @property (nonatomic, retain) User *postedBy;
 

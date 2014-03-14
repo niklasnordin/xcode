@@ -14,10 +14,10 @@
 
 @dynamic comments;
 @dynamic date;
-@dynamic image;
+@dynamic imageData;
 @dynamic likes;
 @dynamic message;
-@dynamic url;
+@dynamic imageURL;
 @dynamic postID;
 @dynamic postedBy;
 

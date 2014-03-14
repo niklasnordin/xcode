@@ -672,7 +672,7 @@
 {
     if (!_selectedTwitterAccount)
     {
-        _selectedTwitterAccount = [self.twitterAccounts lastObject];
+        _selectedTwitterAccount = [self.twitterAccounts objectAtIndex:self.selectedTwitterAccountIndex.intValue];
     }
     
     return _selectedTwitterAccount;
