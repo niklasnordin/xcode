@@ -38,7 +38,7 @@
         }
         else
         {
-            NSLog(@"dict = %@",dict);
+            //NSLog(@"dict = %@",dict);
             post = [NSEntityDescription insertNewObjectForEntityForName:moPost inManagedObjectContext:context];
             
             post.postID = postID;
@@ -54,7 +54,7 @@
             NSDictionary *media = [mediaArray firstObject];
             if (media)
             {
-                NSLog(@"media = %@",media);
+                //NSLog(@"media = %@",media);
                 NSString *mediaURL = [media objectForKey:@"media_url_https"];
                 if (mediaURL)
                 {

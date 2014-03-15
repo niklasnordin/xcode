@@ -115,7 +115,8 @@
             _selectedFeedIndex = [[database objectForKey:SELECTEDFEEDINDEX] integerValue];
             _instagramAccessToken = [database objectForKey:INSTAGRAMACCESSTOKEN];
             _selectedTwitterAccountIndex = [database objectForKey:SELECTEDTWITTERACCOUNTINDEX];
-            
+
+
             if (_useTwitter)
             {
                 _selectedTwitterAccount = [self.twitterAccounts objectAtIndex:self.selectedTwitterAccountIndex.intValue];

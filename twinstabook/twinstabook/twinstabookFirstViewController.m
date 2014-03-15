@@ -23,7 +23,7 @@
 
 @property (strong, nonatomic) UIActionSheet *actionSheet;
 
-@property (strong, nonatomic) NSMutableArray *feedArray;
+//@property (strong, nonatomic) NSMutableArray *feedArray;
 @property (strong, nonatomic) NSMutableArray *uidsToLoad;
 @property (strong, nonatomic) NSMutableDictionary *uidLoaded;
 @property (strong, nonatomic) NSString *selectedLinkForWebview;
@@ -67,7 +67,7 @@
     
     [self.feedTableView addSubview:self.refreshController];
     
-    self.feedArray = [[NSMutableArray alloc] init];
+    //self.feedArray = [[NSMutableArray alloc] init];
     self.selectedLinkForWebview = [[NSString alloc] init];
     
     if (self.database.useFacebook)
@@ -224,6 +224,16 @@
     
     if (self.database.useTwitter)
     {
+        /*
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
+        //request.predicate = [NSPredicate predicateWithFormat:@"(postedBy.name == 'deadmau5') OR (postedBy.name == 'rickygervais')"];
+        request.predicate = [NSPredicate predicateWithFormat:@"(postedBy.type == %d)",kTwitter];
+
+        request.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO] ];
+        
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+        */
+        
         [self startRefresher];
         [self readTwitterFeedWithRefreshed:sender];
     } // end useTwitter
@@ -437,7 +447,7 @@
 - (void)pickerViewWasShown:(JMPickerView *)pickerView
 {
     //NSLog(@"picker is shown");
-    [self.feedArray removeAllObjects];
+    //[self.feedArray removeAllObjects];
     [self.feedTableView reloadData];
     self.database.lastUpdate = [[NSDate alloc] initWithTimeIntervalSinceNow:-10000000];
 
@@ -510,19 +520,20 @@
             kMediaTypes type = user.type.intValue;
             switch (type) {
                 case kFacebook:
+                    post.imageData = UIImagePNGRepresentation(self.database.facebookLogo);
                     cell.mainImage.image = self.database.facebookLogo;
                     break;
                 case kInstagram:
                     cell.mainImage.image = self.database.instagramLogo;
                     break;
                 case kTwitter:
+                    post.imageData = UIImagePNGRepresentation(self.database.twitterLogo);
                     cell.mainImage.image = self.database.twitterLogo;
                     break;
                     
                 default:
                     break;
             }
-            post.imageData = UIImagePNGRepresentation(cell.mainImage.image);
         }
         
     }

@@ -70,6 +70,10 @@
         [self.db loadAllTwitterFriendsInViewController:self];
         [self.tableView reloadData];
     }
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *numberTwitter = [[NSNumber alloc] initWithBool:self.db.useTwitter];
+    [defaults setObject:numberTwitter forKey:USETWITTER];
+    [defaults synchronize];
 }
 
 #pragma mark - Table view data source
