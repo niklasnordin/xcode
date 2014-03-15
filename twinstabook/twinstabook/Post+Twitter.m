@@ -16,7 +16,7 @@
 + (Post *)addTwitterPostToContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict
 {
     Post *post = nil;
-    NSLog(@"postDict = %@",dict);
+    //NSLog(@"postDict = %@",dict);
     NSString *postID = [NSString stringWithFormat:@"%@",[dict objectForKey:@"id"]];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
     request.predicate = [NSPredicate predicateWithFormat:@"postID = %@",postID];
@@ -38,6 +38,7 @@
         }
         else
         {
+            NSLog(@"dict = %@",dict);
             post = [NSEntityDescription insertNewObjectForEntityForName:moPost inManagedObjectContext:context];
             
             post.postID = postID;
@@ -48,14 +49,27 @@
             //[dateFormatter setTimeStyle:NSDateFormatterFullStyle];
             [dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss Z yyyy"];
             post.date = [dateFormatter dateFromString:[dict objectForKey:@"created_at"]];
-            NSDictionary *media = [dict objectForKey:@"media"];
+            NSDictionary *entities = [dict objectForKey:@"entities"];
+            NSArray *mediaArray = [entities objectForKey:@"media"];
+            NSDictionary *media = [mediaArray firstObject];
             if (media)
             {
+                NSLog(@"media = %@",media);
                 NSString *mediaURL = [media objectForKey:@"media_url_https"];
                 if (mediaURL)
                 {
                     post.imageURL = mediaURL;
                 }
+                else
+                {
+                    post.imageURL = nil;
+                    post.imageData = nil;
+                }
+            }
+            else
+            {
+                post.imageURL = nil;
+                post.imageData = nil;
             }
             // add the user
             NSDictionary *userDict = [dict objectForKey:@"user"];

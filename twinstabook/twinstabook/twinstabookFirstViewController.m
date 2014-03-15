@@ -494,7 +494,7 @@
     cell.messageLabel.text = post.message;
     cell.likesLabel.text = [NSString stringWithFormat:@"%@",post.likes];
     cell.commentsLabel.text = [NSString stringWithFormat:@"%@",post.comments];
-    
+    cell.mainImage.image = nil;
     if (post.imageData)
     {
         cell.mainImage.image = [UIImage imageWithData:post.imageData];
