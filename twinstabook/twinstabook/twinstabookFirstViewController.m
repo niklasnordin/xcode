@@ -15,6 +15,7 @@
 #import "User.h"
 #import "Post+Facebook.h"
 #import "Post+Twitter.h"
+#import "Post+Instagram.h"
 
 @interface twinstabookFirstViewController ()
 @property (nonatomic) BOOL beganUpdates;
@@ -124,6 +125,10 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^(void){
         self.nRefreshers++;
+        if (self.nRefreshers == 0)
+        {
+            [self.refreshController endRefreshing];
+        }
     });
 }
 
@@ -131,6 +136,7 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^(void){
         self.nRefreshers--;
+
         if (self.nRefreshers == 0)
         {
             [self.refreshController endRefreshing];
@@ -219,7 +225,8 @@
     
     if (self.database.useInstagram)
     {
-        //[self startRefresher];
+        [self startRefresher];
+        [self readInstagramFeed:sender andCursor:nil];
     } // end useInstagram
     
     if (self.database.useTwitter)
@@ -245,19 +252,7 @@
         [sender endRefreshing];
     }
 }
-/*
--(bool)checkIfAllPostsAreLoaded
-{
-    bool loaded = YES;
-    for (int i=0; i<[self.uidsToLoad count]; i++)
-    {
-        NSString *uid = [self. uidsToLoad objectAtIndex:i];
-        NSNumber *n = [self.uidLoaded objectForKey:uid];
-        loaded = loaded && [n boolValue];
-    }
-    return loaded;
-}
-*/
+
 - (void)readFacebookFeed:(NSString *)uid withRefresher:(UIRefreshControl *)sender
 {
     
@@ -318,7 +313,6 @@
         {
             
             ACAccount *twitterAccount = self.database.selectedTwitterAccount;
-
             NSString *username = [twitterAccount username];
             /*
             
@@ -331,7 +325,6 @@
             {
                 NSLog(@"here i am in twitter for %@",username);
                 NSString *apiString = [NSString stringWithFormat:@"%@/%@/statuses/home_timeline.json", kTwitterAPIRoot, kTwitterAPIVersion];
-
                 //NSString *apiString = [NSString stringWithFormat:@"%@/%@/statuses/user_timeline.json", kTwitterAPIRoot, kTwitterAPIVersion];
 
                 NSURL *request = [NSURL URLWithString:apiString];
@@ -345,15 +338,11 @@
                 posts.account = twitterAccount;
                 [posts performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
                  {
-                     [self stopRefresher];
                      //NSLog(@"response = %@",response);
                      //NSLog(@"error = %@",error.debugDescription);
                      if (!error)
                      {
                          NSArray *json = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-                         //NSLog(@"json.count = %ld",json.count);
-                         //NSLog(@"json = %@",json);
-                         //dispatch_async(dispatch_get_main_queue(), ^(void){
 
                              if (json.count)
                              {
@@ -362,16 +351,15 @@
                                  {
                                      [self.database.managedDocument.managedObjectContext performBlock:^{
                                          Post *post = [Post addTwitterPostToContext:self.database.managedDocument.managedObjectContext fromDictionary:jPost];
-                                         //[self downloadImageForUser:post.postedBy];
                                      }];
                                      
                                  }
                              }
                          dispatch_async(dispatch_get_main_queue(), ^(void){
 
-                             [self stopRefresher];
                              [self.feedTableView reloadData];
                          });
+                         
                      }
                      else
                      {
@@ -394,6 +382,88 @@
             [self stopRefresher];
         }
     }];
+}
+
+- (void)readInstagramFeed:(UIRefreshControl *)sender andCursor:(NSString *)cursor
+{
+    bool addCursor = YES;
+    if (!cursor || [cursor isEqualToString:@""])
+    {
+        addCursor = NO;
+    }
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^ {
+        
+        NSError *error = [[NSError alloc] init];
+        NSHTTPURLResponse *responseCode = nil;
+        
+        NSString *urlString = [NSString stringWithFormat:@"%@/users/self/feed?access_token=%@", kInstagramBaseURLString, self.database.instagramAccessToken];
+        if (addCursor)
+        {
+            urlString = [NSString stringWithFormat:@"%@&cursor=%@",urlString,cursor];
+        }
+        
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+        
+        [self.database startActivityIndicator];
+        NSData *pData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&responseCode error:&error];
+        [self.database stopActivityIndicator];
+        
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:pData options:NSJSONReadingMutableLeaves error:&error];
+        
+        //NSLog(@"result = %@",result);
+        NSDictionary *metaDict = [result objectForKey:@"meta"];
+        NSNumber *codeNumber = [metaDict objectForKey:@"code"];
+        int codeInt = [codeNumber intValue];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if (codeInt != 400)
+            {
+                
+                NSArray *userData = [result objectForKey:@"data"];
+                NSDictionary *pagination = [result objectForKey:@"pagination"];
+                NSString *next_cursor = [pagination objectForKey:@"next_cursor"];
+                
+                for (NSDictionary *jPost in userData)
+                {
+                    // add it to core data
+                    //NSLog(@"userDict = %@",userDict);
+                    [self.database.managedDocument.managedObjectContext performBlock:^{
+                        Post *post = [Post addInstagramPostToContext:self.database.managedDocument.managedObjectContext fromDictionary:jPost];
+                    }];
+                    
+                }
+                dispatch_async(dispatch_get_main_queue(), ^(void){
+                    
+                    [self.feedTableView reloadData];
+                });
+                
+                if (next_cursor)
+                {
+                    // load next sequence
+                    //[self readInstagram:sendder withCursor:next_cursor];
+                }
+                
+            }
+            else
+            {
+                NSString *output = [NSString stringWithFormat:@"Instagram Authentication Error. No valid access token. Please log in."];
+                UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:output
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                  destructiveButtonTitle:nil
+                                                       otherButtonTitles:nil];
+                
+                [as showInView:self.view];
+                
+            }
+            [self stopRefresher];
+        });
+    });
+    
 }
 
 - (void)didReceiveMemoryWarning

@@ -19,7 +19,7 @@
     //NSLog(@"postDict = %@",dict);
     NSString *postID = [NSString stringWithFormat:@"%@",[dict objectForKey:@"id"]];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
-    request.predicate = [NSPredicate predicateWithFormat:@"postID = %@",postID];
+    request.predicate = [NSPredicate predicateWithFormat:@"postID == %@",postID];
     
     NSError *error;
     NSArray *matches = [context executeFetchRequest:request error:&error];

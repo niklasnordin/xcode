@@ -10,4 +10,6 @@
 
 @interface Post (Instagram)
 
++ (Post *)addInstagramPostToContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict;
+
 @end

@@ -75,6 +75,10 @@
         [self.logoutButtonLabel setHidden:YES];
         [self.loggedInAsLabel setHidden:YES];
     }
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *numberInstagram = [[NSNumber alloc] initWithBool:self.db.useInstagram];
+    [defaults setObject:numberInstagram forKey:USEINSTAGRAM];
+    [defaults synchronize];
 }
 
 - (IBAction)logoutButton:(id)sender

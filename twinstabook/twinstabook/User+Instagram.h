@@ -10,4 +10,6 @@
 
 @interface User (Instagram)
 
++ (User *)instagramUserInContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict;
+
 @end
