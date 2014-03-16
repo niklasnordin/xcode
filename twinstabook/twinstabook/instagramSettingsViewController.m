@@ -49,7 +49,10 @@
     
     if (self.db.useInstagram)
     {
-        [self checkIfAccessTokenIsValid];
+        [self checkIfAccessTokenIsValidwithCompletionsHandler:^(NSString *username) {
+            [self.loggedInAsLabel setHidden:NO];
+            [self.loggedInAsLabel setText:[NSString stringWithFormat:@"Logged in as: %@",username]];
+        }];
     }
 
 }
@@ -66,7 +69,10 @@
     
     if (self.db.useInstagram)
     {
-        [self checkIfAccessTokenIsValid];
+        [self checkIfAccessTokenIsValidwithCompletionsHandler:^(NSString *username) {
+            [self.loggedInAsLabel setHidden:NO];
+            [self.loggedInAsLabel setText:[NSString stringWithFormat:@"Logged in as: %@",username]];
+        }];
         //[self.db openInstagramInViewController:self andWebView:self.webView];
     }
     else
@@ -102,7 +108,7 @@
     if ([request.URL.absoluteString rangeOfString:@"#"].location != NSNotFound)
     {
         NSString* params = [[request.URL.absoluteString componentsSeparatedByString:@"#"] objectAtIndex:1];
-        NSLog(@"params = %@",params);
+        //NSLog(@"params = %@",params);
 
         self.db.instagramAccessToken = [params stringByReplacingOccurrencesOfString:@"access_token=" withString:@""];
         //self.webView.hidden = YES;
@@ -124,6 +130,18 @@
 	return YES;
 }
 
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    NSLog(@"webViewDidFinishLoad");
+    if ([self.db.instagramAccessToken length] > 1)
+    {
+        [self checkIfAccessTokenIsValidwithCompletionsHandler:^(NSString *username) {
+            [self.loggedInAsLabel setHidden:NO];
+            [self.loggedInAsLabel setText:[NSString stringWithFormat:@"Logged in as: %@",username]];
+        }];
+    }
+}
+
 - (void)loadLoginScreen
 {
     NSString *urlString = [NSString stringWithFormat:@"https://instagram.com/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token",kInstagramClientId, kInstagramRedirectUrl];
@@ -132,7 +150,7 @@
     [self.webView loadRequest:urlRequest];
 }
 
-- (void)checkIfAccessTokenIsValid
+- (void)checkIfAccessTokenIsValidwithCompletionsHandler:(void (^)(NSString *username))completion;
 {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^ {
@@ -150,21 +168,23 @@
         NSDictionary *metaDict = [result objectForKey:@"meta"];
         NSNumber *codeNumber = [metaDict objectForKey:@"code"];
         int codeInt = [codeNumber intValue];
-        NSLog(@"code = %@",codeNumber);
+        //NSLog(@"code = %@",codeNumber);
         dispatch_async(dispatch_get_main_queue(), ^ {
             
             if (codeInt != 400)
             {
                 //NSLog(@"it is valid");
                 NSDictionary *dataDict = [result objectForKey:@"data"];
+                //NSLog(@"dataDict = %@",dataDict);
                 NSString *username = [dataDict objectForKey:@"username"];
+                
                 //NSString *profileLinkURL = [dataDict objectForKey:@"profile_picture"];
                 //NSString *userid = [dataDict objectForKey:@"id"];
             
-                [self.loggedInAsLabel setHidden:NO];
-                [self.loggedInAsLabel setText:[NSString stringWithFormat:@"Logged in as: %@",username]];
+
                 [self.webView setHidden:YES];
                 [self.logoutButtonLabel setHidden:NO];
+                completion(username);
             }
             else
             {
