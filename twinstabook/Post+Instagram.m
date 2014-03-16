@@ -16,7 +16,6 @@
 {
     //NSLog(@"dict = %@",dict);
     Post *post = nil;
-    NSDictionary *caption = [dict objectForKey:@"caption"];
     NSString *postID = [NSString stringWithFormat:@"%@",[dict objectForKey:@"id"]];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
     request.predicate = [NSPredicate predicateWithFormat:@"postID == %@",postID];
@@ -39,9 +38,13 @@
         else
         {
             post = [NSEntityDescription insertNewObjectForEntityForName:moPost inManagedObjectContext:context];
-            
+            //NSLog(@"dict = %@",dict);
             post.postID = postID;
-            post.message = [caption objectForKey:@"text"];
+            NSDictionary *caption = [dict objectForKey:@"caption"];
+            if (![caption isKindOfClass:[NSNull class]])
+            {
+                post.message = [caption objectForKey:@"text"];
+            }
             NSTimeInterval unix_timestamp = [[dict objectForKey:@"created_time"] doubleValue];
             post.date = [NSDate dateWithTimeIntervalSince1970:unix_timestamp];
 
@@ -50,14 +53,11 @@
             post.imageURL = [standardImageDict objectForKey:@"url"];
             NSDictionary *commentsDict = [dict objectForKey:@"comments"];
             NSNumber *comments = [commentsDict objectForKey:@"count"];
-            id cmt = [commentsDict objectForKey:@"count"];
-            NSLog(@"cmt class = %@",[cmt class]);
-            NSLog(@"comments = %@",comments);
+                //NSString *cmt = [commentsDict objectForKey:@"count"];
             post.comments = comments;
-            NSDictionary *likesDict = [dict objectForKey:@"liks"];
-            NSNumber *likes = [likesDict objectForKey:@"counts"];
+            NSDictionary *likesDict = [dict objectForKey:@"likes"];
+            NSNumber *likes = [likesDict objectForKey:@"count"];
             post.likes = likes;
-            NSLog(@"likes = %@",likes);
             NSDictionary *userDict = [dict objectForKey:@"user"];
             //User *user = [User instagramUserInContext:context fromDictionary:userDict];
             User *user = [User instagramUserInContext:context fromDictionary:userDict];
