@@ -11,14 +11,14 @@
 @implementation User (Instagram)
 
 
-+ (User *)instagramUserInContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict
++ (User *)instagramUserInContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict forUserID:(NSString *)auid
 {
     User *usr = nil;
     NSString *uid = [dict objectForKey:@"id"];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moUser];
-    request.predicate = [NSPredicate predicateWithFormat:@"uid = %@", uid];
-    
+    request.predicate = [NSPredicate predicateWithFormat:@"(uid == %@) AND (belongsToAccountID == %@)", uid, auid];
+
     NSError *error;
     NSArray *matches = [context executeFetchRequest:request error:&error];
     
@@ -35,6 +35,7 @@
         usr.uid = uid;
         usr.type = [NSNumber numberWithInteger:kInstagram];
         usr.updated = [NSDate dateWithTimeIntervalSinceNow:0];
+        usr.belongsToAccountID = auid;
     }
     else
     {

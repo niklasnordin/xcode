@@ -9,6 +9,7 @@
 #import "instagramSettingsViewController.h"
 
 @interface instagramSettingsViewController ()
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *revealButtonItem;
 @property (weak, nonatomic) IBOutlet UISwitch *instagramSwitch;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -49,12 +50,15 @@
     
     if (self.db.useInstagram)
     {
-        [self checkIfAccessTokenIsValidwithCompletionsHandler:^(NSString *username) {
-            [self.loggedInAsLabel setHidden:NO];
-            [self.loggedInAsLabel setText:[NSString stringWithFormat:@"Logged in as: %@",username]];
+        [self checkIfAccessTokenIsValidwithCompletionsHandler:^(BOOL isValid, NSString *username) {
+            if (isValid)
+            {
+                [self.loggedInAsLabel setHidden:NO];
+                [self.loggedInAsLabel setText:[NSString stringWithFormat:@"Logged in as: %@",username]];
+            }
         }];
     }
-
+    [self.activityIndicator setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,14 +73,20 @@
     
     if (self.db.useInstagram)
     {
-        [self checkIfAccessTokenIsValidwithCompletionsHandler:^(NSString *username) {
-            [self.loggedInAsLabel setHidden:NO];
-            [self.loggedInAsLabel setText:[NSString stringWithFormat:@"Logged in as: %@",username]];
+        [self.activityIndicator setHidden:NO];
+        [self checkIfAccessTokenIsValidwithCompletionsHandler:^(BOOL isValid, NSString *username) {
+            if (isValid)
+            {
+                [self.loggedInAsLabel setHidden:NO];
+                [self.loggedInAsLabel setText:[NSString stringWithFormat:@"Logged in as: %@",username]];
+            }
         }];
         //[self.db openInstagramInViewController:self andWebView:self.webView];
     }
     else
     {
+        [self.activityIndicator setHidden:YES];
+
         [self.webView setHidden:YES];
         [self.logoutButtonLabel setHidden:YES];
         [self.loggedInAsLabel setHidden:YES];
@@ -104,6 +114,7 @@
                 navigationType:(UIWebViewNavigationType)navigationType
 {
     //NSLog(@"This is it... %@",request.URL.absoluteString);
+    [self.activityIndicator setHidden:YES];
 
     if ([request.URL.absoluteString rangeOfString:@"#"].location != NSNotFound)
     {
@@ -130,27 +141,40 @@
 	return YES;
 }
 
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [self.activityIndicator stopAnimating];
+
+}
+
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
     NSLog(@"webViewDidFinishLoad");
+    [self.activityIndicator stopAnimating];
+    [self.activityIndicator setHidden:YES];
     if ([self.db.instagramAccessToken length] > 1)
     {
-        [self checkIfAccessTokenIsValidwithCompletionsHandler:^(NSString *username) {
-            [self.loggedInAsLabel setHidden:NO];
-            [self.loggedInAsLabel setText:[NSString stringWithFormat:@"Logged in as: %@",username]];
+        [self checkIfAccessTokenIsValidwithCompletionsHandler:^(BOOL isValid, NSString *username) {
+            if (isValid)
+            {
+                [self.loggedInAsLabel setHidden:NO];
+                [self.loggedInAsLabel setText:[NSString stringWithFormat:@"Logged in as: %@",username]];
+            }
         }];
     }
 }
 
 - (void)loadLoginScreen
 {
+    [self.activityIndicator startAnimating];
+
     NSString *urlString = [NSString stringWithFormat:@"https://instagram.com/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token",kInstagramClientId, kInstagramRedirectUrl];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:urlRequest];
 }
 
-- (void)checkIfAccessTokenIsValidwithCompletionsHandler:(void (^)(NSString *username))completion;
+- (void)checkIfAccessTokenIsValidwithCompletionsHandler:(void (^)(BOOL isValid, NSString *username))completion;
 {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^ {
@@ -179,22 +203,21 @@
                 NSString *username = [dataDict objectForKey:@"username"];
                 
                 //NSString *profileLinkURL = [dataDict objectForKey:@"profile_picture"];
-                //NSString *userid = [dataDict objectForKey:@"id"];
-            
+                NSString *userid = [dataDict objectForKey:@"id"];
+                self.db.instagramAccountUserID = userid;
 
                 [self.webView setHidden:YES];
                 [self.logoutButtonLabel setHidden:NO];
-                completion(username);
+                completion(YES, username);
             }
             else
             {
                 NSLog(@"it is not valid");
-            
                 [self.webView setHidden:NO];
                 [self.loggedInAsLabel setHidden:YES];
                 [self.logoutButtonLabel setHidden:YES];
                 [self loadLoginScreen];
-
+                completion(NO, @"");
             }
         });
     });

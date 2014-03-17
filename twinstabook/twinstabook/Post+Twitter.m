@@ -13,13 +13,13 @@
 
 @implementation Post (Twitter)
 
-+ (Post *)addTwitterPostToContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict
++ (Post *)addTwitterPostToContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict forUserID:(NSString *)uid
 {
     Post *post = nil;
     //NSLog(@"postDict = %@",dict);
     NSString *postID = [NSString stringWithFormat:@"%@",[dict objectForKey:@"id"]];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
-    request.predicate = [NSPredicate predicateWithFormat:@"postID == %@",postID];
+    request.predicate = [NSPredicate predicateWithFormat:@"(postID == %@) AND (postedBy.belongsToAccountID == %@)",postID, uid];
     
     NSError *error;
     NSArray *matches = [context executeFetchRequest:request error:&error];
@@ -73,7 +73,7 @@
             }
             // add the user
             NSDictionary *userDict = [dict objectForKey:@"user"];
-            User *user = [User twitterUserInContext:context fromDictionary:userDict];
+            User *user = [User twitterUserInContext:context fromDictionary:userDict forUserID:uid];
             post.postedBy = user;
 
         }

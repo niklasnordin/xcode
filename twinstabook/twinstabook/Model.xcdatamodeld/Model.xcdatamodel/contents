@@ -8,9 +8,11 @@
         <attribute name="likes" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="postID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlToPost" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="postedBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="posts" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="belongsToAccountID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profileImageData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="profileImageURL" optional="YES" attributeType="String" syncable="YES"/>
@@ -20,7 +22,7 @@
         <relationship name="posts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Post" inverseName="postedBy" inverseEntity="Post" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Post" positionX="0" positionY="0" width="128" height="165"/>
-        <element name="User" positionX="-270" positionY="0" width="128" height="150"/>
+        <element name="Post" positionX="0" positionY="0" width="128" height="178"/>
+        <element name="User" positionX="-270" positionY="0" width="128" height="163"/>
     </elements>
 </model>

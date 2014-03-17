@@ -853,6 +853,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="60" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="vKf-sF-lvg">
+                                <rect key="frame" x="150" y="273" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -861,6 +865,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="vKf-sF-lvg" id="Ebs-E5-nq7"/>
                         <outlet property="instagramSwitch" destination="cQW-PJ-8Em" id="89D-gI-h14"/>
                         <outlet property="loggedInAsLabel" destination="2Xy-1h-Xnj" id="ffM-VK-4LE"/>
                         <outlet property="logoutButtonLabel" destination="5cb-8D-Pr5" id="rzM-gk-G3M"/>

@@ -2,7 +2,7 @@
 //  User.h
 //  twinstabook
 //
-//  Created by Niklas Nordin on 2014-03-12.
+//  Created by Niklas Nordin on 2014-03-17.
 //  Copyright (c) 2014 Niklas Nordin. All rights reserved.
 //
 
@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSNumber * type;
 @property (nonatomic, retain) NSString * uid;
 @property (nonatomic, retain) NSDate * updated;
+@property (nonatomic, retain) NSString * belongsToAccountID;
 @property (nonatomic, retain) NSSet *posts;
 @end
 

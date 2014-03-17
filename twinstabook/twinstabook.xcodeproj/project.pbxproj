@@ -26,7 +26,6 @@
 		6175B80718CF8541000FC42B /* User+Facebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 6175B80618CF8541000FC42B /* User+Facebook.m */; };
 		6175B80B18CF8BAC000FC42B /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6175B80A18CF8BAC000FC42B /* CoreDataTableViewController.m */; };
 		6175B80E18D1048E000FC42B /* FB-ThumbsUp_29.png in Resources */ = {isa = PBXBuildFile; fileRef = 6175B80D18D1048E000FC42B /* FB-ThumbsUp_29.png */; };
-		6175B81418D1060F000FC42B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6175B81318D1060F000FC42B /* User.m */; };
 		6175B81618D10761000FC42B /* Basic-Speech-bubble-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6175B81518D10761000FC42B /* Basic-Speech-bubble-icon.png */; };
 		617CE87B18AA933A0025AA92 /* optionsPickerViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 617CE87A18AA933A0025AA92 /* optionsPickerViewDelegate.m */; };
 		617CE87D18AD2EDD0025AA92 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617CE87C18AD2EDD0025AA92 /* Accounts.framework */; };
@@ -40,7 +39,8 @@
 		619F936618D239C600751232 /* Post+Instagram.m in Sources */ = {isa = PBXBuildFile; fileRef = 619F936518D239C600751232 /* Post+Instagram.m */; };
 		619F936918D2590B00751232 /* Post+Twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 619F936818D2590B00751232 /* Post+Twitter.m */; };
 		619F936C18D2593600751232 /* User+Twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 619F936B18D2593600751232 /* User+Twitter.m */; };
-		619F937818D386CF00751232 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 619F937718D386CF00751232 /* Post.m */; };
+		619F938D18D76DCF00751232 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 619F938C18D76DCF00751232 /* User.m */; };
+		619F939018D76DD000751232 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 619F938F18D76DD000751232 /* Post.m */; };
 		61C57C4618897BA600887F5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4518897BA600887F5E /* Foundation.framework */; };
 		61C57C4818897BA600887F5E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4718897BA600887F5E /* CoreGraphics.framework */; };
 		61C57C4A18897BA600887F5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4918897BA600887F5E /* UIKit.framework */; };
@@ -117,8 +117,6 @@
 		6175B80A18CF8BAC000FC42B /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		6175B80C18D0BE05000FC42B /* twinstabook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = twinstabook.entitlements; sourceTree = "<group>"; };
 		6175B80D18D1048E000FC42B /* FB-ThumbsUp_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FB-ThumbsUp_29.png"; sourceTree = "<group>"; };
-		6175B81218D1060F000FC42B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		6175B81318D1060F000FC42B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		6175B81518D10761000FC42B /* Basic-Speech-bubble-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Basic-Speech-bubble-icon.png"; sourceTree = "<group>"; };
 		617CE87918AA933A0025AA92 /* optionsPickerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = optionsPickerViewDelegate.h; sourceTree = "<group>"; };
 		617CE87A18AA933A0025AA92 /* optionsPickerViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = optionsPickerViewDelegate.m; sourceTree = "<group>"; };
@@ -140,8 +138,10 @@
 		619F936818D2590B00751232 /* Post+Twitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Post+Twitter.m"; sourceTree = "<group>"; };
 		619F936A18D2593600751232 /* User+Twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+Twitter.h"; sourceTree = "<group>"; };
 		619F936B18D2593600751232 /* User+Twitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Twitter.m"; sourceTree = "<group>"; };
-		619F937618D386CF00751232 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
-		619F937718D386CF00751232 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		619F938B18D76DCF00751232 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../User.h; sourceTree = "<group>"; };
+		619F938C18D76DCF00751232 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../User.m; sourceTree = "<group>"; };
+		619F938E18D76DD000751232 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Post.h; path = ../Post.h; sourceTree = "<group>"; };
+		619F938F18D76DD000751232 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Post.m; path = ../Post.m; sourceTree = "<group>"; };
 		61C57C4218897BA600887F5E /* twinstabook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twinstabook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C57C4518897BA600887F5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		61C57C4718897BA600887F5E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -435,16 +435,16 @@
 		61FC7F3218CC50560025350A /* DB */ = {
 			isa = PBXGroup;
 			children = (
+				619F938E18D76DD000751232 /* Post.h */,
+				619F938F18D76DD000751232 /* Post.m */,
+				619F938B18D76DCF00751232 /* User.h */,
+				619F938C18D76DCF00751232 /* User.m */,
 				6175B80418CF71B6000FC42B /* staticConstants.h */,
 				61DFBF6F18BBEC0C00DB6D4E /* UserObject.h */,
 				61DFBF7018BBEC0C00DB6D4E /* UserObject.m */,
 				6188A2A718917CB9009C75EB /* tif_db.h */,
 				6188A2A818917CB9009C75EB /* tif_db.m */,
 				61FC7F3318CC50930025350A /* Model.xcdatamodeld */,
-				619F937618D386CF00751232 /* Post.h */,
-				619F937718D386CF00751232 /* Post.m */,
-				6175B81218D1060F000FC42B /* User.h */,
-				6175B81318D1060F000FC42B /* User.m */,
 			);
 			name = DB;
 			sourceTree = "<group>";
@@ -586,8 +586,8 @@
 				6137E00118A7B11600E0C589 /* tifTableViewCell.m in Sources */,
 				61C57C5618897BA600887F5E /* twinstabookAppDelegate.m in Sources */,
 				6175B80718CF8541000FC42B /* User+Facebook.m in Sources */,
+				619F938D18D76DCF00751232 /* User.m in Sources */,
 				617CE87B18AA933A0025AA92 /* optionsPickerViewDelegate.m in Sources */,
-				6175B81418D1060F000FC42B /* User.m in Sources */,
 				6165737618B5288A0025DF09 /* firstViewController.m in Sources */,
 				61ECD15118981B8C00E5B952 /* groupTableViewController.m in Sources */,
 				619F936918D2590B00751232 /* Post+Twitter.m in Sources */,
@@ -596,7 +596,7 @@
 				6165737918B54D600025DF09 /* twitterSettingsViewController.m in Sources */,
 				6188A2A918917CB9009C75EB /* tif_db.m in Sources */,
 				61DFBF6B18BA208800DB6D4E /* AddGroupMembersViewController.m in Sources */,
-				619F937818D386CF00751232 /* Post.m in Sources */,
+				619F939018D76DD000751232 /* Post.m in Sources */,
 				617CE88818AD30270025AA92 /* linkWebViewController.m in Sources */,
 				61ECD154189D2B4200E5B952 /* groupNavigationController.m in Sources */,
 				61DFBF6E18BA211C00DB6D4E /* searchGroupMembersViewController.m in Sources */,

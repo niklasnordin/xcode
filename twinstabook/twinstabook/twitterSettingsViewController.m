@@ -64,13 +64,18 @@
     
     [self.tableView setHidden:hide];
     [self.statusLabel setHidden:hide];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
     if (self.db.useTwitter)
     {
         [self.db loadAllTwitterFriendsInViewController:self];
         [self.tableView reloadData];
+        ACAccount *account = self.db.selectedTwitterAccount;
+        NSString *uid = [account identifier];
+        self.db.twitterAccountUserID = uid;
+        [defaults setObject:uid forKey:TWITTERUID];
+        
     }
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSNumber *numberTwitter = [[NSNumber alloc] initWithBool:self.db.useTwitter];
     [defaults setObject:numberTwitter forKey:USETWITTER];
     [defaults synchronize];
@@ -139,11 +144,15 @@
         self.db.selectedTwitterAccountIndex = [[NSNumber alloc] initWithInteger:indexPath.row];
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:self.db.selectedTwitterAccountIndex forKey:SELECTEDTWITTERACCOUNTINDEX];
-        [defaults synchronize];
         
         self.db.selectedTwitterAccount = account;
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
         [self.db loadAllTwitterFriendsInViewController:self];
+        
+        NSString *uid = [account identifier];
+        [defaults setObject:uid forKey:TWITTERUID];
+        [defaults synchronize];
+
     }
     [tableView reloadData];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

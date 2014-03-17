@@ -353,8 +353,10 @@
              {
                  NSArray *accounts = [self.account accountsWithAccountType:self.facebookAccountType];
                  // there is only one facebook account
-                 ACAccount *facebookAccount = [accounts lastObject];
-                 self.facebookUsername = [facebookAccount userFullName];
+                 self.selectedFacebookAccount = [accounts lastObject];
+                 self.facebookAccountUserID = [self.selectedFacebookAccount identifier];
+                 
+                 self.facebookUsername = [self.selectedFacebookAccount userFullName];
 
                  dispatch_async(dispatch_get_main_queue(), ^{
                      completion(YES);

@@ -25,8 +25,14 @@ static NSString * const INSTAGRAM = @"Instagram";
 //static const int kInstagram = 2;
 
 static NSString * const USEFACEBOOK = @"usefacebook";
+static NSString * const FACEBOOKUID = @"facebookUID";
+
 static NSString * const USETWITTER = @"useTwitter";
+static NSString * const TWITTERUID = @"twitterUID";
+
 static NSString * const USEINSTAGRAM = @"useInstagram";
+static NSString * const INSTAGRAMUID = @"instagramUID";
+
 static NSString * const SELECTEDMEDIANAME = @"selectedMediaName";
 static NSString * const SELECTEDFEEDINDEX = @"selectedFeedIndex";
 static NSString * const GROUPS = @"groups";

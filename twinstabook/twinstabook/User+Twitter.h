@@ -12,8 +12,8 @@
 
 @interface User (Twitter)
 
-+ (User *)twitterUserInContext:(NSManagedObjectContext *)context fromPost:(Post *)post;
-+ (User *)twitterUserInContext:(NSManagedObjectContext *)context fromUserObject:(UserObject *)obj;
-+ (User *)twitterUserInContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict;
+//+ (User *)twitterUserInContext:(NSManagedObjectContext *)context fromPost:(Post *)post;
+//+ (User *)twitterUserInContext:(NSManagedObjectContext *)context fromUserObject:(UserObject *)obj;
++ (User *)twitterUserInContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict forUserID:(NSString *)auid;
 
 @end

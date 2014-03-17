@@ -10,7 +10,7 @@
 #import "User+Twitter.h"
 
 @implementation User (Twitter)
-
+/*
 + (User *)twitterUserInContext:(NSManagedObjectContext *)context fromPost:(Post *)post
 {
     User *usr = nil;
@@ -77,15 +77,15 @@
     
     return usr;
 }
+*/
 
-
-+ (User *)twitterUserInContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict
++ (User *)twitterUserInContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict forUserID:(NSString *)auid
 {
     User *usr = nil;
     NSString *uid = [dict objectForKey:@"id_str"];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moUser];
-    request.predicate = [NSPredicate predicateWithFormat:@"uid = %@", uid];
+    request.predicate = [NSPredicate predicateWithFormat:@"(uid == %@) AND (belongsToAccountID == %@)", uid, auid];
     
     NSError *error;
     NSArray *matches = [context executeFetchRequest:request error:&error];
@@ -103,6 +103,7 @@
         usr.uid = uid;
         usr.type = [NSNumber numberWithInteger:kTwitter];
         usr.updated = [NSDate dateWithTimeIntervalSinceNow:0];
+        usr.belongsToAccountID = auid;
     }
     else
     {

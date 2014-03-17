@@ -350,7 +350,7 @@
                                  for (NSDictionary *jPost in json)
                                  {
                                      [self.database.managedDocument.managedObjectContext performBlock:^{
-                                         Post *post = [Post addTwitterPostToContext:self.database.managedDocument.managedObjectContext fromDictionary:jPost];
+                                         Post *post = [Post addTwitterPostToContext:self.database.managedDocument.managedObjectContext fromDictionary:jPost forUserID:self.database.twitterAccountUserID];
                                      }];
                                      
                                  }
@@ -431,7 +431,7 @@
                     // add it to core data
                     //NSLog(@"userDict = %@",userDict);
                     [self.database.managedDocument.managedObjectContext performBlock:^{
-                        Post *post = [Post addInstagramPostToContext:self.database.managedDocument.managedObjectContext fromDictionary:jPost];
+                        Post *post = [Post addInstagramPostToContext:self.database.managedDocument.managedObjectContext fromDictionary:jPost forUserID:self.database.instagramAccountUserID];
                     }];
                     
                 }

@@ -12,13 +12,13 @@
 @implementation Post (Instagram)
 
 
-+ (Post *)addInstagramPostToContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict
++ (Post *)addInstagramPostToContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict forUserID:(NSString *)uid
 {
     //NSLog(@"dict = %@",dict);
     Post *post = nil;
     NSString *postID = [NSString stringWithFormat:@"%@",[dict objectForKey:@"id"]];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
-    request.predicate = [NSPredicate predicateWithFormat:@"postID == %@",postID];
+    request.predicate = [NSPredicate predicateWithFormat:@"(postID == %@)  AND (postedBy.belongsToAccountID == %@)",postID, uid];
     
     NSError *error;
     NSArray *matches = [context executeFetchRequest:request error:&error];
@@ -60,7 +60,7 @@
             post.likes = likes;
             NSDictionary *userDict = [dict objectForKey:@"user"];
             //User *user = [User instagramUserInContext:context fromDictionary:userDict];
-            User *user = [User instagramUserInContext:context fromDictionary:userDict];
+            User *user = [User instagramUserInContext:context fromDictionary:userDict forUserID:uid];
             post.postedBy = user;
             
         }

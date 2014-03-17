@@ -46,6 +46,10 @@
             {
                 self.statusLabel.hidden = NO;
                 [self.statusLabel setText:[NSString stringWithFormat:@"Logged in as : %@",[self.db facebookUsername]]];
+                NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+                [defaults setObject:self.db.facebookAccountUserID forKey:FACEBOOKUID];
+                [defaults synchronize];
+
             }
         }];
 //        [self.statusLabel setText:[NSString stringWithFormat:@"Logged in as : %@",[self.db facebookUsername]]];
@@ -69,12 +73,11 @@
     if (sender.on)
     {
         [self.db openFacebookInViewController:self withCompletionsHandler:^(BOOL success) {
-            NSLog(@"success = %d",success);
             if (success)
             {
-                NSLog(@"setting label text");
                 self.statusLabel.hidden = !sender.on;
                 [self.statusLabel setText:[NSString stringWithFormat:@"Logged in as : %@",[self.db facebookUsername]]];
+                
             }
         }];
         

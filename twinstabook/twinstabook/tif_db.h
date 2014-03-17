@@ -51,10 +51,12 @@
 
 // facebook
 @property (strong, nonatomic) ACAccountType *facebookAccountType;
+@property (strong, nonatomic) ACAccount *selectedFacebookAccount;
 @property (strong, nonatomic) NSMutableArray *facebookFriends;
 @property (strong, nonatomic) NSArray *facebookSearchOptions;
 @property (strong, nonatomic) NSString *facebookUsername;
 @property (strong, nonatomic) UIImage *facebookLogo;
+@property (strong, nonatomic) NSString *facebookAccountUserID;
 
 - (void)openFacebookInViewController:(UIViewController *)vc withCompletionsHandler:(void (^)(BOOL success))completion;
 //- (void)loadAllFacebookFriends;
@@ -67,6 +69,7 @@
 @property (strong, nonatomic) ACAccount *selectedTwitterAccount;
 @property (strong, nonatomic) NSNumber *selectedTwitterAccountIndex;
 @property (strong, nonatomic) UIImage *twitterLogo;
+@property (strong, nonatomic) NSString *twitterAccountUserID;
 
 - (void)openTwitterInViewController:(UIViewController *)vc;
 - (void)loadAllTwitterFriendsInViewController:(UIViewController *)vc;
@@ -76,6 +79,7 @@
 @property (strong, nonatomic) UIImage *instagramLogo;
 @property (strong, nonatomic) NSString *instagramAccessToken;
 @property (strong, nonatomic) NSMutableArray *instagramFriends;
+@property (strong, nonatomic) NSString *instagramAccountUserID;
 
 - (void)openInstagramInViewController:(UIViewController *)vc andWebView:(UIWebView *)webView;
 - (void)loadAllInstagramFriendsInViewController:(UIViewController *)vc withCursor:(NSString *)cursor;
