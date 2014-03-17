@@ -102,7 +102,9 @@
     [self.feedTableView addGestureRecognizer: self.revealViewController.panGestureRecognizer];
 
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
-    request.predicate = nil;
+    //request.predicate = nil;
+    request.predicate = [NSPredicate predicateWithFormat:@"((postedBy.type == %d) AND (postedBy.belongsToAccountID == %@)) OR ((postedBy.type == %d) AND (postedBy.belongsToAccountID == %@)) OR ((postedBy.type == %d) AND (postedBy.belongsToAccountID == %@))",kTwitter,self.database.twitterAccountUserID,kFacebook,self.database.facebookAccountUserID,kInstagram,self.database.instagramAccountUserID];
+
     request.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO] ];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
@@ -114,6 +116,7 @@
     }];
     */
     self.nRefreshers = 0;
+    [self.feedTableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

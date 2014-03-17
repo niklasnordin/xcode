@@ -17,7 +17,7 @@
     NSString *uid = post.postedBy.uid;
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moUser];
-    request.predicate = [NSPredicate predicateWithFormat:@"uid = %@", uid];
+    request.predicate = [NSPredicate predicateWithFormat:@"uid == %@", uid];
     
     NSError *error;
     NSArray *matches = [context executeFetchRequest:request error:&error];

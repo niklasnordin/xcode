@@ -116,11 +116,14 @@
             _instagramAccessToken = [database objectForKey:INSTAGRAMACCESSTOKEN];
             _selectedTwitterAccountIndex = [database objectForKey:SELECTEDTWITTERACCOUNTINDEX];
 
-
             if (_useTwitter)
             {
                 _selectedTwitterAccount = [self.twitterAccounts objectAtIndex:self.selectedTwitterAccountIndex.intValue];
             }
+            
+            _facebookAccountUserID = [database objectForKey:FACEBOOKUID];
+            _twitterAccountUserID = [database objectForKey:TWITTERUID];
+            _instagramAccountUserID = [database objectForKey:INSTAGRAMUID];
             
             _groups = [database objectForKey:GROUPS];
             _groupMembers = [[NSMutableDictionary alloc] init];

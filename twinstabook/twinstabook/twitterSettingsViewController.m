@@ -150,6 +150,7 @@
         [self.db loadAllTwitterFriendsInViewController:self];
         
         NSString *uid = [account identifier];
+        self.db.twitterAccountUserID = uid;
         [defaults setObject:uid forKey:TWITTERUID];
         [defaults synchronize];
 
