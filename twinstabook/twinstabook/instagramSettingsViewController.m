@@ -58,7 +58,9 @@
             }
         }];
     }
-    [self.activityIndicator setHidden:YES];
+
+    [self.activityIndicator stopAnimating];
+    [self.activityIndicator setHidesWhenStopped:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,12 +75,13 @@
     
     if (self.db.useInstagram)
     {
-        [self.activityIndicator setHidden:NO];
+        [self.activityIndicator startAnimating];
         [self checkIfAccessTokenIsValidwithCompletionsHandler:^(BOOL isValid, NSString *username) {
             if (isValid)
             {
                 [self.loggedInAsLabel setHidden:NO];
                 [self.loggedInAsLabel setText:[NSString stringWithFormat:@"Logged in as: %@",username]];
+                [self.activityIndicator stopAnimating];
             }
         }];
         //[self.db openInstagramInViewController:self andWebView:self.webView];
@@ -151,7 +154,7 @@
 {
     NSLog(@"webViewDidFinishLoad");
     [self.activityIndicator stopAnimating];
-    [self.activityIndicator setHidden:YES];
+
     if ([self.db.instagramAccessToken length] > 1)
     {
         [self checkIfAccessTokenIsValidwithCompletionsHandler:^(BOOL isValid, NSString *username) {
@@ -185,14 +188,15 @@
         NSString *urlString = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/?access_token=%@",self.db.instagramAccessToken];
         NSURL *url = [NSURL URLWithString:urlString];
         NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+        [self.db startActivityIndicator];
         NSData *pData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&responseCode error:&error];
+        [self.db stopActivityIndicator];
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:pData options:NSJSONReadingMutableLeaves error:&error];
     
-        //NSLog(@"result = %@",result);
         NSDictionary *metaDict = [result objectForKey:@"meta"];
         NSNumber *codeNumber = [metaDict objectForKey:@"code"];
         int codeInt = [codeNumber intValue];
-        //NSLog(@"code = %@",codeNumber);
+
         dispatch_async(dispatch_get_main_queue(), ^ {
             
             if (codeInt != 400)
