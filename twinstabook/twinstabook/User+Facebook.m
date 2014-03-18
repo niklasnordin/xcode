@@ -11,14 +11,16 @@
 
 @implementation User (Facebook)
 
-+ (User *)facebookUserInContext:(NSManagedObjectContext *)context fromPost:(Post *)post
++ (User *)facebookUserInContext:(NSManagedObjectContext *)context forUserObject:(UserObject *)usrObj forAccountID:(NSString *)auid
 {
     User *usr = nil;
-    NSString *uid = post.postedBy.uid;
+    NSString *uid = usrObj.uid;
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moUser];
-    request.predicate = [NSPredicate predicateWithFormat:@"uid == %@", uid];
-    
+    //request.predicate = [NSPredicate predicateWithFormat:@"uid == %@", uid];
+
+    request.predicate = [NSPredicate predicateWithFormat:@"(uid == '%@') AND (belongsToAccountID == '%@')", uid, auid];
+
     NSError *error;
     NSArray *matches = [context executeFetchRequest:request error:&error];
     
@@ -29,12 +31,13 @@
     else if (!matches.count)
     {
         usr = [NSEntityDescription insertNewObjectForEntityForName:moUser inManagedObjectContext:context];
-        usr.name = post.postedBy.name;
-        usr.profileImageData = post.postedBy.profileImageData;
-        usr.profileImageURL = post.postedBy.profileImageURL;
-        usr.uid = post.postedBy.uid;
-        usr.type = post.postedBy.type;
-        usr.updated = post.postedBy.updated;
+        usr.name = usrObj.name;
+        usr.profileImageData = usrObj.imageData;
+        usr.profileImageURL = usrObj.profileImageURL;
+        usr.uid = usrObj.uid;
+        usr.type = [NSNumber numberWithInteger:kFacebook];
+        usr.updated = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
+        usr.belongsToAccountID = auid;
     }
     else
     {

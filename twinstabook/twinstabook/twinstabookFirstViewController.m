@@ -9,7 +9,7 @@
 #import "twinstabookFirstViewController.h"
 #import "tifTableViewCell.h"
 //#import "FacebookParser.h"
-//#import "displayObject.h"
+#import "UserObject.h"
 #import "linkWebViewController.h"
 #import "Post.h"
 #import "User.h"
@@ -218,7 +218,12 @@
     if (self.database.useFacebook)
     {
         [self startRefresher];
-        [self readFacebookFeed:@"me" withRefresher:sender];
+        //[self readFacebookFeed:@"me" withRefresher:sender];
+
+        UserObject *firstFriend = [self.database.facebookFriends lastObject];
+        NSLog(@"feed for %@",[firstFriend name]);
+        //NSString *friendID = [firstFriend uid];
+        [self readFacebookFeed:firstFriend withRefresher:sender];
 
         /*
 
@@ -279,7 +284,7 @@
     }
 }
 
-- (void)readFacebookFeed:(NSString *)uid withRefresher:(UIRefreshControl *)sender
+- (void)readFacebookFeed:(UserObject *)usr withRefresher:(UIRefreshControl *)sender
 {
     
     NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
@@ -302,7 +307,7 @@
              {
                  NSLog(@"facebook acces read stream granted");
 
-                 NSString *apiString = [NSString stringWithFormat:@"%@/%@/feed", kFacebookGraphRoot,uid];
+                 NSString *apiString = [NSString stringWithFormat:@"%@/%@/feed", kFacebookGraphRoot,usr.uid];
                  NSURL *request = [NSURL URLWithString:apiString];
                  SLRequest *posts = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:nil];
                  posts.account = self.database.selectedFacebookAccount;
@@ -316,15 +321,16 @@
                           NSDictionary *pagingDict = [jsonDict objectForKey:@"paging"];
                           if (json.count)
                           {
-                              /*
+                              //NSLog(@"json = %@",json);
+                              
                               for (NSDictionary *jPost in json)
                               {
                                   [self.database.managedDocument.managedObjectContext performBlock:^{
-                                      //Post *post = [Post addTwitterPostToContext:self.database.managedDocument.managedObjectContext fromDictionary:jPost forUserID:self.database.twitterAccountUserID];
+                                      Post *post = [Post addFacebookPostToContext:self.database.managedDocument.managedObjectContext fromDictionary:jPost forUserObject:usr forAccountID:self.database.facebookAccountUserID];
                                   }];
                                   
                               }
-                               */
+                            
                           }
                           /*
                           dispatch_async(dispatch_get_main_queue(), ^(void){
@@ -379,44 +385,7 @@
     [format setDateStyle:NSDateFormatterShortStyle];
     NSString *str = [format stringFromDate:self.database.lastUpdate];
     [params setObject:str forKey:@"since"];
-/*
-    [FBRequestConnection startWithGraphPath:startPage parameters:nil HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *conn, id result, NSError *error)
-     {
-         if (!error)
-         {
-             NSArray *data = [result objectForKey:@"data"];
-             
-             if (data)
-             {
-                 //[self.feedArray removeAllObjects];
-                 //self.database.lastUpdate = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
-                 [self.uidLoaded setObject:[[NSNumber alloc] initWithBool:YES] forKey:uid];
-                 for (NSDictionary *k in data)
-                 {
-                     DisplayObject *obj = [FacebookParser parse:k];
-                     if (obj)
-                     {
-                         [self.feedArray addObject:obj];
-                     }
-                 }
-                 
-             }
-             dispatch_async(dispatch_get_main_queue(), ^(void){
-                 [self.feedTableView reloadData];
-             });
-             
-             if ([self checkIfAllPostsAreLoaded])
-             {
-                 [sender endRefreshing];
-             }
-         }
-         else
-         {
-             NSLog(@"error: %@",error);
-         }
-     }
-     ];
-  */
+
 }
 
 - (void)readTwitterFeedWithRefreshed:(UIRefreshControl *)sender
@@ -990,28 +959,6 @@
         
     });
     
-}
-- (void)updateImagesInManagedObject
-{
-    
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moUser];
-    request.predicate = nil;
-    request.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO] ];
-    NSError *error;
-    NSArray *matches = [self.database.managedDocument.managedObjectContext executeFetchRequest:request error:&error];
-    
-    if ([matches count])
-    {
-        for (User *usr in matches)
-        {
-            if (!usr.profileImageData)
-            {
-                //
-            }
-            
-            // check if picture is too old, then we also update it
-        }
-    }
 }
 
 @end

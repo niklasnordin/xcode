@@ -416,7 +416,6 @@
      {
          if (granted)
          {
-             //NSLog(@"access granted");
              
              NSArray *accounts = [self.account accountsWithAccountType:self.facebookAccountType];
              
@@ -438,8 +437,6 @@
                   {
                       [self stopActivityIndicator];
                       
-                      //NSLog(@"response = %@",response);
-                      //NSLog(@"error = %@",error.debugDescription);
                       if (!error)
                       {
                           //self.facebookUsername = [facebookAccount userFullName];

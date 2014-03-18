@@ -8,10 +8,11 @@
 
 #import "User.h"
 #import "Post.h"
+#import "UserObject.h"
 
 @interface User (Facebook)
 
-+ (User *)facebookUserInContext:(NSManagedObjectContext *)context fromPost:(Post *)post;
++ (User *)facebookUserInContext:(NSManagedObjectContext *)context forUserObject:(UserObject *)usr forAccountID:(NSString *)auid;
 + (User *)dummyUserInContext:(NSManagedObjectContext *)context;
 
 @end

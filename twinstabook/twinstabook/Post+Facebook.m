@@ -33,9 +33,35 @@
 
     return post;
 
-/*
+}
+
++ (Post *)addFacebookPostToContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict forUserObject:(UserObject *)usr forAccountID:(NSString *)auid
+{
+    Post *post = nil;
+    NSString *status_type = [dict objectForKey:@"status_type"];
+    //NSLog(@"status_type = %@",status_type);
+    
+    //NSString *type = [dict objectForKey:@"type"];
+    //NSLog(@"type = %@",type);
+    
+    if ([status_type isEqualToString:@"mobile_status_update"])
+    {
+        //NSLog(@"dict = %@",dict);
+        post = [Post addFacebookMobileStatusUpdateToContext:context fromDictionary:dict forUserObject:usr forAccountID:auid];
+    }
+    
+    return post;
+}
+
++ (Post *)addFacebookMobileStatusUpdateToContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict forUserObject:(UserObject *)usr forAccountID:(NSString *)auid
+{
+    Post *post = nil;
+    NSLog(@"postDict = %@",dict);
+    
+    NSString *postID = [NSString stringWithFormat:@"%@",[dict objectForKey:@"id"]];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
-    request.predicate = [NSPredicate predicateWithFormat:@"url = %@",dummy];
+
+    request.predicate = [NSPredicate predicateWithFormat:@"(postID == '%@') AND (postedBy.belongsToAccountID == '%@')",postID, auid];
     
     NSError *error;
     NSArray *matches = [context executeFetchRequest:request error:&error];
@@ -54,10 +80,30 @@
         }
         else
         {
+            //NSLog(@"dict = %@",dict);
             post = [NSEntityDescription insertNewObjectForEntityForName:moPost inManagedObjectContext:context];
+            
+            post.postID = postID;
+            post.message = [dict objectForKey:@"message"];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
+            //[dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss Z yyyy"]; // twitter
+            [dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZ"];
+            //@"yyyy-MM-dd'T'HH:mm:ssZZZZ"
+            post.date = [dateFormatter dateFromString:[dict objectForKey:@"created_at"]];
+            post.imageURL = nil;
+            post.imageData = nil;
+            
+            // add the user
+            //NSDictionary *userDict = [dict objectForKey:@"user"];
+            User *user = [User facebookUserInContext:context forUserObject:usr forAccountID:auid];
+            post.postedBy = user;
+            
         }
     }
- */
-}
+    
+    return post;
 
+}
 @end

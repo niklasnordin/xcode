@@ -7,9 +7,12 @@
 //
 
 #import "Post.h"
+#import "UserObject.h"
 
 @interface Post (Facebook)
 
 + (Post *)addDummyToContext:(NSManagedObjectContext *)context;
++ (Post *)addFacebookPostToContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict forUserObject:(UserObject *)usr forAccountID:(NSString *)auid;
++ (Post *)addFacebookMobileStatusUpdateToContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict forUserObject:(UserObject *)usr forAccountID:(NSString *)auid;
 
 @end
