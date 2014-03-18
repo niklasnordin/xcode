@@ -199,13 +199,14 @@
             {
                 //NSLog(@"it is valid");
                 NSDictionary *dataDict = [result objectForKey:@"data"];
-                //NSLog(@"dataDict = %@",dataDict);
                 NSString *username = [dataDict objectForKey:@"username"];
-                
-                //NSString *profileLinkURL = [dataDict objectForKey:@"profile_picture"];
                 NSString *userid = [dataDict objectForKey:@"id"];
                 self.db.instagramAccountUserID = userid;
 
+                NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+                [defaults setObject:userid forKey:INSTAGRAMUID];
+                [defaults synchronize];
+                
                 [self.webView setHidden:YES];
                 [self.logoutButtonLabel setHidden:NO];
                 completion(YES, username);

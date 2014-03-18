@@ -92,6 +92,11 @@
             }];
         }
     }
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    NSNumber *numberFacebook = [[NSNumber alloc] initWithBool:self.db.useFacebook];
+    [defaults setObject:numberFacebook forKey:USEFACEBOOK];
+    [defaults synchronize];
 }
 
 @end

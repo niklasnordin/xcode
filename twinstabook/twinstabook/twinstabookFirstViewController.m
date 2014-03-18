@@ -71,6 +71,9 @@
     //self.feedArray = [[NSMutableArray alloc] init];
     self.selectedLinkForWebview = [[NSString alloc] init];
     
+    NSString *predicateTemplate = @"(postedBy.type == %d) AND (postedBy.belongsToAccountID == '%@')";
+    NSString *predicateString = nil;
+    
     if (self.database.useFacebook)
     {
         [self.database openFacebookInViewController:self withCompletionsHandler:^(BOOL success) {
@@ -80,12 +83,26 @@
             // do nothing
         }];
 
+        NSString *facebookPredicate = [NSString stringWithFormat:predicateTemplate,kFacebook,self.database.facebookAccountUserID];
+        predicateString = [NSString stringWithString:facebookPredicate];
+
     }
 
     if (self.database.useTwitter)
     {
         [self.database openTwitterInViewController:self];
         [self.database loadAllTwitterFriendsInViewController:self];
+        
+        NSString *twitterPredicate = [NSString stringWithFormat:predicateTemplate,kTwitter,self.database.twitterAccountUserID];
+
+        if (!predicateString)
+        {
+            predicateString = [NSString stringWithString:twitterPredicate];
+        }
+        else
+        {
+            predicateString = [NSString stringWithFormat:@"(%@) OR (%@)",predicateString,twitterPredicate];
+        }
     }
     
     if (self.database.useInstagram)
@@ -93,8 +110,18 @@
         // initialize instagram
         //[self.database openInstagramInViewController:self];
         [self.database loadAllInstagramFriendsInViewController:self withCursor:nil];
+        NSString *instagramPredicate = [NSString stringWithFormat:predicateTemplate,kInstagram,self.database.instagramAccountUserID];
+
+        if (!predicateString)
+        {
+            predicateString = [NSString stringWithString:instagramPredicate];
+        }
+        else
+        {
+            predicateString = [NSString stringWithFormat:@"(%@) OR (%@)",predicateString,instagramPredicate];
+        }
     }
-    
+    NSLog(@"predicateString = %@",predicateString);
     // setup for the slider
     [self.revealButtonItem setTarget: self.revealViewController];
     [self.revealButtonItem setAction: @selector( revealToggle: )];
@@ -103,7 +130,9 @@
 
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
     //request.predicate = nil;
-    request.predicate = [NSPredicate predicateWithFormat:@"((postedBy.type == %d) AND (postedBy.belongsToAccountID == %@)) OR ((postedBy.type == %d) AND (postedBy.belongsToAccountID == %@)) OR ((postedBy.type == %d) AND (postedBy.belongsToAccountID == %@))",kTwitter,self.database.twitterAccountUserID,kFacebook,self.database.facebookAccountUserID,kInstagram,self.database.instagramAccountUserID];
+    
+    //request.predicate = [NSPredicate predicateWithFormat:@"((postedBy.type == %d) AND (postedBy.belongsToAccountID == %@)) OR ((postedBy.type == %d) AND (postedBy.belongsToAccountID == %@)) OR ((postedBy.type == %d) AND (postedBy.belongsToAccountID == %@))",kTwitter,self.database.twitterAccountUserID,kFacebook,self.database.facebookAccountUserID,kInstagram,self.database.instagramAccountUserID];
+    request.predicate = [NSPredicate predicateWithFormat:predicateString];
 
     request.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO] ];
     
@@ -176,20 +205,23 @@
         NSLog(@"post.postedBy.name = %@",post.postedBy.name);
     }];
     */
+    /*
+     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
+     //request.predicate = [NSPredicate predicateWithFormat:@"(postedBy.name == 'deadmau5') OR (postedBy.name == 'rickygervais')"];
+     request.predicate = [NSPredicate predicateWithFormat:@"(postedBy.type == %d)",kTwitter];
+     
+     request.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO] ];
+     
+     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+     */
+    
     if (self.database.useFacebook)
     {
-        //[self startRefresher];
-        
+        [self startRefresher];
+        [self readFacebookFeed:@"me" withRefresher:sender];
+
         /*
-        FBSession *session = [FBSession activeSession];
-        
-        if (!session.isOpen)
-        {
-            NSLog(@"FB session is NOT open");
-            return;
-        }
-        
-        //NSString *startPage = @"/me/feed";
+
         
         self.database.lastUpdate = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
         if (self.database.selectedFeedIndex == kFacebook)
@@ -234,24 +266,15 @@
     
     if (self.database.useTwitter)
     {
-        /*
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
-        //request.predicate = [NSPredicate predicateWithFormat:@"(postedBy.name == 'deadmau5') OR (postedBy.name == 'rickygervais')"];
-        request.predicate = [NSPredicate predicateWithFormat:@"(postedBy.type == %d)",kTwitter];
-
-        request.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO] ];
-        
-        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-        */
-        
         [self startRefresher];
         [self readTwitterFeedWithRefreshed:sender];
     } // end useTwitter
 
+    // if no feeds are selected just stop the refresher and reset the counter...should be zero anyways...
     bool allFeeds = self.database.useFacebook || self.database.useInstagram || self.database.useTwitter;
-    
     if (!allFeeds)
     {
+        self.nRefreshers = 0;
         [sender endRefreshing];
     }
 }
@@ -259,6 +282,94 @@
 - (void)readFacebookFeed:(NSString *)uid withRefresher:(UIRefreshControl *)sender
 {
     
+    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString *appID = infoDict[@"FacebookAppID"];
+    
+    NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
+                             @"read_friendlists",
+                             @"user_photos",
+                             nil];
+    
+    NSDictionary *options = @{ ACFacebookPermissionsKey : permissions,
+                               ACFacebookAudienceKey : ACFacebookAudienceFriends,
+                               ACFacebookAppIdKey : appID };
+    
+    [self.database.account requestAccessToAccountsWithType:self.database.facebookAccountType options:options completion:^(BOOL granted, NSError *error)
+     {
+         if (!error)
+         {
+             if (granted)
+             {
+                 NSLog(@"facebook acces read stream granted");
+
+                 NSString *apiString = [NSString stringWithFormat:@"%@/%@/feed", kFacebookGraphRoot,uid];
+                 NSURL *request = [NSURL URLWithString:apiString];
+                 SLRequest *posts = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:nil];
+                 posts.account = self.database.selectedFacebookAccount;
+                 [posts performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
+                  {
+
+                      if (!error)
+                      {
+                          NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+                          NSArray *json = [jsonDict objectForKey:@"data"];
+                          NSDictionary *pagingDict = [jsonDict objectForKey:@"paging"];
+                          if (json.count)
+                          {
+                              /*
+                              for (NSDictionary *jPost in json)
+                              {
+                                  [self.database.managedDocument.managedObjectContext performBlock:^{
+                                      //Post *post = [Post addTwitterPostToContext:self.database.managedDocument.managedObjectContext fromDictionary:jPost forUserID:self.database.twitterAccountUserID];
+                                  }];
+                                  
+                              }
+                               */
+                          }
+                          /*
+                          dispatch_async(dispatch_get_main_queue(), ^(void){
+                              [self.feedTableView reloadData];
+                          });
+                           */
+                          
+                      }
+                      else
+                      {
+                          NSLog(@"error = %@",[error localizedDescription]);
+                      }
+                      [self stopRefresher];
+
+                  }];
+                 
+             }
+             else
+             {
+                 UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"Facebook access not granted. Check permissions in Settings"
+                                                                 delegate:nil
+                                                        cancelButtonTitle:@"OK"
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:nil];
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     [as showInView:self.view];
+                 });
+             }
+         }
+         else
+         {
+             NSString *errorMessage = [NSString stringWithFormat:@"%@",[error localizedDescription]];
+             UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:errorMessage
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [as showInView:self.view];
+             });
+         }
+     }
+     ];
+    
+
     //NSString *startPage = [NSString stringWithFormat:@"/%@/feed",uid];
     //NSString *startPage = @"/me/feed";
 
@@ -845,7 +956,7 @@
             if (pImageData)
             {
                 user.profileImageData = pImageData;
-                [self.feedTableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+                //[self.feedTableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
             }
         });
         
@@ -873,7 +984,7 @@
             if (pImageData)
             {
                 post.imageData = pImageData;
-                [self.feedTableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+                //[self.feedTableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
             }
         });
         

@@ -14,10 +14,11 @@
 
 + (Post *)addInstagramPostToContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict forUserID:(NSString *)uid
 {
-    //NSLog(@"dict = %@",dict);
+
     Post *post = nil;
     NSString *postID = [NSString stringWithFormat:@"%@",[dict objectForKey:@"id"]];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
+
     request.predicate = [NSPredicate predicateWithFormat:@"(postID == %@)  AND (postedBy.belongsToAccountID == %@)",postID, uid];
     
     NSError *error;
@@ -31,7 +32,8 @@
     }
     else
     {
-        if ([matches count])
+
+        if ([matches count]) // should only be one
         {
             post = [matches lastObject];
         }
@@ -51,19 +53,23 @@
             NSDictionary *imagesDict = [dict objectForKey:@"images"];
             NSDictionary *standardImageDict = [imagesDict objectForKey:@"standard_resolution"];
             post.imageURL = [standardImageDict objectForKey:@"url"];
-            NSDictionary *commentsDict = [dict objectForKey:@"comments"];
-            NSNumber *comments = [commentsDict objectForKey:@"count"];
-                //NSString *cmt = [commentsDict objectForKey:@"count"];
-            post.comments = comments;
-            NSDictionary *likesDict = [dict objectForKey:@"likes"];
-            NSNumber *likes = [likesDict objectForKey:@"count"];
-            post.likes = likes;
+            
             NSDictionary *userDict = [dict objectForKey:@"user"];
-            //User *user = [User instagramUserInContext:context fromDictionary:userDict];
             User *user = [User instagramUserInContext:context fromDictionary:userDict forUserID:uid];
             post.postedBy = user;
             
         }
+        
+        // always update the number of likes/comments...
+        NSDictionary *commentsDict = [dict objectForKey:@"comments"];
+        NSNumber *comments = [commentsDict objectForKey:@"count"];
+        
+        NSDictionary *likesDict = [dict objectForKey:@"likes"];
+        NSNumber *likes = [likesDict objectForKey:@"count"];
+        
+        post.comments = comments;
+        post.likes = likes;
+
     }
     
     return post;

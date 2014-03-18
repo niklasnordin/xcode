@@ -45,13 +45,14 @@
             post.message = [dict objectForKey:@"text"];
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
-            //[dateFormatter setDateStyle:NSDateFormatterFullStyle];
-            //[dateFormatter setTimeStyle:NSDateFormatterFullStyle];
             [dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss Z yyyy"];
             post.date = [dateFormatter dateFromString:[dict objectForKey:@"created_at"]];
             NSDictionary *entities = [dict objectForKey:@"entities"];
             NSArray *mediaArray = [entities objectForKey:@"media"];
             NSDictionary *media = [mediaArray firstObject];
+            post.imageURL = nil;
+            post.imageData = nil;
+            
             if (media)
             {
                 //NSLog(@"media = %@",media);
@@ -60,17 +61,8 @@
                 {
                     post.imageURL = mediaURL;
                 }
-                else
-                {
-                    post.imageURL = nil;
-                    post.imageData = nil;
-                }
             }
-            else
-            {
-                post.imageURL = nil;
-                post.imageData = nil;
-            }
+
             // add the user
             NSDictionary *userDict = [dict objectForKey:@"user"];
             User *user = [User twitterUserInContext:context fromDictionary:userDict forUserID:uid];
