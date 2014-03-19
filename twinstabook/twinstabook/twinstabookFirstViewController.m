@@ -218,19 +218,19 @@
     if (self.database.useFacebook)
     {
         //[self readFacebookFeed:@"me" withRefresher:sender];
-
+/*
         for (UserObject *friend in self.database.facebookFriends)
         {
             [self startRefresher];
             [self readFacebookFeed:friend withRefresher:sender];
         }
+        */
         
-        /*
         [self startRefresher];
 
         UserObject *friend = [self.database.facebookFriends lastObject];
         [self readFacebookFeed:friend withRefresher:sender];
-*/
+
     } // end useFacebook
     
     if (self.database.useInstagram)

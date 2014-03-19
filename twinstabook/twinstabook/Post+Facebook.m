@@ -6,6 +6,9 @@
 //  Copyright (c) 2014 Niklas Nordin. All rights reserved.
 //
 
+#import <Accounts/Accounts.h>
+#import <Social/Social.h>
+
 #import "Post+Facebook.h"
 #import "User.h"
 #import "User+Facebook.h"
@@ -104,9 +107,118 @@
             post.postedBy = user;
             
         }
+        
+        [Post readLikesForFacebookPost:dict withCompletionHandler:^(NSInteger likes) {
+            post.likes = [NSNumber numberWithInteger:likes];
+        }];
+        
+        [Post readCommentsForFacebookPost:dict withCompletionHandler:^(NSInteger comments) {
+            post.comments = [NSNumber numberWithInteger:comments];
+        }];
     }
     
     return post;
 
 }
+
++ (void)readLikesForFacebookPost:(NSDictionary *)dict withCompletionHandler:(void (^)(NSInteger likes))completion
+{
+    NSString *postID = [NSString stringWithFormat:@"%@",[dict objectForKey:@"id"]];
+
+    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString *appID = infoDict[@"FacebookAppID"];
+    
+    NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
+                             @"read_friendlists",
+                             @"user_photos",
+                             nil];
+    
+    NSDictionary *options = @{ ACFacebookPermissionsKey : permissions,
+                               ACFacebookAudienceKey : ACFacebookAudienceFriends,
+                               ACFacebookAppIdKey : appID };
+    
+    
+     ACAccountStore *account = [[ACAccountStore alloc] init];
+     ACAccountType *fbType = [account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+
+    [account requestAccessToAccountsWithType:fbType options:options completion:^(BOOL granted, NSError *error)
+     {
+         NSArray *accounts = [account accountsWithAccountType:fbType];
+         // there is only one facebook account
+         ACAccount *fbAccount = [accounts lastObject];
+         
+         //NSString *apiString = [NSString stringWithFormat:@"%@/%@",kFacebookGraphRoot,postID];
+         NSString *apiString = [NSString stringWithFormat:@"%@/%@/likes",kFacebookGraphRoot,postID];
+         
+         NSURL *request = [NSURL URLWithString:apiString];
+         //NSDictionary *param = @{ @"fields" : @"likes" , @"summary" : @"1" };
+         NSDictionary *param = @{ @"summary" : @"1" };
+
+         SLRequest *postRequest = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:param];
+         postRequest.account = fbAccount;
+
+         [postRequest performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
+          {
+              NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+
+              NSDictionary *summary = [result objectForKey:@"summary"];
+              NSInteger nCount = [[summary objectForKey:@"total_count"] integerValue];
+
+              completion(nCount);
+          }];
+
+     }];
+    
+}
+
++ (void)readCommentsForFacebookPost:(NSDictionary *)dict withCompletionHandler:(void (^)(NSInteger likes))completion
+{
+    NSString *postID = [NSString stringWithFormat:@"%@",[dict objectForKey:@"id"]];
+    
+    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString *appID = infoDict[@"FacebookAppID"];
+    
+    NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
+                             @"read_friendlists",
+                             @"user_photos",
+                             nil];
+    
+    NSDictionary *options = @{ ACFacebookPermissionsKey : permissions,
+                               ACFacebookAudienceKey : ACFacebookAudienceFriends,
+                               ACFacebookAppIdKey : appID };
+    
+    
+    ACAccountStore *account = [[ACAccountStore alloc] init];
+    ACAccountType *fbType = [account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+    
+    [account requestAccessToAccountsWithType:fbType options:options completion:^(BOOL granted, NSError *error)
+     {
+         NSArray *accounts = [account accountsWithAccountType:fbType];
+         // there is only one facebook account
+         ACAccount *fbAccount = [accounts lastObject];
+         
+         //NSString *apiString = [NSString stringWithFormat:@"%@/%@",kFacebookGraphRoot,postID];
+         NSString *apiString = [NSString stringWithFormat:@"%@/%@/comments",kFacebookGraphRoot,postID];
+         
+         NSURL *request = [NSURL URLWithString:apiString];
+         //NSDictionary *param = @{ @"fields" : @"likes" , @"summary" : @"1" };
+         NSDictionary *param = @{ @"summary" : @"1" };
+         
+         SLRequest *postRequest = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:param];
+         postRequest.account = fbAccount;
+         
+         [postRequest performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
+          {
+              NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+              //NSLog(@"result = %@",result);
+              NSDictionary *summary = [result objectForKey:@"summary"];
+              NSInteger nCount = [[summary objectForKey:@"total_count"] integerValue];
+              
+              completion(nCount);
+          }];
+         
+     }];
+    
+}
+
 @end
