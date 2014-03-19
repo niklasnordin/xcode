@@ -217,50 +217,20 @@
     
     if (self.database.useFacebook)
     {
-        [self startRefresher];
         //[self readFacebookFeed:@"me" withRefresher:sender];
 
-        UserObject *firstFriend = [self.database.facebookFriends lastObject];
-        NSLog(@"feed for %@",[firstFriend name]);
-        //NSString *friendID = [firstFriend uid];
-        [self readFacebookFeed:firstFriend withRefresher:sender];
-
-        /*
-
+        for (UserObject *friend in self.database.facebookFriends)
+        {
+            [self startRefresher];
+            [self readFacebookFeed:friend withRefresher:sender];
+        }
         
-        self.database.lastUpdate = [[NSDate alloc] initWithTimeIntervalSinceNow:0];
-        if (self.database.selectedFeedIndex == kFacebook)
-        {
-            NSInteger num = self.database.facebookFriends.count;
-            self.uidsToLoad = [[NSMutableArray alloc] initWithCapacity:num];
-            self.uidLoaded = [[NSMutableDictionary alloc] init];
-            for (int i=0; i<num; i++)
-            {
-                NSDictionary<FBGraphUser>* friend = self.database.facebookFriends[i];
-                self.uidsToLoad[i] = friend.id;
-                [self.uidLoaded setObject:[[NSNumber alloc] initWithBool:NO] forKey:friend.id];
-            }
-            
-            for (NSDictionary<FBGraphUser> *friend in self.database.facebookFriends)
-            {
-                //NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
-                NSString *uid = friend.id;
-                [self readFacebookFeed:uid withRefresher:sender];
-            }
-        }
-        else
-        {
-            NSString *feedGroup = [self.database.groups objectAtIndex:self.database.selectedFeedIndex-1];
-            NSArray *members = [self.database.groupMembers objectForKey:feedGroup];
-            for (NSDictionary *user in members)
-            {
-                //NSLog(@"user = %@",user);
-                NSString *uid = [user objectForKey:@"uid"];
-                [self readFacebookFeed:uid withRefresher:sender];
-            }
-        }
-        //[self readFacebookFeed: withRefresher:sender]
-        */
+        /*
+        [self startRefresher];
+
+        UserObject *friend = [self.database.facebookFriends lastObject];
+        [self readFacebookFeed:friend withRefresher:sender];
+*/
     } // end useFacebook
     
     if (self.database.useInstagram)
@@ -305,11 +275,15 @@
          {
              if (granted)
              {
-                 NSLog(@"facebook acces read stream granted");
+                 //NSLog(@"facebook acces read stream granted");
 
-                 NSString *apiString = [NSString stringWithFormat:@"%@/%@/feed", kFacebookGraphRoot,usr.uid];
+                 NSString *apiString = [NSString stringWithFormat:@"%@/%@/posts", kFacebookGraphRoot,usr.uid];
                  NSURL *request = [NSURL URLWithString:apiString];
-                 SLRequest *posts = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:nil];
+                 
+                 NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+                 [parameters setObject:@"true" forKey:@"summary"];
+                 
+                 SLRequest *posts = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:parameters];
                  posts.account = self.database.selectedFacebookAccount;
                  [posts performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
                   {
@@ -689,8 +663,8 @@
         }
         
     }
-//    cell.mainImage.image = self.database.instagramLogo;
-    cell.mainImage.contentMode = UIViewContentModeScaleToFill;
+    cell.mainImage.contentMode = UIViewContentModeScaleAspectFit;
+    //cell.mainImage.contentMode = UIViewContentModeScaleToFill;
     
     kMediaTypes type = user.type.intValue;
     switch (type) {
@@ -925,7 +899,7 @@
             if (pImageData)
             {
                 user.profileImageData = pImageData;
-                //[self.feedTableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.feedTableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
             }
         });
         
@@ -953,7 +927,7 @@
             if (pImageData)
             {
                 post.imageData = pImageData;
-                //[self.feedTableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.feedTableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
             }
         });
         

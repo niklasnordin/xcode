@@ -32,7 +32,7 @@
     {
         usr = [NSEntityDescription insertNewObjectForEntityForName:moUser inManagedObjectContext:context];
         usr.name = usrObj.name;
-        usr.profileImageData = usrObj.imageData;
+        usr.profileImageData = nil; //usrObj.imageData;
         usr.profileImageURL = usrObj.profileImageURL;
         usr.uid = usrObj.uid;
         usr.type = [NSNumber numberWithInteger:kFacebook];

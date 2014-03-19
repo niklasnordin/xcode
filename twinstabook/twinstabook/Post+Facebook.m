@@ -39,7 +39,6 @@
 {
     Post *post = nil;
     NSString *status_type = [dict objectForKey:@"status_type"];
-    //NSLog(@"status_type = %@",status_type);
     
     //NSString *type = [dict objectForKey:@"type"];
     //NSLog(@"type = %@",type);
@@ -56,12 +55,12 @@
 + (Post *)addFacebookMobileStatusUpdateToContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict forUserObject:(UserObject *)usr forAccountID:(NSString *)auid
 {
     Post *post = nil;
-    NSLog(@"postDict = %@",dict);
+    //NSLog(@"postDict = %@",dict);
     
     NSString *postID = [NSString stringWithFormat:@"%@",[dict objectForKey:@"id"]];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
 
-    request.predicate = [NSPredicate predicateWithFormat:@"(postID == '%@') AND (postedBy.belongsToAccountID == '%@')",postID, auid];
+    request.predicate = [NSPredicate predicateWithFormat:@"(postID == %@) AND (postedBy.belongsToAccountID == %@)",postID, auid];
     
     NSError *error;
     NSArray *matches = [context executeFetchRequest:request error:&error];
@@ -86,13 +85,17 @@
             post.postID = postID;
             post.message = [dict objectForKey:@"message"];
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
+            [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
             //[dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss Z yyyy"]; // twitter
-            [dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
-            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZ"];
-            //@"yyyy-MM-dd'T'HH:mm:ssZZZZ"
-            post.date = [dateFormatter dateFromString:[dict objectForKey:@"created_at"]];
-            post.imageURL = nil;
+            //[dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZ"];
+
+            NSString *created_at = [dict objectForKey:@"created_time"];
+            //NSLog(@"created at = %@",created_at);
+            post.date = [dateFormatter dateFromString:created_at];
+            //NSLog(@"date = %@",post.date);
+
+            post.imageURL = [dict objectForKey:@"picture"];
             post.imageData = nil;
             
             // add the user
