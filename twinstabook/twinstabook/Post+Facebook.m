@@ -58,11 +58,15 @@
 + (Post *)addFacebookMobileStatusUpdateToContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict forUserObject:(UserObject *)usr forAccountID:(NSString *)auid
 {
     Post *post = nil;
+    if (!context)
+    {
+        return post;
+    }
+    
     //NSLog(@"postDict = %@",dict);
     
     NSString *postID = [NSString stringWithFormat:@"%@",[dict objectForKey:@"id"]];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
-
     request.predicate = [NSPredicate predicateWithFormat:@"(postID == %@) AND (postedBy.belongsToAccountID == %@)",postID, auid];
     
     NSError *error;
@@ -107,13 +111,18 @@
             post.postedBy = user;
             
         }
+        __weak Post *blockPost = post;
         
         [Post readLikesForFacebookPost:dict withCompletionHandler:^(NSInteger likes) {
-            post.likes = [NSNumber numberWithInteger:likes];
+            //dispatch_async(dispatch_get_main_queue(), ^ {
+            blockPost.likes = [NSNumber numberWithInteger:likes];
+            //});
         }];
         
         [Post readCommentsForFacebookPost:dict withCompletionHandler:^(NSInteger comments) {
-            post.comments = [NSNumber numberWithInteger:comments];
+            //dispatch_async(dispatch_get_main_queue(), ^ {
+                blockPost.comments = [NSNumber numberWithInteger:comments];
+            //});
         }];
     }
     

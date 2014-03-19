@@ -29,6 +29,7 @@
 @property (strong, nonatomic) NSMutableDictionary *uidLoaded;
 @property (strong, nonatomic) NSString *selectedLinkForWebview;
 @property (strong, nonatomic) NSArray *twitterArray;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 @property (nonatomic) int nRefreshers;
 @end
 
@@ -144,8 +145,11 @@
         //[Post addDummyToContext:self.database.managedDocument.managedObjectContext];
     }];
     */
+    [self.progressBar setHidden:YES];
+    [self.progressBar setProgress:0.0 animated:NO];
+    
     self.nRefreshers = 0;
-    [self.feedTableView reloadData];
+    //[self.feedTableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -225,12 +229,18 @@
             [self readFacebookFeed:friend withRefresher:sender];
         }
         */
+        [self.progressBar setHidden:NO];
+        [self.progressBar setProgress:0.0 animated:YES];
+        [self readFacebookFeedForArray:self.database.facebookFriends atPosition:0 withRefresher:sender andCompletionHandler:^(BOOL success) {
+            // do nothing
+        }];
         
+        /*
         [self startRefresher];
 
         UserObject *friend = [self.database.facebookFriends lastObject];
         [self readFacebookFeed:friend withRefresher:sender];
-
+*/
     } // end useFacebook
     
     if (self.database.useInstagram)
@@ -254,8 +264,9 @@
     }
 }
 
-- (void)readFacebookFeed:(UserObject *)usr withRefresher:(UIRefreshControl *)sender
+- (void)readFacebookFeedForArray:(NSArray *)userArray atPosition:(int)n withRefresher:(UIRefreshControl *)sender andCompletionHandler:(void (^)(BOOL success))completion
 {
+    UserObject *usr = [userArray objectAtIndex:n];
     
     NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *appID = infoDict[@"FacebookAppID"];
@@ -295,7 +306,7 @@
                       {
                           NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
                           NSArray *json = [jsonDict objectForKey:@"data"];
-                          NSDictionary *pagingDict = [jsonDict objectForKey:@"paging"];
+                          //NSDictionary *pagingDict = [jsonDict objectForKey:@"paging"];
                           if (json.count)
                           {
                               //NSLog(@"json = %@",json);
@@ -309,11 +320,6 @@
                               }
                             
                           }
-                          /*
-                          dispatch_async(dispatch_get_main_queue(), ^(void){
-                              [self.feedTableView reloadData];
-                          });
-                           */
                           
                       }
                       else
@@ -321,7 +327,24 @@
                           NSLog(@"error = %@",[error localizedDescription]);
                       }
                       [self stopRefresher];
-
+                      int nextNumber = n+1;
+                      float progress = (float)nextNumber/(float)userArray.count;
+                      dispatch_async(dispatch_get_main_queue(), ^{
+                          [self.progressBar setProgress:progress animated:YES];
+                      });
+                      
+                      if (nextNumber < userArray.count)
+                      {
+                          dispatch_async(dispatch_get_main_queue(), ^{
+                              [self readFacebookFeedForArray:userArray atPosition:nextNumber withRefresher:sender andCompletionHandler:^(BOOL success) {
+                                  // do nothing
+                              }];
+                          });
+                      }
+                      else
+                      {
+                          [self.progressBar setHidden:YES];
+                      }
                   }];
                  
              }
@@ -902,6 +925,7 @@
     NSMutableURLRequest *pictureRequest = [NSMutableURLRequest requestWithURL:url];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
+    __weak User *weakUser = user;
     __block NSData *pImageData = nil;
     dispatch_async(queue, ^ {
         NSHTTPURLResponse *responseCode = nil;
@@ -914,7 +938,7 @@
         dispatch_async(dispatch_get_main_queue(), ^ {
             if (pImageData)
             {
-                user.profileImageData = pImageData;
+                weakUser.profileImageData = pImageData;
                 [self.feedTableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
             }
         });
@@ -930,6 +954,7 @@
     NSMutableURLRequest *pictureRequest = [NSMutableURLRequest requestWithURL:url];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
+    __weak Post *weakPost = post;
     __block NSData *pImageData = nil;
     dispatch_async(queue, ^ {
         NSHTTPURLResponse *responseCode = nil;
@@ -942,7 +967,7 @@
         dispatch_async(dispatch_get_main_queue(), ^ {
             if (pImageData)
             {
-                post.imageData = pImageData;
+                weakPost.imageData = pImageData;
                 [self.feedTableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
             }
         });

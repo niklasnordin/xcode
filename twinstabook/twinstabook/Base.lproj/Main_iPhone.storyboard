@@ -137,6 +137,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="q00-8f-Ooh">
+                                <rect key="frame" x="20" y="556" width="280" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -148,6 +152,7 @@
                     <connections>
                         <outlet property="feedButton" destination="VNV-hw-as4" id="Gun-sM-GxM"/>
                         <outlet property="feedTableView" destination="FJX-ti-L9c" id="uKH-N9-j6d"/>
+                        <outlet property="progressBar" destination="q00-8f-Ooh" id="nli-kD-BdR"/>
                         <outlet property="revealButtonItem" destination="pZR-q5-dOQ" id="Qt1-n8-kSy"/>
                         <segue destination="XUU-u8-yZh" kind="push" identifier="weblinkSegue" id="FqH-c4-kSi"/>
                     </connections>
