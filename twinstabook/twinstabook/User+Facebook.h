@@ -12,6 +12,7 @@
 
 @interface User (Facebook)
 
++ (User *)facebookUserInContext:(NSManagedObjectContext *)context withFacebookDictionary:(NSDictionary *)dict forAccountID:(NSString *)auid;
 + (User *)facebookUserInContext:(NSManagedObjectContext *)context forUserObject:(UserObject *)usr forAccountID:(NSString *)auid;
 + (User *)dummyUserInContext:(NSManagedObjectContext *)context;
 

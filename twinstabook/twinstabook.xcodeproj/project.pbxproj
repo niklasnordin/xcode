@@ -41,6 +41,10 @@
 		619F936C18D2593600751232 /* User+Twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 619F936B18D2593600751232 /* User+Twitter.m */; };
 		619F938D18D76DCF00751232 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 619F938C18D76DCF00751232 /* User.m */; };
 		619F939018D76DD000751232 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 619F938F18D76DD000751232 /* Post.m */; };
+		619F939318DA172800751232 /* retweet_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 619F939118DA172800751232 /* retweet_on.png */; };
+		619F939418DA172800751232 /* favorite_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 619F939218DA172800751232 /* favorite_on.png */; };
+		619F939618DA1B3B00751232 /* speech-bubble-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 619F939518DA1B3B00751232 /* speech-bubble-24.png */; };
+		619F939818DA1BA900751232 /* favorite-5-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 619F939718DA1BA900751232 /* favorite-5-24.png */; };
 		61C57C4618897BA600887F5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4518897BA600887F5E /* Foundation.framework */; };
 		61C57C4818897BA600887F5E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4718897BA600887F5E /* CoreGraphics.framework */; };
 		61C57C4A18897BA600887F5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C57C4918897BA600887F5E /* UIKit.framework */; };
@@ -142,6 +146,10 @@
 		619F938C18D76DCF00751232 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../User.m; sourceTree = "<group>"; };
 		619F938E18D76DD000751232 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Post.h; path = ../Post.h; sourceTree = "<group>"; };
 		619F938F18D76DD000751232 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Post.m; path = ../Post.m; sourceTree = "<group>"; };
+		619F939118DA172800751232 /* retweet_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retweet_on.png; sourceTree = "<group>"; };
+		619F939218DA172800751232 /* favorite_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite_on.png; sourceTree = "<group>"; };
+		619F939518DA1B3B00751232 /* speech-bubble-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speech-bubble-24.png"; sourceTree = "<group>"; };
+		619F939718DA1BA900751232 /* favorite-5-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite-5-24.png"; sourceTree = "<group>"; };
 		61C57C4218897BA600887F5E /* twinstabook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twinstabook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C57C4518897BA600887F5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		61C57C4718897BA600887F5E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -236,6 +244,8 @@
 		6137DFFA18A7B00000E0C589 /* twitter */ = {
 			isa = PBXGroup;
 			children = (
+				619F939118DA172800751232 /* retweet_on.png */,
+				619F939218DA172800751232 /* favorite_on.png */,
 				61FC7F2718C8F8290025350A /* Twitter-Logo-200-sq-Border.png */,
 				613192A218C68063005A1C5E /* Twitter-Logo-200-sq.png */,
 				6165737718B54D600025DF09 /* twitterSettingsViewController.h */,
@@ -251,6 +261,8 @@
 		6137DFFB18A7B00C00E0C589 /* instagram */ = {
 			isa = PBXGroup;
 			children = (
+				619F939518DA1B3B00751232 /* speech-bubble-24.png */,
+				619F939718DA1BA900751232 /* favorite-5-24.png */,
 				619F936118D2398C00751232 /* User+Instagram.h */,
 				619F936218D2398C00751232 /* User+Instagram.m */,
 				619F936418D239C600751232 /* Post+Instagram.h */,
@@ -537,6 +549,7 @@
 				6137DFEC18A3FF1200E0C589 /* questionMark.png in Resources */,
 				6175B81618D10761000FC42B /* Basic-Speech-bubble-icon.png in Resources */,
 				61C57C5C18897BA600887F5E /* Main_iPad.storyboard in Resources */,
+				619F939618DA1B3B00751232 /* speech-bubble-24.png in Resources */,
 				61ECD15918A1667700E5B952 /* IMG_1414.jpg in Resources */,
 				61C57C6418897BA600887F5E /* Images.xcassets in Resources */,
 				61FC7F2A18C8F8490025350A /* Facebook-Logo-Small.tif in Resources */,
@@ -547,7 +560,10 @@
 				613192A318C68063005A1C5E /* Twitter-Logo-200-sq.png in Resources */,
 				61FC7F2818C8F8290025350A /* Twitter-Logo-200-sq-Border.png in Resources */,
 				61FC7F2E18C8FC540025350A /* Facebook-Logo-Small-Border.jpg in Resources */,
+				619F939418DA172800751232 /* favorite_on.png in Resources */,
+				619F939318DA172800751232 /* retweet_on.png in Resources */,
 				6175B80E18D1048E000FC42B /* FB-ThumbsUp_29.png in Resources */,
+				619F939818DA1BA900751232 /* favorite-5-24.png in Resources */,
 				6165736E18B4039A0025DF09 /* reveal-icon.png in Resources */,
 				61FC7F2618C8F7FB0025350A /* Instagram-Logo-200-Border.png in Resources */,
 				613192A118C67F96005A1C5E /* Instagram-Logo-200.png in Resources */,

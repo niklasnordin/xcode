@@ -92,6 +92,10 @@
             }];
         }
     }
+    else
+    {
+        self.statusLabel.hidden = !sender.on;
+    }
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
     NSNumber *numberFacebook = [[NSNumber alloc] initWithBool:self.db.useFacebook];

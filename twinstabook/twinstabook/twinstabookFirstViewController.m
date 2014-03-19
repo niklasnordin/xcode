@@ -285,8 +285,11 @@
                  
                  SLRequest *posts = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:parameters];
                  posts.account = self.database.selectedFacebookAccount;
+                 
+                 [self.database startActivityIndicator];
                  [posts performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
                   {
+                      [self.database stopActivityIndicator];
 
                       if (!error)
                       {
@@ -393,8 +396,12 @@
                 SLRequest *posts = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:request parameters:parameters];
                 
                 posts.account = twitterAccount;
+                
+                [self.database startActivityIndicator];
                 [posts performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
                  {
+                     [self.database stopActivityIndicator];
+
                      //NSLog(@"response = %@",response);
                      //NSLog(@"error = %@",error.debugDescription);
                      if (!error)
@@ -631,6 +638,7 @@
     cell.likesLabel.text = [NSString stringWithFormat:@"%@",post.likes];
     cell.commentsLabel.text = [NSString stringWithFormat:@"%@",post.comments];
     cell.mainImage.image = nil;
+    
     if (post.imageData)
     {
         cell.mainImage.image = [UIImage imageWithData:post.imageData];
@@ -670,12 +678,21 @@
     switch (type) {
         case kFacebook:
             cell.typeImage.image = self.database.facebookLogo;
+            cell.likesImage.image = [UIImage imageNamed:@"FB-ThumbsUp_29.png"];
+            cell.commentsImage.image = [UIImage imageNamed:@"Basic-Speech-bubble-icon.png"];
             break;
+            
         case kInstagram:
             cell.typeImage.image = self.database.instagramLogo;
+            cell.likesImage.image = [UIImage imageNamed:@"favorite-5-24.png"];
+            cell.commentsImage.image = [UIImage imageNamed:@"speech-bubble-24.png"];
+
             break;
         case kTwitter:
             cell.typeImage.image = self.database.twitterLogo;
+            cell.likesImage.image = [UIImage imageNamed:@"favorite_on.png"];
+            cell.commentsImage.image = [UIImage imageNamed:@"retweet_on.png"];
+            
             break;
             
         default:
@@ -690,8 +707,7 @@
     {
         [self downloadImageForUser:user AtIndexPath:indexPath];
     }
-    cell.likesImage.image = [UIImage imageNamed:@"FB-ThumbsUp_29.png"];
-    cell.commentsImage.image = [UIImage imageNamed:@"Basic-Speech-bubble-icon.png"];
+
     cell.accessoryType = UITableViewCellAccessoryNone;
     return cell;
 }

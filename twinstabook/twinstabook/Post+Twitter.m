@@ -69,6 +69,9 @@
             post.postedBy = user;
 
         }
+        
+        post.likes = [dict objectForKey:@"favorite_count"];
+        post.comments = [dict objectForKey:@"retweet_count"];
     }
 
     return post;

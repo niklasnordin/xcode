@@ -9,6 +9,9 @@
 #import "tif_db.h"
 #import "twinstabookFirstViewController.h"
 #import "UserObject.h"
+#import "User+Facebook.h"
+#import "User+Twitter.h"
+#import "User+Instagram.h"
 
 @interface tif_db ()
 @property (nonatomic) int nActivities;
@@ -396,6 +399,8 @@
     
 }
 
+#pragma mark load all facebook friends
+
 - (void)loadAllFacebookFriendsWithCompletionsHandler:(void (^)(BOOL success))completion
 {
     
@@ -450,6 +455,10 @@
                               for (NSDictionary *userDict in friendsArray)
                               {
                                   //NSLog(@"userDict = %@",userDict);
+                                  //dispatch_async(dispatch_get_main_queue(), ^{
+                                      User *usr = [User facebookUserInContext:self.managedDocument.managedObjectContext withFacebookDictionary:userDict forAccountID:self.facebookAccountUserID];
+                                  //});
+                                                 
                                   NSDictionary *pictureDict = [[userDict objectForKey:@"picture"] objectForKey:@"data"];
                                  // NSLog(@"picureDict = %@",pictureDict);
                                   UserObject *user = [[UserObject alloc] init];
@@ -623,6 +632,7 @@
                               }
                               for (NSDictionary *u in users)
                               {
+                                  User *usr = [User twitterUserInContext:self.managedDocument.managedObjectContext fromDictionary:u forUserID:self.twitterAccountUserID];
                                   NSString *name = [u objectForKey:@"screen_name"];
                                   NSString *uid = [u objectForKey:@"id_str"];
                                   UserObject *user = [[UserObject alloc] init];
@@ -740,6 +750,7 @@
 
                 for (NSDictionary *userDict in userData)
                 {
+                    User *usr = [User instagramUserInContext:self.managedDocument.managedObjectContext fromDictionary:userDict forUserID:self.twitterAccountUserID];
                     UserObject *user = [[UserObject alloc] init];
                     user.name = [userDict objectForKey:@"username"];
                     user.uid = [userDict objectForKey:@"id"];
