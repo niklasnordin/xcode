@@ -72,6 +72,7 @@
 - (IBAction)clickedInstagramSwitch:(UISwitch *)sender
 {
     self.db.useInstagram = sender.on;
+    self.db.instagramLoaded = NO;
     
     if (self.db.useInstagram)
     {
@@ -82,6 +83,8 @@
                 [self.loggedInAsLabel setHidden:NO];
                 [self.loggedInAsLabel setText:[NSString stringWithFormat:@"Logged in as: %@",username]];
                 [self.activityIndicator stopAnimating];
+                [self.db loadAllInstagramFriendsInViewController:self withCursor:nil];
+
             }
         }];
         //[self.db openInstagramInViewController:self andWebView:self.webView];
@@ -110,6 +113,7 @@
     [self.logoutButtonLabel setHidden:YES];
     [self.loggedInAsLabel setHidden:YES];
     [self.webView setHidden:NO];
+    self.db.instagramLoaded = NO;
 }
 
 - (BOOL)webView:(UIWebView *)webView
@@ -162,6 +166,7 @@
             {
                 [self.loggedInAsLabel setHidden:NO];
                 [self.loggedInAsLabel setText:[NSString stringWithFormat:@"Logged in as: %@",username]];
+                [self.db loadAllInstagramFriendsInViewController:self withCursor:nil];
             }
         }];
     }

@@ -83,6 +83,7 @@
 @property (strong, nonatomic) NSString *instagramAccessToken;
 @property (strong, nonatomic) NSMutableArray *instagramFriends;
 @property (strong, nonatomic) NSString *instagramAccountUserID;
+@property (nonatomic) BOOL instagramLoaded;
 
 - (void)openInstagramInViewController:(UIViewController *)vc andWebView:(UIWebView *)webView;
 - (void)loadAllInstagramFriendsInViewController:(UIViewController *)vc withCursor:(NSString *)cursor;

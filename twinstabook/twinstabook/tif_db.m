@@ -29,6 +29,7 @@
         self.contextIsReady = NO;
         self.facebookLoaded = NO;
         self.twitterLoaded = NO;
+        self.instagramLoaded = NO;
         
         NSFileManager *fileManager = [NSFileManager defaultManager];
         NSArray *dirs = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
@@ -193,7 +194,12 @@
         
         if (self.useTwitter)
         {
-            
+            [self loadAllTwitterFriendsInViewController:nil];
+        }
+        
+        if (self.useInstagram)
+        {
+            [self loadAllInstagramFriendsInViewController:nil withCursor:nil];
         }
     }
 }
@@ -427,6 +433,7 @@
                               }
 
                           }
+                          self.facebookLoaded = YES;
                           completion(YES);
                       }
                       else
@@ -736,6 +743,10 @@
                 {
                     // load next sequence
                     [self loadAllInstagramFriendsInViewController:vc withCursor:next_cursor];
+                }
+                else
+                {
+                    self.instagramLoaded = YES;
                 }
 
             }

@@ -18,6 +18,10 @@
 #import "Post+Instagram.h"
 
 @interface twinstabookFirstViewController ()
+@property (nonatomic) BOOL facebookReadDone;
+@property (nonatomic) BOOL twitterReadDone;
+@property (nonatomic) BOOL instagramReadDone;
+
 @property (nonatomic) BOOL beganUpdates;
 @property (strong,nonatomic) NSDateFormatter *dateFormatter;
 @property (nonatomic) IBOutlet UIBarButtonItem* revealButtonItem;
@@ -75,17 +79,8 @@
     
     if (self.database.useFacebook)
     {
-        /*
-        [self.database openFacebookInViewController:self withCompletionsHandler:^(BOOL success) {
-            // do nothing
-        }];
-        [self.database loadAllFacebookFriendsWithCompletionsHandler:^(BOOL success) {
-            // do nothing
-        }];
-*/
         NSString *facebookPredicate = [NSString stringWithFormat:predicateTemplate,kFacebook,self.database.facebookAccountUserID];
         predicateString = [NSString stringWithString:facebookPredicate];
-
     }
 
     if (self.database.useTwitter)
@@ -107,7 +102,6 @@
     {
         // initialize instagram
         //[self.database openInstagramInViewController:self];
-        [self.database loadAllInstagramFriendsInViewController:self withCursor:nil];
         NSString *instagramPredicate = [NSString stringWithFormat:predicateTemplate,kInstagram,self.database.instagramAccountUserID];
 
         if (!predicateString)
@@ -166,7 +160,7 @@
         {
             [self.refreshController endRefreshing];
         }
-        NSLog(@"startRefresher: n = %d",self.nRefreshers);
+        //NSLog(@"startRefresher: n = %d",self.nRefreshers);
     });
 }
 
@@ -178,7 +172,7 @@
         {
             [self.refreshController endRefreshing];
         }
-        NSLog(@"stopRefresher: n = %d",self.nRefreshers);
+        //NSLog(@"stopRefresher: n = %d",self.nRefreshers);
 
     });
 }
@@ -222,46 +216,20 @@
      self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
      */
     
-    if (self.database.useFacebook)
-    {
-        //[self readFacebookFeed:@"me" withRefresher:sender];
-/*
-        for (UserObject *friend in self.database.facebookFriends)
-        {
-            [self startRefresher];
-            [self readFacebookFeed:friend withRefresher:sender];
-        }
-        */
-        [self startRefresher];
-
-        if (self.database.facebookLoaded)
-        {
-            [self.progressBar setHidden:NO];
-            [self.progressBar setProgress:0.0 animated:YES];
-            [self readFacebookFeedForArray:self.database.facebookFriends atPosition:0 withRefresher:sender andCompletionHandler:^(BOOL success) {
-                // do nothing
-            }];
-        }
-        else
-        {
-            [self stopRefresher];
-            NSLog(@"facebook not loaded yet");
-        }
-        
-        /*
-        [self startRefresher];
-
-        UserObject *friend = [self.database.facebookFriends lastObject];
-        [self readFacebookFeed:friend withRefresher:sender];
-*/
-    } // end useFacebook
-    
     if (self.database.useInstagram)
     {
 
         {
             [self startRefresher];
-            [self readInstagramFeed:sender andCursor:nil];
+            if (self.database.instagramLoaded)
+            {
+                [self readInstagramFeed:sender andCursor:nil];
+            }
+            else
+            {
+                NSLog(@"instagram not loaded yet");
+                [self stopRefresher];
+            }
         }
 
     } // end useInstagram
@@ -282,6 +250,28 @@
         }
 
     } // end useTwitter
+
+    
+    if (self.database.useFacebook)
+    {
+        
+        [self startRefresher];
+        
+        if (self.database.facebookLoaded)
+        {
+            [self.progressBar setHidden:NO];
+            [self.progressBar setProgress:0.0 animated:YES];
+            [self readFacebookFeedForArray:self.database.facebookFriends atPosition:0 withRefresher:sender andCompletionHandler:^(BOOL success) {
+                // do nothing
+            }];
+        }
+        else
+        {
+            [self stopRefresher];
+            NSLog(@"facebook not loaded yet");
+        }
+        
+    } // end useFacebook
 
     // if no feeds are selected just stop the refresher and reset the counter...should be zero anyways...
     bool allFeeds = self.database.useFacebook || self.database.useInstagram || self.database.useTwitter;
