@@ -352,4 +352,69 @@ från twinstabookFirstViewController.C
 }
 */
 
+
+
+
+
+
+
+/*
+- (void)readURLAsync:(NSString *)urlString fromConnection:(FBRequestConnection *)connection
+{
+    if (urlString)
+    {
+        NSLog(@"read async: %@",urlString);
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+        
+        NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+        [conn start];
+    }
+}
+
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    NSLog(@"didRecieveResponse");
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    NSLog(@"didReceiveData");
+    
+    NSError *jsonError;
+    //NSString *svar = [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
+    NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
+    
+    NSLog(@"dict = %@",dict);
+    if (!jsonError)
+    {
+        NSMutableArray *data = [dict objectForKey:@"data"];
+        if (data)
+        {
+            NSLog(@"data = %@",data);
+        }
+    }
+    
+    
+}
+*/
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+                  willCacheResponse:(NSCachedURLResponse*)cachedResponse
+{
+    // Return nil to indicate not necessary to store a cached response for this connection
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    // The request is complete and data has been received
+    // You can parse the stuff in your instance variable now
+    NSLog(@"didFinishLoading");
+    
+}
+
+
+
+
     

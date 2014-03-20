@@ -14,6 +14,7 @@
 @interface tif_db : NSObject
 
 @property (strong, nonatomic) UIManagedDocument *managedDocument;
+@property (nonatomic) BOOL contextIsReady;
 
 // contains the names of the social medias
 @property (strong, nonatomic) NSArray *socialMediaNames;
@@ -57,6 +58,7 @@
 @property (strong, nonatomic) NSString *facebookUsername;
 @property (strong, nonatomic) UIImage *facebookLogo;
 @property (strong, nonatomic) NSString *facebookAccountUserID;
+@property (nonatomic) BOOL facebookLoaded;
 
 - (void)openFacebookInViewController:(UIViewController *)vc withCompletionsHandler:(void (^)(BOOL success))completion;
 //- (void)loadAllFacebookFriends;
@@ -70,6 +72,7 @@
 @property (strong, nonatomic) NSNumber *selectedTwitterAccountIndex;
 @property (strong, nonatomic) UIImage *twitterLogo;
 @property (strong, nonatomic) NSString *twitterAccountUserID;
+@property (nonatomic) BOOL twitterLoaded;
 
 - (void)openTwitterInViewController:(UIViewController *)vc;
 - (void)loadAllTwitterFriendsInViewController:(UIViewController *)vc;

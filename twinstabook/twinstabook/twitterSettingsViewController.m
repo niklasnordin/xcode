@@ -65,7 +65,7 @@
     [self.tableView setHidden:hide];
     [self.statusLabel setHidden:hide];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
+    self.db.twitterLoaded = NO;
     if (self.db.useTwitter)
     {
         [self.db loadAllTwitterFriendsInViewController:self];
@@ -147,6 +147,7 @@
         
         self.db.selectedTwitterAccount = account;
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        self.db.twitterLoaded = NO;
         [self.db loadAllTwitterFriendsInViewController:self];
         
         NSString *uid = [account identifier];

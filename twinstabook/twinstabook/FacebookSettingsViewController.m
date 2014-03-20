@@ -70,32 +70,34 @@
 - (IBAction)clickedSwitch:(UISwitch *)sender
 {
     self.db.useFacebook = sender.on;
+    self.db.facebookLoaded = NO;
+    
     if (sender.on)
     {
+        
         [self.db openFacebookInViewController:self withCompletionsHandler:^(BOOL success) {
             if (success)
             {
                 self.statusLabel.hidden = !sender.on;
                 [self.statusLabel setText:[NSString stringWithFormat:@"Logged in as : %@",[self.db facebookUsername]]];
-                
+                [self.db loadAllFacebookFriendsWithCompletionsHandler:^(BOOL success) {
+                    if (success)
+                    {
+                        self.db.facebookLoaded = YES;
+                    }
+                }];
+            }
+            else
+            {
+                NSLog(@"could not open facebook");
             }
         }];
-        
-        if (![self.db.facebookFriends count])
-        {
-            //[self.db loadAllFacebookFriends];
-            [self.db loadAllFacebookFriendsWithCompletionsHandler:^(BOOL success) {
-                if (success)
-                {
-                    //[self.statusLabel setText:[NSString stringWithFormat:@"Logged in as : %@",[self.db facebookUsername]]];
-                }
-            }];
-        }
     }
     else
     {
         self.statusLabel.hidden = !sender.on;
     }
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
     NSNumber *numberFacebook = [[NSNumber alloc] initWithBool:self.db.useFacebook];

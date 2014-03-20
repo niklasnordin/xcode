@@ -112,7 +112,7 @@
     SWRevealViewControllerSegue* rvcs = (SWRevealViewControllerSegue*) segue;
     SWRevealViewController* rvc = self.revealViewController;
 
-    NSLog(@"segue class = %@",[segue class]);
+    //NSLog(@"segue class = %@",[segue class]);
     /*
     NSLog(@"frontViewController = %@",[rvc.frontViewController class]);
     NSLog(@"rearViewController = %@",[rvc.rearViewController class]);

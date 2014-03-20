@@ -15,11 +15,11 @@
 {
     User *usr = nil;
 
-    //NSLog(@"userdict = %@",dict);
+    //NSLog(@"in facebookUserInContext: userdict = %@",dict);
     
     NSString *uid = [dict objectForKey:@"id"];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moUser];
-    request.predicate = [NSPredicate predicateWithFormat:@"(uid == '%@') AND (belongsToAccountID == '%@')", uid, auid];
+    request.predicate = [NSPredicate predicateWithFormat:@"(uid == %@) AND (belongsToAccountID == %@)", uid, auid];
     
     NSError *error;
     NSArray *matches = [context executeFetchRequest:request error:&error];

@@ -63,13 +63,11 @@
     NSAttributedString *title = [[NSAttributedString alloc] initWithString:str];
     self.refreshController.attributedTitle = title;
     
-    
     self.feedTableView.delegate = self;
     self.feedTableView.dataSource = self;
     
     [self.feedTableView addSubview:self.refreshController];
     
-    //self.feedArray = [[NSMutableArray alloc] init];
     self.selectedLinkForWebview = [[NSString alloc] init];
     
     NSString *predicateTemplate = @"(postedBy.type == %d) AND (postedBy.belongsToAccountID == '%@')";
@@ -77,13 +75,14 @@
     
     if (self.database.useFacebook)
     {
+        /*
         [self.database openFacebookInViewController:self withCompletionsHandler:^(BOOL success) {
             // do nothing
         }];
         [self.database loadAllFacebookFriendsWithCompletionsHandler:^(BOOL success) {
             // do nothing
         }];
-
+*/
         NSString *facebookPredicate = [NSString stringWithFormat:predicateTemplate,kFacebook,self.database.facebookAccountUserID];
         predicateString = [NSString stringWithString:facebookPredicate];
 
@@ -91,8 +90,6 @@
 
     if (self.database.useTwitter)
     {
-        [self.database openTwitterInViewController:self];
-        [self.database loadAllTwitterFriendsInViewController:self];
         
         NSString *twitterPredicate = [NSString stringWithFormat:predicateTemplate,kTwitter,self.database.twitterAccountUserID];
 
@@ -122,7 +119,14 @@
             predicateString = [NSString stringWithFormat:@"(%@) OR (%@)",predicateString,instagramPredicate];
         }
     }
-    NSLog(@"predicateString = %@",predicateString);
+    
+    if (!predicateString)
+    {
+        predicateString = @"postedBy.type == -1";
+    }
+    
+    //NSLog(@"predicateString = %@",predicateString);
+    
     // setup for the slider
     [self.revealButtonItem setTarget: self.revealViewController];
     [self.revealButtonItem setAction: @selector( revealToggle: )];
@@ -130,9 +134,6 @@
     [self.feedTableView addGestureRecognizer: self.revealViewController.panGestureRecognizer];
 
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
-    //request.predicate = nil;
-    
-    //request.predicate = [NSPredicate predicateWithFormat:@"((postedBy.type == %d) AND (postedBy.belongsToAccountID == %@)) OR ((postedBy.type == %d) AND (postedBy.belongsToAccountID == %@)) OR ((postedBy.type == %d) AND (postedBy.belongsToAccountID == %@))",kTwitter,self.database.twitterAccountUserID,kFacebook,self.database.facebookAccountUserID,kInstagram,self.database.instagramAccountUserID];
     request.predicate = [NSPredicate predicateWithFormat:predicateString];
 
     request.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO] ];
@@ -165,6 +166,7 @@
         {
             [self.refreshController endRefreshing];
         }
+        NSLog(@"startRefresher: n = %d",self.nRefreshers);
     });
 }
 
@@ -172,11 +174,12 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^(void){
         self.nRefreshers--;
-
         if (self.nRefreshers == 0)
         {
             [self.refreshController endRefreshing];
         }
+        NSLog(@"stopRefresher: n = %d",self.nRefreshers);
+
     });
 }
 
@@ -229,11 +232,21 @@
             [self readFacebookFeed:friend withRefresher:sender];
         }
         */
-        [self.progressBar setHidden:NO];
-        [self.progressBar setProgress:0.0 animated:YES];
-        [self readFacebookFeedForArray:self.database.facebookFriends atPosition:0 withRefresher:sender andCompletionHandler:^(BOOL success) {
-            // do nothing
-        }];
+        [self startRefresher];
+
+        if (self.database.facebookLoaded)
+        {
+            [self.progressBar setHidden:NO];
+            [self.progressBar setProgress:0.0 animated:YES];
+            [self readFacebookFeedForArray:self.database.facebookFriends atPosition:0 withRefresher:sender andCompletionHandler:^(BOOL success) {
+                // do nothing
+            }];
+        }
+        else
+        {
+            [self stopRefresher];
+            NSLog(@"facebook not loaded yet");
+        }
         
         /*
         [self startRefresher];
@@ -245,14 +258,29 @@
     
     if (self.database.useInstagram)
     {
-        [self startRefresher];
-        [self readInstagramFeed:sender andCursor:nil];
+
+        {
+            [self startRefresher];
+            [self readInstagramFeed:sender andCursor:nil];
+        }
+
     } // end useInstagram
     
     if (self.database.useTwitter)
     {
+        //[self.database openTwitterInViewController:self];
+        //[self.database loadAllTwitterFriendsInViewController:self];
         [self startRefresher];
-        [self readTwitterFeedWithRefreshed:sender];
+        if (self.database.twitterLoaded)
+        {
+            [self readTwitterFeedWithRefreshed:sender];
+        }
+        else
+        {
+            [self stopRefresher];
+            NSLog(@"twitter not loaded yet");
+        }
+
     } // end useTwitter
 
     // if no feeds are selected just stop the refresher and reset the counter...should be zero anyways...
@@ -315,6 +343,13 @@
                               {
                                   [self.database.managedDocument.managedObjectContext performBlock:^{
                                       Post *post = [Post addFacebookPostToContext:self.database.managedDocument.managedObjectContext fromDictionary:jPost forUserObject:usr forAccountID:self.database.facebookAccountUserID];
+                                      [Post readCommentsForFacebookPostID:post.postID withCompletionHandler:^(NSInteger nComments) {
+                                          post.comments = [NSNumber numberWithInteger:nComments];
+                                          
+                                          [Post readLikesForFacebookPost:post.postID withCompletionHandler:^(NSInteger nLikes) {
+                                              post.likes = [NSNumber numberWithInteger:nLikes];
+                                          }];
+                                      }];
                                   }];
                                   
                               }
@@ -324,9 +359,18 @@
                       }
                       else
                       {
-                          NSLog(@"error = %@",[error localizedDescription]);
+                          NSString *errorMessage = [NSString stringWithFormat:@"%@",[error localizedDescription]];
+                          NSString *message = [NSString stringWithFormat:@"Facebook error: %@",errorMessage];
+                          UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:message
+                                                                          delegate:nil
+                                                                 cancelButtonTitle:@"OK"
+                                                            destructiveButtonTitle:nil
+                                                                 otherButtonTitles:nil];
+                          dispatch_async(dispatch_get_main_queue(), ^{
+                              [as showInView:self.view];
+                          });
+                          NSLog(@"Facebook error = %@",[error localizedDescription]);
                       }
-                      [self stopRefresher];
                       int nextNumber = n+1;
                       float progress = (float)nextNumber/(float)userArray.count;
                       dispatch_async(dispatch_get_main_queue(), ^{
@@ -335,15 +379,18 @@
                       
                       if (nextNumber < userArray.count)
                       {
-                          dispatch_async(dispatch_get_main_queue(), ^{
-                              [self readFacebookFeedForArray:userArray atPosition:nextNumber withRefresher:sender andCompletionHandler:^(BOOL success) {
+                          [self readFacebookFeedForArray:userArray atPosition:nextNumber withRefresher:sender andCompletionHandler:^(BOOL success) {
                                   // do nothing
-                              }];
-                          });
+                          }];
                       }
                       else
                       {
-                          [self.progressBar setHidden:YES];
+                          NSLog(@"done loading facebook posts");
+                          dispatch_async(dispatch_get_main_queue(), ^{
+                              [self.progressBar setHidden:YES];
+                          });
+                          
+                          [self stopRefresher];
                       }
                   }];
                  
@@ -363,7 +410,8 @@
          else
          {
              NSString *errorMessage = [NSString stringWithFormat:@"%@",[error localizedDescription]];
-             UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:errorMessage
+             NSString *message = [NSString stringWithFormat:@"Facebook error: %@",errorMessage];
+             UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:message
                                                              delegate:nil
                                                     cancelButtonTitle:@"OK"
                                                destructiveButtonTitle:nil
@@ -698,11 +746,27 @@
     //cell.mainImage.contentMode = UIViewContentModeScaleToFill;
     
     kMediaTypes type = user.type.intValue;
+    
+    // cant to this in a switch statement
+    /*
+    if (type == kFacebook)
+    {
+        [Post readCommentsForFacebookPostID:post.postID withCompletionHandler:^(NSInteger nComments) {
+            post.comments = [NSNumber numberWithInteger:nComments];
+            
+            [Post readLikesForFacebookPost:post.postID withCompletionHandler:^(NSInteger nLikes) {
+                post.likes = [NSNumber numberWithInteger:nLikes];
+            }];
+        }];
+         
+    }
+    */
     switch (type) {
         case kFacebook:
             cell.typeImage.image = self.database.facebookLogo;
             cell.likesImage.image = [UIImage imageNamed:@"FB-ThumbsUp_29.png"];
             cell.commentsImage.image = [UIImage imageNamed:@"Basic-Speech-bubble-icon.png"];
+
             break;
             
         case kInstagram:
@@ -906,7 +970,7 @@
 # pragma mark prepare for segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"prepareForSegue: segue %@",segue.identifier);
+    //NSLog(@"prepareForSegue: segue %@",segue.identifier);
     
     if ([segue.identifier isEqualToString:@"weblinkSegue"])
     {

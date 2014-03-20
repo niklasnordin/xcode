@@ -26,6 +26,9 @@
     if (self)
     {
         self.nActivities = 0;
+        self.contextIsReady = NO;
+        self.facebookLoaded = NO;
+        self.twitterLoaded = NO;
         
         NSFileManager *fileManager = [NSFileManager defaultManager];
         NSArray *dirs = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
@@ -45,7 +48,7 @@
             [self.managedDocument openWithCompletionHandler:^(BOOL success) {
                 if (success)
                 {
-                    NSLog(@"opening %@",kDocumentName);
+                    //NSLog(@"opening %@",kDocumentName);
                     [self managedDocumentIsReady];
                 }
                 else
@@ -62,7 +65,7 @@
                 if (success)
                 {
                     [self managedDocumentIsReady];
-                    NSLog(@"created %@",kDocumentName);
+                    //NSLog(@"created %@",kDocumentName);
                 }
                 else
                 {
@@ -174,6 +177,24 @@
     if (self.managedDocument.documentState == UIDocumentStateNormal)
     {
         NSLog(@"document %@ is ready", self.managedDocument.fileURL.path);
+        self.contextIsReady = YES;
+        
+        if (self.useFacebook)
+        {
+            // initialize facebook
+            [self loadAllFacebookFriendsWithCompletionsHandler:^(BOOL success) {
+                if (success)
+                {
+                    self.facebookLoaded = YES;
+                }
+            }];
+
+        }
+        
+        if (self.useTwitter)
+        {
+            
+        }
     }
 }
 
@@ -252,67 +273,6 @@
         [dict addObject:obj];
     }
     return dict;
-}
-
-- (void)requestNewAccessToken
-{
-    
-}
-
-/*
-- (void)readURLAsync:(NSString *)urlString fromConnection:(FBRequestConnection *)connection
-{
-    if (urlString)
-    {
-        NSLog(@"read async: %@",urlString);
-        NSURL *url = [NSURL URLWithString:urlString];
-        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-        
-        NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-        [conn start];
-    }
-}
-
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    NSLog(@"didRecieveResponse");
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    NSLog(@"didReceiveData");
-    
-    NSError *jsonError;
-    //NSString *svar = [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
-    NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
-    
-    NSLog(@"dict = %@",dict);
-    if (!jsonError)
-    {
-        NSMutableArray *data = [dict objectForKey:@"data"];
-        if (data)
-        {
-            NSLog(@"data = %@",data);
-        }
-    }
-    
-    
-}
-*/
-- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
-                  willCacheResponse:(NSCachedURLResponse*)cachedResponse
-{
-    // Return nil to indicate not necessary to store a cached response for this connection
-    return nil;
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    // The request is complete and data has been received
-    // You can parse the stuff in your instance variable now
-    NSLog(@"didFinishLoading");
-    
 }
 
 #pragma mark Facebook
@@ -415,7 +375,6 @@
                                ACFacebookAudienceKey : ACFacebookAudienceFriends,
                                ACFacebookAppIdKey : appID };
     
-    
     [self.account requestAccessToAccountsWithType:self.facebookAccountType options:options completion:^(BOOL granted, NSError *error)
      {
          if (granted)
@@ -428,14 +387,14 @@
              
              if (facebookAccount)
              {
-                 //NSLog(@"here i am in the facebook account to load friends");
+
                  NSString *apiString = [NSString stringWithFormat:@"%@/me/friends",kFacebookGraphRoot];
-                 //NSString *apiString = [NSString stringWithFormat:@"https://graph.facebook.com/me/friends"];
                  NSURL *request = [NSURL URLWithString:apiString];
-                 NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:@"picture,id,name,link,gender,last_name,first_name,username",@"fields", nil];
-                 
+                 NSDictionary *param = @{ @"fields" : @"picture,id,name,link,gender,last_name,first_name,username" };
+
                  SLRequest *friends = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:param];
                  friends.account = facebookAccount;
+                 
                  [self startActivityIndicator];
                  [friends performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
                   {
@@ -447,13 +406,12 @@
                           NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
                           NSArray* friendsArray = [result objectForKey:@"data"];
                           
-                          NSLog(@"facebook friends.count = %ld",friendsArray.count);
+                          //NSLog(@"facebook friends.count = %ld",friendsArray.count);
                           if (friendsArray.count)
                           {
                               [self.facebookFriends removeAllObjects];
                               for (NSDictionary *userDict in friendsArray)
                               {
-                                  //NSLog(@"userDict = %@",userDict);
                                   //dispatch_async(dispatch_get_main_queue(), ^{
                                       User *usr = [User facebookUserInContext:self.managedDocument.managedObjectContext withFacebookDictionary:userDict forAccountID:self.facebookAccountUserID];
                                   //});
@@ -468,9 +426,7 @@
                                   [self.facebookFriends addObject:user];
                               }
 
-                              //[self.facebookFriends addObjectsFromArray:friendsArray];
                           }
-                          //NSLog(@"last friend = %@",[friendsArray lastObject]);
                           completion(YES);
                       }
                       else
@@ -641,7 +597,7 @@
                                   user.type = kTwitter;
                                   [self.twitterFriends addObject:user];
                               }
-                              NSLog(@"twitterFriends.count = %ld",self.twitterFriends.count);
+                              //NSLog(@"twitterFriends.count = %ld",self.twitterFriends.count);
                           }
                           NSString *next_cursor = [result objectForKey:@"next_cursor_str"];
                           if (next_cursor)
@@ -650,11 +606,29 @@
                               {
                                   [self loadTwitterFriendsWithCursor:next_cursor inViewController:vc];
                               }
+                              else
+                              {
+                                  self.twitterLoaded = YES;
+                              }
+                          }
+                          else
+                          {
+                              self.twitterLoaded = YES;
                           }
                       }
                       else
                       {
-                          NSLog(@"error = %@",[error localizedDescription]);
+                          //NSLog(@"error = %@",[error localizedDescription]);
+                          //NSString *message = [errors objectForKey:@"message"];
+                          NSString *output = [NSString stringWithFormat:@"Twitter error: %@",[error localizedDescription]];
+                          UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:output
+                                                                          delegate:nil
+                                                                 cancelButtonTitle:@"OK"
+                                                            destructiveButtonTitle:nil
+                                                                 otherButtonTitles:nil];
+                          dispatch_async(dispatch_get_main_queue(), ^{
+                              [as showInView:vc.view];
+                          });
                       }
                   }];
              }

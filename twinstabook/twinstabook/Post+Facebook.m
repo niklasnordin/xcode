@@ -111,6 +111,7 @@
             post.postedBy = user;
             
         }
+        /*
         __weak Post *blockPost = post;
         
         [Post readLikesForFacebookPost:dict withCompletionHandler:^(NSInteger likes) {
@@ -124,15 +125,15 @@
                 blockPost.comments = [NSNumber numberWithInteger:comments];
             //});
         }];
+         */
     }
     
     return post;
 
 }
 
-+ (void)readLikesForFacebookPost:(NSDictionary *)dict withCompletionHandler:(void (^)(NSInteger likes))completion
++ (void)readLikesForFacebookPost:(NSString *)postID withCompletionHandler:(void (^)(NSInteger nLikes))completion
 {
-    NSString *postID = [NSString stringWithFormat:@"%@",[dict objectForKey:@"id"]];
 
     NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *appID = infoDict[@"FacebookAppID"];
@@ -156,11 +157,8 @@
          // there is only one facebook account
          ACAccount *fbAccount = [accounts lastObject];
          
-         //NSString *apiString = [NSString stringWithFormat:@"%@/%@",kFacebookGraphRoot,postID];
          NSString *apiString = [NSString stringWithFormat:@"%@/%@/likes",kFacebookGraphRoot,postID];
-         
          NSURL *request = [NSURL URLWithString:apiString];
-         //NSDictionary *param = @{ @"fields" : @"likes" , @"summary" : @"1" };
          NSDictionary *param = @{ @"summary" : @"1" };
 
          SLRequest *postRequest = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:param];
@@ -168,21 +166,22 @@
 
          [postRequest performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
           {
-              NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-
-              NSDictionary *summary = [result objectForKey:@"summary"];
-              NSInteger nCount = [[summary objectForKey:@"total_count"] integerValue];
-
-              completion(nCount);
+              if (!error)
+              {
+                  NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+                  NSDictionary *summary = [result objectForKey:@"summary"];
+                  NSInteger nCount = [[summary objectForKey:@"total_count"] integerValue];
+                  
+                  completion(nCount);
+              }
           }];
 
      }];
     
 }
 
-+ (void)readCommentsForFacebookPost:(NSDictionary *)dict withCompletionHandler:(void (^)(NSInteger likes))completion
++ (void)readCommentsForFacebookPostID:(NSString *)postID withCompletionHandler:(void (^)(NSInteger nComments))completion
 {
-    NSString *postID = [NSString stringWithFormat:@"%@",[dict objectForKey:@"id"]];
     
     NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *appID = infoDict[@"FacebookAppID"];
@@ -206,11 +205,9 @@
          // there is only one facebook account
          ACAccount *fbAccount = [accounts lastObject];
          
-         //NSString *apiString = [NSString stringWithFormat:@"%@/%@",kFacebookGraphRoot,postID];
          NSString *apiString = [NSString stringWithFormat:@"%@/%@/comments",kFacebookGraphRoot,postID];
          
          NSURL *request = [NSURL URLWithString:apiString];
-         //NSDictionary *param = @{ @"fields" : @"likes" , @"summary" : @"1" };
          NSDictionary *param = @{ @"summary" : @"1" };
          
          SLRequest *postRequest = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:param];
@@ -219,7 +216,6 @@
          [postRequest performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
           {
               NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-              //NSLog(@"result = %@",result);
               NSDictionary *summary = [result objectForKey:@"summary"];
               NSInteger nCount = [[summary objectForKey:@"total_count"] integerValue];
               
