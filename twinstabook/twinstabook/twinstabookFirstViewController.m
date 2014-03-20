@@ -177,8 +177,78 @@
     });
 }
 
+- (void)refreshCycle
+{
+    if (self.database.useInstagram && !self.instagramReadDone)
+    {
+        {
+            [self startRefresher];
+            if (self.database.instagramLoaded)
+            {
+                [self readInstagramFeed:self.refreshController andCursor:nil];
+            }
+            else
+            {
+                NSLog(@"instagram not loaded yet");
+                [self stopRefresher];
+            }
+        }
+        
+    } // end useInstagram
+    
+    if (self.database.useTwitter && !self.twitterReadDone)
+    {
+        //[self.database openTwitterInViewController:self];
+        //[self.database loadAllTwitterFriendsInViewController:self];
+        [self startRefresher];
+        if (self.database.twitterLoaded)
+        {
+            [self readTwitterFeedWithRefreshed:self.refreshController];
+        }
+        else
+        {
+            [self stopRefresher];
+            NSLog(@"twitter not loaded yet");
+        }
+        
+    } // end useTwitter
+    
+    
+    if (self.database.useFacebook && !self.facebookReadDone)
+    {
+        
+        [self startRefresher];
+        
+        if (self.database.facebookLoaded)
+        {
+            [self.progressBar setHidden:NO];
+            [self.progressBar setProgress:0.0 animated:YES];
+            [self readFacebookFeedForArray:self.database.facebookFriends atPosition:0 withRefresher:self.refreshController andCompletionHandler:^(BOOL success) {
+                // do nothing
+            }];
+        }
+        else
+        {
+            [self stopRefresher];
+            NSLog(@"facebook not loaded yet");
+        }
+        
+    } // end useFacebook
+    
+    // if no feeds are selected just stop the refresher and reset the counter...should be zero anyways...
+    bool allFeeds = self.database.useFacebook || self.database.useInstagram || self.database.useTwitter;
+    if (!allFeeds)
+    {
+        self.nRefreshers = 0;
+        [self.refreshController endRefreshing];
+    }
+}
+
 - (void)refresh:(UIRefreshControl *)sender
 {
+    self.facebookReadDone = NO;
+    self.twitterReadDone = NO;
+    self.instagramReadDone = NO;
     
     NSDate *now = [[NSDate alloc]initWithTimeIntervalSinceNow:0];
 /*
@@ -216,70 +286,8 @@
      self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
      */
     
-    if (self.database.useInstagram)
-    {
+    [self refreshCycle];
 
-        {
-            [self startRefresher];
-            if (self.database.instagramLoaded)
-            {
-                [self readInstagramFeed:sender andCursor:nil];
-            }
-            else
-            {
-                NSLog(@"instagram not loaded yet");
-                [self stopRefresher];
-            }
-        }
-
-    } // end useInstagram
-    
-    if (self.database.useTwitter)
-    {
-        //[self.database openTwitterInViewController:self];
-        //[self.database loadAllTwitterFriendsInViewController:self];
-        [self startRefresher];
-        if (self.database.twitterLoaded)
-        {
-            [self readTwitterFeedWithRefreshed:sender];
-        }
-        else
-        {
-            [self stopRefresher];
-            NSLog(@"twitter not loaded yet");
-        }
-
-    } // end useTwitter
-
-    
-    if (self.database.useFacebook)
-    {
-        
-        [self startRefresher];
-        
-        if (self.database.facebookLoaded)
-        {
-            [self.progressBar setHidden:NO];
-            [self.progressBar setProgress:0.0 animated:YES];
-            [self readFacebookFeedForArray:self.database.facebookFriends atPosition:0 withRefresher:sender andCompletionHandler:^(BOOL success) {
-                // do nothing
-            }];
-        }
-        else
-        {
-            [self stopRefresher];
-            NSLog(@"facebook not loaded yet");
-        }
-        
-    } // end useFacebook
-
-    // if no feeds are selected just stop the refresher and reset the counter...should be zero anyways...
-    bool allFeeds = self.database.useFacebook || self.database.useInstagram || self.database.useTwitter;
-    if (!allFeeds)
-    {
-        self.nRefreshers = 0;
-        [sender endRefreshing];
-    }
 }
 
 - (void)readFacebookFeedForArray:(NSArray *)userArray atPosition:(int)n withRefresher:(UIRefreshControl *)sender andCompletionHandler:(void (^)(BOOL success))completion
@@ -378,9 +386,12 @@
                           NSLog(@"done loading facebook posts");
                           dispatch_async(dispatch_get_main_queue(), ^{
                               [self.progressBar setHidden:YES];
+
                           });
                           
                           [self stopRefresher];
+                          self.facebookReadDone = YES;
+                          [self refreshCycle];
                       }
                   }];
                  
@@ -480,9 +491,11 @@
                                      
                                  }
                              }
+                         /*
                          dispatch_async(dispatch_get_main_queue(), ^(void){
                              [self.feedTableView reloadData];
                          });
+                          */
                          
                      }
                      else
@@ -490,6 +503,8 @@
                          NSLog(@"error = %@",[error localizedDescription]);
                      }
                      [self stopRefresher];
+                     self.twitterReadDone = YES;
+                     [self refreshCycle];
 
                  }];
             }
@@ -560,10 +575,11 @@
                     }];
                     
                 }
+                /*
                 dispatch_async(dispatch_get_main_queue(), ^(void){
-                    
                     [self.feedTableView reloadData];
                 });
+                */
                 
                 if (next_cursor)
                 {
@@ -585,6 +601,8 @@
                 
             }
             [self stopRefresher];
+            self.instagramReadDone = YES;
+            [self refreshCycle];
         });
     });
     

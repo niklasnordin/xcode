@@ -709,7 +709,7 @@
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    return NO;
+    return YES;
 }
 
 - (void)facebookSearch:(NSString *)searchString
