@@ -94,6 +94,9 @@
     if (!matches || error || [matches count] > 1)
     {
         // handle error
+        NSLog(@"error = %@",error);
+        NSLog(@"something went wrong when trying to add twitter user %@ to context",[dict objectForKey:@"name"]);
+        NSLog(@"matches.count = %ld",matches.count);
     }
     else if (!matches.count)
     {

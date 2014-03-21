@@ -25,10 +25,12 @@
     NSArray *matches = [context executeFetchRequest:request error:&error];
     
     // handle error
-    if (!matches || error)
+    if (!matches || error || [matches count] > 1)
     {
         // do it
-        NSLog(@"matches is nil for creating post. error = %@",error);
+        NSLog(@"error = %@",error);
+        NSLog(@"something went wrong when trying to add instagram post %@ to context",dict);
+        NSLog(@"matches.count = %ld",matches.count);
     }
     else
     {

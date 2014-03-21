@@ -35,6 +35,11 @@
 @property (strong, nonatomic) NSArray *twitterArray;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 @property (nonatomic) int nRefreshers;
+
+@property (weak, nonatomic) IBOutlet UIImageView *facebookImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *twitterImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *instagramImageView;
+
 @end
 
 @implementation twinstabookFirstViewController
@@ -74,7 +79,7 @@
     
     self.selectedLinkForWebview = [[NSString alloc] init];
     
-    NSString *predicateTemplate = @"(postedBy.type == %d) AND (postedBy.belongsToAccountID == '%@')";
+    NSString *predicateTemplate = @"( postedBy.type == %d ) AND ( postedBy.belongsToAccountID == '%@' )";
     NSString *predicateString = nil;
     
     if (self.database.useFacebook)
@@ -94,7 +99,7 @@
         }
         else
         {
-            predicateString = [NSString stringWithFormat:@"(%@) OR (%@)",predicateString,twitterPredicate];
+            predicateString = [NSString stringWithFormat:@"( %@ ) OR ( %@ )",predicateString,twitterPredicate];
         }
     }
     
@@ -110,7 +115,7 @@
         }
         else
         {
-            predicateString = [NSString stringWithFormat:@"(%@) OR (%@)",predicateString,instagramPredicate];
+            predicateString = [NSString stringWithFormat:@"( %@ ) OR ( %@ )",predicateString,instagramPredicate];
         }
     }
     
@@ -125,7 +130,7 @@
     [self.revealButtonItem setTarget: self.revealViewController];
     [self.revealButtonItem setAction: @selector( revealToggle: )];
     //[self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
-    [self.feedTableView addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    //[self.feedTableView addGestureRecognizer: self.revealViewController.panGestureRecognizer];
 
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
     request.predicate = [NSPredicate predicateWithFormat:predicateString];
@@ -144,7 +149,39 @@
     [self.progressBar setProgress:0.0 animated:NO];
     
     self.nRefreshers = 0;
-    //[self.feedTableView reloadData];
+
+    self.facebookImageView.image = [UIImage imageNamed:@"Facebook-Logo-Small.tif"];
+    self.instagramImageView.image = [UIImage imageNamed:@"Instagram-Logo-200.png"];
+    self.twitterImageView.image = [UIImage imageNamed:@"Twitter-Logo-200-sq.png"];
+    if (self.database.useFacebook)
+    {
+        self.facebookImageView.alpha = 1.0f;
+    }
+    else
+    {
+        self.facebookImageView.alpha = 0.2f;
+    }
+    if (self.database.useTwitter)
+    {
+        self.twitterImageView.alpha = 1.0f;
+    }
+    else
+    {
+        self.twitterImageView.alpha = 0.2f;
+    }
+    
+    if (self.database.useInstagram)
+    {
+        self.instagramImageView.alpha = 1.0f;
+    }
+    else
+    {
+        self.instagramImageView.alpha = 0.2f;
+    }
+    //self.facebookImageView.backgroundColor = [UIColor greenColor];
+    //self.facebookImageView.backgroundColor = [UIColor redColor];
+    self.facebookImageView.tintColor = [UIColor redColor];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated

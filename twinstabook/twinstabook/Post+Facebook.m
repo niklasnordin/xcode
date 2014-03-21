@@ -58,12 +58,6 @@
 + (Post *)addFacebookMobileStatusUpdateToContext:(NSManagedObjectContext *)context fromDictionary:(NSDictionary *)dict forUserObject:(UserObject *)usr forAccountID:(NSString *)auid
 {
     Post *post = nil;
-    if (!context)
-    {
-        return post;
-    }
-    
-    //NSLog(@"postDict = %@",dict);
     
     NSString *postID = [NSString stringWithFormat:@"%@",[dict objectForKey:@"id"]];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
@@ -73,10 +67,12 @@
     NSArray *matches = [context executeFetchRequest:request error:&error];
     
     // handle error
-    if (!matches || error)
+    if (!matches || error || [matches count] > 1)
     {
         // do it
-        NSLog(@"matches is nil for creating post. error = %@",error);
+        NSLog(@"error = %@",error);
+        NSLog(@"something went wrong when trying to add facebook post %@ to context",dict);
+        NSLog(@"matches.count = %ld",matches.count);
     }
     else
     {
@@ -215,10 +211,13 @@
          
          [postRequest performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
           {
-              NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-              NSDictionary *summary = [result objectForKey:@"summary"];
-              NSInteger nCount = [[summary objectForKey:@"total_count"] integerValue];
-              
+              NSInteger nCount = 0;
+              if (!error)
+              {
+                  NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+                  NSDictionary *summary = [result objectForKey:@"summary"];
+                  nCount = [[summary objectForKey:@"total_count"] integerValue];
+              }
               completion(nCount);
           }];
          

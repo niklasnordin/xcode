@@ -28,8 +28,10 @@
     {
         // handle error
         NSLog(@"error = %@",error);
-        NSLog(@"something went wrong when trying to add user %@ to context",[dict objectForKey:@"name"]);
+        NSLog(@"something went wrong when trying to add facebook user %@ to context",[dict objectForKey:@"name"]);
         NSLog(@"matches.count = %ld",matches.count);
+
+        
     }
     else if (!matches.count)
     {

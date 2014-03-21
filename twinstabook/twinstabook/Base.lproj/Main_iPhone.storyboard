@@ -138,22 +138,40 @@
                                 </prototypes>
                             </tableView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="q00-8f-Ooh">
-                                <rect key="frame" x="20" y="556" width="280" height="2"/>
+                                <rect key="frame" x="104" y="556" width="196" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9zG-m3-9X3">
+                                <rect key="frame" x="20" y="548" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z7o-yz-Zs4">
+                                <rect key="frame" x="48" y="548" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gtp-VP-Iqq">
+                                <rect key="frame" x="76" y="548" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Feed" id="3mU-eg-cMz">
                         <barButtonItem key="leftBarButtonItem" image="reveal-icon.png" id="pZR-q5-dOQ">
                             <color key="tintColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="facebookImageView" destination="9zG-m3-9X3" id="oYD-2W-J64"/>
                         <outlet property="feedButton" destination="VNV-hw-as4" id="Gun-sM-GxM"/>
                         <outlet property="feedTableView" destination="FJX-ti-L9c" id="uKH-N9-j6d"/>
+                        <outlet property="instagramImageView" destination="Gtp-VP-Iqq" id="4jL-xi-RTn"/>
                         <outlet property="progressBar" destination="q00-8f-Ooh" id="nli-kD-BdR"/>
                         <outlet property="revealButtonItem" destination="pZR-q5-dOQ" id="Qt1-n8-kSy"/>
+                        <outlet property="twitterImageView" destination="Z7o-yz-Zs4" id="E8s-HB-H8v"/>
                         <segue destination="XUU-u8-yZh" kind="push" identifier="weblinkSegue" id="FqH-c4-kSi"/>
                     </connections>
                 </viewController>
@@ -916,6 +934,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cxS-J2-egO"/>
+        <segue reference="slm-WQ-WZy"/>
     </inferredMetricsTieBreakers>
 </document>
