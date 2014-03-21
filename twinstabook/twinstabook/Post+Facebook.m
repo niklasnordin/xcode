@@ -61,7 +61,7 @@
     
     NSString *postID = [NSString stringWithFormat:@"%@",[dict objectForKey:@"id"]];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
-    request.predicate = [NSPredicate predicateWithFormat:@"(postID == %@) AND (postedBy.belongsToAccountID == %@)",postID, auid];
+    request.predicate = [NSPredicate predicateWithFormat:@"( postID == %@ ) AND ( postedBy.belongsToAccountID == %@ )",postID, auid];
     
     NSError *error;
     NSArray *matches = [context executeFetchRequest:request error:&error];
@@ -78,10 +78,13 @@
     {
         if ([matches count])
         {
+            NSLog(@"facebook match");
             post = [matches lastObject];
         }
         else
         {
+            NSLog(@"adding facebook post");
+
             //NSLog(@"dict = %@",dict);
             post = [NSEntityDescription insertNewObjectForEntityForName:moPost inManagedObjectContext:context];
             

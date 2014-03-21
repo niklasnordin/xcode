@@ -85,7 +85,7 @@
     NSString *uid = [dict objectForKey:@"id_str"];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moUser];
-    request.predicate = [NSPredicate predicateWithFormat:@"(uid == %@) AND (belongsToAccountID == %@)", uid, auid];
+    request.predicate = [NSPredicate predicateWithFormat:@"( uid == %@ ) AND ( belongsToAccountID == %@ )", uid, auid];
     //NSLog(@"uid = %@, auid = %@",uid,auid);
     
     NSError *error;

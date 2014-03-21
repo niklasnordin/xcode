@@ -19,7 +19,7 @@
     NSString *postID = [NSString stringWithFormat:@"%@",[dict objectForKey:@"id"]];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moPost];
 
-    request.predicate = [NSPredicate predicateWithFormat:@"(postID == %@)  AND (postedBy.belongsToAccountID == %@)",postID, uid];
+    request.predicate = [NSPredicate predicateWithFormat:@"( postID == %@ )  AND ( postedBy.belongsToAccountID == %@ )",postID, uid];
     
     NSError *error;
     NSArray *matches = [context executeFetchRequest:request error:&error];

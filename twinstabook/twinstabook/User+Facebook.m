@@ -19,7 +19,7 @@
     
     NSString *uid = [dict objectForKey:@"id"];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moUser];
-    request.predicate = [NSPredicate predicateWithFormat:@"(uid == %@) AND (belongsToAccountID == %@)", uid, auid];
+    request.predicate = [NSPredicate predicateWithFormat:@"( uid == %@ ) AND ( belongsToAccountID == %@ )", uid, auid];
     
     NSError *error;
     NSArray *matches = [context executeFetchRequest:request error:&error];
@@ -28,13 +28,14 @@
     {
         // handle error
         NSLog(@"error = %@",error);
+        NSLog(@"predicate : %@",request.predicate);
         NSLog(@"something went wrong when trying to add facebook user %@ to context",[dict objectForKey:@"name"]);
         NSLog(@"matches.count = %ld",matches.count);
-
-        
+        NSLog(@"matches = %@",matches);
     }
     else if (!matches.count)
     {
+        //NSLog(@"adding new facebook user: %@",[dict objectForKey:@"name"]);
         usr = [NSEntityDescription insertNewObjectForEntityForName:moUser inManagedObjectContext:context];
         usr.name = [dict objectForKey:@"name"];
         usr.profileImageData = nil;
@@ -48,6 +49,7 @@
     else
     {
         usr = [matches lastObject];
+        //NSLog(@"found old facebook user: %@",usr.name);
     }
 
     return usr;
@@ -59,7 +61,7 @@
     NSString *uid = usrObj.uid;
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moUser];
-    request.predicate = [NSPredicate predicateWithFormat:@"(uid == '%@') AND (belongsToAccountID == '%@')", uid, auid];
+    request.predicate = [NSPredicate predicateWithFormat:@"( uid == %@ ) AND ( belongsToAccountID == %@ )", uid, auid];
 
     NSError *error;
     NSArray *matches = [context executeFetchRequest:request error:&error];
@@ -68,6 +70,11 @@
     {
         // handle error
         NSLog(@"something went wrong when trying to add user to context");
+        NSLog(@"error = %@",error);
+        NSLog(@"predicate : %@",request.predicate);
+        NSLog(@"something went wrong when trying to add facebook user %@ to context",usrObj.name);
+        NSLog(@"matches.count = %ld",matches.count);
+        NSLog(@"matches = %@",matches);
     }
     else if (!matches.count)
     {
@@ -88,13 +95,14 @@
     return usr;
 }
 
+
 + (User *)dummyUserInContext:(NSManagedObjectContext *)context
 {
     User *usr = nil;
     NSString *uid = @"-1";
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:moUser];
-    request.predicate = [NSPredicate predicateWithFormat:@"uid = %@", uid];
+    request.predicate = [NSPredicate predicateWithFormat:@"uid == %@", uid];
     
     NSError *error;
     NSArray *matches = [context executeFetchRequest:request error:&error];

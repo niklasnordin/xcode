@@ -66,7 +66,6 @@
                 if (success)
                 {
                     [self managedDocumentIsReady];
-                    //NSLog(@"created %@",kDocumentName);
                 }
                 else
                 {
@@ -183,13 +182,23 @@
         if (self.useFacebook)
         {
             // initialize facebook
-            [self loadAllFacebookFriendsWithCompletionsHandler:^(BOOL success) {
+            [self openFacebookInViewController:nil withCompletionsHandler:^(BOOL success) {
                 if (success)
                 {
-                    self.facebookLoaded = YES;
+                    
+                    [self loadAllFacebookFriendsWithCompletionsHandler:^(BOOL success) {
+                        if (success)
+                        {
+                            NSLog(@"loaded facebook friends");
+                            self.facebookLoaded = YES;
+                        }
+                        else
+                        {
+                            NSLog(@"facebook friends are not loaded");
+                        }
+                    }];
                 }
             }];
-
         }
         
         if (self.useTwitter)
@@ -282,6 +291,23 @@
 }
 
 #pragma mark Facebook
+
+- (void)requestFacebookAccessToken:(void (^)(BOOL success))completion
+{
+    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString *appID = infoDict[@"FacebookAppID"];
+    
+    NSArray * permissions = [NSArray arrayWithObjects:@"read_stream",
+                             @"read_friendlists",
+                             @"user_photos",
+                             nil];
+    
+    NSDictionary *options = @{ ACFacebookPermissionsKey : permissions,
+                               ACFacebookAudienceKey : ACFacebookAudienceFriends,
+                               ACFacebookAppIdKey : appID };
+    
+
+}
 
 - (void)openFacebookInViewController:(UIViewController *)vc withCompletionsHandler:(void (^)(BOOL success))completion
 {
@@ -385,13 +411,14 @@
      {
          if (granted)
          {
-             
+             /*
              NSArray *accounts = [self.account accountsWithAccountType:self.facebookAccountType];
              
              // there is only one facebook account
              ACAccount *facebookAccount = [accounts lastObject];
+             */
              
-             if (facebookAccount)
+             if (self.selectedFacebookAccount)
              {
 
                  NSString *apiString = [NSString stringWithFormat:@"%@/me/friends",kFacebookGraphRoot];
@@ -399,7 +426,7 @@
                  NSDictionary *param = @{ @"fields" : @"picture,id,name,link,gender,last_name,first_name,username" };
 
                  SLRequest *friends = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:param];
-                 friends.account = facebookAccount;
+                 friends.account = self.selectedFacebookAccount;
                  
                  [self startActivityIndicator];
                  [friends performRequestWithHandler:^(NSData *response, NSHTTPURLResponse *urlResponse, NSError *error)
@@ -442,6 +469,11 @@
                           NSLog(@"error = %@",[error localizedDescription]);
                       }
                   }];
+             }
+             else
+             {
+                 NSLog(@"no facebook account selected");
+                 completion(NO);
              }
              
          }

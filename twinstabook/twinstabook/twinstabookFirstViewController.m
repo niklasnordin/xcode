@@ -40,6 +40,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *twitterImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *instagramImageView;
 
+@property (strong, nonatomic) NSTimer *updateTimer;
+
 @end
 
 @implementation twinstabookFirstViewController
@@ -182,11 +184,13 @@
     //self.facebookImageView.backgroundColor = [UIColor redColor];
     self.facebookImageView.tintColor = [UIColor redColor];
 
+    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(startRefreshCycle) userInfo:nil repeats:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     //NSLog(@"%@ viewWillDisappear",[self class]);
+    [self.updateTimer invalidate];
 }
 
 - (void)startRefresher
@@ -214,8 +218,20 @@
     });
 }
 
+- (void)startRefreshCycle
+{
+    self.facebookReadDone = NO;
+    self.twitterReadDone = NO;
+    self.instagramReadDone = NO;
+
+    [self refreshCycle];
+}
+
 - (void)refreshCycle
 {
+    NSDate *now = [[NSDate alloc]initWithTimeIntervalSinceNow:0];
+    self.database.lastUpdate = now;
+
     if (self.database.useInstagram && !self.instagramReadDone)
     {
         {
@@ -258,9 +274,19 @@
         
         if (self.database.facebookLoaded)
         {
+            [self.progressBar setProgress:0.0];
             [self.progressBar setHidden:NO];
-            [self.progressBar setProgress:0.0 animated:YES];
-            [self readFacebookFeedForArray:self.database.facebookFriends atPosition:0 withRefresher:self.refreshController andCompletionHandler:^(BOOL success) {
+            NSMutableArray *friends = [[NSMutableArray alloc] init];
+            [friends addObject:self.database.facebookFriends[3]];
+            [friends addObject:self.database.facebookFriends[4]];
+            [friends addObject:self.database.facebookFriends[5]];
+
+            [friends addObject:[self.database.facebookFriends lastObject]];
+            for (UserObject *usr in friends)
+            {
+                NSLog(@"friend 1: %@",usr.name);
+            }
+            [self readFacebookFeedForArray:friends atPosition:0 withRefresher:self.refreshController andCompletionHandler:^(BOOL success) {
                 // do nothing
             }];
         }
@@ -279,15 +305,12 @@
         self.nRefreshers = 0;
         [self.refreshController endRefreshing];
     }
+
 }
 
 - (void)refresh:(UIRefreshControl *)sender
 {
-    self.facebookReadDone = NO;
-    self.twitterReadDone = NO;
-    self.instagramReadDone = NO;
     
-    NSDate *now = [[NSDate alloc]initWithTimeIntervalSinceNow:0];
 /*
    NSTimeInterval interval = [now timeIntervalSinceDate:self.database.lastUpdate];
     // dont update too often, every 60s seems good enough
@@ -297,7 +320,6 @@
         return;
     }
  */
-    self.database.lastUpdate = now;
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setTimeStyle:NSDateFormatterShortStyle];
     [format setDateStyle:NSDateFormatterShortStyle];
@@ -323,7 +345,7 @@
      self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
      */
     
-    [self refreshCycle];
+    [self startRefreshCycle];
 
 }
 
@@ -349,7 +371,7 @@
          {
              if (granted)
              {
-                 //NSLog(@"facebook acces read stream granted");
+                 NSLog(@"facebook access read stream granted");
 
                  NSString *apiString = [NSString stringWithFormat:@"%@/%@/posts", kFacebookGraphRoot,usr.uid];
                  NSURL *request = [NSURL URLWithString:apiString];
@@ -379,16 +401,36 @@
                                   [self.database.managedDocument.managedObjectContext performBlock:^{
                                       Post *post = [Post addFacebookPostToContext:self.database.managedDocument.managedObjectContext fromDictionary:jPost forUserObject:usr forAccountID:self.database.facebookAccountUserID];
                                       [Post readCommentsForFacebookPostID:post.postID withCompletionHandler:^(NSInteger nComments) {
-                                          post.comments = [NSNumber numberWithInteger:nComments];
-                                          
+                                          if (nComments != post.comments.integerValue)
+                                          {
+                                              post.comments = [NSNumber numberWithInteger:nComments];
+                                          }
                                           [Post readLikesForFacebookPost:post.postID withCompletionHandler:^(NSInteger nLikes) {
-                                              post.likes = [NSNumber numberWithInteger:nLikes];
+                                              if (nLikes != post.likes.integerValue)
+                                              {
+                                                  post.likes = [NSNumber numberWithInteger:nLikes];
+                                              }
                                           }];
                                       }];
                                   }];
                                   
                               }
                             
+                          }
+                          else
+                          {
+                              NSLog(@"No facebook posts: urlResponse: %@",urlResponse);
+                              NSLog(@"jsonDict = %@",jsonDict);
+                              NSLog(@"possible reason is old access token");
+                              NSDictionary *errorDict = [jsonDict objectForKey:@"error"];
+                              NSNumber *errorCode = [errorDict objectForKey:@"code"];
+                              if (errorCode.intValue == 104)
+                              {
+                                  //renew access token
+                                  [self.database.account renewCredentialsForAccount:self.database.selectedFacebookAccount completion:^(ACAccountCredentialRenewResult renewResult, NSError *error) {
+                                      NSLog(@"renewed facebook access credentials");
+                                  }];
+                              }
                           }
                           
                       }
