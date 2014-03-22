@@ -245,17 +245,28 @@
 
     if (self.database.useInstagram && !self.instagramReadDone)
     {
+        if (self.database.instagramLoaded)
         {
-            [self startRefresher];
-            if (self.database.instagramLoaded)
+            NSBlockOperation *loadFriendsOp = [[NSBlockOperation alloc] init];
+            __weak NSBlockOperation *weakOp = loadFriendsOp;
+
+            [loadFriendsOp addExecutionBlock:^(void)
+             {
+                 if (!weakOp.isCancelled)
+                 {
+                     [self startRefresher];
+                     [self readInstagramFeed:self.refreshController andCursor:nil];
+                 }
+             }];
+            if (loadFriendsOp)
             {
-                [self readInstagramFeed:self.refreshController andCursor:nil];
+                [self.facebookLoadingQueue addOperation:loadFriendsOp];
             }
-            else
-            {
-                NSLog(@"instagram not loaded yet");
-                [self stopRefresher];
-            }
+        }
+        else
+        {
+            NSLog(@"instagram not loaded yet");
+            //[self stopRefresher];
         }
         
     } // end useInstagram
@@ -264,14 +275,27 @@
     {
         //[self.database openTwitterInViewController:self];
         //[self.database loadAllTwitterFriendsInViewController:self];
-        [self startRefresher];
         if (self.database.twitterLoaded)
         {
-            [self readTwitterFeedWithRefreshed:self.refreshController];
+            NSBlockOperation *loadFriendsOp = [[NSBlockOperation alloc] init];
+            __weak NSBlockOperation *weakOp = loadFriendsOp;
+
+            [loadFriendsOp addExecutionBlock:^(void)
+             {
+                 if (!weakOp.isCancelled)
+                 {
+                     [self startRefresher];
+                     [self readTwitterFeedWithRefreshed:self.refreshController];
+                 }
+             }];
+            if (loadFriendsOp)
+            {
+                [self.facebookLoadingQueue addOperation:loadFriendsOp];
+            }
         }
         else
         {
-            [self stopRefresher];
+            //[self stopRefresher];
             NSLog(@"twitter not loaded yet");
         }
         
@@ -280,7 +304,6 @@
     
     if (self.database.useFacebook && !self.facebookReadDone)
     {
-        
         
         if (self.database.facebookLoaded)
         {
@@ -292,12 +315,13 @@
             {
                 NSMutableArray *friends = [[NSMutableArray alloc] init];
                 int k=0;
-                while (k<20 && i<nFriends)
+                while (k<kFacebookDownloadPosts && i<nFriends)
                 {
                     [friends addObject:self.database.facebookFriends[i]];
                     k++;
                     i++;
                 }
+
                 NSBlockOperation *loadFriendsOp = [[NSBlockOperation alloc] init];
                 __weak NSBlockOperation *weakOp = loadFriendsOp;
 
@@ -306,11 +330,11 @@
                      if (!weakOp.isCancelled)
                      {
                          [self startRefresher];
-                         
+                        
                          [self readFacebookFeedForArray:friends withRefresher:self.refreshController andCompletionHandler:^(BOOL success) {
                              [self stopRefresher];
                              self.facebookReadDone = YES;
-                             [self refreshCycle];
+                             //[self refreshCycle];
                          }];
                      }
                  }];
@@ -621,7 +645,7 @@
                      }
                      [self stopRefresher];
                      self.twitterReadDone = YES;
-                     [self refreshCycle];
+                     //[self refreshCycle];
 
                  }];
             }
@@ -719,7 +743,7 @@
             }
             [self stopRefresher];
             self.instagramReadDone = YES;
-            [self refreshCycle];
+            //[self refreshCycle];
         });
     });
     

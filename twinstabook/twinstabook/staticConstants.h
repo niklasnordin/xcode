@@ -24,6 +24,8 @@ static NSString * const TWITTER = @"Twitter";
 static NSString * const INSTAGRAM = @"Instagram";
 //static const int kInstagram = 2;
 
+static const int kFacebookDownloadPosts = 50;
+
 static NSString * const USEFACEBOOK = @"usefacebook";
 static NSString * const FACEBOOKUID = @"facebookUID";
 
