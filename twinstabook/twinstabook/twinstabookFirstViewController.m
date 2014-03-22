@@ -18,9 +18,6 @@
 #import "Post+Instagram.h"
 
 @interface twinstabookFirstViewController ()
-@property (nonatomic) BOOL facebookReadDone;
-@property (nonatomic) BOOL twitterReadDone;
-@property (nonatomic) BOOL instagramReadDone;
 
 @property (nonatomic) BOOL beganUpdates;
 @property (strong,nonatomic) NSDateFormatter *dateFormatter;
@@ -231,10 +228,6 @@
 
 - (void)startRefreshCycle
 {
-    self.facebookReadDone = NO;
-    self.twitterReadDone = NO;
-    self.instagramReadDone = NO;
-
     [self refreshCycle];
 }
 
@@ -243,7 +236,7 @@
     NSDate *now = [[NSDate alloc]initWithTimeIntervalSinceNow:0];
     self.database.lastUpdate = now;
 
-    if (self.database.useInstagram && !self.instagramReadDone)
+    if (self.database.useInstagram)
     {
         if (self.database.instagramLoaded)
         {
@@ -271,7 +264,7 @@
         
     } // end useInstagram
     
-    if (self.database.useTwitter && !self.twitterReadDone)
+    if (self.database.useTwitter)
     {
         //[self.database openTwitterInViewController:self];
         //[self.database loadAllTwitterFriendsInViewController:self];
@@ -302,7 +295,7 @@
     } // end useTwitter
     
     
-    if (self.database.useFacebook && !self.facebookReadDone)
+    if (self.database.useFacebook)
     {
         
         if (self.database.facebookLoaded)
@@ -333,8 +326,6 @@
                         
                          [self readFacebookFeedForArray:friends withRefresher:self.refreshController andCompletionHandler:^(BOOL success) {
                              [self stopRefresher];
-                             self.facebookReadDone = YES;
-                             //[self refreshCycle];
                          }];
                      }
                  }];
@@ -644,8 +635,6 @@
                          NSLog(@"error = %@",[error localizedDescription]);
                      }
                      [self stopRefresher];
-                     self.twitterReadDone = YES;
-                     //[self refreshCycle];
 
                  }];
             }
@@ -742,8 +731,6 @@
                 
             }
             [self stopRefresher];
-            self.instagramReadDone = YES;
-            //[self refreshCycle];
         });
     });
     
