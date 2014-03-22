@@ -773,17 +773,7 @@
          if (granted)
          {
              
-             NSArray *accounts = [self.database.account accountsWithAccountType:self.database.facebookAccountType];
-             
-             // there is only one facebook account
-             ACAccount *facebookAccount = [accounts lastObject];
-             
-             // Get the access token, could be used in other scenarios
-             //ACAccountCredential *fbCredential = [facebookAccount credential];
-             //NSString *accessToken = [fbCredential oauthToken];
-             //NSLog(@"Facebook Access Token: %@", accessToken);
-             //NSString *searchWithToken = [NSString stringWithFormat:@"%@&access_token=%@",search,accessToken];
-             if (facebookAccount)
+             if (self.database.selectedFacebookAccount)
              {
 
                  NSString *apiString = [NSString stringWithFormat:@"%@/search",kFacebookGraphRoot];
@@ -794,7 +784,7 @@
                                          };
                  
                  SLRequest *users = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:param];
-                 users.account = facebookAccount;
+                 users.account = self.database.selectedFacebookAccount;
                  if (![searchStringWithSpace isEqualToString:self.searchString])
                  {
                      // dont do anything if the search text has changed

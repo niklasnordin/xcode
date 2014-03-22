@@ -43,6 +43,8 @@
 @property (strong, nonatomic) NSTimer *updateTimer;
 
 @property (strong, nonatomic) NSMutableDictionary *showingPosts;
+@property (strong, nonatomic) NSOperationQueue *facebookLoadingQueue;
+
 @end
 
 @implementation twinstabookFirstViewController
@@ -187,14 +189,19 @@
     //self.facebookImageView.backgroundColor = [UIColor redColor];
     self.facebookImageView.tintColor = [UIColor redColor];
 
-    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:120.0f target:self selector:@selector(startRefreshCycle) userInfo:nil repeats:YES];
+    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:1200.0f target:self selector:@selector(startRefreshCycle) userInfo:nil repeats:YES];
     self.showingPosts = [[NSMutableDictionary alloc] init];
+    
+    self.facebookLoadingQueue = [[NSOperationQueue alloc] init];
+    [self.facebookLoadingQueue setName:@"facebookLoadingQueue"];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     //NSLog(@"%@ viewWillDisappear",[self class]);
     [self.updateTimer invalidate];
+    [self.facebookLoadingQueue cancelAllOperations];
 }
 
 - (void)startRefresher
@@ -285,23 +292,36 @@
             {
                 NSMutableArray *friends = [[NSMutableArray alloc] init];
                 int k=0;
-                while (k<30 && i<nFriends)
+                while (k<20 && i<nFriends)
                 {
                     [friends addObject:self.database.facebookFriends[i]];
                     k++;
                     i++;
                 }
-                [self startRefresher];
+                NSBlockOperation *loadFriendsOp = [[NSBlockOperation alloc] init];
+                __weak NSBlockOperation *weakOp = loadFriendsOp;
 
-                [self readFacebookFeedForArray:friends withRefresher:self.refreshController andCompletionHandler:^(BOOL success) {
-                    //dispatch_async(dispatch_get_main_queue(), ^{
-                    [self stopRefresher];
-                    self.facebookReadDone = YES;
-                    [self refreshCycle];
-                    //});
-                }];
+                [loadFriendsOp addExecutionBlock:^(void)
+                 {
+                     if (!weakOp.isCancelled)
+                     {
+                         [self startRefresher];
+                         
+                         [self readFacebookFeedForArray:friends withRefresher:self.refreshController andCompletionHandler:^(BOOL success) {
+                             [self stopRefresher];
+                             self.facebookReadDone = YES;
+                             [self refreshCycle];
+                         }];
+                     }
+                 }];
+                
+                //Add the operation to the designated background queue
+                if (loadFriendsOp)
+                {
+                    [self.facebookLoadingQueue addOperation:loadFriendsOp];
+                }
             }
-
+ 
 
         }
         else
