@@ -72,8 +72,19 @@
 
         }
         
-        post.likes = [dict objectForKey:@"favorite_count"];
-        post.comments = [dict objectForKey:@"retweet_count"];
+        //check if thes have changes, since a setting of the values will force a reload
+        NSNumber *nLikes = [dict objectForKey:@"favorite_count"];
+        
+        if (nLikes.intValue != post.likes.intValue)
+        {
+            post.likes = nLikes;
+        }
+        
+        NSNumber *nComments = [dict objectForKey:@"retweet_count"];
+        if (nComments.intValue != post.comments.intValue)
+        {
+            post.comments = nComments;
+        }
     }
 
     return post;

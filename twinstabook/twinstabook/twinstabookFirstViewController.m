@@ -42,6 +42,7 @@
 
 @property (strong, nonatomic) NSTimer *updateTimer;
 
+@property (strong, nonatomic) NSMutableDictionary *showingPosts;
 @end
 
 @implementation twinstabookFirstViewController
@@ -140,6 +141,8 @@
     request.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO] ];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedDocument.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    //NSError *error;
+    //[self.fetchedResultsController performFetch:&error];
     
     /*
     [self.database.managedDocument.managedObjectContext performBlock:^{
@@ -184,7 +187,8 @@
     //self.facebookImageView.backgroundColor = [UIColor redColor];
     self.facebookImageView.tintColor = [UIColor redColor];
 
-    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:1000.0f target:self selector:@selector(startRefreshCycle) userInfo:nil repeats:YES];
+    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:120.0f target:self selector:@selector(startRefreshCycle) userInfo:nil repeats:YES];
+    self.showingPosts = [[NSMutableDictionary alloc] init];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -276,7 +280,7 @@
             //[self.progressBar setProgress:0.0];
             //[self.progressBar setHidden:NO];
             int i=0;
-            int nFriends = self.database.facebookFriends.count;
+            int nFriends = (int)self.database.facebookFriends.count;
             while (i<nFriends)
             {
                 NSMutableArray *friends = [[NSMutableArray alloc] init];
@@ -802,6 +806,8 @@
     Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
     User *user = post.postedBy;
     
+    [self.showingPosts setObject:post forKey:post.postID];
+    
     cell.usernameLabel.text = user.name;
     NSString *dateStr = [self.dateFormatter stringFromDate:post.date];
 
@@ -932,6 +938,13 @@
     //self.selectedLinkForWebview = obj.link;
     //[self performSegueWithIdentifier:@"weblinkSegue" sender:obj.link];
 
+}
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
+
+    [self.showingPosts removeObjectForKey:post.postID];
 }
 
 #pragma mark - Fetching
@@ -1086,59 +1099,67 @@
 - (void)downloadImageForUser:(User *)user AtIndexPath:(NSIndexPath *)indexPath
 {
     
-    NSURL *url = [NSURL URLWithString:user.profileImageURL];
-    NSMutableURLRequest *pictureRequest = [NSMutableURLRequest requestWithURL:url];
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
-    __weak User *weakUser = user;
-    __block NSData *pImageData = nil;
-    dispatch_async(queue, ^ {
-        NSHTTPURLResponse *responseCode = nil;
-        NSError *error = [[NSError alloc] init];
-        [self.database startActivityIndicator];
-        pImageData = [NSURLConnection sendSynchronousRequest:pictureRequest returningResponse:&responseCode error:&error];
-
-        [self.database stopActivityIndicator];
+    if ([post.postedBy.uid isEqualToString:user.uid])
+    {
+        NSURL *url = [NSURL URLWithString:user.profileImageURL];
+        NSMutableURLRequest *pictureRequest = [NSMutableURLRequest requestWithURL:url];
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         
-        dispatch_async(dispatch_get_main_queue(), ^ {
-            if (pImageData)
-            {
-                weakUser.profileImageData = pImageData;
-                [self.feedTableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
-            }
+        //__weak User *weakUser = user;
+        //__block NSData *pImageData = nil;
+        
+        dispatch_async(queue, ^ {
+            NSHTTPURLResponse *responseCode = nil;
+            NSError *error = [[NSError alloc] init];
+            [self.database startActivityIndicator];
+            NSData *pImageData = [NSURLConnection sendSynchronousRequest:pictureRequest returningResponse:&responseCode error:&error];
+            
+            [self.database stopActivityIndicator];
+            
+            dispatch_async(dispatch_get_main_queue(), ^ {
+                if (pImageData)
+                {
+                    user.profileImageData = pImageData;
+                    [self.feedTableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+                }
+            });
+            
         });
-        
-    });
+    }
 
 }
 
 - (void)downloadImageForPost:(Post *)post AtIndexPath:(NSIndexPath *)indexPath
 {
     
-    NSURL *url = [NSURL URLWithString:post.imageURL];
-    NSMutableURLRequest *pictureRequest = [NSMutableURLRequest requestWithURL:url];
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    
-    __weak Post *weakPost = post;
-    __block NSData *pImageData = nil;
-    dispatch_async(queue, ^ {
-        NSHTTPURLResponse *responseCode = nil;
-        NSError *error = [[NSError alloc] init];
-        [self.database startActivityIndicator];
-        pImageData = [NSURLConnection sendSynchronousRequest:pictureRequest returningResponse:&responseCode error:&error];
+    if ([self.showingPosts objectForKey:post.postID])
+    {
+        NSURL *url = [NSURL URLWithString:post.imageURL];
+        NSMutableURLRequest *pictureRequest = [NSMutableURLRequest requestWithURL:url];
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         
-        [self.database stopActivityIndicator];
-        
-        dispatch_async(dispatch_get_main_queue(), ^ {
-            if (pImageData)
-            {
-                weakPost.imageData = pImageData;
-                [self.feedTableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
-            }
+        //__weak Post *weakPost = post;
+        //__block NSData *pImageData = nil;
+        dispatch_async(queue, ^ {
+            NSHTTPURLResponse *responseCode = nil;
+            NSError *error = [[NSError alloc] init];
+            [self.database startActivityIndicator];
+            NSData *pImageData = [NSURLConnection sendSynchronousRequest:pictureRequest returningResponse:&responseCode error:&error];
+            
+            [self.database stopActivityIndicator];
+            
+            dispatch_async(dispatch_get_main_queue(), ^ {
+                if (pImageData)
+                {
+                    post.imageData = pImageData;
+                    [self.feedTableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+                }
+            });
+            
         });
-        
-    });
-    
+    }
 }
 
 @end

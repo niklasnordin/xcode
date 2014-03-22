@@ -69,9 +69,14 @@
         NSDictionary *likesDict = [dict objectForKey:@"likes"];
         NSNumber *likes = [likesDict objectForKey:@"count"];
         
-        post.comments = comments;
-        post.likes = likes;
-
+        if (comments.intValue != post.comments.intValue)
+        {
+            post.comments = comments;
+        }
+        if (likes.intValue != post.likes.intValue)
+        {
+            post.likes = likes;
+        }
     }
     
     return post;
