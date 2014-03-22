@@ -78,12 +78,12 @@
     {
         if ([matches count])
         {
-            NSLog(@"facebook match");
+            //NSLog(@"facebook match");
             post = [matches lastObject];
         }
         else
         {
-            NSLog(@"adding facebook post");
+            //NSLog(@"adding facebook post");
 
             //NSLog(@"dict = %@",dict);
             post = [NSEntityDescription insertNewObjectForEntityForName:moPost inManagedObjectContext:context];

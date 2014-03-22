@@ -184,7 +184,7 @@
     //self.facebookImageView.backgroundColor = [UIColor redColor];
     self.facebookImageView.tintColor = [UIColor redColor];
 
-    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(startRefreshCycle) userInfo:nil repeats:YES];
+    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:1000.0f target:self selector:@selector(startRefreshCycle) userInfo:nil repeats:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -201,7 +201,7 @@
         {
             [self.refreshController endRefreshing];
         }
-        //NSLog(@"startRefresher: n = %d",self.nRefreshers);
+        NSLog(@"startRefresher: n = %d",self.nRefreshers);
     });
 }
 
@@ -213,7 +213,7 @@
         {
             [self.refreshController endRefreshing];
         }
-        //NSLog(@"stopRefresher: n = %d",self.nRefreshers);
+        NSLog(@"stopRefresher: n = %d",self.nRefreshers);
 
     });
 }
@@ -270,29 +270,38 @@
     if (self.database.useFacebook && !self.facebookReadDone)
     {
         
-        [self startRefresher];
         
         if (self.database.facebookLoaded)
         {
-            [self.progressBar setProgress:0.0];
-            [self.progressBar setHidden:NO];
-            NSMutableArray *friends = [[NSMutableArray alloc] init];
-            [friends addObject:self.database.facebookFriends[3]];
-            [friends addObject:self.database.facebookFriends[4]];
-            [friends addObject:self.database.facebookFriends[5]];
-
-            [friends addObject:[self.database.facebookFriends lastObject]];
-            for (UserObject *usr in friends)
+            //[self.progressBar setProgress:0.0];
+            //[self.progressBar setHidden:NO];
+            int i=0;
+            int nFriends = self.database.facebookFriends.count;
+            while (i<nFriends)
             {
-                NSLog(@"friend 1: %@",usr.name);
+                NSMutableArray *friends = [[NSMutableArray alloc] init];
+                int k=0;
+                while (k<30 && i<nFriends)
+                {
+                    [friends addObject:self.database.facebookFriends[i]];
+                    k++;
+                    i++;
+                }
+                [self startRefresher];
+
+                [self readFacebookFeedForArray:friends withRefresher:self.refreshController andCompletionHandler:^(BOOL success) {
+                    //dispatch_async(dispatch_get_main_queue(), ^{
+                    [self stopRefresher];
+                    self.facebookReadDone = YES;
+                    [self refreshCycle];
+                    //});
+                }];
             }
-            [self readFacebookFeedForArray:friends atPosition:0 withRefresher:self.refreshController andCompletionHandler:^(BOOL success) {
-                // do nothing
-            }];
+
+
         }
         else
         {
-            [self stopRefresher];
             NSLog(@"facebook not loaded yet");
         }
         
@@ -349,9 +358,8 @@
 
 }
 
-- (void)readFacebookFeedForArray:(NSArray *)userArray atPosition:(int)n withRefresher:(UIRefreshControl *)sender andCompletionHandler:(void (^)(BOOL success))completion
+- (void)readFacebookFeedForArray:(NSArray *)userArray withRefresher:(UIRefreshControl *)sender andCompletionHandler:(void (^)(BOOL success))completion
 {
-    UserObject *usr = [userArray objectAtIndex:n];
     
     NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *appID = infoDict[@"FacebookAppID"];
@@ -371,14 +379,31 @@
          {
              if (granted)
              {
-                 NSLog(@"facebook access read stream granted");
+                 //NSLog(@"facebook access read stream granted");
 
-                 NSString *apiString = [NSString stringWithFormat:@"%@/%@/posts", kFacebookGraphRoot,usr.uid];
+                 //NSString *apiString = [NSString stringWithFormat:@"%@/%@/posts", kFacebookGraphRoot,usr.uid];
+                 NSString *apiString = [NSString stringWithFormat:@"%@/feed", kFacebookGraphRoot];
+
                  NSURL *request = [NSURL URLWithString:apiString];
                  
                  NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
-                 [parameters setObject:@"true" forKey:@"summary"];
+                 //[parameters setObject:@"true" forKey:@"summary"];
                  
+                 NSString *usrIDs = nil;
+
+                 for (UserObject *usr in userArray)
+                 {
+                     if (usrIDs)
+                     {
+                         usrIDs = [NSString stringWithFormat:@"%@,%@",usrIDs,usr.uid];
+                     }
+                     else
+                     {
+                         usrIDs = [NSString stringWithFormat:@"%@",usr.uid];
+                     }
+                 }
+
+                 [parameters setObject:usrIDs forKey:@"ids"];
                  SLRequest *posts = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:request parameters:parameters];
                  posts.account = self.database.selectedFacebookAccount;
                  
@@ -390,32 +415,39 @@
                       if (!error)
                       {
                           NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-                          NSArray *json = [jsonDict objectForKey:@"data"];
+                          //NSLog(@"jsonDict = %@",jsonDict);
+                          NSArray *keys = [jsonDict allKeys];
+                          //NSLog(@"keys = %@",keys);
                           //NSDictionary *pagingDict = [jsonDict objectForKey:@"paging"];
-                          if (json.count)
+                          if (keys.count)
                           {
-                              //NSLog(@"json = %@",json);
-                              
-                              for (NSDictionary *jPost in json)
+                              for (UserObject *usr in userArray)
                               {
-                                  [self.database.managedDocument.managedObjectContext performBlock:^{
-                                      Post *post = [Post addFacebookPostToContext:self.database.managedDocument.managedObjectContext fromDictionary:jPost forUserObject:usr forAccountID:self.database.facebookAccountUserID];
-                                      [Post readCommentsForFacebookPostID:post.postID withCompletionHandler:^(NSInteger nComments) {
-                                          if (nComments != post.comments.integerValue)
-                                          {
-                                              post.comments = [NSNumber numberWithInteger:nComments];
-                                          }
-                                          [Post readLikesForFacebookPost:post.postID withCompletionHandler:^(NSInteger nLikes) {
-                                              if (nLikes != post.likes.integerValue)
+                                  NSDictionary *jsonUserDict = [jsonDict objectForKey:usr.uid];
+                                  //NSLog(@"jsonUserDict = %@",jsonUserDict);
+                                  NSArray *json = [jsonUserDict objectForKey:@"data"];
+
+                                  for (NSDictionary *jPost in json)
+                                  {
+                                      [self.database.managedDocument.managedObjectContext performBlock:^{
+                                          Post *post = [Post addFacebookPostToContext:self.database.managedDocument.managedObjectContext fromDictionary:jPost forUserObject:usr forAccountID:self.database.facebookAccountUserID];
+                                          [Post readCommentsForFacebookPostID:post.postID withCompletionHandler:^(NSInteger nComments) {
+                                              if (nComments != post.comments.integerValue)
                                               {
-                                                  post.likes = [NSNumber numberWithInteger:nLikes];
+                                                  post.comments = [NSNumber numberWithInteger:nComments];
                                               }
+                                              [Post readLikesForFacebookPost:post.postID withCompletionHandler:^(NSInteger nLikes) {
+                                                  if (nLikes != post.likes.integerValue)
+                                                  {
+                                                      post.likes = [NSNumber numberWithInteger:nLikes];
+                                                  }
+                                              }];
                                           }];
                                       }];
-                                  }];
-                                  
+                                      
+                                  }
                               }
-                            
+                              completion(YES);
                           }
                           else
                           {
@@ -431,6 +463,7 @@
                                       NSLog(@"renewed facebook access credentials");
                                   }];
                               }
+                              completion(NO);
                           }
                           
                       }
@@ -447,31 +480,10 @@
                               [as showInView:self.view];
                           });
                           NSLog(@"Facebook error = %@",[error localizedDescription]);
+                          completion(NO);
                       }
-                      int nextNumber = n+1;
-                      float progress = (float)nextNumber/(float)userArray.count;
-                      dispatch_async(dispatch_get_main_queue(), ^{
-                          [self.progressBar setProgress:progress animated:YES];
-                      });
                       
-                      if (nextNumber < userArray.count)
-                      {
-                          [self readFacebookFeedForArray:userArray atPosition:nextNumber withRefresher:sender andCompletionHandler:^(BOOL success) {
-                                  // do nothing
-                          }];
-                      }
-                      else
-                      {
-                          NSLog(@"done loading facebook posts");
-                          dispatch_async(dispatch_get_main_queue(), ^{
-                              [self.progressBar setHidden:YES];
 
-                          });
-                          
-                          [self stopRefresher];
-                          self.facebookReadDone = YES;
-                          [self refreshCycle];
-                      }
                   }];
                  
              }
@@ -485,6 +497,7 @@
                  dispatch_async(dispatch_get_main_queue(), ^{
                      [as showInView:self.view];
                  });
+                 completion(NO);
              }
          }
          else
@@ -499,6 +512,7 @@
              dispatch_async(dispatch_get_main_queue(), ^{
                  [as showInView:self.view];
              });
+             completion(NO);
          }
      }
      ];
