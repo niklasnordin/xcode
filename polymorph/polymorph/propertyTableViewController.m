@@ -272,7 +272,7 @@
 {
 
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    int row = indexPath.row;
+    NSInteger row = indexPath.row;
     NSArray *properties = [self.db orderedPropertiesForSpecie:_specie];
     NSString *key = [properties objectAtIndex:row];
     

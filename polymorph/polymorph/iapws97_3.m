@@ -1540,7 +1540,7 @@ static int nCoeffs = 40;
 -(int)nCoefficients
 {
     //return 3*nCoeffs+3;
-    return [[self coefficientNames] count];
+    return (int)[[self coefficientNames] count];
 }
 
 - (NSString *)equationText

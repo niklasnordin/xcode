@@ -227,7 +227,7 @@
     {
 
         NSArray *availableProperties = [speciesDict allKeys];
-        int n = [funcNames count];
+        int n = (int)[funcNames count];
 
         for (int i=0; i<n; i++)
         {
@@ -283,7 +283,7 @@
 - (void)dismissActionSheet:(id)sender
 {
 
-    self.currentRow = [self.picker selectedRowInComponent:0];
+    self.currentRow = (int)[self.picker selectedRowInComponent:0];
     [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
     
     NSString *functionName = [self.functionNames objectAtIndex:self.currentRow];
@@ -383,7 +383,7 @@
     if ([segue.identifier isEqualToString:@"equationSegue"])
     {
         NSString *name = [propertyDict objectForKey:@"function"];
-        int index = [_functionNames indexOfObject:name];
+        int index = (int)[_functionNames indexOfObject:name];
         [segue.destinationViewController setFunctionIndex:index];
         [segue.destinationViewController setFunctionNames:_functionNames];
         [segue.destinationViewController setSpVC:self];
@@ -393,7 +393,7 @@
     if ([segue.identifier isEqualToString:@"equationSegue2"])
     {
         NSString *name = [propertyDict objectForKey:@"function"];
-        int index = [_functionNames indexOfObject:name];
+        int index = (int)[_functionNames indexOfObject:name];
         [segue.destinationViewController setFunctionIndex:index];
         [segue.destinationViewController setFunctionNames:_functionNames];
         [segue.destinationViewController setSpVC:self];

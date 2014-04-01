@@ -37,9 +37,9 @@
 - (void)pasteButtonPressed:(id)sender
 {
 
-    int n = [_coefficients count];
+    int n = (int)[_coefficients count];
     NSArray *cp = [_parent cpArray];
-    int m = [cp count];
+    int m = (int)[cp count];
 
     for (int i=0; i<n; i++)
     {
@@ -116,7 +116,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    int n = 0;
+    NSInteger n = 0;
     if ([self.coefficientNames count])
     {
         n = [self.coefficientNames count];
@@ -134,7 +134,7 @@
     NSString *name = [_coefficientNames objectAtIndex:indexPath.row];
     
     double value = 0.0;
-    int nSize = [_coefficients count];
+    int nSize = (int)[_coefficients count];
     if (indexPath.row < nSize)
     {
         NSDictionary *myDict = [_coefficients objectAtIndex:indexPath.row];
@@ -158,7 +158,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _selectedIndex = indexPath.row;
+    _selectedIndex = (int)indexPath.row;
     //NSString *name = [NSString stringWithFormat:@"A%d",_selectedIndex];
     NSString *name = [_coefficientNames objectAtIndex:_selectedIndex];
 

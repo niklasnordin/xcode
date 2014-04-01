@@ -64,7 +64,7 @@
         [_parent update];
         if ([_db.species count])
         {
-            NSString *field = [NSString stringWithFormat:@"Read %d species",[_db.species count]];
+            NSString *field = [NSString stringWithFormat:@"Read %lu species",[_db.species count]];
             [self.statusTextField setText:field];
         }
         else
@@ -89,7 +89,7 @@
     [tmpDB readURL:link];
     if ([tmpDB.species count])
     {
-        NSString *field = [NSString stringWithFormat:@"Merging %d species",[tmpDB.species count]];
+        NSString *field = [NSString stringWithFormat:@"Merging %lu species",[tmpDB.species count]];
         [self.statusTextField setText:field];
         NSArray *speciesToAdd = tmpDB.species;
         
@@ -249,7 +249,7 @@
         
         if ([_db.species count])
         {
-            NSString *field = [NSString stringWithFormat:@"Read %d species",[_db.species count]];
+            NSString *field = [NSString stringWithFormat:@"Read %lu species",[_db.species count]];
             [self.statusTextField setText:field];
         }
         else

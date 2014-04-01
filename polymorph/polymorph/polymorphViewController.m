@@ -222,7 +222,7 @@
 
     if (_pressureDependent)
     {
-        int s = [sender selectedSegmentIndex];
+        int s = (int)[sender selectedSegmentIndex];
         if (s != _selectedConstantProperty)
         {
             _selectedConstantProperty = s;
@@ -255,8 +255,8 @@
 
 - (IBAction)clickedSpecieButton:(id)sender {
     
-    _selectedComponent0 = [_picker selectedRowInComponent:0];
-    _selectedComponent1 = [_picker selectedRowInComponent:1];
+    _selectedComponent0 = (int)[_picker selectedRowInComponent:0];
+    _selectedComponent1 = (int)[_picker selectedRowInComponent:1];
     
     self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Properties"
                                                    delegate:nil
@@ -306,8 +306,8 @@
     //_actionSheet = nil;
     
     NSArray *species = self.db.orderedSpecies;
-    int i0 = [_picker selectedRowInComponent:0];
-    int i1 = [_picker selectedRowInComponent:1];
+    int i0 = (int)[_picker selectedRowInComponent:0];
+    int i1 = (int)[_picker selectedRowInComponent:1];
 
     if ([species count])
     {
@@ -363,7 +363,7 @@
     {
         if ([species containsObject:_currentSpeciesName])
         {
-            index0 = [species indexOfObject:_currentSpeciesName];
+            index0 = (int)[species indexOfObject:_currentSpeciesName];
         }
         else
         {
@@ -380,7 +380,7 @@
             NSArray *propertyNames = [_db orderedPropertiesForSpecie:_currentSpeciesName];
             if ([propertyNames containsObject:_currentPropertyName])
             {
-                index1 = [propertyNames indexOfObject:_currentPropertyName];
+                index1 = (int)[propertyNames indexOfObject:_currentPropertyName];
             }
             else
             {
@@ -410,7 +410,7 @@
 
                 if ([f temperatureDependent])
                 {
-                    _selectedConstantProperty = [_ptSegmentControl selectedSegmentIndex];
+                    _selectedConstantProperty = (int)[_ptSegmentControl selectedSegmentIndex];
                     //[_ptSegmentControl setSelectedSegmentIndex:_selectedConstantProperty];
                     [self checkPressureInput:_pressureField];
                     [self checkPressureInput:_minPressureField];
@@ -660,7 +660,7 @@
     {
         if ([species count])
         {
-            int i = [pickerView selectedRowInComponent:0];
+            int i = (int)[pickerView selectedRowInComponent:0];
             NSDictionary *propertiesDict = [self.db.json objectForKey:[species objectAtIndex:i]];
             //NSDictionary *propertiesDict = [self.db.json objectForKey:_currentSpeciesName];
 
@@ -687,7 +687,7 @@
         }
         else
         {
-            int i = [pickerView selectedRowInComponent:0];
+            int i = (int)[pickerView selectedRowInComponent:0];
             NSString *specie = [species objectAtIndex:i];
             NSDictionary *propertiesDict = [self.db.json objectForKey:specie];
             if ([propertiesDict count])
@@ -715,7 +715,7 @@
     if (funcDepNames != nil)
     {
         NSArray *availableProperties = [dict allKeys];
-        int n = [funcDepNames count];
+        int n = (int)[funcDepNames count];
         for (int i=0; i<n; i++)
         {
             NSString *name = [funcDepNames objectAtIndex:i];
@@ -811,7 +811,7 @@
             NSString *functionName = [propDict objectForKey:@"function"];
             id function = [mySel select:functionName];
             NSArray *coefficients = [propDict objectForKey:@"coefficients"];
-            int nCoeffs = [coefficients count];
+            int nCoeffs = (int)[coefficients count];
             NSArray *newCoefficientNames = [function coefficientNames];
             for (int k=0; k<nCoeffs; k++)
             {

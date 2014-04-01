@@ -61,7 +61,7 @@
 
 - (void)animateLeft
 {
-    int numberOfNames = [_functionNames count];
+    int numberOfNames = (int)[_functionNames count];
 
     _functionIndex++;
     if (_functionIndex == numberOfNames)
@@ -75,7 +75,7 @@
 
 - (void)animateRight
 {
-    int numberOfNames = [_functionNames count];
+    int numberOfNames = (int)[_functionNames count];
 
     _functionIndex--;
     if (_functionIndex < 0)

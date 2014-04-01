@@ -191,7 +191,7 @@
 {
     NSArray *species = _db.orderedSpecies;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    int row = indexPath.row;
+    NSInteger row = indexPath.row;
     NSString *key = [species objectAtIndex:row];
     
     [segue.destinationViewController setDb:_db];
