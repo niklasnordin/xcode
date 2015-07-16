@@ -12,8 +12,6 @@
 
 @interface polymorphViewController : UIViewController
 <
-    UIPickerViewDelegate,
-    UIPickerViewDataSource,
     UITextFieldDelegate,
     UIActionSheetDelegate
 >

@@ -161,6 +161,7 @@
 		61C2852A1618BDE500AC0EEB /* FJ_Cp.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C285291618BDE500AC0EEB /* FJ_Cp.png */; };
 		61D2AEA5160AD69800A7FC78 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 61D2AEA4160AD69800A7FC78 /* readme.txt */; };
 		61D7352B160A6CB800362373 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61D7352A160A6CB800362373 /* Default-568h@2x.png */; };
+		61E154021B56467A00D6CE1C /* pickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E154011B56467A00D6CE1C /* pickerViewController.m */; };
 		61EB3D6215E0CD0B009826F2 /* pengRobinson.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D6115E0CD0B009826F2 /* pengRobinson.m */; };
 		61EB3D6C15E0FAD3009826F2 /* Complex.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D6B15E0FAD3009826F2 /* Complex.m */; };
 		61EB3D6F15E0FB4C009826F2 /* Polynomial.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EB3D6E15E0FB4C009826F2 /* Polynomial.m */; };
@@ -388,6 +389,8 @@
 		61C285291618BDE500AC0EEB /* FJ_Cp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FJ_Cp.png; sourceTree = "<group>"; };
 		61D2AEA4160AD69800A7FC78 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		61D7352A160A6CB800362373 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		61E154001B56467A00D6CE1C /* pickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pickerViewController.h; sourceTree = "<group>"; };
+		61E154011B56467A00D6CE1C /* pickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pickerViewController.m; sourceTree = "<group>"; };
 		61EB3D6015E0CD0B009826F2 /* pengRobinson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pengRobinson.h; sourceTree = "<group>"; };
 		61EB3D6115E0CD0B009826F2 /* pengRobinson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pengRobinson.m; sourceTree = "<group>"; };
 		61EB3D6A15E0FAD3009826F2 /* Complex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Complex.h; sourceTree = "<group>"; };
@@ -548,6 +551,8 @@
 			isa = PBXGroup;
 			children = (
 				6164629C15B7F706006B703D /* MainStoryboard.storyboard */,
+				61E154001B56467A00D6CE1C /* pickerViewController.h */,
+				61E154011B56467A00D6CE1C /* pickerViewController.m */,
 				61A5CE8315C2D6DA00937EA8 /* database.h */,
 				61A5CE8415C2D6DA00937EA8 /* database.m */,
 				61247A4F15C845C8004DB05F /* dbTableViewController.h */,
@@ -780,7 +785,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = polymorph;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = nequam;
 				TargetAttributes = {
 					6164628515B7F705006B703D = {
@@ -980,6 +985,7 @@
 				61460C25163C7C7800A1D1EE /* iapws97_cp.m in Sources */,
 				61460C28163C7CB700A1D1EE /* iapws97_cv.m in Sources */,
 				61460C2B163C7CD100A1D1EE /* iapws97_w.m in Sources */,
+				61E154021B56467A00D6CE1C /* pickerViewController.m in Sources */,
 				610A85D9164FFFF300A0618B /* soaveRedlichKwong.m in Sources */,
 				612EA2421678DD1A00E722AE /* pengRobinsonStryjekVera.m in Sources */,
 				618E25FC17E8E1E1003002F5 /* equationScrollVC.m in Sources */,
@@ -1018,11 +1024,14 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1036,7 +1045,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -1052,10 +1061,13 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1063,7 +1075,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1082,9 +1094,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "polymorph/polymorph-Prefix.pch";
 				INFOPLIST_FILE = "polymorph/polymorph-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1101,9 +1114,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "polymorph/polymorph-Prefix.pch";
 				INFOPLIST_FILE = "polymorph/polymorph-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
