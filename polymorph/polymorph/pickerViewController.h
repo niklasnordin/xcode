@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+
+@protocol pickerSelection <NSObject>
+
+-(NSMutableArray *)selectedComponents;
+-(void)updatePickerSelection;
+
+@end
+
 @interface pickerViewController : UIViewController
 <
     UIPickerViewDelegate,
@@ -22,5 +30,7 @@
 @property (nonatomic) NSInteger numberOfComponents;
 @property (strong, nonatomic) NSArray *pickerList;
 @property (strong, nonatomic) NSArray *pickerSubLists;
+@property (strong, nonatomic) id <pickerSelection> delegate;
+@property (strong, nonatomic) NSString *titleText;
 
 @end

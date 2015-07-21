@@ -8,6 +8,7 @@
 
 #import "pickerViewController.h"
 
+
 @interface pickerViewController ()
 
 @end
@@ -21,12 +22,13 @@
     self.selected = [[NSMutableArray alloc] initWithCapacity:self.numberOfComponents];
     //NSLog(@"pickerViewController viewDidLoad");
     //NSLog(@"number of components = %ld",(long)self.numberOfComponents);
-    NSLog(@"pickerList = %@",self.pickerList);
-    NSLog(@"pickerSubLists = %@",self.pickerSubLists);
+    //NSLog(@"pickerList = %@",self.pickerList);
+    //NSLog(@"pickerSubLists = %@",self.pickerSubLists);
     self.picker.delegate = self;
     self.picker.dataSource = self;
     [self.picker reloadAllComponents];
     self.picker.showsSelectionIndicator = true;
+    [self.titleLabel setText:self.titleText];
 }
 
 /*
@@ -124,6 +126,15 @@
 - (IBAction)buttonOKPressed:(id)sender
 {
     NSLog(@"OK Pressed");
+    
+    for (int i=0; i<self.numberOfComponents; i++)
+    {
+        int inum = (int)[self.picker selectedRowInComponent:i];
+        self.selected[i] = [[NSNumber alloc] initWithInt:inum];
+        self.delegate.selectedComponents[i] = self.selected[i];
+        [self dismissViewControllerAnimated:true completion:^{ [self.delegate updatePickerSelection]; }];
+
+    }
 }
 
 - (IBAction)buttonCancelPressed:(id)sender

@@ -765,10 +765,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zpl-gB-1Eb">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpl-gB-1Eb">
                                 <rect key="frame" x="0.0" y="386" width="320" height="162"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MvA-rK-SGQ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MvA-rK-SGQ">
                                 <rect key="frame" x="16" y="348" width="48" height="30"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="0.62735238259668513" green="0.043664478009611971" blue="0.10248296204195467" alpha="1" colorSpace="calibratedRGB"/>
@@ -778,7 +778,7 @@
                                     <action selector="buttonCancelPressed:" destination="Rms-ra-fQq" eventType="touchUpInside" id="ppB-3C-Tlk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihe-jf-iUA">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihe-jf-iUA">
                                 <rect key="frame" x="258" y="348" width="30" height="30"/>
                                 <state key="normal" title="OK">
                                     <color key="titleColor" red="0.024757342549325365" green="0.62735238259668513" blue="0.066952943377167909" alpha="1" colorSpace="calibratedRGB"/>
@@ -788,14 +788,25 @@
                                     <action selector="buttonOKPressed:" destination="Rms-ra-fQq" eventType="touchUpInside" id="3yy-Dw-HqW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TitleText" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shg-mJ-USl">
-                                <rect key="frame" x="70" y="352" width="180" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleText" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shg-mJ-USl">
+                                <rect key="frame" x="16" y="319" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zpl-gB-1Eb" firstAttribute="centerX" secondItem="shg-mJ-USl" secondAttribute="centerX" id="M13-XQ-JdG"/>
+                            <constraint firstItem="zpl-gB-1Eb" firstAttribute="leading" secondItem="Kxm-JA-1qM" secondAttribute="leading" id="NwG-vh-SC3"/>
+                            <constraint firstItem="MvA-rK-SGQ" firstAttribute="top" secondItem="shg-mJ-USl" secondAttribute="bottom" constant="8" symbolic="YES" id="SC0-O7-0Tx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ihe-jf-iUA" secondAttribute="trailing" constant="16" id="cmp-Pk-fgQ"/>
+                            <constraint firstAttribute="bottom" secondItem="zpl-gB-1Eb" secondAttribute="bottom" constant="20" symbolic="YES" id="dwN-C8-9LK"/>
+                            <constraint firstItem="MvA-rK-SGQ" firstAttribute="leading" secondItem="Kxm-JA-1qM" secondAttribute="leadingMargin" id="eUL-aG-6nO"/>
+                            <constraint firstItem="zpl-gB-1Eb" firstAttribute="top" secondItem="MvA-rK-SGQ" secondAttribute="bottom" constant="8" symbolic="YES" id="m3p-uy-Zv5"/>
+                            <constraint firstItem="MvA-rK-SGQ" firstAttribute="baseline" secondItem="ihe-jf-iUA" secondAttribute="baseline" id="rKF-Bh-YIh"/>
+                            <constraint firstItem="MvA-rK-SGQ" firstAttribute="leading" secondItem="shg-mJ-USl" secondAttribute="leading" id="sDM-NN-OHO"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="picker" destination="zpl-gB-1Eb" id="yBM-Ef-Z9j"/>

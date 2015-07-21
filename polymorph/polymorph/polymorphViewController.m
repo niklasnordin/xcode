@@ -13,7 +13,6 @@
 #import "dbTableViewController.h"
 #import "loadDatabaseViewController.h"
 #import "functions.h"
-#import "pickerViewController.h"
 
 @interface polymorphViewController ()
 //@property (strong, nonatomic) UIPickerView *picker;
@@ -24,7 +23,6 @@
 
 @property (nonatomic) int selectedComponent0;
 @property (nonatomic) int selectedComponent1;
-
 @end
 
 @implementation polymorphViewController
@@ -257,15 +255,7 @@
 
 - (IBAction)clickedSpecieButton:(id)sender
 {
-    NSLog(@"clicked specie button");
-    
-    /*
-    var vc = self.storyboard?.instantiateViewControllerWithIdentifier("hejsan") as! pickerViewController
-    var listOfNames: NSArray = [ "hej", "kalle", "bertil", "elvis" ]
-    vc.pickerList = listOfNames
-    
-    self.presentViewController(vc, animated: true, completion: nil)
-    */
+    //NSLog(@"clicked specie button");
     
     UIStoryboard *sb = self.storyboard;
     pickerViewController *vc = [sb instantiateViewControllerWithIdentifier:@"pickerViewController"];
@@ -274,16 +264,23 @@
     NSLog(@"list1 = %@",list1);
     NSMutableArray *list2 = [[NSMutableArray alloc] init];
     
-    for(NSString *i in list1)
+    for(NSString *name in list1)
     {
-        NSDictionary *propsDict = [self.db.json objectForKey:i];
-        NSArray *names = [propsDict allKeys];
-        [list2 addObject:names];
+        NSArray *propertyNames = [self.db orderedPropertiesForSpecie:name];
+
+        //NSDictionary *propsDict = [self.db.json objectForKey:i];
+        //NSArray *names = [propsDict allKeys];
+        [list2 addObject:propertyNames];
     }
     
+    vc.titleText = @"Select specie and property";
     vc.pickerList = list1;
     vc.pickerSubLists = list2;
-
+    [vc.picker selectRow:self.selectedComponent0 inComponent:0 animated:false];
+    [vc.picker selectRow:self.selectedComponent1 inComponent:1 animated:false];
+    [vc.picker reloadAllComponents];
+    vc.delegate = self;
+    
     [self presentViewController:vc animated:true completion:nil];
     /*
     int i = (int)[pickerView selectedRowInComponent:0];
@@ -403,21 +400,36 @@
     [_temperatureMax setPlaceholder:@"max"];
     _pressureDependent = NO;
     
-    int index0 = 0;
-    int index1 = 0;
+    //int index0 = 0;
+    //int index1 = 0;
+    
+    int i0 = self.selectedComponent0;
+    int i1 = self.selectedComponent1;
     
     if ([species count])
     {
-        if ([species containsObject:_currentSpeciesName])
+        // check in case a species has been deleted
+        if (i0 >= species.count)
         {
-            index0 = (int)[species indexOfObject:_currentSpeciesName];
+            i0 = 0;
+            i1 = 0;
+        }
+        _currentSpeciesName = [species objectAtIndex:i0];
+        
+        NSDictionary *propertiesDict = [self.db.json objectForKey:_currentSpeciesName];
+        if ([propertiesDict count])
+        {
+            NSArray *properties = [self.db orderedPropertiesForSpecie:_currentSpeciesName];
+            _currentPropertyName = [properties objectAtIndex:i1];
+            [self.propertyDisplay setText:_currentPropertyName];
+            _viewButton.enabled = YES;
         }
         else
         {
-            _currentSpeciesName = [species objectAtIndex:index0];
+            [self.propertyDisplay setText:@""];
+            _viewButton.enabled = NO;
         }
 
-        NSDictionary *propertiesDict = [self.db.json objectForKey:_currentSpeciesName];
         speciesText = _currentSpeciesName;
         
         if ([propertiesDict count])
@@ -425,14 +437,7 @@
             
             [_viewButton setEnabled:YES];
             NSArray *propertyNames = [_db orderedPropertiesForSpecie:_currentSpeciesName];
-            if ([propertyNames containsObject:_currentPropertyName])
-            {
-                index1 = (int)[propertyNames indexOfObject:_currentPropertyName];
-            }
-            else
-            {
-                _currentPropertyName = [propertyNames objectAtIndex:index1];
-            }
+
             propertiesText = _currentPropertyName;
             NSDictionary *propertyDict = [propertiesDict objectForKey:_currentPropertyName];
             unitText = [propertyDict objectForKey:@"unit"];
@@ -563,6 +568,8 @@
         BOOL fulfilled = [_function requirementsFulfilled];
         [_viewButton setEnabled:fulfilled];
     }
+    
+
 }
 
 - (void)viewDidLoad
@@ -599,7 +606,12 @@
     _pressureField.text = [defaults objectForKey:@"maxPressure"];
     NSNumber *scp = [defaults objectForKey:@"constProperty"];
     _selectedConstantProperty = [scp intValue];
+    _selected = [[NSMutableArray alloc] init];
+    NSNumber *zero = [[NSNumber alloc] initWithInt:0];
+    [_selected addObject:zero];
+    [_selected addObject:zero];
     
+
 	// Do any additional setup after loading the view, typically from a nib.
     
     [self loadFunctions];
@@ -683,12 +695,6 @@
             
     // Release any retained subviews of the main view.
 }
-/*
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-{
-    return UIInterfaceOrientationPortrait;
-}
-*/
 
 // returns the number of 'columns' to display.
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
@@ -881,6 +887,23 @@
         }
     }
     //NSLog(@"%@",dict);
+}
+
+-(NSMutableArray *)selectedComponents
+{
+    return self.selected;
+}
+
+-(void)updatePickerSelection
+{
+
+    NSNumber *i0 = self.selectedComponents[0];
+    NSNumber *i1 = self.selectedComponents[1];
+    self.selectedComponent0 = [i0 intValue];
+    self.selectedComponent1 = [i1 intValue];
+
+    [self update];
+
 }
 
 @end
