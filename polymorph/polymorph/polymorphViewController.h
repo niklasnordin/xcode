@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "database.h"
 #import "functions.h"
+#import "pickerViewController.h"
 
 @interface polymorphViewController : UIViewController
 <
-    UIPickerViewDelegate,
-    UIPickerViewDataSource,
     UITextFieldDelegate,
-    UIActionSheetDelegate
+    UIActionSheetDelegate,
+    pickerSelection
 >
 
 @property (strong, nonatomic) NSString *currentSpeciesName;
@@ -26,6 +26,7 @@
 @property (strong, nonatomic) id function;
 @property (strong, nonatomic) NSMutableArray *functionNames;
 @property (strong, nonatomic) NSString *link;
+@property (strong, nonatomic) NSMutableArray *selected;
 
 @property (weak, nonatomic) IBOutlet UIButton *speciesButton;
 
