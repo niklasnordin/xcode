@@ -675,7 +675,7 @@ double gammad ( double x, double p, int *ifault )
 /*
   Re-scale terms in continued fraction if terms are large.
 */
-      if ( oflo <= abs ( pn5 ) )
+      if ( oflo <= fabs ( pn5 ) )
       {
         pn1 = pn1 / oflo;
         pn2 = pn2 / oflo;
