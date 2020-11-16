@@ -160,12 +160,18 @@
 				CLASSPREFIX = scratchy;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Niklas Nordin";
+				TargetAttributes = {
+					61B73F0017B7CEC200857459 = {
+						DevelopmentTeam = QUP84UZ9KG;
+					};
+				};
 			};
 			buildConfigurationList = 61B73EFC17B7CEC200857459 /* Build configuration list for PBXProject "scratchy" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 61B73EF817B7CEC200857459;
@@ -289,9 +295,11 @@
 		61B73F2517B7CEC200857459 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = QUP84UZ9KG;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "scratchy/scratchy-Prefix.pch";
 				INFOPLIST_FILE = "scratchy/scratchy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -300,9 +308,11 @@
 		61B73F2617B7CEC200857459 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = QUP84UZ9KG;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "scratchy/scratchy-Prefix.pch";
 				INFOPLIST_FILE = "scratchy/scratchy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
