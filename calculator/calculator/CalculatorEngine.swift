@@ -66,6 +66,7 @@ class CalculatorEngine
         case backspace
         case exp
         case nthroot
+        case undo
     }
 
     // keep track if the number in the stack was entered by pressing digits or an operation
@@ -119,6 +120,8 @@ class CalculatorEngine
     var shift = false
     var option = false
     var alt = false
+    
+    var undoStack = [String]()
     
     // make the stack String and not Double for future implementation of equation solver
     var stack = [String]() {
@@ -193,6 +196,8 @@ class CalculatorEngine
     
     func dotPressed()
     {
+        undoStack = stack
+        
         if stack.count > 0
         {
             if editMode
@@ -229,6 +234,8 @@ class CalculatorEngine
     
     func digitPressed(_ key: String)
     {
+        undoStack = stack
+        
         message = ""
         if !editMode
         {
@@ -256,6 +263,8 @@ class CalculatorEngine
     
     func funcButtonPressed(funcButton: Func)
     {
+        undoStack = stack
+
         switch funcButton {
         case Func.button_pi:
             pushStack()
@@ -424,6 +433,10 @@ class CalculatorEngine
                     message = "log2"
                     arg = log2(input)
                     stack[0] = String(arg)
+                case Mode.units:
+                    message = "l/min"
+                    arg = input/0.06
+                    stack[0] = String(arg)
                 default:
                     print("hej in tan")
                 }
@@ -437,6 +450,10 @@ class CalculatorEngine
                 case Mode.log:
                     message = "2^"
                     arg = pow(2.0, input)
+                    stack[0] = String(arg)
+                case Mode.units:
+                    message = "m3/h"
+                    arg = 0.06*input
                     stack[0] = String(arg)
                 default:
                     print("hej in atan")
@@ -469,7 +486,7 @@ class CalculatorEngine
                 default:
                     print("hej in atanh")
                 }
-                                          
+            
             default:
                 print("hej")
             }
@@ -555,6 +572,8 @@ class CalculatorEngine
     // enter was pressed, so move stacks up one level
     func enterPressed()
     {
+        undoStack = stack
+        
         if editMode
         {
             editMode = false
@@ -577,6 +596,17 @@ class CalculatorEngine
     
     func operationKeyPressed(op operation: Operation)
     {
+        if ( operation != Operation.undo)
+        {
+            undoStack.removeAll()
+            for s in stack {
+                undoStack.append(s)
+            }
+        }
+        
+        //print("enter operationKeyPressed: undoStack")
+        //print(undoStack)
+        
         switch operation
         {
         case Operation.drop:
@@ -864,8 +894,28 @@ class CalculatorEngine
             }
             editMode = false
             
+        case Operation.undo:
+            //print("Undo")
+            message = "Undo"
+            //print(stack)
+            //print(undoStack)
+            var tmpStack = [String]()
+            for s in stack {
+                tmpStack.append(s)
+            }
+            stack.removeAll()
+            for s in undoStack {
+                stack.append(s)
+            }
+            undoStack.removeAll()
+            for s in tmpStack {
+                undoStack.append(s)
+            }
         }
 
+        //print("exit funcButtonPressed: undoStack")
+        //print(undoStack)
+        // comment to push with git in terminal
     }
 
     
@@ -889,7 +939,7 @@ class CalculatorEngine
         case Mode.units:
             buttons.append(contentsOf: ["°C→K", "°C→°F", "K→°C", "°F→°C", "→"])
             buttons.append(contentsOf: ["kg/h→kg/s", "g/min→kg/s", "knop→km/h", "→", "→"])
-            buttons.append(contentsOf: ["→", "→", "→", "→", "→"])
+            buttons.append(contentsOf: ["m3/h→l/min", "l/min→m3/h", "→", "→", "→"])
 
         case Mode.funcMode:
             buttons.append(contentsOf: ["(", ")", "", "", ""])

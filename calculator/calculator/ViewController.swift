@@ -74,7 +74,7 @@ class ViewController: UIViewController
         case 303:
             calc.funcButtonPressed(funcButton: CalculatorEngine.Func.button_atanh)
         case 304:
-                calc.funcButtonPressed(funcButton: CalculatorEngine.Func.button_grad)
+            calc.funcButtonPressed(funcButton: CalculatorEngine.Func.button_grad)
 
         default:
             print("tag unkownn")
@@ -161,11 +161,12 @@ class ViewController: UIViewController
             calc.operationKeyPressed(op: CalculatorEngine.Operation.nthroot)
         case 17:
             calc.operationKeyPressed(op: CalculatorEngine.Operation.power)
-                                            
+        case 400:
+            calc.operationKeyPressed(op: CalculatorEngine.Operation.undo)
         default:
             print("null")
         }
-        //calc.operationKeyPressed(op: operation)
+        
         updateView()
     }
     
