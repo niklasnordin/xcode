@@ -577,10 +577,16 @@ class CalculatorEngine
         if editMode
         {
             editMode = false
+            pushStack()
+            stack[0] = "0"
+            /*
+             // uncomment this and replace the pushStack and stack[0] with this
+             // if enter should pop up the statement 1 level
             if stack[0].count == 0
             {
-                stack[0] = "0"
+            stack[0] = "0"
             }
+             */
         }
         else
         {
