@@ -25,19 +25,9 @@ class calcButton: UIButton {
     {
         layer.cornerRadius = frame.height / 4
         showsTouchWhenHighlighted = true
-        let bounds = UIScreen.main.bounds
-        let w = bounds.width
-        //let h = bounds.height
-        print(w)
-        let space_x = CGFloat(18.0)
-        //let space_y = CGFLoat(10.0)
-        let button_w = (w - 4.0*space_x)/6.0
-        //let button_h = CGFloat(50.0)
-        //let button_w = CGFloat(70.0)
-        print(button_w)
-        
+        //var bounds = UIScreen.main.bounds
         //var width = 70
-        //frame.size = CGSize(width: button_w, height: button_h)
+        //frame.size = CGSize(width: 60, height: 40)
         self.backgroundColor = bgColor
         self.setTitleColor(textColor, for: UIControl.State.normal)
         self.tintColor = tntColor
@@ -46,8 +36,6 @@ class calcButton: UIButton {
         self.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         self.layer.shadowRadius = 1.0
         self.layer.shadowOpacity = 1.0
-        //self.frame.size = CGSize(width: button_w, height: button_h)
-        //self.widthAnchor.constraint(equalToConstant: button_w).isActive = true
         
         //let blur = UIVisualEffectView(effect: UIBlurEffect(style: .systemThickMaterialLight))
         //self.insertSubview(blur, at: 0)
